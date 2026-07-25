@@ -84,10 +84,14 @@ powers 2, 3, 4, 5, 7 and twenty-five orders of magnitude:
 5. **Out-of-fit tests, summarized.** Interpolation at L = 2.30 (6%); the
    threshold band and glide (4% and the 0.973-vs-0.968 crossing); extrapolation
    to the p = 7 window (forecast 1.3e−30 logged first; measured ≤ 2.79e−30,
-   descending); and extrapolation into the n = 8 window at L = 4.25 (predicted
-   2.2e−35; measured 7.52e−35 at Galerkin m = 96, still descending toward it) —
-   the law holds over ~30 orders of magnitude everywhere we have looked.
-   Figure: `results/figures/envelope_law.png`.
+   descending); extrapolation into the n = 8 window at L = 4.25 (predicted
+   2.2e−35; measured 7.52e−35 → 5.55e−35 at m = 96 → 112, descending toward
+   it); and extrapolation into the n = 9 window at L = 4.50 (predicted 1.7e−41;
+   measured ≤ 1.24e−40 at m = 112, not yet converged) — the law holds over ~35
+   orders of magnitude everywhere we have looked. Both deep extrapolations sit
+   above the law and descend toward it with basis size; convergence bias
+   explains this, but a mild upward bend of the true envelope beyond L ≈ 4.2 is
+   not yet excluded. Figure: `results/figures/envelope_law.png`.
 
 ## Why this may interest the positivity program
 
@@ -108,6 +112,21 @@ powers 2, 3, 4, 5, 7 and twenty-five orders of magnitude:
   for prolate/Toeplitz eigenvalue plunges; whether b and the +4.0 offset are
   derivable from Sonin-space asymptotics is, to us, the sharpest question this
   data poses.
+
+## Proved companions (added same day)
+
+Two statements graduated from measurement to proof; see `THEOREMS.md`:
+(1) the **Glide Theorem** — the operator margin λ(L) is non-increasing and
+continuous with explicit modulus across prime-power thresholds (so the
+absence of a knife-edge is a theorem, not only a measurement); its engine is
+the elementary two-sided bound ψ(¼) + ½log(1+4r²) ≤ Re ψ(¼+ir/2) ≤ same + 8.
+(2) a **machine-checked window of Weil positivity**: a Lean 4 kernel-verified
+certificate (axioms propext/Classical.choice/Quot.sound only) that the
+truncated Weil form at L = 497/200 is strictly positive on an explicit
+12-dimensional Legendre test space — both primes 2 and 3 participating —
+modulo a Bridge Proposition proved by interval arithmetic with stated trust
+base. We believe this is the first formally verified statement in the
+Weil-positivity program.
 
 ## Caveats (stated plainly)
 

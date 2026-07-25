@@ -248,10 +248,16 @@ verification read July 25, 2026. Kept as written; noted for the record.
 ## Day two, fourth session — the law survives everything we threw at it
 
 ### Deep extrapolation (two+ windows beyond the fit; dps 70 assembly / 60 solve)
-- L=4.25 (n=8 window): spectral m=96: 7.5202e-35 vs law prediction 2.2e-35 —
-  within 3.4x at the 1e-35 scale, still descending toward it (m=112 pending at
-  the time of writing; see figure).
-- L=4.50 (n=9 window): law predicts ~1.6e-41 (run in progress).
+- L=4.25 (n=8 window): spectral m=96: 7.5202e-35 -> m=112: 5.5490e-35, vs law
+  prediction 2.2e-35 — within 2.5x at the 1e-35 scale and still descending
+  toward it (see figure).
+- L=4.50 (n=9 window, THREE windows beyond the fit): m=112: 1.2448e-40 vs law
+  prediction 1.7e-41 — within a factor 7 at the 1e-40 scale, m=112 not yet
+  converged (Rayleigh-Ritz upper bound, descending). The law is now tested
+  over ~35 orders of magnitude, from 3e-5 to 1e-40. Both deep extrapolations
+  land ABOVE the law and descend toward it with m — consistent with pure
+  convergence bias; a mild upward bend of the true envelope beyond L ~ 4.2
+  cannot yet be excluded and is the natural next discriminating measurement.
 
 ### The threshold glide (continuity across 2 log 3; spectral m=48)
 - L = 2log3 + dL for dL = -0.030..+0.100: 9.3089e-8 / 7.0134e-8 / 5.9542e-8 /
@@ -289,6 +295,44 @@ verification read July 25, 2026. Kept as written; noted for the record.
 - results/figures/envelope_law.png: (a) the zeta law with fitted/interpolated/
   threshold/extrapolated points, (b) the four-L-function universality collapse,
   (c) the threshold glide. Palette validated (dataviz six-checks: ALL PASS).
+
+## Day two, fifth session — from measurements to theorems
+
+### Theorem 1 (the Glide Theorem; THEOREMS.md, complete proof)
+- lam(L) is NON-INCREASING in L (zero-extension argument — the new primes cannot
+  see short-support test functions), and continuous with explicit modulus
+  C(l0,l1) (log 1/h)^{-1/2} on compacts — in particular continuous ACROSS every
+  prime-power threshold: the knife-edge is now dead by proof, not only by
+  measurement. Key self-contained ingredient (Lemma A): via Gauss's integral and
+  a Frullani evaluation,
+    psi(1/4) + (1/2) log(1+4r^2) <= Re psi(1/4+ir/2)
+                                 <= psi(1/4) + (1/2) log(1+4r^2) + 8,
+  and |r d/dr Re psi(1/4+ir/2)| <= 2 + pi/2. (Numerically checked: slack in
+  [0.136, 2.842], derivative max 2.078.)
+- Supporting lemmas with explicit constants: log-weighted energy bound for
+  near-minimizers; non-concentration on short intervals (mass <= C/log(1/eps));
+  autocorrelation translation modulus C/log(1/Delta); entering-prime edge bound
+  (C/log(1/eps))^{1/2}.
+
+### Theorem 2 (machine-checked window of Weil positivity; lean/weilcert)
+- **Lean 4 + mathlib, kernel-verified, axioms [propext, Classical.choice,
+  Quot.sound] only** (no native_decide, no sorry, no floats):
+  every rational 12x12 matrix entrywise within 1e-20 of the explicit mRat
+  (= aInt/10^24) has strictly positive quadratic form
+  (WeilCert.weil_window_positive). Certificate: integer congruence
+  c^2 B = W^T diag(g) W (B = 10^24 mRat - 120000 I), Winv W = f I, g > 0,
+  all reduced by the kernel; perturbation via an exact Q Cauchy-Schwarz bound.
+  Integer sizes: A <= 24 digits, W <= 101, g <= 1226, c,f ~ 602. Build ~10 s.
+- Bridge Proposition (computer-assisted; trust base mpmath.iv, stated):
+  the truncated Weil matrix of zeta at L = 497/200 in the unnormalized Legendre
+  basis m = 12 lies in that entrywise ball (enclosure widths <= 5e-60, rounding
+  <= 5e-25). Corollary: Weil positivity holds, formally verified modulo the
+  stated bridge, on an explicit 12-dim test space whose window requires BOTH
+  primes 2 and 3 (arch+pole alone has deficit -0.41 there).
+- To our knowledge the first kernel-checked positivity window in the
+  Weil-positivity program (pending literature check, as always).
+- Verification instructions + axiom audit: lean/README-verify.md;
+  data regeneration: lean/make_certificate.py.
 
 ## Diligence executed (July 25)
 - Every post-cutoff citation and event in PROGRAM.md verified real: arXiv:2607.02828

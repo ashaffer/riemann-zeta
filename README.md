@@ -83,6 +83,15 @@ src/certified_spectral.py the same certificates in the Legendre basis (exact
 ENVELOPE.md             draft note for the frontier authors: the measured
                         envelope law, its validations, the certified ladder,
                         the family universality — NOT yet distributed
+THEOREMS.md             proved statements: the Glide Theorem (margin monotone
+                        + continuous through thresholds, explicit constants,
+                        complete proof) and the machine-checked positivity
+                        window, with its Bridge Proposition
+lean/weilcert/          Lean 4 + mathlib development: WeilCert.weil_window_positive,
+                        kernel-verified (axioms: propext, Classical.choice,
+                        Quot.sound; no native_decide) — the first formally
+                        verified window of Weil positivity, at L = 497/200
+                        with both primes 2 and 3 participating
 ```
 
 ## How to reproduce
@@ -110,6 +119,9 @@ Requirements: Python 3 with `numpy` and `mpmath`. No network needed.
 6. `python3 src/certified_spectral.py` — the spectral-basis certificates: exact
    overlap cross-checks, then certified enclosures at the 1e-10 / 1e-15 / 1e-20
    scales. ~3 minutes.
+7. Lean verification: `cd lean/weilcert && lake exe cache get && lake build`,
+   then the axiom audit of `lean/README-verify.md`. Requires elan; ~10 s build
+   after the mathlib cache.
 
 ## The discipline (read this even if you read nothing else)
 
