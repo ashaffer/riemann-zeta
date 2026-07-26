@@ -1,0 +1,18 @@
+{
+ "L": 4.6,
+ "m": 128,
+ "dps_assembly": 75,
+ "dps_solve": 65,
+ "lam_min": "3.07691562325e-43",
+ "bottom3": [
+  "3.076915623e-43",
+  "1.312162028e-39",
+  "3.765220784e-36"
+ ],
+ "assembly_s": 990.2,
+ "solve_s": 97.6,
+ "total_s": 1087.8,
+ "finished_utc": "2026-07-26T16:53:23Z",
+ "tag": "ladder-extra",
+ "bound": "Rayleigh-Ritz upper bound"
+}

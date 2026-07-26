@@ -1,0 +1,18 @@
+{
+ "L": 5.5,
+ "m": 152,
+ "dps_assembly": 100,
+ "dps_solve": 90,
+ "lam_min": "1.98537547115e-64",
+ "bottom3": [
+  "1.985375471e-64",
+  "4.853093169e-61",
+  "1.536994969e-57"
+ ],
+ "assembly_s": 823.9,
+ "solve_s": 49.3,
+ "total_s": 873.2,
+ "finished_utc": "2026-07-26T18:30:22Z",
+ "tag": "addendum",
+ "bound": "Rayleigh-Ritz upper bound"
+}

@@ -1,0 +1,23 @@
+kink_enrichment run, L = 2.485, a = 0.62125
+kink locations t2 = 0.071897181, t3 = 0.47736229
+pre-registered: Model K  -> lam(V2) in [3.49, 3.52]e-10
+                Model LJ -> lam(V2) in [3.55, 3.59]e-10
+repo reference values: m=24 3.86882e-10 | m=32 3.66564e-10 | m=48 3.59571e-10 | m=64 3.56788e-10 | extrap 3.49-3.50e-10
+[anchor] repo spectral_form(2.485, 24): lam = 3.8688156e-10  (25 s)
+[V0] plain even K=12: lam = 3.8688156e-10  |G - I|_max = 2.7e-51  (0 s)
+     V0 vs anchor rel diff = 2.24e-21
+[assembly] enriched 12+4 done (22 s)
+[V0'] same entries from piecewise mesh: lam = 3.8688156e-10  (cross-quadrature rel diff vs V0 = 2.2e-21)
+[V1] 24+2 corners: lam = 3.75432393e-10
+[V2] 24+4 (corners+quads): lam = 3.74025364e-10   lam_2 = 2.64e-5
+     Gram spectrum: min 5.52e-08  max 4.42e+00  (cond 8.0e+07)
+[diag] snap coefficients (unit-G-norm minimizer): corner(t2) -3.399e-04  corner(t3) 3.305e-05  quad(t2) 8.775e-04  quad(t3) 1.219e-04
+[diag] endpoint and probe values: phi(a) = 5.1264e-05   phi(0) = 1.6718e+00
+       phi(t3+0.05) - phi(t3-0.05) = -9.8778e-02
+       phi(t3+0.02) - phi(t3-0.02) = -3.7682e-02
+       phi(t3+0.01) - phi(t3-0.01) = -1.8709e-02
+[oracle] 2 SUM_40 |phihat(gamma)|^2 = 3.05456e-10 <= lam(V2) = 3.74025e-10 : OK  (5 s)
+[V3] 32+4: lam = 3.57091208e-10  (86 s)
+     V3 - V2 = -1.693e-11  (Model K: |.| <= 2e-12; LJ: creep-sized)
+verdict inputs: plain m=64 = 3.56788e-10; extrapolated operator value 3.49-3.50e-10
+total 139 s

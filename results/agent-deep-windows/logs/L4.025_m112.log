@@ -1,0 +1,4 @@
+[run_window] L=4.025 m=112 dps_assembly=50 dps_solve=40 pid=2624878
+[run_window] assembly done in 560.0 s
+[run_window] lam_min = 2.02698846492e-30   (bottom 3: ['2.0269885e-30', '5.3094534e-27', '7.4377325e-24'])
+[run_window] solve 23.0 s, total 582.9 s

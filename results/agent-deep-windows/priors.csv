@@ -1,0 +1,9 @@
+L,m,dps_assembly,dps_solve,lam_min,source
+1.750,48,50,40,3.14389e-5,RESULTS.md spectral ladder (p=2 window; deepest m)
+2.485,64,50,40,3.56788e-10,RESULTS.md spectral ladder (p=3 window; deepest m)
+2.996,64,50,40,4.2265e-15,RESULTS.md f(p) table (n=4 window; deepest m)
+3.555,80,50,40,2.1774e-22,RESULTS.md f(p) table (p=5 window; deepest m)
+4.025,80,50,40,2.7922e-30,RESULTS.md f(p) table (p=7 window; deepest m; still descending)
+4.25,96,70,60,7.5202e-35,RESULTS.md deep extrapolation (n=8 window)
+4.25,112,70,60,5.5489577e-35,RESULTS.md deep extrapolation + task anchor (n=8 window)
+4.50,112,70,60,1.2448e-40,RESULTS.md deep extrapolation (n=9 window; not converged)

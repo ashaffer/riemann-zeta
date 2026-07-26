@@ -1,0 +1,18 @@
+{
+ "L": 4.025,
+ "m": 96,
+ "dps_assembly": 50,
+ "dps_solve": 40,
+ "lam_min": "2.08877070532e-30",
+ "bottom3": [
+  "2.088770705e-30",
+  "5.68596031e-27",
+  "8.140723984e-24"
+ ],
+ "assembly_s": 712.7,
+ "solve_s": 16.4,
+ "total_s": 729.1,
+ "finished_utc": "2026-07-26T17:05:32Z",
+ "tag": "old-ladder",
+ "bound": "Rayleigh-Ritz upper bound"
+}

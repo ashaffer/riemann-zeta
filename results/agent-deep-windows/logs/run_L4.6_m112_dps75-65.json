@@ -1,0 +1,18 @@
+{
+ "L": 4.6,
+ "m": 112,
+ "dps_assembly": 75,
+ "dps_solve": 65,
+ "lam_min": "2.21244243515e-42",
+ "bottom3": [
+  "2.212442435e-42",
+  "2.168865346e-39",
+  "5.168993799e-36"
+ ],
+ "assembly_s": 361.2,
+ "solve_s": 14.0,
+ "total_s": 375.2,
+ "finished_utc": "2026-07-26T16:16:42Z",
+ "tag": "calibration+rung",
+ "bound": "Rayleigh-Ritz upper bound"
+}

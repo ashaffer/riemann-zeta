@@ -1,0 +1,189 @@
+== per-L ladders (all values Rayleigh-Ritz upper bounds) ==
+L = 1.750 : m=48 3.143890e-05
+L = 2.485 : m=64 3.567880e-10
+L = 2.996 : m=64 4.226500e-15
+L = 3.555 : m=80 2.177400e-22   m=96 2.139959e-22*   m=112 2.126681e-22*
+           monotone decreasing in m: PASS
+           tail: step ratio 0.355 [PLUNGE (geometric, Aitken reliable)]
+                 Aitken lim 2.119e-22 | m^-1.0 lim 2.047e-22 | m^-1.2 lim 2.061e-22
+                 creep-model (mlnm) lim 2.062e-22 [model ratio 0.684 vs measured 0.355]
+L = 4.025 : m=80 2.792200e-30   m=96 2.088771e-30*   m=112 2.026988e-30*
+           monotone decreasing in m: PASS
+           tail: step ratio 0.088 [PLUNGE (geometric, Aitken reliable)]
+                 Aitken lim 2.021e-30 | algebraic-tail model inconsistent with ratio (plunge): bracket = [Aitken, lam(m_max)]
+                 creep-model (mlnm) lim 1.727e-30 [model ratio 0.684 vs measured 0.088; plunge-dominated: C overestimated, lim is a conservative floor]
+L = 4.250 : m=96 7.520200e-35   m=112 5.548958e-35   m=128 5.430290e-35*   m=144 5.258898e-35*   m=160 5.233161e-35*
+           monotone decreasing in m: PASS
+           tail: step ratio 0.150 [PLUNGE (geometric, Aitken reliable)]
+                 Aitken lim 5.229e-35 | algebraic-tail model inconsistent with ratio (plunge): bracket = [Aitken, lam(m_max)]
+                 creep-model (mlnm) lim 5.042e-35 [model ratio 0.779 vs measured 0.150; plunge-dominated: C overestimated, lim is a conservative floor]
+L = 4.500 : m=112 1.244800e-40   m=128 8.973180e-41*   m=144 8.134219e-41*   m=160 7.924489e-41*
+           monotone decreasing in m: PASS
+           tail: step ratio 0.250 [PLUNGE (geometric, Aitken reliable)]
+                 Aitken lim 7.855e-41 | algebraic-tail model inconsistent with ratio (plunge): bracket = [Aitken, lam(m_max)]
+                 creep-model (mlnm) lim 6.367e-41 [model ratio 0.779 vs measured 0.250; plunge-dominated: C overestimated, lim is a conservative floor]
+           4-pt MODEL TEST at m=160: measured 7.9245e-41 | geometric predicts 7.9317e-41 | creep-model predicts 7.4805e-41
+           4-pt check: previous-triple Aitken 7.867e-41 (vs 7.855e-41; agreement gauges extrapolation trust)
+L = 4.600 : m=112 2.212442e-42*   m=128 3.076916e-43*   m=144 2.363934e-43*
+           monotone decreasing in m: PASS
+           tail: step ratio 0.037 [PLUNGE (geometric, Aitken reliable)]
+                 Aitken lim 2.336e-43 | algebraic-tail model inconsistent with ratio (plunge): bracket = [Aitken, lam(m_max)]
+                 creep-model (mlnm) lim -2.317e-43 [model ratio 0.754 vs measured 0.037; plunge-dominated: C overestimated, lim is a conservative floor]
+L = 4.750 : m=128 1.488041e-46*   m=144 2.040448e-47*   m=160 1.863661e-47*
+           monotone decreasing in m: PASS
+           tail: step ratio 0.014 [PLUNGE (geometric, Aitken reliable)]
+                 Aitken lim 1.861e-47 | algebraic-tail model inconsistent with ratio (plunge): bracket = [Aitken, lam(m_max)]
+                 creep-model (mlnm) lim 5.509e-48 [model ratio 0.779 vs measured 0.014; plunge-dominated: C overestimated, lim is a conservative floor]
+L = 5.000 : m=144 2.941320e-53*   m=176 7.007513e-55*
+           monotone decreasing in m: PASS
+L = 5.500 : m=152 1.985375e-64*
+
+== F0 four original fit windows (1.75..3.555) ==
+   A = +10.5435   b = 1.66734   c0 = +4.3518
+   residuals r = ln lam_obs - ln lam_fit (positive = point above law):
+     L=1.750  m= 48  lam=3.1439e-05  r=-0.0049  (-0.5% in lam)
+     L=2.485  m= 64  lam=3.5679e-10  r=+0.0161  (1.6% in lam)
+     L=2.996  m= 64  lam=4.2265e-15  r=-0.0153  (-1.5% in lam)
+     L=3.555  m=112  lam=2.1267e-22  r=+0.0042  (0.4% in lam)
+
+== F1 five solid windows (1.75..4.025) ==
+   A = +11.8439   b = 1.30745   c0 = +6.1923
+   residuals r = ln lam_obs - ln lam_fit (positive = point above law):
+     L=1.750  m= 48  lam=3.1439e-05  r=-0.0453  (-4.4% in lam)
+     L=2.485  m= 64  lam=3.5679e-10  r=+0.0772  (8.0% in lam)
+     L=2.996  m= 64  lam=4.2265e-15  r=+0.0309  (3.1% in lam)
+     L=3.555  m=112  lam=2.1267e-22  r=-0.1104  (-10.5% in lam)
+     L=4.025  m=112  lam=2.0270e-30  r=+0.0476  (4.9% in lam)
+
+== F2 ALL windows, deepest-m upper bounds ==
+   A = +34.5709   b = -2.98229   c0 = -6.7250
+   residuals r = ln lam_obs - ln lam_fit (positive = point above law):
+     L=1.750  m= 48  lam=3.1439e-05  r=-3.0866  (-95.4% in lam)
+     L=2.485  m= 64  lam=3.5679e-10  r=+0.3174  (37.4% in lam)
+     L=2.996  m= 64  lam=4.2265e-15  r=+2.0547  (680.4% in lam)
+     L=3.555  m=112  lam=2.1267e-22  r=+2.8027  (1549.0% in lam)
+     L=4.025  m=112  lam=2.0270e-30  r=+2.2105  (812.1% in lam)
+     L=4.250  m=160  lam=5.2332e-35  r=+1.3577  (288.7% in lam)
+     L=4.500  m=160  lam=7.9245e-41  r=-0.2858  (-24.9% in lam)
+     L=4.600  m=144  lam=2.3639e-43  r=-1.0959  (-66.6% in lam)
+     L=4.750  m=160  lam=1.8637e-47  r=-2.6972  (-93.3% in lam)
+     L=5.000  m=176  lam=7.0075e-55  r=-5.7643  (-99.7% in lam)
+     L=5.500  m=152  lam=1.9854e-64  r=+4.1869  (6481.9% in lam)
+
+== F3 all except deepest points (L<=4.50) ==
+   A = +12.8500   b = 1.06120   c0 = +8.2045
+   residuals r = ln lam_obs - ln lam_fit (positive = point above law):
+     L=1.750  m= 48  lam=3.1439e-05  r=-0.1041  (-9.9% in lam)
+     L=2.485  m= 64  lam=3.5679e-10  r=+0.1257  (13.4% in lam)
+     L=2.996  m= 64  lam=4.2265e-15  r=+0.1049  (11.1% in lam)
+     L=3.555  m=112  lam=2.1267e-22  r=-0.0952  (-9.1% in lam)
+     L=4.025  m=112  lam=2.0270e-30  r=-0.0995  (-9.5% in lam)
+     L=4.250  m=160  lam=5.2332e-35  r=-0.0051  (-0.5% in lam)
+     L=4.500  m=160  lam=7.9245e-41  r=+0.0733  (7.6% in lam)
+
+== F4 ALL windows, tail-extrapolated limits where available ==
+   A = +34.5607   b = -2.98225   c0 = -6.7248
+   residuals r = ln lam_obs - ln lam_fit (positive = point above law):
+     L=1.750  m= 48  lam=3.1300e-05  r=-3.0825  (-95.4% in lam)
+     L=2.485  m= 64  lam=3.4950e-10  r=+0.3046  (35.6% in lam)
+     L=2.996  m= 64  lam=4.2265e-15  r=+2.0619  (686.1% in lam)
+     L=3.555  m=112  lam=2.1194e-22  r=+2.8056  (1553.7% in lam)
+     L=4.025  m=112  lam=2.0210e-30  r=+2.2129  (814.3% in lam)
+     L=4.250  m=160  lam=5.2286e-35  r=+1.3616  (290.2% in lam)
+     L=4.500  m=160  lam=7.8546e-41  r=-0.2906  (-25.2% in lam)
+     L=4.600  m=144  lam=2.3362e-43  r=-1.1039  (-66.8% in lam)
+     L=4.750  m=160  lam=1.8612e-47  r=-2.6952  (-93.2% in lam)
+     L=5.000  m=176  lam=7.0075e-55  r=-5.7618  (-99.7% in lam)
+     L=5.500  m=152  lam=1.9854e-64  r=+4.1874  (6484.8% in lam)
+
+== F6 ALL windows, expert creep-model (mlnm) limits ==
+   A = +35.1866   b = -3.06900   c0 = -6.6282
+   residuals r = ln lam_obs - ln lam_fit (positive = point above law):
+     L=1.750  m= 48  lam=3.1300e-05  r=-3.2026  (-95.9% in lam)
+     L=2.485  m= 64  lam=3.4950e-10  r=+0.2987  (34.8% in lam)
+     L=2.996  m= 64  lam=4.2265e-15  r=+2.1374  (747.7% in lam)
+     L=3.555  m=112  lam=2.0622e-22  r=+2.9365  (1785.1% in lam)
+     L=4.025  m=112  lam=1.7272e-30  r=+2.2693  (867.3% in lam)
+     L=4.250  m=160  lam=5.0420e-35  r=+1.5570  (374.4% in lam)
+     L=4.500  m=160  lam=6.3671e-41  r=-0.2575  (-22.7% in lam)
+     L=4.600  m=144  lam=2.3639e-43  r=-0.8478  (-57.2% in lam)
+     L=4.750  m=160  lam=5.5089e-48  r=-3.6705  (-97.5% in lam)
+     L=5.000  m=176  lam=7.0075e-55  r=-5.5362  (-99.6% in lam)
+     L=5.500  m=152  lam=1.9854e-64  r=+4.3156  (7386.1% in lam)
+
+== F1b solid windows (1.75..4.025), best-limit values ==
+   A = +11.8422   b = 1.30474   c0 = +6.2093
+   residuals r = ln lam_obs - ln lam_fit (positive = point above law):
+     L=1.750  m= 48  lam=3.1300e-05  r=-0.0408  (-4.0% in lam)
+     L=2.485  m= 64  lam=3.4950e-10  r=+0.0653  (6.7% in lam)
+     L=2.996  m= 64  lam=4.2265e-15  r=+0.0385  (3.9% in lam)
+     L=3.555  m=112  lam=2.1194e-22  r=-0.1088  (-10.3% in lam)
+     L=4.025  m=112  lam=2.0210e-30  r=+0.0459  (4.7% in lam)
+
+== deep rungs against the canonical law (10.2, 1.755, 4.0) ==
+   (r > 0: measured/extrapolated point ABOVE the law)
+   L=4.250  pred 2.20e-35 | deepest-m (m=160) ub 5.23e-35 r_ub +0.868 | lim[geo 5.23e-35 / creep 5.04e-35] r [+0.83, +0.87]
+   L=4.500  pred 1.71e-41 | deepest-m (m=160) ub 7.92e-41 r_ub +1.533 | lim[geo 7.85e-41 / creep 6.37e-41] r [+1.31, +1.52]
+   L=4.600  pred 3.44e-44 | deepest-m (m=144) ub 2.36e-43 r_ub +1.929 | lim[geo 2.34e-43 / creep n/a] r [+1.92, +1.92]
+   L=4.750  pred 1.55e-48 | deepest-m (m=160) ub 1.86e-47 r_ub +2.485 | lim[geo 1.86e-47 / creep 5.51e-48] r [+1.27, +2.48]
+   L=5.000  pred 1.19e-56 | deepest-m (m=176) ub 7.01e-55 r_ub +4.077
+   L=5.500  pred 8.96e-77 | deepest-m (m=152) ub 1.99e-64 r_ub +28.427
+
+== deep rungs against the solid-window best-limit refit F1b ==
+   (r > 0: measured/extrapolated point ABOVE the law)
+   L=4.250  pred 3.99e-35 | deepest-m (m=160) ub 5.23e-35 r_ub +0.270 | lim[geo 5.23e-35 / creep 5.04e-35] r [+0.23, +0.27]
+   L=4.500  pred 4.62e-41 | deepest-m (m=160) ub 7.92e-41 r_ub +0.540 | lim[geo 7.85e-41 / creep 6.37e-41] r [+0.32, +0.53]
+   L=4.600  pred 1.12e-43 | deepest-m (m=144) ub 2.36e-43 r_ub +0.745 | lim[geo 2.34e-43 / creep n/a] r [+0.73, +0.73]
+   L=4.750  pred 7.04e-48 | deepest-m (m=160) ub 1.86e-47 r_ub +0.974 | lim[geo 1.86e-47 / creep 5.51e-48] r [-0.25, +0.97]
+   L=5.000  pred 1.05e-55 | deepest-m (m=176) ub 7.01e-55 r_ub +1.897
+   L=5.500  pred 5.37e-75 | deepest-m (m=152) ub 1.99e-64 r_ub +24.334
+
+== Fuchs-form fits  ln lam = A' - b' e^{L/2} + p (L/2)  on deep windows ==
+   points (extrapolated limits ONLY): L=4.25 5.229e-35, L=4.50 7.855e-41, L=4.60 2.336e-43, L=4.75 1.861e-47
+   excluded (unconverged raw UB): L=5.00 7.008e-55(m=176), L=5.50 1.985e-64(m=152)
+   free fit:   A' = +13.884   b' = 12.7292  (4pi = 12.5664; ratio 1.0130)   p = 6.474
+   p=4.5 fit:  A' = +16.342   b' = 12.5211  (b'/4pi = 0.9964)
+   b'=4pi fit: A' = +15.801   p = 4.932  (Fuchs n=4 predicts p = 4.5)
+   residuals (free):
+     L=4.250  r=+0.0035 (0.3%)
+     L=4.500  r=-0.0233 (-2.3%)
+     L=4.600  r=+0.0273 (2.8%)
+     L=4.750  r=-0.0075 (-0.7%)
+   residuals (fixp45):
+     L=4.250  r=-0.0029 (-0.3%)
+     L=4.500  r=-0.0150 (-1.5%)
+     L=4.600  r=+0.0331 (3.4%)
+     L=4.750  r=-0.0153 (-1.5%)
+   residuals (fix4pi):
+     L=4.250  r=-0.0012 (-0.1%)
+     L=4.500  r=-0.0168 (-1.7%)
+     L=4.600  r=+0.0318 (3.2%)
+     L=4.750  r=-0.0139 (-1.4%)
+   pairwise slopes (p = 4.5 fixed), to compare with 4pi = 12.5664:
+     L 4.25 -> 4.50 :  b'_pair = 12.5319  (b'/4pi = 0.9973)
+     L 4.50 -> 4.60 :  b'_pair = 12.4222  (b'/4pi = 0.9885)
+     L 4.60 -> 4.75 :  b'_pair = 12.5834  (b'/4pi = 1.0014)
+   canonical-law local slope 1.755(L/2+5) crosses 4pi at L = 4.321
+
+== forecast, 13-window (L in [5.13, 5.50], thresholds 2ln13=5.130 / 2ln16=5.545) ==
+   F1 five solid windows (1.75..4.025):
+     L=5.13: 3.14e-60   L=5.20: 8.45e-63   L=5.30: 1.20e-66   L=5.40: 1.03e-70   L=5.50: 5.20e-75
+   F2 ALL windows, deepest-m upper bounds:
+     L=5.13: 9.25e-56   L=5.20: 1.21e-57   L=5.30: 2.04e-60   L=5.40: 2.78e-63   L=5.50: 3.02e-66
+   F4 ALL windows, tail-extrapolated limits where available:
+     L=5.13: 9.24e-56   L=5.20: 1.20e-57   L=5.30: 2.04e-60   L=5.40: 2.77e-63   L=5.50: 3.02e-66
+   Fuchs-form deep fit (free):
+     L=5.13: 2.35e-59   L=5.20: 8.11e-62   L=5.30: 1.71e-65   L=5.40: 2.30e-69   L=5.50: 1.93e-73
+   Fuchs-form deep fit (fixp45):
+     L=5.13: 2.60e-59   L=5.20: 9.22e-62   L=5.30: 2.04e-65   L=5.40: 2.89e-69   L=5.50: 2.57e-73
+   Fuchs-form deep fit (fix4pi):
+     L=5.13: 2.54e-59   L=5.20: 8.98e-62   L=5.30: 1.96e-65   L=5.40: 2.75e-69   L=5.50: 2.42e-73
+
+== Connes/Groskin comparator (calibrated on the 7.1/7.2 anchors) ==
+   log10 lam = -(5.4575 c -4.922 log10 c -5.907),  c = e^{L/2}
+   L=4.796 (c=11.001): comparator 1e-49.0
+   L=5.000 (c=12.182): comparator 1e-55.2
+   L=5.130 (c=13.001): comparator 1e-59.6
+   L=5.300 (c=14.154): comparator 1e-65.7
+   L=5.500 (c=15.643): comparator 1e-73.6
+   L=5.545 (c=15.999): comparator 1e-75.5

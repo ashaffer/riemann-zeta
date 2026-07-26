@@ -1,0 +1,18 @@
+{
+ "L": 5.0,
+ "m": 144,
+ "dps_assembly": 90,
+ "dps_solve": 80,
+ "lam_min": "2.94132035712e-53",
+ "bottom3": [
+  "2.941320357e-53",
+  "1.568007603e-49",
+  "4.614882611e-46"
+ ],
+ "assembly_s": 677.6,
+ "solve_s": 39.7,
+ "total_s": 717.2,
+ "finished_utc": "2026-07-26T17:57:50Z",
+ "tag": "stretch",
+ "bound": "Rayleigh-Ritz upper bound"
+}

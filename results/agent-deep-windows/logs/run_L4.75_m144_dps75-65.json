@@ -1,0 +1,18 @@
+{
+ "L": 4.75,
+ "m": 144,
+ "dps_assembly": 75,
+ "dps_solve": 65,
+ "lam_min": "2.04044762883e-47",
+ "bottom3": [
+  "2.040447629e-47",
+  "1.141649948e-43",
+  "3.981716457e-40"
+ ],
+ "assembly_s": 1071.4,
+ "solve_s": 43.8,
+ "total_s": 1115.2,
+ "finished_utc": "2026-07-26T17:32:58Z",
+ "tag": "rung-restart",
+ "bound": "Rayleigh-Ritz upper bound"
+}

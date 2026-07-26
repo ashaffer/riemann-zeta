@@ -1,0 +1,18 @@
+{
+ "L": 4.6,
+ "m": 160,
+ "dps_assembly": 75,
+ "dps_solve": 65,
+ "lam_min": "2.17139835976e-43",
+ "bottom3": [
+  "2.17139836e-43",
+  "1.05905825e-39",
+  "3.051550458e-36"
+ ],
+ "assembly_s": 1003.2,
+ "solve_s": 51.2,
+ "total_s": 1054.5,
+ "finished_utc": "2026-07-26T18:47:34Z",
+ "tag": "plateau-check",
+ "bound": "Rayleigh-Ritz upper bound"
+}
