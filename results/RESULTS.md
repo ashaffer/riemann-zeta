@@ -59,6 +59,26 @@ independent oracle rules otherwise.
 3. Lentz continued-fraction seed → L(½, χ₁₄₆₉₃) = −0.00086 (fake GRH disproof).
    Caught by regression anchors; fixed value +0.00180 confirmed three ways.
 Rate: one convincing fake catastrophe per scaling step; three for three caught.
+4. (Day two) A containment TEST comparing 1e-64-wide interval enclosures at
+   15-digit ambient precision manufactured a phantom 6e-19 discrepancy between
+   the two independent archimedean implementations. Caught by component-wise
+   adjudication; methods agreed to 24+ digits. Test artifact, not pipeline.
+5. (Day three) The m=12 Lean certificate's BRIDGE was false as stated: the
+   generator converted 220-bit interval endpoints through mp.mpf at ambient
+   dps 15, so the emitted integers carried ~1.46e-17 error against a stated
+   delta = 1e-20 (the kernel theorem itself, being about mRat, was never
+   wrong). Invisible to all five per-artifact validation layers; caught by the
+   CERTIFICATE-COHERENCE ORACLE proposed by the category-theory expert
+   (nested certificates at the same L must agree on overlapping blocks to
+   their combined rounding budget). Repaired same day: 60-dps conversion,
+   full integer chain regenerated and exactly re-verified, coherence now
+   PASSES at 5.00e-25 absolute (budget 5e-25 + 5e-29), Lean rebuilt green,
+   axioms re-audited. Generator patched; coherence check adopted as a
+   standing oracle for all future certificate emissions.
+Updated rate: five convincing catastrophes, five caught — two of them by
+oracles that did not exist when the error was made. The discipline's lesson
+stands: every new validation layer finds the class of error the previous
+layers were structurally blind to.
 
 ---
 
@@ -128,7 +148,11 @@ verification read July 25, 2026. Kept as written; noted for the record.
   corrected in hp_margins docstring). Upper bound f(2) <= 3.1439e-5, limit ~ 3.12-3.14e-5.
 - L=2.485 (p=3 window): m=12..64 -> 7.5308e-8, 4.4677e-9, 5.9239e-10, 3.86882e-10,
   3.74714e-10, 3.66564e-10, 3.61910e-10, 3.59571e-10, 3.56788e-10.
-  Plunge-then-creep (interior kinks at +-(a - log p) from the prime shifts).
+  Plunge-then-creep (originally attributed to interior kinks at +-(a - log p)
+  from the prime shifts; REVISED 2026-07-26: the pre-registered kink-enrichment
+  experiment REFUTED the corner-kink mechanism — snap enrichment does not beat
+  plain refinement — the creep is a log-regularized truncation-jump effect,
+  Theta(A_L/(m ln m)); see results/experts/PLAN-numerical-analysis.md).
   Tail extrapolation: **f(3) ~ 3.49-3.50e-10**; hard upper bound 3.5679e-10 (m=64).
   Hats at m=201 were still 15x above this.
 - Zero-side inequality at (2.485, m=48): 2 SUM_{60} |phihat(gamma)|^2 = 3.10471e-10
@@ -345,3 +369,36 @@ verification read July 25, 2026. Kept as written; noted for the record.
   stands as full-pipeline validation of THIS instrument, not as discovery.
 - D = 14693 is fundamental (7·2099, ≡ 1 mod 4). Whether it appears in existing
   small-central-value tables (LMFDB, Rubinstein-era) remains UNCHECKED.
+
+
+## Day three, part 2 (July 26 evening): the bend is REAL — the 4pi cap
+
+Deep-window campaign final (results/agent-deep-windows.md; ladders to m=176,
+every rung an RR upper bound, monotone nested bases, no violations):
+
+- **VERDICT: the envelope law bends upward past L ~ 4.3.** Converged deep
+  limits (L = 4.25/4.50/4.60/4.75) sit 1.4-2.6x above the best 3-parameter
+  refit (7x its residual band). The deep decay rate saturates at the
+  universal prolate rate **4pi per unit c = e^{L/2}**, measured to 0.4-1.3%
+  three independent ways; the corrected Fuchs-form law
+  ln lam ~ A' - 4pi e^{L/2} + p(L/2) blind-predicted the L=4.75 limit to
+  0.4%. Onset exactly computable: the old law's local slope crosses 4pi at
+  L = 4.32, where deviations begin.
+- **Stopping-height protocol (DG Round 2)**: abrupt saturation EXCLUDED
+  (w(4.75) = 1.224 < 1.26); scalar shape test favors SMOOTH CAP over drift
+  (secant slopes on 4pi, 3-6% below drift, bias headroom <= 0.5%). Formal
+  B_smooth certification awaits the vector-level shape test (DG seat).
+- **T1' two-horizon consistency (HA Round 2): PASS** — all eleven measured
+  stopping heights strictly inside (e T*, e^2 T*), lower margin >= +0.144.
+- **Connes/Groskin 126-decade tension RESOLVED**: corrected law at CvS
+  c = 100 gives log10 lam in [-529.0, -527.7] vs their ~ -530 (old chart:
+  -656). Option (ii) of agent-prior-art.md par. 7.2 — the (L/2+4) log-factor
+  was mid-range only. ENVELOPE.md updated (4pi-cap section + resolution).
+- The creep-de-biased reading (which would have flattened the bend) lost its
+  only pre-registered head-to-head test (L=4.50: geometric +0.09%, creep
+  -5.6%) and self-invalidates at L=4.60 (negative extrapolation).
+- L=5.50 discriminator: m=152 -> 1.9854e-64, descending, unconverged;
+  expected limit 1e-72..1e-75 (extrapolation, labeled); m=168/184 rungs and
+  a 5.00 midpoint were still landing at close (runs.csv authoritative).
+- Convergence-honesty note: the interim "bias excluded" overclaim was
+  corrected (SYNTHESIS.md called it; the L=4.25 staircase proved it right).

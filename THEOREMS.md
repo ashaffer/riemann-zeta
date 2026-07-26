@@ -241,11 +241,26 @@ is the *absence of a jump* with an explicit modulus — it does not prove the
 envelope law. All constants are explicit but generous; no attempt was made to
 optimize.
 
-**Novelty status.** We have not found a continuity-in-support statement for
-the truncated Weil form's margin in the frontier corpus; experts may regard it
-as folklore-provable. The proof technique (log-weight from Lemma A(ii) as a
-substitute for compactness) is elementary. Claimed as: new as stated, pending
-literature check.
+**Novelty status (revised after the prior-art sweep, results/agent-prior-art.md).**
+Qualitative continuity of the windowed margin is NOT new: Suzuki
+(arXiv:2606.09096, June 8 2026, Theorem 1.3) proves it by the same dilation
+device, and documents that Bombieri asserted it in 2000/2003 (with Yoshida
+1992 as the windowed-criterion origin). What this theorem adds beyond that
+literature: (i) the EXPLICIT modulus C·(log 1/h)^{−1/2} with all constants
+displayed (Suzuki's proof is qualitative — no modulus appears); (ii) the
+MONOTONICITY clause (not stated anywhere we found); (iii) the threshold-local
+analysis (the entering-prime coupling bound of Lemma E). Theorem 1 should be
+cited as an effective refinement of Bombieri–Suzuki continuity. The Frullani
+route to Lemma A appears to be folklore-level; no recorded statement of the
+sandwich was found.
+
+**Formalization status.** Lemma A's sandwich — in its integral form, i.e.
+½log(1+4r²) ≤ ∫₀^∞ e^{−t/4}(1−cos(rt/2))/(1−e^{−t})dt ≤ ½log(1+4r²)+8 —
+is now KERNEL-CHECKED: `GlideKernel.kernel_lower/kernel_upper` in
+`lean/glide/Glide/Basic.lean` (with `laplace_sin` and `frullani_cos` as
+formalized supporting lemmas), axioms [propext, Classical.choice, Quot.sound]
+only. The identification with digamma awaits Gauss's formula in mathlib
+(RH-LEMMA-MAP.md, Level 2).
 
 ---
 
@@ -274,6 +289,15 @@ polynomials, k = 0..11) of test functions supported in [−L/4, L/4] — the
 support window in which the prime powers 2 and 3 participate. Then
 
   |Q_{kj} − mRat_{kj}| ≤ 10^{−20}   for all k, j.
+
+**Correction notice (2026-07-26).** The originally emitted `mRat` integers were
+computed with a dps-15 ambient conversion of the 220-bit interval endpoints,
+carrying ~1.46e−17 error against the stated δ = 1e−20 — the kernel theorem
+(about `mRat`) was never affected, but this Proposition was false as stated
+for one day. Caught by the certificate-coherence oracle (nested m=12/m=24
+certificates must agree on overlapping blocks), regenerated with exact 60-dps
+conversion, re-verified, rebuilt, re-audited; coherence now passes at
+5.00e−25 absolute. See results/RESULTS.md pathology log #5.
 
 **Proof (computer-assisted).** The entries reduce exactly (`src/certified_spectral.py`,
 derivation in `PROGRAM.md` §2.14–2.16) to

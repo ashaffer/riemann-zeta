@@ -128,14 +128,97 @@ modulo a Bridge Proposition proved by interval arithmetic with stated trust
 base. We believe this is the first formally verified statement in the
 Weil-positivity program.
 
+## The sharpened, invariant form of the law (added July 26, derivation campaign)
+
+A dedicated derivation-and-discrimination campaign (results/agent-law-theory.md)
+upgraded the law in three ways. (1) **Invariant parameterization**: staircase
+deformations break the fit degeneracy and select
+  ln λ_min = −A + b·[ N(T*) + μ·D(T*) ],   b ≈ 1.51,  μ ≈ 6.0–6.7,
+with N the counting function at the Nyquist height and D the Nyquist-deficit
+mass; this single pair of constants fits both the 25-point deformed-staircase
+family and the true-ζ ladder (rms 0.026), strictly better than the
+(10.2, 1.755, 4.0) chart above, whose parameters are degenerate on the fitted
+window; β-linearity of the exponent is verified to 1% and IS the conductor
+universality. (2) **Mechanism**: bulk prolate/Landau–Widom functionals
+provably cannot produce the law — replacing the zero sum by its density
+integral makes λ order one, so the exponential smallness is a pure
+DISCRETENESS effect; sub-Nyquist constant-density sequences cost nothing
+(exact tight-frame calibration), and the ζ margin is a chirp effect.
+(3) **The marginal law**: removing a single zero at height t is worth exactly
+(π²/2)·ln(eT*/t) in the exponent — the Bonami–Karoui constant, measured to
+1–4% across nine (t, L) points — supported up to the capacity height e·T*,
+with ~20% non-additive interactions. The bulk constants (b, μ) resisted
+derivation; the marginal law and the capacity endpoint e·T* are the
+best-supported provable targets (four are recorded in the campaign report).
+
+## The deep-window correction: the 4π cap (added July 26, deep-window campaign)
+
+The deep-window campaign (results/agent-deep-windows.md; ladders to m = 176 at
+L = 4.25–5.50, every rung a Rayleigh–Ritz upper bound with monotone nested
+bases) settles the bend question flagged in the caveats: **the mid-range law
+above is pre-asymptotic, and the decay rate saturates**. The measured facts:
+
+- The converged deep limits (L = 4.25, 4.50, 4.60, 4.75; the last
+  blind-predicted to 0.4% before its refinement rungs ran) sit systematically
+  ABOVE every 3-parameter refit — a bend, not a refit problem.
+- The deep data select the prolate (Fuchs) form
+    **ln λ_min ≈ A′ − 4π·e^{L/2} + p·(L/2)**,   p ≈ 4.5–6.5,
+  with the decay rate per unit c = e^{L/2} measured at 4π to 0.4–1.3% three
+  independent ways (free fit 12.729, constrained 12.521, pairwise secant
+  slopes 12.42–12.58 against 4π = 12.566).
+- The onset is exactly computable: the mid-range law's local slope
+  1.755(L/2+5) crosses 4π at **L = 4.32**, precisely where deviations begin.
+  Below that the three-constant chart stands as fitted; above it the rate is
+  capped at the universal prolate rate.
+- Stopping-height readout (the differential-geometry protocol): abrupt
+  saturation is EXCLUDED (level test), and the scalar shape test favors the
+  smooth-cap hypothesis — the measured secant slopes lie on 4π and 3–6% below
+  both drift alternatives, with bias headroom ≤ 0.5%.
+- Consistency: all eleven measured stopping heights lie strictly inside the
+  two proved-target horizons (e·T*, e²·T*), margins ≥ 0.14 in w = ln(T_s/T*).
+
+**This resolves the Connes/Groskin discrepancy below** — see the updated
+paragraph there — and is the reading this note now recommends: the
+(L/2 + 4) log-factor is a faithful mid-range description (all validations in
+the Summary stand on their windows), and the asymptotic decay rate is 4π per
+unit e^{L/2}, matching the frontier's prolate asymptotics.
+
+## Prior art and repositioning (added after the July 26 literature sweep)
+
+The sweep (results/agent-prior-art.md) found that the qualitative shape of the
+decay is anticipated by the frontier itself: Connes (arXiv:2602.04022, §6.4)
+describes the truncated form's smallest eigenvalue as decaying "exponential of
+exponential" and plots it against an explicit prolate comparator (numerically
+identified in our sweep as Fuchs's 1964 theorem at n = 4); Connes–Consani's
+2021 zeta-cycles paper computes a deep value (2.389e−48 at their λ² = 11)
+lying essentially on our envelope; Groskin (arXiv:2605.20224) tabulates
+λ_min to 1e−334 across sixteen cutoffs with an extrapolation matching
+Connes's prediction. What remains, to our knowledge, THIS note's own: the
+support-normalized three-constant law with its (L/2 + 4) log-correction and
+out-of-sample validations; the Dirichlet-family universality in T*_χ (no
+corpus paper treats families); the staircase/Poisson mechanism experiment
+(the law is a functional of the counting function at maximal rigidity); the
+Glide Theorem's effective modulus and monotonicity (qualitative continuity is
+Bombieri 2000/2003, proved by Suzuki arXiv:2606.09096 Thm 1.3); and the
+kernel-checked certificates. **The c = 100 discrepancy is RESOLVED (July 26,
+deep-window campaign):** the naive extrapolation of the mid-range chart gave
+log₁₀ λ ≈ −656 against Connes/Groskin's ≈ −530; with the measured 4π cap
+(previous section) the corrected law predicts −527.7 to −529.0 at c = 100 —
+agreement to ~0.5% of the exponent, resolving the tension as option (ii) of
+results/agent-prior-art.md §7.2 (the log-factor was mid-range only). Our
+envelope now extrapolates onto the frontier's prolate asymptotics; what
+remains ours is the mid-range form, the onset point L ≈ 4.32, the family
+universality, the mechanism experiment, and the certificates.
+
 ## Caveats (stated plainly)
 
 - Every λ_min is a Rayleigh–Ritz **upper bound**; deep-window values at the
   largest supports are still descending in basis size (convergence status is
   tabulated per point in `results/RESULTS.md`). Slopes therefore carry a
   one-sided bias, small in the windows used for the fit.
-- The law is phenomenological: three constants, five windows, no error model,
-  and it may bend beyond L ≈ 4.2 (n = 8 threshold) where we have not measured.
+- The law is phenomenological: three constants, five windows, no error model.
+  It DOES bend beyond L ≈ 4.3 — measured, not hypothetical (see the 4π-cap
+  section); use the mid-range chart only below the crossover.
 - The spectral/hp values trust mpmath's floating arithmetic and quadrature-free
   exact integrals at 50 digits; the certificates trust mpmath.iv enclosures.
   The float pipeline, the extended-precision hat pipeline, the spectral

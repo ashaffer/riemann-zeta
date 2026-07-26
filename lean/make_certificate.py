@@ -16,7 +16,8 @@ from certified_spectral import certified_spectral_form
 
 L = Fraction(497, 200); m = 12; DEN = 10**24
 Q, G = certified_spectral_form(L, m)
-A = [[int(mp.nint(((mp.mpf(Q[i][j].a)+mp.mpf(Q[i][j].b))/2)*DEN)) for j in range(m)] for i in range(m)]
+with mp.workdps(60):   # dps-15 ambient conversion caused the 2026-07-26 bridge defect
+    A = [[int(mp.nint(((mp.mpf(Q[i][j].a)+mp.mpf(Q[i][j].b))/2)*DEN)) for j in range(m)] for i in range(m)]
 for i in range(m):
     for j in range(m):
         assert A[i][j] == A[j][i] and float(Q[i][j].delta) < 5e-21

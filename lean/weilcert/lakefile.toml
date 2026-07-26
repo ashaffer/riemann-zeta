@@ -16,3 +16,27 @@ rev = "v4.32.1"
 
 [[lean_lib]]
 name = "Weilcert"
+
+[[lean_lib]]
+name = "WeilcertDeep"
+
+[[lean_lib]]
+name = "WeilcertFamily"
+
+[[lean_lib]]
+name = "WeilcertDeeper"
+
+[[lean_lib]]
+name = "BridgeLegendre"
+
+[[lean_lib]]
+name = "BridgeOverlap"
+
+[[lean_lib]]
+name = "CertFramework"
+
+[[lean_lib]]
+name = "CertInstance"
+
+[[lean_lib]]
+name = "CurveCertE5"
