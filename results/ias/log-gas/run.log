@@ -1,0 +1,36 @@
+=== pre-registered CUE frame test; L=2.485 m=48 KT=180 X=eT*=59.1678 ===
+quadrature Var J(Poisson from 2pi) = 5.732 -> sigma_lin = 11.82 nats
+rigid          lam=2.7512367e-10  E=  22.014 dE= +0.000  (pi2/2)J= +0.000 supD=0.0  (0s)
+  anchor rigid: expect 2.75124e-10
+true           lam=2.6897153e-10  E=  22.036 dE= +0.023  (pi2/2)J= -0.071 supD=1.0  (0s)
+  anchor true: expect 2.68972e-10
+poisson7       lam=2.8950901e-12  E=  26.568 dE= +4.554  (pi2/2)J= +1.871 supD=3.0  (0s)
+  anchor poisson7: expect 2.89509e-12
+cue1           lam=1.6352265e-7   E=  15.626 dE= -6.387  (pi2/2)J= -7.321 supD=2.0  (0s)
+cue2           lam=4.251932e-10   E=  21.578 dE= -0.435  (pi2/2)J= -0.763 supD=1.0  (0s)
+cue3           lam=6.3659108e-9   E=  18.872 dE= -3.141  (pi2/2)J= -4.360 supD=1.0  (0s)
+cue4           lam=1.8666245e-8   E=  17.797 dE= -4.217  (pi2/2)J= -4.880 supD=1.0  (0s)
+cue5           lam=4.0243081e-11  E=  23.936 dE= +1.922  (pi2/2)J= +1.940 supD=1.0  (0s)
+cue6           lam=3.164659e-12   E=  26.479 dE= +4.465  (pi2/2)J= +3.975 supD=2.0  (0s)
+cue7           lam=4.0926807e-11  E=  23.919 dE= +1.905  (pi2/2)J= +1.308 supD=2.0  (0s)
+cue8           lam=7.7194457e-8   E=  16.377 dE= -5.637  (pi2/2)J= -5.349 supD=2.0  (0s)
+cue9           lam=1.3779953e-10  E=  22.705 dE= +0.691  (pi2/2)J= +0.276 supD=1.0  (0s)
+cue10          lam=3.6055939e-9   E=  19.441 dE= -2.573  (pi2/2)J= -3.958 supD=2.0  (0s)
+cueanch1       lam=1.5190851e-9   E=  20.305 dE= -1.709  (pi2/2)J= -2.135 supD=1.0  (0s)
+cueanch2       lam=4.591095e-10   E=  21.502 dE= -0.512  (pi2/2)J= -0.845 supD=1.0  (0s)
+cueanch3       lam=1.253272e-10   E=  22.800 dE= +0.786  (pi2/2)J= -0.213 supD=1.0  (0s)
+cueanch4       lam=2.1669507e-10  E=  22.253 dE= +0.239  (pi2/2)J= -0.123 supD=1.0  (0s)
+cueanch5       lam=3.1963103e-10  E=  21.864 dE= -0.150  (pi2/2)J= -0.098 supD=1.0  (0s)
+cueanch6       lam=1.803976e-11   E=  24.738 dE= +2.725  (pi2/2)J= +2.219 supD=1.0  (0s)
+poisson8       lam=5.1441673e-13  E=  28.296 dE= +6.282  (pi2/2)J= +0.280 supD=4.0  (0s)
+poisson9       lam=1.094668e-17   E=  39.053 dE=+17.040  (pi2/2)J=+12.695 supD=3.0  (0s)
+poisson10      lam=4.8955874e-13  E=  28.345 dE= +6.331  (pi2/2)J= +2.665 supD=3.0  (0s)
+poisson11      lam=2.7554582e-9   E=  19.710 dE= -2.304  (pi2/2)J=-11.944 supD=5.0  (0s)
+del2           lam=1.3560609e-12  E=  27.326 dE= +5.313  (pi2/2)J= +5.193 supD=1.0  (0s)
+del3           lam=3.7588703e-12  E=  26.307 dE= +4.293  (pi2/2)J= +4.155 supD=1.0  (0s)
+del5           lam=1.7095145e-11  E=  24.792 dE= +2.778  (pi2/2)J= +2.789 supD=1.0  (0s)
+del8           lam=1.2657254e-10  E=  22.790 dE= +0.776  (pi2/2)J= +1.462 supD=1.0  (0s)
+del23          lam=1.1018617e-14  E=  32.139 dE=+10.125  (pi2/2)J= +9.348 supD=2.0  (0s)
+del25          lam=4.598044e-14   E=  30.711 dE= +8.697  (pi2/2)J= +7.982 supD=2.0  (0s)
+del28          lam=2.699497e-13   E=  28.941 dE= +6.927  (pi2/2)J= +6.656 supD=2.0  (0s)
+total wall: 11s

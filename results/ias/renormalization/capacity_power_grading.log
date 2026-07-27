@@ -1,0 +1,5 @@
+kappa=1  eta=2.0  deficit=0.5  surplus=0.5
+kappa=0.5  eta=2.25  deficit=0.33333333  surplus=0.33333333
+kappa=0.25  eta=2.4414063  deficit=0.2  surplus=0.2
+kappa=0.001  eta=2.7169239  deficit=0.000999001  surplus=0.000999001
+kappa->0 limit of eta: 2.7182818 ( = e: the log-grading capacity e*T* )

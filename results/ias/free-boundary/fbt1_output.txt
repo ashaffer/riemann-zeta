@@ -1,0 +1,27 @@
+m=32  lam=3.151921e-05  t(a)=-0.011984  t(-a)=-0.011984  odd_frac=1.17e-28  (15s)
+   phi'(a)=+1.8773  psi'(a)=+1.8773  slope_phi=-2.076  slope_psi=-4.028
+   r~500: h_phi=1.141  h_psi=1.026
+   r~1000: h_phi=1.034  h_psi=1.013
+   r~2000: h_phi=1.009  h_psi=1.003
+   r~3000: h_phi=1.004  h_psi=1.002
+   tau_phi(287)=3.715e-07  tau_psi(287)=3.113e-08  ratio=8.38e-02
+   tau_phi(1000)=9.260e-08  tau_psi(1000)=7.590e-10
+m=48  lam=3.143895e-05  t(a)=+0.010710  t(-a)=+0.010710  odd_frac=1.36e-28  (33s)
+   phi'(a)=-4.2842  psi'(a)=-4.2842  slope_phi=-2.248  slope_psi=-3.304
+   r~500: h_phi=1.595  h_psi=0.278
+   r~1000: h_phi=1.393  h_psi=0.663
+   r~2000: h_phi=1.135  h_psi=0.897
+   r~3000: h_phi=1.064  h_psi=0.952
+   tau_phi(287)=3.836e-07  tau_psi(287)=4.052e-08  ratio=1.06e-01
+   tau_phi(1000)=8.509e-08  tau_psi(1000)=3.028e-09
+m=64  lam=3.141596e-05  t(a)=-0.010620  t(-a)=-0.010620  odd_frac=1.15e-28  (59s)
+   phi'(a)=+4.6605  psi'(a)=+4.6605  slope_phi=-2.230  slope_psi=-3.227
+   r~500: h_phi=1.563  h_psi=0.243
+   r~1000: h_phi=1.449  h_psi=0.574
+   r~2000: h_phi=1.168  h_psi=0.876
+   r~3000: h_phi=1.080  h_psi=0.944
+   tau_phi(287)=3.824e-07  tau_psi(287)=4.048e-08  ratio=1.06e-01
+   tau_phi(1000)=8.602e-08  tau_psi(1000)=3.316e-09
+
+P4 trace drift: q1=t48/t32=-0.8937  q2=t64/t48=-0.9916 (H_const ~1.00; H_log 0.90/0.93)
+done

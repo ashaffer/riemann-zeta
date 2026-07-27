@@ -1,0 +1,60 @@
+[18:46:50] rung runner start: L=5.5 m=224 dps=100/90 NW=4
+[18:47:43] G1 serial anchor lam = 3.8688156e-10 (52.4s)
+[18:47:43] G1 PASS
+  [w3] 12/48 u-nodes, 2s
+  [w2] 12/48 u-nodes, 3s
+  [w0] 12/48 u-nodes, 3s
+  [w1] 12/48 u-nodes, 3s
+  [w3] 24/48 u-nodes, 4s
+  [w0] 24/48 u-nodes, 6s
+  [w2] 24/48 u-nodes, 6s
+  [w1] 24/48 u-nodes, 6s
+  [w3] 36/48 u-nodes, 7s
+  [w3] 48/48 u-nodes, 8s
+  [w1] 36/48 u-nodes, 9s
+  [w0] 36/48 u-nodes, 9s
+  [w2] 36/48 u-nodes, 9s
+  [w0] 48/48 u-nodes, 10s
+  [w2] 48/48 u-nodes, 12s
+  [w1] 48/48 u-nodes, 12s
+[18:47:55] G2 entrywise max |par - ser| = 0.0; lam_par = 3.8688156e-10 (12.3s)
+[18:47:55] G2 PASS
+[18:47:55] assembly start (384-pt GL rule; ~40-55 min at 4 workers)
+  [w1] 12/96 u-nodes, 358s
+  [w0] 12/96 u-nodes, 405s
+  [w3] 12/96 u-nodes, 419s
+  [w2] 12/96 u-nodes, 584s
+  [w1] 24/96 u-nodes, 631s
+  [w3] 24/96 u-nodes, 719s
+  [w0] 24/96 u-nodes, 963s
+  [w1] 36/96 u-nodes, 975s
+  [w2] 24/96 u-nodes, 1038s
+  [w3] 36/96 u-nodes, 1122s
+  [w0] 36/96 u-nodes, 1213s
+  [w1] 48/96 u-nodes, 1308s
+  [w0] 48/96 u-nodes, 1484s
+  [w3] 48/96 u-nodes, 1533s
+  [w1] 60/96 u-nodes, 1621s
+  [w2] 36/96 u-nodes, 1660s
+  [w3] 60/96 u-nodes, 1776s
+  [w1] 72/96 u-nodes, 1927s
+  [w3] 72/96 u-nodes, 2035s
+  [w0] 60/96 u-nodes, 2043s
+  [w2] 48/96 u-nodes, 2071s
+  [w1] 84/96 u-nodes, 2172s
+  [w2] 60/96 u-nodes, 2369s
+  [w0] 72/96 u-nodes, 2393s
+  [w3] 84/96 u-nodes, 2459s
+  [w1] 96/96 u-nodes, 2548s
+  [w0] 84/96 u-nodes, 2668s
+  [w2] 72/96 u-nodes, 2674s
+  [w3] 96/96 u-nodes, 2734s
+  [w2] 84/96 u-nodes, 2896s
+  [w0] 96/96 u-nodes, 2957s
+  [w2] 96/96 u-nodes, 3085s
+[19:39:26] assembly done in 3091.3s; checkpointing Q
+[19:41:46] lam_min = 1.37130046904e-72 (bottom 3: ['1.3713005e-72', '1.5656066e-68', '8.5645747e-65']); solve 140.1s
+[19:41:46] G3 monotonicity lam(224) <= lam(208): PASS
+[19:41:46] log10 lam = -71.8629; r = lam(224)/lam(208) = 0.03254
+[19:41:46] VERDICT vs R2.6 ratchet policy: STILL-PLUNGING (m=240 authorized, then HARD STOP)
+[19:41:46] done; total wall 3296.1s

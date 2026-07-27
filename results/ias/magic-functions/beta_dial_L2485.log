@@ -1,0 +1,13 @@
+# L=2.485 m=24 K=180 (t_K ranges ~364; no Gcut filter needed)
+beta=0.10  t1=17.235834    lam=1.6499402e-11   (2s)
+beta=0.25  t1=16.274811    lam=4.8378669e-11   (2s)
+beta=0.40  t1=15.249901    lam=1.4944383e-10   (2s)
+beta=0.50  t1=14.521347    lam=3.286116e-10   (2s)
+beta=0.60  t1=13.746185    lam=7.4927933e-10   (2s)
+beta=0.75  t1=12.46338     lam=2.8262843e-9   (2s)
+beta=0.90  t1=10.946791    lam=1.2674317e-8   (2s)
+true       t1=14.134725    lam=3.3801166e-10   (2s)
+
+# max at beta=0.90 (1.26743e-8); min at beta=0.10 (1.64994e-11); ratio 768.17
+# lam(beta*)/lam(0.5) = 38.569
+# true inside family range: True (true=3.38012e-10)

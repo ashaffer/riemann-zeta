@@ -1,0 +1,16 @@
+staircase zeros up to Gcut=840: 522 (0.0s)
+moved zeros: 4
+base  m=48  lam_min = 3.5066768e-10   E = 21.771182   (1.0s)
+base  m=64  lam_min = 3.3876784e-10   E = 21.805706   (1.1s)
+avg  m=48  lam_min = 6.875922e-10   E = 21.097825   (1.0s)
+avg  m=64  lam_min = 6.6377827e-10   E = 21.133073   (1.1s)
+rev  m=48  lam_min = 1.7415697e-10   E = 22.471064   (1.0s)
+rev  m=64  lam_min = 1.684197e-10   E = 22.504562   (1.1s)
+
+=== RESULTS (E = -ln lambda) ===
+m=48:  E_base = 21.771182   dE(avg) = -0.673357   dE(rev) = 0.699882
+m=64:  E_base = 21.805706   dE(avg) = -0.672633   dE(rev) = 0.698856
+
+Pre-registered predictions: dE(avg) = +0.573372, dE(rev) = -0.555265
+m=48:  ratio(avg) = -1.1744   ratio(rev) = -1.2604
+m=64:  ratio(avg) = -1.1731   ratio(rev) = -1.2586

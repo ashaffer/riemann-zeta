@@ -1,0 +1,27 @@
+{
+ "L": 5.5,
+ "m": 224,
+ "dps": [
+  100,
+  90
+ ],
+ "lam_min": "1.37130046904e-72",
+ "bottom3": [
+  "1.371300469e-72",
+  "1.565606636e-68",
+  "8.564574689e-65"
+ ],
+ "log10lam": -71.8628673754439,
+ "ratio_to_m208": 0.032535516238672596,
+ "gates": {
+  "G1": "PASS",
+  "G2": "PASS",
+  "G3": "PASS"
+ },
+ "verdict": "STILL-PLUNGING (m=240 authorized, then HARD STOP)",
+ "assembly_s": 3091.3,
+ "solve_s": 140.1,
+ "total_s": 3296.1,
+ "workers": 4,
+ "finished_utc": "2026-07-27T02:41:46Z"
+}

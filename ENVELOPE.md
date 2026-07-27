@@ -57,6 +57,13 @@ powers 2, 3, 4, 5, 7 and twenty-five orders of magnitude:
    (prolate/Landau–Widom territory), local statistics enter only the offset,
    and the true zeros sit at the maximally-rigid offset — at frame-bound level
    the zeta zeros behave like a perfectly rigid sequence.
+   [Update, July 26 IAS panel: the "Poisson costs 1.5–2 orders" figure is a
+   one-seed number of which roughly half is that seed's realized charge
+   (worth-weighted deficiency); at Poisson amplitude no affine law exists
+   (extreme-value crossover past sup|δN| ≈ 2). A charge-matched rerun
+   protocol, jointly pre-registered by two seats, is in
+   results/ias/IAS-SYNTHESIS.md §7; this claim should be quoted with the
+   decomposition until that rerun replaces it.]
 
 3. **Conductor universality.** For real primitive Dirichlet characters the same
    measurement (pole-free, ψ((1±1)/4… per parity, conductor term log(q/π))

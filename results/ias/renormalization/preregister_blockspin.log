@@ -1,0 +1,13 @@
+L = 2.485, T* = 21.766608, eT* = 59.167776
+N(18) = 1.0253862, N(36) = 5.1472132, rho_bar = 0.22899039
+block indices k: [2, 3, 4, 5]
+k=2  base 20.65574  avg 20.072636  (disp -0.583104)  rev 21.238844
+k=3  base 25.492675  avg 24.439632  (disp -1.05304)  rev 26.545719
+k=4  base 29.739412  avg 28.806627  (disp -0.932784)  rev 30.672196
+k=5  base 33.624532  avg 33.173623  (disp -0.450909)  rev 34.075441
+
+PRE-REGISTERED PREDICTIONS (marginal-law linear response):
+  dE_pred(block-avg, zeros move DOWN)  = +0.573372
+  dE_pred(reflected, zeros move UP)    = -0.555265
+  (E = -ln lambda; positive dE means lambda DECREASES)
+Acceptance: ratio in [0.65, 1.35] pass; [0.5, 2.0] qualified; else KILL.

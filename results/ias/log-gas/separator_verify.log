@@ -1,0 +1,18 @@
+SEP L=2.485: mp-exact (pi2/2)J=+0.000 supD=2
+SEP L=2.996: mp-exact (pi2/2)J=-0.090 supD=2
+SEP L=3.555: mp-exact (pi2/2)J=-1.560 supD=2
+CTRL L=2.485: mp-exact (pi2/2)J=-0.000 supD=1
+CTRL L=2.996: mp-exact (pi2/2)J=+0.005 supD=1
+CTRL L=3.555: mp-exact (pi2/2)J=+0.009 supD=1
+m=64 CTRL L=3.555: lam = 9.7126081e-23  (2s)
+m=64 SEP L=2.996: lam = 1.6168916e-16  (1s)
+m=64 smooth L=3.555: lam = 1.2140376e-22  (1s)
+m=64 smooth L=2.996: lam = 2.5249552e-15  (1s)
+m=64 SEP L=2.485: lam = 2.7992596e-10  (1s)
+m=64 SEP L=3.555: lam = 5.0900687e-24  (1s)
+m=64 CTRL L=2.485: lam = 2.0501629e-10  (1s)
+m=64 smooth L=2.485: lam = 2.2472244e-10  (1s)
+m=80 SEP L=3.555: lam = 3.6042991e-24  (2s)
+m=80 smooth L=3.555: lam = 8.6806588e-23  (1s)
+m=80 SEP L=2.996: lam = 1.1641086e-16  (3s)
+m=80 smooth L=2.996: lam = 1.8756819e-15  (1s)

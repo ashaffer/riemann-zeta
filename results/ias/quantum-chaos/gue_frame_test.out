@@ -1,0 +1,12 @@
+config: L=2.485 m=48 K=180 dps=50
+recorded anchors: true 2.68972e-10 | smooth 2.75124e-10 | poisson 2.89509e-12
+smooth     lam_min = 2.75124e-10   ln lam = -22.0138   (5 s)
+GUE s1     lam_min = 1.23707e-8   ln lam = -18.2079   (5 s)
+GUE s2     lam_min = 5.33625e-11   ln lam = -23.6539   (6 s)
+GUE s3     lam_min = 2.08144e-9   ln lam = -19.9902   (6 s)
+
+--- summary (Delta = ln lam_GUE - ln lam_smooth, nats) ---
+seed 1: lam = 1.23707e-8  Delta = +3.806  dist-to-poisson = 8.360  sup-discrepancy = 1.29
+seed 2: lam = 5.33625e-11  Delta = -1.640  dist-to-poisson = 2.914  sup-discrepancy = 2.54
+seed 3: lam = 2.08144e-9  Delta = +2.024  dist-to-poisson = 6.578  sup-discrepancy = 1.57
+median Delta = +2.024 | ratio |D_smooth|/|D_poisson| = 0.308 | spread = 5.446 nats

@@ -1,0 +1,41 @@
+=== 1. Aitken limits (geometric model; ratio r = d2/d1 as convergence flag) ===
+  L=4.25: rungs 5.4303e-35 5.2589e-35 5.2332e-35  r=0.150  Aitken=5.2286e-35  [OK]
+  L=4.50: rungs 8.9732e-41 8.1342e-41 7.9245e-41  r=0.250  Aitken=7.8546e-41  [OK]
+  L=4.60: rungs 3.0769e-43 2.3639e-43 2.1714e-43  r=0.270  Aitken=2.1002e-43  [OK]
+  L=4.75: rungs 1.4880e-46 2.0404e-47 1.8637e-47  r=0.014  Aitken=1.8612e-47  [OK]
+  L=5.00: rungs 2.9413e-53 1.7766e-54 7.0075e-55  r=0.039  Aitken=6.5718e-55  [OK]
+  L=5.50: rungs 1.9854e-64 1.4414e-67 4.2959e-69  r=0.001  Aitken=4.1972e-69  [OK]
+
+=== 2. A'(p) per window, action pinned at 4*pi ===
+  L=4.25 l=2.125  y=lnlam+4pi e^l=  26.2806   A'(9/2)= 16.718  A'(pi^2/2)= 15.794  A'(11/2)= 14.593  A'(6.5(free-fit ref))= 12.468  (fit)
+  L=4.50 l=2.250  y=lnlam+4pi e^l=  26.8815   A'(9/2)= 16.757  A'(pi^2/2)= 15.778  A'(11/2)= 14.507  A'(6.5(free-fit ref))= 12.257  (fit)
+  L=4.60 l=2.300  y=lnlam+4pi e^l=  27.0701   A'(9/2)= 16.720  A'(pi^2/2)= 15.720  A'(11/2)= 14.420  A'(6.5(free-fit ref))= 12.120  (fit)
+  L=4.75 l=2.375  y=lnlam+4pi e^l=  27.5009   A'(9/2)= 16.813  A'(pi^2/2)= 15.781  A'(11/2)= 14.438  A'(6.5(free-fit ref))= 12.063  (fit)
+  L=5.00 l=2.500  y=lnlam+4pi e^l=  28.3303   A'(9/2)= 17.080  A'(pi^2/2)= 15.993  A'(11/2)= 14.580  A'(6.5(free-fit ref))= 12.080  (soft, indicative)
+
+  flatness (max-min of A' over the four fit windows):
+    p=9/2               : spread  0.095   mean A' =  16.752
+    p=pi^2/2            : spread  0.074   mean A' =  15.768
+    p=11/2              : spread  0.173   mean A' =  14.490
+    p=6.5(free-fit ref) : spread  0.405   mean A' =  12.227
+
+=== 3. free (p, A') least squares, 4pi pinned ===
+  four converged windows (Aitken limits)      : p =  4.812, A' =  16.047, resid = +0.009 +0.008 -0.044 +0.026
+  drop L=4.60 (staircase-suspect window)      : p =  4.881, A' =  15.905, resid = +0.003 -0.006 +0.003
+  raw m-deepest rungs, no Aitken (bias check) : p =  4.847, A' =  15.978
+  L=4.25 at bracket floor 5.1e-35             : p =  4.915, A' =  15.807
+
+=== 4. comparator constants (Fuchs 1964 Thm 1 at n=4; Connes 2602.04022 par.6.4) ===
+  A'(1-lam4) = ln(4 sqrt(pi) 8^4/4!) + (9/2) ln 2pi =  15.3688
+  A'(1-chi2) = same - ln 2                          =  14.6757
+  Connes prefactor check: (2^14/3) sqrt2 pi^5 = 2.3635e+06  (ln = 14.6757)
+  measured A'(p=9/2) mean = 16.752;  Delta vs 1-chi2 = +2.076  (e^Delta = 7.98);  vs 1-lam4 = +1.383
+  [speculation probe] A'(1-chi2) + 2 = 16.6757
+
+=== 5. forecasts (lam at L = 5.50, 6.00) ===
+  p=9/2, measured A'          : L=5.5: log10 lam =   -72.72   L=6.0: log10 lam =   -96.48
+  p=pi^2/2, measured A'       : L=5.5: log10 lam =   -72.63   L=6.0: log10 lam =   -96.34
+  free-p fit                  : L=5.5: log10 lam =   -72.65   L=6.0: log10 lam =   -96.38
+  Connes/Fuchs 1-chi2 literal : L=5.5: log10 lam =   -73.62   L=6.0: log10 lam =   -97.38
+
+  L=5.50 recorded bound (m=184, mid-plunge): lam <= 4.296e-69 (log10 = -68.37) -- not yet adjudicating

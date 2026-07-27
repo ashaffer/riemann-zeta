@@ -1,0 +1,28 @@
+{
+ "L": 5.5,
+ "m": 208,
+ "dps": [
+  100,
+  90
+ ],
+ "lam_min": "4.21478011593e-71",
+ "bottom3": [
+  "4.214780116e-71",
+  "3.893261557e-67",
+  "1.903367929e-63"
+ ],
+ "log10lam": -70.37522507748774,
+ "ratio_to_m184": 0.009811249281895869,
+ "gates": {
+  "G1": "PASS",
+  "G2": "PASS",
+  "G3": "PASS"
+ },
+ "verdict": "NOT-ADJUDICATED (still descending; m=224 decides)",
+ "assembly_s": 2804.7,
+ "solve_s": 112.6,
+ "total_s": 2968.5,
+ "nodes_rule": "384-pt GL x/u (instrument's own rule at m=208)",
+ "workers": 4,
+ "finished_utc": "2026-07-26T23:27:11Z"
+}

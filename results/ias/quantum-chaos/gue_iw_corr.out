@@ -1,0 +1,13 @@
+seed  1: I_w = +4.743  Delta = +3.806
+seed  2: I_w = -1.206  Delta = -1.640
+seed  3: I_w = +2.678  Delta = +2.024
+seed  4: I_w = +0.821  Delta = +0.165
+seed  5: I_w = +2.657  Delta = +1.334
+seed  6: I_w = +3.112  Delta = +1.721
+seed  7: I_w = +4.850  Delta = +4.644
+seed  8: I_w = +0.571  Delta = -0.867
+seed  9: I_w = +2.415  Delta = +1.330
+seed 10: I_w = +2.168  Delta = +2.402
+seed 11: I_w = -0.616  Delta = -0.832
+seed 12: I_w = +3.398  Delta = +2.717
+pearson r = 0.963 | fit Delta = 0.96 * I_w -0.66

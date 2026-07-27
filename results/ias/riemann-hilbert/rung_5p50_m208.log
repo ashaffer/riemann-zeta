@@ -1,0 +1,60 @@
+[15:37:42] rung runner start: L=5.5 m=208 dps=100/90 NW=4
+[15:38:22] G1 serial anchor lam = 3.8688156e-10 (39.8s)
+[15:38:22] G1 PASS
+  [w2] 12/48 u-nodes, 3s
+  [w1] 12/48 u-nodes, 3s
+  [w0] 12/48 u-nodes, 3s
+  [w3] 12/48 u-nodes, 3s
+  [w2] 24/48 u-nodes, 5s
+  [w1] 24/48 u-nodes, 5s
+  [w0] 24/48 u-nodes, 6s
+  [w3] 24/48 u-nodes, 6s
+  [w2] 36/48 u-nodes, 8s
+  [w1] 36/48 u-nodes, 8s
+  [w0] 36/48 u-nodes, 8s
+  [w3] 36/48 u-nodes, 8s
+  [w2] 48/48 u-nodes, 11s
+  [w1] 48/48 u-nodes, 11s
+  [w0] 48/48 u-nodes, 11s
+  [w3] 48/48 u-nodes, 11s
+[15:38:34] G2 entrywise max |par - ser| = 0.0; lam_par = 3.8688156e-10 (11.5s)
+[15:38:34] G2 PASS
+[15:38:34] assembly start (384-pt GL x/u rule at this m; expect ~35-60 min at 4 workers under load)
+  [w2] 12/96 u-nodes, 328s
+  [w1] 12/96 u-nodes, 358s
+  [w3] 12/96 u-nodes, 355s
+  [w0] 12/96 u-nodes, 457s
+  [w2] 24/96 u-nodes, 569s
+  [w3] 24/96 u-nodes, 594s
+  [w0] 24/96 u-nodes, 721s
+  [w1] 24/96 u-nodes, 777s
+  [w2] 36/96 u-nodes, 884s
+  [w3] 36/96 u-nodes, 892s
+  [w1] 36/96 u-nodes, 1055s
+  [w0] 36/96 u-nodes, 1085s
+  [w2] 48/96 u-nodes, 1271s
+  [w3] 48/96 u-nodes, 1319s
+  [w1] 48/96 u-nodes, 1404s
+  [w0] 48/96 u-nodes, 1410s
+  [w2] 60/96 u-nodes, 1578s
+  [w0] 60/96 u-nodes, 1649s
+  [w1] 60/96 u-nodes, 1674s
+  [w2] 72/96 u-nodes, 1811s
+  [w3] 60/96 u-nodes, 1877s
+  [w1] 72/96 u-nodes, 1890s
+  [w2] 84/96 u-nodes, 2008s
+  [w0] 72/96 u-nodes, 2093s
+  [w1] 84/96 u-nodes, 2118s
+  [w2] 96/96 u-nodes, 2324s
+  [w1] 96/96 u-nodes, 2345s
+  [w0] 84/96 u-nodes, 2348s
+  [w3] 72/96 u-nodes, 2409s
+  [w0] 96/96 u-nodes, 2515s
+  [w3] 84/96 u-nodes, 2638s
+  [w3] 96/96 u-nodes, 2798s
+[16:25:18] assembly done in 2804.7s; checkpointing Q
+[16:27:11] lam_min = 4.21478011593e-71 (bottom 3: ['4.2147801e-71', '3.8932616e-67', '1.9033679e-63']); solve 112.6s
+[16:27:11] G3 monotonicity lam(208) <= lam(184): PASS
+[16:27:11] log10 lam = -70.3752; ratio to m=184 = 0.009811 (prev decrement ratio was 0.0298)
+[16:27:11] VERDICT vs pre-registered rule: NOT-ADJUDICATED (still descending; m=224 decides)
+[16:27:11] done; total wall 2968.5s

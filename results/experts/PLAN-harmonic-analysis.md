@@ -637,3 +637,35 @@ Jensen + explicit integrals + two classical bounds), let C3 be the
 structural home it lands in, and let the chain version carry the turning-
 point/Airy refinements that PW methods cannot state.
 
+---
+
+## Round 3 — status (T1′ taken to paper grade)
+
+2026-07-26, per coordinator assignment. Deliverable:
+**results/experts/T1PRIME.md** — complete referee-level proof of the Hard
+Horizon Theorem (anchored Jensen at e²T*), superseding Round 2(b)'s sketch.
+Deltas against the sketch worth recording here:
+
+1. **Constants sharpened, onset caveat withdrawn.** Two proof improvements
+   (the ±t_k pair-product bound, which eliminates the anchor-shift loss
+   entirely, and a Fubini/layer-cake identity replacing the summation-by-
+   parts bookkeeping) shrink ε from the sketch's O(a²)e^{−2a} with large
+   prefactor to ε* = [B + 2R(2a+1)]/(2(e^{2a+2} − R)): numerically 0.117 at
+   a = 0.62 with (R, κ) = (½, 1), and ε*_ζ ≤ 0.57 at every program window.
+   The Round-2 claim "vacuous below a ≈ 1.2" is withdrawn — the theorem
+   bites at all measured supports, unconditionally for ζ (Trudgian R = D₀
+   via NT's Lemma R1, cross-checked to their printed digits).
+2. **Gap disposition:** Gap 1 (anchor) → formal Hypothesis A, open for
+   minimizers (the lattice-Turán wall), κ-calibration task assigned; Gap 2
+   (sharpness of e²) → stated conjecture with construction route; Gap 3
+   (onset) → resolved; Gap 4 (local counts) → open, unneeded, still with DG.
+3. **Lean path is short:** local mathlib (@520045ab14) already has Jensen's
+   formula (`AnalyticOnNhd.circleAverage_log_norm`) and Jensen's inequality
+   (`AnalyticOnNhd.sum_divisor_le`); the staircase Theorem 1 + Corollary 2
+   decompose into ~10 lemmas of ≤ a few days each (~2–3 weeks total); only
+   the ζ-corollary is blocked (no formalized RvM/S(T) anywhere — months,
+   external). Full gap-map in T1PRIME.md §7.
+4. **Data:** the eleven deep-windows stopping heights all sit strictly
+   inside (e·T*, e²·T*) with ≥ 0.14 margin (consistency, not proof — the
+   variational horizon remains a months-scale target via T4/H1(iii)).
+

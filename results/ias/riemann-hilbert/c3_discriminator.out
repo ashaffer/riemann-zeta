@@ -1,0 +1,16 @@
+w_inf = 1.2784645; e^w_inf = 3.591121; check e^w(w-1) = 1.000000000000
+identity e^w*w = 1 + e^w: 4.591121 vs 4.591121
+2pi(1+e^w) = 28.8469; dictionary w(l) = w_inf - (p*l + A'-A) e^-l / 28.847
+  L=4.25: w_pred = 1.2141  w_E2 = 1.2136  diff = +0.0005
+  L=4.50: w_pred = 1.2194  w_E2 = 1.2192  diff = +0.0002
+  L=4.60: w_pred = 1.2214  w_E2 = 1.2211  diff = +0.0003
+  L=4.75: w_pred = 1.2244  w_E2 = 1.2243  diff = +0.0001
+  L=5.00: w_pred = 1.2290  w_E2 = 1.2282  diff = +0.0008
+
+L=5.50 triple: value ratios 7.26e-04, 0.0298 (increase x41 -> plunge; geometric model invalid)
+Aitken = 4.1972e-69 (log10 -68.38) -- invalid as limit
+  forecast mine p=9/2 : log10 lam(5.50) =   -72.72
+  forecast mine p=pi^2/2: log10 lam(5.50) =   -72.63
+  forecast Fuchs-literal: log10 lam(5.50) =   -73.62
+decision boundary log10 = -73.2 (6.3e-74); kill-mine: any RR rung < 1.0e-73; kill-both: < 1.5e-74
+last rung log10 = -68.37; gap to boundary = 4.8 decades -> NOT ADJUDICATED

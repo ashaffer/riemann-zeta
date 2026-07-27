@@ -402,3 +402,33 @@ every rung an RR upper bound, monotone nested bases, no violations):
   a 5.00 midpoint were still landing at close (runs.csv authoritative).
 - Convergence-honesty note: the interim "bias excluded" overclaim was
   corrected (SYNTHESIS.md called it; the L=4.25 staircase proved it right).
+
+
+## Day three, part 3 (July 26 night): the top target is kernel-checked
+
+Pipeline completion in ONE day for the panel's #1 target: T1(i) killed by
+counterexample (Round 2) -> restated as two-horizon T1' -> paper-proved with
+all constants explicit (results/experts/T1PRIME.md, onset gap resolved:
+bites at every window, unconditional zeta hard caps 13.1->7.7 T*) -> passed
+its first data test (eleven measured stopping heights strictly inside
+(e, e^2) T*) -> KERNEL-CHECKED: HardHorizon.hard_horizon (Theorem 1,
+staircase form, full multiplicity) + HardHorizon.zero_desert (Corollary 2,
+strictly stronger than the paper form) in lean/glide/Glide/HardHorizon.lean —
+1461 lines, 36 declarations, zero sorry, every theorem on exactly
+[propext, Classical.choice, Quot.sound] (independently re-audited by the
+coordinator). This is the program's first ANALYTIC formal theorem (mathlib's
+Jensen formula instantiated; differentiation under the integral; Holder);
+the certificate artifacts now have an analytic sibling. Formalization
+by-catch: the paper's "radius selection optional in Lean" claim was FALSE
+(Real.log junk value at boundary zeros, a < 1/2) — caught and repaired in
+session 1; an analyticOrderAt translation lemma identified as a mathlib gap
+worth upstreaming. Remaining: Corollary 1 needs RvM/S(T) in mathlib (months,
+external, exactly as the paper's gap-map priced it).
+
+Same evening, FULLINF composite (results/experts/FULLINF.md): F4 certified
+class-restricted full-infimum bound >= 1.56e-5 at L=7/4 over an
+infinite-dimensional basis-independent class (certification runs m=96/192
+in flight); F5 wall theorem — the UNRESTRICTED infimum is provably beyond
+the whole split template (a-priori regularity of near-minimizers is the
+named missing mathematics); F6 basis no-go — prolate upgrade now
+theorem-forced. DG vector-level shape test pre-registered and running.

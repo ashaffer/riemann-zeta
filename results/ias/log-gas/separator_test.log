@@ -1,0 +1,44 @@
+=== separator test; X = 59.168 / 76.392 / 101.026 ===
+SEP candidate k0=0.08 phi=0.0220: (pi2/2)J = +0.000 / -0.726 / -0.036  gates(True,False)
+SEP candidate k0=0.08 phi=3.3258: (pi2/2)J = -0.000 / +0.768 / -0.142  gates(True,False)
+SEP candidate k0=0.10 phi=2.6323: (pi2/2)J = -0.000 / +0.084 / -0.753  gates(True,False)
+SEP candidate k0=0.10 phi=5.5543: (pi2/2)J = +0.000 / -0.206 / +0.712  gates(True,False)
+SEP candidate k0=0.12 phi=1.9817: (pi2/2)J = +0.000 / -0.608 / -0.618  gates(True,False)
+SEP candidate k0=0.12 phi=4.8507: (pi2/2)J = +0.000 / +0.326 / +0.566  gates(True,False)
+NO SEP candidate passed gates -- reporting best and stopping per prereg
+=== separator test; X = 59.168 / 76.392 / 101.026 ===
+SEP candidate k0=0.08 phi=3.4069: (pi2/2)J = -0.000 / +1.558 / -0.426  gates(True,False)
+SEP candidate k0=0.08 phi=6.2224: (pi2/2)J = +0.000 / -1.389 / -0.247  gates(True,False)
+SEP candidate k0=0.10 phi=2.7419: (pi2/2)J = -0.000 / -0.090 / -1.560  gates(True,True)
+SEP candidate k0=0.10 phi=5.4548: (pi2/2)J = +0.000 / -0.496 / +1.351  gates(True,True)
+SEP CHOSEN: k0=0.10 phi=2.74188 A=1.80
+CTRL k0=0.80 phi=1.50929: (pi2/2)J = +0.000 / +0.005 / +0.009
+smooth    L=2.485 lam=2.7512367e-10 (expect 2.75124e-10)
+smooth    L=2.996 lam=3.1761017e-15 (expect 3.17610e-15)
+smooth    L=3.555 lam=1.5768508e-22 (expect 1.57685e-22)
+Traceback (most recent call last):
+  File "/home/ubuntu/Projects/Riemann-Zeta/results/ias/log-gas/separator_test.py", line 178, in <module>
+    sep_cfg = displaced(k0S, A_SEP, phiS)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/Projects/Riemann-Zeta/results/ias/log-gas/separator_test.py", line 63, in displaced
+    assert all(us[i] < us[i + 1] for i in range(len(us) - 1)), "ordering broken"
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ordering broken
+=== separator test; X = 59.168 / 76.392 / 101.026 ===
+SEP candidate k0=0.08 phi=3.4069: (pi2/2)J = -0.000 / +1.558 / -0.426  gates(True,False)
+SEP candidate k0=0.08 phi=6.2224: (pi2/2)J = +0.000 / -1.389 / -0.247  gates(True,False)
+SEP candidate k0=0.10 phi=2.7419: (pi2/2)J = -0.000 / -0.090 / -1.560  gates(True,True)
+SEP candidate k0=0.10 phi=5.4548: (pi2/2)J = +0.000 / -0.496 / +1.351  gates(True,True)
+SEP CHOSEN: k0=0.10 phi=2.74188 A=1.80
+CTRL k0=0.80 phi=1.50929: (pi2/2)J = +0.000 / +0.005 / +0.009
+smooth    L=2.485 lam=2.7512367e-10 (expect 2.75124e-10)
+smooth    L=2.996 lam=3.1761017e-15 (expect 3.17610e-15)
+smooth    L=3.555 lam=1.5768508e-22 (expect 1.57685e-22)
+  note: 1 ordering crossings; configuration sorted
+SEP        L=2.485 lam=3.757375e-10   dE= -0.312 vs (pi2/2)J= -0.000  (0s)
+SEP        L=2.996 lam=2.1084649e-16  dE= +2.712 vs (pi2/2)J= -0.090  (0s)
+SEP        L=3.555 lam=1.7101161e-22  dE= -0.081 vs (pi2/2)J= -1.560  (0s)
+CTRL       L=2.485 lam=2.5511519e-10  dE= +0.076 vs (pi2/2)J= +0.000  (0s)
+CTRL       L=2.996 lam=2.5285037e-15  dE= +0.228 vs (pi2/2)J= +0.005  (0s)
+CTRL       L=3.555 lam=8.9787527e-22  dE= -1.739 vs (pi2/2)J= +0.009  (0s)
+P-R2-C: SEP |dE(L3)-dE(L1)| = 0.231 ; CTRL = 1.815

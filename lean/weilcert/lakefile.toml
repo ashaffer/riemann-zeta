@@ -40,3 +40,6 @@ name = "CertInstance"
 
 [[lean_lib]]
 name = "CurveCertE5"
+
+[[lean_lib]]
+name = "FloorWitness"

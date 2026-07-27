@@ -1,0 +1,16 @@
+seed  1: Delta = +3.806  band dN = +0.60  (reused)
+seed  2: Delta = -1.640  band dN = -0.20  (reused)
+seed  3: Delta = +2.024  band dN = +0.40  (reused)
+seed  4: Delta = +0.165  band dN = +0.40  (6 s)
+seed  5: Delta = +1.334  band dN = +0.40  (6 s)
+seed  6: Delta = +1.721  band dN = +0.40  (6 s)
+seed  7: Delta = +4.644  band dN = +0.80  (6 s)
+seed  8: Delta = -0.867  band dN = +0.60  (6 s)
+seed  9: Delta = +1.330  band dN = +0.80  (6 s)
+seed 10: Delta = +2.402  band dN = +0.20  (6 s)
+seed 11: Delta = -0.832  band dN = -0.40  (6 s)
+seed 12: Delta = +2.717  band dN = +0.40  (6 s)
+
+n=12: median Delta = +1.528 | mean = +1.400 | spread = 6.284 | min = -1.640 max = +4.644
+sign(Delta) opposite to sign(band dN): 1 / 12
+all seeds vs poisson: min dist = 2.91 nats

@@ -759,3 +759,176 @@ censuses, x_b or "none", verdict}), plus the calibration row and the baseline ro
 Everything except the two deep re-solves is O(minutes); the verdict feeds Q1
 jointly with NA's creep-corrected fit (decision rule per synthesis Q1: bend is
 confirmed only if (a), (c) and this measurement agree).
+
+---
+
+## Round 3 — vector shape test
+
+Assignment (coordinator, 2026-07-26): execute the vector-level shape test (Round-2
+protocol Step 5.3) end to end. Context from `results/agent-deep-windows.md` (read
+first, as instructed): scalar protocol executed — convergence gates PASS through
+L = 4.75; level test excludes B_abrupt (w_E2(4.75) = 1.224 < 1.26); scalar shape
+analog (secant slopes in the p = 4.5 gauge: 12.53/12.42/12.58 vs 4π = 12.566,
+drift references 12.93–13.31) favors B_smooth at 3–6% separation with ≤ 0.5% bias
+headroom; deep rate 4π to 0.4–1.3%; onset L = 4.32. The formal B_smooth verdict
+awaits this test, since the deep runs did not store minimizer vectors.
+
+### Part A — pre-registration (committed before any curve was computed)
+
+Full pre-registration: `results/experts/dg-vectors/PREREGISTRATION.md`
+(timestamped 19:27 UTC; thresholds, estimators, reference numbers, and the
+verdict decision table are fixed there and applied verbatim below). Summary of
+what was committed in advance:
+
+- **Configurations:** (4.50, m = 160 and 144), (4.75, m = 160 and 144) at
+  dps 75/65 — the m = 144 rungs restore my Round-2 m-stability clause, which the
+  coordinator's two-configuration assignment alone cannot satisfy; null control
+  (3.555, m = 112 and 128) at dps 50/40. Two workers (core cap respected).
+- **Scope disclosure, made before the data:** the Legendre coefficient of e^{iTx}
+  is ∝ j_k(aT), which decays only past order k ≈ aT, so the node-representable
+  edge of the basis is T_edge ≈ m/a: x_edge = 0.87/0.76 at L = 4.50 (m = 160/144),
+  0.69/0.59 at L = 4.75 — the direct y(x) break window x ∈ [1.0, 1.25] is out of
+  basis reach at every affordable configuration, and a naive break found there
+  would be truncation artifact. The pre-registered discrimination therefore runs
+  through two bias-robust vector observables: **x_nodes** (the last-node height:
+  m-stable = mechanism-limited vs shifting by ln(160/144) = 0.105 =
+  truncation-tracking) and the **graded-activity ratio**
+  G = Δln λ / Δ2A(x_nodes) between the m-rungs (graded dodging active in the
+  newly resolved shell ⇒ G ≈ 1; capped/nodeless outer mechanism ⇒ G ≪ 1) — plus
+  the y(x) = x graded-line check inside the resolved zone, and the control null.
+- **Verdict rules** (C1 pipeline gate, C2 graded core β₀ ∈ [0.85, 1.15], C3
+  discriminator (m-stable early node edge OR G ≤ 0.2 at both deep L), C4 control
+  null, C5 B_abrupt exclusion): B_smooth CERTIFIED iff all five; NOT CERTIFIED if
+  C3 indeterminate; U on any gate failure or G ≥ 0.5. **Pre-committed falsifier
+  of B_smooth:** edge-tracking node zones with G ∈ [0.5, 2] at both deep L —
+  that would be drift's graded dodging still absorbing action at the graded
+  rate, reverting the deep deviations to Q1-bias territory.
+
+### Part B — execution and results
+
+**Execution.** All six decision configs + smoke ran to completion
+(`results/experts/dg-vectors/`: run_vec.py workers, vec_/env_/meta_ files, logs;
+one session interruption absorbed — all artifacts landed intact and timestamped
+before it, verified by line counts and log tails). Ordering discipline holds:
+pre-registration 19:27 UTC, amendments 1/1b 19:34–35 UTC (with `ls` proof that no
+decision envelope existed), first deep envelope 19:44:55 UTC. Smoke rung
+reproduced the certified anchor to all printed digits.
+
+**C1 (pipeline) — PASS.** Every λ reproduces runs.csv to all printed digits
+(7.92448858514e-41, 8.13421925362e-41, 1.86366090828e-47, 2.04044762883e-47,
+2.12668062431e-22); gaps λ₂/λ₁ = 1.8e3–6.0e3; ‖c‖ = 1. New rung 3.555/128 =
+2.10258824104e-22 — NOTE: 0.8% *below* the pre-registered Aitken bracket edge
+2.119e-22, the same staircase-Aitken failure mode the deep agent documented at
+L = 4.25 (monotone RR descent intact; no gate references this bracket, reported
+for the record). w_E2 reproduces the deep agent's scalar table to ±0.0003 at
+every config (1.2192/1.2243/1.1970 at 4.50/4.75/3.555).
+
+**The discriminator measurements (pre-registered estimators, frozen thresholds):**
+
+| config | λ | x_dodge | x_spacing | flag | w_E1 | w_E2 | tail16 |
+|---|---|---|---|---|---|---|---|
+| 4.50/160 | 7.9245e-41 | 0.6235 | 0.3513 | DISAGREE | 0.845 | 1.2192 | 9.0e-43 |
+| 4.50/144 | 8.1342e-41 | 0.6235 | 0.3513 | DISAGREE | 0.786 | 1.2191 | 3.5e-42 |
+| 4.75/160 | 1.8637e-47 | 0.6535 | 0.5644 | DISAGREE (0.089) | 0.843 | 1.2243 | 8.0e-49 |
+| 4.75/144 | 2.0404e-47 | 0.6345 | 0.6845 | OK | 0.857 | 1.2240 | 7.0e-46 |
+| 3.555/112 | 2.1267e-22 | 0.5955 | 0.7195 | DISAGREE | 0.819 | 1.1970 | 4.8e-25 |
+| 3.555/128 | 2.1026e-22 | 0.5955 | 0.7195 | DISAGREE | 0.819 | 1.1971 | 8.3e-25 |
+
+- **Node-edge m-shifts:** 4.50: 0.0000; 4.75: +0.0190; control: 0.0000 — against
+  the truncation-tracking prediction +0.105 (deep) / +0.134 (control). All
+  m-STABLE. Registration quality inside the dodge zone is spectacular: alignment
+  d ≤ 0.02 local spacings at both deep L through the entire prefix (control:
+  d ≤ 0.04 to x = 0.56, then gradual detachment 0.13/0.18/0.24 — a visible
+  transition zone).
+- **Graded-activity ratio:** G(4.75) = 0.0906/1.575 = **0.058** ≤ 0.2.
+  G(4.50) = 0.0261/0.000 — **undefined** (identical x_dodge at both m ⇒ 0/0).
+- **Spacing-flag diagnoses** (each break inspected against the actual zero list):
+  4.50 at x = 0.351: ΔT = 2.756 vs zero-gap 2.690 vs sinc 2.793 — the two
+  lattices are 4% apart there; the classifier lost by 0.03. Estimator power,
+  not deregistration (alignment d = 0.01–0.02 through that region). 4.75/144:
+  one SAMEZERO double-dip (two nodes registered to γ at 138.116 — a tangency).
+  Control: the classifier detached at 0.72, two gaps *after* alignment detached
+  (0.60) — transition-zone width. None of the three causes indicates the primary
+  estimator misfired; all three flags stand as frozen.
+- **y(x) and C2:** the frozen 5-maxima grouping yields n_fit = 1–3 groups in the
+  registered zone (and 0 at the control, whose oscillation spacing violates the
+  frozen span-0.12 rule) — **C2 is UNEVALUABLE as frozen** (spec starvation: the
+  Round-2 grouping was calibrated for a fit zone reaching x ≈ 1.1; the
+  registration cap shrank it to x ≤ 0.6). Post-hoc (labeled) 4-max windows:
+  y/x slides ≈ 1.1–1.4 (Airy layer, x ≈ 0.26) → 0.54 (x ≈ 0.38) → 0.2–0.6
+  (x ≈ 0.5), identical at m = 144/160; slope noise between windowings is large
+  (±0.3), but the robust cumulative version is decisive — see F3.
+
+**Formal verdict (strict application of the frozen table): B_smooth NOT
+CERTIFIED.** No gate failed; the pre-committed falsifier of B_smooth did NOT
+fire (edge-tracking with G ∈ [0.5, 2] was the kill condition; measured shifts
+0.000–0.019 vs tracking 0.105, and G = 0.058); C5 holds (w_E2(4.75) = 1.2243 <
+1.25, B_abrupt stays excluded); but certification is blocked by: (i) the frozen
+DISAGREE flags (diagnosed above, yet I may not amend thresholds post-data);
+(ii) C2's grouping starvation; and (iii) — decisive and more interesting than
+either — **the null control refuted the discriminating premise of C3 itself**:
+early, m-stable registration-termination is not a deep-L cap signature; it is
+the generic behavior at every L, including the pre-crossover control (x_dodge =
+0.5955 there, equally m-stable). The vector channel, as designed, does not
+separate drift from smooth-cap; the null check did exactly the job nulls are
+for. The bend therefore remains adjudicated by the scalar evidence (deep
+agent's secant slopes on 4π to 0.4–1.3%, drift refs 3–6% away, bias headroom
+≤ 0.5%) — which this test leaves **unopposed but uncertified**. Q1's decision
+rule (synthesis: (a) NA creep-corrected fit + (c) hp-graded run + (d) this
+measurement must agree) should replace (d)'s role with the findings below.
+
+**Findings (the vector data's actual payoff; all m-stable, all cross-checked
+at two L or more):**
+
+- **F1 — Registration terminates early and universally.** Node-to-zero locking
+  (d ≤ 0.02) holds from below T* out to x_dodge ≈ 0.60/0.62/0.65 at
+  ℓ = 1.78/2.25/2.375, then detaches to the free sinc lattice (spacing π/a).
+  x_dodge sits *below* even the m = 144 basis edge (0.76 at 4.50) with margin —
+  mechanism-limited, not basis-forced, independently of the m-comparison.
+- **F2 — The constant-action-share law.** 2A(x_dodge)/E = 0.192/0.192/0.195/
+  0.210/0.198/0.198 across all six configs: registration ends when the dodged
+  zone has delivered ≈ 20% of the exponent, at every L, both regimes. The
+  remaining ~80% of the Weil-margin exponent is carried by NODELESS suppression.
+  This is the measured resolution of my Round-1 §5 bracket tension
+  (smallness-without-vanishing wins, and not marginally), and it is the
+  structural input T5/H3's ansatz needs: canonical product over dodged zeros
+  only to ≈ 1.9T*, times a smooth corrector carrying 4/5 of the action.
+- **F3 — The E-normalized envelope profile is universal and crossover-blind.**
+  −ε(x)/E at stations x = 0.3/0.6/0.8/1.0: 0.142/0.222/0.217/0.239 (3.555),
+  0.124/0.198/0.215/0.230 (4.50), 0.115/0.198/0.213/0.221 (4.75) — one profile
+  to ±0.02·E spanning the L = 4.32 crossover. Nothing in the vector marks the
+  bend onset. (This is the strongest form of the null result: not only the
+  estimators but the entire scaled profile is L-universal.)
+- **F4 — 30% of the exponent is spent BELOW T*.** Absolute measurement from the
+  same vectors (sub-T* extension run): the minimizer's bulk sits at the lowest
+  frequencies (ln|F| = −0.8 at 0.09T*, monotone descent through −10.2 at
+  0.37T*, −28.7 at 0.80T*, L = 4.50), and ln|F(T*)|/E = 0.298/0.300/0.302 at
+  the three L. The floor sits at (pre-T* drop) + (relative floor) = E/2 + 3±1
+  nats at all three L — exactly the per-sample frame scale, closing the
+  bookkeeping. Consequence: the turning-point picture "flat well to T*, Agmon
+  descent after" is quantitatively wrong for the true minimizer — 60% of the
+  total drop happens before T* (the Landau-type transition band opens an octave
+  below the Nyquist crossing, where between-zero recovery room starts closing).
+- **F5 — Two self-corrections owed by this seat.** (i) My Round-1 P1 claim
+  ("envelope follows the excess-area action, 8% at 2T*") was a shallow-L
+  accident: at L = 4.50 the measured drop at 2T* is 1.7× the graded area, at
+  x = 0.3 it is 7× — the pointwise Agmon-area envelope is refuted at depth;
+  only the *integral* bookkeeping (w_E2) survives. (ii) The Round-1 node-census
+  "type-budget saturation" conflated registered and free sinc nodes; with the
+  registration lens the budget is NOT saturated — T1(ii)'s node-count clause
+  should be restated registration-aware (HA notified via this report).
+
+**Recommendations.** (1) Retire the vector shape test as a bend adjudicator;
+the bend rests on Q1(a)+(c) plus the scalar slopes. (2) The new discriminating
+object this data suggests: the sub-T* profile share (F4's 0.30·E) and the
+dodge share (F2's 0.20·E) as functions of L at higher precision — if the 4π
+cap has a mechanism signature anywhere in the vector, it is a drift in these
+shares past L ≈ 4.3, currently bounded by ±0.02. (3) Certify one deep vector
+rung (4.50/160) by interval Rayleigh to convert F1–F2 into certified
+statements (CO/NA machinery, minutes). (4) C3-composite (capacity endpoint in
+the de Branges chain) gains a measured target: the registration endpoint
+e^{0.62}T* ≈ 1.87T* and its 20% share are now the quantities HA's H1(ii)/T1(ii)
+effective-horizon analysis must reproduce — note 1.87T* is well inside eT*,
+so the capacity endpoint is an upper horizon, not the registration endpoint.
+All data, scripts, logs, and the frozen pre-registration with its two
+timestamped amendments: `results/experts/dg-vectors/`.

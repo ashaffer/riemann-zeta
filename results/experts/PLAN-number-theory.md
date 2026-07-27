@@ -674,3 +674,27 @@ of RH in history that owes nothing to Riemann–Siegel. If that lands, my
 verdict becomes "explains everything, proves the perimeter, and has drawn
 first blood on the gate." If it cannot be made to land, the Round-1 closing
 sentence stands verbatim.
+
+---
+
+## Round 3 — status: the full-infimum composite (see results/experts/FULLINF.md)
+
+Assignment executed; outcome three-part, all constants verified by script.
+(1) **Delivered**: Theorem F4 — certified lower bound for Q_L over an
+infinite-dimensional frequency-tail class 𝒞(R, τ̄), from any certified
+Legendre–Galerkin rung; at (L, m) = (7/4, 192) the bound is ≥ 1.56e−5 with a
+class covering Gaussian packets to height ≈ 40 (first six zeros), pending one
+standard certified interval run (hours-scale; queued, not run — 2-worker cap).
+The m = 96 variant (minutes-scale run) already covers γ₁. Composition with
+NT-4(i) gives the first Riemann–Siegel-free zero-exclusion pipeline; region
+tiny, kind new. (2) **Wall theorem (F5)**: the UNRESTRICTED infimum is
+unreachable by any subspace-plus-tail template — the form's own coercivity is
+logarithmic (Lemma A sharp), forcing split-errors ≥ ~2.8 at every dimension,
+five orders above every margin. The missing mathematics is an a-priori
+regularity theorem for near-minimizers of Q_L; stated precisely in FULLINF
+§10. (3) **Basis no-go (F6)**: polynomial subspaces suffer a quantified
+capture-vs-content conflict (√T₂ grows like √m: 406 → 777 across m = 96 →
+256); truncated-prolate bases remove it by construction — M1's prolate clause
+is now forced by theorem, not preference. New measured points: λ(7/4, 64) =
+3.1415961e−5; boundary-flat class minima within 0.04% of unrestricted
+(q = 1,2,3,5 windows); m = 48 regression exact vs RESULTS.md.
