@@ -1,0 +1,21 @@
+name = "rhbridge"
+version = "0.1.0"
+keywords = ["math"]
+defaultTargets = ["RHBridge"]
+
+[leanOptions]
+pp.unicode.fun = true
+relaxedAutoImplicit = false
+weak.linter.mathlibStandardSet = true
+maxSynthPendingDepth = 3
+
+[[require]]
+name = "glide"
+path = "../glide"
+
+[[require]]
+name = "weilcert"
+path = "../weilcert"
+
+[[lean_lib]]
+name = "RHBridge"

@@ -1,7 +1,7 @@
 name = "weilcert"
 version = "0.1.0"
 keywords = ["math"]
-defaultTargets = ["Weilcert"]
+defaultTargets = ["Weilcert", "CertFramework", "FullInfTransfer", "LegendreTail", "LegendrePlaneWave", "LegendreRodrigues", "LegendreOrthogonality", "LegendreCoefficientTail", "LegendreScaled", "HilbertBasisTail", "LegendreL2", "LegendreScaledL2", "LegendreParityCoordinates", "LegendrePlaneWaveL2", "IntervalFourierL2", "IntervalZeroExtension", "LegendrePlaneWaveBand", "FullInfLegendreLedger", "FullInfFourierBridge", "PoleProjectionL2", "FullInfAnalyticLedger", "FullInfOperatorLedger", "BandOperatorBilinear", "BoundedSymbolMultiplier", "SymbolQuadraticComparison", "FullInfP2Endpoint", "FullInfP2CanonicalEndpoint", "FullInfClipped48", "FullInfClipped48Real", "FullInfClipped48Transfer"]
 
 [leanOptions]
 pp.unicode.fun = true # pretty-prints `fun a ↦ b`
@@ -43,3 +43,87 @@ name = "CurveCertE5"
 
 [[lean_lib]]
 name = "FloorWitness"
+
+[[lean_lib]]
+name = "FullInfTransfer"
+
+[[lean_lib]]
+name = "LegendreTail"
+
+[[lean_lib]]
+name = "LegendrePlaneWave"
+
+[[lean_lib]]
+name = "LegendreRodrigues"
+
+[[lean_lib]]
+name = "LegendreOrthogonality"
+
+[[lean_lib]]
+name = "LegendreCoefficientTail"
+
+[[lean_lib]]
+name = "LegendreScaled"
+
+[[lean_lib]]
+name = "HilbertBasisTail"
+
+[[lean_lib]]
+name = "LegendreL2"
+
+[[lean_lib]]
+name = "LegendreScaledL2"
+
+[[lean_lib]]
+name = "LegendreParityCoordinates"
+
+[[lean_lib]]
+name = "LegendrePlaneWaveL2"
+
+[[lean_lib]]
+name = "IntervalFourierL2"
+
+[[lean_lib]]
+name = "IntervalZeroExtension"
+
+[[lean_lib]]
+name = "LegendrePlaneWaveBand"
+
+[[lean_lib]]
+name = "FullInfLegendreLedger"
+
+[[lean_lib]]
+name = "FullInfFourierBridge"
+
+[[lean_lib]]
+name = "PoleProjectionL2"
+
+[[lean_lib]]
+name = "FullInfAnalyticLedger"
+
+[[lean_lib]]
+name = "FullInfOperatorLedger"
+
+[[lean_lib]]
+name = "BandOperatorBilinear"
+
+[[lean_lib]]
+name = "BoundedSymbolMultiplier"
+
+[[lean_lib]]
+name = "SymbolQuadraticComparison"
+
+[[lean_lib]]
+name = "FullInfP2Endpoint"
+
+[[lean_lib]]
+name = "FullInfP2CanonicalEndpoint"
+
+[[lean_lib]]
+name = "FullInfClipped48"
+
+[[lean_lib]]
+name = "FullInfClipped48Real"
+
+[[lean_lib]]
+name = "FullInfClipped48Transfer"

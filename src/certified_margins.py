@@ -1,7 +1,8 @@
-"""certified_margins.py — rigorous two-sided enclosures for the margin ladder (M1).
+"""certified_margins.py — software interval enclosures for finite Galerkin minima.
 
-Everything hp_margins.py estimates, this module CERTIFIES, in interval arithmetic
-(mpmath.iv, 220-bit endpoints), with no unverified quadrature anywhere:
+The calculations use mpmath.iv with 220-bit endpoints and no numerical
+quadrature.  They certify finite matrix inequalities conditional on the stated
+software trust base; they do not lower-bound the full Weil-form infimum:
 
   archimedean diagonals: the x-space kernel integral is evaluated in closed form.
     On each integer piece of the hat autocorrelation, the bracket
@@ -18,7 +19,7 @@ Everything hp_margins.py estimates, this module CERTIFIES, in interval arithmeti
   lower bound: interval Cholesky of Q - beta G.  If every pivot interval is
     strictly positive, EVERY real symmetric matrix inside the interval family is
     positive definite (standard verified linear algebra), hence
-    lam_min(Q, G) > beta for the true matrices — a certificate.
+    lam_m(Q, G) > beta for the true finite matrices — a certificate.
   upper bound: interval Rayleigh quotient of a (rationalized) approximate
     minimizer — valid for any test vector.
 
@@ -28,14 +29,13 @@ produce enclosures.  No floats, no Simpson, no unverified series anywhere else.
 EXPECTED (measured July 25, 2026, this machine):
   sanity: iv arch diagonals contain hp_margins' values at every k tested,
     enclosure widths 1.2e-64 / 2.1e-65 / 1.9e-65 / 1.1e-63 (k = 0/1/7/25)
-  zeta, L = 7/4,     m = 41: CERTIFIED 3.77497970e-05 < lam_min <= 3.77497984e-05
-  zeta, L = 219/100, m = 41: CERTIFIED 1.43609370e-06 < lam_min <= 1.43609382e-06
-  zeta, L = 497/200, m = 41: CERTIFIED 1.39740560e-06 < lam_min <= 1.39740567e-06
+  zeta, L = 7/4,     m = 41: CERTIFIED 3.77497970e-05 < lam_m <= 3.77497984e-05
+  zeta, L = 219/100, m = 41: CERTIFIED 1.43609370e-06 < lam_m <= 1.43609382e-06
+  zeta, L = 497/200, m = 41: CERTIFIED 1.39740560e-06 < lam_m <= 1.39740567e-06
   chi_{-7} (q = 7, odd), L = 101/25, m = 41, full prime set:
-                             CERTIFIED 1.57558810e-03 < lam_min <= 1.57558821e-03
-  (the first interval-certified window positivity margins of the program —
-   M1's first rungs — including the first certified FAMILY window; each runs
-   in ~4 s.  Enclosure relative widths ~4e-8, limited only by the chosen beta.)
+                             CERTIFIED 1.57558810e-03 < lam_m <= 1.57558821e-03
+  (finite hat-space eigenvalue enclosures; each runs in ~4 s. Enclosure
+   relative widths ~4e-8, limited only by the chosen beta.)
 """
 from fractions import Fraction
 import mpmath as mp
@@ -166,7 +166,12 @@ def g_series(N, s_num, s_den):
             if i + j2 <= N + 1:
                 c[i + j2] += a * b
     g = [c[j + 1] / 2 for j in range(N + 1)]
-    Cbound = 4 * mp.e ** (float(2 - s) * mp.pi)      # |c_j| <= Cbound / pi^j
+    # For s in {1/2, 3/2}, the Cauchy bound
+    #   |c_j| <= 4 exp((2-s) pi) / pi^j
+    # is strictly below the exact rational majorant 500 / pi^j.  Keep the
+    # majorant exact: converting an ordinary-mp approximation into an interval
+    # would not make the original approximation rigorous.
+    Cbound = Fraction(500)
     _GCACHE[key] = (g, Cbound)
     return _GCACHE[key]
 
@@ -226,6 +231,8 @@ def arch_diag_iv(k, d, parity='even', N=90):
             dr *= d
         # remainder: |g_r| <= Cb/(2 pi^{r+1}); u <= (j+1) d
         umax = F2iv((j + 1) * d)
+        if not umax < iv.pi:
+            raise ValueError("kernel series requires umax < pi")
         ratio = umax / iv.pi
         rN = F2iv(Cb) / (2 * iv.pi) * ratio ** (N + 1) / (1 - ratio)
         qmax = abs(peval_iv(qm, iv.mpf([j, j + 1])))
@@ -275,8 +282,13 @@ def certified_form(L, m, q=1, D=1, parity='even', prime_set=None, zeta_pole=True
         if p not in prime_set:
             continue
         lniv = iv.log(iv.mpf(nn))
-        if not 2 * mp.mpf(lniv.b) < float(L):
+        cutoff = F2iv(L / 2)
+        if lniv < cutoff:
+            pass
+        elif lniv > cutoff:
             continue
+        else:
+            raise ValueError("prime-power support decision is interval-indeterminate")
         c = 1 if q == 1 else kron(D, nn)
         if not c:
             continue
@@ -321,7 +333,7 @@ def iv_cholesky_pd(M):
 
 
 def certify(L, m, beta, q=1, D=1, parity='even', prime_set=None, ray_vec=None):
-    """Certificate lam_min(Q, G) > beta, plus interval Rayleigh upper bound."""
+    """Certificate lam_m(Q, G) > beta, plus interval Rayleigh upper bound."""
     L = Fraction(L)
     beta = Fraction(beta)
     Q, G = certified_form(L, m, q=q, D=D, parity=parity, prime_set=prime_set)
@@ -378,6 +390,6 @@ if __name__ == "__main__":
                              ray_vec=[float(x) for x in vecs[0]])
             if ok:
                 break
-        print("%s m=%d: CERTIFIED %.8e < lam_min <= %.8e (%s)  (%.0f s)"
+        print("%s m=%d: CERTIFIED %.8e < lam_m <= %.8e (%s)  (%.0f s)"
               % (tag, m, float(beta), float(ub.b),
                  "tight" if beta == betas[0] else "fallback", time.time() - t0))

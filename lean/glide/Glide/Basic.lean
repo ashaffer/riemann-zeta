@@ -11,11 +11,11 @@ Main results (all sorry-free):
         ≤ ∫ t in Ioi 0, exp (-(1/4)*t) * ((1 - cos ((r/2)*t)) / (1 - exp (-t)))
         ≤ (1/2) * log (1 + 4r²) + 8.
 
-By Gauss's digamma integral (not yet in mathlib), the sandwiched quantity equals
+By Gauss's digamma integral, the sandwiched quantity equals
 Re (digamma (1/4 + I*r/2)) - digamma (1/4); these are Lemma A(ii)/(iv) of
-THEOREMS.md — the coercivity engine of the Glide Theorem for the truncated Weil
-form. Connecting to Mathlib's `Complex.digamma` via Gauss's formula is the
-delimited next step (see RH-LEMMA-MAP.md).
+THEOREMS.md.  Mathlib still lacks that integral identity, but the downstream
+`GammaUniform`/`DigammaSeries` route now proves the derivative and monotonicity
+needed by the p=2 endpoint directly from Euler's Gamma sequence.
 -/
 import Mathlib
 

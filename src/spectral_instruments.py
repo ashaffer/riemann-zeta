@@ -8,7 +8,8 @@ EXPECTED (July 26, 2026):
   equal-loudness (pole-subtracted): line heights ~ log X, all lines equal;
     at X = 1e6: 13.79/13.26/13.08/12.90/13.13 vs log X = 13.82; off-res floor ~0.8
   rogue scan t in [10,300], X = 1e5 -> 1e6: 138 lines vs ~139 zeros,
-    growth ratios 1.209 +/- 0.133 vs RH prediction 1.200, max 1.526 (beta < 0.604)
+    growth ratios 1.209 +/- 0.133 vs RH prediction 1.200, max 1.526.
+    This finite-X statistic is a diagnostic, not a rigorous bound on beta.
   Davenport-Heilbronn off-line zero: rho = 0.808517182457 + 85.6993484854i
 """
 import numpy as np

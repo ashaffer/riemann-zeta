@@ -13,6 +13,12 @@ argument so that a future window certificate has to supply *only data*:
                       inverse identity  Wi · W = f · 1  (f ≠ 0),
   * `ldl_quad_pos`  — strict positivity of the quadratic form from the
                       integer congruence certificate,
+  * `two_by_two_strict_lower_bound` — the scalar Schur-complement step used
+                      to combine a finite block with its orthogonal complement,
+  * `hilbert_two_block_strict_lower_bound` — the same transfer for an
+                      orthogonal decomposition in a real inner-product space,
+  * `hilbert_two_block_strict_lower_bound` — the corresponding transfer from
+                      orthogonal vectors to the full quadratic-form estimate,
   * `cert_window_positive` — the full window theorem: every matrix M
                       entrywise within δ of A/scale has 0 < xᵀ M x for all
                       x ≠ 0, provided n · (scale · δ) ≤ s and
@@ -187,6 +193,143 @@ theorem ldl_quad_pos (A W Wi : Matrix (Fin n) (Fin n) K) (g : Fin n → K)
       positivity
   have hc2 : (0 : K) < c ^ 2 := by positivity
   nlinarith [hquad, hpos, hc2]
+
+/-! ## Two-by-two block positivity -/
+
+/-- **Strict Schur-complement criterion for a two-by-two quadratic form.**
+
+If both diagonal entries lie strictly above `γ` and the shifted determinant
+is positive, then the quadratic form with off-diagonal entry `-c` is strictly
+larger than `γ` times the Euclidean norm on every nonzero pair.  This is the
+scalar algebra used in the finite/complement block step of the unrestricted
+`FULLINF` certificate. -/
+theorem two_by_two_strict_lower_bound (beta d c gamma x y : K)
+    (hbeta : gamma < beta) (hd : gamma < d)
+    (hdet : c ^ 2 < (beta - gamma) * (d - gamma))
+    (hxy : (x, y) ≠ (0, 0)) :
+    gamma * (x ^ 2 + y ^ 2)
+      < beta * x ^ 2 + d * y ^ 2 - 2 * c * x * y := by
+  have hB : 0 < beta - gamma := sub_pos.mpr hbeta
+  have hD : 0 < d - gamma := sub_pos.mpr hd
+  have hq : 0 <
+      (beta - gamma) * x ^ 2 + (d - gamma) * y ^ 2 - 2 * c * x * y := by
+    by_cases hy : y = 0
+    · have hx : x ≠ 0 := by
+        intro hx
+        apply hxy
+        simp [hx, hy]
+      simp only [hy, ne_eq, OfNat.ofNat_ne_zero, not_false_eq_true, zero_pow,
+        mul_zero, add_zero, sub_zero]
+      exact mul_pos hB (sq_pos_of_ne_zero hx)
+    · by_cases hx : x = 0
+      · simp only [hx, ne_eq, OfNat.ofNat_ne_zero, not_false_eq_true, zero_pow,
+          mul_zero, zero_mul, zero_add, sub_zero]
+        exact mul_pos hD (sq_pos_of_ne_zero hy)
+      · have hdet' : 0 < (beta - gamma) * (d - gamma) - c ^ 2 :=
+          sub_pos.mpr hdet
+        have hrhs : 0 < ((beta - gamma) * x - c * y) ^ 2
+            + ((beta - gamma) * (d - gamma) - c ^ 2) * y ^ 2 :=
+          add_pos_of_nonneg_of_pos (sq_nonneg _)
+            (mul_pos hdet' (sq_pos_of_ne_zero hy))
+        have hid :
+            (beta - gamma) *
+                ((beta - gamma) * x ^ 2 + (d - gamma) * y ^ 2 - 2 * c * x * y)
+              = ((beta - gamma) * x - c * y) ^ 2
+                + ((beta - gamma) * (d - gamma) - c ^ 2) * y ^ 2 := by
+          ring
+        have hmul : 0 < (beta - gamma) *
+            ((beta - gamma) * x ^ 2 + (d - gamma) * y ^ 2 - 2 * c * x * y) := by
+          rw [hid]
+          exact hrhs
+        exact ((mul_pos_iff.mp hmul).resolve_right
+          (fun hneg => not_lt_of_ge hB.le hneg.1)).2
+  have hshift :
+      (beta * x ^ 2 + d * y ^ 2 - 2 * c * x * y)
+          - gamma * (x ^ 2 + y ^ 2)
+        = (beta - gamma) * x ^ 2 + (d - gamma) * y ^ 2 - 2 * c * x * y := by
+    ring
+  apply sub_pos.mp
+  rw [hshift]
+  exact hq
+
+section RealInnerProductSpace
+
+open scoped InnerProductSpace
+
+variable {H : Type*} [NormedAddCommGroup H] [InnerProductSpace ℝ H]
+
+/-- **F8 two-block transfer on a real inner-product space.**
+
+Suppose `u` and `w` are orthogonal and a real-valued quadratic-form expression
+at `u + w` has the displayed two-block lower estimate.  The strict scalar
+Schur-complement conditions then give a strict lower bound by
+`gamma * ‖u + w‖²` whenever the sum is nonzero.  No completeness assumption is
+used, so the result applies in particular to every real Hilbert space. -/
+theorem hilbert_two_block_strict_lower_bound
+    (q : H → ℝ) (beta d c gamma : ℝ) (u w : H)
+    (horth : ⟪u, w⟫_ℝ = 0)
+    (hlower : beta * ‖u‖ ^ 2 + d * ‖w‖ ^ 2 - 2 * c * ‖u‖ * ‖w‖ ≤ q (u + w))
+    (hbeta : gamma < beta) (hd : gamma < d)
+    (hdet : c ^ 2 < (beta - gamma) * (d - gamma))
+    (hsum : u + w ≠ 0) :
+    gamma * ‖u + w‖ ^ 2 < q (u + w) := by
+  have hnorms : (‖u‖, ‖w‖) ≠ (0, 0) := by
+    intro h
+    have hu_norm : ‖u‖ = 0 := by
+      simpa using congrArg Prod.fst h
+    have hw_norm : ‖w‖ = 0 := by
+      simpa using congrArg Prod.snd h
+    have hu : u = 0 := norm_eq_zero.mp hu_norm
+    have hw : w = 0 := norm_eq_zero.mp hw_norm
+    exact hsum (by simp [hu, hw])
+  have hscalar := two_by_two_strict_lower_bound beta d c gamma ‖u‖ ‖w‖
+    hbeta hd hdet hnorms
+  have hpyth : ‖u + w‖ ^ 2 = ‖u‖ ^ 2 + ‖w‖ ^ 2 := by
+    simpa [horth] using norm_add_sq_real u w
+  rw [hpyth]
+  exact hscalar.trans_le hlower
+
+end RealInnerProductSpace
+
+/-! ### Exact scalar instances used by the unrestricted FULLINF ledgers -/
+
+/-- The strict two-block estimate for the `p = 2` FULLINF ledger.  All
+displayed decimal bounds in the analytic certificate have been rounded inward
+to the exact rational coefficients used here. -/
+theorem fullinf_p2_block_lower_bound (x y : ℝ) (hxy : (x, y) ≠ (0, 0)) :
+    (22699 / 10 ^ 9) * (x ^ 2 + y ^ 2)
+      < (227 / 10 ^ 7) * x ^ 2 + (1093 / 1000) * y ^ 2
+        - 2 * (212 / 10 ^ 12) * x * y := by
+  apply two_by_two_strict_lower_bound
+  · norm_num
+  · norm_num
+  · norm_num
+  · exact hxy
+
+/-- The strict two-block estimate for the `p = 3` FULLINF ledger, with exact
+rational coefficients rounded inward from its Arb certificate. -/
+theorem fullinf_p3_block_lower_bound (x y : ℝ) (hxy : (x, y) ≠ (0, 0)) :
+    (999 / 10 ^ 13) * (x ^ 2 + y ^ 2)
+      < (1 / 10 ^ 10) * x ^ 2 + (161 / 1000) * y ^ 2
+        - 2 * (721 / 10 ^ 13) * x * y := by
+  apply two_by_two_strict_lower_bound
+  · norm_num
+  · norm_num
+  · norm_num
+  · exact hxy
+
+/-- The strict two-block estimate for the certified scalar `n = 4` FULLINF ledger.
+This theorem certifies only the scalar Schur-complement arithmetic; the
+analytic and finite-matrix premises remain separate certificate obligations. -/
+theorem fullinf_n4_block_lower_bound (x y : ℝ) (hxy : (x, y) ≠ (0, 0)) :
+    (99 / 10 ^ 17) * (x ^ 2 + y ^ 2)
+      < (1 / 10 ^ 15) * x ^ 2 + (289 / 1000) * y ^ 2
+        - 2 * (106 / 10 ^ 11) * x * y := by
+  apply two_by_two_strict_lower_bound
+  · norm_num
+  · norm_num
+  · norm_num
+  · exact hxy
 
 /-! ## The generic window theorem -/
 

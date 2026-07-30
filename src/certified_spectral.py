@@ -1,8 +1,8 @@
-"""certified_spectral.py — interval certificates in the spectral (Legendre) basis.
+"""certified_spectral.py — software interval enclosures in a Legendre basis.
 
-certified_margins.py certifies the HAT-basis ladder; this module certifies the
-SPECTRAL ladder of spectral_margins.py — the one that reaches the operator-level
-margins — with the same trust base (mpmath.iv enclosures, 220-bit endpoints).
+This module encloses finite SPECTRAL Galerkin matrices with the same stated
+trust base as certified_margins.py (mpmath.iv, 220-bit endpoints). These values
+are Rayleigh–Ritz upper bounds on the full infimum, not operator-level margins.
 
 Structure.  Work in the UNNORMALIZED Legendre basis b_k(x) = P_k(x/a), a = L/4
 rational: the Gram matrix is exactly diag(2a/(2k+1)) (rational), and the shifted
@@ -32,16 +32,14 @@ that spectral_margins computes in the orthonormal basis.
 EXPECTED (measured July 25, 2026, this machine):
   F-polynomial cross-check vs the GL overlap engine: exact agreement (0.0)
   zeta, L = 497/200, spectral m = 24:
-      CERTIFIED 3.86870000e-10 < lam_min <= 3.86881560e-10   (18 s)
+      CERTIFIED 3.86870000e-10 < lam_m <= 3.86881560e-10   (18 s)
   zeta, L = 749/250,  spectral m = 48:
-      CERTIFIED 4.34600000e-15 < lam_min <= 4.34621580e-15   (86 s)
+      CERTIFIED 4.34600000e-15 < lam_m <= 4.34621580e-15   (86 s)
   zeta, L = 711/200,  spectral m = 40:
-      CERTIFIED 1.79970000e-20 < lam_min <= 1.79972291e-20   (33 s)
-  (interval-certified positivity of the truncated Weil form at the 1e-10,
-   1e-15, and 1e-20 scales — the deep end of the measured f(p) ladder; with
-   certified_margins.py the certified ladder spans 3.8e-5 down to 1.8e-20,
-   fifteen orders of magnitude.  The certified values are Galerkin minima,
-   hence upper bounds on the operator margins of PROGRAM.md 2.15's law.
+      CERTIFIED 1.79970000e-20 < lam_m <= 1.79972291e-20   (33 s)
+  (software-enclosed positivity of the listed finite Legendre matrices; with
+   certified_margins.py the finite ladder spans 3.8e-5 down to 1.8e-20.
+   The values are Galerkin minima and hence upper bounds on the full infimum.
    Development note: an off-by-one power ladder in the H coefficients was
    caught before any claim by the interval Rayleigh check returning an
    impossible negative upper bound — the layered discipline at work.)
@@ -172,11 +170,17 @@ def certified_spectral_form(L, m, q=1, D=1, parity='even', N=400):
     G = [two_a / (2 * k + 1) for k in range(m)]
     # prime data
     pr = []
+    cutoff = F2iv(L / 2)
     for nn, p in PRIME_POWERS:
         c = 1 if q == 1 else kron(D, nn)
-        if c and mp.log(nn) < float(L) / 2:
+        if not c:
+            continue
+        lniv = iv.log(iv.mpf(nn))
+        if lniv < cutoff:
             w = 2 * iv.log(iv.mpf(p)) * c / iv.sqrt(iv.mpf(nn))
-            pr.append((iv.log(iv.mpf(nn)) / F2iv(a), w))
+            pr.append((lniv / F2iv(a), w))
+        elif not lniv > cutoff:
+            raise ValueError("prime-power support decision is interval-indeterminate")
     Q = [[iv.mpf(0)] * m for _ in range(m)]
     for k in range(m):
         for j in range(k, m):
@@ -266,5 +270,5 @@ if __name__ == "__main__":
         ray = [float(vecs[0][kk]) * (float(mp.sqrt((2 * kk + 1) / (2 * aa))))
                for kk in range(m_)]
         ok, ub = certify_spectral(Lc, m_, beta, ray_vec=ray)
-        print("%s: CERTIFIED %.8e < lam_min <= %.8e : %s  (%.0f s)"
+        print("%s: CERTIFIED %.8e < lam_m <= %.8e : %s  (%.0f s)"
               % (tag, float(beta), float(ub.b), ok, time.time() - t0))

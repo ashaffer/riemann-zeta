@@ -4,6 +4,11 @@
 instrumented research program in this repository (see `README.md`, `PROGRAM.md`).
 Contact: [to be filled by the repository owner].
 
+**Audit warning (2026-07-27): do not distribute this draft without a full notation
+rewrite.** Its plots and numerical values are finite Galerkin quantities λ_m. Any
+use of λ_min below is an empirical extrapolation unless an analytic theorem is
+explicitly cited; see `results/CODEX-REVIEW.md`.
+
 ## Summary
 
 Let Q_L denote the Weil quadratic form of ζ (pole + archimedean − prime-power
@@ -11,13 +16,23 @@ terms, in the normalization of the certified ledger in `PROGRAM.md` §6, equal
 under RH to 2Σ_{γ>0}|φ̂(γ)|²) restricted to real test functions φ supported in
 [−L/4, L/4], with the prime sum truncated at e^{L/2} — on such φ the truncation
 is exact, so positivity of Q_L for all L is Weil's criterion. Write λ_min(L) for
-the infimum of Q_L(φ)/‖φ‖₂², i.e. the lower frame bound of the exponential
-system at the zero ordinates over an interval of length L/2.
+the infimum of Q_L(φ)/‖φ‖₂². Under RH it is the lower frame bound of the
+exponential system at the zero ordinates over an interval of length L/2.
 
-Computing λ_min(L) in a spectral (Legendre) Galerkin basis in extended precision
+Computing finite-dimensional Galerkin minima λ_m(L) in a spectral (Legendre)
+basis in extended precision
 — with the archimedean term evaluated by an exact x-space kernel rather than
 numerical quadrature in r — we measure, across the support windows of the prime
 powers 2, 3, 4, 5, 7 and twenty-five orders of magnitude:
+
+The directly computed objects are λ_m(L), and Rayleigh–Ritz gives
+λ_min(L) ≤ λ_m(L). Formulas below written with λ_min are empirical
+extrapolations of descending finite-basis ladders, not certified full-space
+values or lower bounds. A separate clipped-symbol certificate now proves the
+full-space lower bounds λ_min(7/4)>2.2699×10⁻⁵,
+λ_min(497/200)>9.99×10⁻¹¹, and
+λ_min(749/250)>9.9×10⁻¹⁶. By support monotonicity these prove positivity
+through L=749/250, but they do not validate the fitted envelope later.
 
 1. **A smooth envelope law.** With T*(L) = 2πe^{L/2} (the height at which the
    zero-counting density reaches the Nyquist density of the support),
@@ -30,12 +45,13 @@ powers 2, 3, 4, 5, 7 and twenty-five orders of magnitude:
    1.3e−30, logged before the deep runs; measured upper bound 2.79e−30, still
    descending toward it).
 
-2. **No knife-edge at prime-power thresholds.** At operator level the margin
-   does **not** collapse as L ↑ 2 log 3: the spectral values flatten to
+2. **No numerically resolved knife-edge at prime-power thresholds.** The best
+resolved Galerkin data do **not** collapse as L ↑ 2 log 3: the spectral values flatten to
    ≈ 5.77e−8 (basis drift 0.35% between m = 48 and 64), on the envelope law.
    The "zero-slack at thresholds, λ ∝ d^κ" phenomenology previously measured in
    a hat (P1 finite-element) basis — including by us — is the hat basis's own
-   convergence transient, not a property of the form. A fine grid across the
+   convergence transient rather than operator behavior, within the resolution
+   of the present basis ladders. A fine grid across the
    threshold makes this vivid: L = 2log3 − 0.001 → +0.001 moves the margin
    5.638e−8 → 5.486e−8, ratio 0.973 measured against 0.968 from the law's local
    slope — the margin *glides* through the prime's arrival. The deficit/rescue
@@ -43,27 +59,20 @@ powers 2, 3, 4, 5, 7 and twenty-five orders of magnitude:
    newest prime restores positivity) is untouched; what dissolves is the local
    knife-edge picture of the full form's margin.
 
-2b. **The law is density, not arithmetic — and the zeros are maximally rigid.**
-   Since the form equals the frame form of exponentials at the zero ordinates,
-   we recomputed the frame bound with the ordinates replaced by (i) the smooth
-   Riemann–von Mangoldt staircase N(γ_k) = k − 1/2 (correct density, perfectly
-   rigid, no arithmetic) and (ii) Poisson arrivals through the same density.
-   At equal truncation (Γ_cut = 420, m = 48): true / smooth / Poisson =
-   2.690e−10 / 2.751e−10 / 2.90e−12 at L = 2.485; 2.714e−15 / 3.176e−15 /
-   2.97e−17 at L = 2.996; 9.91e−22 / 1.58e−22 / 8.95e−23 at L = 3.555. The
-   smooth staircase matches the true zeros within truncation uncertainty; the
-   Poisson model costs 1.5–2 orders; all three share the decay slope. So the
-   envelope's decay constant is a functional of the counting function alone
-   (prolate/Landau–Widom territory), local statistics enter only the offset,
-   and the true zeros sit at the maximally-rigid offset — at frame-bound level
-   the zeta zeros behave like a perfectly rigid sequence.
-   [Update, July 26 IAS panel: the "Poisson costs 1.5–2 orders" figure is a
-   one-seed number of which roughly half is that seed's realized charge
-   (worth-weighted deficiency); at Poisson amplitude no affine law exists
-   (extreme-value crossover past sup|δN| ≈ 2). A charge-matched rerun
-   protocol, jointly pre-registered by two seats, is in
-   results/ias/IAS-SYNTHESIS.md §7; this claim should be quoted with the
-   decomposition until that rerun replaces it.]
+2b. **The density/rigidity inference is withdrawn after a phase audit.**
+   The original RH-conditional model compared the smooth staircase
+   N(γ_k)=k−1/2 with one Poisson seed mapped by N(γ_k)=P_k. It reported a
+   1.5–2-order Poisson penalty. The nominal Γ_cut=420 run was also silently
+   capped at 180 points, rather than the roughly 215 smooth-model points below
+   the cutoff. With cutoff-safe generation, the seed-7 phase-matched minima are
+   1.890e−10 / 3.742e−15 / 1.789e−20 at L=2.485 / 2.996 / 3.555, versus
+   3.043e−12 / 3.161e−17 / 9.587e−23 in the legacy phase. A 13-seed accepted
+   phase-matched ensemble is even less stable: log10(Poisson/smooth) ranges
+   from −7.782 to +4.765 at L=2.485 and −5.668 to +6.291 at L=2.996.
+   The former “density, not arithmetic” and “maximally rigid” conclusions are
+   unsupported. Count fluctuations and extreme gaps dominate this finite
+   experiment; a sharper comparison must also match total count or weighted
+   charge and carry finite-section error bounds.
 
 3. **Conductor universality.** For real primitive Dirichlet characters the same
    measurement (pole-free, ψ((1±1)/4… per parity, conductor term log(q/π))
@@ -72,7 +81,8 @@ powers 2, 3, 4, 5, 7 and twenty-five orders of magnitude:
    measured d ln λ / d(e^{L/2}/q) ≈ −11.2…−12.3 for q = 3, 5, 7 (both parities)
    against −10.7…−11.6 for ζ — the same constant within current convergence
    bias, which is one-sided (all deep values are Rayleigh–Ritz upper bounds).
-   Conductor, parity, and the pole appear only in the offset, not the rate.
+   The data are consistent with conductor, parity, and the pole affecting mainly
+   the offset; the tested finite ladders do not prove universality of the rate.
 
 4. **Certified rungs.** The measurements are backed by interval-arithmetic
    certificates (exact-rational basis integrals; Bernoulli-series kernel with
@@ -85,8 +95,14 @@ powers 2, 3, 4, 5, 7 and twenty-five orders of magnitude:
    ζ, L = 711/200, Legendre m = 40: (1.79970e−20, 1.79972291e−20];
    χ₋₇, L = 101/25, hat m = 41: (1.57558810e−3, 1.57558821e−3];
    χ₋₇, L = 5, Legendre m = 40: (7.56900e−7, 7.56991097e−7] —
-   certified positivity of truncated Weil forms across fifteen orders of
-   magnitude, including two family windows.
+   software-certified positivity of these finite Galerkin matrices across
+   fifteen orders of magnitude, including two family matrices. These finite
+   values alone give no full-space lower bound. FULLINF F8–F10 supply the needed
+   approximation theorem for the first three listed zeta windows: the
+   unrestricted lower bounds are 2.2699e−5 at L=7/4, 9.99e−11 at
+   L=497/200, and 9.9e−16 at L=749/250. Support monotonicity therefore gives
+   full-domain positivity through L=749/250; later listed windows remain
+   finite-dimensional only.
 
 5. **Out-of-fit tests, summarized.** Interpolation at L = 2.30 (6%); the
    threshold band and glide (4% and the 0.973-vs-0.968 crossing); extrapolation
@@ -105,14 +121,16 @@ powers 2, 3, 4, 5, 7 and twenty-five orders of magnitude:
 - **For the CCM finite criterion** (Connes–Consani–Moscovici, arXiv:2310.18423;
   Connes–Consani, Selecta 2021): the uniform-transfer normalization must divide
   out precisely the envelope above. In particular a naive per-window margin
-  bound λ_min ≥ c·dist(L, ∂W_p)^κ is not supported at operator level — there is
-  no threshold-local structure to normalize against, only the global envelope.
+  bound λ_min ≥ c·dist(L, ∂W_p)^κ is not suggested by the resolved Galerkin
+  data. Three interior endpoints now have certified full-space lower bounds,
+  yielding positivity through L=749/250; beyond that, only qualitative
+  continuity is proved.
 - **For finite-cutoff certification** (arXiv:2607.02828): the law quantifies how
   fast the certifiable margin closes as support grows — the certification
   budget must beat exp(−1.755·(T*/2π)(ln(T*/2π)+4)); our certified rungs at
   1e−15 and 1e−20 indicate what interval arithmetic can already reach.
-- **For object candidates** (Track E sense): any spectral realization of the
-  missing positivity-bearing operator must reproduce (i) the envelope constant
+- **For object candidates** (Track E sense): a candidate intended to explain
+  these measurements should reproduce (i) the envelope constant
   b ≈ 1.755 (in the (T*/2π)ln T* normalization), (ii) the offset's dependence
   on pole/parity/conductor, and (iii) the universality in T*_χ across the
   family. The natural theoretical comparison is Landau–Widom-type asymptotics
@@ -124,16 +142,17 @@ powers 2, 3, 4, 5, 7 and twenty-five orders of magnitude:
 
 Two statements graduated from measurement to proof; see `THEOREMS.md`:
 (1) the **Glide Theorem** — the operator margin λ(L) is non-increasing and
-continuous with explicit modulus across prime-power thresholds (so the
-absence of a knife-edge is a theorem, not only a measurement); its engine is
+continuous with explicit modulus C/log(1/h) across prime-power thresholds.
+This rules out jumps but does not rule out vanishing at a threshold where the
+true margin is zero; its engine is
 the elementary two-sided bound ψ(¼) + ½log(1+4r²) ≤ Re ψ(¼+ir/2) ≤ same + 8.
 (2) a **machine-checked window of Weil positivity**: a Lean 4 kernel-verified
 certificate (axioms propext/Classical.choice/Quot.sound only) that the
 truncated Weil form at L = 497/200 is strictly positive on an explicit
 12-dimensional Legendre test space — both primes 2 and 3 participating —
 modulo a Bridge Proposition proved by interval arithmetic with stated trust
-base. We believe this is the first formally verified statement in the
-Weil-positivity program.
+  base. Its novelty relative to other formal finite-matrix work has not been
+  established; the zeta identification is not yet formalized.
 
 ## The sharpened, invariant form of the law (added July 26, derivation campaign)
 
@@ -145,13 +164,12 @@ with N the counting function at the Nyquist height and D the Nyquist-deficit
 mass; this single pair of constants fits both the 25-point deformed-staircase
 family and the true-ζ ladder (rms 0.026), strictly better than the
 (10.2, 1.755, 4.0) chart above, whose parameters are degenerate on the fitted
-window; β-linearity of the exponent is verified to 1% and IS the conductor
-universality. (2) **Mechanism**: bulk prolate/Landau–Widom functionals
-provably cannot produce the law — replacing the zero sum by its density
+window; β-linearity of the exponent is verified to 1% and is consistent with
+the conductor scaling. (2) **Mechanism**: replacing the discrete zero sum by its density
 integral makes λ order one, so the exponential smallness is a pure
 DISCRETENESS effect; sub-Nyquist constant-density sequences cost nothing
 (exact tight-frame calibration), and the ζ margin is a chirp effect.
-(3) **The marginal law**: removing a single zero at height t is worth exactly
+(3) **The marginal law**: in the tested range, removing a single zero at height t is worth approximately
 (π²/2)·ln(eT*/t) in the exponent — the Bonami–Karoui constant, measured to
 1–4% across nine (t, L) points — supported up to the capacity height e·T*,
 with ~20% non-additive interactions. The bulk constants (b, μ) resisted
@@ -162,33 +180,37 @@ best-supported provable targets (four are recorded in the campaign report).
 
 The deep-window campaign (results/agent-deep-windows.md; ladders to m = 176 at
 L = 4.25–5.50, every rung a Rayleigh–Ritz upper bound with monotone nested
-bases) settles the bend question flagged in the caveats: **the mid-range law
-above is pre-asymptotic, and the decay rate saturates**. The measured facts:
+bases) gives strong evidence that the mid-range law is pre-asymptotic and that
+the decay rate approaches the classical prolate coefficient 4π. The measured facts:
 
-- The converged deep limits (L = 4.25, 4.50, 4.60, 4.75; the last
+- The extrapolated deep limits (L = 4.25, 4.50, 4.60, 4.75; the last
   blind-predicted to 0.4% before its refinement rungs ran) sit systematically
   ABOVE every 3-parameter refit — a bend, not a refit problem.
-- The deep data select the prolate (Fuchs) form
+- The deep data are compatible with the prolate (Fuchs) form
     **ln λ_min ≈ A′ − 4π·e^{L/2} + p·(L/2)**,   p ≈ 4.5–6.5,
   with the decay rate per unit c = e^{L/2} measured at 4π to 0.4–1.3% three
   independent ways (free fit 12.729, constrained 12.521, pairwise secant
   slopes 12.42–12.58 against 4π = 12.566).
-- The onset is exactly computable: the mid-range law's local slope
+- The fitted crossover is easy to compute: the mid-range law's local slope
   1.755(L/2+5) crosses 4π at **L = 4.32**, precisely where deviations begin.
   Below that the three-constant chart stands as fitted; above it the rate is
-  capped at the universal prolate rate.
-- Stopping-height readout (the differential-geometry protocol): abrupt
-  saturation is EXCLUDED (level test), and the scalar shape test favors the
-  smooth-cap hypothesis — the measured secant slopes lie on 4π and 3–6% below
-  both drift alternatives, with bias headroom ≤ 0.5%.
-- Consistency: all eleven measured stopping heights lie strictly inside the
-  two proved-target horizons (e·T*, e²·T*), margins ≥ 0.14 in w = ln(T_s/T*).
+  numerically close to the known prolate rate.
+- Stopping-height readout: the scalar data favor a smooth bend, but the completed
+  preregistered vector protocol returned `B_smooth NOT CERTIFIED`; its null
+  control invalidated the discriminator's premise. No bend mechanism was
+  certified.
+- Hard-horizon comparison withdrawn: the eleven w-values are action heights,
+  not vanishing or registration heights. Registration ends near 1.9·T* in the
+  tested windows, far below the conditional anchored cap; neither dataset
+  locates that cap, and the normalized anchor remains unchecked for the
+  numerical minimizers.
 
 **This resolves the Connes/Groskin discrepancy below** — see the updated
 paragraph there — and is the reading this note now recommends: the
 (L/2 + 4) log-factor is a faithful mid-range description (all validations in
-the Summary stand on their windows), and the asymptotic decay rate is 4π per
-unit e^{L/2}, matching the frontier's prolate asymptotics.
+the Summary stand as finite-window fits), and the data are consistent with a
+decay rate approaching 4π per unit e^{L/2}, matching the known prolate
+comparator. This is not an asymptotic theorem for λ_min.
 
 ## Prior art and repositioning (added after the July 26 literature sweep)
 
@@ -219,7 +241,8 @@ universality, the mechanism experiment, and the certificates.
 
 ## Caveats (stated plainly)
 
-- Every λ_min is a Rayleigh–Ritz **upper bound**; deep-window values at the
+- Every reported finite Galerkin value λ_m is a Rayleigh–Ritz **upper bound**
+  for λ_min; deep-window values at the
   largest supports are still descending in basis size (convergence status is
   tabulated per point in `results/RESULTS.md`). Slopes therefore carry a
   one-sided bias, small in the windows used for the fit.
@@ -231,7 +254,8 @@ universality, the mechanism experiment, and the certificates.
   The float pipeline, the extended-precision hat pipeline, the spectral
   pipeline, the explicit-formula zero-side inequality, and the interval
   certificates are five layers of internally independent validation; the
-  two-sided Guinand–Weil oracle is certified to 1e−29.
+  two-sided Guinand–Weil regression oracle agrees to 1e−29 numerically; it is
+  not an interval certificate.
 - The zeros' lower Beurling density is infinite, so strict positivity of every
   fixed-L margin under RH is classical (Beurling sampling after thinning); the
   content of the measurement is the quantitative envelope, not positivity
@@ -240,13 +264,13 @@ universality, the mechanism experiment, and the certificates.
 ## Reproduction
 
 Everything is reproducible from the repository in minutes to hours on a laptop:
-`src/oracle.py` (certification gate), `src/spectral_margins.py` (the ladder),
+`src/oracle.py` (regression gate), `src/spectral_margins.py` (the ladder),
 `src/certified_margins.py` and `src/certified_spectral.py` (the certificates),
 with EXPECTED values inline. Python 3 + numpy + mpmath (+ gmpy2 recommended).
 
 ---
 
-## Draft cover email (short form — to be edited/sent by the repository owner)
+## Draft cover email (withdrawn historical text; contains superseded 4π and Poisson-phase claims)
 
 Subject: Measured envelope law for truncated Weil-form margins (numerical note)
 

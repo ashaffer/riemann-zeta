@@ -1,0 +1,7 @@
+import RHBridge.P2RoundedTruncatedOuter
+
+open RHP2Bridge.P2RoundedTruncatedOuter
+
+#print axioms truncateOuter_encloses
+#print axioms componentApproxFromTruncatedOuter_encloses
+#print axioms componentVectorFromTruncatedOuters_encloses

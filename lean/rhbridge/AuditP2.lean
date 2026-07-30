@@ -1,0 +1,6 @@
+import RHBridge.P2PanelCertificateAggregate
+
+#print axioms RHP2Bridge.P2PanelCertificateAggregate.p2_matrix_containment_of_bandSumCertificates
+#print axioms RHP2Bridge.P2PanelCertificateAggregate.sharedCenterRoundingCertificate
+#print axioms RHP2Bridge.P2PanelCertificateData.evenCenterFitsStored
+#print axioms RHP2Bridge.P2PanelCertificateData.oddCenterFitsStored

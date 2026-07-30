@@ -1,0 +1,42 @@
+import RHBridge.P2RoundedFactorCheckpointData10
+
+namespace RHP2Bridge
+
+open P2RoundedCanonical
+open P2RoundedSharedEvaluator
+
+set_option maxRecDepth 100000
+set_option maxHeartbeats 50000000
+
+theorem panel10FactorChunk15 :
+    P2RoundedFactorCheckpointData.panel10Prefix60 =
+      normalizedPrefixTermAtomApprox ⟨60, by decide⟩ ⟨10, by decide⟩ ∧
+      P2RoundedFactorCheckpointData.panel10Prefix61 =
+      normalizedPrefixTermAtomApprox ⟨61, by decide⟩ ⟨10, by decide⟩ ∧
+      P2RoundedFactorCheckpointData.panel10Prefix62 =
+      normalizedPrefixTermAtomApprox ⟨62, by decide⟩ ⟨10, by decide⟩ ∧
+      P2RoundedFactorCheckpointData.panel10Prefix63 =
+      normalizedPrefixTermAtomApprox ⟨63, by decide⟩ ⟨10, by decide⟩ := by
+  decide +kernel
+
+theorem panel10Prefix60_eq :
+    P2RoundedFactorCheckpointData.panel10Prefix60 =
+      normalizedPrefixTermAtomApprox ⟨60, by decide⟩ ⟨10, by decide⟩ := by
+  exact panel10FactorChunk15.1
+
+theorem panel10Prefix61_eq :
+    P2RoundedFactorCheckpointData.panel10Prefix61 =
+      normalizedPrefixTermAtomApprox ⟨61, by decide⟩ ⟨10, by decide⟩ := by
+  exact panel10FactorChunk15.2.1
+
+theorem panel10Prefix62_eq :
+    P2RoundedFactorCheckpointData.panel10Prefix62 =
+      normalizedPrefixTermAtomApprox ⟨62, by decide⟩ ⟨10, by decide⟩ := by
+  exact panel10FactorChunk15.2.2.1
+
+theorem panel10Prefix63_eq :
+    P2RoundedFactorCheckpointData.panel10Prefix63 =
+      normalizedPrefixTermAtomApprox ⟨63, by decide⟩ ⟨10, by decide⟩ := by
+  exact panel10FactorChunk15.2.2.2
+
+end RHP2Bridge

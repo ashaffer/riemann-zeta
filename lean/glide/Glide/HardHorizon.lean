@@ -1,8 +1,9 @@
 /-
 HardHorizon: Lean formalization of the Hard Horizon Theorem (T1′),
 results/experts/T1PRIME.md (§2, §7 ladder).  Complete for the staircase
-scope: Theorem 1 (`hard_horizon`) and Corollary 2 (`zero_desert`) are fully
-proved, no sorries, three standard axioms only.
+scope: Theorem 1 (`hard_horizon`) and the selected-radius/raw-bound core of
+Corollary 2 (`zero_desert`) are proved, with no sorries and only the three
+standard axioms.
 
 Ladder items (Lean name ↔ T1PRIME.md item):
 
@@ -24,10 +25,12 @@ Ladder items (Lean name ↔ T1PRIME.md item):
 * `lemma8_strictMonoOn`/`lemma8_crossing`/`lemma8_tau_bound` ↔ Lemma L8 +
       the §3 endgame extraction
 * `hard_horizon`            ↔ **Theorem 1** (staircase form)
-* `zero_desert`             ↔ **Corollary 2** (zero desert, Φ(ρ′) bound)
+* `analyticOrderAt_translate`/`hard_horizon_of_global_orders` ↔ the
+      paper-facing (S3) form, with vanishing orders stated directly at `±tₖ`
+* `zero_desert`             ↔ selected-radius/raw-bound core of **Corollary 2**
 
-Corollary 1 (unconditional ζ) is out of scope — blocked on a formalized
-RvM/S(T) with explicit constants (T1PRIME.md §7).  See
+Corollary 1 (ζ without RH, but with its anchor hypothesis) is out of scope —
+blocked on a formalized RvM/S(T) with explicit constants (T1PRIME.md §7). See
 results/agent-t1prime-lean.md for audits and deviations.
 -/
 import Mathlib
@@ -662,6 +665,23 @@ theorem lemma1_entire {φ : ℝ → ℂ} {a : ℝ} (ha : 0 < a)
       h1.mul_const _
     exact ((h2.neg).cexp).const_mul (φ x)
 
+/-- Translation preserves the analytic order of an entire function.  This
+bridges the paper's vanishing-order hypothesis on `F` at `c + z₀` to the
+recentered function `z ↦ F (c + z)` used by Jensen's formula below. -/
+theorem analyticOrderAt_translate (F : ℂ → ℂ) (hF : Differentiable ℂ F) (c z₀ : ℂ) :
+    analyticOrderAt (fun z => F (c + z)) z₀ = analyticOrderAt F (c + z₀) := by
+  have hf : AnalyticAt ℂ F (c + z₀) := hF.analyticAt (c + z₀)
+  have hg : AnalyticAt ℂ (fun z : ℂ => c + z) z₀ := by fun_prop
+  have hderiv : deriv (fun z : ℂ => c + z) z₀ = 1 := by
+    simpa only [id_eq] using ((hasDerivAt_id z₀).const_add c).deriv
+  have hgderiv : deriv (fun z : ℂ => c + z) z₀ ≠ 0 := by
+    rw [hderiv]
+    exact one_ne_zero
+  have horder : analyticOrderAt ((fun z : ℂ => c + z) · - (c + z₀)) z₀ = 1 :=
+    hg.analyticOrderAt_sub_eq_one_of_deriv_ne_zero hgderiv
+  rw [show (fun z => F (c + z)) = F ∘ (fun z => c + z) by rfl,
+    hf.analyticOrderAt_comp hg, horder, mul_one]
+
 /-- **Lemma L1**, growth half (eq. (L1.1)): `‖F(z)‖ ≤ √(2a)·e^{a·|Im z|}`. -/
 theorem lemma1_growth {φ : ℝ → ℂ} {a : ℝ} (ha : 0 < a)
     (hφi : IntegrableOn φ (Icc (-a) a))
@@ -1198,6 +1218,38 @@ theorem hard_horizon {φ : ℝ → ℂ} {a x₀ κ R τ : ℝ} {α : Type*} (ι 
   apply lemma8_tau_bound hR0 hRe hcase
   unfold hFn BConst at hcore ⊢
   linarith [hcore, hanchor2]
+
+/-- Paper-facing form of `hard_horizon`: (S3) is stated directly as the
+vanishing order of `F` at `±tₖ`, independently of the anchor point `x₀`.
+`analyticOrderAt_translate` supplies the recentered orders needed by the
+Jensen proof. -/
+theorem hard_horizon_of_global_orders {φ : ℝ → ℂ} {a x₀ κ R τ : ℝ} {α : Type*}
+    (ι : Finset α) (t : α → ℝ)
+    (ha : 0 < a)
+    (hφi : IntegrableOn φ (Icc (-a) a))
+    (hsq : IntegrableOn (fun x => ‖φ x‖ ^ 2) (Icc (-a) a))
+    (hφ2 : (∫ x in Icc (-a) a, ‖φ x‖ ^ 2) ≤ 1)
+    (ht : ∀ k ∈ ι, 2 * π < t k)
+    (htT : ∀ k ∈ ι, t k ≤ 2 * π * Real.exp τ)
+    (hR0 : 0 ≤ R) (hRe : R < Real.exp (2 * a + 2))
+    (hrig : ∀ s ∈ Icc (2 * π * Real.exp 1) (2 * π * Real.exp τ),
+      Nhat s - R ≤ ((ι.filter fun k => t k ≤ s).card : ℝ))
+    (hordp : ∀ k ∈ ι, ((ι.filter fun j => t j = t k).card : ℕ∞)
+      ≤ analyticOrderAt (FL φ a) (t k : ℂ))
+    (hordm : ∀ k ∈ ι, ((ι.filter fun j => t j = t k).card : ℕ∞)
+      ≤ analyticOrderAt (FL φ a) (-(t k : ℂ)))
+    (hx₀ : |x₀| ≤ 2 * π)
+    (hanchor : Real.exp (-(κ * a)) ≤ ‖FL φ a (x₀ : ℂ)‖) :
+    τ ≤ 2 * a + 2 + max 0 (epsStar a R κ) := by
+  apply hard_horizon ι t ha hφi hsq hφ2 ht htT hR0 hRe hrig
+  · intro k hk
+    rw [analyticOrderAt_translate (FL φ a) (lemma1_entire ha hφi)]
+    simpa [sub_eq_add_neg] using hordp k hk
+  · intro k hk
+    rw [analyticOrderAt_translate (FL φ a) (lemma1_entire ha hφi)]
+    simpa [sub_eq_add_neg] using hordm k hk
+  · exact hx₀
+  · exact hanchor
 
 /-! ### Corollary 2: the zero desert
 

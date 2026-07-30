@@ -3,10 +3,11 @@
 Paper-grade write-up of the panel's #1 target, corrected form (SYNTHESIS errata;
 the original T1(i) at eT* is on the kill list — see §1.4). Author seat: harmonic
 analysis. Date: 2026-07-26. Status: **complete proof at referee level for
-Theorem 1 and Corollary 2; Corollary 1 (ζ) complete modulo two classical
-citations with explicit constants (NT Lemma R1), which are quoted verbatim.**
-Every numbered estimate is verified numerically in Appendix V (script + output).
-Lean decomposition and mathlib gap-map in §6, against the repo's local mathlib
+Theorem 1 and Corollary 2; Corollary 1 (ζ) complete modulo Trudgian's published
+explicit zero-counting bound and Platt's rigorous first-zero computation.**
+Appendix V numerically checks the displayed constants and representative
+instances of the analytic identities (script + output).
+Lean status and the remaining mathlib bridge map are in §7, against the repo's local mathlib
 snapshot `520045ab14` (2026-07-23, `lean/glide/lake-manifest.json`).
 
 ---
@@ -14,29 +15,33 @@ snapshot `520045ab14` (2026-07-23, `lean/glide/lake-manifest.json`).
 ## 0. The result in one box
 
 Let a > 0, I = [−a, a], and let F = φ̂ be the Fourier–Laplace transform of a
-unit-norm φ ∈ L²(I). Let Λ = {±t_k} be a symmetric multiset of frequencies
+unit-norm φ ∈ L²(I). Let Λ = {(±t_k,m_k)} be a symmetric weighted multiset of frequencies
 whose counting function is at most R below the Riemann–von Mangoldt staircase
 N̂(T) = (T/2π)ln(T/2πe) + 7/8. **If F vanishes on Λ up to height T̃, and F is
 anchored (Hypothesis A: |F(x₀)| ≥ e^{−κa} at some |x₀| ≤ 2π), then**
 
-  ln(T̃/2π) ≤ 2a + 2 + ε*,   ε* = [(κ + 4 + 2/π)a + ½ln(2a) + 2R(2a+1)] / (2(e^{2a+2} − R)).
+  ln(T̃/2π) ≤ 2a + 2 + ε*,   ε* = max(0, [(κ + 4 + 2/π)a + ½ln(2a) + 2R(2a+1)] / (2(e^{2a+2} − R))).
 
 In the program's units (T* = 2πe^{2a} the Nyquist-crossing height): **an
 anchored test function can dodge the staircase at most to e²T*·e^{ε*}, and
-ε* is exponentially small in the support.** For the true zeta ordinates the
-same bound holds **unconditionally** (no RH) with R given by Trudgian's
-explicit S(T) bound (Corollary 1). Beyond the vanishing horizon the function
-has almost no zeros left anywhere — a quantitative zero desert (Corollary 2).
+ε* is exponentially small in the support when R and κ are fixed (more
+generally, when they grow subexponentially).** For the true zeta ordinates the
+same bound holds **without assuming RH**, for functions satisfying the stated
+anchor with κ ≤ 1, with R given by Trudgian's explicit zero-counting bound
+(Corollary 1).
+For controlled anchor loss, near the vanishing horizon the function has little
+residual Jensen mass for unprescribed zeros — a weighted zero-desert statement
+(Corollary 2).
 
 The companion (variational) horizon at e·T* — where the zero-count budget
 D(T) = (a/π)T − N̂(T) crosses zero (D(eT*) = −7/8 exactly; Lemma 0) and where
 the measured single-zero worth support ends — is NOT claimed as a hard
-horizon; a nonzero F vanishing on any finite head always exists (§1.4). The
-two-horizon structure was confirmed against eleven measured stopping heights
-in results/agent-deep-windows.md: all in T_s/T* ∈ [3.14, 3.41] ⊂ (e, e²) (§5).
+horizon; a nonzero F vanishing on any finite head always exists (§1.4). An
+earlier comparison misidentified eleven measured action heights as vanishing
+stopping heights. The corrected data interpretation is recorded in §6.
 
 Notation. τ := ln(T̃/2π); T* := 2πe^{2a}; N̂(T) := (T/2π)ln(T/2πe) + 7/8;
-N_Λ(T) := #{k : t_k ≤ T} counted with multiplicity; all logs natural.
+N_Λ(T) := Σ_{t_k≤T}m_k; all logs natural.
 
 ---
 
@@ -47,27 +52,28 @@ N_Λ(T) := #{k : t_k ≤ T} counted with multiplicity; all logs natural.
 (S1) a > 0; φ ∈ L²(ℝ) with supp φ ⊆ [−a, a] and ‖φ‖₂ = 1;
    F(z) := ∫_{−a}^{a} φ(x) e^{−izx} dx.
 
-(S2) Λ = {±t_k}_{k≥1} a symmetric multiset, 2π < t_1 ≤ t_2 ≤ …, with counting
-   function N_Λ (multiplicity counted), satisfying the one-sided rigidity
+(S2) Λ = {(±t_k,m_k)}_{k≥1}, where 2π < t_1 < t_2 < …, t_k → ∞,
+   and m_k ∈ ℕ_{>0},
+   is a symmetric weighted multiset whose counting function N_Λ satisfies
+   the one-sided rigidity
 
      N_Λ(T) ≥ N̂(T) − R  for all T ∈ [2πe, T̃],   with 0 ≤ R ≤ e^{2a+1}.
 
 (S3) [vanishing] For every k with t_k ≤ T̃: F vanishes at +t_k and at −t_k,
-   each to order ≥ the multiplicity of t_k in Λ.
+   each to order ≥ m_k.
 
 **Hypothesis A (anchor).** There exist x₀ ∈ ℝ and κ ≥ 0 with
 
   |x₀| ≤ 2π  and  |F(x₀)| ≥ e^{−κa}.
 
 Remarks on Hypothesis A. (i) It is not removable: without a condition of this
-kind no hard horizon exists at any height (§1.4, construction; its normalized
-version has |F| = e^{−huge} throughout [−2π, 2π] because its L²-mass sits
-above T̃). (ii) It is verified by design, with explicit κ, for every
-test-function competitor used in the upper-bound constructions of the
-envelope program (H3/T5: those transforms are Θ(1) at low frequency before
-normalization). (iii) For actual near-minimizers of the frame form it is a
+kind no hard horizon exists at any height (§1.4 gives the finite-vanishing
+construction, although a quantitative failure of the anchor for that family
+would require a separate normalization estimate). (ii) For any construction
+competitor, the normalized anchor and its explicit κ must be checked; it does
+not follow merely from an unnormalized low-frequency value. (iii) For actual near-minimizers of the frame form it is a
 measured-but-unproved property; its proof is the lattice-adapted Turán wall
-(§4, Gap 1).
+(§5, Gap 1).
 
 ### 1.2 Main theorem
 
@@ -84,61 +90,71 @@ staircase rigidity, unit anchor — ε* = 0.124, 0.117, 0.106, 0.083, 0.044,
 
 **Lemma 0 (count horizon; calculus identity, for the record).** With
 D(T) := (a/π)T − N̂(T): D′(T) = (1/2π)ln(T*/T), so D increases on (0, T*],
-decreases after, and D(eT*) = −7/8 exactly; the unique positive zero of D is
-at eT*(1 − θ) with 0 < θ < 7π/(4a·eT*)·(1/2π)⁻¹-scale, i.e. eT*(1 − O(e^{−2a})).
+decreases after, and D(eT*) = −7/8 exactly. There is one zero of D below
+T* and one above T*; the unique **upper** zero is at
+eT*(1 − θ) with 0 < θ = O(e^{−2a}).
 [Verified V6. This is the height at which the vanishing budget is exhausted
 on AVERAGE; it bounds where dodging is variationally worthwhile, not where it
 is possible.]
 
 ### 1.3 Corollaries
 
-**Corollary 1 (true zeta ordinates; unconditional).** Let a ≥ 7/16. Let Λ_ζ
-be the multiset {±γ : ζ(β + iγ) = 0, γ > 0, β ∈ (0,1)}, each ordinate with
-the multiplicity of the corresponding zero. Assume (S1), Hypothesis A, and
-that F vanishes at ±γ to order ≥ mult(γ) for every ordinate γ ≤ T̃. Then
+**Corollary 1 (true zeta ordinates; no RH assumption, but anchored).** Let a ≥ 7/16.
+For each distinct positive ordinate γ put
+m_ζ(γ) := Σ_{0<β<1} ord_{β+iγ}ζ, and let Λ_ζ be the weighted multiset
+{(±γ,m_ζ(γ))}. Assume (S1), Hypothesis A with
+0 ≤ κ ≤ 1, and
+that F vanishes at ±γ to order ≥ m_ζ(γ) for every ordinate γ ≤ T̃. Then
 
   ln(T̃/2π) ≤ 2a + 2 + ε*_ζ,  ε*_ζ := [B + 2·D₀(2πe^{2a+3})·(2a+1)] / (2(e^{2a+2} − D₀(2πe^{2a+3}))),
 
-with D₀(T) := 0.112 ln T + 0.278 ln ln T + 2.517 (NT Lemma R1; Trudgian 2014
-+ the theta-expansion remainder). No zero-location hypothesis is used: R1
-counts all nontrivial zeros, on or off the line. Numerically ε*_ζ = 0.57,
-0.46, 0.39, 0.28, 0.14, 0.045 at a = 0.4375 … 2.25: **the hard cap for ζ is
+with D₀(T) := 0.112 ln T + 0.278 ln ln T + 2.522 (Lemma R1 below;
+Trudgian 2014, Theorem 1 and Corollary 1). No zero-location hypothesis is used: R1
+counts all nontrivial zeros, on or off the line. At the worst allowed anchor
+κ = 1, ε*_ζ = 0.57, 0.46, 0.39, 0.28, 0.14, 0.045 at
+a = 0.4375 … 2.25 (these are upper bounds when κ < 1): **the hard cap for ζ is
 ≤ 13.1·T* at L = 1.75, tightening to ≤ 7.7·T* at L = 9** (Appendix V5).
 
 **Corollary 2 (zero desert).** Assume the hypotheses of Theorem 1 with
 τ = 2a + 1 + s, s ∈ (0, 1]. For ρ′ ≥ τ let ρ = ρ(ρ′) be any radius in
 [2πe^{ρ′} + 2π, 2πe^{ρ′} + 2π + 1] such that G(z) = F(x₀ + z) has no zeros
 of modulus ρ (such ρ exists), and let Other(ρ′) be the Jensen mass
-Σ m_w·ln(ρ/|w − x₀|) over the zeros w of F with |w − x₀| < ρ other than the
-prescribed ones. Then
+Σ_{|w−x₀|<ρ} m_w^{res}·ln(ρ/|w − x₀|) of the residual zero divisor after
+subtracting the prescribed multiplicity at each ±t_k with t_k ≤ T̃ (so excess
+order at a prescribed location is retained). Then
 
   Other(ρ′) ≤ Φ(ρ′) := 4a e^{ρ′} − 2e^{τ}[(τ−2) + (ρ′−τ)(τ−1)] + 2R(ρ′−1) + B′,
   B′ := (κ + 4 + 2/π)a + ½ln(2a),
 
-and consequently the number of non-prescribed zeros of F within distance
-2πe^{ρ′} of x₀ is at most Φ(ρ′ + ln 2)/ln 2. In particular at ρ′ = τ:
-Φ(τ) = 2e^{τ}(1 − s) + 2R(τ−1) + B′ — as s ↑ 1 the entire foreign-zero
-budget inside radius T̃ collapses to O(a + Rτ): **every ordinate dodged past
-eT* is borrowed against a zero desert.** (This is the statement DG's node
-census tests; their measured ≤ 0.8 nodes in [59, 70] at L = 2.485 after the
-stop is consistent.)
+and consequently the residual zero multiplicity of F within distance
+2πe^{ρ′} of x₀ is at most
+Φ(ρ′ + ln 2)/ln 2. In particular at ρ′ = τ:
+Φ(τ) = 2e^{τ}(1 − s) + 2R(τ−1) + B′ — as s ↑ 1 the entire residual-zero
+Jensen-mass budget at the selected radius collapses to
+O((κ+1)a + Rτ), and hence to O(a+Rτ) when κ = O(1). This does
+not by itself give an O(a+Rτ) unweighted count for zeros arbitrarily close to
+that radius; the displayed counting bound uses the doubled radius. Thus a
+longer prescribed head leaves a smaller residual Jensen budget. The DG node
+census can be compared with this only qualitatively unless its nodes and
+normalization are matched to the residual divisor used here.
 
 ### 1.4 What was corrected, and the counterexample (for the record)
 
 The Round-1/merged statement ("F ∈ PW_a cannot vanish on Λ_sm ∩ [0, (1+δ)eT*]
-for a large") is FALSE: with K = N_Λ(T̃), P(z) = Π_{k≤K}(1 − z²/t_k²) and
-ĥ(z) = (sin(az/M)/(az/M))^M, M = 2K + 2, the function F = P·ĥ is entire of
+for a large") is FALSE. More generally, for a finite horizon put
+d = N_Λ(T̃), P(z) = Π_{t_k≤T̃}(1 − z²/t_k²)^{m_k}, and
+ĥ(z) = (sin(az/M)/(az/M))^M with M = 2d + 2. Then F = P·ĥ is entire of
 exponential type ≤ a, lies in L²(ℝ) (|F(x)| = O(|x|^{−2})), is the transform
 of a nonzero φ ∈ L²[−a, a] (Paley–Wiener), and vanishes on Λ ∩ [−T̃, T̃] —
-for EVERY T̃. A finite system of linear conditions has nonzero solutions.
-What Theorem 1 shows is that beyond e²T*·e^{ε*} every such F fails
-Hypothesis A: its transform is uniformly exponentially small on [−2π, 2π]
-after normalization (mass forced above the vanished head, where in the frame
-form the supercritical constraints consume it — which is why the horizon is
-invisible to the value E(a) and hard for anchored functions). The two-horizon
-reading reconciles all measurements: worth support ends at eT* (law-theory
-RUN 4), node budgets saturate aT/π (DG census), stopping heights sit in
-(e, e²) (deep-windows, §5), and nothing vanishes-with-anchor past e²T*.
+for every finite T̃ (with F depending on T̃). A finite system of linear
+conditions has nonzero solutions.
+What Theorem 1 shows is that beyond e²T*·e^{ε*} no such F can satisfy
+Hypothesis A with the same κ entering ε*. The theorem alone does not prove that
+its L² mass is concentrated above the vanished head; that is an additional
+interpretation requiring a separate estimate. The measured action and
+registration scales discussed in §6 are therefore contextual comparisons,
+not consequences or sharpness tests of this theorem. The rigorous conclusion
+is only the stated anchored cap e^{2+ε*}T*.
 
 ---
 
@@ -159,13 +175,13 @@ Fubini) gives holomorphy on ℂ. Growth: by Cauchy–Schwarz,
 1 − e^{−2y} ≤ 2y, i.e. 1 − e^{−u} ≤ u); hence sinh(2a|η|)/|η| ≤ 2a e^{2a|η|},
 and |F|² ≤ 2a e^{2a|η|}. At η = 0, |F| ≤ ‖φ‖₁ ≤ √(2a) directly. ∎
 
-**Lemma L2 (Fubini/layer-cake identity).** For any finite multiset
-{t_k} ⊂ (0, ∞) with counting function N and any T ≥ t_1:
-  Σ_{t_k ≤ T} ln(T/t_k) = ∫₀^{T} N(s) ds/s.   (L2.1)
+**Lemma L2 (Fubini/layer-cake identity).** For any finite weighted multiset
+{(t_k,m_k)} ⊂ (0, ∞) with counting function N and any T ≥ t_1:
+  Σ_{t_k ≤ T} m_k ln(T/t_k) = ∫₀^{T} N(s) ds/s.   (L2.1)
 
-*Proof.* ln(T/t_k) = ∫_{t_k}^{T} ds/s. Sum over the (finitely many) k with
+*Proof.* m_k ln(T/t_k) = m_k∫_{t_k}^{T} ds/s. Sum over the (finitely many) k with
 t_k ≤ T and interchange sum and integral (all terms nonnegative; Tonelli):
-Σ_k ∫₀^T 1_{[t_k, T]}(s) ds/s = ∫₀^T #{k : t_k ≤ s} ds/s. ∎  [Verified to
+Σ_k ∫₀^T m_k 1_{[t_k, T]}(s) ds/s = ∫₀^T Σ_{t_k≤s}m_k ds/s. ∎  [Verified to
 1.6e−29 on the 40-point staircase, V2.]
 
 **Lemma L3 (the rvM Jensen mass — closed form).** For T̃ = 2πe^{τ}, τ ≥ 1:
@@ -194,9 +210,8 @@ many in any compact disk, hence their moduli form a countable set; J is
 uncountable, so a valid ρ exists. (L5.1) is Jensen's formula: Rudin, *Real
 and Complex Analysis*, 3rd ed., Theorem 15.18; Boas, *Entire Functions*,
 Academic Press 1954, §1.2; Levin, *Distribution of Zeros of Entire
-Functions*, AMS 1964, Ch. I §5. (Mathlib's `AnalyticOnNhd.circleAverage_log_norm`
-is this statement with the closed-ball divisor; boundary zeros contribute
-ln(ρ/ρ) = 0 there, so the selection step is optional in the formal version.)
+Functions*, AMS 1964, Ch. I §5. The Lean implementation used for this project
+also selects a boundary-zero-avoiding radius; see the status audit in §7.
 ∎  [Verified to 2e−30 on F = P·ĥ recentered at x₀ = 2, V3.]
 
 **Lemma L6 (circle bound).** Under (S1) and |x₀| ≤ 2π, for every ρ ∈ J:
@@ -270,42 +285,49 @@ theorems: the proof is Jensen + calculus.
 
 ## 4. Proofs of the corollaries
 
-### 4.1 Corollary 1 (true zeta ordinates, unconditional)
+### 4.1 Corollary 1 (true zeta ordinates, no RH assumption; anchor retained)
 
-**Inputs, quoted verbatim from PLAN-number-theory.md Round 2(b) (the NT
-seat's constants-explicit licenses).**
+**External input, in the exact weaker form used here.**
 
-> **Lemma R1 (counting license — unconditional, constants explicit).** For
-> all T ≥ e: |N_ζ(T) − N̂(T)| ≤ S₀(T) + 1/(48πT) + ε₃(T) ≤ S₀(T) + 0.007
-> =: D₀(T), where S₀(T) = 0.112 log T + 0.278 log log T + 2.510. Sources:
-> |S(T)| ≤ S₀(T) for T ≥ e is Trudgian, *An improved upper bound for the
+> **Lemma R1 (counting license — unconditional, constants explicit).**
+> Trudgian's Corollary 1 gives, for T ≥ e,
+> |N_ζ(T) − N̂(T)| ≤ 0.112 log T + 0.278 log log T + 2.510 + 0.2/T.
+> Consequently, for T ≥ 2πe, this is less than
+> 0.112 log T + 0.278 log log T + 2.522 =: D₀(T), since
+> 0.2/(2πe) < 0.012. Source: Trudgian, *An improved upper bound for the
 > argument of the Riemann zeta-function on the critical line II*, J. Number
-> Theory 134 (2014), 280–292, Theorem 1; the remainder is the standard theta
-> expansion (Edwards, *Riemann's Zeta Function*, §6.5).
+> Theory 134 (2014), 280–292, Theorem 1 and Corollary 1. Thus no separately
+> asserted remainder estimate for the Riemann–Siegel theta expansion is needed.
 
 Here N_ζ(T) is the number of nontrivial zeros with ordinate in (0, T],
-counted with multiplicity, regardless of real part — R1 is unconditional.
+counted with multiplicity, regardless of real part. Trudgian states the strict
+endpoint convention (0,T); the displayed weak-endpoint form follows by taking
+right limits. R1 is unconditional.
 
-*Proof of Corollary 1.* Λ_ζ satisfies (S2) with any R ≥ sup_{T ≤ T̃} D₀(T)
-= D₀(T̃) (D₀ increasing); t_1 = γ₁ = 14.1347… > 2π (classical; e.g. the
-repo's certified zero list). Two-step application of Theorem 1:
+*Proof of Corollary 1.* If T̃ < 2πe, the conclusion is immediate because
+ln(T̃/2π) < 1 < 2a+2. Otherwise Λ_ζ satisfies (S2) with any
+R ≥ sup_{2πe≤T≤T̃} D₀(T) = D₀(T̃) (D₀ is increasing); t_1 = γ₁ = 14.1347… > 2π is supplied by
+the rigorous isolation in D. J. Platt, *Isolating some non-trivial zeros of
+zeta*, Math. Comp. 86 (2017), 2449–2467. Two-step application of Theorem 1:
 
 Step 1 (a-priori cap). Suppose T̃ > 2πe^{2a+3} =: T̃′. Then F vanishes on
 Λ_ζ up to T̃′ a fortiori, and Theorem 1 applies with horizon T̃′ and
-R = D₀(T̃′) (which is ≤ e^{2a+1} for a ≥ 7/16: D₀(2πe^{2a+3}) ≤ 4.2 for
-a ≤ 2.25, growing only logarithmically, while e^{2a+1} ≥ 6.5). The
+R = D₀(T̃′). The bound below gives R ≤ 0.43a+3.56 ≤ e^{2a+1} for
+a ≥ 7/16 (the last inequality holds at 7/16 and its exponential right-hand
+side has larger derivative thereafter), so Theorem 1's size hypothesis holds. The
 conclusion reads 2a + 3 = ln(T̃′/2π) ≤ 2a + 2 + ε*, i.e. ε* ≥ 1. But
-ε* < 1 for every a ≥ 7/16 (with κ = 1), by the following elementary
+ε* < 1 for every a ≥ 7/16 (using the worst case κ = 1), by the following elementary
 estimate. Using ln x ≤ x/e: R = D₀(2πe^{2a+3}) = 0.112(2a + 4.838) +
-0.278·ln(2a + 4.838) + 2.517 ≤ 0.43a + 3.56; and ln(2a) ≤ 2a − 1 gives
+0.278·ln(2a + 4.838) + 2.522 ≤ 0.43a + 3.56; and ln(2a) ≤ 2a − 1 gives
 ½ln(2a) ≤ a − ½. Hence the numerator of ε* satisfies
 B + 2R(2a+1) ≤ 5.64a + (a − ½) + (4a+2)(0.43a + 3.56)
-= 1.72a² + 21.74a + 6.62 ≤ 1.72a² + 21.8a + 6.7, while the denominator is
-2(e^{2a+2} − R) ≥ 2e^{2a+2} − 8.5. At a = 7/16 the inequality
-1.72a² + 21.8a + 6.7 < 2e^{2a+2} − 8.5 reads 16.6 < 27.0 ✓, and it
-persists for all larger a: the right side's derivative 4e^{2a+2} ≥ 70.9
-exceeds the left side's 3.44a + 21.8 at a = 7/16 (23.3 < 70.9), and the
-gap only widens (exponential vs linear). Contradiction; hence
+= 1.72a² + 21.74a + 6.62. Meanwhile
+2(e^{2a+2} − R) ≥ 2e^{2a+2} − 0.86a − 7.12. Thus it suffices that
+1.72a² + 22.60a + 13.74 < 2e^{2a+2}. At a = 7/16 the two sides are
+< 24.0 and > 35.4, respectively. The right derivative is at least 70.9
+there, larger than the left derivative 3.44a+22.60 < 24.2, and the right
+second derivative is already > 141 while the left second derivative is 3.44;
+the gap therefore widens for all larger a. Contradiction; hence
 T̃ ≤ 2πe^{2a+3}. (Appendix V5 lists the actual ε*_ζ values, 0.57 → 0.045
 across the program range — comfortably below the crude bound.)
 
@@ -313,12 +335,11 @@ Step 2 (main application). Now R := D₀(2πe^{2a+3}) ≥ D₀(T̃) is a valid
 rigidity constant on all of [2πe, T̃]; Theorem 1 gives
 τ ≤ 2a + 2 + ε*_ζ with the stated ε*_ζ. ∎
 
-*Remarks.* (i) Multiplicity: hypothesis (S3) asks F to vanish at ±γ to the
-order of the zero. If all zeros in the window are simple — verified for all
-zeros to height 3·10¹² (Platt–Trudgian, Bull. LMS 53 (2021), 792–797; NT's
-scope note: this covers every support with 2a + 2 + ε* ≤ ln(3·10¹²/2π), i.e.
-L ≤ ~49) — plain vanishing at the distinct ordinates suffices in the entire
-range this program will ever measure. (ii) The statement is about the
+*Remarks.* (i) Multiplicity: hypothesis (S3) asks F to vanish at ±γ to total
+order m_ζ(γ), including all zeros sharing that ordinate. Any simplification
+to plain vanishing at distinct ordinates
+requires a separately cited simplicity result for the relevant range; the
+corollary itself does not assume simplicity. (ii) The statement is about the
 ordinate multiset, which is defined without RH; no zero-location input
 enters anywhere. (iii) For κ: the corollary is typically applied to
 competitor functions where κ is known by construction; see §5 (Gap 1) for
@@ -345,20 +366,23 @@ N_Λ(T̃) ≥ N̂(T̃) − R = e^{τ}(τ−1) + 7/8 − R:
 (2/π)aρ ≤ (2/π)a(2πe^{ρ′} + 2π + 1) = 4a e^{ρ′} + (4 + 2/π)a, combining
 (4.2.1)–(4.2.2) yields Other(ρ′) ≤ Φ(ρ′) as stated.
 
-Counting version: let w be a non-prescribed zero with |w − x₀| ≤ 2πe^{ρ′}.
+Counting version: let w be a residual zero (with residual multiplicity) with
+|w − x₀| ≤ 2πe^{ρ′}.
 At the enlarged parameter ρ′ + ln 2 the selected radius satisfies
 ρ(ρ′ + ln 2) ≥ 2πe^{ρ′}·2 + 2π, so w contributes to Other(ρ′ + ln 2) at
 least ln((4πe^{ρ′} + 2π)/(2πe^{ρ′})) = ln(2 + e^{−ρ′}) > ln 2, and every
 other term of Other(ρ′ + ln 2) is ≥ 0. Hence
-#{such zeros} ≤ Other(ρ′ + ln 2)/ln 2 ≤ Φ(ρ′ + ln 2)/ln 2. ∎
+Σ_{such w} m_w^{res} ≤ Other(ρ′ + ln 2)/ln 2
+≤ Φ(ρ′ + ln 2)/ln 2. ∎
 
 ---
 
 ## 5. Disposition of the four Round-2 boxed gaps
 
-**Gap 1 (the anchor) → formal Hypothesis A; partially discharged; remainder
-open.** Discharged: for every construction-competitor in the T5/H3 program
-(canonical-product × window ansätze), κ is explicit by design. Open: that
+**Gap 1 (the anchor) → formal Hypothesis A; open unless checked for the chosen
+competitor.** For a construction-competitor in the T5/H3 program
+(canonical-product × window ansatz), κ can in principle be computed after
+normalization, but that computation is not supplied in this note. Also open is whether
 near-minimizers of the frame form satisfy Hypothesis A with κ = O(1). This
 is exactly the lattice-adapted Turán wall (SYNTHESIS T1(ii)/T5 "hardest
 step") and is stated here as the standing open problem of this document.
@@ -380,7 +404,8 @@ write-up (the pair-product bound L7 eliminating the anchor-shift loss; the
 Fubini identity L2 eliminating the τ² bookkeeping) give ε* = 0.12 already at
 a = 0.62 with (R, κ) = (½, 1), and ε*_ζ ≤ 0.57 at every program window down
 to L = 1.75 (V5). The theorem now bites at all measured supports: hard caps
-13.1·T* → 7.7·T* across L = 1.75 → 9 for ζ itself, unconditionally.
+13.1·T* → 7.7·T* across L = 1.75 → 9 for the zeta zero multiset, for
+functions satisfying Hypothesis A with κ ≤ 1 and without assuming RH.
 
 **Gap 4 (sharp local zero counts) → open, not needed here.** Nothing in
 this document bounds n_F(T) at a single T sharply (disk-Jensen localizes
@@ -389,39 +414,35 @@ needs a tool beyond Jensen; unchanged flag to the DG seat.
 
 ---
 
-## 6. Data consistency (evidence, not proof)
+## 6. Data interpretation (not evidence for a hard horizon)
 
-The deep-windows final report (results/agent-deep-windows.md, "The T1′
-two-horizon consistency test — PASS") measured the stopping height w_E2(L)
-(T_s = e^{w}T*) at eleven supports L = 1.75 … 5.50:
+The deep-windows final report (results/agent-deep-windows.md) recorded the
+quantity w_E2(L) at eleven supports L = 1.75 … 5.50:
 
   w = 1.1437, 1.1647, 1.1803, 1.1970, 1.2087, 1.2136, 1.2192, 1.2211,
       1.2243, 1.2282, 1.1861 (last row unconverged, verdict U at L = 5.0,
       plunge at 5.5; A-band moves w by ≤ 0.008).
 
-All eleven lie strictly inside (1, 2): margins ≥ +0.1437 to the count
-horizon and ≥ +0.7718 to the hard horizon; in height units T_s/T* ∈
-[3.14, 3.41] ⊂ (e, e²) = (2.718, 7.389) [V7]. The bend verdict from the same
-report — decay rate saturating at the prolate rate 4π per unit e^{L/2} past
-L ≈ 4.32, i.e. w → w∞ = 1.2785, e^{w∞} = 3.59 — also sits strictly inside
-the horizons forever; the corrected T1′ is compatible with the resolved
-Connes/Groskin normalization at c = 100 (log₁₀λ ≈ −528 vs −530).
+The arithmetic check that these values lie in (1,2), equivalently that
+e^{w_E2} ∈ [3.14,3.41] lies between e and e², is correct [V7]. Its original
+interpretation was not: the subsequent vector-level audit identifies these
+as **action heights**, where the minimizer's exponent budget is spent, not
+as **vanishing/registration heights**. Actual node-to-zero registration in
+the tested windows terminates near 1.9T* (w ≈ 0.64).
 
-Honest caveats. (i) Consistency is not proof: the w-test confronts the
-TWO-HORIZON PICTURE, of which Theorem 1 proves only the hard side; the
-variational side (T_s > e·T*, worth support ending at eT*) is measured and
-is a months-scale target (T4/H1(iii)), not a theorem. (ii) The measured
-stopping heights are properties of MINIMIZERS, whose anchor status is
-exactly Gap 1: Theorem 1 constrains them today only modulo Hypothesis A.
-(iii) ε* is small but not zero at the measured supports: the proved caps
-(e.g. ≤ 11.7·T* at L = 2.485 for ζ, ≤ 8.9·T* with staircase R = ½) are
-comfortably above the measured T_s ≈ 3.2·T* — the theorem excludes deep
-dodging, it does not predict the stopping height. Deriving T_s (the
-standoff ≈ 3.6T*) is C4's obstacle problem, not this document.
+Consequently the eleven w_E2 values do not confirm Theorem 1 or locate its
+hard horizon. The registration data are compatible with the theorem because
+1.9T* lies far below its upper bound, but this is a weak, non-discriminating
+check. The action heights instead bear on the separate variational story,
+which is not proved here. Moreover, all of these measurements concern
+minimizers whose normalized anchor is still Gap 1. Finally, the proved caps
+(for example ≤ 11.7·T* at L = 2.485 for ζ and ≤ 8.9·T* for staircase
+R = 1/2) are far above either measured scale; Theorem 1 excludes arbitrarily
+deep anchored dodging but does not predict a stopping or registration height.
 
 ---
 
-## 7. Lean decomposition and mathlib gap-map
+## 7. Lean status and remaining bridge map
 
 Terminal criterion: kernel-checked. Decomposition follows §2–§4; each item
 is sized at ≤ a few days of formalization by one person familiar with
@@ -429,25 +450,40 @@ mathlib analysis. Names checked against the LOCAL snapshot
 `lean/glide/.lake/packages/mathlib` @ `520045ab14` (2026-07-23); names may
 drift upstream.
 
+**Status audit (2026-07-27).** `HardHorizon.hard_horizon` and a raw
+`HardHorizon.zero_desert` remainder inequality are now kernel-checked on the
+abstract finite-head, recentered analytic-order hypotheses, with axioms
+`[propext, Classical.choice, Quot.sound]`. The Lean desert theorem is not a
+literal formalization of paper Corollary 2: it produces one zero-free radius
+and bounds the raw divisor remainder, but does not export the “any zero-free
+radius” statement, a named `Other` term, or the displayed zero-count corollary.
+Conversely, it drops some paper range restrictions, so the statements are
+incomparable. The ζ specialization also needs finite head enumeration,
+multiplicity/order transport, first-zero input, and Riemann–von Mangoldt
+bounds. The unrecentered-to-recentered analytic-order step is now supplied by
+`HardHorizon.analyticOrderAt_translate`, and the paper-facing global (S3) form
+by `HardHorizon.hard_horizon_of_global_orders`. The table below is the original
+decomposition plan, not current completion status; in particular its claim
+that radius selection is optional was refuted during formalization.
+
 | # | Statement | Mathlib status (checked locally) | Est. |
 |---|---|---|---|
 | L1 | F entire + √(2a)e^{a·|Im z|} growth | Differentiation under ∫: `intervalIntegral.hasDerivAt_integral_of_dominated_loc_of_lip` (or Morera route `Complex.differentiable_of_...`); differentiable-everywhere ⟹ analytic: `Differentiable.analyticOnNhd`. C–S: `MeasureTheory.inner_mul_le_norm_mul_norm`/`Memℒp` API. sinh y ≤ y·e^y: 5-line calc (`Real.sinh_eq`, `Real.add_one_le_exp`). No Paley–Wiener needed (easy direction only). | 2–4 d |
 | L2 | Σ ln(T/t_k) = ∫₀^T N/s | Direct: finite sum, `MeasureTheory.integral_finset_sum` + indicator Tonelli (`MeasureTheory.lintegral_finset_sum`); alternatively `Mathlib/NumberTheory/AbelSummation.lean` (`sum_mul_eq_sub_sub_integral_mul`). | 1–2 d |
 | L3 | rvM closed form (L3.1) | `intervalIntegral.integral_log` exists; FTC `intervalIntegral.integral_eq_sub_of_hasDerivAt`. Pure calculus. | 1 d |
 | L4 | rigidity transfer | Pointwise integrand inequality + `intervalIntegral.integral_mono_on`; trivial on top of L2/L3. | ½ d |
-| L5 | Jensen + radius selection | **PRESENT**: `AnalyticOnNhd.circleAverage_log_norm` (Mathlib/Analysis/Complex/JensenFormula.lean) — Jensen at center c, radius R, divisor sum over the closed ball; boundary zeros contribute 0, so radius selection is OPTIONAL in Lean. Zero-finiteness: `(divisor …).finiteSupport` in the same file. Also available: `AnalyticOnNhd.sum_divisor_le` (Jensen's inequality) and the ValueDistribution/ Nevanlinna folder. Work = instantiation + divisor ≥ prescribed multiset (`AnalyticOnNhd.divisor_apply`, `analyticOrderAt` ≥ m at a prescribed zero). | 2–3 d |
+| L5 | Jensen + radius selection | `AnalyticOnNhd.circleAverage_log_norm` is present, but formalization showed that a boundary-zero-avoiding radius is still needed because of the totalized `Real.log` behavior. Zero-finiteness comes from the divisor API; recentered analytic-order transport remains a bridge obligation. | completed for the abstract core |
 | L6 | circle average bound | `circleAverage` API (same file family); ∫₀^{2π}|sin| = 4: `integral_sin` on quarters. | 1 d |
 | L7 | pair-product + positivity | Algebra + `Real.log` monotonicity; multiplicity via divisor as in L5. | 1 d |
 | L8 | monotone crossing | `StrictMonoOn` via `strictMonoOn_of_deriv_pos`; explicit evaluation. | ½ d |
 | Thm 1 | assembly | Chain of L4→L7→L5→L6; bookkeeping. | 1–2 d |
 | Cor 2 | desert | Re-run of the chain keeping the remainder term. | 1–2 d |
-| Cor 1 | ζ instantiation | **BLOCKED — the one far item.** Needs formalized RvM with explicit constants (R1: Trudgian 2014 + theta expansion). Local mathlib has `riemannZeta`, zeros as a set, functional equation (Loeffler–Stoll corpus) but NO zero-counting asymptotics; PrimeNumberTheoremAnd (per prior-art §4) has no explicit-formula/N(T) statement either. Formalizing R1 is a standalone multi-month project (Backlund-style argument principle + explicit θ(T) bounds). Note: Theorem 1 + Corollary 2 for the STAIRCASE need zero arithmetic input and are fully unblocked. | months (external) |
+| Cor 1 | ζ instantiation | **BLOCKED — the one far item.** Needs formalized RvM with explicit constants (R1: Trudgian 2014, Corollary 1). Local mathlib has `riemannZeta`, zeros as a set, functional equation (Loeffler–Stoll corpus) but NO zero-counting asymptotics; PrimeNumberTheoremAnd (per prior-art §4) has no explicit-formula/N(T) statement either. Formalizing R1 is a standalone multi-month project (Backlund-style argument principle and explicit gamma-factor bounds). Note: Theorem 1 + Corollary 2 for the STAIRCASE need no zero-arithmetic input and are fully unblocked. | months (external) |
 
-Estimated unblocked total: ~2–3 weeks single-person for Theorem 1 + Corollary
-2 kernel-checked over the staircase — a realistic next Lean artifact after
-`weil_window_positive`, and the first ANALYTIC (non-finite-dimensional)
-statement of the program to be formalized. Recommended order: L3, L8, L2,
-L4 (pure calculus, zero risk) → L1, L6 → L5, L7 → assembly.
+The abstract core and the global-to-recentered order wrapper are now
+formalized. Remaining work is to encode the relevant weighted finite head,
+export the stronger desert corollaries if desired, and build the much larger
+ζ zero-counting specialization. No current Lean theorem mentions ζ.
 
 ---
 
@@ -457,12 +493,12 @@ Script (`verify_t1prime.py`, run 2026-07-26, mpmath dps 30; also archived in
 the session scratchpad). Checks: V1 = (L3.1); V2 = (L2.1) + (L4.1) on the
 true staircase with R = ½; V3 = (L5.1) + (L7.1) pair bound on a concrete
 F = P·ĥ recentered at x₀ = 2; V4 = (L6.1) on the normalized F; V5 = ε*
-table for Theorem 1 and Corollary 1 (with the NT cross-check D₀(e²T*) =
-3.476 at ℓ = 0.875, matching PLAN-number-theory to all printed digits) and
+table for Theorem 1 and Corollary 1 (with D₀(e²T*) =
+3.481 at ℓ = 0.875 for the direct Trudgian-Corollary constant) and
 L8 monotonicity; V6 = Lemma 0's D(eT*) = −7/8; V7 = the §6 w-data margins.
 
 ```python
-"""verify_t1prime.py -- numerical verification of every numbered estimate in T1PRIME.md.
+"""verify_t1prime.py -- numerical checks for T1PRIME.md identities and constants.
 Run: python3 verify_t1prime.py   (mpmath only; ~1 min)"""
 import mpmath as mp
 mp.mp.dps = 30
@@ -532,9 +568,9 @@ print("== (V5) h monotone on [2a+2,inf) and eps* table  eps*=[B+2R(2a+1)]/(2(e^{
 def epsstar(a,R,kap):
     B = (kap + 4 + 2/pi)*a + mp.mpf('0.5')*mp.log(2*a)
     return (B + 2*R*(2*a+1))/(2*(mp.e**(2*a+2) - R))
-def D0(T):  # NT Lemma R1: Trudgian S0 + 0.007
-    return mp.mpf('0.112')*mp.log(T) + mp.mpf('0.278')*mp.log(mp.log(T)) + mp.mpf('2.517')
-print("  NT cross-check D0(e^2 T*) at l=0.875: %s (NT quotes 3.476)" % mp.nstr(D0(2*pi*mp.e**(mp.mpf('0.875')+2)),4))
+def D0(T):  # Lemma R1: Trudgian's direct N(T) corollary, 0.2/(2*pi*e) < 0.012
+    return mp.mpf('0.112')*mp.log(T) + mp.mpf('0.278')*mp.log(mp.log(T)) + mp.mpf('2.522')
+print("  D0(e^2 T*) at l=0.875: %s" % mp.nstr(D0(2*pi*mp.e**(mp.mpf('0.875')+2)),4))
 for aa in ('0.4375','0.62125','0.749','1.0','1.5','2.25'):
     aa = mp.mpf(aa)
     Rz = D0(2*pi*mp.e**(2*aa+3))                       # zeta corollary, a-priori window
@@ -552,15 +588,16 @@ for aa in (mp.mpf('0.62125'), mp.mpf('1.126')):
     eTs = 2*pi*mp.e**(2*aa+1)
     print("  a=%s: D(eT*) = %s" % (mp.nstr(aa,5), mp.nstr((aa/pi)*eTs - Nhat(eTs), 8)))
 
-print("== (V7) deep-windows w-data vs the two horizons (consistency, not proof)")
+print("== (V7) arithmetic location of deep-windows ACTION-height data")
 w = [1.1437,1.1647,1.1803,1.1970,1.2087,1.2136,1.2192,1.2211,1.2243,1.2282,1.1861]
 print("  all in (1,2): %s ; min margin to e-horizon: %+0.4f ; to e^2-horizon: %+0.4f"
       % (all(1 < x < 2 for x in w), min(x-1 for x in w), min(2-x for x in w)))
-print("  T_s/T* range: [%.3f, %.3f] inside (e, e^2) = (2.718, 7.389)"
+print("  T_action/T* range: [%.3f, %.3f] inside (e, e^2) = (2.718, 7.389)"
       % (mp.e**min(w), mp.e**max(w)))
 ```
 
-Output (verbatim, 2026-07-26):
+Output (V1–V4 and V6–V7 from 2026-07-26; V5 regenerated 2026-07-27 after the
+R1 correction):
 
 ```
 == (V1) closed form: int_{2pi e}^{Ttil} Nhat(s)/s ds = e^tau(tau-2)+(7/8)(tau-1)+e
@@ -575,21 +612,21 @@ Output (verbatim, 2026-07-26):
 == (V4) circle bound for the NORMALIZED F: mean ln|F_n| <= (1/2)ln(2a) + (2/pi)a rho
   ||phi||_2^2 = 1.5079609 ; mean ln|F_n| = 2.7243415 <= 12.873667 : True
 == (V5) h monotone on [2a+2,inf) and eps* table  eps*=[B+2R(2a+1)]/(2(e^{2a+2}-R))
-  NT cross-check D0(e^2 T*) at l=0.875: 3.476 (NT quotes 3.476)
-  a=0.4375  L=1.75 : eps*(R=1/2,k=1)=0.124  eps*(R=D0=3.641,k=1)=0.57  hard cap e^{2+eps*}T* = 13.07 T*
-  a=0.6212  L=2.485 : eps*(R=1/2,k=1)=0.117  eps*(R=D0=3.7,k=1)=0.461  hard cap e^{2+eps*}T* = 11.72 T*
-  a=0.749  L=2.996 : eps*(R=1/2,k=1)=0.106  eps*(R=D0=3.74,k=1)=0.394  hard cap e^{2+eps*}T* = 10.96 T*
-  a=1.0  L=4.0 : eps*(R=1/2,k=1)=0.083  eps*(R=D0=3.817,k=1)=0.284  hard cap e^{2+eps*}T* = 9.82 T*
-  a=1.5  L=6.0 : eps*(R=1/2,k=1)=0.044  eps*(R=D0=3.967,k=1)=0.141  hard cap e^{2+eps*}T* = 8.508 T*
-  a=2.25  L=9.0 : eps*(R=1/2,k=1)=0.0142  eps*(R=D0=4.184,k=1)=0.045  hard cap e^{2+eps*}T* = 7.729 T*
+  D0(e^2 T*) at l=0.875: 3.481
+  a=0.4375  L=1.75 : eps*(R=1/2,k=1)=0.124  eps*(R=D0=3.646,k=1)=0.571  hard cap e^{2+eps*}T* = 13.08 T*
+  a=0.6212  L=2.485 : eps*(R=1/2,k=1)=0.117  eps*(R=D0=3.705,k=1)=0.462  hard cap e^{2+eps*}T* = 11.73 T*
+  a=0.749  L=2.996 : eps*(R=1/2,k=1)=0.106  eps*(R=D0=3.745,k=1)=0.395  hard cap e^{2+eps*}T* = 10.96 T*
+  a=1.0  L=4.0 : eps*(R=1/2,k=1)=0.083  eps*(R=D0=3.822,k=1)=0.285  hard cap e^{2+eps*}T* = 9.823 T*
+  a=1.5  L=6.0 : eps*(R=1/2,k=1)=0.044  eps*(R=D0=3.972,k=1)=0.141  hard cap e^{2+eps*}T* = 8.509 T*
+  a=2.25  L=9.0 : eps*(R=1/2,k=1)=0.0142  eps*(R=D0=4.189,k=1)=0.045  hard cap e^{2+eps*}T* = 7.729 T*
   h increasing at a=0.6212: True
   h increasing at a=1.5: True
 == (V6) D(eT*) = -7/8 exactly (D = (a/pi)T - Nhat)
   a=0.62125: D(eT*) = -0.875
   a=1.126: D(eT*) = -0.875
-== (V7) deep-windows w-data vs the two horizons (consistency, not proof)
+== (V7) arithmetic location of deep-windows ACTION-height data
   all in (1,2): True ; min margin to e-horizon: +0.1437 ; to e^2-horizon: +0.7718
-  T_s/T* range: [3.138, 3.415] inside (e, e^2) = (2.718, 7.389)
+  T_action/T* range: [3.138, 3.415] inside (e, e^2) = (2.718, 7.389)
 ```
 
 Notes on V-coverage. V2's staircase satisfies (S2) with R = ½ (N̂(t_k) =
@@ -597,24 +634,8 @@ k − ½ implies |N_Λ − N̂| ≤ ½), and the +1.1391 slack over the lower bo
 (L4.1) is the discarded (7/8)(τ−1) + e minus discreteness — positive as
 required. V3's test function has its sinc zeros at |z| = 40.45k, outside
 the Jensen disk |z − 2| ≤ 31.8, so the prescribed six zeros are the complete
-zero set in the disk — Jensen closes to 2e−30, confirming (L5.1) exactly in
-the recentered form used in the proof. V4 confirms (L6.1) with 10 nats to
-spare at this tiny example. V5's D₀ cross-check ties this document's
-Corollary-1 constants to PLAN-number-theory's independently computed values.
-
-
-
----
-
-## Coordinator's correction (2026-07-26, IAS panel, C-11/free-boundary R2)
-
-The §6 data-consistency section compares the theorem's horizons against the
-measured stopping heights w ∈ [1.144, 1.228]. The IAS panel's vector-level
-measurements show those eleven values are ACTION heights (where the
-minimizer's exponent budget is spent), not VANISHING heights: actual
-node-to-zero registration terminates at ≈ 1.9·T* (w ≈ 0.64) at every tested
-window. The theorem itself is untouched (and kernel-checked); the correct
-data test of the Hard Horizon is that REGISTRATION heights stay below the
-hard horizon — satisfied with room to spare — while the action heights test
-the variational (eT*) story instead. §6's language should be read with that
-substitution; a redraft is queued with the owning seat.
+zero set in the disk — Jensen closes to 2e−30, numerically checking (L5.1) in
+the recentered form used in the proof. V4 illustrates (L6.1) with 10 nats to
+spare at this tiny example. V5 uses the slightly enlarged D₀ constant from
+Trudgian's direct N(T) corollary; it supersedes the earlier +0.007 theta-tail
+shortcut quoted in PLAN-number-theory.md.

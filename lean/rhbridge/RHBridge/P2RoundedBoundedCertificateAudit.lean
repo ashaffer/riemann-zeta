@@ -1,0 +1,6 @@
+import RHBridge.P2RoundedBoundedCertificateCheck
+
+#check RHP2Bridge.P2RoundedBoundedCertificate.p2_canonical_matrix_containment
+#print axioms RHP2Bridge.P2RoundedBoundedCertificate.p2_canonical_matrix_containment
+#check RHP2Bridge.P2RoundedBoundedCertificate.p2_canonical_clipped_endpoint
+#print axioms RHP2Bridge.P2RoundedBoundedCertificate.p2_canonical_clipped_endpoint

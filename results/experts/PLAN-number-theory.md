@@ -679,6 +679,15 @@ sentence stands verbatim.
 
 ## Round 3 — status: the full-infimum composite (see results/experts/FULLINF.md)
 
+> **Audit correction (2026-07-27).** This Round-3 text is retained as a
+> historical seat report and is superseded by `FULLINF.md` §§7–11 and
+> `results/CODEX-REVIEW.md`. NT-4 remains unproved, so no zero-exclusion
+> consequence follows. The old high-m F4 ledger is provisional; F5 rules out
+> only the particular direct coercivity estimate it tested, and F6 is a basis
+> diagnostic rather than a theorem forcing prolates. A later, different
+> clipped-symbol argument (F7–F10) does prove unrestricted positivity through
+> L=749/250 under its documented FLINT-Arb plus analytic trust base.
+
 Assignment executed; outcome three-part, all constants verified by script.
 (1) **Delivered**: Theorem F4 — certified lower bound for Q_L over an
 infinite-dimensional frequency-tail class 𝒞(R, τ̄), from any certified

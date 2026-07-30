@@ -1,8 +1,10 @@
 """oracle.py — the two-sided Guinand-Weil identities.  RUN THIS FIRST.
 
 Left side: a sum over zeros only.  Right side: primes + pole + digamma integral only.
-The two sides share NO inputs.  Agreement certifies every normalization used by every
-other script; disagreement means a convention or implementation bug somewhere.
+The two sides use independent computational paths.  Agreement is a high-precision
+regression check of the normalizations used by the other scripts; it is not an
+interval or formal certificate.  Disagreement means a convention or implementation
+bug somewhere.
 
 EXPECTED (as measured July 26, 2026):
   zeta, Gaussian window on gamma_3, dps 30, 16 zeros, primes to 130000:

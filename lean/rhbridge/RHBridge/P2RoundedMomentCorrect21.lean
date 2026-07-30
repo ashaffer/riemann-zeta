@@ -1,0 +1,910 @@
+import RHBridge.P2RoundedFlatFactorCheckpoint21
+import RHBridge.P2RoundedMomentLengths21
+import RHBridge.P2RoundedMomentCheckpointCheck21_moments
+import RHBridge.P2RoundedMomentCheckpointCheck21_mode0
+import RHBridge.P2RoundedMomentCheckpointCheck21_mode1
+import RHBridge.P2RoundedMomentCheckpointCheck21_mode2
+import RHBridge.P2RoundedMomentCheckpointCheck21_mode3
+import RHBridge.P2RoundedMomentCheckpointCheck21_mode4
+import RHBridge.P2RoundedMomentCheckpointCheck21_mode5
+import RHBridge.P2RoundedMomentCheckpointCheck21_mode6
+import RHBridge.P2RoundedMomentCheckpointCheck21_mode7
+import RHBridge.P2RoundedMomentCheckpointCheck21_mode8
+import RHBridge.P2RoundedMomentCheckpointCheck21_mode9
+import RHBridge.P2RoundedMomentCheckpointCheck21_mode10
+import RHBridge.P2RoundedMomentCheckpointCheck21_mode11
+import RHBridge.P2RoundedMomentCheckpointCheck21_mode12
+import RHBridge.P2RoundedMomentCheckpointCheck21_mode13
+import RHBridge.P2RoundedMomentCheckpointCheck21_mode14
+import RHBridge.P2RoundedMomentCheckpointCheck21_mode15
+import RHBridge.P2RoundedMomentCheckpointCheck21_mode16
+import RHBridge.P2RoundedMomentCheckpointCheck21_mode17
+import RHBridge.P2RoundedMomentCheckpointCheck21_mode18
+import RHBridge.P2RoundedMomentCheckpointCheck21_mode19
+import RHBridge.P2RoundedMomentCheckpointCheck21_mode20
+import RHBridge.P2RoundedMomentCheckpointCheck21_mode21
+import RHBridge.P2RoundedMomentCheckpointCheck21_mode22
+import RHBridge.P2RoundedMomentCheckpointCheck21_mode23
+import RHBridge.P2RoundedMomentCheckpointCheck21_mode24
+import RHBridge.P2RoundedMomentCheckpointCheck21_mode25
+import RHBridge.P2RoundedMomentCheckpointCheck21_mode26
+import RHBridge.P2RoundedMomentCheckpointCheck21_mode27
+import RHBridge.P2RoundedMomentCheckpointCheck21_mode28
+import RHBridge.P2RoundedMomentCheckpointCheck21_mode29
+import RHBridge.P2RoundedMomentCheckpointCheck21_mode30
+import RHBridge.P2RoundedMomentCheckpointCheck21_mode31
+import RHBridge.P2RoundedMomentCheckpointCheck21_mode32
+import RHBridge.P2RoundedMomentCheckpointCheck21_mode33
+import RHBridge.P2RoundedMomentCheckpointCheck21_mode34
+import RHBridge.P2RoundedMomentCheckpointCheck21_mode35
+import RHBridge.P2RoundedMomentCheckpointCheck21_mode36
+import RHBridge.P2RoundedMomentCheckpointCheck21_mode37
+import RHBridge.P2RoundedMomentCheckpointCheck21_mode38
+import RHBridge.P2RoundedMomentCheckpointCheck21_mode39
+import RHBridge.P2RoundedMomentCheckpointCheck21_mode40
+import RHBridge.P2RoundedMomentCheckpointCheck21_mode41
+import RHBridge.P2RoundedMomentCheckpointCheck21_mode42
+import RHBridge.P2RoundedMomentCheckpointCheck21_mode43
+import RHBridge.P2RoundedMomentCheckpointCheck21_mode44
+import RHBridge.P2RoundedMomentCheckpointCheck21_mode45
+import RHBridge.P2RoundedMomentCheckpointCheck21_mode46
+import RHBridge.P2RoundedMomentCheckpointCheck21_mode47
+
+namespace RHP2Bridge
+
+open P2RoundedSharedEvaluator
+open P2RoundedMomentRefinement
+
+set_option maxRecDepth 100000
+set_option maxHeartbeats 50000000
+
+private theorem vector_ext_fin
+    {α : Type} {n : Nat} {v w : Vector α n}
+    (h : ∀ i : Fin n, v.get i = w.get i) : v = w := by
+  apply Vector.ext
+  intro i hi
+  exact h ⟨i, hi⟩
+
+theorem panel21DefectMoments_eq :
+    P2RoundedFactorCheckpointData.panel21MomentData.moments =
+      P2RoundedTripleMoment.defectMoments
+        P2RoundedFactorCheckpointData.panel21FlatCache.defect.coeffs := by
+  apply vector_ext_fin
+  intro row
+  rw [P2RoundedTripleMoment.defectMoments_get]
+  exact P2RoundedGeneratedCertificate.FinRangeAll.to_forall
+    (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (panel21DefectMomentRange0) panel21DefectMomentRange64) panel21DefectMomentRange128) panel21DefectMomentRange192) panel21DefectMomentRange256) row
+
+theorem panel21Mode0MatVec_eq :
+    P2RoundedFactorCheckpointData.panel21MomentData.matvecs
+        .even ⟨0, by decide⟩ =
+      P2RoundedTripleMoment.hankelMatVecFromMoments
+        P2RoundedFactorCheckpointData.panel21MomentData.moments
+        (P2RoundedFactorCheckpointData.panel21FlatCache.component
+          .even ⟨0, by decide⟩).coeffs := by
+  apply vector_ext_fin
+  intro row
+  exact P2RoundedGeneratedCertificate.FinRangeAll.to_forall
+    (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (panel21Mode0MatVecRange0) panel21Mode0MatVecRange32) panel21Mode0MatVecRange64) panel21Mode0MatVecRange96) panel21Mode0MatVecRange128) row
+
+theorem panel21Mode1MatVec_eq :
+    P2RoundedFactorCheckpointData.panel21MomentData.matvecs
+        .odd ⟨0, by decide⟩ =
+      P2RoundedTripleMoment.hankelMatVecFromMoments
+        P2RoundedFactorCheckpointData.panel21MomentData.moments
+        (P2RoundedFactorCheckpointData.panel21FlatCache.component
+          .odd ⟨0, by decide⟩).coeffs := by
+  apply vector_ext_fin
+  intro row
+  exact P2RoundedGeneratedCertificate.FinRangeAll.to_forall
+    (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (panel21Mode1MatVecRange0) panel21Mode1MatVecRange32) panel21Mode1MatVecRange64) panel21Mode1MatVecRange96) panel21Mode1MatVecRange128) row
+
+theorem panel21Mode2MatVec_eq :
+    P2RoundedFactorCheckpointData.panel21MomentData.matvecs
+        .even ⟨1, by decide⟩ =
+      P2RoundedTripleMoment.hankelMatVecFromMoments
+        P2RoundedFactorCheckpointData.panel21MomentData.moments
+        (P2RoundedFactorCheckpointData.panel21FlatCache.component
+          .even ⟨1, by decide⟩).coeffs := by
+  apply vector_ext_fin
+  intro row
+  exact P2RoundedGeneratedCertificate.FinRangeAll.to_forall
+    (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (panel21Mode2MatVecRange0) panel21Mode2MatVecRange32) panel21Mode2MatVecRange64) panel21Mode2MatVecRange96) panel21Mode2MatVecRange128) row
+
+theorem panel21Mode3MatVec_eq :
+    P2RoundedFactorCheckpointData.panel21MomentData.matvecs
+        .odd ⟨1, by decide⟩ =
+      P2RoundedTripleMoment.hankelMatVecFromMoments
+        P2RoundedFactorCheckpointData.panel21MomentData.moments
+        (P2RoundedFactorCheckpointData.panel21FlatCache.component
+          .odd ⟨1, by decide⟩).coeffs := by
+  apply vector_ext_fin
+  intro row
+  exact P2RoundedGeneratedCertificate.FinRangeAll.to_forall
+    (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (panel21Mode3MatVecRange0) panel21Mode3MatVecRange32) panel21Mode3MatVecRange64) panel21Mode3MatVecRange96) panel21Mode3MatVecRange128) row
+
+theorem panel21Mode4MatVec_eq :
+    P2RoundedFactorCheckpointData.panel21MomentData.matvecs
+        .even ⟨2, by decide⟩ =
+      P2RoundedTripleMoment.hankelMatVecFromMoments
+        P2RoundedFactorCheckpointData.panel21MomentData.moments
+        (P2RoundedFactorCheckpointData.panel21FlatCache.component
+          .even ⟨2, by decide⟩).coeffs := by
+  apply vector_ext_fin
+  intro row
+  exact P2RoundedGeneratedCertificate.FinRangeAll.to_forall
+    (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (panel21Mode4MatVecRange0) panel21Mode4MatVecRange32) panel21Mode4MatVecRange64) panel21Mode4MatVecRange96) panel21Mode4MatVecRange128) row
+
+theorem panel21Mode5MatVec_eq :
+    P2RoundedFactorCheckpointData.panel21MomentData.matvecs
+        .odd ⟨2, by decide⟩ =
+      P2RoundedTripleMoment.hankelMatVecFromMoments
+        P2RoundedFactorCheckpointData.panel21MomentData.moments
+        (P2RoundedFactorCheckpointData.panel21FlatCache.component
+          .odd ⟨2, by decide⟩).coeffs := by
+  apply vector_ext_fin
+  intro row
+  exact P2RoundedGeneratedCertificate.FinRangeAll.to_forall
+    (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (panel21Mode5MatVecRange0) panel21Mode5MatVecRange32) panel21Mode5MatVecRange64) panel21Mode5MatVecRange96) panel21Mode5MatVecRange128) row
+
+theorem panel21Mode6MatVec_eq :
+    P2RoundedFactorCheckpointData.panel21MomentData.matvecs
+        .even ⟨3, by decide⟩ =
+      P2RoundedTripleMoment.hankelMatVecFromMoments
+        P2RoundedFactorCheckpointData.panel21MomentData.moments
+        (P2RoundedFactorCheckpointData.panel21FlatCache.component
+          .even ⟨3, by decide⟩).coeffs := by
+  apply vector_ext_fin
+  intro row
+  exact P2RoundedGeneratedCertificate.FinRangeAll.to_forall
+    (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (panel21Mode6MatVecRange0) panel21Mode6MatVecRange32) panel21Mode6MatVecRange64) panel21Mode6MatVecRange96) panel21Mode6MatVecRange128) row
+
+theorem panel21Mode7MatVec_eq :
+    P2RoundedFactorCheckpointData.panel21MomentData.matvecs
+        .odd ⟨3, by decide⟩ =
+      P2RoundedTripleMoment.hankelMatVecFromMoments
+        P2RoundedFactorCheckpointData.panel21MomentData.moments
+        (P2RoundedFactorCheckpointData.panel21FlatCache.component
+          .odd ⟨3, by decide⟩).coeffs := by
+  apply vector_ext_fin
+  intro row
+  exact P2RoundedGeneratedCertificate.FinRangeAll.to_forall
+    (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (panel21Mode7MatVecRange0) panel21Mode7MatVecRange32) panel21Mode7MatVecRange64) panel21Mode7MatVecRange96) panel21Mode7MatVecRange128) row
+
+theorem panel21Mode8MatVec_eq :
+    P2RoundedFactorCheckpointData.panel21MomentData.matvecs
+        .even ⟨4, by decide⟩ =
+      P2RoundedTripleMoment.hankelMatVecFromMoments
+        P2RoundedFactorCheckpointData.panel21MomentData.moments
+        (P2RoundedFactorCheckpointData.panel21FlatCache.component
+          .even ⟨4, by decide⟩).coeffs := by
+  apply vector_ext_fin
+  intro row
+  exact P2RoundedGeneratedCertificate.FinRangeAll.to_forall
+    (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (panel21Mode8MatVecRange0) panel21Mode8MatVecRange32) panel21Mode8MatVecRange64) panel21Mode8MatVecRange96) panel21Mode8MatVecRange128) row
+
+theorem panel21Mode9MatVec_eq :
+    P2RoundedFactorCheckpointData.panel21MomentData.matvecs
+        .odd ⟨4, by decide⟩ =
+      P2RoundedTripleMoment.hankelMatVecFromMoments
+        P2RoundedFactorCheckpointData.panel21MomentData.moments
+        (P2RoundedFactorCheckpointData.panel21FlatCache.component
+          .odd ⟨4, by decide⟩).coeffs := by
+  apply vector_ext_fin
+  intro row
+  exact P2RoundedGeneratedCertificate.FinRangeAll.to_forall
+    (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (panel21Mode9MatVecRange0) panel21Mode9MatVecRange32) panel21Mode9MatVecRange64) panel21Mode9MatVecRange96) panel21Mode9MatVecRange128) row
+
+theorem panel21Mode10MatVec_eq :
+    P2RoundedFactorCheckpointData.panel21MomentData.matvecs
+        .even ⟨5, by decide⟩ =
+      P2RoundedTripleMoment.hankelMatVecFromMoments
+        P2RoundedFactorCheckpointData.panel21MomentData.moments
+        (P2RoundedFactorCheckpointData.panel21FlatCache.component
+          .even ⟨5, by decide⟩).coeffs := by
+  apply vector_ext_fin
+  intro row
+  exact P2RoundedGeneratedCertificate.FinRangeAll.to_forall
+    (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (panel21Mode10MatVecRange0) panel21Mode10MatVecRange32) panel21Mode10MatVecRange64) panel21Mode10MatVecRange96) panel21Mode10MatVecRange128) row
+
+theorem panel21Mode11MatVec_eq :
+    P2RoundedFactorCheckpointData.panel21MomentData.matvecs
+        .odd ⟨5, by decide⟩ =
+      P2RoundedTripleMoment.hankelMatVecFromMoments
+        P2RoundedFactorCheckpointData.panel21MomentData.moments
+        (P2RoundedFactorCheckpointData.panel21FlatCache.component
+          .odd ⟨5, by decide⟩).coeffs := by
+  apply vector_ext_fin
+  intro row
+  exact P2RoundedGeneratedCertificate.FinRangeAll.to_forall
+    (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (panel21Mode11MatVecRange0) panel21Mode11MatVecRange32) panel21Mode11MatVecRange64) panel21Mode11MatVecRange96) panel21Mode11MatVecRange128) row
+
+theorem panel21Mode12MatVec_eq :
+    P2RoundedFactorCheckpointData.panel21MomentData.matvecs
+        .even ⟨6, by decide⟩ =
+      P2RoundedTripleMoment.hankelMatVecFromMoments
+        P2RoundedFactorCheckpointData.panel21MomentData.moments
+        (P2RoundedFactorCheckpointData.panel21FlatCache.component
+          .even ⟨6, by decide⟩).coeffs := by
+  apply vector_ext_fin
+  intro row
+  exact P2RoundedGeneratedCertificate.FinRangeAll.to_forall
+    (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (panel21Mode12MatVecRange0) panel21Mode12MatVecRange32) panel21Mode12MatVecRange64) panel21Mode12MatVecRange96) panel21Mode12MatVecRange128) row
+
+theorem panel21Mode13MatVec_eq :
+    P2RoundedFactorCheckpointData.panel21MomentData.matvecs
+        .odd ⟨6, by decide⟩ =
+      P2RoundedTripleMoment.hankelMatVecFromMoments
+        P2RoundedFactorCheckpointData.panel21MomentData.moments
+        (P2RoundedFactorCheckpointData.panel21FlatCache.component
+          .odd ⟨6, by decide⟩).coeffs := by
+  apply vector_ext_fin
+  intro row
+  exact P2RoundedGeneratedCertificate.FinRangeAll.to_forall
+    (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (panel21Mode13MatVecRange0) panel21Mode13MatVecRange32) panel21Mode13MatVecRange64) panel21Mode13MatVecRange96) panel21Mode13MatVecRange128) row
+
+theorem panel21Mode14MatVec_eq :
+    P2RoundedFactorCheckpointData.panel21MomentData.matvecs
+        .even ⟨7, by decide⟩ =
+      P2RoundedTripleMoment.hankelMatVecFromMoments
+        P2RoundedFactorCheckpointData.panel21MomentData.moments
+        (P2RoundedFactorCheckpointData.panel21FlatCache.component
+          .even ⟨7, by decide⟩).coeffs := by
+  apply vector_ext_fin
+  intro row
+  exact P2RoundedGeneratedCertificate.FinRangeAll.to_forall
+    (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (panel21Mode14MatVecRange0) panel21Mode14MatVecRange32) panel21Mode14MatVecRange64) panel21Mode14MatVecRange96) panel21Mode14MatVecRange128) row
+
+theorem panel21Mode15MatVec_eq :
+    P2RoundedFactorCheckpointData.panel21MomentData.matvecs
+        .odd ⟨7, by decide⟩ =
+      P2RoundedTripleMoment.hankelMatVecFromMoments
+        P2RoundedFactorCheckpointData.panel21MomentData.moments
+        (P2RoundedFactorCheckpointData.panel21FlatCache.component
+          .odd ⟨7, by decide⟩).coeffs := by
+  apply vector_ext_fin
+  intro row
+  exact P2RoundedGeneratedCertificate.FinRangeAll.to_forall
+    (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (panel21Mode15MatVecRange0) panel21Mode15MatVecRange32) panel21Mode15MatVecRange64) panel21Mode15MatVecRange96) panel21Mode15MatVecRange128) row
+
+theorem panel21Mode16MatVec_eq :
+    P2RoundedFactorCheckpointData.panel21MomentData.matvecs
+        .even ⟨8, by decide⟩ =
+      P2RoundedTripleMoment.hankelMatVecFromMoments
+        P2RoundedFactorCheckpointData.panel21MomentData.moments
+        (P2RoundedFactorCheckpointData.panel21FlatCache.component
+          .even ⟨8, by decide⟩).coeffs := by
+  apply vector_ext_fin
+  intro row
+  exact P2RoundedGeneratedCertificate.FinRangeAll.to_forall
+    (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (panel21Mode16MatVecRange0) panel21Mode16MatVecRange32) panel21Mode16MatVecRange64) panel21Mode16MatVecRange96) panel21Mode16MatVecRange128) row
+
+theorem panel21Mode17MatVec_eq :
+    P2RoundedFactorCheckpointData.panel21MomentData.matvecs
+        .odd ⟨8, by decide⟩ =
+      P2RoundedTripleMoment.hankelMatVecFromMoments
+        P2RoundedFactorCheckpointData.panel21MomentData.moments
+        (P2RoundedFactorCheckpointData.panel21FlatCache.component
+          .odd ⟨8, by decide⟩).coeffs := by
+  apply vector_ext_fin
+  intro row
+  exact P2RoundedGeneratedCertificate.FinRangeAll.to_forall
+    (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (panel21Mode17MatVecRange0) panel21Mode17MatVecRange32) panel21Mode17MatVecRange64) panel21Mode17MatVecRange96) panel21Mode17MatVecRange128) row
+
+theorem panel21Mode18MatVec_eq :
+    P2RoundedFactorCheckpointData.panel21MomentData.matvecs
+        .even ⟨9, by decide⟩ =
+      P2RoundedTripleMoment.hankelMatVecFromMoments
+        P2RoundedFactorCheckpointData.panel21MomentData.moments
+        (P2RoundedFactorCheckpointData.panel21FlatCache.component
+          .even ⟨9, by decide⟩).coeffs := by
+  apply vector_ext_fin
+  intro row
+  exact P2RoundedGeneratedCertificate.FinRangeAll.to_forall
+    (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (panel21Mode18MatVecRange0) panel21Mode18MatVecRange32) panel21Mode18MatVecRange64) panel21Mode18MatVecRange96) panel21Mode18MatVecRange128) row
+
+theorem panel21Mode19MatVec_eq :
+    P2RoundedFactorCheckpointData.panel21MomentData.matvecs
+        .odd ⟨9, by decide⟩ =
+      P2RoundedTripleMoment.hankelMatVecFromMoments
+        P2RoundedFactorCheckpointData.panel21MomentData.moments
+        (P2RoundedFactorCheckpointData.panel21FlatCache.component
+          .odd ⟨9, by decide⟩).coeffs := by
+  apply vector_ext_fin
+  intro row
+  exact P2RoundedGeneratedCertificate.FinRangeAll.to_forall
+    (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (panel21Mode19MatVecRange0) panel21Mode19MatVecRange32) panel21Mode19MatVecRange64) panel21Mode19MatVecRange96) panel21Mode19MatVecRange128) row
+
+theorem panel21Mode20MatVec_eq :
+    P2RoundedFactorCheckpointData.panel21MomentData.matvecs
+        .even ⟨10, by decide⟩ =
+      P2RoundedTripleMoment.hankelMatVecFromMoments
+        P2RoundedFactorCheckpointData.panel21MomentData.moments
+        (P2RoundedFactorCheckpointData.panel21FlatCache.component
+          .even ⟨10, by decide⟩).coeffs := by
+  apply vector_ext_fin
+  intro row
+  exact P2RoundedGeneratedCertificate.FinRangeAll.to_forall
+    (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (panel21Mode20MatVecRange0) panel21Mode20MatVecRange32) panel21Mode20MatVecRange64) panel21Mode20MatVecRange96) panel21Mode20MatVecRange128) row
+
+theorem panel21Mode21MatVec_eq :
+    P2RoundedFactorCheckpointData.panel21MomentData.matvecs
+        .odd ⟨10, by decide⟩ =
+      P2RoundedTripleMoment.hankelMatVecFromMoments
+        P2RoundedFactorCheckpointData.panel21MomentData.moments
+        (P2RoundedFactorCheckpointData.panel21FlatCache.component
+          .odd ⟨10, by decide⟩).coeffs := by
+  apply vector_ext_fin
+  intro row
+  exact P2RoundedGeneratedCertificate.FinRangeAll.to_forall
+    (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (panel21Mode21MatVecRange0) panel21Mode21MatVecRange32) panel21Mode21MatVecRange64) panel21Mode21MatVecRange96) panel21Mode21MatVecRange128) row
+
+theorem panel21Mode22MatVec_eq :
+    P2RoundedFactorCheckpointData.panel21MomentData.matvecs
+        .even ⟨11, by decide⟩ =
+      P2RoundedTripleMoment.hankelMatVecFromMoments
+        P2RoundedFactorCheckpointData.panel21MomentData.moments
+        (P2RoundedFactorCheckpointData.panel21FlatCache.component
+          .even ⟨11, by decide⟩).coeffs := by
+  apply vector_ext_fin
+  intro row
+  exact P2RoundedGeneratedCertificate.FinRangeAll.to_forall
+    (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (panel21Mode22MatVecRange0) panel21Mode22MatVecRange32) panel21Mode22MatVecRange64) panel21Mode22MatVecRange96) panel21Mode22MatVecRange128) row
+
+theorem panel21Mode23MatVec_eq :
+    P2RoundedFactorCheckpointData.panel21MomentData.matvecs
+        .odd ⟨11, by decide⟩ =
+      P2RoundedTripleMoment.hankelMatVecFromMoments
+        P2RoundedFactorCheckpointData.panel21MomentData.moments
+        (P2RoundedFactorCheckpointData.panel21FlatCache.component
+          .odd ⟨11, by decide⟩).coeffs := by
+  apply vector_ext_fin
+  intro row
+  exact P2RoundedGeneratedCertificate.FinRangeAll.to_forall
+    (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (panel21Mode23MatVecRange0) panel21Mode23MatVecRange32) panel21Mode23MatVecRange64) panel21Mode23MatVecRange96) panel21Mode23MatVecRange128) row
+
+theorem panel21Mode24MatVec_eq :
+    P2RoundedFactorCheckpointData.panel21MomentData.matvecs
+        .even ⟨12, by decide⟩ =
+      P2RoundedTripleMoment.hankelMatVecFromMoments
+        P2RoundedFactorCheckpointData.panel21MomentData.moments
+        (P2RoundedFactorCheckpointData.panel21FlatCache.component
+          .even ⟨12, by decide⟩).coeffs := by
+  apply vector_ext_fin
+  intro row
+  exact P2RoundedGeneratedCertificate.FinRangeAll.to_forall
+    (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (panel21Mode24MatVecRange0) panel21Mode24MatVecRange32) panel21Mode24MatVecRange64) panel21Mode24MatVecRange96) panel21Mode24MatVecRange128) row
+
+theorem panel21Mode25MatVec_eq :
+    P2RoundedFactorCheckpointData.panel21MomentData.matvecs
+        .odd ⟨12, by decide⟩ =
+      P2RoundedTripleMoment.hankelMatVecFromMoments
+        P2RoundedFactorCheckpointData.panel21MomentData.moments
+        (P2RoundedFactorCheckpointData.panel21FlatCache.component
+          .odd ⟨12, by decide⟩).coeffs := by
+  apply vector_ext_fin
+  intro row
+  exact P2RoundedGeneratedCertificate.FinRangeAll.to_forall
+    (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (panel21Mode25MatVecRange0) panel21Mode25MatVecRange32) panel21Mode25MatVecRange64) panel21Mode25MatVecRange96) panel21Mode25MatVecRange128) row
+
+theorem panel21Mode26MatVec_eq :
+    P2RoundedFactorCheckpointData.panel21MomentData.matvecs
+        .even ⟨13, by decide⟩ =
+      P2RoundedTripleMoment.hankelMatVecFromMoments
+        P2RoundedFactorCheckpointData.panel21MomentData.moments
+        (P2RoundedFactorCheckpointData.panel21FlatCache.component
+          .even ⟨13, by decide⟩).coeffs := by
+  apply vector_ext_fin
+  intro row
+  exact P2RoundedGeneratedCertificate.FinRangeAll.to_forall
+    (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (panel21Mode26MatVecRange0) panel21Mode26MatVecRange32) panel21Mode26MatVecRange64) panel21Mode26MatVecRange96) panel21Mode26MatVecRange128) row
+
+theorem panel21Mode27MatVec_eq :
+    P2RoundedFactorCheckpointData.panel21MomentData.matvecs
+        .odd ⟨13, by decide⟩ =
+      P2RoundedTripleMoment.hankelMatVecFromMoments
+        P2RoundedFactorCheckpointData.panel21MomentData.moments
+        (P2RoundedFactorCheckpointData.panel21FlatCache.component
+          .odd ⟨13, by decide⟩).coeffs := by
+  apply vector_ext_fin
+  intro row
+  exact P2RoundedGeneratedCertificate.FinRangeAll.to_forall
+    (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (panel21Mode27MatVecRange0) panel21Mode27MatVecRange32) panel21Mode27MatVecRange64) panel21Mode27MatVecRange96) panel21Mode27MatVecRange128) row
+
+theorem panel21Mode28MatVec_eq :
+    P2RoundedFactorCheckpointData.panel21MomentData.matvecs
+        .even ⟨14, by decide⟩ =
+      P2RoundedTripleMoment.hankelMatVecFromMoments
+        P2RoundedFactorCheckpointData.panel21MomentData.moments
+        (P2RoundedFactorCheckpointData.panel21FlatCache.component
+          .even ⟨14, by decide⟩).coeffs := by
+  apply vector_ext_fin
+  intro row
+  exact P2RoundedGeneratedCertificate.FinRangeAll.to_forall
+    (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (panel21Mode28MatVecRange0) panel21Mode28MatVecRange32) panel21Mode28MatVecRange64) panel21Mode28MatVecRange96) panel21Mode28MatVecRange128) row
+
+theorem panel21Mode29MatVec_eq :
+    P2RoundedFactorCheckpointData.panel21MomentData.matvecs
+        .odd ⟨14, by decide⟩ =
+      P2RoundedTripleMoment.hankelMatVecFromMoments
+        P2RoundedFactorCheckpointData.panel21MomentData.moments
+        (P2RoundedFactorCheckpointData.panel21FlatCache.component
+          .odd ⟨14, by decide⟩).coeffs := by
+  apply vector_ext_fin
+  intro row
+  exact P2RoundedGeneratedCertificate.FinRangeAll.to_forall
+    (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (panel21Mode29MatVecRange0) panel21Mode29MatVecRange32) panel21Mode29MatVecRange64) panel21Mode29MatVecRange96) panel21Mode29MatVecRange128) row
+
+theorem panel21Mode30MatVec_eq :
+    P2RoundedFactorCheckpointData.panel21MomentData.matvecs
+        .even ⟨15, by decide⟩ =
+      P2RoundedTripleMoment.hankelMatVecFromMoments
+        P2RoundedFactorCheckpointData.panel21MomentData.moments
+        (P2RoundedFactorCheckpointData.panel21FlatCache.component
+          .even ⟨15, by decide⟩).coeffs := by
+  apply vector_ext_fin
+  intro row
+  exact P2RoundedGeneratedCertificate.FinRangeAll.to_forall
+    (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (panel21Mode30MatVecRange0) panel21Mode30MatVecRange32) panel21Mode30MatVecRange64) panel21Mode30MatVecRange96) panel21Mode30MatVecRange128) row
+
+theorem panel21Mode31MatVec_eq :
+    P2RoundedFactorCheckpointData.panel21MomentData.matvecs
+        .odd ⟨15, by decide⟩ =
+      P2RoundedTripleMoment.hankelMatVecFromMoments
+        P2RoundedFactorCheckpointData.panel21MomentData.moments
+        (P2RoundedFactorCheckpointData.panel21FlatCache.component
+          .odd ⟨15, by decide⟩).coeffs := by
+  apply vector_ext_fin
+  intro row
+  exact P2RoundedGeneratedCertificate.FinRangeAll.to_forall
+    (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (panel21Mode31MatVecRange0) panel21Mode31MatVecRange32) panel21Mode31MatVecRange64) panel21Mode31MatVecRange96) panel21Mode31MatVecRange128) row
+
+theorem panel21Mode32MatVec_eq :
+    P2RoundedFactorCheckpointData.panel21MomentData.matvecs
+        .even ⟨16, by decide⟩ =
+      P2RoundedTripleMoment.hankelMatVecFromMoments
+        P2RoundedFactorCheckpointData.panel21MomentData.moments
+        (P2RoundedFactorCheckpointData.panel21FlatCache.component
+          .even ⟨16, by decide⟩).coeffs := by
+  apply vector_ext_fin
+  intro row
+  exact P2RoundedGeneratedCertificate.FinRangeAll.to_forall
+    (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (panel21Mode32MatVecRange0) panel21Mode32MatVecRange32) panel21Mode32MatVecRange64) panel21Mode32MatVecRange96) panel21Mode32MatVecRange128) row
+
+theorem panel21Mode33MatVec_eq :
+    P2RoundedFactorCheckpointData.panel21MomentData.matvecs
+        .odd ⟨16, by decide⟩ =
+      P2RoundedTripleMoment.hankelMatVecFromMoments
+        P2RoundedFactorCheckpointData.panel21MomentData.moments
+        (P2RoundedFactorCheckpointData.panel21FlatCache.component
+          .odd ⟨16, by decide⟩).coeffs := by
+  apply vector_ext_fin
+  intro row
+  exact P2RoundedGeneratedCertificate.FinRangeAll.to_forall
+    (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (panel21Mode33MatVecRange0) panel21Mode33MatVecRange32) panel21Mode33MatVecRange64) panel21Mode33MatVecRange96) panel21Mode33MatVecRange128) row
+
+theorem panel21Mode34MatVec_eq :
+    P2RoundedFactorCheckpointData.panel21MomentData.matvecs
+        .even ⟨17, by decide⟩ =
+      P2RoundedTripleMoment.hankelMatVecFromMoments
+        P2RoundedFactorCheckpointData.panel21MomentData.moments
+        (P2RoundedFactorCheckpointData.panel21FlatCache.component
+          .even ⟨17, by decide⟩).coeffs := by
+  apply vector_ext_fin
+  intro row
+  exact P2RoundedGeneratedCertificate.FinRangeAll.to_forall
+    (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (panel21Mode34MatVecRange0) panel21Mode34MatVecRange32) panel21Mode34MatVecRange64) panel21Mode34MatVecRange96) panel21Mode34MatVecRange128) row
+
+theorem panel21Mode35MatVec_eq :
+    P2RoundedFactorCheckpointData.panel21MomentData.matvecs
+        .odd ⟨17, by decide⟩ =
+      P2RoundedTripleMoment.hankelMatVecFromMoments
+        P2RoundedFactorCheckpointData.panel21MomentData.moments
+        (P2RoundedFactorCheckpointData.panel21FlatCache.component
+          .odd ⟨17, by decide⟩).coeffs := by
+  apply vector_ext_fin
+  intro row
+  exact P2RoundedGeneratedCertificate.FinRangeAll.to_forall
+    (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (panel21Mode35MatVecRange0) panel21Mode35MatVecRange32) panel21Mode35MatVecRange64) panel21Mode35MatVecRange96) panel21Mode35MatVecRange128) row
+
+theorem panel21Mode36MatVec_eq :
+    P2RoundedFactorCheckpointData.panel21MomentData.matvecs
+        .even ⟨18, by decide⟩ =
+      P2RoundedTripleMoment.hankelMatVecFromMoments
+        P2RoundedFactorCheckpointData.panel21MomentData.moments
+        (P2RoundedFactorCheckpointData.panel21FlatCache.component
+          .even ⟨18, by decide⟩).coeffs := by
+  apply vector_ext_fin
+  intro row
+  exact P2RoundedGeneratedCertificate.FinRangeAll.to_forall
+    (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (panel21Mode36MatVecRange0) panel21Mode36MatVecRange32) panel21Mode36MatVecRange64) panel21Mode36MatVecRange96) panel21Mode36MatVecRange128) row
+
+theorem panel21Mode37MatVec_eq :
+    P2RoundedFactorCheckpointData.panel21MomentData.matvecs
+        .odd ⟨18, by decide⟩ =
+      P2RoundedTripleMoment.hankelMatVecFromMoments
+        P2RoundedFactorCheckpointData.panel21MomentData.moments
+        (P2RoundedFactorCheckpointData.panel21FlatCache.component
+          .odd ⟨18, by decide⟩).coeffs := by
+  apply vector_ext_fin
+  intro row
+  exact P2RoundedGeneratedCertificate.FinRangeAll.to_forall
+    (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (panel21Mode37MatVecRange0) panel21Mode37MatVecRange32) panel21Mode37MatVecRange64) panel21Mode37MatVecRange96) panel21Mode37MatVecRange128) row
+
+theorem panel21Mode38MatVec_eq :
+    P2RoundedFactorCheckpointData.panel21MomentData.matvecs
+        .even ⟨19, by decide⟩ =
+      P2RoundedTripleMoment.hankelMatVecFromMoments
+        P2RoundedFactorCheckpointData.panel21MomentData.moments
+        (P2RoundedFactorCheckpointData.panel21FlatCache.component
+          .even ⟨19, by decide⟩).coeffs := by
+  apply vector_ext_fin
+  intro row
+  exact P2RoundedGeneratedCertificate.FinRangeAll.to_forall
+    (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (panel21Mode38MatVecRange0) panel21Mode38MatVecRange32) panel21Mode38MatVecRange64) panel21Mode38MatVecRange96) panel21Mode38MatVecRange128) row
+
+theorem panel21Mode39MatVec_eq :
+    P2RoundedFactorCheckpointData.panel21MomentData.matvecs
+        .odd ⟨19, by decide⟩ =
+      P2RoundedTripleMoment.hankelMatVecFromMoments
+        P2RoundedFactorCheckpointData.panel21MomentData.moments
+        (P2RoundedFactorCheckpointData.panel21FlatCache.component
+          .odd ⟨19, by decide⟩).coeffs := by
+  apply vector_ext_fin
+  intro row
+  exact P2RoundedGeneratedCertificate.FinRangeAll.to_forall
+    (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (panel21Mode39MatVecRange0) panel21Mode39MatVecRange32) panel21Mode39MatVecRange64) panel21Mode39MatVecRange96) panel21Mode39MatVecRange128) row
+
+theorem panel21Mode40MatVec_eq :
+    P2RoundedFactorCheckpointData.panel21MomentData.matvecs
+        .even ⟨20, by decide⟩ =
+      P2RoundedTripleMoment.hankelMatVecFromMoments
+        P2RoundedFactorCheckpointData.panel21MomentData.moments
+        (P2RoundedFactorCheckpointData.panel21FlatCache.component
+          .even ⟨20, by decide⟩).coeffs := by
+  apply vector_ext_fin
+  intro row
+  exact P2RoundedGeneratedCertificate.FinRangeAll.to_forall
+    (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (panel21Mode40MatVecRange0) panel21Mode40MatVecRange32) panel21Mode40MatVecRange64) panel21Mode40MatVecRange96) panel21Mode40MatVecRange128) row
+
+theorem panel21Mode41MatVec_eq :
+    P2RoundedFactorCheckpointData.panel21MomentData.matvecs
+        .odd ⟨20, by decide⟩ =
+      P2RoundedTripleMoment.hankelMatVecFromMoments
+        P2RoundedFactorCheckpointData.panel21MomentData.moments
+        (P2RoundedFactorCheckpointData.panel21FlatCache.component
+          .odd ⟨20, by decide⟩).coeffs := by
+  apply vector_ext_fin
+  intro row
+  exact P2RoundedGeneratedCertificate.FinRangeAll.to_forall
+    (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (panel21Mode41MatVecRange0) panel21Mode41MatVecRange32) panel21Mode41MatVecRange64) panel21Mode41MatVecRange96) panel21Mode41MatVecRange128) row
+
+theorem panel21Mode42MatVec_eq :
+    P2RoundedFactorCheckpointData.panel21MomentData.matvecs
+        .even ⟨21, by decide⟩ =
+      P2RoundedTripleMoment.hankelMatVecFromMoments
+        P2RoundedFactorCheckpointData.panel21MomentData.moments
+        (P2RoundedFactorCheckpointData.panel21FlatCache.component
+          .even ⟨21, by decide⟩).coeffs := by
+  apply vector_ext_fin
+  intro row
+  exact P2RoundedGeneratedCertificate.FinRangeAll.to_forall
+    (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (panel21Mode42MatVecRange0) panel21Mode42MatVecRange32) panel21Mode42MatVecRange64) panel21Mode42MatVecRange96) panel21Mode42MatVecRange128) row
+
+theorem panel21Mode43MatVec_eq :
+    P2RoundedFactorCheckpointData.panel21MomentData.matvecs
+        .odd ⟨21, by decide⟩ =
+      P2RoundedTripleMoment.hankelMatVecFromMoments
+        P2RoundedFactorCheckpointData.panel21MomentData.moments
+        (P2RoundedFactorCheckpointData.panel21FlatCache.component
+          .odd ⟨21, by decide⟩).coeffs := by
+  apply vector_ext_fin
+  intro row
+  exact P2RoundedGeneratedCertificate.FinRangeAll.to_forall
+    (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (panel21Mode43MatVecRange0) panel21Mode43MatVecRange32) panel21Mode43MatVecRange64) panel21Mode43MatVecRange96) panel21Mode43MatVecRange128) row
+
+theorem panel21Mode44MatVec_eq :
+    P2RoundedFactorCheckpointData.panel21MomentData.matvecs
+        .even ⟨22, by decide⟩ =
+      P2RoundedTripleMoment.hankelMatVecFromMoments
+        P2RoundedFactorCheckpointData.panel21MomentData.moments
+        (P2RoundedFactorCheckpointData.panel21FlatCache.component
+          .even ⟨22, by decide⟩).coeffs := by
+  apply vector_ext_fin
+  intro row
+  exact P2RoundedGeneratedCertificate.FinRangeAll.to_forall
+    (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (panel21Mode44MatVecRange0) panel21Mode44MatVecRange32) panel21Mode44MatVecRange64) panel21Mode44MatVecRange96) panel21Mode44MatVecRange128) row
+
+theorem panel21Mode45MatVec_eq :
+    P2RoundedFactorCheckpointData.panel21MomentData.matvecs
+        .odd ⟨22, by decide⟩ =
+      P2RoundedTripleMoment.hankelMatVecFromMoments
+        P2RoundedFactorCheckpointData.panel21MomentData.moments
+        (P2RoundedFactorCheckpointData.panel21FlatCache.component
+          .odd ⟨22, by decide⟩).coeffs := by
+  apply vector_ext_fin
+  intro row
+  exact P2RoundedGeneratedCertificate.FinRangeAll.to_forall
+    (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (panel21Mode45MatVecRange0) panel21Mode45MatVecRange32) panel21Mode45MatVecRange64) panel21Mode45MatVecRange96) panel21Mode45MatVecRange128) row
+
+theorem panel21Mode46MatVec_eq :
+    P2RoundedFactorCheckpointData.panel21MomentData.matvecs
+        .even ⟨23, by decide⟩ =
+      P2RoundedTripleMoment.hankelMatVecFromMoments
+        P2RoundedFactorCheckpointData.panel21MomentData.moments
+        (P2RoundedFactorCheckpointData.panel21FlatCache.component
+          .even ⟨23, by decide⟩).coeffs := by
+  apply vector_ext_fin
+  intro row
+  exact P2RoundedGeneratedCertificate.FinRangeAll.to_forall
+    (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (panel21Mode46MatVecRange0) panel21Mode46MatVecRange32) panel21Mode46MatVecRange64) panel21Mode46MatVecRange96) panel21Mode46MatVecRange128) row
+
+theorem panel21Mode47MatVec_eq :
+    P2RoundedFactorCheckpointData.panel21MomentData.matvecs
+        .odd ⟨23, by decide⟩ =
+      P2RoundedTripleMoment.hankelMatVecFromMoments
+        P2RoundedFactorCheckpointData.panel21MomentData.moments
+        (P2RoundedFactorCheckpointData.panel21FlatCache.component
+          .odd ⟨23, by decide⟩).coeffs := by
+  apply vector_ext_fin
+  intro row
+  exact P2RoundedGeneratedCertificate.FinRangeAll.to_forall
+    (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (P2RoundedGeneratedCertificate.FinRangeAll.combine
+        (panel21Mode47MatVecRange0) panel21Mode47MatVecRange32) panel21Mode47MatVecRange64) panel21Mode47MatVecRange96) panel21Mode47MatVecRange128) row
+
+theorem panel21MomentData_correct :
+    P2RoundedFactorCheckpointData.panel21MomentData.CorrectFor
+      P2RoundedFactorCheckpointData.panel21FlatCache := by
+  apply PanelMomentData.CorrectFor.of_vector_eq
+      panel21DefectMoments_eq panel21ComponentLengthLe
+  intro kind i
+  cases kind with
+  | even =>
+      fin_cases i
+      · exact panel21Mode0MatVec_eq
+      · exact panel21Mode2MatVec_eq
+      · exact panel21Mode4MatVec_eq
+      · exact panel21Mode6MatVec_eq
+      · exact panel21Mode8MatVec_eq
+      · exact panel21Mode10MatVec_eq
+      · exact panel21Mode12MatVec_eq
+      · exact panel21Mode14MatVec_eq
+      · exact panel21Mode16MatVec_eq
+      · exact panel21Mode18MatVec_eq
+      · exact panel21Mode20MatVec_eq
+      · exact panel21Mode22MatVec_eq
+      · exact panel21Mode24MatVec_eq
+      · exact panel21Mode26MatVec_eq
+      · exact panel21Mode28MatVec_eq
+      · exact panel21Mode30MatVec_eq
+      · exact panel21Mode32MatVec_eq
+      · exact panel21Mode34MatVec_eq
+      · exact panel21Mode36MatVec_eq
+      · exact panel21Mode38MatVec_eq
+      · exact panel21Mode40MatVec_eq
+      · exact panel21Mode42MatVec_eq
+      · exact panel21Mode44MatVec_eq
+      · exact panel21Mode46MatVec_eq
+  | odd =>
+      fin_cases i
+      · exact panel21Mode1MatVec_eq
+      · exact panel21Mode3MatVec_eq
+      · exact panel21Mode5MatVec_eq
+      · exact panel21Mode7MatVec_eq
+      · exact panel21Mode9MatVec_eq
+      · exact panel21Mode11MatVec_eq
+      · exact panel21Mode13MatVec_eq
+      · exact panel21Mode15MatVec_eq
+      · exact panel21Mode17MatVec_eq
+      · exact panel21Mode19MatVec_eq
+      · exact panel21Mode21MatVec_eq
+      · exact panel21Mode23MatVec_eq
+      · exact panel21Mode25MatVec_eq
+      · exact panel21Mode27MatVec_eq
+      · exact panel21Mode29MatVec_eq
+      · exact panel21Mode31MatVec_eq
+      · exact panel21Mode33MatVec_eq
+      · exact panel21Mode35MatVec_eq
+      · exact panel21Mode37MatVec_eq
+      · exact panel21Mode39MatVec_eq
+      · exact panel21Mode41MatVec_eq
+      · exact panel21Mode43MatVec_eq
+      · exact panel21Mode45MatVec_eq
+      · exact panel21Mode47MatVec_eq
+
+end RHP2Bridge
