@@ -1,0 +1,8 @@
+import RHBridge.ZetaWeilForm
+
+#print axioms RHP2Bridge.ZetaWeilForm.p2ExpandedWeilForm_eq_p2TruncatedZetaWeilForm
+#print axioms RHP2Bridge.ZetaWeilForm.p2ExpandedWeilForm_strict_lower_bound
+#print axioms RHP2Bridge.ZetaWeilForm.p2PrimeTwoTerm_eq_timeDomain
+#print axioms RHP2Bridge.ZetaWeilForm.p2TimeDomainWeilForm_strict_lower_bound
+#print axioms RHP2Bridge.AutocorrelationPlancherel.intervalAutocorrelation_eq_integral
+#print axioms RHP2Bridge.AutocorrelationPlancherel.intervalAutocorrelation_eq_cos_fourier_energy

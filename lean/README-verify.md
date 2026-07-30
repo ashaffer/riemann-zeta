@@ -352,6 +352,8 @@ export C_INCLUDE_PATH=/usr/include/x86_64-linux-gnu # if cache compilation needs
 lake exe cache get
 lake build RHBridge.P2RoundedBoundedCertificateCheck
 lake env lean RHBridge/P2RoundedBoundedCertificateAudit.lean
+lake build RHBridge.ZetaWeilForm
+lake env lean RHBridge/ZetaWeilFormAudit.lean
 ```
 
 `RHP2Bridge.P2RoundedBoundedCertificate.p2_canonical_matrix_containment`
