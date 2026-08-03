@@ -1,23 +1,18 @@
 /-
 Copyright (c) 2026 Riemann-Zeta project contributors. All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
 Authors: Riemann-Zeta project contributors
 -/
 import CertFramework
+import Mathlib.Analysis.InnerProductSpace.Projection.Basic
 
 /-!
-# Abstract finite-to-full transfer for the Weil form
+# Two-block coercivity transfer on real inner-product spaces
 
-This file isolates the Hilbert-space part of `FULLINF` Theorem F8.  It contains
-no numerical enclosure and no zeta-specific definition.  The hypotheses are
-exact block estimates for a symmetric bilinear form along an orthogonal
-decomposition; the conclusion is a uniform lower bound on the whole vector.
-
-Within the abstract F8 composition, the remaining hypotheses are sharply
-delimited: construct the orthogonal decomposition and prove the three block
-estimates.  A zeta endpoint additionally requires defining and packaging the
-clipped form, proving the comparison from the original Weil form, and bridging
-the finite matrix data.  Once those are available, the theorem below performs
-the final two-block composition in the Lean kernel.
+The hypotheses are block estimates for a symmetric bilinear form along an
+orthogonal decomposition; the conclusions give strict or closed-form uniform
+lower bounds on the whole vector.  This file contains no numerical enclosure
+and no zeta-specific definition.
 -/
 
 namespace FullInfTransfer
@@ -68,6 +63,41 @@ theorem bilinear_two_block_strict_lower_bound
   rw [hpythagoras]
   exact hscalar.trans_le hform
 
+/-- **Optimal two-block coercivity bound.**
+
+This is the human-facing closed form of the transfer theorem.  It removes the
+auxiliary target `gamma` and returns the sharp universal lower constant
+`CertFramework.twoBlockLowerEigenvalue beta d c`, the smaller eigenvalue of
+`[[beta, -c], [-c, d]]`.  Equality is allowed, so no nonzero hypothesis is
+needed. -/
+theorem bilinear_two_block_lower_bound_optimal
+    (B : E →ₗ[ℝ] E →ₗ[ℝ] ℝ) (beta d c : ℝ) (u w : E)
+    (hsymm : ∀ x y, B x y = B y x)
+    (horth : inner ℝ u w = 0)
+    (hfinite : beta * ‖u‖ ^ 2 ≤ B u u)
+    (hcomplement : d * ‖w‖ ^ 2 ≤ B w w)
+    (hcross : |B u w| ≤ c * ‖u‖ * ‖w‖) :
+    CertFramework.twoBlockLowerEigenvalue beta d c * ‖u + w‖ ^ 2 ≤
+      B (u + w) (u + w) := by
+  have hscalar := CertFramework.two_by_two_lower_bound_optimal
+    beta d c ‖u‖ ‖w‖
+  have hcross_lower : -(c * ‖u‖ * ‖w‖) ≤ B u w :=
+    neg_le_of_abs_le hcross
+  have hexpand :
+      B (u + w) (u + w) = B u u + B u w + B w u + B w w := by
+    simp [map_add]
+    ring
+  have hform :
+      beta * ‖u‖ ^ 2 + d * ‖w‖ ^ 2 - 2 * c * ‖u‖ * ‖w‖ ≤
+        B (u + w) (u + w) := by
+    rw [hexpand, hsymm w u]
+    nlinarith
+  have hpythagoras : ‖u + w‖ ^ 2 = ‖u‖ ^ 2 + ‖w‖ ^ 2 := by
+    rw [norm_add_sq_real, horth]
+    ring
+  rw [hpythagoras]
+  exact hscalar.trans hform
+
 /-- A decomposition-oriented wrapper around
 `bilinear_two_block_strict_lower_bound`.
 
@@ -98,7 +128,8 @@ theorem bilinear_decomposition_strict_lower_bound
   rw [← hsum f] at h
   exact h
 
-/-- F8 specialized to the canonical orthogonal projection onto a subspace.
+/-- Two-block transfer specialized to the canonical orthogonal projection onto
+a subspace.
 
 The theorem turns block estimates stated only on `U` and `Uᗮ` into a lower
 bound for every nonzero vector in the ambient space.  For the Weil
@@ -131,66 +162,27 @@ theorem starProjection_strict_lower_bound
   rw [hsum] at h
   exact h
 
-/-! ## Exact projection-level FULLINF ledgers -/
-
-/-- The `L = 7/4` F8 ledger lifted from scalar arithmetic to an arbitrary
-orthogonal projection.  The three block hypotheses are the remaining
-obligations inside the abstract transfer, after the form and comparison have
-been constructed. -/
-theorem fullinf_p2_projection_lower_bound
+/-- Optimal closed-form transfer for the canonical decomposition
+`f = P_U f + P_{Uᵮ} f`. -/
+theorem starProjection_lower_bound_optimal
     (B : E →ₗ[ℝ] E →ₗ[ℝ] ℝ) (U : Submodule ℝ E)
-    [U.HasOrthogonalProjection]
+    [U.HasOrthogonalProjection] (beta d c : ℝ)
     (hsymm : ∀ x y, B x y = B y x)
-    (hfinite : ∀ u ∈ U, (227 / 10 ^ 7) * ‖u‖ ^ 2 ≤ B u u)
-    (hcomplement : ∀ w ∈ Uᗮ, (1093 / 1000) * ‖w‖ ^ 2 ≤ B w w)
+    (hfinite : ∀ u ∈ U, beta * ‖u‖ ^ 2 ≤ B u u)
+    (hcomplement : ∀ w ∈ Uᗮ, d * ‖w‖ ^ 2 ≤ B w w)
     (hcross : ∀ u ∈ U, ∀ w ∈ Uᗮ,
-      |B u w| ≤ (212 / 10 ^ 12) * ‖u‖ * ‖w‖)
-    {f : E} (hf : f ≠ 0) :
-    (22699 / 10 ^ 9) * ‖f‖ ^ 2 < B f f := by
-  apply starProjection_strict_lower_bound B U
-    (227 / 10 ^ 7) (1093 / 1000) (212 / 10 ^ 12) (22699 / 10 ^ 9)
-    hsymm hfinite hcomplement hcross
-  · norm_num
-  · norm_num
-  · norm_num
-  · exact hf
-
-/-- The `L = 497/200` F8 ledger lifted to an arbitrary orthogonal projection. -/
-theorem fullinf_p3_projection_lower_bound
-    (B : E →ₗ[ℝ] E →ₗ[ℝ] ℝ) (U : Submodule ℝ E)
-    [U.HasOrthogonalProjection]
-    (hsymm : ∀ x y, B x y = B y x)
-    (hfinite : ∀ u ∈ U, (1 / 10 ^ 10) * ‖u‖ ^ 2 ≤ B u u)
-    (hcomplement : ∀ w ∈ Uᗮ, (161 / 1000) * ‖w‖ ^ 2 ≤ B w w)
-    (hcross : ∀ u ∈ U, ∀ w ∈ Uᗮ,
-      |B u w| ≤ (721 / 10 ^ 13) * ‖u‖ * ‖w‖)
-    {f : E} (hf : f ≠ 0) :
-    (999 / 10 ^ 13) * ‖f‖ ^ 2 < B f f := by
-  apply starProjection_strict_lower_bound B U
-    (1 / 10 ^ 10) (161 / 1000) (721 / 10 ^ 13) (999 / 10 ^ 13)
-    hsymm hfinite hcomplement hcross
-  · norm_num
-  · norm_num
-  · norm_num
-  · exact hf
-
-/-- The `L = 749/250` F8 ledger lifted to an arbitrary orthogonal projection. -/
-theorem fullinf_n4_projection_lower_bound
-    (B : E →ₗ[ℝ] E →ₗ[ℝ] ℝ) (U : Submodule ℝ E)
-    [U.HasOrthogonalProjection]
-    (hsymm : ∀ x y, B x y = B y x)
-    (hfinite : ∀ u ∈ U, (1 / 10 ^ 15) * ‖u‖ ^ 2 ≤ B u u)
-    (hcomplement : ∀ w ∈ Uᗮ, (289 / 1000) * ‖w‖ ^ 2 ≤ B w w)
-    (hcross : ∀ u ∈ U, ∀ w ∈ Uᗮ,
-      |B u w| ≤ (106 / 10 ^ 11) * ‖u‖ * ‖w‖)
-    {f : E} (hf : f ≠ 0) :
-    (99 / 10 ^ 17) * ‖f‖ ^ 2 < B f f := by
-  apply starProjection_strict_lower_bound B U
-    (1 / 10 ^ 15) (289 / 1000) (106 / 10 ^ 11) (99 / 10 ^ 17)
-    hsymm hfinite hcomplement hcross
-  · norm_num
-  · norm_num
-  · norm_num
-  · exact hf
+      |B u w| ≤ c * ‖u‖ * ‖w‖)
+    (f : E) :
+    CertFramework.twoBlockLowerEigenvalue beta d c * ‖f‖ ^ 2 ≤ B f f := by
+  have hu : U.starProjection f ∈ U := U.starProjection_apply_mem f
+  have hw : Uᗮ.starProjection f ∈ Uᗮ := Uᗮ.starProjection_apply_mem f
+  have horth : inner ℝ (U.starProjection f) (Uᗮ.starProjection f) = 0 :=
+    Submodule.inner_right_of_mem_orthogonal hu hw
+  have hsum : U.starProjection f + Uᗮ.starProjection f = f :=
+    U.starProjection_add_starProjection_orthogonal f
+  have h := bilinear_two_block_lower_bound_optimal B beta d c
+    (U.starProjection f) (Uᗮ.starProjection f) hsymm horth
+    (hfinite _ hu) (hcomplement _ hw) (hcross _ hu _ hw)
+  rwa [hsum] at h
 
 end FullInfTransfer

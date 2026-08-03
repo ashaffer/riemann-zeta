@@ -1,10 +1,25 @@
 /-
-Complete normalized Legendre Hilbert bases on arbitrary symmetric compact
-intervals, together with finite-section Parseval residuals.
+Copyright (c) 2026 Riemann-Zeta project contributors. All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Riemann-Zeta project contributors
 -/
 import LegendreScaled
 import LegendreL2
 import HilbertBasisTail
+import LegendreIntervalL2
+
+/-!
+# Fourier--Legendre bases on symmetric real intervals
+
+`LegendreScaledL2.FourierLegendre` gives a complete normalized basis on the
+symmetric interval `[-a,a]`, together with its unitary coefficient transform,
+Parseval identity, and exact finite-projection error.
+
+The scalar field is currently `ℝ`.  The corresponding theory on a general
+nondegenerate interval `[b,c]` is in `LegendreIntervalL2`.  This module
+re-exports that theory to preserve imports written before the physical split;
+new interval-only developments may import `LegendreIntervalL2` directly.
+-/
 
 namespace LegendreScaledL2
 
@@ -305,6 +320,54 @@ theorem norm_starProjection_residual_sq_le_of_tsum_tail_le
     ‖x - (finiteLegendreSubspace a m).starProjection x‖ ^ 2 ≤ C := by
   rw [← tsum_tail_eq_norm_starProjection_residual_sq a ha]
   exact h
+
+/-! ## Human-facing Fourier--Legendre API
+
+The declarations above expose every construction step.  The following small
+namespace packages their mathematical endpoint: a complete orthonormal basis,
+its unitary coefficient transform, Parseval, and the exact finite-section
+error.  Keeping these aliases separate preserves all existing callers while
+giving downstream developments a stable interface that does not depend on the
+construction proof.
+-/
+
+namespace FourierLegendre
+
+/-- The normalized Legendre Hilbert basis of real `L²([-a,a])`. -/
+noncomputable abbrev basis (a : ℝ) (ha : 0 < a) :
+    HilbertBasis ℕ ℝ (IntervalL2 a) :=
+  scaledNormalizedLegendreHilbertBasis a ha
+
+/-- The unitary Fourier--Legendre coefficient transform. -/
+noncomputable def transform (a : ℝ) (ha : 0 < a) :=
+  (basis a ha).repr
+
+@[simp] theorem basis_apply (a : ℝ) (ha : 0 < a) (n : ℕ) :
+    basis a ha n = scaledNormalizedLegendreL2 a n := by
+  exact scaledNormalizedLegendreHilbertBasis_apply a ha n
+
+@[simp] theorem transform_apply (a : ℝ) (ha : 0 < a)
+    (x : IntervalL2 a) (n : ℕ) :
+    transform a ha x n =
+      inner ℝ (scaledNormalizedLegendreL2 a n) x := by
+  change (basis a ha).repr x n = _
+  rw [(basis a ha).repr_apply_apply, basis_apply]
+
+/-- Parseval's identity for the Fourier--Legendre transform. -/
+theorem parseval (a : ℝ) (ha : 0 < a) (x : IntervalL2 a) :
+    ∑' n : ℕ,
+        ‖inner ℝ (scaledNormalizedLegendreL2 a n) x‖ ^ 2 = ‖x‖ ^ 2 :=
+  tsum_sq_norm_inner_scaledNormalizedLegendreL2 a ha x
+
+/-- The exact squared error after retaining the first `m` coefficients. -/
+theorem projection_error (a : ℝ) (ha : 0 < a) (m : ℕ)
+    (x : IntervalL2 a) :
+    ‖x - (finiteLegendreSubspace a m).starProjection x‖ ^ 2 =
+      ∑' n : ℕ,
+        ‖inner ℝ (scaledNormalizedLegendreL2 a (m + n)) x‖ ^ 2 := by
+  exact (tsum_tail_eq_norm_starProjection_residual_sq a ha m x).symm
+
+end FourierLegendre
 
 /-! ## The complex plane wave as two real `L²` vectors -/
 

@@ -3,7 +3,7 @@ Composition of the real clipped-block certificate with the abstract F8
 orthogonal-projection theorem.
 -/
 import FullInfClipped48Real
-import FullInfTransfer
+import FullInfExactLedgers
 
 namespace FullInfClipped48Transfer
 

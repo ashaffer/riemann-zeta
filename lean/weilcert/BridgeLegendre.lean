@@ -1,32 +1,30 @@
 /-
-BridgeLegendre: the Legendre polynomials over ℚ, by the Bonnet recurrence
-
-  legendre 0 = 1,  legendre 1 = X,
-  (n+2) * legendre (n+2) = (2n+3) * X * legendre (n+1) - (n+1) * legendre n,
-
-together with the basic structure theory needed by the Bridge Proposition of
-THEOREMS.md (the analytic identification of the kernel-checked matrix of
-`Weilcert.lean` with the truncated Weil form at L = 497/200 in the basis
-b_k(x) = P_k(4x/L)):
-
-  * `natDegree_legendre : (legendre n).natDegree = n`
-  * `degree_legendre    : (legendre n).degree = n`
-  * `leadingCoeff_legendre :
-        (legendre n).leadingCoeff = n.centralBinom / 2 ^ n`
-        (that is, (2n)! / (2^n n!^2) — the classical leading coefficient)
-  * `aeval_legendre_add_two` : the Bonnet recurrence under evaluation in any
-        commutative ℚ-algebra (used by BridgeOverlap over ℝ).
-
-Mathlib (this pin) has only the *shifted* Legendre polynomials
-`Polynomial.shiftedLegendre n : ℤ[X]` (= P_n(1 - 2x), no recurrence, no
-leading-coefficient lemma), so the plain Legendre polynomials are defined
-here.  `BridgeOverlap.lean` cross-checks the two definitions at small index:
-`(shiftedLegendre n).map (Int.castRingHom ℚ) = (legendre n).comp (1 - 2*X)`.
-
-Axiom base: propext, Classical.choice, Quot.sound only (see
-results/agent-bridge-formal.md for the audit).
+Copyright (c) 2026 Riemann-Zeta project contributors. All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Riemann-Zeta project contributors
 -/
-import Mathlib
+import Mathlib.Algebra.Polynomial.Degree.Lemmas
+import Mathlib.Algebra.Polynomial.AlgebraMap
+import Mathlib.Data.Nat.Choose.Central
+import Mathlib.Tactic.FieldSimp
+import Mathlib.Tactic.LinearCombination
+import Mathlib.Tactic.NormNum
+import Mathlib.Tactic.Positivity
+
+/-!
+# Plain Legendre polynomials over `ℚ`
+
+This file defines the Legendre sequence by Bonnet's recurrence
+
+```text
+P₀ = 1,  P₁ = X,
+(n+2) Pₙ₊₂ = (2n+3) X Pₙ₊₁ - (n+1) Pₙ,
+```
+
+and proves its degree, leading coefficient, and evaluation recurrence.  The
+leading coefficient is `n.centralBinom / 2^n`.  The rational sequence is a
+convenient unshifted counterpart to `Polynomial.shiftedLegendre`.
+-/
 
 namespace Bridge
 

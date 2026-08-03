@@ -1,0 +1,17 @@
+import RHBridge.IncidenceCycleObstruction
+
+/-! # Axiom audit for incidence cycle obstructions -/
+
+#print axioms RHP2Bridge.IncidenceCycleObstruction.commuting_plaquette_closed
+#print axioms RHP2Bridge.IncidenceCycleObstruction.globallyClosedCycle_invisible
+#print axioms RHP2Bridge.IncidenceCycleObstruction.amplified_capacity_iff_block_nonnegative
+#print axioms RHP2Bridge.IncidenceCycleObstruction.scalar_full_surplus_eq_weil_schur
+#print axioms RHP2Bridge.IncidenceCycleObstruction.one_negative_sector_nonnegative_of_repair
+#print axioms RHP2Bridge.IncidenceCycleObstruction.scalar_tilted_capacity_expansion
+#print axioms RHP2Bridge.IncidenceCycleObstruction.scalar_tilted_capacity_lower_bound
+#print axioms RHP2Bridge.IncidenceCycleObstruction.scalar_hodge_loss_smoothing
+#print axioms RHP2Bridge.IncidenceCycleObstruction.scalar_hodge_sqrt_loss_smoothing
+#print axioms RHP2Bridge.IncidenceCycleObstruction.rational_hodge_event_countermodel
+#print axioms RHP2Bridge.IncidenceCycleObstruction.three_quarters_tilt_not_generically_forced
+#print axioms RHP2Bridge.IncidenceCycleObstruction.translationModel_fullBlock_positive
+#print axioms RHP2Bridge.IncidenceCycleObstruction.translationModel_freshCapacity_fails

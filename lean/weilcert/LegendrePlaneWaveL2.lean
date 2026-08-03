@@ -1,8 +1,16 @@
 /-
-The complete real `L²` projection-tail estimate for the complex plane wave,
-viewed as its real and imaginary components.
+Copyright (c) 2026 Riemann-Zeta project contributors. All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Riemann-Zeta project contributors
 -/
 import LegendreScaledL2
+
+/-!
+# Fourier--Legendre projection tails for complex plane waves
+
+The complete real `L²` projection-tail estimate for a complex plane wave,
+viewed through its real and imaginary components.
+-/
 
 namespace LegendrePlaneWaveL2
 
@@ -165,5 +173,67 @@ theorem planeWave_inner_energy_le_of_mem_orthogonal
       apply mul_le_mul_of_nonneg_left
       · simpa [realResidual, imagResidual, V] using hresidual
       · positivity
+
+/-! ## Bundled complex plane-wave residual
+
+`L²([-a,a], ℂ)` is canonically the product of two real `L²` spaces.
+The construction above works in those two coordinates because the existing
+Legendre basis is real.  The following definition hides that implementation
+detail and exposes the squared residual energy of the complex plane wave as a
+single quantity.  Transporting the basis itself to complex `L²` would turn
+this definition into a literal complex norm, without changing any theorem.
+-/
+
+/-- Squared projection residual of `x ↦ exp (-i z x)`, under the canonical
+real/imaginary identification of complex `L²`. -/
+noncomputable def complexPlaneWaveProjectionResidualEnergy
+    (a z : ℝ) (m : ℕ) : ℝ :=
+  ‖LegendreScaledL2.planeWaveRealL2 a z -
+      (LegendreScaledL2.finiteLegendreSubspace a m).starProjection
+        (LegendreScaledL2.planeWaveRealL2 a z)‖ ^ 2 +
+    ‖LegendreScaledL2.planeWaveImagL2 a z -
+      (LegendreScaledL2.finiteLegendreSubspace a m).starProjection
+        (LegendreScaledL2.planeWaveImagL2 a z)‖ ^ 2
+
+/-- The complex plane-wave residual is exactly its omitted
+Fourier--Legendre coefficient energy. -/
+theorem complexPlaneWaveProjectionResidualEnergy_eq_coefficient_tsum
+    (a : ℝ) (ha : 0 < a) (z : ℝ) (m : ℕ) :
+    complexPlaneWaveProjectionResidualEnergy a z m =
+      ∑' n : ℕ,
+        ‖LegendrePlaneWave.polyFourierIntegral
+          (LegendreScaled.scaledNormalizedPlainLegendre a (m + n))
+            z (-a) a‖ ^ 2 := by
+  exact planeWave_projection_residual_energy_eq_coefficient_tsum a ha z m
+
+/-- Explicit double-factorial/geometric bound for the bundled complex
+plane-wave residual. -/
+theorem complexPlaneWaveProjectionResidualEnergy_le
+    (a : ℝ) (ha : 0 < a) (z : ℝ) (m : ℕ)
+    (hq : (a * z) ^ 2 /
+      ((2 * (m : ℝ) + 1) * (2 * (m : ℝ) + 3)) < 1) :
+    complexPlaneWaveProjectionResidualEnergy a z m ≤
+      2 * a * (LegendreTail.doubleFactorialMajorant (a * z) m /
+        (1 - (a * z) ^ 2 /
+          ((2 * (m : ℝ) + 1) * (2 * (m : ℝ) + 3)))) := by
+  exact planeWave_projection_residual_energy_le a ha z m hq
+
+/-- Human-facing one-shot form: exact coefficient identity together with its
+closed explicit tail bound. -/
+theorem complexPlaneWave_projection_tail
+    (a : ℝ) (ha : 0 < a) (z : ℝ) (m : ℕ)
+    (hq : (a * z) ^ 2 /
+      ((2 * (m : ℝ) + 1) * (2 * (m : ℝ) + 3)) < 1) :
+    complexPlaneWaveProjectionResidualEnergy a z m =
+        ∑' n : ℕ,
+          ‖LegendrePlaneWave.polyFourierIntegral
+            (LegendreScaled.scaledNormalizedPlainLegendre a (m + n))
+              z (-a) a‖ ^ 2 ∧
+      complexPlaneWaveProjectionResidualEnergy a z m ≤
+        2 * a * (LegendreTail.doubleFactorialMajorant (a * z) m /
+          (1 - (a * z) ^ 2 /
+            ((2 * (m : ℝ) + 1) * (2 * (m : ℝ) + 3)))) :=
+  ⟨complexPlaneWaveProjectionResidualEnergy_eq_coefficient_tsum a ha z m,
+    complexPlaneWaveProjectionResidualEnergy_le a ha z m hq⟩
 
 end LegendrePlaneWaveL2

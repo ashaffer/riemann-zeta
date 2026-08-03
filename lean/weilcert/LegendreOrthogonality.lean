@@ -1,8 +1,14 @@
 /-
+Copyright (c) 2026 Riemann-Zeta project contributors. All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Riemann-Zeta project contributors
+-/
+import LegendreRodrigues
+
+/-!
 Orthogonality of the analysis-facing Legendre family against lower-degree
 polynomials, derived directly from Rodrigues' formula.
 -/
-import LegendreRodrigues
 
 namespace LegendreOrthogonality
 
@@ -27,8 +33,14 @@ theorem polynomialPairIntegral_derivative
     (v' := fun t : ℝ ↦ p.derivative.eval t)
     (fun t _ ↦ q.hasDerivAt t)
     (fun t _ ↦ p.hasDerivAt t)
-    (by apply Continuous.intervalIntegrable; fun_prop)
-    (by apply Continuous.intervalIntegrable; fun_prop)
+    (by
+      apply Continuous.intervalIntegrable
+      exact continuous_iff_continuousAt.mpr fun t ↦
+        (q.derivative.hasDerivAt t).continuousAt)
+    (by
+      apply Continuous.intervalIntegrable
+      exact continuous_iff_continuousAt.mpr fun t ↦
+        (p.derivative.hasDerivAt t).continuousAt)
   simpa [polynomialPairIntegral, mul_comm] using h
 
 /-- Symmetry of the polynomial interval inner product. -/

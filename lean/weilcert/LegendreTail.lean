@@ -1,8 +1,20 @@
 /-
 Copyright (c) 2026 Riemann-Zeta project contributors. All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
 Authors: Riemann-Zeta project contributors
 -/
-import Mathlib
+import Mathlib.Analysis.Complex.Trigonometric
+import Mathlib.Analysis.Calculus.Deriv.Mul
+import Mathlib.Analysis.Calculus.Deriv.Pow
+import Mathlib.Analysis.SpecificLimits.Basic
+import Mathlib.Data.Nat.Factorial.DoubleFactorial
+import Mathlib.MeasureTheory.Integral.IntervalIntegral.FundThmCalculus
+import Mathlib.Tactic.FieldSimp
+import Mathlib.Tactic.FunProp
+import Mathlib.Tactic.Linarith
+import Mathlib.Tactic.NormNum
+import Mathlib.Tactic.Positivity
+import Mathlib.Tactic.Ring
 
 /-!
 # Exact geometric tails for Legendre leakage

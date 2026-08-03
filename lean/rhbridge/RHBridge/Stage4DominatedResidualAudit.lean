@@ -1,0 +1,8 @@
+import RHBridge.Stage4DominatedResidual
+
+/-! # Axiom audit for the dominated Stage-4 residual theorem -/
+
+#print axioms RHP2Bridge.Stage4DominatedResidual.tsum_zeroCrossSummand_eq_weilCross
+#print axioms RHP2Bridge.Stage4DominatedResidual.tsum_zeroCrossSummand_eq_weilCross_of_summable
+#print axioms RHP2Bridge.Stage4DominatedResidual.movingWeilCross_tendsto_zero_of_dominated_zero_summands
+#print axioms RHP2Bridge.Stage4DominatedResidual.movingWeilCross_tendsto_zero_of_standard_CCM_majorant

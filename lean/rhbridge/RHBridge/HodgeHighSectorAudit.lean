@@ -1,0 +1,7 @@
+import RHBridge.HodgeHighSector
+
+#print axioms RHP2Bridge.HodgeHighSector.scalar_hodge_loss_sharp
+#print axioms RHP2Bridge.HodgeHighSector.modified_block_nonnegative_above_explicit_cutoff
+#print axioms RHP2Bridge.HodgeHighSector.modified_block_nonnegative_of_high_tail_budget
+#print axioms RHP2Bridge.HodgeHighSector.high_tail_lower_bound
+#print axioms RHP2Bridge.HodgeHighSector.high_low_modified_blocks_compose

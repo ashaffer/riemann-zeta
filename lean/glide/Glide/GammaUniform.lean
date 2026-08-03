@@ -12,7 +12,10 @@ This file upgrades mathlib's pointwise theorem `Complex.GammaSeq_tendsto_Gamma`
 to locally uniform convergence on the positive-real half-plane.  The proof uses
 Euler's integral representation and dominated convergence along the product
 filter `atTop ×ˢ 𝓝 z`.  A two-exponent majorant controls the integrand uniformly
-near both zero and infinity.
+near both zero and infinity.  Differentiating the limit yields the trigamma
+series, Gauss's exact two-point difference series, and its classical
+Euler-constant normalization.  Fixed quarter-line consequences live in
+`Glide.GammaUniformQuarter`.
 -/
 
 open Filter MeasureTheory Set
@@ -177,6 +180,13 @@ theorem gammaSeq_tendstoLocallyUniformlyOn :
   have hSeq := gammaSeq_joint_tendsto_at hsre
   simpa using hGamma.dist hSeq
 
+/-- Gauss's exact two-point digamma series on the positive-real half-plane. -/
+theorem digamma_sub_eq_tsum {z w : ℂ} (hz : 0 < z.re) (hw : 0 < w.re) :
+    Complex.digamma z - Complex.digamma w =
+      ∑' n : ℕ, Complex.digammaDifferenceTerm z w n :=
+  digamma_sub_eq_tsum_of_gammaSeq_locallyUniform
+    gammaSeq_tendstoLocallyUniformlyOn hz hw
+
 /-- The standard trigamma series is the complex derivative of `digamma` on
 the positive-real half-plane. -/
 theorem hasDerivAt_digamma_trigammaSeries {z : ℂ} (hz : 0 < z.re) :
@@ -184,25 +194,50 @@ theorem hasDerivAt_digamma_trigammaSeries {z : ℂ} (hz : 0 < z.re) :
   hasDerivAt_digamma_of_gammaSeq_locallyUniform
     gammaSeq_tendstoLocallyUniformlyOn hz
 
-/-- The derivative formula needed on the quarter-line, with no remaining
-analytic premise. -/
-theorem hasDerivAt_quarterDigammaReal (r : ℝ) :
-    HasDerivAt quarterDigammaReal (quarterTrigammaSlope r) r :=
-  hasDerivAt_quarterDigammaReal_of_gammaSeq_locallyUniform
-    gammaSeq_tendstoLocallyUniformlyOn r
-
-/-- The quarter-line real part of digamma is strictly increasing on the
-nonnegative half-line. -/
-theorem quarterDigammaReal_strictMonoOn :
-    StrictMonoOn quarterDigammaReal (Ici 0) :=
-  quarterDigammaReal_strictMonoOn_of_gammaSeq_locallyUniform
-    gammaSeq_tendstoLocallyUniformlyOn
-
-/-- The unconditional exterior comparison used by the F7 argument. -/
-theorem quarterDigammaReal_exterior_lower_bound {S r : ℝ}
-    (hS : 0 ≤ S) (hr : S ≤ |r|) :
-    quarterDigammaReal S ≤ quarterDigammaReal r :=
-  quarterDigammaReal_exterior_lower_bound_of_gammaSeq_locallyUniform
-    gammaSeq_tendstoLocallyUniformlyOn hS hr
-
 end GlideKernel
+
+namespace Complex
+
+/-- Euler's approximants converge locally uniformly to `Gamma` on the
+positive-real half-plane. -/
+theorem GammaSeq_tendstoLocallyUniformlyOn_re_pos :
+    TendstoLocallyUniformlyOn (fun n z => GammaSeq z n) Gamma Filter.atTop
+      {z : ℂ | 0 < z.re} :=
+  GlideKernel.gammaSeq_tendstoLocallyUniformlyOn
+
+/-- The derivative of digamma is its absolutely convergent trigamma series
+on the positive-real half-plane. -/
+theorem hasDerivAt_digamma {z : ℂ} (hz : 0 < z.re) :
+    HasDerivAt digamma (∑' n : ℕ, 1 / (z + (n : ℂ)) ^ 2) z := by
+  simpa only [GlideKernel.trigammaSeries] using
+    GlideKernel.hasDerivAt_digamma_trigammaSeries hz
+
+theorem deriv_digamma {z : ℂ} (hz : 0 < z.re) :
+    deriv digamma z = ∑' n : ℕ, 1 / (z + (n : ℂ)) ^ 2 :=
+  (hasDerivAt_digamma hz).deriv
+
+/-- Gauss's exact two-point series for the difference of two digamma values. -/
+theorem digamma_sub_eq_tsum {z w : ℂ} (hz : 0 < z.re) (hw : 0 < w.re) :
+    digamma z - digamma w = ∑' n : ℕ, digammaDifferenceTerm z w n :=
+  GlideKernel.digamma_sub_eq_tsum hz hw
+
+/-- Gauss's classical series for digamma, normalized by `digamma 1 = -γ`. -/
+theorem digamma_eq_neg_eulerMascheroniConstant_add_tsum {z : ℂ} (hz : 0 < z.re) :
+    digamma z = -(Real.eulerMascheroniConstant : ℂ) +
+      ∑' n : ℕ, (1 / ((n + 1 : ℕ) : ℂ) - 1 / (z + (n : ℂ))) := by
+  have h := digamma_sub_eq_tsum hz (by norm_num : 0 < (1 : ℂ).re)
+  calc
+    digamma z = digamma 1 + (digamma z - digamma 1) := by ring
+    _ = digamma 1 + ∑' n : ℕ, digammaDifferenceTerm z 1 n := by rw [h]
+    _ = -(Real.eulerMascheroniConstant : ℂ) +
+        ∑' n : ℕ, (1 / ((n + 1 : ℕ) : ℂ) - 1 / (z + (n : ℂ))) := by
+      rw [digamma_one]
+      congr 1
+      apply tsum_congr
+      intro n
+      unfold digammaDifferenceTerm
+      congr 2
+      push_cast
+      ring
+
+end Complex

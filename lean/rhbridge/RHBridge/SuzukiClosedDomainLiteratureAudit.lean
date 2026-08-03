@@ -1,0 +1,8 @@
+import RHBridge.SuzukiClosedDomainLiterature
+
+/-! # Axiom audit for the completed Suzuki zero-mode bridge -/
+
+#print axioms RHP2Bridge.SuzukiClosedDomainLiterature.firstCrossing_to_completedSuzukiZeroMode
+#print axioms RHP2Bridge.SuzukiClosedDomainLiterature.not_injective_completedSuzukiOperator
+#print axioms RHP2Bridge.SuzukiClosedDomainLiterature.not_rh_implies_completedSuzuki_noninjective
+#print axioms RHP2Bridge.SuzukiClosedDomainLiterature.riemannHypothesis_of_completedSuzuki_injective

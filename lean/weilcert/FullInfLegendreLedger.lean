@@ -3,6 +3,7 @@ Copyright (c) 2026 Riemann-Zeta project contributors. All rights reserved.
 Authors: Riemann-Zeta project contributors
 -/
 import IntervalFourierL2
+import Mathlib.Analysis.Real.Pi.Leibniz
 
 /-!
 # The normalized `L = 7/4` Legendre band ledger

@@ -1,7 +1,7 @@
 /-
-The normalized Legendre polynomials as a complete Hilbert basis of the
-real `L²` space on `[-1,1]`, together with Parseval and finite-section
-residual formulas.
+Copyright (c) 2026 Riemann-Zeta project contributors. All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Riemann-Zeta project contributors
 -/
 import LegendreOrthogonality
 import HilbertBasisTail
@@ -11,6 +11,14 @@ import Mathlib.MeasureTheory.Function.ContinuousMapDense
 import Mathlib.MeasureTheory.Function.L2Space
 import Mathlib.MeasureTheory.Measure.Restrict
 import Mathlib.Analysis.InnerProductSpace.l2Space
+
+/-!
+# The Legendre Hilbert basis on `[-1,1]`
+
+The normalized Legendre polynomials form a complete Hilbert basis of the real
+`L²` space on `[-1,1]`.  This file also gives Parseval and exact finite-section
+residual formulas.
+-/
 
 namespace LegendreL2
 

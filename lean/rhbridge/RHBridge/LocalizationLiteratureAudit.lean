@@ -1,0 +1,8 @@
+import RHBridge.LocalizationLiterature
+
+/-! # Axiom audit for standard localization inputs -/
+
+#print axioms RHP2Bridge.LocalizationLiterature.intervalAutocorrelation_le_norm_sq
+#print axioms RHP2Bridge.LocalizationLiterature.explicitOld_logarithmicLocalization
+#print axioms RHP2Bridge.LocalizationLiterature.activationLoss_le_shellWeight_mul_norm_sq
+#print axioms RHP2Bridge.LocalizationLiterature.activationLoss_le_of_shellWeight_reserve

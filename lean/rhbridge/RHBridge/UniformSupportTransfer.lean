@@ -127,8 +127,15 @@ theorem weighted_shift_energy_identity
     _ = (∑ i ∈ indices, weight i * ‖x - shift i x‖ ^ 2) -
           2 * (∑ i ∈ indices, weight i) * ‖x‖ ^ 2 := by
       congr 1
-      simp_rw [mul_assoc]
-      rw [← Finset.sum_mul, ← Finset.mul_sum]
+      calc
+        (∑ i ∈ indices, 2 * weight i * ‖x‖ ^ 2) =
+            ∑ i ∈ indices, weight i * (2 * ‖x‖ ^ 2) := by
+          apply Finset.sum_congr rfl
+          intro i hi
+          ring
+        _ = (∑ i ∈ indices, weight i) * (2 * ‖x‖ ^ 2) := by
+          rw [Finset.sum_mul]
+        _ = 2 * (∑ i ∈ indices, weight i) * ‖x‖ ^ 2 := by ring
 
 /-! ## Qualitative nondegeneracy route -/
 

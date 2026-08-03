@@ -1,0 +1,8 @@
+import RHBridge.WeilCriterionLiterature
+
+/-! # Axiom audit for the final Weil-criterion bridge -/
+
+#print axioms RHP2Bridge.WeilCriterionLiterature.globalWeilPositivity_iff_globalPrimeDomination
+#print axioms RHP2Bridge.WeilCriterionLiterature.riemannHypothesis_iff_globalWeilPositivity
+#print axioms RHP2Bridge.WeilCriterionLiterature.riemannHypothesis_of_uniform_primeDomination
+#print axioms RHP2Bridge.WeilCriterionLiterature.seven_sixteenths_strictlyPositive

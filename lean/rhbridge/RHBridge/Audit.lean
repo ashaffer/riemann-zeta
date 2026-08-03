@@ -1,0 +1,52 @@
+/-
+Copyright (c) 2026 Riemann-Zeta project contributors. All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Riemann-Zeta project contributors
+-/
+import RHBridge.ComplexResidueAudit
+import RHBridge.SimplePoleAudit
+import RHBridge.ReusableAudit
+import RHBridge.SuzukiScrewLiteratureAudit
+import RHBridge.SuzukiPrimeRampAudit
+import RHBridge.LocalizationLiteratureAudit
+import RHBridge.ActivationCancellationAudit
+import RHBridge.SingleActivationHighFrequencyAudit
+import RHBridge.SuzukiClosedDomainLiteratureAudit
+import RHBridge.Stage2DefectCharacterizationAudit
+import RHBridge.Stage3SupportSaturationAudit
+import RHBridge.Stage3BoundaryNoGoAudit
+import RHBridge.Stage3ArithmeticBoundaryTargetAudit
+import RHBridge.Stage3DeterminantLimitAudit
+import RHBridge.Stage3CCMDeterminantAudit
+import RHBridge.Stage3FiniteWindowParityAudit
+import RHBridge.Stage3ParityNoGoAudit
+import RHBridge.Stage4CanonicalResidualAudit
+import RHBridge.Stage4DominatedResidualAudit
+import RHBridge.Stage4FormDomainExtensionAudit
+import RHBridge.Stage4FullDomainResidualAudit
+import RHBridge.Stage4CCMComparatorFamilyAudit
+import RHBridge.Stage4MomentCorrectionAudit
+import RHBridge.Stage4PoissonReductionAudit
+import RHBridge.Stage4CanonicalConstructionLiteratureAudit
+import RHBridge.BoundaryCollarGeometryAudit
+import RHBridge.WeilCriterionLiteratureAudit
+import RHBridge.GlobalMobiusCancellationAudit
+import RHBridge.RelativeIncidenceComplexAudit
+import RHBridge.BoundaryWeylReductionAudit
+import RHBridge.SemilocalPrimeWeightAudit
+import RHBridge.NormalizedLocalContractionAudit
+import RHBridge.SharpIncidenceTransportAudit
+import RHBridge.IncidenceAngleCriterionAudit
+import RHBridge.DualFrameCollarCompletionAudit
+import RHBridge.IncidenceCycleObstructionAudit
+import RHBridge.HodgeHighSectorAudit
+import RHBridge.HodgeLowSectorAudit
+import RHBridge.HodgeLowSectorNoGoAudit
+
+/-!
+# Opt-in axiom audits for RHBridge
+
+This module collects the diagnostic `#print axioms` files.  It is deliberately
+not imported by the main `RHBridge` umbrella, so normal clients receive theorem
+APIs without audit output.
+-/

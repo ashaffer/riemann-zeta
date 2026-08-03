@@ -1,35 +1,34 @@
 /-
-CertFramework: the certificate calculus of `Weilcert.lean`, generalized to
-arbitrary dimension n over an arbitrary linearly ordered field.
-
-`Weilcert.lean` proves one 12-dimensional instance (`weil_window_positive`)
-with all algebra inlined at n = 12 over ℚ.  This file restates the entire
-argument so that a future window certificate has to supply *only data*:
-
-  * `quad_of_ldl`   — quadratic form of a congruence  c² A = Wᵀ diag(g) W
-                      (lifted verbatim; it was already n-generic),
-  * `pert_bound`    — |xᵀ E x| ≤ n · d · |x|²  for entrywise |E| ≤ d,
-  * `resolve` / `y_exists` — injectivity of x ↦ W x from the one-sided
-                      inverse identity  Wi · W = f · 1  (f ≠ 0),
-  * `ldl_quad_pos`  — strict positivity of the quadratic form from the
-                      integer congruence certificate,
-  * `two_by_two_strict_lower_bound` — the scalar Schur-complement step used
-                      to combine a finite block with its orthogonal complement,
-  * `hilbert_two_block_strict_lower_bound` — the same transfer for an
-                      orthogonal decomposition in a real inner-product space,
-  * `hilbert_two_block_strict_lower_bound` — the corresponding transfer from
-                      orthogonal vectors to the full quadratic-form estimate,
-  * `cert_window_positive` — the full window theorem: every matrix M
-                      entrywise within δ of A/scale has 0 < xᵀ M x for all
-                      x ≠ 0, provided n · (scale · δ) ≤ s and
-                      c² (A − s·1) = Wᵀ diag(g) W with g > 0.
-
-`CertInstance.lean` re-derives the kernel-checked 12-dimensional window of
-`Weilcert.lean` through this framework as a consistency check.
-
-Axiom base: propext, Classical.choice, Quot.sound only.
+Copyright (c) 2026 Riemann-Zeta project contributors. All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Riemann-Zeta project contributors
 -/
-import Mathlib
+import Mathlib.Algebra.Order.Chebyshev
+import Mathlib.Algebra.Ring.IsFormallyReal
+import Mathlib.Analysis.InnerProductSpace.Basic
+import Mathlib.Algebra.Order.Star.Real
+import Mathlib.Tactic.FieldSimp
+import Mathlib.Tactic.Linarith
+import Mathlib.Tactic.NormNum
+import Mathlib.Tactic.Positivity
+import Mathlib.Tactic.Ring
+
+/-!
+# Exact matrix positivity certificates and two-block bounds
+
+This file provides dimension-generic certificate machinery over a linearly
+ordered field:
+
+* exact congruence/`LDLᵀ` positivity with a one-sided inverse witness;
+* the entrywise perturbation estimate
+  `|xᵀ E x| ≤ n * δ * ∑ i, x i ^ 2`;
+* `LDLPosCertificate.sound`, a single bundled entry point for rounded matrix
+  positivity;
+* strict Schur-complement bounds and the closed smaller-eigenvalue bound
+  `twoBlockLowerEigenvalue` for a real two-by-two block.
+
+Concrete generated certificates live in separate modules.
+-/
 
 namespace CertFramework
 
@@ -201,8 +200,7 @@ theorem ldl_quad_pos (A W Wi : Matrix (Fin n) (Fin n) K) (g : Fin n → K)
 If both diagonal entries lie strictly above `γ` and the shifted determinant
 is positive, then the quadratic form with off-diagonal entry `-c` is strictly
 larger than `γ` times the Euclidean norm on every nonzero pair.  This is the
-scalar algebra used in the finite/complement block step of the unrestricted
-`FULLINF` certificate. -/
+scalar algebra used in finite/complement block decompositions. -/
 theorem two_by_two_strict_lower_bound (beta d c gamma x y : K)
     (hbeta : gamma < beta) (hd : gamma < d)
     (hdet : c ^ 2 < (beta - gamma) * (d - gamma))
@@ -252,13 +250,159 @@ theorem two_by_two_strict_lower_bound (beta d c gamma x y : K)
   rw [hshift]
   exact hq
 
+/-! ### Optimal closed-form two-by-two bound -/
+
+/-- The smaller eigenvalue of the symmetric scalar matrix
+`[[beta, -c], [-c, d]]`. -/
+noncomputable def twoBlockLowerEigenvalue (beta d c : ℝ) : ℝ :=
+  (beta + d - Real.sqrt ((beta - d) ^ 2 + 4 * c ^ 2)) / 2
+
+/-- **Optimal two-by-two lower bound.**
+
+Unlike `two_by_two_strict_lower_bound`, this theorem needs no auxiliary
+`gamma`: it gives the sharp universal constant, namely the smaller eigenvalue
+of the associated symmetric matrix. -/
+theorem two_by_two_lower_bound_optimal (beta d c x y : ℝ) :
+    twoBlockLowerEigenvalue beta d c * (x ^ 2 + y ^ 2) ≤
+      beta * x ^ 2 + d * y ^ 2 - 2 * c * x * y := by
+  let p : ℝ := beta - d
+  let s : ℝ := Real.sqrt (p ^ 2 + 4 * c ^ 2)
+  have hrad : 0 ≤ p ^ 2 + 4 * c ^ 2 := by positivity
+  have hs0 : 0 ≤ s := by
+    dsimp [s]
+    exact Real.sqrt_nonneg _
+  have hs2 : s ^ 2 = p ^ 2 + 4 * c ^ 2 := by
+    dsimp [s]
+    exact Real.sq_sqrt hrad
+  have hsabs : |p| ≤ s := by
+    dsimp [s]
+    rw [← Real.sqrt_sq_eq_abs]
+    exact Real.sqrt_le_sqrt (by nlinarith [sq_nonneg c])
+  have hsp : 0 ≤ s + p := by
+    nlinarith [neg_le_abs p]
+  unfold twoBlockLowerEigenvalue
+  rw [← sub_nonneg]
+  change 0 ≤
+    beta * x ^ 2 + d * y ^ 2 - 2 * c * x * y -
+      (beta + d - s) / 2 * (x ^ 2 + y ^ 2)
+  by_cases hz : s + p = 0
+  · have hc2 : c ^ 2 = 0 := by nlinarith
+    have hc0 : c = 0 := sq_eq_zero_iff.mp hc2
+    have hform :
+        beta * x ^ 2 + d * y ^ 2 - 2 * c * x * y -
+            (beta + d - s) / 2 * (x ^ 2 + y ^ 2) =
+          s * y ^ 2 := by
+      dsimp [p] at hz
+      rw [hc0]
+      nlinarith
+    rw [hform]
+    exact mul_nonneg hs0 (sq_nonneg y)
+  · have hsp_pos : 0 < s + p := lt_of_le_of_ne hsp (Ne.symm hz)
+    have hidentity :
+        2 * (s + p) *
+            (beta * x ^ 2 + d * y ^ 2 - 2 * c * x * y -
+              (beta + d - s) / 2 * (x ^ 2 + y ^ 2)) =
+          ((s + p) * x - 2 * c * y) ^ 2 := by
+      calc
+        _ = ((s + p) * x - 2 * c * y) ^ 2 +
+              (s ^ 2 - p ^ 2 - 4 * c ^ 2) * y ^ 2 := by
+                dsimp [p]
+                ring
+        _ = _ := by rw [hs2]; ring
+    by_contra hneg
+    have hqneg :
+        beta * x ^ 2 + d * y ^ 2 - 2 * c * x * y -
+            (beta + d - s) / 2 * (x ^ 2 + y ^ 2) < 0 :=
+      lt_of_not_ge hneg
+    have hmulneg :
+        2 * (s + p) *
+            (beta * x ^ 2 + d * y ^ 2 - 2 * c * x * y -
+              (beta + d - s) / 2 * (x ^ 2 + y ^ 2)) < 0 :=
+      mul_neg_of_pos_of_neg (by positivity) hqneg
+    rw [hidentity] at hmulneg
+    exact (not_lt_of_ge (sq_nonneg _) hmulneg)
+
+/-- `twoBlockLowerEigenvalue` is the greatest constant valid in the universal
+two-by-two lower bound. -/
+theorem twoBlockLowerEigenvalue_isGreatest (beta d c gamma : ℝ)
+    (hgamma : ∀ x y : ℝ,
+      gamma * (x ^ 2 + y ^ 2) ≤
+        beta * x ^ 2 + d * y ^ 2 - 2 * c * x * y) :
+    gamma ≤ twoBlockLowerEigenvalue beta d c := by
+  have hbeta : gamma ≤ beta := by
+    have h := hgamma 1 0
+    norm_num at h
+    exact h
+  have hd : gamma ≤ d := by
+    have h := hgamma 0 1
+    norm_num at h
+    exact h
+  have hbeta0 : 0 ≤ beta - gamma := sub_nonneg.mpr hbeta
+  have hd0 : 0 ≤ d - gamma := sub_nonneg.mpr hd
+  have hdet : c ^ 2 ≤ (beta - gamma) * (d - gamma) := by
+    by_cases hbzero : beta - gamma = 0
+    · have hc : c = 0 := by
+        by_cases hdzero : d - gamma = 0
+        · have h := hgamma 1 c
+          have hform : 0 ≤ -(2 * c ^ 2) := by
+            nlinarith
+          nlinarith [sq_nonneg c]
+        · have hdpos : 0 < d - gamma := lt_of_le_of_ne hd0 (Ne.symm hdzero)
+          have h := hgamma (d - gamma) c
+          have hform : 0 ≤ -(d - gamma) * c ^ 2 := by
+            nlinarith
+          by_contra hc
+          have hprod : 0 < (d - gamma) * c ^ 2 :=
+            mul_pos hdpos (sq_pos_of_ne_zero hc)
+          nlinarith
+      rw [hbzero, hc]
+      norm_num
+    · have hbetapos : 0 < beta - gamma :=
+        lt_of_le_of_ne hbeta0 (Ne.symm hbzero)
+      have h := hgamma c (beta - gamma)
+      have hform :
+          0 ≤ (beta - gamma) *
+            ((beta - gamma) * (d - gamma) - c ^ 2) := by
+        nlinarith
+      by_contra hnot
+      have hneg : (beta - gamma) * (d - gamma) - c ^ 2 < 0 := by
+        linarith
+      exact (not_lt_of_ge hform (mul_neg_of_pos_of_neg hbetapos hneg))
+  have hsum : 0 ≤ beta + d - 2 * gamma := by linarith
+  have hrad :
+      (beta - d) ^ 2 + 4 * c ^ 2 ≤
+        (beta + d - 2 * gamma) ^ 2 := by
+    nlinarith
+  have hsqrt :
+      Real.sqrt ((beta - d) ^ 2 + 4 * c ^ 2) ≤
+        beta + d - 2 * gamma :=
+    Real.sqrt_le_iff.mpr ⟨hsum, hrad⟩
+  unfold twoBlockLowerEigenvalue
+  linarith
+
+/-- The usual strict Schur-complement hypotheses imply that the closed-form
+two-block lower constant is positive. -/
+theorem twoBlockLowerEigenvalue_pos (beta d c : ℝ)
+    (hbeta : 0 < beta) (hd : 0 < d) (hdet : c ^ 2 < beta * d) :
+    0 < twoBlockLowerEigenvalue beta d c := by
+  have hsum : 0 < beta + d := add_pos hbeta hd
+  have hrad : 0 ≤ (beta - d) ^ 2 + 4 * c ^ 2 := by positivity
+  have hsq :
+      (beta - d) ^ 2 + 4 * c ^ 2 < (beta + d) ^ 2 := by
+    nlinarith
+  have hsqrt :
+      Real.sqrt ((beta - d) ^ 2 + 4 * c ^ 2) < beta + d :=
+    (Real.sqrt_lt' hsum).2 hsq
+  unfold twoBlockLowerEigenvalue
+  linarith
+
 section RealInnerProductSpace
 
 open scoped InnerProductSpace
 
 variable {H : Type*} [NormedAddCommGroup H] [InnerProductSpace ℝ H]
 
-/-- **F8 two-block transfer on a real inner-product space.**
+/-- **Two-block transfer on a real inner-product space.**
 
 Suppose `u` and `w` are orthogonal and a real-valued quadratic-form expression
 at `u + w` has the displayed two-block lower estimate.  The strict scalar
@@ -290,46 +434,6 @@ theorem hilbert_two_block_strict_lower_bound
   exact hscalar.trans_le hlower
 
 end RealInnerProductSpace
-
-/-! ### Exact scalar instances used by the unrestricted FULLINF ledgers -/
-
-/-- The strict two-block estimate for the `p = 2` FULLINF ledger.  All
-displayed decimal bounds in the analytic certificate have been rounded inward
-to the exact rational coefficients used here. -/
-theorem fullinf_p2_block_lower_bound (x y : ℝ) (hxy : (x, y) ≠ (0, 0)) :
-    (22699 / 10 ^ 9) * (x ^ 2 + y ^ 2)
-      < (227 / 10 ^ 7) * x ^ 2 + (1093 / 1000) * y ^ 2
-        - 2 * (212 / 10 ^ 12) * x * y := by
-  apply two_by_two_strict_lower_bound
-  · norm_num
-  · norm_num
-  · norm_num
-  · exact hxy
-
-/-- The strict two-block estimate for the `p = 3` FULLINF ledger, with exact
-rational coefficients rounded inward from its Arb certificate. -/
-theorem fullinf_p3_block_lower_bound (x y : ℝ) (hxy : (x, y) ≠ (0, 0)) :
-    (999 / 10 ^ 13) * (x ^ 2 + y ^ 2)
-      < (1 / 10 ^ 10) * x ^ 2 + (161 / 1000) * y ^ 2
-        - 2 * (721 / 10 ^ 13) * x * y := by
-  apply two_by_two_strict_lower_bound
-  · norm_num
-  · norm_num
-  · norm_num
-  · exact hxy
-
-/-- The strict two-block estimate for the certified scalar `n = 4` FULLINF ledger.
-This theorem certifies only the scalar Schur-complement arithmetic; the
-analytic and finite-matrix premises remain separate certificate obligations. -/
-theorem fullinf_n4_block_lower_bound (x y : ℝ) (hxy : (x, y) ≠ (0, 0)) :
-    (99 / 10 ^ 17) * (x ^ 2 + y ^ 2)
-      < (1 / 10 ^ 15) * x ^ 2 + (289 / 1000) * y ^ 2
-        - 2 * (106 / 10 ^ 11) * x * y := by
-  apply two_by_two_strict_lower_bound
-  · norm_num
-  · norm_num
-  · norm_num
-  · exact hxy
 
 /-! ## The generic window theorem -/
 
@@ -395,5 +499,56 @@ theorem cert_window_positive
     field_simp
   rw [hdiv]
   exact div_pos hNpos hscale
+
+/-! ## Bundled exact LDL certificates
+
+The theorem above is intentionally premise-oriented: it is convenient while
+constructing a certificate, but less convenient for users and generated
+artifacts.  `LDLPosCertificate` bundles exactly the reusable, exact data.  A
+certificate generator can now emit one value, while `sound` is the sole
+kernel-checked entry point needed downstream.
+-/
+
+/-- Exact congruence data proving that the scaled midpoint `A` has the strict
+margin `s`.  `Wi * W = f * 1` is an integer/rational-friendly witness that
+`W` is injective, avoiding any trusted determinant computation. -/
+structure LDLPosCertificate (n : ℕ) (K : Type*) [Field K] [LinearOrder K]
+    [IsStrictOrderedRing K] where
+  A : Matrix (Fin n) (Fin n) K
+  W : Matrix (Fin n) (Fin n) K
+  Wi : Matrix (Fin n) (Fin n) K
+  g : Fin n → K
+  c : K
+  f : K
+  margin : K
+  scale : K
+  congruence : ∀ i j,
+    c ^ 2 * (A i j - if i = j then margin else 0) =
+      ∑ k, W k i * g k * W k j
+  inverseWitness : ∀ i j,
+    (∑ k, Wi i k * W k j) = if i = j then f else 0
+  diagonal_pos : ∀ k, 0 < g k
+  c_ne_zero : c ≠ 0
+  f_ne_zero : f ≠ 0
+  scale_pos : 0 < scale
+
+namespace LDLPosCertificate
+
+/-- Soundness of a bundled exact LDL certificate under an entrywise error
+enclosure.  The only obligations outside the certificate are the enclosure
+radius and the matrix being certified. -/
+theorem sound (cert : LDLPosCertificate n K) (delta : K)
+    (hdelta : 0 ≤ delta)
+    (hmargin : (n : K) * (cert.scale * delta) ≤ cert.margin)
+    (M : Matrix (Fin n) (Fin n) K)
+    (hM : ∀ i j, |M i j - cert.A i j / cert.scale| ≤ delta)
+    {x : Fin n → K} (hx : x ≠ 0) :
+    0 < x ⬝ᵥ M *ᵥ x := by
+  exact cert_window_positive cert.A cert.W cert.Wi cert.g
+    cert.c cert.f cert.margin cert.scale delta cert.congruence
+    cert.inverseWitness cert.diagonal_pos cert.c_ne_zero cert.f_ne_zero
+    cert.scale_pos hdelta hmargin M hM hx
+
+end LDLPosCertificate
 
 end CertFramework

@@ -3,7 +3,7 @@ Copyright (c) 2026 Riemann-Zeta project contributors. All rights reserved.
 Authors: Riemann-Zeta project contributors
 -/
 import FullInfLegendreLedger
-import FullInfTransfer
+import FullInfExactLedgers
 
 /-!
 # Scalar complement and cross ledgers for `FULLINF` at `L = 7/4`

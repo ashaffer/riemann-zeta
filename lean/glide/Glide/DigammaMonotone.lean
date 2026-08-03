@@ -1,21 +1,21 @@
 /-
 Copyright (c) 2026 Riemann-Zeta project contributors. All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
 Authors: Riemann-Zeta project contributors
 -/
-import Mathlib
+
+import Glide.DigammaVertical
+import Mathlib.Analysis.Calculus.Deriv.MeanValue
+import Mathlib.Analysis.PSeries
+import Mathlib.Tactic.NormNum
+import Mathlib.Tactic.Positivity
 
 /-!
-# A positive series for digamma monotonicity
+# Quarter-line digamma compatibility API
 
-This file proves the positive-series core of the expected monotonicity of
-`r ↦ Re (digamma (1/4 + I*r/2))`.
-
-Mathlib currently defines `Complex.digamma`, but does not yet prove Gauss's
-integral formula or the corresponding trigamma series. This file isolates
-that missing analytic identity: the candidate derivative series is summable
-and strictly positive for `r > 0`, and monotonicity follows from an explicit
-derivative hypothesis.  `Glide.GammaUniform` and `Glide.DigammaSeries`
-discharge that hypothesis unconditionally downstream.
+The normalization-free vertical-line definitions live in
+`Glide.DigammaVertical`.  This compatibility module specializes them to the
+quarter-line and retains the historical names used by the p=2 application.
 -/
 
 open Real Set
@@ -23,69 +23,36 @@ open scoped ComplexConjugate
 
 namespace GlideKernel
 
-/-- The real part of the digamma function on the vertical line `Re z = 1/4`. -/
+/-- The real part of digamma on the vertical line `Re z = 1/4`, with the
+frequency normalization used by the p=2 certificate. -/
 noncomputable def quarterDigammaReal (r : ℝ) : ℝ :=
   (Complex.digamma ((1 / 4 : ℂ) + Complex.I * ((r / 2 : ℝ) : ℂ))).re
 
-/-- Complex conjugation commutes with the derivative of Gamma. -/
-lemma deriv_Gamma_conj (z : ℂ) :
-    deriv Complex.Gamma (conj z) = conj (deriv Complex.Gamma z) := by
-  have hfun : conj ∘ Complex.Gamma ∘ conj = Complex.Gamma := by
-    funext w
-    simp [Function.comp_apply, Complex.Gamma_conj]
-  have h := congrFun (deriv_conj_conj (f := Complex.Gamma)) (conj z)
-  rw [hfun] at h
-  simpa [Function.comp_apply] using h
-
-/-- The digamma function respects complex conjugation. -/
-lemma digamma_conj (z : ℂ) :
-    Complex.digamma (conj z) = conj (Complex.digamma z) := by
-  rw [Complex.digamma_def]
-  simp only [logDeriv_apply, deriv_Gamma_conj, Complex.Gamma_conj, map_div₀]
+@[simp]
+lemma quarterDigammaReal_eq_vertical (r : ℝ) :
+    quarterDigammaReal r = verticalDigammaReal (1 / 4) (r / 2) := by
+  unfold quarterDigammaReal verticalDigammaReal
+  norm_num
 
 /-- The real part of digamma on the quarter-line is an even function. -/
 lemma quarterDigammaReal_neg (r : ℝ) :
     quarterDigammaReal (-r) = quarterDigammaReal r := by
-  unfold quarterDigammaReal
-  have hline :
-      (1 / 4 : ℂ) + Complex.I * (((-r) / 2 : ℝ) : ℂ) =
-        conj ((1 / 4 : ℂ) + Complex.I * ((r / 2 : ℝ) : ℂ)) := by
-    simp only [map_add, map_mul, map_div₀, map_one, map_ofNat,
-      Complex.conj_ofReal, Complex.conj_I]
-    push_cast
-    ring
-  rw [hline, digamma_conj]
-  exact Complex.conj_re _
+  rw [quarterDigammaReal_eq_vertical, quarterDigammaReal_eq_vertical]
+  simpa only [neg_div] using verticalDigammaReal_neg (1 / 4) (r / 2)
 
-private lemma quarterLine_ne_neg_nat (r : ℝ) (m : ℕ) :
-    (1 / 4 : ℂ) + Complex.I * ((r / 2 : ℝ) : ℂ) ≠ -(m : ℂ) := by
-  intro h
-  have hre := congrArg Complex.re h
-  norm_num at hre
-  have hm : 0 ≤ (m : ℝ) := Nat.cast_nonneg m
-  linarith
-
-/-- The digamma restriction is continuous on the quarter-line. This part does
-not need a trigamma formula: it follows from meromorphicity and the fact that
-the line has positive real part. -/
+/-- The digamma restriction is continuous on the quarter-line. -/
 lemma continuousAt_quarterDigammaReal (r : ℝ) :
     ContinuousAt quarterDigammaReal r := by
-  let line : ℝ → ℂ := fun s ↦ (1 / 4 : ℂ) + Complex.I * ((s / 2 : ℝ) : ℂ)
-  have hz : ∀ m : ℕ, line r ≠ -(m : ℂ) := by
-    simpa only [line] using quarterLine_ne_neg_nat r
-  have hGamma : AnalyticAt ℂ Complex.Gamma (line r) :=
-    (Meromorphic.Gamma (line r)).analyticAt (Complex.continuousAt_Gamma (line r) hz)
-  have hDigamma : ContinuousAt Complex.digamma (line r) := by
-    rw [Complex.digamma_def]
-    change ContinuousAt (fun z ↦ logDeriv Complex.Gamma z) (line r)
-    simp only [logDeriv_apply]
-    exact (hGamma.deriv.div hGamma (Complex.Gamma_ne_zero hz)).continuousAt
-  have hline : ContinuousAt line r := by
-    unfold line
-    fun_prop
-  unfold quarterDigammaReal
-  change ContinuousAt (fun s ↦ (Complex.digamma (line s)).re) r
-  exact Complex.continuous_re.continuousAt.comp (hDigamma.comp hline)
+  have hvertical : Continuous (verticalDigammaReal (1 / 4)) :=
+    continuous_verticalDigammaReal (by norm_num)
+  have hscale : Continuous (fun s : ℝ ↦ s / 2) := by fun_prop
+  have hcomp : Continuous (fun s : ℝ ↦ verticalDigammaReal (1 / 4) (s / 2)) :=
+    hvertical.comp hscale
+  rw [show quarterDigammaReal =
+    (fun s : ℝ ↦ verticalDigammaReal (1 / 4) (s / 2)) by
+      funext s
+      exact quarterDigammaReal_eq_vertical s]
+  exact hcomp.continuousAt
 
 lemma continuous_quarterDigammaReal : Continuous quarterDigammaReal :=
   continuous_iff_continuousAt.2 continuousAt_quarterDigammaReal
@@ -134,8 +101,8 @@ lemma quarterTrigammaTerm_eq_re (r : ℝ) (n : ℕ) :
   norm_num [Complex.div_re, Complex.normSq_apply, Complex.mul_re, Complex.mul_im, pow_two]
   ring
 
-/-- The absolutely convergent positive series which should equal the
-derivative of `quarterDigammaReal`. -/
+/-- The absolutely convergent positive series which equals the derivative of
+`quarterDigammaReal` once the standard trigamma identity is supplied. -/
 noncomputable def quarterTrigammaSlope (r : ℝ) : ℝ :=
   ∑' n : ℕ, quarterTrigammaTerm r n
 
@@ -241,8 +208,7 @@ theorem quarterTrigammaSlope_eq_re_tsum (r : ℝ) :
   exact quarterTrigammaTerm_eq_re r n
 
 /-- The standard complex trigamma derivative series implies the exact real
-derivative identity used below.  Thus the only substantive missing F7 input
-can be stated directly as the usual derivative series for `Complex.digamma`. -/
+derivative identity used below. -/
 theorem hasDerivAt_quarterDigammaReal_of_trigammaSeries
     {r : ℝ}
     (h : HasDerivAt Complex.digamma
@@ -273,9 +239,7 @@ lemma quarterTrigammaSlope_pos {r : ℝ} (hr : 0 < r) :
     (quarterTrigammaTerm_pos hr 0)
 
 /-- Once the trigamma-series derivative identity is supplied, strict
-monotonicity on the nonnegative real axis is automatic.
-
-The hypothesis is the precise bridge not currently available in mathlib. -/
+monotonicity on the nonnegative real axis is automatic. -/
 theorem quarterDigammaReal_strictMonoOn_of_hasDerivAt
     (hderiv : ∀ r : ℝ, 0 < r →
       HasDerivAt quarterDigammaReal (quarterTrigammaSlope r) r) :
@@ -284,12 +248,10 @@ theorem quarterDigammaReal_strictMonoOn_of_hasDerivAt
   · intro r hr
     have hr' : 0 < r := by simpa only [interior_Ici, mem_Ioi] using hr
     rw [(hderiv r hr').deriv]
-    apply quarterTrigammaSlope_pos
-    exact hr'
+    exact quarterTrigammaSlope_pos hr'
 
-/-- Conditional F7 exterior comparison in the form used by the certificate:
-once the trigamma derivative identity is known, the value at a nonnegative
-cutoff is a lower bound everywhere outside the symmetric band. -/
+/-- The value at a nonnegative cutoff is a lower bound everywhere outside the
+symmetric band once the trigamma derivative identity is known. -/
 theorem quarterDigammaReal_exterior_lower_bound_of_hasDerivAt
     (hderiv : ∀ r : ℝ, 0 < r →
       HasDerivAt quarterDigammaReal (quarterTrigammaSlope r) r)

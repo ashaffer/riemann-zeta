@@ -1,11 +1,14 @@
 /-
 Copyright (c) 2026 Riemann-Zeta project contributors. All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
 Authors: Riemann-Zeta project contributors
 -/
-import Glide.DigammaMonotone
+import Glide.DigammaVertical
+import Mathlib.Analysis.Complex.LocallyUniformLimit
+import Mathlib.Analysis.PSeries
 
 /-!
-# Euler's Gamma limit and the trigamma series
+# Euler's Gamma limit, Gauss's difference series, and the trigamma series
 
 This file formalizes the complete implication from a locally uniform version
 of Euler's limit formula for `Complex.GammaSeq` to the standard trigamma
@@ -13,14 +16,74 @@ derivative series on `Re z > 0`.  Mathlib currently proves the Euler limit
 pointwise (`Complex.GammaSeq_tendsto_Gamma`); the locally uniform strengthening
 is isolated as the sole hypothesis of the main theorem.
 
-The finite logarithmic-derivative identity, absolute convergence of the
-trigamma series, the passage through two locally uniform derivatives, and the
-quarter-line monotonicity consequences are all proved here without additional
-axioms.
+The finite logarithmic-derivative identity, absolute convergence of Gauss's
+two-point series and the trigamma series, and the passage through locally
+uniform derivatives are all proved here without additional axioms.  Fixed
+quarter-line consequences are isolated in `Glide.DigammaSeriesQuarter`.
 -/
 
 open Filter Set
 open scoped Topology
+
+namespace Complex
+
+/-- The absolutely summable term in Gauss's two-point digamma series.  The
+order is chosen so that its sum is `digamma z - digamma w`. -/
+noncomputable def digammaDifferenceTerm (z w : ℂ) (n : ℕ) : ℂ :=
+  1 / (w + (n : ℂ)) - 1 / (z + (n : ℂ))
+
+/-- Gauss's two-point digamma series is absolutely summable in the positive
+half-plane. -/
+lemma summable_digammaDifferenceTerm {z w : ℂ} (hz : 0 < z.re) (hw : 0 < w.re) :
+    Summable (digammaDifferenceTerm z w) := by
+  let a : ℝ := min z.re w.re
+  have ha : 0 < a := lt_min hz hw
+  have hsRpow : Summable (fun n : ℕ => 1 / |(n : ℝ) + a| ^ (2 : ℝ)) :=
+    (Real.summable_one_div_nat_add_rpow a 2).2 (by norm_num)
+  have hs : Summable (fun n : ℕ => 1 / ((n : ℝ) + a) ^ 2) := by
+    convert hsRpow using 1
+    ext n
+    rw [abs_of_pos (by positivity : 0 < (n : ℝ) + a)]
+    change 1 / (((n : ℝ) + a) ^ (2 : ℕ)) =
+      1 / Real.rpow ((n : ℝ) + a) (2 : ℝ)
+    exact congrArg (fun x : ℝ => 1 / x)
+      (Real.rpow_natCast ((n : ℝ) + a) 2).symm
+  have hsmul : Summable (fun n : ℕ => ‖z - w‖ * (1 / ((n : ℝ) + a) ^ 2)) :=
+    hs.mul_left _
+  refine hsmul.of_norm_bounded (fun n => ?_)
+  let Z : ℂ := z + (n : ℂ)
+  let W : ℂ := w + (n : ℂ)
+  have hna : 0 < (n : ℝ) + a := by positivity
+  have hZre : (n : ℝ) + a ≤ Z.re := by
+    dsimp [Z, a]
+    linarith [min_le_left z.re w.re]
+  have hWre : (n : ℝ) + a ≤ W.re := by
+    dsimp [W, a]
+    linarith [min_le_right z.re w.re]
+  have hZnorm : (n : ℝ) + a ≤ ‖Z‖ :=
+    hZre.trans (Complex.re_le_norm Z)
+  have hWnorm : (n : ℝ) + a ≤ ‖W‖ :=
+    hWre.trans (Complex.re_le_norm W)
+  have hZpos : 0 < ‖Z‖ := hna.trans_le hZnorm
+  have hWpos : 0 < ‖W‖ := hna.trans_le hWnorm
+  have hden : ((n : ℝ) + a) ^ 2 ≤ ‖W‖ * ‖Z‖ := by
+    nlinarith
+  have hZne : Z ≠ 0 := norm_pos_iff.mp hZpos
+  have hWne : W ≠ 0 := norm_pos_iff.mp hWpos
+  have hterm : digammaDifferenceTerm z w n = (z - w) / (W * Z) := by
+    unfold digammaDifferenceTerm
+    dsimp [W, Z] at hWne hZne ⊢
+    rw [one_div, one_div]
+    rw [inv_sub_inv hWne hZne]
+    ring
+  rw [hterm, norm_div, norm_mul]
+  change ‖z - w‖ / (‖W‖ * ‖Z‖) ≤ ‖z - w‖ * (1 / ((n : ℝ) + a) ^ 2)
+  rw [div_eq_mul_inv]
+  gcongr
+  simpa only [one_div] using
+    one_div_le_one_div_of_le (sq_pos_of_pos hna) hden
+
+end Complex
 
 namespace GlideKernel
 
@@ -180,6 +243,54 @@ private lemma deriv_gammaSeq_logDeriv (n : ℕ) (hn : n ≠ 0) (z : ℂ)
   rw [Finset.sum_neg_distrib]
   simp
 
+private theorem gammaSeq_logDeriv_tendsto_of_locallyUniform
+    (hGammaSeq : TendstoLocallyUniformlyOn
+      (fun n z => Complex.GammaSeq z n) Complex.Gamma atTop positiveRealHalfPlane)
+    {z : ℂ} (hz : 0 < z.re) :
+    Tendsto (fun n : ℕ => logDeriv (fun w : ℂ => Complex.GammaSeq w n) z)
+      atTop (𝓝 (Complex.digamma z)) := by
+  have hdiff : ∀ᶠ n : ℕ in atTop,
+      DifferentiableOn ℂ (fun w : ℂ => Complex.GammaSeq w n)
+        positiveRealHalfPlane := by
+    filter_upwards [eventually_ne_atTop 0] with n hn
+    exact differentiableOn_gammaSeq n hn
+  simpa only [Complex.digamma_def] using Complex.logDeriv_tendsto
+    isOpen_positiveRealHalfPlane hz hGammaSeq hdiff
+      (Complex.Gamma_ne_zero_of_re_pos hz)
+
+/-- A locally uniform Euler limit implies Gauss's exact two-point digamma
+series on the positive-real half-plane. -/
+theorem digamma_sub_eq_tsum_of_gammaSeq_locallyUniform
+    (hGammaSeq : TendstoLocallyUniformlyOn
+      (fun n z => Complex.GammaSeq z n) Complex.Gamma atTop positiveRealHalfPlane)
+    {z w : ℂ} (hz : 0 < z.re) (hw : 0 < w.re) :
+    Complex.digamma z - Complex.digamma w =
+      ∑' n : ℕ, Complex.digammaDifferenceTerm z w n := by
+  have hlim := (gammaSeq_logDeriv_tendsto_of_locallyUniform hGammaSeq hz).sub
+    (gammaSeq_logDeriv_tendsto_of_locallyUniform hGammaSeq hw)
+  have hevent :
+      (fun n : ℕ =>
+        logDeriv (fun v : ℂ => Complex.GammaSeq v n) z -
+          logDeriv (fun v : ℂ => Complex.GammaSeq v n) w) =ᶠ[atTop]
+      (fun n : ℕ => ∑ j ∈ Finset.range (n + 1),
+        Complex.digammaDifferenceTerm z w j) := by
+    filter_upwards [eventually_ne_atTop 0] with n hn
+    rw [gammaSeq_logDeriv_formula n hn z hz,
+      gammaSeq_logDeriv_formula n hn w hw]
+    unfold Complex.digammaDifferenceTerm
+    ring_nf
+    rw [← Finset.sum_neg_distrib, ← Finset.sum_add_distrib]
+    apply Finset.sum_congr rfl
+    intro j hj
+    ring
+  have hseries : Tendsto
+      (fun n : ℕ => ∑ j ∈ Finset.range (n + 1),
+        Complex.digammaDifferenceTerm z w j)
+      atTop (𝓝 (∑' n : ℕ, Complex.digammaDifferenceTerm z w n)) :=
+    (Complex.summable_digammaDifferenceTerm hz hw).hasSum.tendsto_sum_nat.comp
+      (tendsto_add_atTop_nat 1)
+  exact tendsto_nhds_unique (hlim.congr' hevent) hseries
+
 /-- A locally uniform version of Euler's Gamma limit formula implies the
 standard trigamma derivative series on the positive-real half-plane. -/
 theorem hasDerivAt_digamma_of_gammaSeq_locallyUniform
@@ -243,42 +354,5 @@ theorem hasDerivAt_digamma_of_gammaSeq_locallyUniform
       (hquot.differentiableOn hquotDiff isOpen_positiveRealHalfPlane z hzH).differentiableAt
         (isOpen_positiveRealHalfPlane.mem_nhds hzH)
   exact hdiffDigamma.hasDerivAt.congr_deriv hderivEq
-
-/-- The locally uniform Euler limit supplies the precise derivative premise
-used by the quarter-line monotonicity argument. -/
-theorem hasDerivAt_quarterDigammaReal_of_gammaSeq_locallyUniform
-    (hGammaSeq : TendstoLocallyUniformlyOn
-      (fun n z => Complex.GammaSeq z n) Complex.Gamma atTop positiveRealHalfPlane)
-    (r : ℝ) :
-    HasDerivAt quarterDigammaReal (quarterTrigammaSlope r) r := by
-  apply hasDerivAt_quarterDigammaReal_of_trigammaSeries
-  have h := hasDerivAt_digamma_of_gammaSeq_locallyUniform hGammaSeq
-    (z := (1 / 4 : ℂ) + Complex.I * ((r / 2 : ℝ) : ℂ)) (by norm_num)
-  unfold trigammaSeries at h
-  convert h using 1
-  apply tsum_congr
-  intro n
-  congr 2
-  push_cast
-  ring
-
-/-- Strict monotonicity of the real quarter-line restriction follows from a
-locally uniform Euler limit for Gamma. -/
-theorem quarterDigammaReal_strictMonoOn_of_gammaSeq_locallyUniform
-    (hGammaSeq : TendstoLocallyUniformlyOn
-      (fun n z => Complex.GammaSeq z n) Complex.Gamma atTop positiveRealHalfPlane) :
-    StrictMonoOn quarterDigammaReal (Ici 0) :=
-  quarterDigammaReal_strictMonoOn_of_hasDerivAt
-    (fun r _ => hasDerivAt_quarterDigammaReal_of_gammaSeq_locallyUniform hGammaSeq r)
-
-/-- The exterior comparison needed by F7, conditional only on the locally
-uniform form of mathlib's existing pointwise Euler limit. -/
-theorem quarterDigammaReal_exterior_lower_bound_of_gammaSeq_locallyUniform
-    (hGammaSeq : TendstoLocallyUniformlyOn
-      (fun n z => Complex.GammaSeq z n) Complex.Gamma atTop positiveRealHalfPlane)
-    {S r : ℝ} (hS : 0 ≤ S) (hr : S ≤ |r|) :
-    quarterDigammaReal S ≤ quarterDigammaReal r :=
-  quarterDigammaReal_exterior_lower_bound_of_hasDerivAt
-    (fun x _ => hasDerivAt_quarterDigammaReal_of_gammaSeq_locallyUniform hGammaSeq x) hS hr
 
 end GlideKernel

@@ -1,12 +1,21 @@
 /-
+Copyright (c) 2026 Riemann-Zeta project contributors. All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Riemann-Zeta project contributors
+-/
+import BridgeLegendre
+import LegendreTail
+import Mathlib.Analysis.Calculus.Deriv.Polynomial
+import Mathlib.Analysis.SpecialFunctions.ExpDeriv
+import Mathlib.MeasureTheory.Integral.IntervalIntegral.IntegrationByParts
+
+/-!
 Reusable integration-by-parts bridge toward the FULLINF F2 plane-wave
 coefficient identity.
 
 This module does not identify `Bridge.legendre` or
 `LegendreTail.sphericalJIntegralModel` with any library Bessel function.
 -/
-import BridgeLegendre
-import LegendreTail
 
 namespace LegendrePlaneWave
 
@@ -55,7 +64,10 @@ theorem integral_derivative_mul_fourierPhase
     (by
       apply Continuous.intervalIntegrable
       exact continuous_const.mul hu_cont)
-    (by apply Continuous.intervalIntegrable; fun_prop)
+    (by
+      apply Continuous.intervalIntegrable
+      exact continuous_iff_continuousAt.mpr fun t ↦
+        ((p.derivative.hasDerivAt t).ofReal_comp).continuousAt)
   dsimp [u, u', v, v'] at hparts
   have hconst :
       (∫ t in a..b,

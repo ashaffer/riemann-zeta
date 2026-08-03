@@ -1,0 +1,9 @@
+import RHBridge.ActivationCancellation
+
+/-! # Axiom audit for cancellation-sensitive prime activation -/
+
+#print axioms RHP2Bridge.ActivationCancellation.activationLoss_eq_shellWeight_mul_norm_sq_sub_defect
+#print axioms RHP2Bridge.ActivationCancellation.nestedSupport_nonneg_of_hasActivationReserve
+#print axioms RHP2Bridge.ActivationCancellation.hasActivationReserve_of_crude_reserve
+#print axioms RHP2Bridge.ActivationCancellation.activationLoss_eq_zero
+#print axioms RHP2Bridge.ActivationCancellation.weilForm_nestedSupport_eq

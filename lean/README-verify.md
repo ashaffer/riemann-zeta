@@ -3,6 +3,41 @@
 Two main Lake projects (`glide` and `weilcert`), plus the small `rhbridge`
 project that imports both for cross-project composition:
 
+## Reusable extraction audit (2026-08-03)
+
+The general-purpose results are now separated from their RH and generated-data
+wrappers.  The following focused audits all build and report only `propext`,
+`Classical.choice`, and `Quot.sound`:
+
+```sh
+cd lean/glide
+lake build Glide.UpstreamAudit
+
+cd ../weilcert
+lake build Weilcert.UpstreamAudit
+
+cd ../rhbridge
+lake build RHBridge.ReusableAudit
+```
+
+The audited public endpoints include:
+
+- `Complex.digamma_sub_eq_tsum`, `Complex.hasDerivAt_digamma`, and the
+  positive-vertical-line Gauss kernel and logarithmic bounds;
+- compact-interval Fourier–Laplace entirety and exponential-type bounds;
+- the actual arbitrary-interval
+  `LegendreIntervalL2.FourierLegendre.{basis, transform, parseval,
+  projection_error}` API;
+- `CertFramework.LDLPosCertificate.sound`, the closed smaller-eigenvalue
+  two-block bound, and its formal greatest-constant theorem;
+- finite simple-principal-part removal and circle residue sums, real-line
+  cross-correlation Plancherel, and the quantitative smooth cutoff.  The larger
+  rectangle layer has its own `RHBridge.ComplexResidueAudit`.
+
+`RHBridge.Audit` remains an opt-in aggregate for the application and literature
+interfaces; it is no longer imported by the ordinary `RHBridge` umbrella.
+See `UPSTREAMING.md` for proposed review units and remaining packaging work.
+
 ## 2. GlideKernel (lean/glide) — the archimedean kernel sandwich
 
 ```
@@ -17,10 +52,10 @@ Verified output (2026-07-26):
 'GlideKernel.laplace_sin'   depends on axioms: [propext, Classical.choice, Quot.sound]
 ```
 Content: ½log(1+4r²) ≤ ∫₀^∞ e^{−t/4}(1−cos(rt/2))/(1−e^{−t}) dt ≤ ½log(1+4r²)+8
-for all real r — Lemma A of THEOREMS.md in integral form (the digamma
-identification awaits Gauss's formula in mathlib; RH-LEMMA-MAP.md Level 2) —
-plus the Laplace transform of sine and the Frullani-type integral as
-standalone formalized lemmas.
+for all real r — Lemma A of THEOREMS.md in integral form — plus the Laplace
+transform of sine and the Frullani-type integral as standalone formalized
+lemmas. `Glide.DigammaKernel` now proves the digamma identification for every
+positive vertical line, so that former gap is closed locally.
 
 `Glide.DigammaMonotone` now formalizes the positive-series core of F7. It
 proves convergence and strict positivity of the candidate trigamma slope and
@@ -85,8 +120,10 @@ import Glide.DigammaBounds
 The first theorem proves `109387/100000 ≤ p2Alpha`; the second proves
 `|p2Omega r-p2Alpha|≤7447/1000` on `|r|≤50`. Their proofs use an exact positive
 rational series and explicit integral tails. All five declarations above have
-axiom set `[propext, Classical.choice, Quot.sound]`. Gauss's digamma integral
-remains a separate route needed for the broader kernel sandwich.
+axiom set `[propext, Classical.choice, Quot.sound]`. The standalone
+`Glide.DigammaKernel` proves Gauss's vertical-line integral identity and
+logarithmic upper/lower bounds; `Glide.DigammaP2Comparison` contains only the
+project-specific p=2 compatibility consequences.
 
 The same project also contains the abstract Hard Horizon development.  Its
 paper-facing wrapper states the vanishing orders directly at `±tₖ`, rather
@@ -127,7 +164,7 @@ lake build LegendreRodrigues # exact all-degree Rodrigues/plane-wave bridge
 lake build LegendreOrthogonality # exact norm and orthonormality
 lake build LegendreCoefficientTail # normalized coefficient tail
 lake build LegendreScaled # arbitrary-interval scaling and tail
-lake build LegendreL2 LegendreScaledL2 # complete L² bases and Parseval
+lake build LegendreL2 LegendreIntervalL2 LegendreScaledL2 # complete L² bases and Parseval
 lake build LegendrePlaneWaveL2 # pointwise F2 projection leakage
 lake build IntervalZeroExtension FullInfFourierBridge # exact band operator and rho ledger
 lake build PoleProjectionL2 FullInfOperatorLedger # concrete poles and block estimates
@@ -155,6 +192,7 @@ import LegendreCoefficientTail
 import LegendreScaled
 import HilbertBasisTail
 import LegendreL2
+import LegendreIntervalL2
 import LegendreScaledL2
 import LegendrePlaneWaveL2
 import FullInfClipped48
@@ -287,10 +325,11 @@ formula, and proves exactly
 `LegendreOrthogonality` proves lower-degree and pairwise orthogonality, the
 exact norm `2/(2n+1)`, and normalized Kronecker-delta orthonormality.
 `LegendreCoefficientTail` and `LegendreScaled` give the exact normalized and
-arbitrary-interval coefficient tails. `LegendreL2` and `LegendreScaledL2`
-use Weierstrass density to construct complete real L² Hilbert bases, prove
-Parseval and canonical finite-projection tail identities, and identify the
-real and imaginary plane-wave coefficients. `LegendrePlaneWaveL2` proves the
+arbitrary-interval coefficient tails. `LegendreL2`, `LegendreScaledL2`, and
+`LegendreIntervalL2` use Weierstrass density to construct complete real L²
+Hilbert bases, prove Parseval and canonical finite-projection tail identities,
+and identify the real and imaginary plane-wave coefficients.
+`LegendrePlaneWaveL2` proves the
 complete pointwise real-form F2 leakage bound for `w` orthogonal to the first
 `m` modes. `IntervalZeroExtension` then constructs canonical zero extension,
 proves `L¹∩L²` compatibility with Mathlib's Plancherel transform, and gives the
@@ -330,7 +369,7 @@ GRH-side window), `BridgeLegendre`/`BridgeOverlap` (49 overlap identities),
 `CertFramework`/`CertInstance` (n-generic framework), `FullInfTransfer`
 (orthogonal-projection F8), `LegendreTail`/`LegendrePlaneWave`/
 `LegendreRodrigues`/`LegendreOrthogonality`/`LegendreCoefficientTail`/
-`LegendreScaled`/`LegendreL2`/`LegendreScaledL2`/
+`LegendreScaled`/`LegendreL2`/`LegendreScaledL2`/`LegendreIntervalL2`/
 `LegendrePlaneWaveL2`/`IntervalZeroExtension`/`FullInfFourierBridge` (the
 complete p=2 F2/Fourier bridge), `PoleProjectionL2`/`FullInfOperatorLedger`,
 `LegendreParityCoordinates`, `SymbolQuadraticComparison`, `FullInfP2Endpoint`,
@@ -354,6 +393,16 @@ lake build RHBridge.P2RoundedBoundedCertificateCheck
 lake env lean RHBridge/P2RoundedBoundedCertificateAudit.lean
 lake build RHBridge.ZetaWeilForm
 lake env lean RHBridge/ZetaWeilFormAudit.lean
+lake build RHBridge.GeneralZetaWeilForm
+lake env lean RHBridge/GeneralZetaWeilFormAudit.lean
+lake build RHBridge.GuinandWeilFormula
+lake env lean RHBridge/GuinandWeilFormulaAudit.lean
+lake build RHBridge.HodgeHighSector
+lake env lean RHBridge/HodgeHighSectorAudit.lean
+lake build RHBridge.HodgeLowSector
+lake env lean RHBridge/HodgeLowSectorAudit.lean
+lake build RHBridge.HodgeLowSectorNoGo
+lake env lean RHBridge/HodgeLowSectorNoGoAudit.lean
 ```
 
 `RHP2Bridge.P2RoundedBoundedCertificate.p2_canonical_matrix_containment`
@@ -367,10 +416,28 @@ refinements, and final aggregation. Its corollary
 
 `RHP2Bridge.p2_original_integral_lower_bound_of_matrix_containment_no_parity` transfers
 the same strict bound to the original unbounded p=2 weighted Fourier integral
-plus the exact pole term. Canonical containment now discharges its finite
-matrix hypotheses; weighted integrability is still explicit. This is not yet a
-theorem about the zeta Weil form because the integral-plus-pole expression has
-not been identified with that form on its precise domain.
+plus the exact pole term. `RHBridge.ZetaWeilForm` identifies this expression
+with the truncated zeta Weil form, proves the prime term is the time-domain
+autocorrelation by Plancherel, and proves that its exact multiplier domain is
+equivalent to the intrinsic domain weighted by
+`log (1 + (2*pi*xi)^2)`. The resulting strict lower bound is therefore stated
+directly on the logarithmically weighted domain. These are fixed-window
+results at `L = 7/4`, not an all-support theorem.
+
+`RHBridge.GeneralZetaWeilForm` defines the pole, digamma, and finite
+von-Mangoldt-weighted prime-power terms for arbitrary compact support
+`[-a,a]`. It proves that at `a = 7/16` the active prime-power set is exactly
+`{2}` and that the resulting form and logarithmic domain specialize exactly
+to the certified fixed-window objects. Mathlib does not yet contain the
+Guinand--Weil identity equating this arithmetic form to a sum over zeta zeros;
+the development does not assume that missing theorem as an axiom.
+
+`RHBridge.GuinandWeilFormula` formalizes the other side of that missing
+theorem: nontrivial zeta zeros in the critical strip, their analytic
+multiplicity, finite disk truncations, the centered bilateral-Laplace
+summand, and the exact convergence-and-equality proposition `Holds`. The
+proposition is not asserted as a theorem: proving it requires the
+argument-principle contour shift and growth estimates absent from mathlib.
 
 For the focused axiom audit, run
 `RHBridge/P2RoundedBoundedCertificateAudit.lean`, which includes:

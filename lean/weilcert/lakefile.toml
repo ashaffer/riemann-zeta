@@ -1,7 +1,8 @@
 name = "weilcert"
 version = "0.1.0"
+license = "Apache-2.0"
 keywords = ["math"]
-defaultTargets = ["Weilcert", "CertFramework", "FullInfTransfer", "LegendreTail", "LegendrePlaneWave", "LegendreRodrigues", "LegendreOrthogonality", "LegendreCoefficientTail", "LegendreScaled", "HilbertBasisTail", "LegendreL2", "LegendreScaledL2", "LegendreParityCoordinates", "LegendrePlaneWaveL2", "IntervalFourierL2", "IntervalZeroExtension", "LegendrePlaneWaveBand", "FullInfLegendreLedger", "FullInfFourierBridge", "PoleProjectionL2", "FullInfAnalyticLedger", "FullInfOperatorLedger", "BandOperatorBilinear", "BoundedSymbolMultiplier", "SymbolQuadraticComparison", "FullInfP2Endpoint", "FullInfP2CanonicalEndpoint", "FullInfClipped48", "FullInfClipped48Real", "FullInfClipped48Transfer"]
+defaultTargets = ["Weilcert", "CertFramework", "FullInfTransfer", "FullInfExactLedgers", "LegendreTail", "LegendrePlaneWave", "LegendreRodrigues", "LegendreOrthogonality", "LegendreCoefficientTail", "LegendreScaled", "HilbertBasisTail", "LegendreL2", "LegendreIntervalL2", "LegendreScaledL2", "LegendreParityCoordinates", "LegendrePlaneWaveL2", "IntervalFourierL2", "IntervalZeroExtension", "LegendrePlaneWaveBand", "FullInfLegendreLedger", "FullInfFourierBridge", "PoleProjectionL2", "FullInfAnalyticLedger", "FullInfOperatorLedger", "BandOperatorBilinear", "BoundedSymbolMultiplier", "SymbolQuadraticComparison", "FullInfP2Endpoint", "FullInfP2CanonicalEndpoint", "FullInfClipped48", "FullInfClipped48Real", "FullInfClipped48Transfer"]
 
 [leanOptions]
 pp.unicode.fun = true # pretty-prints `fun a ↦ b`
@@ -48,6 +49,9 @@ name = "FloorWitness"
 name = "FullInfTransfer"
 
 [[lean_lib]]
+name = "FullInfExactLedgers"
+
+[[lean_lib]]
 name = "LegendreTail"
 
 [[lean_lib]]
@@ -70,6 +74,9 @@ name = "HilbertBasisTail"
 
 [[lean_lib]]
 name = "LegendreL2"
+
+[[lean_lib]]
+name = "LegendreIntervalL2"
 
 [[lean_lib]]
 name = "LegendreScaledL2"

@@ -1,0 +1,30 @@
+/-
+Copyright (c) 2026 Riemann-Zeta project contributors. All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Riemann-Zeta project contributors
+-/
+import RHBridge.ComplexResidue
+
+/-!
+# Axiom audit for the finite simple-pole rectangle layer
+-/
+
+#print axioms RHBridge.ComplexResidue.rectBoundaryIntegral_eq_wedgeIntegral_add
+#print axioms RHBridge.ComplexResidue.sub_inv_rectIntegrable_of_mem_openRectangle
+#print axioms RHBridge.ComplexResidue.rectBoundaryIntegral_eq_zero_of_differentiableOn
+#print axioms RHBridge.ComplexResidue.rectBoundaryIntegral_add
+#print axioms RHBridge.ComplexResidue.rectBoundaryIntegral_split_vertical
+#print axioms RHBridge.ComplexResidue.rectBoundaryIntegral_split_horizontal
+#print axioms RHBridge.ComplexResidue.rectBoundaryIntegral_split_vertical_three
+#print axioms RHBridge.ComplexResidue.rectBoundaryIntegral_split_horizontal_three
+#print axioms RHBridge.ComplexResidue.rectBoundaryIntegral_eq_center_of_three_by_three_frame
+#print axioms RHBridge.ComplexResidue.rectBoundaryIntegral_comp_sub_translation
+#print axioms RHBridge.ComplexResidue.rectBoundaryIntegral_inv_centeredSquare
+#print axioms RHBridge.ComplexResidue.rectBoundaryIntegral_sub_inv_centeredSquare
+#print axioms RHBridge.ComplexResidue.rectBoundaryIntegral_sub_inv
+#print axioms RHBridge.ComplexResidue.rectBoundaryIntegral_finite_simplePoles
+#print axioms RHBridge.ComplexResidue.rectBoundaryIntegral_finite_simplePoles_of_radii
+#print axioms RHBridge.ComplexResidue.rectBoundaryIntegral_finite_simplePoles_of_mem_openRectangle
+#print axioms RHBridge.ComplexResidue.wedgeIntegral_add_wedgeIntegral_finite_simplePoles_of_radii
+#print axioms
+  RHBridge.ComplexResidue.wedgeIntegral_add_wedgeIntegral_finite_simplePoles_of_mem_openRectangle

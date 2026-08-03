@@ -1,0 +1,10 @@
+import RHBridge.Stage4CanonicalResidual
+
+/-! # Axiom audit for the canonical residual criterion -/
+
+#print axioms RHP2Bridge.Stage4CanonicalResidual.weilCross_eq_zero_of_spectrallyInvisible
+#print axioms RHP2Bridge.Stage4CanonicalResidual.logarithmicWeilForm_eq_zero_of_diagonalSpectralInvisibility
+#print axioms RHP2Bridge.Stage4CanonicalResidual.asymptoticallyWeakRadical_of_fixedDisk_of_uniformZeroTail
+#print axioms RHP2Bridge.Stage4CanonicalResidual.movingWeilCross_tendsto_zero_of_fixedDisk_of_uniformZeroTail
+#print axioms RHP2Bridge.Stage4CanonicalResidual.paired_strip_exponents_cancel
+#print axioms RHP2Bridge.Stage4CanonicalResidual.movingWeilCross_tendsto_zero_of_scheduled_split

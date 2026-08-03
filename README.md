@@ -264,6 +264,16 @@ the apparent catastrophes investigated so far were implementation or test errors
   weighted Fourier integral plus the exact pole term under weighted
   integrability. The remaining local p=2 work is identifying that expression
   and its domain with the truncated zeta Weil form.
+- **Reusable-infrastructure update August 3, 2026:** Gauss's general two-point
+  digamma series and positive-vertical-line integral are now proved from the
+  locally uniform Gamma sequence.  Lean also has an actual Fourier–Legendre
+  Hilbert basis on every interval `[b,c]` with `b<c`, a standalone
+  Fourier–Laplace entirety/growth module, finite simple-principal-part removal
+  and contour sums, real-line Wiener–Khinchin identities, a quantitative smooth
+  cutoff, a bundled exact `LDLᵀ` certificate, and a formally optimal scalar
+  two-block lower constant.  These reusable endpoints are Apache-2.0 licensed,
+  separately packaged, and axiom-audited.  This is infrastructure hardening,
+  not a new RH implication.
 - The Chowla-scan values are very likely recoverable from existing large computations
   (Rubinstein-era tables, LMFDB); D = 14693 is a record *of our scan*, not
   necessarily of mathematics. Still unchecked against those tables.
@@ -297,3 +307,19 @@ proving a quantitative zero-side converse remain open; uniform closure would
 be RH-strength work. The immediate local priority is the remaining
 form-identification and weighted-integrability bridge at `L=7/4`, not a deeper
 numerical ladder; canonical p=2 matrix containment is closed.
+
+## Lean reuse and upstreaming
+
+Several general-purpose results have been separated from their RH applications:
+finite simple-pole residue identities, quantitative smooth cutoffs,
+autocorrelation/Plancherel identities, digamma kernel formulas, arbitrary-
+interval Legendre `L²` bases, and reusable certificate/coercivity lemmas.  See
+[`lean/UPSTREAMING.md`](lean/UPSTREAMING.md) for their public endpoints, proof
+status, and proposed small upstream-review units.
+
+## License
+
+Original material in this repository is released under the
+[Apache License 2.0](LICENSE).  Third-party dependencies retain their own
+licenses.  Named author attribution should be confirmed before any upstream
+submission; the current Lean headers use the collective project attribution.

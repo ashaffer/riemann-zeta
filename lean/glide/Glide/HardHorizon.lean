@@ -1,5 +1,15 @@
 /-
-HardHorizon: Lean formalization of the Hard Horizon Theorem (T1′),
+Copyright (c) 2026 Riemann-Zeta project contributors. All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Riemann-Zeta project contributors
+-/
+import Glide.CompactSupportFourierLaplace
+import Mathlib
+
+/-!
+# The Hard Horizon theorem
+
+Lean formalization of the Hard Horizon Theorem (T1′),
 results/experts/T1PRIME.md (§2, §7 ladder).  Complete for the staircase
 scope: Theorem 1 (`hard_horizon`) and the selected-radius/raw-bound core of
 Corollary 2 (`zero_desert`) are proved, with no sorries and only the three
@@ -33,7 +43,6 @@ Corollary 1 (ζ without RH, but with its anchor hypothesis) is out of scope —
 blocked on a formalized RvM/S(T) with explicit constants (T1PRIME.md §7). See
 results/agent-t1prime-lean.md for audits and deviations.
 -/
-import Mathlib
 
 open Real MeasureTheory Set MeromorphicOn
 
@@ -544,7 +553,7 @@ theorem lemma8_tau_bound {a R κ τ : ℝ} (hR0 : 0 ≤ R) (hR : R < Real.exp (2
     (hτ : 2 * a + 2 ≤ τ) (hh : hFn a R τ ≤ BConst a κ) :
     τ ≤ 2 * a + 2 + max 0 (epsStar a R κ) := by
   by_contra hcon
-  push_neg at hcon
+  push Not at hcon
   have hmono := lemma8_strictMonoOn (a := a) hR
   rcases le_or_gt (epsStar a R κ) 0 with hle | hpos
   · -- case ε* ≤ 0: already τ ≤ 2a+2 must hold
@@ -557,7 +566,7 @@ theorem lemma8_tau_bound {a R κ τ : ℝ} (hR0 : 0 ≤ R) (hR : R < Real.exp (2
     have hden : (0 : ℝ) < 2 * (Real.exp (2 * a + 2) - R) := by linarith
     have hnum : BConst a κ + 2 * R * (2 * a + 1) ≤ 0 := by
       by_contra hn
-      push_neg at hn
+      push Not at hn
       have : 0 < epsStar a R κ := div_pos hn hden
       linarith
     linarith
@@ -589,98 +598,34 @@ shape of `lemma6_circle_bound`. -/
 
 /-- The Fourier–Laplace transform `F(z) = ∫_{−a}^{a} φ(x)·e^{−izx} dx` of (S1). -/
 noncomputable def FL (φ : ℝ → ℂ) (a : ℝ) (z : ℂ) : ℂ :=
-  ∫ x in Icc (-a) a, φ x * Complex.exp (-(Complex.I * z * (x : ℂ)))
+  CompactSupportFourierLaplace.transform φ a z
 
 lemma FL_exponent_re (z : ℂ) (x : ℝ) : (-(Complex.I * z * (x : ℂ))).re = x * z.im := by
-  simp only [Complex.neg_re, Complex.mul_re, Complex.mul_im, Complex.I_re, Complex.I_im,
-    Complex.ofReal_re, Complex.ofReal_im]
-  ring
+  exact CompactSupportFourierLaplace.exponent_re z x
 
 lemma FL_integrand_norm (φ : ℝ → ℂ) (z : ℂ) (x : ℝ) :
     ‖φ x * Complex.exp (-(Complex.I * z * (x : ℂ)))‖ = ‖φ x‖ * Real.exp (x * z.im) := by
-  rw [norm_mul, Complex.norm_exp, FL_exponent_re]
+  exact CompactSupportFourierLaplace.norm_integrand φ z x
 
 lemma FL_integrand_integrableOn {φ : ℝ → ℂ} {a : ℝ} (ha : 0 < a)
     (hφi : IntegrableOn φ (Icc (-a) a)) (z : ℂ) :
     IntegrableOn (fun x => φ x * Complex.exp (-(Complex.I * z * (x : ℂ)))) (Icc (-a) a) := by
-  apply Integrable.mono' (hφi.norm.mul_const (Real.exp (a * |z.im|)))
-  · exact hφi.aestronglyMeasurable.mul (Continuous.aestronglyMeasurable (by fun_prop))
-  · rw [ae_restrict_iff' measurableSet_Icc]
-    filter_upwards with x hx
-    rw [FL_integrand_norm]
-    have hxa : |x| ≤ a := abs_le.mpr ⟨hx.1, hx.2⟩
-    have hxz : x * z.im ≤ a * |z.im| := by
-      calc x * z.im ≤ |x * z.im| := le_abs_self _
-        _ = |x| * |z.im| := abs_mul _ _
-        _ ≤ a * |z.im| := mul_le_mul_of_nonneg_right hxa (abs_nonneg _)
-    exact mul_le_mul_of_nonneg_left (Real.exp_le_exp.mpr hxz) (norm_nonneg _)
+  have _ha : 0 < a := ha
+  exact CompactSupportFourierLaplace.integrableOn_integrand hφi z
 
 /-- **Lemma L1**, entirety half: under (S1), `F` is entire. -/
 theorem lemma1_entire {φ : ℝ → ℂ} {a : ℝ} (ha : 0 < a)
     (hφi : IntegrableOn φ (Icc (-a) a)) :
     Differentiable ℂ (FL φ a) := by
-  intro z₀
-  have key := hasDerivAt_integral_of_dominated_loc_of_deriv_le
-    (μ := volume.restrict (Icc (-a) a))
-    (F := fun (z : ℂ) (x : ℝ) => φ x * Complex.exp (-(Complex.I * z * (x : ℂ))))
-    (F' := fun (z : ℂ) (x : ℝ) =>
-      φ x * (Complex.exp (-(Complex.I * z * (x : ℂ))) * -(Complex.I * (x : ℂ))))
-    (bound := fun x => ‖φ x‖ * (Real.exp (a * (|z₀.im| + 1)) * a))
-    (Metric.ball_mem_nhds z₀ one_pos) ?_ ?_ ?_ ?_ ?_ ?_
-  · exact key.2.differentiableAt
-  · exact Filter.Eventually.of_forall fun z =>
-      hφi.aestronglyMeasurable.mul (Continuous.aestronglyMeasurable (by fun_prop))
-  · exact FL_integrand_integrableOn ha hφi z₀
-  · exact hφi.aestronglyMeasurable.mul (Continuous.aestronglyMeasurable (by fun_prop))
-  · rw [ae_restrict_iff' measurableSet_Icc]
-    filter_upwards with x hx
-    intro z hz
-    have hxa : |x| ≤ a := abs_le.mpr ⟨hx.1, hx.2⟩
-    have him : |z.im| ≤ |z₀.im| + 1 := by
-      have h2 : |(z - z₀).im| ≤ ‖z - z₀‖ := Complex.abs_im_le_norm _
-      have h3 : ‖z - z₀‖ ≤ 1 := by
-        rw [← dist_eq_norm]
-        exact le_of_lt (Metric.mem_ball.mp hz)
-      have h4 : z.im = z₀.im + (z - z₀).im := by simp
-      rw [h4]
-      calc |z₀.im + (z - z₀).im| ≤ |z₀.im| + |(z - z₀).im| := abs_add_le _ _
-        _ ≤ |z₀.im| + 1 := by linarith
-    have hxz : x * z.im ≤ a * (|z₀.im| + 1) := by
-      calc x * z.im ≤ |x * z.im| := le_abs_self _
-        _ = |x| * |z.im| := abs_mul _ _
-        _ ≤ a * (|z₀.im| + 1) := mul_le_mul hxa him (abs_nonneg _) ha.le
-    calc ‖φ x * (Complex.exp (-(Complex.I * z * (x : ℂ))) * -(Complex.I * (x : ℂ)))‖
-        = ‖φ x‖ * (Real.exp (x * z.im) * |x|) := by
-          rw [norm_mul, norm_mul, Complex.norm_exp, FL_exponent_re, norm_neg, norm_mul,
-            Complex.norm_I, one_mul, Complex.norm_real, Real.norm_eq_abs]
-      _ ≤ ‖φ x‖ * (Real.exp (a * (|z₀.im| + 1)) * a) := by
-          apply mul_le_mul_of_nonneg_left ?_ (norm_nonneg _)
-          exact mul_le_mul (Real.exp_le_exp.mpr hxz) hxa (abs_nonneg _) (Real.exp_pos _).le
-  · exact hφi.norm.mul_const _
-  · apply Filter.Eventually.of_forall
-    intro x z _
-    have h1 : HasDerivAt (fun w : ℂ => Complex.I * w) Complex.I z := by
-      simpa using (hasDerivAt_id z).const_mul Complex.I
-    have h2 : HasDerivAt (fun w : ℂ => Complex.I * w * (x : ℂ)) (Complex.I * (x : ℂ)) z :=
-      h1.mul_const _
-    exact ((h2.neg).cexp).const_mul (φ x)
+  change Differentiable ℂ (CompactSupportFourierLaplace.transform φ a)
+  exact CompactSupportFourierLaplace.differentiable_transform ha hφi
 
 /-- Translation preserves the analytic order of an entire function.  This
 bridges the paper's vanishing-order hypothesis on `F` at `c + z₀` to the
 recentered function `z ↦ F (c + z)` used by Jensen's formula below. -/
 theorem analyticOrderAt_translate (F : ℂ → ℂ) (hF : Differentiable ℂ F) (c z₀ : ℂ) :
     analyticOrderAt (fun z => F (c + z)) z₀ = analyticOrderAt F (c + z₀) := by
-  have hf : AnalyticAt ℂ F (c + z₀) := hF.analyticAt (c + z₀)
-  have hg : AnalyticAt ℂ (fun z : ℂ => c + z) z₀ := by fun_prop
-  have hderiv : deriv (fun z : ℂ => c + z) z₀ = 1 := by
-    simpa only [id_eq] using ((hasDerivAt_id z₀).const_add c).deriv
-  have hgderiv : deriv (fun z : ℂ => c + z) z₀ ≠ 0 := by
-    rw [hderiv]
-    exact one_ne_zero
-  have horder : analyticOrderAt ((fun z : ℂ => c + z) · - (c + z₀)) z₀ = 1 :=
-    hg.analyticOrderAt_sub_eq_one_of_deriv_ne_zero hgderiv
-  rw [show (fun z => F (c + z)) = F ∘ (fun z => c + z) by rfl,
-    hf.analyticOrderAt_comp hg, horder, mul_one]
+  exact CompactSupportFourierLaplace.analyticOrderAt_translate F hF c z₀
 
 /-- **Lemma L1**, growth half (eq. (L1.1)): `‖F(z)‖ ≤ √(2a)·e^{a·|Im z|}`. -/
 theorem lemma1_growth {φ : ℝ → ℂ} {a : ℝ} (ha : 0 < a)
@@ -688,89 +633,9 @@ theorem lemma1_growth {φ : ℝ → ℂ} {a : ℝ} (ha : 0 < a)
     (hsq : IntegrableOn (fun x => ‖φ x‖ ^ 2) (Icc (-a) a))
     (hφ2 : (∫ x in Icc (-a) a, ‖φ x‖ ^ 2) ≤ 1) (z : ℂ) :
     ‖FL φ a z‖ ≤ Real.sqrt (2 * a) * Real.exp (a * |z.im|) := by
-  have hg2 : IntegrableOn (fun x : ℝ => Real.exp (x * z.im) ^ 2) (Icc (-a) a) :=
-    ((by fun_prop : Continuous fun x : ℝ => Real.exp (x * z.im) ^ 2).continuousOn).integrableOn_Icc
-  -- Step 1: pull the norm inside
-  have h1 : ‖FL φ a z‖ ≤ ∫ x in Icc (-a) a, ‖φ x‖ * Real.exp (x * z.im) := by
-    calc ‖FL φ a z‖
-        ≤ ∫ x in Icc (-a) a, ‖φ x * Complex.exp (-(Complex.I * z * (x : ℂ)))‖ :=
-          norm_integral_le_integral_norm _
-      _ = ∫ x in Icc (-a) a, ‖φ x‖ * Real.exp (x * z.im) := by
-          apply setIntegral_congr_fun measurableSet_Icc
-          intro x _
-          show ‖φ x * Complex.exp (-(Complex.I * z * (x : ℂ)))‖ = ‖φ x‖ * Real.exp (x * z.im)
-          exact FL_integrand_norm φ z x
-  -- Step 2: Cauchy–Schwarz
-  have hfLp : MemLp (fun x => ‖φ x‖) (ENNReal.ofReal 2) (volume.restrict (Icc (-a) a)) := by
-    rw [ENNReal.ofReal_ofNat]
-    exact (memLp_two_iff_integrable_sq hφi.aestronglyMeasurable.norm).mpr hsq
-  have hgLp : MemLp (fun x : ℝ => Real.exp (x * z.im)) (ENNReal.ofReal 2)
-      (volume.restrict (Icc (-a) a)) := by
-    rw [ENNReal.ofReal_ofNat]
-    exact (memLp_two_iff_integrable_sq
-      (Continuous.aestronglyMeasurable (by fun_prop))).mpr hg2
-  have hCS := integral_mul_le_Lp_mul_Lq_of_nonneg Real.HolderConjugate.two_two
-    (Filter.Eventually.of_forall fun x => norm_nonneg (φ x))
-    (Filter.Eventually.of_forall fun x => (Real.exp_pos (x * z.im)).le) hfLp hgLp
-  -- Step 3: the φ factor is ≤ 1
-  have hf_fac : (∫ x in Icc (-a) a, ‖φ x‖ ^ (2 : ℝ)) ^ (1 / (2 : ℝ)) ≤ 1 := by
-    have hconv : (∫ x in Icc (-a) a, ‖φ x‖ ^ (2 : ℝ)) = ∫ x in Icc (-a) a, ‖φ x‖ ^ 2 :=
-      setIntegral_congr_fun measurableSet_Icc fun x _ => Real.rpow_two _
-    rw [hconv, ← Real.sqrt_eq_rpow]
-    calc Real.sqrt (∫ x in Icc (-a) a, ‖φ x‖ ^ 2) ≤ Real.sqrt 1 := Real.sqrt_le_sqrt hφ2
-      _ = 1 := Real.sqrt_one
-  -- Step 4: the exponential factor is ≤ √(2a)·e^{a|Im z|}
-  have hpt : ∀ x ∈ Icc (-a) a, Real.exp (x * z.im) ^ 2 ≤ Real.exp (2 * a * |z.im|) := by
-    intro x hx
-    have hxa : |x| ≤ a := abs_le.mpr ⟨hx.1, hx.2⟩
-    have h2 : Real.exp (x * z.im) ^ 2 = Real.exp (2 * (x * z.im)) := by
-      rw [sq, ← Real.exp_add]
-      ring_nf
-    rw [h2]
-    apply Real.exp_le_exp.mpr
-    calc 2 * (x * z.im) ≤ 2 * |x * z.im| := by linarith [le_abs_self (x * z.im)]
-      _ = 2 * (|x| * |z.im|) := by rw [abs_mul]
-      _ ≤ 2 * (a * |z.im|) := by
-          have := mul_le_mul_of_nonneg_right hxa (abs_nonneg z.im)
-          linarith
-      _ = 2 * a * |z.im| := by ring
-  have hgbd : (∫ x in Icc (-a) a, Real.exp (x * z.im) ^ 2)
-      ≤ 2 * a * Real.exp (2 * a * |z.im|) := by
-    calc (∫ x in Icc (-a) a, Real.exp (x * z.im) ^ 2)
-        ≤ ∫ _x in Icc (-a) a, Real.exp (2 * a * |z.im|) :=
-          setIntegral_mono_on hg2 (integrableOn_const measure_Icc_lt_top.ne)
-            measurableSet_Icc hpt
-      _ = 2 * a * Real.exp (2 * a * |z.im|) := by
-          rw [setIntegral_const, smul_eq_mul, Measure.real, Real.volume_Icc,
-            ENNReal.toReal_ofReal (by linarith : (0 : ℝ) ≤ a - -a)]
-          ring
-  have hg_fac : (∫ x in Icc (-a) a, Real.exp (x * z.im) ^ (2 : ℝ)) ^ (1 / (2 : ℝ))
-      ≤ Real.sqrt (2 * a) * Real.exp (a * |z.im|) := by
-    have hconv : (∫ x in Icc (-a) a, Real.exp (x * z.im) ^ (2 : ℝ))
-        = ∫ x in Icc (-a) a, Real.exp (x * z.im) ^ 2 :=
-      setIntegral_congr_fun measurableSet_Icc fun x _ => Real.rpow_two _
-    rw [hconv, ← Real.sqrt_eq_rpow]
-    calc Real.sqrt (∫ x in Icc (-a) a, Real.exp (x * z.im) ^ 2)
-        ≤ Real.sqrt (2 * a * Real.exp (2 * a * |z.im|)) := Real.sqrt_le_sqrt hgbd
-      _ = Real.sqrt (2 * a) * Real.sqrt (Real.exp (2 * a * |z.im|)) :=
-          Real.sqrt_mul (by positivity) _
-      _ = Real.sqrt (2 * a) * Real.exp (a * |z.im|) := by
-          congr 1
-          have h : Real.exp (2 * a * |z.im|) = Real.exp (a * |z.im|) ^ 2 := by
-            rw [sq, ← Real.exp_add]
-            congr 1
-            ring
-          rw [h, Real.sqrt_sq (Real.exp_pos _).le]
-  -- Combine
-  have hg_nonneg : (0 : ℝ) ≤ (∫ x in Icc (-a) a, Real.exp (x * z.im) ^ (2 : ℝ)) ^ (1 / (2 : ℝ)) :=
-    Real.rpow_nonneg
-      (setIntegral_nonneg measurableSet_Icc fun x _ => Real.rpow_nonneg (Real.exp_pos _).le _) _
-  calc ‖FL φ a z‖ ≤ ∫ x in Icc (-a) a, ‖φ x‖ * Real.exp (x * z.im) := h1
-    _ ≤ (∫ x in Icc (-a) a, ‖φ x‖ ^ (2 : ℝ)) ^ (1 / (2 : ℝ))
-        * (∫ x in Icc (-a) a, Real.exp (x * z.im) ^ (2 : ℝ)) ^ (1 / (2 : ℝ)) := hCS
-    _ ≤ 1 * (Real.sqrt (2 * a) * Real.exp (a * |z.im|)) :=
-        mul_le_mul hf_fac hg_fac hg_nonneg zero_le_one
-    _ = Real.sqrt (2 * a) * Real.exp (a * |z.im|) := one_mul _
+  simpa only [FL] using
+    CompactSupportFourierLaplace.norm_transform_le_exp_of_integral_sq_le_one
+      ha hφi.aestronglyMeasurable hsq hφ2 z
 
 /-- Lemma L1 growth, recentered form: for real `x₀` the function
 `G(z) = F(x₀ + z)` obeys the same bound with `|Im z|` — the exact `hgrowth`
@@ -780,8 +645,9 @@ theorem lemma1_growth_recentered {φ : ℝ → ℂ} {a : ℝ} (ha : 0 < a)
     (hsq : IntegrableOn (fun x => ‖φ x‖ ^ 2) (Icc (-a) a))
     (hφ2 : (∫ x in Icc (-a) a, ‖φ x‖ ^ 2) ≤ 1) (x₀ : ℝ) (z : ℂ) :
     ‖FL φ a ((x₀ : ℂ) + z)‖ ≤ Real.sqrt (2 * a) * Real.exp (a * |z.im|) := by
-  have h := lemma1_growth ha hφi hsq hφ2 ((x₀ : ℂ) + z)
-  simpa using h
+  simpa only [FL] using
+    CompactSupportFourierLaplace.norm_transform_translate_le_exp_of_integral_sq_le_one
+      ha hφi.aestronglyMeasurable hsq hφ2 x₀ z
 
 /-! ### Lemma L5 (radius selection and Jensen's formula)
 
@@ -1204,7 +1070,7 @@ theorem hard_horizon {φ : ℝ → ℂ} {a x₀ κ R τ : ℝ} {α : Type*} (ι 
     τ ≤ 2 * a + 2 + max 0 (epsStar a R κ) := by
   by_cases hcase : 2 * a + 2 ≤ τ
   swap
-  · push_neg at hcase
+  · push Not at hcase
     have hmax := le_max_left (0 : ℝ) (epsStar a R κ)
     linarith
   have hτ1 : (1 : ℝ) ≤ τ := by linarith

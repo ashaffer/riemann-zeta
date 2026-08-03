@@ -5,6 +5,8 @@ Authors: Riemann-Zeta project contributors
 -/
 import Glide.P2Symbol
 import Glide.EulerBounds
+import Mathlib.Analysis.Real.Pi.Bounds
+import Mathlib.Analysis.SumIntegralComparisons
 
 /-!
 # Directed digamma enclosures for the p=2 endpoint
@@ -202,75 +204,6 @@ lemma digamma_one_quarter :
   rw [hlog2] at hdup
   linear_combination (href + hdup) / 2
 
-private lemma differentiableOn_gammaSeq (n : ℕ) (hn : n ≠ 0) :
-    DifferentiableOn ℂ (fun z : ℂ => Complex.GammaSeq z n) positiveRealHalfPlane := by
-  intro z hz
-  have hnC : (n : ℂ) ≠ 0 := Nat.cast_ne_zero.mpr hn
-  have hterm : ∀ j ∈ Finset.range (n + 1), z + (j : ℂ) ≠ 0 := by
-    intro j hj hzero
-    have hpos : 0 < (z + (j : ℂ)).re := by
-      dsimp [positiveRealHalfPlane] at hz
-      simp only [Complex.add_re, Complex.natCast_re]
-      positivity
-    rw [hzero] at hpos
-    simp at hpos
-  unfold Complex.GammaSeq
-  exact (DifferentiableAt.div
-    (((hasDerivAt_id z).const_cpow (Or.inl hnC)).differentiableAt.mul_const _)
-    (DifferentiableAt.fun_finsetProd (fun j hj => by fun_prop))
-    (Finset.prod_ne_zero_iff.mpr hterm)).differentiableWithinAt
-
-private lemma gammaSeq_logDeriv_formula (n : ℕ) (hn : n ≠ 0) (z : ℂ)
-    (hz : 0 < z.re) :
-    logDeriv (fun w : ℂ => Complex.GammaSeq w n) z =
-      Complex.log (n : ℂ) - ∑ j ∈ Finset.range (n + 1), 1 / (z + j) := by
-  have hnC : (n : ℂ) ≠ 0 := Nat.cast_ne_zero.mpr hn
-  have hpow : (n : ℂ) ^ z ≠ 0 := Complex.cpow_ne_zero_iff.mpr (Or.inl hnC)
-  have hfac : (Nat.factorial n : ℂ) ≠ 0 := by
-    exact_mod_cast Nat.factorial_ne_zero n
-  have hnum : (n : ℂ) ^ z * (Nat.factorial n : ℂ) ≠ 0 :=
-    mul_ne_zero hpow hfac
-  have hterm : ∀ j : ℕ, z + (j : ℂ) ≠ 0 := by
-    intro j hzero
-    have hpos : 0 < (z + (j : ℂ)).re := by
-      simp only [Complex.add_re, Complex.natCast_re]
-      positivity
-    rw [hzero] at hpos
-    simp at hpos
-  have hprod : (∏ j ∈ Finset.range (n + 1), (z + (j : ℂ))) ≠ 0 :=
-    Finset.prod_ne_zero_iff.mpr (fun j _ => hterm j)
-  have hdiffpow : DifferentiableAt ℂ (fun w : ℂ => (n : ℂ) ^ w) z :=
-    ((hasDerivAt_id z).const_cpow (Or.inl hnC)).differentiableAt
-  have hdiffnum : DifferentiableAt ℂ
-      (fun w : ℂ => (n : ℂ) ^ w * (Nat.factorial n : ℂ)) z :=
-    hdiffpow.mul_const _
-  have hdiffterm : ∀ j ∈ Finset.range (n + 1),
-      DifferentiableAt ℂ (fun w : ℂ => w + (j : ℂ)) z := by
-    intro j hj
-    fun_prop
-  have hdiffprod : DifferentiableAt ℂ
-      (fun w : ℂ => ∏ j ∈ Finset.range (n + 1), (w + (j : ℂ))) z :=
-    DifferentiableAt.fun_finsetProd hdiffterm
-  unfold Complex.GammaSeq
-  rw [logDeriv_div z hnum hprod hdiffnum hdiffprod]
-  rw [logDeriv_mul_const z (Nat.factorial n : ℂ) hfac]
-  rw [logDeriv_apply, Complex.deriv_const_cpow (by fun_prop)]
-  rw [logDeriv_prod (fun j _ => hterm j) hdiffterm]
-  simp only [logDeriv_apply, deriv_add_const, deriv_id'', one_div]
-  field_simp
-
-private theorem gammaSeq_logDeriv_tendsto {z : ℂ} (hz : 0 < z.re) :
-    Tendsto (fun n : ℕ => logDeriv (fun w : ℂ => Complex.GammaSeq w n) z)
-      atTop (nhds (Complex.digamma z)) := by
-  have hdiff : ∀ᶠ n : ℕ in atTop,
-      DifferentiableOn ℂ (fun w : ℂ => Complex.GammaSeq w n)
-        positiveRealHalfPlane := by
-    filter_upwards [eventually_ne_atTop 0] with n hn
-    exact differentiableOn_gammaSeq n hn
-  simpa only [Complex.digamma_def] using Complex.logDeriv_tendsto
-    isOpen_positiveRealHalfPlane hz gammaSeq_tendstoLocallyUniformlyOn hdiff
-      (Complex.Gamma_ne_zero_of_re_pos hz)
-
 /-! ## An exact two-frequency digamma-difference series -/
 
 /-- The real summand in the exact difference between two values on the
@@ -359,48 +292,22 @@ theorem quarterDifference_tsum_eq (r s : ℝ) :
   let zs : ℂ := (1 / 4 : ℂ) + Complex.I * (s / 2)
   have hzr : 0 < zr.re := by norm_num [zr]
   have hzs : 0 < zs.re := by norm_num [zs]
-  have hlimC := (gammaSeq_logDeriv_tendsto hzr).sub
-    (gammaSeq_logDeriv_tendsto hzs)
-  have hlim : Tendsto
-      (fun n : ℕ =>
-        (logDeriv (fun w : ℂ => Complex.GammaSeq w n) zr -
-          logDeriv (fun w : ℂ => Complex.GammaSeq w n) zs).re)
-      atTop (nhds (quarterDigammaReal r - quarterDigammaReal s)) := by
-    have hre := Complex.continuous_re.tendsto
-      (Complex.digamma zr - Complex.digamma zs) |>.comp hlimC
-    change Tendsto
-      (fun n : ℕ =>
-        (logDeriv (fun w : ℂ => Complex.GammaSeq w n) zr -
-          logDeriv (fun w : ℂ => Complex.GammaSeq w n) zs).re)
-      atTop (nhds ((Complex.digamma zr - Complex.digamma zs).re)) at hre
-    convert hre using 1 <;>
+  have hsum := Complex.summable_digammaDifferenceTerm hzr hzs
+  calc
+    ∑' n : ℕ, quarterDifferenceTerm r s n =
+        ∑' n : ℕ, (Complex.digammaDifferenceTerm zr zs n).re := by
+      apply tsum_congr
+      intro n
+      dsimp [Complex.digammaDifferenceTerm, zr, zs]
+      norm_num
+      simpa [add_comm, add_left_comm, add_assoc] using
+        (complex_quarterDifference_re r s n).symm
+    _ = (∑' n : ℕ, Complex.digammaDifferenceTerm zr zs n).re :=
+      (Complex.re_tsum hsum).symm
+    _ = (Complex.digamma zr - Complex.digamma zs).re := by
+      rw [← Complex.digamma_sub_eq_tsum hzr hzs]
+    _ = quarterDigammaReal r - quarterDigammaReal s := by
       norm_num [quarterDigammaReal, zr, zs, Complex.sub_re]
-  have hevent :
-      (fun n : ℕ =>
-        (logDeriv (fun w : ℂ => Complex.GammaSeq w n) zr -
-          logDeriv (fun w : ℂ => Complex.GammaSeq w n) zs).re) =ᶠ[atTop]
-      (fun n : ℕ => ∑ j ∈ Finset.range (n + 1),
-        quarterDifferenceTerm r s j) := by
-    filter_upwards [eventually_ne_atTop 0] with n hn
-    rw [gammaSeq_logDeriv_formula n hn zr hzr,
-      gammaSeq_logDeriv_formula n hn zs hzs]
-    simp only [Complex.sub_re]
-    ring_nf
-    rw [Complex.re_sum, Complex.re_sum]
-    rw [← Finset.sum_neg_distrib, ← Finset.sum_add_distrib]
-    apply Finset.sum_congr rfl
-    intro j hj
-    dsimp [zr, zs]
-    norm_num
-    simpa [sub_eq_add_neg, add_comm, add_left_comm, add_assoc] using
-      complex_quarterDifference_re r s j
-  have hseries : Tendsto
-      (fun n : ℕ => ∑ j ∈ Finset.range (n + 1),
-        quarterDifferenceTerm r s j)
-      atTop (nhds (∑' n : ℕ, quarterDifferenceTerm r s n)) :=
-    (summable_quarterDifferenceTerm r s).hasSum.tendsto_sum_nat.comp
-      (tendsto_add_atTop_nat 1)
-  exact tendsto_nhds_unique (hlim.congr' hevent) hseries |>.symm
 
 /-- The exact p=2 in-band defect after cancellation of Euler's constant and
 `log pi`.  This is the form consumed by numerical certificates: a convergent
@@ -447,61 +354,21 @@ lemma summable_quarterIncrementTerm : Summable quarterIncrementTerm := by
   exact hsmul.of_nonneg_of_le (fun n => (quarterIncrementTerm_pos n).le)
     quarterIncrementTerm_le
 
-private lemma complex_quarterIncrement_re (n : ℕ) :
-    (1 / (((n : ℝ) + 1 / 4 : ℝ) : ℂ) -
-      1 / ((((n : ℝ) + 1 / 4 : ℝ) : ℂ) + Complex.I * 25)).re =
-      quarterIncrementTerm n := by
-  unfold quarterIncrementTerm
-  norm_num [Complex.div_re, Complex.normSq_apply, Complex.mul_re, Complex.mul_im, pow_two]
+private lemma quarterIncrementTerm_eq_quarterDifferenceTerm (n : ℕ) :
+    quarterIncrementTerm n = quarterDifferenceTerm 50 0 n := by
+  unfold quarterIncrementTerm quarterDifferenceTerm
   have ha : (n : ℝ) + 1 / 4 ≠ 0 := by positivity
+  norm_num
   field_simp
   ring
 
 theorem quarterIncrement_tsum_eq :
     ∑' n : ℕ, quarterIncrementTerm n = quarterDigammaReal 50 - quarterDigammaReal 0 := by
-  let z : ℂ := (1 / 4 : ℂ) + Complex.I * 25
-  let z0 : ℂ := 1 / 4
-  have hz : 0 < z.re := by norm_num [z]
-  have hz0 : 0 < z0.re := by norm_num [z0]
-  have hlimC := (gammaSeq_logDeriv_tendsto hz).sub
-    (gammaSeq_logDeriv_tendsto hz0)
-  have hlim : Tendsto
-      (fun n : ℕ =>
-        (logDeriv (fun w : ℂ => Complex.GammaSeq w n) z -
-          logDeriv (fun w : ℂ => Complex.GammaSeq w n) z0).re)
-      atTop (nhds (quarterDigammaReal 50 - quarterDigammaReal 0)) := by
-    have hre := Complex.continuous_re.tendsto
-      (Complex.digamma z - Complex.digamma z0) |>.comp hlimC
-    change Tendsto
-      (fun n : ℕ =>
-        (logDeriv (fun w : ℂ => Complex.GammaSeq w n) z -
-          logDeriv (fun w : ℂ => Complex.GammaSeq w n) z0).re)
-      atTop (nhds ((Complex.digamma z - Complex.digamma z0).re)) at hre
-    convert hre using 1 <;>
-      norm_num [quarterDigammaReal, z, z0, Complex.sub_re]
-  have hevent :
-      (fun n : ℕ =>
-        (logDeriv (fun w : ℂ => Complex.GammaSeq w n) z -
-          logDeriv (fun w : ℂ => Complex.GammaSeq w n) z0).re) =ᶠ[atTop]
-      (fun n : ℕ => ∑ j ∈ Finset.range (n + 1), quarterIncrementTerm j) := by
-    filter_upwards [eventually_ne_atTop 0] with n hn
-    rw [gammaSeq_logDeriv_formula n hn z hz,
-      gammaSeq_logDeriv_formula n hn z0 hz0]
-    simp only [Complex.sub_re]
-    ring_nf
-    rw [Complex.re_sum, Complex.re_sum]
-    rw [← Finset.sum_neg_distrib, ← Finset.sum_add_distrib]
-    apply Finset.sum_congr rfl
-    intro j hj
-    dsimp [z, z0]
-    norm_num
-    simpa [sub_eq_add_neg, add_comm, add_left_comm, add_assoc] using
-      complex_quarterIncrement_re j
-  have hseries : Tendsto
-      (fun n : ℕ => ∑ j ∈ Finset.range (n + 1), quarterIncrementTerm j)
-      atTop (nhds (∑' n : ℕ, quarterIncrementTerm n)) :=
-    summable_quarterIncrementTerm.hasSum.tendsto_sum_nat.comp (tendsto_add_atTop_nat 1)
-  exact tendsto_nhds_unique (hlim.congr' hevent) hseries |>.symm
+  rw [show (∑' n : ℕ, quarterIncrementTerm n) =
+      ∑' n : ℕ, quarterDifferenceTerm 50 0 n by
+    apply tsum_congr
+    exact quarterIncrementTerm_eq_quarterDifferenceTerm]
+  exact quarterDifference_tsum_eq 50 0
 
 noncomputable def quarterTailMajorant (x : ℝ) : ℝ := 625 * x ^ (-3 : ℝ)
 
@@ -602,7 +469,8 @@ private lemma log_pi_lt_11447299e7 :
   let x : ℝ := (q - 1) / (q + 1)
   have hpi : Real.pi < q := by
     dsimp [q]
-    convert Real.pi_lt_d20 using 1 <;> norm_num
+    convert Real.pi_lt_d20 using 1
+    norm_num
   have hq0 : 0 < q := by dsimp [q]; norm_num
   have hlog : Real.log Real.pi < Real.log q :=
     Real.strictMonoOn_log Real.pi_pos hq0 hpi

@@ -1,0 +1,7 @@
+import RHBridge.GuinandWeilLiterature
+
+#print axioms RHP2Bridge.GuinandWeilLiterature.smooth_bilateralLaplace_entire
+#print axioms RHP2Bridge.GuinandWeilLiterature.smooth_guinandWeil_formula
+#print axioms RHP2Bridge.GuinandWeilLiterature.logarithmicDomain_guinandWeil_formula
+#print axioms RHP2Bridge.GuinandWeilLiterature.smooth_zero_sum_eq_weilForm
+#print axioms RHP2Bridge.GuinandWeilLiterature.logarithmic_zero_disk_limit_eq_weilForm
