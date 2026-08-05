@@ -22,6 +22,11 @@ For a conservative, ranked inventory of results that may be suitable for a
 paper, corrigendum, or mathlib contribution, including exact nonclaims and
 release blockers, see [`PUBLICATION.md`](PUBLICATION.md).
 
+For a human-first account of the mathematics, proof architecture, certificate
+role, and exact remaining gap, begin with
+[`publication/README.md`](publication/README.md) and
+[`publication/MATHEMATICAL-OVERVIEW.md`](publication/MATHEMATICAL-OVERVIEW.md).
+
 For negative results, use the canonical theorem cards and proof-debt states in
 [`NO-GO-ATLAS.md`](NO-GO-ATLAS.md), not broad wording from historical branch
 notes.  Public claims are governed by
@@ -29,33 +34,21 @@ notes.  Public claims are governed by
 
 ## The one-paragraph summary of what was found
 
-RH is equivalent (Weil) to positivity of a quadratic form built from a pole term, an
-archimedean term, and the primes. This repository assembles finite Galerkin matrices
-for that form and cross-checks their normalization numerically. Interval software
-encloses several *finite-dimensional* eigenvalues down to the 10⁻²⁰ scale, and Lean
-checks exact rational/real matrix certificates once their entries are supplied. On
-the analytic side, the Glide Theorem proves that the full variational margin is
-attained, non-increasing, and continuous in the support length. Spectral ladders
-suggest a smooth, very rapidly decaying envelope and reveal interesting prime-sign,
-family, and near-kernel phenomena, but every such ladder is a Rayleigh–Ritz upper
-bound. FULLINF F7–F10 now go beyond those ladders: a clipped-symbol transfer
-plus FLINT-Arb integration proves the unrestricted bounds
-`inf Q_(7/4)/||.||² > 2.2699e-5` and
-`inf Q_(497/200)/||.||² > 9.99e-11`, and
-`inf Q_(749/250)/||.||² > 9.9e-16`. Support monotonicity therefore gives
-full-domain positivity for every `L <= 749/250`. These are software-certified
-local Weil-positivity results, not Lean theorems about the zeta form and not
-RH. At `L=7/4`, Lean now checks the Fourier/Legendre/pole/operator/F8 skeleton,
-the directed p=2 digamma and multiplier bounds, the arbitrary-real finite
-interval certificate, and the exact comparison of the clipped multiplier
-integral with the original multiplier integral. Lean now also proves entrywise
-containment of both canonical parity matrices and therefore the strict clipped
-endpoint directly. Candidate rationals are generated externally, but Lean
-verifies their analytic error bounds and exact finite identities. The
-original-integral theorem additionally assumes natural weighted integrability.
-Lean still does not identify this integral-plus-pole expression with the zeta
-Weil form and its domain, cover all support sizes, or prove the proposed
-zero-side converse.
+RH is equivalent, through Weil's criterion, to positivity at every support of
+a quadratic form assembled from pole, archimedean, and prime-power terms.  At
+`a=7/16` (`L=7/4` in the program convention), Lean defines that arithmetic
+form on its intrinsic logarithmically weighted Fourier domain, proves that the
+only active prime power is `2`, identifies it exactly with the certified
+prime-2 form, and proves
+`(22699/10^9) ||f||² < Q_(7/16)(f)` for every nonzero domain vector.  The proof
+combines human-readable Fourier, digamma, Legendre, projection, and two-block
+reductions with an exact rational matrix witness; the certificate is the final
+finite-arithmetic leaf, not the conceptual proof.  Larger software-certified
+endpoints and extensive numerical experiments have separate trust bases.  The
+full Guinand--Weil zero-sum equality remains an explicit literature assumption
+in Lean, and no theorem establishes positivity uniformly at arbitrary support.
+Thus the repository contains a rigorous local theorem and reusable machinery,
+not a proof or disproof of RH.
 
 ## Repository layout
 
@@ -64,6 +57,9 @@ PROGRAM.md              the full research program: findings (§2.1–2.13 with a
                         numbers), target lemma (§3), six tracks (§4), milestones (§5),
                         normalization ledger (§6), related work (§7), postscript (§8)
 READING.md              the reading order into the mathematics
+publication/README.md   human-facing entry point and reading routes
+publication/MATHEMATICAL-OVERVIEW.md
+                        main theorem, proof architecture, and exact global gap
 PUBLICATION.md          ranked publication portfolio, claim boundaries, artifact map,
                         and new research synthesis
 NO-GO-ATLAS.md          exact obstruction classes, evidence levels, survivors,
@@ -280,8 +276,9 @@ the apparent catastrophes investigated so far were implementation or test errors
   `p2_canonical_clipped_endpoint` proves the strict `22699/10^9` clipped bound;
   the existing original-integral theorem transfers it to the unbounded p=2
   weighted Fourier integral plus the exact pole term under weighted
-  integrability. The remaining local p=2 work is identifying that expression
-  and its domain with the truncated zeta Weil form.
+  integrability. At that date the remaining local p=2 work was identifying
+  that expression and its domain with the arithmetic Weil form; the August 5
+  update below closes that specialization.
 - **Reusable-infrastructure update August 3, 2026:** Gauss's general two-point
   digamma series and positive-vertical-line integral are now proved from the
   locally uniform Gamma sequence.  Lean also has an actual Fourier–Legendre
@@ -292,6 +289,15 @@ the apparent catastrophes investigated so far were implementation or test errors
   two-block lower constant.  These reusable endpoints are Apache-2.0 licensed,
   separately packaged, and axiom-audited.  This is infrastructure hardening,
   not a new RH implication.
+- **Arithmetic-form and exposition update August 5, 2026:** Lean now defines
+  the general compact-support arithmetic Weil form on its logarithmic Fourier
+  domain, proves exact specialization to the certified prime-2 form at
+  `a=7/16`, and obtains the strict endpoint bound there.  The residue,
+  logarithmic-derivative, right-contour, and transform infrastructure has also
+  been expanded, but the global Guinand--Weil zero-sum equality remains an
+  explicit literature input.  The publication guides separate human proof
+  architecture, reusable Lean machinery, generated witnesses, diagnostics,
+  and open global claims.
 - The Chowla-scan values are very likely recoverable from existing large computations
   (Rubinstein-era tables, LMFDB); D = 14693 is a record *of our scan*, not
   necessarily of mathematics. Still unchecked against those tables.
@@ -312,19 +318,17 @@ the apparent catastrophes investigated so far were implementation or test errors
   analytic lemmas and are not yet theorems about zeta in Lean. For the p=2
   endpoint, however, the transfer machinery, scalar bounds, Fourier/pole
   constants, canonical matrix containment, and clipped endpoint are now
-  kernel-checked. Only the original-integral and zeta-form steps retain explicit
-  integrability/form-domain obligations.
+  kernel-checked, and the arithmetic form/domain specialization is now proved.
+  The zero-side Guinand--Weil equality retains explicit literature assumptions.
 
 ## Where the door is
 
-`PROGRAM.md` §3 states the intended uniform target. The passage to the complete
-form domain is now closed through L=749/250. Extending positivity to every
-support size,
-formalizing the zeta-form/domain chain, and
-proving a quantitative zero-side converse remain open; uniform closure would
-be RH-strength work. The immediate local priority is the remaining
-form-identification and weighted-integrability bridge at `L=7/4`, not a deeper
-numerical ladder; canonical p=2 matrix containment is closed.
+`PROGRAM.md` §3 states the intended uniform target.  The arithmetic form and
+its intrinsic logarithmic domain are now connected to the Lean-certified
+endpoint at `a=7/16`.  The larger endpoints remain software-certified results
+with their stated Arb and analytic trust bases.  Extending positivity to every
+support size and proving the complete zero-side Guinand--Weil equality in Lean
+remain open; uniform all-support positivity would be RH-strength work.
 
 ## Lean reuse and upstreaming
 

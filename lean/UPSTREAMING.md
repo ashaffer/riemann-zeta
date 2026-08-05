@@ -5,6 +5,13 @@ mathematical infrastructure, how they have been separated from the RH
 application, and what remains before opening any upstream pull request.  No PR
 is created by this repository pass.
 
+For proof sketches and normalization details organized as mathematics rather
+than as extraction tasks, see
+[`publication/LEAN-ANALYTIC-INFRASTRUCTURE.md`](../publication/LEAN-ANALYTIC-INFRASTRUCTURE.md).
+The generic matrix-certification argument and its hand-checkable example are
+explained separately in
+[`publication/CERTIFICATE-GUIDE.md`](../publication/CERTIFICATE-GUIDE.md).
+
 ## Status and claim boundary
 
 The declarations listed below are proved Lean theorems.  They must not be
@@ -41,6 +48,14 @@ they add something not already covered by mathlib.  Treat the rectangle module
 as a separate follow-up after deleting wrappers duplicated by existing
 `wedgeIntegral` APIs.
 
+This proposal must be coordinated with mathlib's active
+[isolated-singularity and residue infrastructure PR](https://github.com/leanprover-community/mathlib4/pull/29588)
+and
+[rectangle residue theorem PR](https://github.com/leanprover-community/mathlib4/pull/39232).
+The finite simultaneous principal-part regularization may complement that
+work; the rectangle theorem substantially overlaps it and should not be
+presented as a fresh independent package.
+
 ### 2. Digamma difference series and Gauss kernel
 
 Modules:
@@ -75,6 +90,12 @@ The quarter-line formula used by the archimedean Weil kernel is a compatibility
 corollary, not the primary theorem.  This is a natural candidate for mathlib's
 gamma/digamma area because it closes a general analytic gap rather than
 encoding an RH normalization.
+
+Before extraction, compare the proposed API with the active digamma/Gamma PRs
+[#41120](https://github.com/leanprover-community/mathlib4/pull/41120) and
+[#42349](https://github.com/leanprover-community/mathlib4/pull/42349).  The
+vertical Gauss integral and general difference series remain the clearest
+distinct review units.
 
 ### 3. Legendre `L²` analysis on arbitrary intervals
 
@@ -174,26 +195,34 @@ paper/project artifact and should not be proposed in the same PR.
 
 ## Proposed review order
 
-1. Digamma kernel identity, because it fills a focused special-functions gap.
-2. Finite simple-pole removal from `SimplePole.lean`, after deleting circle
-   wrappers duplicated by existing contour APIs; assess the rectangle layer
-   separately.
+1. Digamma difference series and vertical Gauss kernel, after coordinating
+   with the active Gamma/digamma work.
+2. Fourier `L¹`/`L²` compatibility followed by the real-line
+   Wiener–Khinchin theorem.
 3. Legendre completeness and interval scaling in two or three small PRs.
-4. Generic certificate perturbation and two-block coercivity.
-5. Smooth cutoff, autocorrelation, and Fourier–Laplace pieces if maintainers
-   confirm that the APIs belong in mathlib.
+4. Finite simple-pole regularization only after coordinating with the active
+   residue PRs; do not lead with the overlapping rectangle theorem.
+5. Generic certificate perturbation and two-block coercivity, preferably
+   after redesigning the public API around mathlib's matrix positivity types.
+6. Smooth cutoff and Fourier–Laplace pieces if maintainers confirm that the
+   APIs belong in mathlib.
 
 The order is about reviewability, not mathematical importance.
 
 ## Build and audit
 
-Each package pins the same Lean/mathlib release and builds independently:
+Each package pins the same Lean/mathlib release.  For reusable declarations,
+prefer the focused audits rather than application umbrellas:
 
 ```sh
-cd lean/glide && lake build Glide
-cd lean/weilcert && lake build
-cd lean/rhbridge && lake build RHBridge
+cd lean/glide && lake build Glide.UpstreamAudit
+cd lean/weilcert && lake build Weilcert.UpstreamAudit
+cd lean/rhbridge && lake build RHBridge.ReusableAudit
 ```
+
+Run these serially on a memory-constrained machine.  Several application and
+generated-certificate modules have multi-gigabyte peak memory use and are not
+needed to review the reusable APIs.
 
 For candidate declarations, run `#print axioms` and expect only Lean/mathlib's
 standard logical quotient/classical axioms (`propext`, `Classical.choice`, and
@@ -213,6 +242,11 @@ current mathlib.
   diff;
 - add focused docstrings/examples and run all linters;
 - discuss placement and API on the Lean Zulip before opening broad PRs.
+
+The human submitter must also review mathlib's current
+[AI contribution policy](https://leanprover-community.github.io/contribute/index.html#use-of-ai),
+understand and defend every submitted design choice, disclose provenance as
+required, and write the actual GitHub/Zulip communication personally.
 
 These are packaging/review tasks.  They do not hide mathematical gaps in the
 candidate theorems, and they do not promote any conditional RH statement to an

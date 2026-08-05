@@ -13,6 +13,17 @@ The hypotheses are block estimates for a symmetric bilinear form along an
 orthogonal decomposition; the conclusions give strict or closed-form uniform
 lower bounds on the whole vector.  This file contains no numerical enclosure
 and no zeta-specific definition.
+
+Mathematically, the transfer replaces the form on `u + w` by the scalar
+minorant
+
+`beta * ‖u‖² + d * ‖w‖² - 2 * c * ‖u‖ * ‖w‖`.
+
+Its best universal coefficient is the smaller eigenvalue of
+`[[beta, -c], [-c, d]]`.  The theorems below formalize this reduction and its
+specialization to an orthogonal projection.  They do not manufacture the
+finite-block, complement, or cross estimates: those remain named hypotheses
+that an application must prove independently.
 -/
 
 namespace FullInfTransfer

@@ -400,6 +400,10 @@ lake build RHBridge.GeneralZetaWeilForm
 lake env lean RHBridge/GeneralZetaWeilFormAudit.lean
 lake build RHBridge.GuinandWeilFormula
 lake env lean RHBridge/GuinandWeilFormulaAudit.lean
+env LEAN_NUM_THREADS=1 lake env lean RHBridge/CertifiedBaseInterval.lean
+env LEAN_NUM_THREADS=1 lake env lean RHBridge/CertifiedBaseIntervalAudit.lean
+env LEAN_NUM_THREADS=1 lake env lean RHBridge/Stage4NormalizedComparator.lean
+env LEAN_NUM_THREADS=1 lake env lean RHBridge/Stage4NormalizedComparatorAudit.lean
 lake build RHBridge.HodgeHighSector
 lake env lean RHBridge/HodgeHighSectorAudit.lean
 lake build RHBridge.HodgeLowSector
@@ -425,7 +429,9 @@ minimized, cold individual audits reached roughly 6.3 GB RSS.  The five
 remeasured minimized audits now peak around 1.5--2.4 GB, and the remaining
 focused no-go audits were measured around 2.3--2.7 GB.  Keep them serial and
 avoid `lake build RHBridge` and `RHBridge.Audit` as routine smoke tests on a
-memory-constrained host.
+memory-constrained host.  The focused Stage-4 comparator source and audit each
+peaked around 6.5 GiB, while individual generated p=2 certificate chunks
+peaked around 8.5 GiB; never run those checks concurrently on this machine.
 
 `RHP2Bridge.P2RoundedBoundedCertificate.p2_canonical_matrix_containment`
 proves entrywise containment of the canonical even and odd matrices in the
@@ -452,7 +458,7 @@ von-Mangoldt-weighted prime-power terms for arbitrary compact support
 `{2}` and that the resulting form and logarithmic domain specialize exactly
 to the certified fixed-window objects. Mathlib does not yet contain the
 Guinand--Weil identity equating this arithmetic form to a sum over zeta zeros;
-the development does not assume that missing theorem as an axiom.
+the core arithmetic-form module does not assume that identity.
 
 `RHBridge.GuinandWeilFormula` formalizes the other side of that missing
 theorem: nontrivial zeta zeros in the critical strip, their analytic
@@ -460,6 +466,14 @@ multiplicity, finite disk truncations, the centered bilateral-Laplace
 summand, and the exact convergence-and-equality proposition `Holds`. The
 proposition is not asserted as a theorem: proving it requires the
 argument-principle contour shift and growth estimates absent from mathlib.
+`RHBridge.GuinandWeilLiterature` is a separate, explicitly conditional
+interface which imports the classical smooth and logarithmic-domain formulas
+as named literature axioms.  Citation must preserve that distinction.
+
+`RHBridge.CertifiedBaseInterval` propagates the endpoint constant to smaller
+supports.  Its focused audit makes the remaining standard compact-support
+autocorrelation axiom visible; the endpoint theorem in
+`GeneralZetaWeilForm` itself does not depend on that propagation axiom.
 
 For the focused axiom audit, run
 `RHBridge/P2RoundedBoundedCertificateAudit.lean`, which includes:

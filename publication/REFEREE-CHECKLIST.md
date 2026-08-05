@@ -21,6 +21,10 @@ the proof standard controls.
 - Create or update the canonical theorem card and proof-debt ledger.
 - For a no-go result, name the exact eliminated class and the smallest escape
   hatch in the same section.
+- Give a proof spine in standard mathematical notation before citing Lean
+  declarations, tactics, or generated data.
+- Map every step of that proof spine to a public declaration or a plainly
+  labeled external obligation.
 
 ## 2. Mathematical normalization audit
 
@@ -71,6 +75,10 @@ build and provide a bounded-concurrency runner.
   intervals.
 - Include an independent normalization oracle.
 - Separate finite-matrix positivity from the analytic tail/complement bound.
+- State the generic certificate soundness lemma and one small hand-checkable
+  instance before referring the reader to a generated witness.
+- Keep large exact tables in machine-readable artifacts; a manuscript should
+  report their dimensions, margins, hashes, and mathematical role instead.
 - Record the software versions, precision, worker count, peak memory, and
   expected runtime.
 - Make stale artifacts detectable.

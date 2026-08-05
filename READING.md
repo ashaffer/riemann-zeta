@@ -3,6 +3,19 @@
 A route into the mathematics this repository instruments, ordered so that each stage's
 measurements (in `PROGRAM.md` §2) serve as your experimental companion.
 
+## Stage 0 — understand the artifact before the literature
+
+- [`publication/MATHEMATICAL-OVERVIEW.md`](publication/MATHEMATICAL-OVERVIEW.md):
+  the local arithmetic Weil theorem, its proof architecture, and the exact
+  all-support/zero-side gap.
+- [`publication/LEAN-ANALYTIC-INFRASTRUCTURE.md`](publication/LEAN-ANALYTIC-INFRASTRUCTURE.md):
+  the reusable analytic theorem arcs and their formal dependency boundaries.
+- [`publication/CERTIFICATE-GUIDE.md`](publication/CERTIFICATE-GUIDE.md): why
+  exact witnesses certify the last finite step without replacing the
+  mathematical explanation.
+- [`publication/NO-GO-THEOREM-GUIDE.md`](publication/NO-GO-THEOREM-GUIDE.md):
+  the obstruction results grouped by their common mathematical mechanisms.
+
 ## Stage 1 — the problem and the explicit formula
 - **Bombieri, "The Riemann Hypothesis"** (the official Clay problem description):
   the cleanest short statement of the problem, Weil's positivity criterion, and why

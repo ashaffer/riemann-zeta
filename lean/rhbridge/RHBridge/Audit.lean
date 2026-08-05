@@ -6,6 +6,10 @@ Authors: Riemann-Zeta project contributors
 import RHBridge.ComplexResidueAudit
 import RHBridge.SimplePoleAudit
 import RHBridge.ReusableAudit
+import RHBridge.GeneralZetaWeilFormAudit
+import RHBridge.CertifiedBaseIntervalAudit
+import RHBridge.GuinandWeilFormulaAudit
+import RHBridge.GuinandWeilLiteratureAudit
 import RHBridge.SuzukiScrewLiteratureAudit
 import RHBridge.SuzukiPrimeRampAudit
 import RHBridge.LocalizationLiteratureAudit

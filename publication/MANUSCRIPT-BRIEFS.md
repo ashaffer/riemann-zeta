@@ -110,6 +110,8 @@ zero-side formula needed to reinterpret the form as a sum over zeros.
 7. Explicit assumption boundary for the zero-side equality.
 
 **Evidence:**
+[`MATHEMATICAL-OVERVIEW.md`](MATHEMATICAL-OVERVIEW.md),
+[`CERTIFICATE-GUIDE.md`](CERTIFICATE-GUIDE.md),
 [`results/CONSOLIDATED-LEDGER-AND-ORTHOGONAL-RESET-2026-08.md`](../results/CONSOLIDATED-LEDGER-AND-ORTHOGONAL-RESET-2026-08.md),
 [`THEOREMS.md`](../THEOREMS.md), and the `GeneralZetaWeilForm` audit.
 
@@ -135,9 +137,11 @@ coherent story.
 
 Potential contribution: the finite simultaneous simple-principal-part
 regularization layer may complement mathlib's active isolated-singularity and
-rectangle-residue work.  Coordinate with the authors of mathlib PRs #29588
-and #39232 before extracting it; do not claim the rectangle theorem or the
-first formal residue theorem as new.
+rectangle-residue work.  Coordinate with the authors of mathlib
+[PR #29588](https://github.com/leanprover-community/mathlib4/pull/29588) and
+[PR #39232](https://github.com/leanprover-community/mathlib4/pull/39232)
+before extracting it; do not claim the rectangle theorem or the first formal
+residue theorem as new.
 
 **Package B: digamma and the Gauss vertical kernel.**
 
@@ -160,7 +164,9 @@ first formal residue theorem as new.
 - compact-support Fourier--Laplace entirety and exponential type;
 - a quantitative two-sided smooth cutoff.
 
-**Evidence and extraction order:** [`lean/UPSTREAMING.md`](../lean/UPSTREAMING.md).
+**Evidence and extraction order:**
+[`LEAN-ANALYTIC-INFRASTRUCTURE.md`](LEAN-ANALYTIC-INFRASTRUCTURE.md) and
+[`lean/UPSTREAMING.md`](../lean/UPSTREAMING.md).
 
 **Release gate:** rebase each unit on current mathlib; use destination
 namespaces; eliminate compatibility wrappers; minimize imports; run linters;

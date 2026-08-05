@@ -7,6 +7,11 @@ caveats as everything else in this repository ("new as stated, pending
 literature check" — the frontier corpus is Connes–Consani(–Moscovici), Suzuki,
 Groskin; see `PROGRAM.md` §7).
 
+For the current human-facing proof architecture and the role of generated
+witnesses, read [`publication/MATHEMATICAL-OVERVIEW.md`](publication/MATHEMATICAL-OVERVIEW.md)
+and [`publication/CERTIFICATE-GUIDE.md`](publication/CERTIFICATE-GUIDE.md)
+before the historical theorem chronology below.
+
 Throughout, for L > 0 put a = L/4 and let H_L be the real Hilbert space
 L²([−a, a]), extended by zero to ℝ. Define the dense form domain
 

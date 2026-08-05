@@ -17,6 +17,9 @@ results must use the canonical scopes and debt states in
 [`NO-GO-ATLAS.md`](NO-GO-ATLAS.md).
 The first adversarial audit and disposition table is
 [`publication/NO-GO-REFEREE-RESPONSE.md`](publication/NO-GO-REFEREE-RESPONSE.md).
+The human-facing mathematical entry point is
+[`publication/README.md`](publication/README.md), with separate guides to the
+main theorem, reusable analysis, exact certificates, and obstruction results.
 
 ## 1. Claim vocabulary
 
@@ -46,10 +49,10 @@ The rank measures readiness and distinctiveness, not importance to RH.
 |---:|---|---|---|---|
 | 1 | Correction to Endo's hybrid joint limit | The recorded phase and random Dirichlet series require a coordinate inversion; a one-prime mixed moment separates the published and corrected laws.  The marginal/support conclusions survive after the stated repair. | Analytic correction with an explicit page-by-page repair | Send privately to Endo; obtain author confirmation and coordinate a revised version or corrigendum |
 | 2 | Anchored Jensen horizon (internally “Hard Horizon”) | A normalized compactly supported transform satisfying the stated anchor and zero-count rigidity cannot vanish on the prescribed symmetric frequency head beyond the explicit `e^(2+eps*) T*` horizon; a selected-radius residual Jensen-mass bound is also checked. | Referee-style proof and complete Lean theorem for the abstract staircase statement and raw residual bound | Independent mathematical review; use a neutral title, do not claim the `e^2` factor is sharp, and keep the zeta specialization conditional on explicit zero-counting input |
-| 3 | Finite simple-pole residue infrastructure in Lean | Circle and rectangle formulas for finitely many prescribed simple poles, via simultaneous removal of their principal parts | Lean theorem package; focused reusable audit passes | Extract `SimplePole.lean`, compare against current mathlib, then upstream the minimal API before the rectangle layer |
-| 4 | Fixed-window arithmetic Weil positivity | At `a=7/16` (`L=7/4` in the program's support convention), the explicitly defined arithmetic Weil form has the checked strict lower bound on its full logarithmic form domain | Lean endpoint plus generated exact certificate; the zero-sum Guinand--Weil identification remains a literature axiom | Freeze a reproducible certificate bundle and write a formal-methods paper whose title and abstract say “arithmetic form,” not “zeta-zero sum” |
+| 3 | Finite simple-pole residue infrastructure in Lean | Circle formulas and simultaneous removal of finitely many prescribed simple principal parts; the rectangle layer is also implemented | Lean theorem package; focused reusable audit passes; active mathlib residue PRs overlap the rectangle result | Coordinate with [PR #29588](https://github.com/leanprover-community/mathlib4/pull/29588) and [PR #39232](https://github.com/leanprover-community/mathlib4/pull/39232), and offer the finite regularization layer where it complements their API |
+| 4 | Fixed-window arithmetic Weil positivity | At `a=7/16` (`L=7/4` in the program's support convention), the explicitly defined arithmetic Weil form has the checked strict lower bound on its full logarithmic form domain | Lean endpoint plus generated exact certificate; the zero-sum Guinand--Weil identification remains a literature axiom | Use the mathematical overview and certificate guide as the spine of a formal-methods paper whose title and abstract say “arithmetic form,” not “zeta-zero sum” |
 | 5 | Digamma/Gauss-kernel formalization | General digamma-difference series, derivative bridge, and positive vertical-line Gauss integral in Lean | Reusable Lean package; focused audit passes | Rebase, check overlap, minimize imports, and split the general series and integral into review-sized mathlib contributions |
-| 6 | Legendre `L2` and certificate infrastructure | Complete Legendre bases on arbitrary intervals, Parseval/projection formulas, exact plane-wave coefficients, and generic exact `LDL^T`/two-block positivity certificates | Reusable Lean packages; focused audit passes | Separate the basis theory from the certificate algebra and add examples independent of the RH application |
+| 6 | Legendre `L2` and certificate infrastructure | Complete Legendre bases on arbitrary intervals, Parseval/projection formulas, exact plane-wave coefficients, and generic exact `LDL^T`/two-block positivity certificates | Reusable Lean packages; focused audit passes; the certificate guide includes a hand-checkable non-RH example | Separate the basis theory from the certificate algebra and reshape each public API for its intended upstream namespace |
 | 7 | Effective Glide refinement | The known support-dependent variational margin admits an explicit logarithmic continuity modulus and a quantitative prime-threshold turn-on estimate | Analytic theorem with substantial Lean scaffolding; attainment, Galerkin convergence, monotonicity, and qualitative continuity all have prior art | Bundle only the exact quantitative refinement into the local-Weil/formalization paper and formalize the modulus end-to-end |
 | 8 | Static Mobius boundary-exchange no-go | Every fixed scale-compatible summable dictionary of the stated sign-reversing prime templates leaves a positive-density set untouched; bounded-incidence hypertemplates are included | Analytic proof, explicit density-tail lemma, and computations; plausible modest novelty | Obtain independent review, retain an exhaustive certificate for finite counterexamples, and compare carefully with convergent-multiple-set density theory |
 | 9 | Topology loss for finite Euler phases | The two canonical finite-prime phase models are null-homotopic; the literal shifted quotient is unbounded in `B^2`; the normalized right phase is `B^2`-Cauchy but not uniformly Cauchy in the relevant strip | Analytic synthesis; Lean currently checks only quartet algebra and finite local contraction | Formalize the `B^2` identities and Kronecker nonuniformity, and state a theorem about these two models rather than a universal arithmetic-index no-go |
@@ -148,6 +151,9 @@ These should be submitted as small independent units, not as one RH-themed PR.
 
 ### C. Local arithmetic Weil endpoint
 
+- Human proof architecture:
+  [`publication/MATHEMATICAL-OVERVIEW.md`](publication/MATHEMATICAL-OVERVIEW.md),
+  [`publication/CERTIFICATE-GUIDE.md`](publication/CERTIFICATE-GUIDE.md)
 - Definitions and specialization:
   [`lean/rhbridge/RHBridge/GeneralZetaWeilForm.lean`](lean/rhbridge/RHBridge/GeneralZetaWeilForm.lean)
 - Certificate endpoint:
@@ -160,6 +166,8 @@ These should be submitted as small independent units, not as one RH-themed PR.
 
 ### D. Formal analysis infrastructure
 
+- Human theorem map:
+  [`publication/LEAN-ANALYTIC-INFRASTRUCTURE.md`](publication/LEAN-ANALYTIC-INFRASTRUCTURE.md)
 - Residues:
   [`lean/rhbridge/RHBridge/SimplePole.lean`](lean/rhbridge/RHBridge/SimplePole.lean),
   [`lean/rhbridge/RHBridge/ComplexResidue.lean`](lean/rhbridge/RHBridge/ComplexResidue.lean)
@@ -179,6 +187,8 @@ These should be submitted as small independent units, not as one RH-themed PR.
 
 ### E. Negative and structural results
 
+- Consolidated mathematical guide:
+  [`publication/NO-GO-THEOREM-GUIDE.md`](publication/NO-GO-THEOREM-GUIDE.md)
 - Static Mobius matching:
   [`results/MOBIUS-STATIC-EXCHANGE-NOGO-2026-08.md`](results/MOBIUS-STATIC-EXCHANGE-NOGO-2026-08.md)
 - Phase topology:

@@ -15,6 +15,9 @@ the same card.”
 
 The independent internal objections and their dispositions are recorded in
 [`publication/NO-GO-REFEREE-RESPONSE.md`](publication/NO-GO-REFEREE-RESPONSE.md).
+For a continuous mathematical narrative grouping the cards by their common
+mechanisms, read
+[`publication/NO-GO-THEOREM-GUIDE.md`](publication/NO-GO-THEOREM-GUIDE.md).
 
 ## 1. Evidence key
 

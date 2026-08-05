@@ -1,6 +1,6 @@
 # Proof and release standard
 
-Version 1.0, 2026-08-05.
+Version 1.1, 2026-08-05.
 
 The goal of this standard is not to make criticism impossible.  A serious
 mathematical artifact should make criticism *easy to aim and hard to sustain*:
@@ -38,6 +38,25 @@ theorem card containing all of the following.
 
 The theorem card is the claim of record.  Abstracts, READMEs, talks, code
 comments, and commit messages may shorten it but may not strengthen it.
+
+### 1.1 Human legibility is a release requirement
+
+Kernel acceptance establishes correctness relative to the formal statement;
+it does not by itself explain why the theorem is mathematically natural.  A
+submission-candidate result must therefore have a narrative companion that
+gives:
+
+- the statement in standard mathematical notation;
+- the proof spine, with each reduction explained before implementation detail;
+- the role of automation, interval arithmetic, and generated witnesses;
+- a small hand-checkable example when the general mechanism is computational;
+- a map from the mathematical steps to the public Lean declarations; and
+- the exact point where application-specific semantics enter.
+
+Generated data belong at the leaves of this narrative.  A manuscript should
+state the generic soundness theorem, the finite parameters, and the resulting
+bound, then cite the machine-readable witness.  It should not ask the reader
+to infer the idea from a large table of constants or a tactic trace.
 
 ## 2. Evidence classes do not collapse
 

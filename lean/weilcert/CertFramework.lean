@@ -28,6 +28,24 @@ ordered field:
   `twoBlockLowerEigenvalue` for a real two-by-two block.
 
 Concrete generated certificates live in separate modules.
+
+## Proof architecture
+
+The central argument is independent of any generated constants.  If
+
+`c² (A - s I) = Wᵀ diag(g) W`, `g k > 0`, and `Wi W = f I`
+
+with `c` and `f` nonzero, then `W` is injective and `A - s I` has a strictly
+positive quadratic form.  If a target matrix `M` is entrywise within `δ` of
+`A / scale`, the perturbation lemma loses at most
+`n * scale * δ * ‖x‖²`.  Thus the stored margin `s` absorbs the entire error
+when `n * scale * δ ≤ s`.
+
+This separation is deliberate: this file proves the symbolic implication,
+while an instance module supplies exact matrices and proves the displayed
+finite identities.  Identifying those matrices with an analytic operator, or
+proving that analytic entries lie in the advertised intervals, is a separate
+obligation and is not hidden in the certificate theorem.
 -/
 
 namespace CertFramework
@@ -443,7 +461,11 @@ scaled midpoint, `A = scale * midpoint`), a congruence
 with `f ≠ 0`, and the margin condition `n · (scale · δ) ≤ s`.  Conclusion:
 every matrix `M` entrywise within `δ` of `A / scale` has a strictly positive
 quadratic form.  (`WeilCert.weil_window_positive` is the instance
-n = 12, K = ℚ, scale = 10²⁴, δ = 10⁻²⁰, s = 120000.) -/
+n = 12, K = ℚ, scale = 10²⁴, δ = 10⁻²⁰, s = 120000.)
+
+Symmetry of `M` is not required: a quadratic form depends only on the
+symmetric part.  The conclusion is purely finite-dimensional and says
+nothing by itself about how `M` was obtained. -/
 theorem cert_window_positive
     (A W Wi : Matrix (Fin n) (Fin n) K) (g : Fin n → K) (c f s scale δ : K)
     (hkey : ∀ i j,
@@ -511,7 +533,12 @@ kernel-checked entry point needed downstream.
 
 /-- Exact congruence data proving that the scaled midpoint `A` has the strict
 margin `s`.  `Wi * W = f * 1` is an integer/rational-friendly witness that
-`W` is injective, avoiding any trusted determinant computation. -/
+`W` is injective, avoiding any trusted determinant computation.
+
+The structure contains proof fields for every algebraic condition.  A
+generator may propose its numerical fields, but Lean still checks these proof
+fields when the instance is compiled.  Semantic claims about the source of
+`A` are intentionally outside this structure. -/
 structure LDLPosCertificate (n : ℕ) (K : Type*) [Field K] [LinearOrder K]
     [IsStrictOrderedRing K] where
   A : Matrix (Fin n) (Fin n) K
@@ -535,8 +562,11 @@ structure LDLPosCertificate (n : ℕ) (K : Type*) [Field K] [LinearOrder K]
 namespace LDLPosCertificate
 
 /-- Soundness of a bundled exact LDL certificate under an entrywise error
-enclosure.  The only obligations outside the certificate are the enclosure
-radius and the matrix being certified. -/
+enclosure.  The remaining caller obligations are: nonnegativity of the
+enclosure radius, adequacy of the stored margin, and entrywise containment of
+the matrix being certified.  In analytic applications, the last obligation
+is the explicit bridge between computation/analysis and the exact algebraic
+certificate. -/
 theorem sound (cert : LDLPosCertificate n K) (delta : K)
     (hdelta : 0 ≤ delta)
     (hmargin : (n : K) * (cert.scale * delta) ≤ cert.margin)
