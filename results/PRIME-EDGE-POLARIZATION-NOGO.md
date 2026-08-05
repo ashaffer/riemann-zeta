@@ -1,7 +1,14 @@
-# Prime-edge polarization no-go
+# Prime-edge polarization cost and no-go gate
 
-Status: the entire place-by-place/local-edge Gram class is ruled out; a fully
-nonlocal completed polarization remains open, 2026-08-01.
+Status: the optimal local Gram cost is a Lean theorem; the displayed
+zeta-residual failure is presently a floating-point falsifier rather than an
+analytic or interval-certified theorem, 2026-08-05.  A fully nonlocal
+completed polarization remains open.
+
+Roadmap note: the nonlocal Mobius/Poisson lift proposed at the end was pursued
+in later audits.  Its pure mixed-pairing gate is formalized in
+[`GlobalMobiusCancellation.lean`](../lean/rhbridge/RHBridge/GlobalMobiusCancellation.lean);
+no positive completed factorization resulted.
 
 ## Exact polarization
 
@@ -55,21 +62,29 @@ gives
 | 2.996 | 2.51e-6 | -1.900 | 4.7e-17 |
 | 3.555 | 1.37e-6 | -2.983 | -6.7e-17 |
 
-The residual failure is order one and grows with support.  It is not a tiny
-margin or floating-point ambiguity.
+The observed residual failure is order one and grows with support, so it is a
+strong and numerically stable falsifier rather than a tiny-margin effect.  The
+table is nevertheless ordinary floating-point evidence, not a proof that the
+continuum residual has a negative direction.
 
-## Scope of the no-go
+## Exact scope and remaining certificate
 
-This rules out every decomposition which:
+The exact theorem rules out lowering the endpoint diagonal cost for a
+decomposition which:
 
 1. assigns Gram channels independently to each prime-power edge;
 2. reproduces that edge's negative autocorrelation cross coefficient; and
 3. asks the pole/archimedean diagonal to pay the resulting endpoint costs.
 
 It includes unequal endpoint weights, higher-rank auxiliary spaces, multiple
-squares per edge, and direct sums over places.
+squares per edge, and direct sums over places.  To turn that optimality result
+into a zeta-specific no-go theorem, one must additionally prove—analytically
+or by a frozen outward-rounded certificate—that the resulting
+pole/archimedean-minus-degree residual has a negative direction.  The table
+above has not yet discharged that obligation.
 
-It does **not** rule out a factorization with essential cross-couplings between
+Even after that witness is certified, the result would **not** rule out a
+factorization with essential cross-couplings between
 distinct primes and the archimedean channel.  Such couplings can redistribute
 diagonal mass by interference, but they must cancel all unwanted cross terms
 in the final explicit formula.  Producing that cancellation is new content;

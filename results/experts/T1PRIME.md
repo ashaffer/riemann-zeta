@@ -1,14 +1,29 @@
-# T1′ — The Hard Horizon Theorem (anchored Jensen bound at e²T*)
+# T1′ — An anchored Jensen bound for prescribed Paley--Wiener zeros
 
 Paper-grade write-up of the panel's #1 target, corrected form (SYNTHESIS errata;
 the original T1(i) at eT* is on the kill list — see §1.4). Author seat: harmonic
-analysis. Date: 2026-07-26. Status: **complete proof at referee level for
-Theorem 1 and Corollary 2; Corollary 1 (ζ) complete modulo Trudgian's published
+analysis. Date: 2026-07-26. Status: **complete conventional proof for Theorem 1
+and Corollary 2; Corollary 1 (ζ) is conditional on Trudgian's published
 explicit zero-counting bound and Platt's rigorous first-zero computation.**
 Appendix V numerically checks the displayed constants and representative
 instances of the analytic identities (script + output).
-Lean status and the remaining mathlib bridge map are in §7, against the repo's local mathlib
-snapshot `520045ab14` (2026-07-23, `lean/glide/lake-manifest.json`).
+Lean checks Theorem 1 and the selected-radius/raw-bound core of Corollary 2,
+not every paper-side extraction from that bound.  Its status and the remaining
+bridge map are in §7, against the repo's local mathlib snapshot
+`520045ab14` (2026-07-23, `lean/glide/lake-manifest.json`).
+
+**Publication calibration (2026-08-05).**  The mechanism is classical Jensen
+plus Paley--Wiener growth.  The closest located work includes point-normalized
+Jensen constraints in
+[Brevig--Chirre--Ortega-Cerda--Seip](https://arxiv.org/abs/2210.13922) and
+prescribed-zero Paley--Wiener spaces in
+[Burnol](https://arxiv.org/abs/1008.0617).  No exact predecessor for the
+displayed inequality was found in the targeted search, so “plausibly new as
+stated” is the strongest current novelty wording.  The factor `e^2` is not
+claimed sharp or intrinsic.  Before publication, compare the zeta constants
+with the newer explicit zero-count estimate of
+[Bellotti--Wong](https://arxiv.org/abs/2412.15470); Trudgian may still be
+numerically preferable in the small range used below.
 
 ---
 

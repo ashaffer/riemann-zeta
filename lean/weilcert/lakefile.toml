@@ -40,6 +40,9 @@ name = "CertFramework"
 name = "CertInstance"
 
 [[lean_lib]]
+name = "Prime5Rescue12"
+
+[[lean_lib]]
 name = "CurveCertE5"
 
 [[lean_lib]]

@@ -23,27 +23,15 @@ open SuzukiClosedDomainLiterature
 
 noncomputable section
 
-/-- Standard closure of the logarithmic form domain under addition. -/
-axiom inLogarithmicDomain_add {a : ℝ}
-    (f g : LogarithmicFormDomain a) :
-    InLogarithmicDomain a (f.val + g.val)
-
-/-- Addition inside the logarithmic form domain, isolated here until the
-weighted Fourier-space vector-space instance is constructed in RHBridge. -/
+/-- Backward-compatible name for addition in the now-constructed logarithmic
+form-domain vector space. -/
 def logarithmicAdd {a : ℝ}
     (f g : LogarithmicFormDomain a) : LogarithmicFormDomain a :=
-  ⟨f.val + g.val, inLogarithmicDomain_add f g⟩
+  f + g
 
 @[simp] theorem logarithmicAdd_val {a : ℝ}
     (f g : LogarithmicFormDomain a) :
     (logarithmicAdd f g).val = f.val + g.val := rfl
-
-/-- Standard radical theorem for the closed symmetric form: at a nonnegative
-window, a zero-energy vector annihilates every form-domain variation. -/
-axiom firstCrossing_weilCross_eq_zero
-    {a : ℝ} (mode : FirstCrossingZeroMode a)
-    (g : LogarithmicFormDomain a) :
-    weilCross a mode.vector.val g.val = 0
 
 /-- Polarized symmetric-disk zero sum.  This is the correct unconditional
 zero-side object; no termwise convergence or RH square factorization is used. -/
@@ -51,6 +39,55 @@ def zeroCrossInDisk (R : ℝ) {a : ℝ}
     (f g : LogarithmicFormDomain a) : ℂ :=
   (zeroSumInDisk R a (f.val + g.val) -
       zeroSumInDisk R a f.val - zeroSumInDisk R a g.val) / 2
+
+private def zeroCrossSummand (a : ℝ)
+    (f g : TestSpace a) (ρ : NontrivialZetaZero) : ℂ :=
+  (zeroSummand a (f + g) ρ - zeroSummand a f ρ -
+    zeroSummand a g ρ) / 2
+
+private theorem zeroCrossSummand_smul
+    (a c : ℝ) (f g : TestSpace a) (ρ : NontrivialZetaZero) :
+    zeroCrossSummand a f (c • g) ρ =
+      c * zeroCrossSummand a f g ρ := by
+  simp only [zeroCrossSummand, zeroSummand,
+    bilateralLaplace_add, bilateralLaplace_smul]
+  ring
+
+private def zeroCrossSumInDisk (R a : ℝ)
+    (f g : TestSpace a) : ℂ :=
+  ∑ ρ ∈ nontrivialZerosInDisk R, zeroCrossSummand a f g ρ
+
+private theorem zeroCrossSumInDisk_eq (R a : ℝ)
+    (f g : TestSpace a) :
+    zeroCrossSumInDisk R a f g =
+      (zeroSumInDisk R a (f + g) - zeroSumInDisk R a f -
+        zeroSumInDisk R a g) / 2 := by
+  unfold zeroCrossSumInDisk zeroCrossSummand zeroSumInDisk
+  simp_rw [div_eq_mul_inv]
+  rw [← Finset.sum_mul]
+  simp only [Finset.sum_sub_distrib]
+
+private theorem zeroCrossSumInDisk_smul (R a c : ℝ)
+    (f g : TestSpace a) :
+    zeroCrossSumInDisk R a f (c • g) =
+      c * zeroCrossSumInDisk R a f g := by
+  unfold zeroCrossSumInDisk
+  simp_rw [zeroCrossSummand_smul]
+  rw [Finset.mul_sum]
+
+/-- The finite polarized zero sum is real-linear in its second argument. -/
+theorem zeroCrossInDisk_smul (R c : ℝ) {a : ℝ}
+    (f g : LogarithmicFormDomain a) :
+    zeroCrossInDisk R f (c • g) = c * zeroCrossInDisk R f g := by
+  calc
+    zeroCrossInDisk R f (c • g) =
+        zeroCrossSumInDisk R a f.val (c • g.val) := by
+      rw [zeroCrossInDisk, zeroCrossSumInDisk_eq]
+      rfl
+    _ = c * zeroCrossSumInDisk R a f.val g.val :=
+      zeroCrossSumInDisk_smul R a c f.val g.val
+    _ = c * zeroCrossInDisk R f g := by
+      rw [zeroCrossInDisk, zeroCrossSumInDisk_eq]
 
 /-- The polarized disk exhaustion converges to the closed Weil cross form. -/
 theorem zeroCrossInDisk_tendsto_weilCross
@@ -65,6 +102,76 @@ theorem zeroCrossInDisk_tendsto_weilCross
   simpa only [zeroCrossInDisk, logarithmicAdd_val, logarithmicWeilForm,
     Complex.ofReal_ofNat, Complex.ofReal_sub, Complex.ofReal_div,
     Complex.ofReal_ofNat, weilCross] using h
+
+private theorem zeroSummand_smul (a c : ℝ) (f : TestSpace a)
+    (ρ : NontrivialZetaZero) :
+    zeroSummand a (c • f) ρ = c ^ 2 * zeroSummand a f ρ := by
+  simp only [zeroSummand, bilateralLaplace_smul]
+  ring
+
+private theorem zeroSumInDisk_smul (R a c : ℝ) (f : TestSpace a) :
+    zeroSumInDisk R a (c • f) = c ^ 2 * zeroSumInDisk R a f := by
+  unfold zeroSumInDisk
+  simp_rw [zeroSummand_smul]
+  rw [Finset.mul_sum]
+
+/-- Quadratic homogeneity of the Weil form on its logarithmic domain, derived
+from the finite zero sums and their symmetric-disk limit. -/
+theorem weilForm_smul_on_logarithmicDomain {a c : ℝ}
+    (f : LogarithmicFormDomain a) :
+    weilForm a (c • f.val) = c ^ 2 * weilForm a f.val := by
+  have hc := GuinandWeilLiterature.logarithmic_zero_disk_limit_eq_weilForm
+    (c • f)
+  have hf :=
+    (GuinandWeilLiterature.logarithmic_zero_disk_limit_eq_weilForm f).const_mul
+      (c ^ 2 : ℂ)
+  have hf' : Filter.Tendsto
+      (fun R : ℝ ↦ zeroSumInDisk R a (c • f.val)) Filter.atTop
+        (𝓝 ((c ^ 2 : ℂ) * (weilForm a f.val : ℂ))) := by
+    simpa only [zeroSumInDisk_smul, logarithmicWeilForm] using hf
+  have heq : (weilForm a (c • f.val) : ℂ) =
+      (c ^ 2 : ℂ) * (weilForm a f.val : ℂ) := by
+    exact tendsto_nhds_unique
+      (by simpa only [logarithmicWeilForm,
+        logarithmicFormDomain_smul_val] using hc) hf'
+  exact_mod_cast heq
+
+/-- Real-linearity of the polarized Weil cross form on the logarithmic
+domain, derived from finite-disk polarization. -/
+theorem weilCross_smul_right {a c : ℝ}
+    (f g : LogarithmicFormDomain a) :
+    weilCross a f.val (c • g.val) = c * weilCross a f.val g.val := by
+  have hc := zeroCrossInDisk_tendsto_weilCross f (c • g)
+  have hg := (zeroCrossInDisk_tendsto_weilCross f g).const_mul (c : ℂ)
+  have hg' : Filter.Tendsto
+      (fun R : ℝ ↦ zeroCrossInDisk R f (c • g)) Filter.atTop
+        (𝓝 ((c : ℂ) * (weilCross a f.val g.val : ℂ))) := by
+    simpa only [zeroCrossInDisk_smul] using hg
+  have heq : (weilCross a f.val (c • g.val) : ℂ) =
+      (c : ℂ) * (weilCross a f.val g.val : ℂ) := by
+    exact tendsto_nhds_unique
+      (by simpa only [logarithmicFormDomain_smul_val] using hc) hg'
+  exact_mod_cast heq
+
+/-- At a nonnegative window, a zero-energy vector annihilates every
+form-domain variation.  This is now a theorem, not a closed-form axiom. -/
+theorem firstCrossing_weilCross_eq_zero
+    {a : ℝ} (mode : FirstCrossingZeroMode a)
+    (g : LogarithmicFormDomain a) :
+    weilCross a mode.vector.val g.val = 0 := by
+  apply ZeroModeConditions.cross_eq_zero_of_zero_energy_line_nonnegative
+    (C := weilCross a mode.vector.val g.val)
+    (D := weilForm a g.val)
+  intro t
+  have hnonneg := mode.window_nonnegative (mode.vector + t • g)
+  have hzero : weilForm a mode.vector.val = 0 := by
+    simpa only [logarithmicWeilForm] using mode.zero_energy
+  simp only [logarithmicWeilForm, logarithmicFormDomain_add_val,
+    logarithmicFormDomain_smul_val] at hnonneg
+  rw [weilForm_add, weilCross_smul_right,
+    weilForm_smul_on_logarithmicDomain] at hnonneg
+  rw [hzero] at hnonneg
+  nlinarith
 
 /-- Spectral-coordinate radical equation: every polarized symmetric-disk zero
 sum tends to zero for a first-crossing mode. -/

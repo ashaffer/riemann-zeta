@@ -1,8 +1,8 @@
 # Relative adelic incidence complex
 
-Status: the completed one-step complex exists and the boundary cohomology is
-isolated exactly; the remaining theorem is a relative Poincaré inequality,
-2026-08-01.
+Status: a formal one-step incidence ansatz and an exact rank-two pole
+reduction are identified; a closed continuum Hilbert-complex realization and
+the exactly normalized incidence/Weil-form identity remain open, 2026-08-05.
 
 ## 1. Completed incidence differential
 
@@ -14,8 +14,8 @@ with
 
 `w_infinity(t)=exp(-t/4)/(1-exp(-t)) > 0`.
 
-By Plancherel this is, up to the fixed normalization already audited in the
-repository, the norm squared of the continuum incidence differential
+Formally, Plancherel identifies this, after fixing every normalization, with
+the norm square of the continuum incidence expression
 
 `d_infinity f(t,x)=sqrt(w_infinity(t)) (f(x)-f(x-t/2))`.
 
@@ -24,21 +24,27 @@ discrete edge
 
 `d_n f(x)=sqrt(Lambda(n)/sqrt(n)) (f(x)-f(x-log n))`.
 
-Put all continuum and active discrete edges in a direct-integral/direct-sum
-edge space and define
+On a smooth compactly supported core, put all continuum and active discrete
+edges in a direct-integral/direct-sum edge space and write
 
 `d_a f = d_infinity f direct-sum (d_n f)_active`.
 
-Taking the next differential to be zero makes this a genuine one-step Hilbert
-complex, so `d^2=0` is automatic.  The gamma logarithmic derivative and every
-prime coefficient are reproduced independently: Gauss supplies the continuum
-measure and the previously proved Möbius identity `mu*log=Lambda` supplies the
-connected discrete weights.
+Taking the next differential to be zero makes an algebraic one-step complex on
+that core, so the square-zero identity is automatic.  It does not yet make a
+closed Hilbert complex.  Because `w_infinity(t)` is singular like `1/t` at
+zero, a complete construction must prove that the continuum map is densely
+defined and closed or closable, identify its domain with the intended
+logarithmic form domain, and establish the exact incidence/Weil-form identity
+with every factor of two.  These are open obligations.
 
-Thus the first proposed fail-fast gates pass.  The failure, if any, is not an
-incompatible differential.
+At the coefficient level, Gauss supplies the continuum measure and the
+previously proved Möbius identity `mu*log=Lambda` supplies the connected
+discrete weights.  This verifies the formal ansatz, not its operator closure.
 
-## 2. Boundary cohomology
+Thus the coefficient and square-zero gates pass on the smooth core.  The
+operator-domain and exact-normalization gates remain.
+
+## 2. Rank-two pole sector
 
 After completing every translation to a difference square, the terms not in
 `||d_a f||^2` are zero-mode/boundary terms:
@@ -60,13 +66,15 @@ annihilate the entire pole form.  On this relative codimension-two subspace,
 
 `Q_a(f)=archimedeanTerm_a(f)-primeTerm_a(f)`.
 
-This is the finite-window form of passing from absolute to relative adelic
-cohomology: the pole classes are the two boundary classes removed by the
-moment conditions.
+This motivates an analogy with passing from absolute to relative adelic
+cohomology.  What is proved here is the rank-two form calculation and its
+annihilation by the moment conditions, not a cohomology computation for a
+closed adelic complex.
 
 ## 3. Remaining inequality
 
-On the relative subspace, positivity becomes a Poincaré inequality for the
+Conditional on the closed realization and exact normalized form identity, on
+the relative subspace positivity becomes a Poincaré inequality for the
 completed incidence differential:
 
 `||d_a f||^2 >= degreeDeficit(a) ||f||^2`
@@ -121,3 +129,28 @@ are now exactly the removed pole coordinates.  If Poisson summation forces a
 nonzero boundary Wronskian or a strict interlacing law for that constrained
 equation, it supplies the missing Poincaré strictness without separately
 bounding large cancelling pieces.
+
+## 6. Fail-fast verdict on a higher differential
+
+A tempting repair was to keep the completed incidence map `d_0`, add a
+nonzero map `d_1` out of its edge space with `d_1 d_0 = 0`, and hope that the
+resulting two-step Hodge complex cancels the scalar degree deficit.  This does
+not work in degree zero.  For every such extension,
+
+`<Delta_0 x,x> = ||d_0 x||^2`,
+
+so the degree-zero energy is independent of `d_1`.  Consequently
+
+`||d_0 x||^2 - degreeDeficit(a) ||x||^2 >= 0`
+
+is still equivalent to exactly the same relative Poincare inequality as
+before.  `RHBridge.CompletedIncidenceComplexNoGo` proves this abstractly for
+bounded continuous maps between real Hilbert spaces.  Applying the same
+observation to the proposed continuum map requires the unbounded-domain work
+stated in Section 1.
+
+This prunes the naive "pair the odd edge sector with one more differential"
+route.  A viable cohomological reformulation must instead change the primary
+completed differential, place the Weil object in a different degree, or
+derive the sharp gap from additional arithmetic structure.  Merely changing
+higher cohomology cannot affect the missing degree-zero estimate.

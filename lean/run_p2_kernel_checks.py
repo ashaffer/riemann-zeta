@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+# Copyright (c) 2026 Riemann-Zeta project contributors.
+# Released under Apache 2.0 license as described in the repository LICENSE.
 """Run canonical-p=2 Lean source checks and record auditable metrics.
 
 Targets are interpreted relative to ``lean/rhbridge``.  Explicit absolute paths

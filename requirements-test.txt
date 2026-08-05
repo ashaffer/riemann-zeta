@@ -1,0 +1,2 @@
+# The lightweight unit/regression suite otherwise uses only the standard library.
+pytest>=8,<10

@@ -376,12 +376,15 @@ complete p=2 F2/Fourier bridge), `PoleProjectionL2`/`FullInfOperatorLedger`,
 `FullInfClipped48`/`FullInfClipped48Real`/
 `FullInfClipped48Transfer` (the L=7/4 finite certificate and abstract
 composition), and `CurveCertE5` —
-the **first end-to-end kernel-checked window** (curve E: y²=x³+x+1 over F₅):
+the **standalone kernel-checked finite-field control** (curve E:
+y²=x³+x+1 over F₅):
 the point count #E(F₅)=9 is itself computed by `decide` over `ZMod 5` and the
 Gram matrices are *defined* from it, so positivity (rung 2), the
 Cayley–Hamilton kernel vector (rung 3), the sign-flip witness, and the
 genus-2/F₇ block carry NO interval-arithmetic trust base at all (36 theorems,
 audit in `../../results/agent-curve-lean.md`; build `lake build CurveCertE5`).
+The paper-side Rosati and Parseval--Zak identifications are not proved in this
+module, so it is not an end-to-end theorem about the intended geometric form.
 
 ## 3. RHBridge (lean/rhbridge) — cross-project p=2 composition
 
@@ -404,6 +407,25 @@ lake env lean RHBridge/HodgeLowSectorAudit.lean
 lake build RHBridge.HodgeLowSectorNoGo
 lake env lean RHBridge/HodgeLowSectorNoGoAudit.lean
 ```
+
+The obstruction audits are best run individually and serially:
+
+```text
+env LEAN_NUM_THREADS=1 lake env lean RHBridge/PrimeEdgePolarizationAudit.lean
+env LEAN_NUM_THREADS=1 lake env lean RHBridge/GlobalMobiusCancellationAudit.lean
+env LEAN_NUM_THREADS=1 lake env lean RHBridge/CompletedIncidenceComplexNoGoAudit.lean
+env LEAN_NUM_THREADS=1 lake env lean RHBridge/FinitePolarizationNoGoAudit.lean
+env LEAN_NUM_THREADS=1 lake env lean RHBridge/QuantizedPhaseIndexNoGoAudit.lean
+env LEAN_NUM_THREADS=1 lake env lean RHBridge/Stage3BoundaryNoGoAudit.lean
+env LEAN_NUM_THREADS=1 lake env lean RHBridge/Stage3ParityNoGoAudit.lean
+```
+
+Do not interpret “focused” as “small.”  Before the no-go imports were
+minimized, cold individual audits reached roughly 6.3 GB RSS.  The five
+remeasured minimized audits now peak around 1.5--2.4 GB, and the remaining
+focused no-go audits were measured around 2.3--2.7 GB.  Keep them serial and
+avoid `lake build RHBridge` and `RHBridge.Audit` as routine smoke tests on a
+memory-constrained host.
 
 `RHP2Bridge.P2RoundedBoundedCertificate.p2_canonical_matrix_containment`
 proves entrywise containment of the canonical even and odd matrices in the

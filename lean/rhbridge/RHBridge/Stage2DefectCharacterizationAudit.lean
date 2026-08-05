@@ -3,6 +3,9 @@ import RHBridge.Stage2DefectCharacterization
 /-! # Axiom audit for the Stage-2 weak defect package -/
 
 #print axioms RHP2Bridge.Stage2DefectCharacterization.zeroCrossInDisk_tendsto_weilCross
+#print axioms RHP2Bridge.Stage2DefectCharacterization.weilForm_smul_on_logarithmicDomain
+#print axioms RHP2Bridge.Stage2DefectCharacterization.weilCross_smul_right
+#print axioms RHP2Bridge.Stage2DefectCharacterization.firstCrossing_weilCross_eq_zero
 #print axioms RHP2Bridge.Stage2DefectCharacterization.firstCrossing_arithmetic_balance
 #print axioms RHP2Bridge.Stage2DefectCharacterization.characterizeFirstCrossing
 #print axioms RHP2Bridge.Stage2DefectCharacterization.not_rh_implies_exists_defectCharacterization

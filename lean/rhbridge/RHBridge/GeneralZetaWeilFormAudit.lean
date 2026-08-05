@@ -2,6 +2,10 @@ import RHBridge.GeneralZetaWeilForm
 
 #print axioms RHP2Bridge.GeneralZetaWeilForm.LogarithmicFormDomain
 #print axioms RHP2Bridge.GeneralZetaWeilForm.logarithmicWeilForm
+#print axioms RHP2Bridge.GeneralZetaWeilForm.inLogarithmicDomain_add
+#print axioms RHP2Bridge.GeneralZetaWeilForm.inLogarithmicDomain_smul
+#print axioms RHP2Bridge.GeneralZetaWeilForm.inLogarithmicDomain_zero
+#print axioms RHP2Bridge.GeneralZetaWeilForm.logarithmicFormSubmodule
 #print axioms RHP2Bridge.GeneralZetaWeilForm.activePrimePowers_seven_sixteenths
 #print axioms RHP2Bridge.GeneralZetaWeilForm.primeTerm_seven_sixteenths
 #print axioms RHP2Bridge.GeneralZetaWeilForm.weilForm_seven_sixteenths

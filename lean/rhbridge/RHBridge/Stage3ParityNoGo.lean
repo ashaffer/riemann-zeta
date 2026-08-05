@@ -1,8 +1,9 @@
 /-
 Copyright (c) 2026 Riemann-Zeta project contributors. All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
 Authors: Riemann-Zeta project contributors
 -/
-import Mathlib
+import Mathlib.Data.Real.Basic
 
 /-!
 # Parity no-go model for the finite determinant route
@@ -32,10 +33,10 @@ theorem operator_commutes_reflection (x : ℝ × ℝ) :
 theorem oddGround_nonzero : oddGround ≠ 0 := by
   intro h
   have := congrArg Prod.snd h
-  norm_num [oddGround] at this
+  simp [oddGround] at this
 
 theorem oddGround_zeroEigenvalue : groundOperator oddGround = 0 := by
-  norm_num [groundOperator, oddGround]
+  simp [groundOperator, oddGround]
 
 theorem zeroEigenspace_simple (w : ℝ × ℝ)
     (hw : groundOperator w = 0) :
@@ -49,7 +50,7 @@ theorem zeroEigenspace_simple (w : ℝ × ℝ)
   simp [oddGround]
 
 theorem oddGround_is_odd : reflection oddGround = -oddGround := by
-  norm_num [reflection, oddGround]
+  simp [reflection, oddGround]
 
 theorem evenBoundary_invariant (x : ℝ × ℝ) :
     evenBoundary (reflection x) = evenBoundary x := by

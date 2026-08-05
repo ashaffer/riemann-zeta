@@ -28,8 +28,8 @@ Nevanlinna/Herglotz function.
 
 Let `P` be a real polynomial, or a finite real-symmetric canonical product,
 with no zero at the sample points, and put `m_P=-P'/P`.  If `P` has `kappa`
-zeros in the open upper half-plane, counted with multiplicity, then `m_P` has
-exactly `kappa` negative squares:
+distinct zero locations in the open upper half-plane, then `m_P` has exactly
+`kappa` negative squares:
 
 1. every Pick matrix `(N_m(z_j,z_l))` has at most `kappa` negative
    eigenvalues;
@@ -53,7 +53,10 @@ For zeta, an ordinary off-line quartet
 
 maps to two zeros of `Xi` in the upper half-plane and their two conjugates
 below.  It therefore contributes **two negative squares** in the complex Pick
-space.  Multiplicity is preserved.
+space.  This last count is for distinct locations.  If a nonreal zero has
+algebraic multiplicity `r`, its logarithmic-derivative residue is multiplied
+by `r`, but the same rank-one Cauchy feature is merely rescaled; the scalar
+Pick-kernel negative index does not automatically increase by `r`.
 
 The diagnostic `src/nevanlinna_negative_square_scan.py` illustrates the
 theorem: a real-zero model has no negative eigenvalues, while adding one
@@ -65,7 +68,7 @@ Subject to the standard canonical-product limiting interpretation:
 
 - RH implies `m` belongs to the ordinary Nevanlinna class `N_0`;
 - if `Xi` has finitely many upper-half-plane zeros, `m` lies in `N_kappa`,
-  where `kappa` is their total multiplicity;
+  where `kappa` is their number of distinct locations;
 - if it has infinitely many, the Pick kernels have unbounded negative index
   rather than membership in any finite `N_kappa`.
 
@@ -93,7 +96,10 @@ again giving two negative directions.  Entire interpolation realizes
 independent values on any finite zero set.
 
 Therefore the Nevanlinna negative-square census and the finite-zero Weil
-signature are the same invariant in two coordinate systems.
+signature on the space of distinct evaluation values are the same invariant
+in two coordinate systems.  A multiplicity-sensitive jet construction is a
+different enlargement and is not supplied by the scalar logarithmic
+derivative kernel above.
 
 ## 5. Arithmetic-side decomposition
 

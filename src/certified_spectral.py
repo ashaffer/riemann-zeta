@@ -142,7 +142,16 @@ def ik_iv(k, z):
             return tot + iv.mpf([0, 1]) * term * ratio / (1 - ratio)
 
 
-def certified_spectral_form(L, m, q=1, D=1, parity='even', N=400):
+def certified_spectral_form(
+    L,
+    m,
+    q=1,
+    D=1,
+    parity='even',
+    N=400,
+    prime_set=None,
+    zeta_pole=True,
+):
     """Q (iv, unnormalized Legendre basis) and G (list of rational diagonal
     entries) for the truncated Weil form at rational L."""
     L = Fraction(L)
@@ -172,6 +181,8 @@ def certified_spectral_form(L, m, q=1, D=1, parity='even', N=400):
     pr = []
     cutoff = F2iv(L / 2)
     for nn, p in PRIME_POWERS:
+        if prime_set is not None and p not in prime_set:
+            continue
         c = 1 if q == 1 else kron(D, nn)
         if not c:
             continue
@@ -208,7 +219,7 @@ def certified_spectral_form(L, m, q=1, D=1, parity='even', N=400):
                 ent = ent - w * F2iv(a) * Fv
             Q[k][j] = ent
             Q[j][k] = ent
-    if q == 1:
+    if q == 1 and zeta_pole:
         vp = [2 * F2iv(a) * ik_iv(k, a / 2) for k in range(m)]
         for k in range(m):
             for j in range(m):
@@ -218,10 +229,30 @@ def certified_spectral_form(L, m, q=1, D=1, parity='even', N=400):
     return Q, G
 
 
-def certify_spectral(L, m, beta, q=1, D=1, parity='even', ray_vec=None, N=400):
+def certify_spectral(
+    L,
+    m,
+    beta,
+    q=1,
+    D=1,
+    parity='even',
+    ray_vec=None,
+    N=400,
+    prime_set=None,
+    zeta_pole=True,
+):
     L = Fraction(L)
     beta = Fraction(beta)
-    Q, G = certified_spectral_form(L, m, q=q, D=D, parity=parity, N=N)
+    Q, G = certified_spectral_form(
+        L,
+        m,
+        q=q,
+        D=D,
+        parity=parity,
+        N=N,
+        prime_set=prime_set,
+        zeta_pole=zeta_pole,
+    )
     M = [[Q[i][j] - (F2iv(beta * G[i]) if i == j else 0) for j in range(m)]
          for i in range(m)]
     ok = iv_cholesky_pd(M)

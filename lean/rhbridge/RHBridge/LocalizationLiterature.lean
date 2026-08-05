@@ -3,6 +3,8 @@ Copyright (c) 2026 Riemann-Zeta project contributors. All rights reserved.
 Authors: Riemann-Zeta project contributors
 -/
 import RHBridge.ExplicitSmoothCutoff
+import RHBridge.SmoothSupportPropagation
+import RHBridge.AutocorrelationPlancherel
 
 /-!
 # Standard localization inputs and the prime-shell bound

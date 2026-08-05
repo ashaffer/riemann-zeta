@@ -1,14 +1,22 @@
 /-
-CurveCertE5: the first fully kernel-checked END-TO-END Weil-positivity window
-(function-field side), implementing spec §(d) "Integer data spec: the first
-kernel-checked curve window (`CurveCert_E5`)" of
+Copyright (c) 2026 Riemann-Zeta project contributors. All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Riemann-Zeta project contributors
+-/
+import Mathlib
+import CertFramework
+
+/-!
+# Kernel-checked finite-field curve certificates
+
+`CurveCertE5` implements spec §(d), "Integer data spec: the first
+kernel-checked curve window (`CurveCert_E5`)," of
 results/experts/PLAN-algebraic-geometry.md (Round 2).
 
 Curve: E : y² = x³ + x + 1 over F₅ (genus 1).
 
-Unlike the ζ-side artifacts (`Weilcert.lean` etc.), whose Bridge Proposition is
-computer-assisted (interval arithmetic outside Lean), here the ENTIRE chain is
-kernel-checked, `decide` end to end, no interval arithmetic anywhere:
+The finite enumeration, recurrence, matrix, and certificate chain below is
+kernel-checked, using `decide` and no interval arithmetic:
 
   point count (`decide` over ZMod 5:  #affine E(F₅) = 8, so N₁ = 9)
     → Frobenius trace  a = q + 1 − N₁ = −3          (definition + `decide`)
@@ -46,10 +54,12 @@ Parseval–Zak reduction) plus the classical g = 1 fact P_E(T) = 1 − aT + qT²
 from N₁ alone; for the genus-2 block additionally the functional equation
 (c₁ = q·c₃, c₀ = q²) feeding the Newton identities `newton_*` below.
 
+Consequently this file is a complete certificate for the explicitly defined
+finite matrices, but is not by itself an end-to-end Lean theorem identifying
+those matrices with the genuine Rosati/curve Weil form.
+
 Axiom base: propext, Classical.choice, Quot.sound only (audited).
 -/
-import Mathlib
-import CertFramework
 
 namespace CurveCertE5
 

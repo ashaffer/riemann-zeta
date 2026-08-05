@@ -1,8 +1,12 @@
 /-
 Copyright (c) 2026 Riemann-Zeta project contributors. All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
 Authors: Riemann-Zeta project contributors
 -/
-import Mathlib
+import Mathlib.Data.Real.Basic
+import Mathlib.Tactic.FieldSimp
+import Mathlib.Tactic.NormNum
+import Mathlib.Tactic.Ring
 
 /-!
 # Low-sector Dirichlet-to-Neumann reduction and no-go model

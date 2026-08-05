@@ -150,6 +150,101 @@ def bilateralLaplaceFn (a : ℝ)
   ∫ x : ℝ, IntervalZeroExtension.zeroExtensionFn a f x *
     Complex.exp (s * x)
 
+/-- The representative-level bilateral Laplace integrand is integrable for
+every compactly supported interval `L²` vector. -/
+theorem integrable_bilateralLaplaceFn_integrand
+    (a : ℝ) (f : GeneralZetaWeilForm.TestSpace a) (s : ℂ) :
+    MeasureTheory.Integrable (fun x : ℝ ↦
+      IntervalZeroExtension.zeroExtensionFn a f x *
+        Complex.exp (s * x)) := by
+  let C : ℝ := Real.exp (‖s‖ * |a|)
+  have hmajorant : MeasureTheory.Integrable (fun x : ℝ ↦
+      C * ‖IntervalZeroExtension.zeroExtensionFn a f x‖) := by
+    exact (MeasureTheory.memLp_one_iff_integrable.mp
+      (IntervalZeroExtension.zeroExtensionFn_memLp_one a f)).norm.const_mul C
+  apply hmajorant.mono'
+  · exact (IntervalZeroExtension.zeroExtensionFn_memLp a f).1.mul
+      (Complex.continuous_exp.comp
+        (continuous_const.mul Complex.continuous_ofReal)).aestronglyMeasurable
+  · filter_upwards [] with x
+    rw [norm_mul]
+    by_cases hx : x ∈ LegendreScaledL2.Interval a
+    · have hxa : |x| ≤ |a| := by
+        rcases hx with ⟨hx₁, hx₂⟩
+        have ha : 0 ≤ a := by linarith
+        rw [abs_of_nonneg ha, abs_le]
+        exact ⟨by linarith, hx₂⟩
+      have hsx : ‖s * (x : ℂ)‖ ≤ ‖s‖ * |a| := by
+        rw [norm_mul, Complex.norm_real, Real.norm_eq_abs]
+        exact mul_le_mul_of_nonneg_left hxa (norm_nonneg s)
+      have hexp : ‖Complex.exp (s * x)‖ ≤ C := by
+        exact (Complex.norm_exp_le_exp_norm _).trans
+          (Real.exp_le_exp.mpr hsx)
+      simpa [mul_comm] using mul_le_mul_of_nonneg_left hexp
+        (norm_nonneg (IntervalZeroExtension.zeroExtensionFn a f x))
+    · rw [IntervalZeroExtension.zeroExtensionFn_eq_zero_of_not_mem a f hx]
+      simp
+
+/-- The quotient-representative bilateral Laplace integrand is integrable. -/
+theorem integrable_bilateralLaplace_integrand
+    (a : ℝ) (f : GeneralZetaWeilForm.TestSpace a) (s : ℂ) :
+    MeasureTheory.Integrable (fun x : ℝ ↦
+      (IntervalZeroExtension.zeroExtension a f : ℝ → ℂ) x *
+        Complex.exp (s * x)) := by
+  apply (integrable_bilateralLaplaceFn_integrand a f s).congr
+  filter_upwards [IntervalZeroExtension.coeFn_zeroExtension a f] with x hx
+  rw [hx]
+
+/-- The bilateral Laplace transform is additive on the interval test space. -/
+theorem bilateralLaplace_add
+    (a : ℝ) (f g : GeneralZetaWeilForm.TestSpace a) (s : ℂ) :
+    bilateralLaplace a (f + g) s =
+      bilateralLaplace a f s + bilateralLaplace a g s := by
+  unfold bilateralLaplace
+  have hcoe :
+      (IntervalZeroExtension.zeroExtension a (f + g) : ℝ → ℂ) =ᵐ[
+        MeasureTheory.volume]
+        fun x ↦ (IntervalZeroExtension.zeroExtension a f : ℝ → ℂ) x +
+          (IntervalZeroExtension.zeroExtension a g : ℝ → ℂ) x := by
+    rw [IntervalZeroExtension.zeroExtension_add]
+    exact MeasureTheory.Lp.coeFn_add _ _
+  calc
+    (∫ x : ℝ, (IntervalZeroExtension.zeroExtension a (f + g) : ℝ → ℂ) x *
+        Complex.exp (s * x)) =
+      ∫ x : ℝ, ((IntervalZeroExtension.zeroExtension a f : ℝ → ℂ) x *
+          Complex.exp (s * x) +
+        (IntervalZeroExtension.zeroExtension a g : ℝ → ℂ) x *
+          Complex.exp (s * x)) := by
+            apply MeasureTheory.integral_congr_ae
+            filter_upwards [hcoe] with x hx
+            rw [hx]
+            ring
+    _ = _ := MeasureTheory.integral_add
+      (integrable_bilateralLaplace_integrand a f s)
+      (integrable_bilateralLaplace_integrand a g s)
+
+/-- The bilateral Laplace transform is homogeneous for real scalars. -/
+theorem bilateralLaplace_smul
+    (a c : ℝ) (f : GeneralZetaWeilForm.TestSpace a) (s : ℂ) :
+    bilateralLaplace a (c • f) s = c * bilateralLaplace a f s := by
+  unfold bilateralLaplace
+  have hcoe :
+      (IntervalZeroExtension.zeroExtension a (c • f) : ℝ → ℂ) =ᵐ[
+        MeasureTheory.volume]
+        fun x ↦ c • (IntervalZeroExtension.zeroExtension a f : ℝ → ℂ) x := by
+    rw [IntervalZeroExtension.zeroExtension_smul]
+    exact MeasureTheory.Lp.coeFn_smul c _
+  calc
+    (∫ x : ℝ, (IntervalZeroExtension.zeroExtension a (c • f) : ℝ → ℂ) x *
+        Complex.exp (s * x)) =
+      ∫ x : ℝ, c * ((IntervalZeroExtension.zeroExtension a f : ℝ → ℂ) x *
+        Complex.exp (s * x)) := by
+          apply MeasureTheory.integral_congr_ae
+          filter_upwards [hcoe] with x hx
+          rw [hx, Complex.real_smul]
+          ring
+    _ = _ := by rw [MeasureTheory.integral_const_mul]
+
 /-- Representative-level centered transform.  This is the product that
 occurs on the vertical contour after applying cross-Plancherel. -/
 def centeredTestTransformFn (a : ℝ)

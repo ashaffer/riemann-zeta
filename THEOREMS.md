@@ -322,18 +322,23 @@ is the *absence of a jump* with an explicit modulus — it does not prove the
 envelope law. All constants are explicit but generous; no attempt was made to
 optimize.
 
-**Novelty status (revised after the prior-art sweep, results/agent-prior-art.md).**
-Qualitative continuity of the windowed margin is NOT new: Suzuki
-(arXiv:2606.09096, June 8 2026, Theorem 1.3) proves it by the same dilation
-device, and documents that Bombieri asserted it in 2000/2003 (with Yoshida
-1992 as the windowed-criterion origin). What this theorem adds beyond that
-literature: (i) the EXPLICIT modulus C·(log 1/h)^{−1} with all constants
-displayed (Suzuki's proof is qualitative — no modulus appears); (ii) the
-MONOTONICITY clause (not stated anywhere we found); (iii) the threshold-local
-analysis (the entering-prime coupling bound of Lemma E). Theorem 1 should be
-cited as an effective refinement of Bombieri–Suzuki continuity. The Frullani
-route to Lemma A appears to be folklore-level; no recorded statement of the
-sandwich was found.
+**Novelty status (revised after the 2026-08-05 prior-art sweep).**
+Attainment, compact-resolvent/Galerkin control, monotonicity, and qualitative
+continuity are NOT new.  Bombieri established the variational ground-state
+framework; Connes--Consani--Moscovici prove Galerkin convergence, discrete
+lower-bounded spectrum, ground-state existence, and the monotonicity
+explicitly in Proposition 3.4, Theorem 3.6, and Corollary 3.7 of
+[*Zeta Spectral Triples*](https://arxiv.org/abs/2511.22755); and Suzuki proves
+unrestricted qualitative continuity in Theorem 1.3 of
+[*Weil's quadratic form via the screw function*](https://arxiv.org/abs/2606.09096),
+while recording Bombieri's earlier parity-restricted continuity assertions.
+After matching conventions (`a=L/4` here and `lambda_CCM=exp(L/4)`), the
+defensible additions in this section are (i) the explicit modulus
+`C/log(1/h)` with displayed constants and (ii) the quantitative estimate for a
+newly entering prime-power term in Lemma E.  Theorem 1 should therefore be
+cited as an effective quantitative refinement of known glide results, not as
+the source of attainment, monotonicity, or continuity.  The Frullani route to
+Lemma A appears to be folklore-level; no priority claim is made for it.
 
 **Formalization status.** Lemma A's sandwich — in its integral form, i.e.
 ½log(1+4r²) ≤ ∫₀^∞ e^{−t/4}(1−cos(rt/2))/(1−e^{−t})dt ≤ ½log(1+4r²)+8 —

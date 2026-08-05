@@ -47,6 +47,7 @@ import RHBridge.LogarithmicWeight
 import RHBridge.ExplicitSmoothCutoff
 import RHBridge.LocalizationLiterature
 import RHBridge.ActivationCancellation
+import RHBridge.CertifiedBaseInterval
 import RHBridge.SingleActivationHighFrequency
 import RHBridge.EventCollarPropagation
 import RHBridge.BoundaryCollarGeometry
@@ -83,6 +84,7 @@ import RHBridge.Stage4FullDomainResidual
 import RHBridge.ZetaZeroFreeRegionLiterature
 import RHBridge.Stage4ProlateMellinCertificate
 import RHBridge.Stage4CCMComparatorFamily
+import RHBridge.Stage4NormalizedComparator
 import RHBridge.Stage4MomentCorrection
 import RHBridge.Stage4PoissonReduction
 import RHBridge.Stage4CanonicalConstructionLiterature
@@ -95,6 +97,9 @@ import RHBridge.UniformSupportTransfer
 import RHBridge.PrimeEdgePolarization
 import RHBridge.GlobalMobiusCancellation
 import RHBridge.RelativeIncidenceComplex
+import RHBridge.CompletedIncidenceComplexNoGo
+import RHBridge.FinitePolarizationNoGo
+import RHBridge.QuantizedPhaseIndexNoGo
 import RHBridge.BoundaryWeylReduction
 import RHBridge.SemilocalPrimeWeight
 import RHBridge.NormalizedLocalContraction

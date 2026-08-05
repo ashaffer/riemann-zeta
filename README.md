@@ -18,6 +18,15 @@ full-space theorems at three endpoints in successive prime-power regimes, empiri
 extrapolations, and open global
 statements in `results/CODEX-REVIEW.md`.
 
+For a conservative, ranked inventory of results that may be suitable for a
+paper, corrigendum, or mathlib contribution, including exact nonclaims and
+release blockers, see [`PUBLICATION.md`](PUBLICATION.md).
+
+For negative results, use the canonical theorem cards and proof-debt states in
+[`NO-GO-ATLAS.md`](NO-GO-ATLAS.md), not broad wording from historical branch
+notes.  Public claims are governed by
+[`publication/PROOF-STANDARD.md`](publication/PROOF-STANDARD.md).
+
 ## The one-paragraph summary of what was found
 
 RH is equivalent (Weil) to positivity of a quadratic form built from a pole term, an
@@ -55,6 +64,12 @@ PROGRAM.md              the full research program: findings (§2.1–2.13 with a
                         numbers), target lemma (§3), six tracks (§4), milestones (§5),
                         normalization ledger (§6), related work (§7), postscript (§8)
 READING.md              the reading order into the mathematics
+PUBLICATION.md          ranked publication portfolio, claim boundaries, artifact map,
+                        and new research synthesis
+NO-GO-ATLAS.md          exact obstruction classes, evidence levels, survivors,
+                        prior-art boundaries, and proof debt
+publication/PROOF-STANDARD.md
+                        theorem contracts, review protocol, and release states
 results/RESULTS.md      every key measured number, as a regression target
 results/CODEX-REVIEW.md current audit, theorem tiers, gaps, and next steps
 src/weil_core.py        shared primitives: digamma, hat basis, form builders (zeta
@@ -155,7 +170,10 @@ lean/rhbridge/           cross-project p=2 composition: clipped positivity from
 
 Requirements: Python 3 with `numpy` and `mpmath`; the Arb certificates also
 require `python-flint >= 0.9.0`. The optional n=4 scout uses SciPy. No network
-is needed after installation.
+is needed after installation.  Install the recorded core ranges with
+`python3 -m pip install -r requirements.txt`; the lightweight root test suite
+uses `python3 -m pip install -r requirements-test.txt` and
+`python3 -m pytest`.
 
 1. **Run the regression oracle first (program law).** `python3 src/oracle.py` — the two-sided
    explicit-formula identities for zeta and for the mod-3/mod-4 characters. All
