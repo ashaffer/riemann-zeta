@@ -1,6 +1,11 @@
 # RH-equivalence atlas: mechanisms, not disguises
 
-Status: first-pass literature and mechanism audit, 2026-08-01.
+Status: historical first-pass literature and mechanism audit, 2026-08-01.
+
+The current logical classification is
+[`RH-PROXY-LEDGER.md`](RH-PROXY-LEDGER.md).  In particular, this older ranking
+must not be read as a list of independent proxies or as the current status of
+branches subsequently closed.
 
 ## Purpose
 

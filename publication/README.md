@@ -16,13 +16,16 @@ assumption, and no uniform all-support positivity theorem is claimed.
 
 1. [`MATHEMATICAL-OVERVIEW.md`](MATHEMATICAL-OVERVIEW.md) gives the main
    definitions, result, proof architecture, and missing global bridge.
-2. [`LEAN-ANALYTIC-INFRASTRUCTURE.md`](LEAN-ANALYTIC-INFRASTRUCTURE.md) explains
+2. [`FIXED-WINDOW-WIDTH-AND-TYPE-II-REDUCTION.md`](FIXED-WINDOW-WIDTH-AND-TYPE-II-REDUCTION.md)
+   is the canonical short account of the fixed-window detector, the balanced
+   Vaughan reduction, and the exact scope of its global-cancellation barriers.
+3. [`LEAN-ANALYTIC-INFRASTRUCTURE.md`](LEAN-ANALYTIC-INFRASTRUCTURE.md) explains
    the reusable analysis as ordinary mathematics rather than as a file list.
-3. [`CERTIFICATE-GUIDE.md`](CERTIFICATE-GUIDE.md) explains what the exact
+4. [`CERTIFICATE-GUIDE.md`](CERTIFICATE-GUIDE.md) explains what the exact
    certificates prove and how they enter the conceptual argument.
-4. [`NO-GO-THEOREM-GUIDE.md`](NO-GO-THEOREM-GUIDE.md) organizes the negative
+5. [`NO-GO-THEOREM-GUIDE.md`](NO-GO-THEOREM-GUIDE.md) organizes the negative
    results by mathematical mechanism.
-5. [`../PUBLICATION.md`](../PUBLICATION.md) ranks possible papers and library
+6. [`../PUBLICATION.md`](../PUBLICATION.md) ranks possible papers and library
    contributions conservatively.
 
 ### For a Lean contributor

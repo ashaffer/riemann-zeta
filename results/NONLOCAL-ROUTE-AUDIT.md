@@ -152,6 +152,120 @@ research question: construct such an intertwiner independently of Weil
 positivity, or prove that one cannot exist in the shifted model.  Merely
 repackaging the shifted de Branges space will not establish nondegeneracy.
 
+### Energy-adjoint follow-up
+
+The fixed-shift self-adjoint-extension theorem itself survives a more careful
+domain audit.  The v1 preprint's proof passes from energy-norm continuity to
+`L2` continuity in the reversed topology direction, but a Gelfand-triple
+Riesz argument repairs it without using shift zero: the deficiency vectors
+are `(A_a-sigma I)^-1 exp(+/-x)` for every `sigma<lambda_a`.  See
+[`SUZUKI-ENERGY-ADJOINT-REPAIR.md`](SUZUKI-ENERGY-ADJOINT-REPAIR.md).
+
+What does not survive generically is independence from the auxiliary shift.
+Equivalent shifted energy norms need not identify the full phase-labelled
+extension families by a single boundary-phase relabeling; an exact
+Dirichlet-energy family proves this pointwise obstruction, and the
+completed-Weil Galerkin shadow shows the same strong phase drift numerically.
+This does not compare exact zero sets at one specially selected phase.  See
+[`SHIFT-PHASE-COVARIANCE-FAIL-FAST.md`](SHIFT-PHASE-COVARIANCE-FAIL-FAST.md).
+Thus the requested new intertwiner must conjugate the adjoint derivatives and
+their boundary spaces, not merely identify the underlying Hilbert spaces.
+
+The next audit isolates an intrinsic necessary invariant: an exact unitary
+adjoint intertwiner carrying each one-dimensional defect line at `z` to the
+line with the same label must preserve normalized Gram magnitudes and
+Bargmann triples.  Lean proves this Hilbert-space theorem.  A bounded-memory
+completed-Weil Galerkin scan rejects exact cross-window equality; allowing an
+affine spectral dilation explains most, but not all, of the residual.  This
+does **not** reject selected-extension strong-resolvent convergence, which is
+strictly weaker than unitary equivalence of the maximal adjoints.
+
+There is a more decisive obstruction to the natural unshifted limit.  Exact
+zero-extension preserves the unshifted Weil form and `L2` norm, so it changes
+shifted energy by exactly `(sigma_a-sigma_b)||f||_2^2`.  Moreover, for any
+antitone window-floor family on a cofinal support sequence, Lean proves that
+a strictly admissible shift sequence tending to zero exists if and only if
+all window floors are nonnegative.  Thus a zeta construction cannot obtain
+the unshifted global Hilbert space by silently choosing `sigma(a)->0`; that
+choice already carries the global Weil-positivity target.  See
+[`SUZUKI-PROJECTIVE-KERNEL-CHECKPOINT.md`](SUZUKI-PROJECTIVE-KERNEL-CHECKPOINT.md).
+
+On the range where the independent full-space certificates already give
+`A_L>0`, this leaves a canonical safe experiment: fix `sigma=-1/4` rather
+than tune toward zero.  The resulting selected-divisor test fits one phase on
+alternating Platt/LMFDB ordinates and matches held-out ordinates to distinct
+finite roots.  It fails throughout `L<=749/250`, including `sigma=-1` and
+both exact symmetry-phase controls, but improves with support and therefore does not reject
+the cofinal limit.  See
+[`SUZUKI-FIXED-SHIFT-DIVISOR-CHECKPOINT.md`](SUZUKI-FIXED-SHIFT-DIVISOR-CHECKPOINT.md).
+
+The subsequent counting audit isolates the correct order-of-limits question.
+For the repaired simple symmetric operator, a monotone lift `Phi_L` of the
+boundary phasor counts an extension spectrum by an exact floor difference,
+with error less than one from `Delta Phi_L/(2*pi)`.  At fixed support the
+characteristic has Cartwright type at most `L/4`, hence only linear
+high-energy zero density, but the onset and remainder are not uniform in
+`L`.  An explicit escaping-spectrum model proves that arbitrarily small
+high-energy gaps can coexist with eventually empty fixed compacts.  The
+completed-Weil Galerkin phase instead winds close to `L*T/(4*pi)` on the
+tested range.  The live theorem is therefore a support-uniform estimate of
+`Phi_L(T)-Phi_L(0)` at fixed `T`, not another fixed-`L` Weyl asymptotic.  See
+[`SUZUKI-SPECTRAL-COUNTING-CHECKPOINT.md`](SUZUKI-SPECTRAL-COUNTING-CHECKPOINT.md).
+
+The fail-fast follow-up computes the missing density exactly.  If `rho_L(x)`
+is the normalized coherence between the reference defect line and the real
+defect line, then
+
+```text
+Phi_L'(x)=2/[(1+x^2)rho_L(x)^2],
+sigma_theta({lambda})=pi(1+lambda^2)rho_L(lambda)^2,
+nu_theta({lambda})=rho_L(lambda)^2.
+```
+
+An explicit exact-type Hermite--Biehler family has the full far-tail Weyl law
+while its fixed-compact phase converges to the single Cayley factor.  Hence
+generic de Branges structure cannot close the fork: the remaining raw-count
+theorem is zeta-specific defect-line decorrelation.  Moreover, its reciprocal
+raw Clark atoms explain why divergent raw counts alone are not a
+strong-resolvent obstruction.  See
+[`SUZUKI-COMPACT-PHASE-MASS-FAIL-FAST.md`](SUZUKI-COMPACT-PHASE-MASS-FAIL-FAST.md).
+
+The weighted follow-up separates the raw Clark measure from the scalar
+spectral measure of a named vector.  For the canonical normalized reference
+defect vector, the atom is `rho_L(lambda)^2`, and its Stieltjes transform is
+root-free: `m_L(z)=[iH_L(z)-z]/(1+z^2)`.  Generic de Branges data still do not
+force tightness: in the explicit exact-type countermodel, all normalized mass
+escapes at `alpha=-1`, the zeta parameter in the canonical Frostman gauge.
+Moreover, strong resolvent convergence would control these moving finite
+Clark vectors only after the comparison embeddings are proved to make them
+converge to a fixed ambient vector.
+
+There is also an exact target mismatch.  Even under RH, a fixed shift
+`sigma=-c<0` changes the global Fourier measure from the pure zeta-zero sum to
+`sum m_gamma delta_gamma+c dt/(2*pi)`.  Thus the canonical fixed-shift limit
+has an absolutely continuous component.  Recovering the pure target by
+admissible shifts tending to zero is already equivalent to all-window
+positivity for the antitone floors.  See
+[`SUZUKI-WEIGHTED-CLARK-MEASURE-CHECKPOINT.md`](SUZUKI-WEIGHTED-CLARK-MEASURE-CHECKPOINT.md).
+
+The vector-compatibility follow-up closes that question exactly.  The finite
+reference defect vector is the Riesz representative of ordinary Fourier
+evaluation `fhat(i)`.  Translation preserves every fixed-shift energy norm
+but amplifies this evaluation exponentially, so its Riesz norm diverges and
+the normalized finite vectors converge weakly to zero under natural zero
+extension.  They cannot converge strongly to the global de Branges kernel.
+
+There is a complementary conditional theorem.  Under RH, group mollification
+shows that `C_c^infinity(R)` is a graph core for the global Stone translation
+generator.  Every finite self-adjoint extension agrees eventually on that
+core, so its compressed resolvents converge strongly for every extension
+phase.  The correct fixed-core spectral measures therefore converge
+automatically, while raw eigenvalues and moving Clark measures remain
+uncontrolled.  This makes strong resolvent convergence phase-blind and shifts
+the live target to a stronger characteristic, norm-resolvent, or renormalized
+boundary-scattering limit.  See
+[`SUZUKI-DEFECT-ESCAPE-AND-RESOLVENT-CHECKPOINT.md`](SUZUKI-DEFECT-ESCAPE-AND-RESOLVENT-CHECKPOINT.md).
+
 ### Exact continuous-kernel reduction
 
 Suzuki's unconditional finite-interval reduction does give one exact and
@@ -240,3 +354,67 @@ but it cannot isolate one off-line quartet from the total Guinand--Weil sum.
 `ZeroSideOvercompleteness.lean` gives a finite-dimensional nonnegative form
 with a negative overcomplete summand and a nonzero radical vector on which no
 individual sample vanishes.  See `ZERO-SIDE-ARITHMETIC-CHECKPOINT.md`.
+
+### Global semiboundedness and the fixed-shift fork
+
+The fixed-negative-shift survivor has now been resolved at the level of
+quantifiers.  If one constant `c` made
+
+`Q_W(f)+c||f||_2^2 >= 0`
+
+on every compact smooth test, then `W+c delta_0` would be positive definite.
+Writing Suzuki's unconditional accelerant identity as `W=-g''` shows that
+`g-(c/2)|t|` is a global screw function.  Its Krein--Langer Herglotz transform
+is exactly
+
+`i (xi'/xi)(1/2-i z)+i c/2`.
+
+Holomorphy in the upper half-plane excludes every off-critical zero, so this
+global semibound is equivalent to RH.  Therefore, if RH fails, the antitone
+localized floors do not settle above a fixed negative level: they tend to
+`-infinity`.
+
+This closes the fixed shift as an easier global existence theorem.  It does
+not rule out using a fixed shift after RH.  The later quantitative audit now
+does supply the false-world rate: a zero displaced by `delta` forces eventual
+two-bump floors below `-C_epsilon exp((2 delta-epsilon)a)`.  The short proof
+uses a pole of the complete translated correlation, while zeta cardinal
+interpolation and smooth truncation control the gaps between large values.
+When the off-line divisor is finite, the matching upper rate follows from a
+finite quartet norm estimate, so the floor exponent is exactly the maximal
+displacement.  The conclusion extends to infinitely many exceptions when
+their local displacement-square measure is translation bounded.  In the
+unrestricted case, standard prime-by-prime Cauchy--Schwarz bounds still grow
+like `4 exp(a)`.  Replacing them by the zero-strip estimate for `Psi(x)-x`
+gives the correct exponential factor but loses an `H^(1/2)` norm under
+Stieltjes partial summation; logarithmic archimedean coercivity cannot absorb
+that loss.  On the zero side, a clustered-divisor countermodel preserves the
+strip and Riemann--von Mangoldt count to `O(1)` and remains lower semibounded
+on every fixed support, yet has superexponentially negative selected floors.
+Thus unsigned sampling and qualitative local semiboundedness are also
+insufficient; the required signed completed cancellation remains open.  See
+`SEMIBOUNDED-WEIL-DICHOTOMY.md` and
+`QUANTITATIVE-WEIL-FLOOR-DIVERGENCE.md`.
+
+### Signed packet fork
+
+The subsequent Selberg/Fejer lift has also reached a decisive checkpoint.
+Nonnegativity on all modulated interval indicators, even for every width and
+position, does not imply positivity of a compressed Hermitian convolution
+form.  Minimal Toeplitz, shifted-atom, and real-even entire rank-three
+countermodels all retain a negative separated-block direction.  Hence the
+diagonal triangular tests do not generate the full autocorrelation cone; see
+`TRIANGULAR-PACKET-CONE-NOGO.md`.
+
+The missing mixed datum nevertheless has a sharp scalar zeta specialization.
+For any one fixed normalized box, the exponential growth rate of its
+translated Weil cross correlation equals
+
+`Delta=sup_rho |Re(rho)-1/2|`.
+
+On the arithmetic side it is exactly one fixed-log-width triangular
+von Mangoldt discrepancy.  Its boundedness, or merely subexponential growth,
+is equivalent to RH.  This compresses the detector but supplies no
+independent bound; see `FIXED-BOX-WEIL-WIDTH-SPECTROMETER.md`.  A continuation
+must therefore explain that single cross orbit arithmetically rather than try
+to recover it from more diagonal packets.

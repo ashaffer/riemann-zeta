@@ -3,6 +3,215 @@
 Two main Lake projects (`glide` and `weilcert`), plus the small `rhbridge`
 project that imports both for cross-project composition:
 
+## Focused triangular-packet checkpoint (2026-08-06)
+
+The exact scalar countermodel and its lightweight arithmetic normalization
+check can be run serially:
+
+```sh
+cd lean/rhbridge
+env LEAN_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 \
+  lake build +RHBridge.SelbergPacketConeNoGo \
+             +RHBridge.SelbergPacketConeNoGoAudit
+
+cd ../../src
+env OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 \
+    MKL_NUM_THREADS=1 NUMEXPR_NUM_THREADS=1 \
+    python3 -m unittest \
+      test_fixed_box_width_spectrometer.py \
+      test_signed_garding_failfast.py
+```
+
+The Lean audit reports only `propext`, `Classical.choice`, and `Quot.sound`.
+It checks the minimal Toeplitz witness, the rational continuous-packet margin,
+and the negative separated two-block quotient.  The entire-kernel
+countermodel and the fixed-box exact growth theorem are conventional analytic
+proofs, not Lean theorems.  The optional 100-zero comparison in
+`fixed_box_width_spectrometer.py` is only a sign/factor diagnostic.
+
+## Focused Suzuki projective-kernel checkpoint (2026-08-05)
+
+The exact Hilbert-space obstruction and the cofinal shift theorem are kept in
+lightweight modules so they can be audited without loading the generated P2
+certificate tree:
+
+```sh
+cd lean/rhbridge
+env LEAN_NUM_THREADS=1 lake build \
+  +RHBridge.ProjectiveGramInvariant \
+  +RHBridge.NestedShiftRigidity \
+  +RHBridge.CofinalShiftPositivity \
+  +RHBridge.SemiboundedFloorDichotomy \
+  +RHBridge.TwoBumpFloorAmplification \
+  +RHBridge.FrostmanCayleyNormalization \
+  +RHBridge.BoundaryPhaseCounting \
+  +RHBridge.BoundaryPhaseCoherence
+env LEAN_NUM_THREADS=1 lake env lean \
+  RHBridge/ProjectiveGramInvariantAudit.lean
+env LEAN_NUM_THREADS=1 lake env lean \
+  RHBridge/NestedShiftRigidityAudit.lean
+env LEAN_NUM_THREADS=1 lake env lean \
+  RHBridge/CofinalShiftPositivityAudit.lean
+env LEAN_NUM_THREADS=1 lake env lean \
+  RHBridge/SemiboundedFloorDichotomyAudit.lean
+env LEAN_NUM_THREADS=1 lake env lean \
+  RHBridge/TwoBumpFloorAmplificationAudit.lean
+env LEAN_NUM_THREADS=1 lake env lean \
+  RHBridge/FrostmanCayleyNormalizationAudit.lean
+env LEAN_NUM_THREADS=1 lake env lean \
+  RHBridge/BoundaryPhaseCountingAudit.lean
+env LEAN_NUM_THREADS=1 lake env lean \
+  RHBridge/BoundaryPhaseCoherenceAudit.lean
+
+cd ../..
+PYTHONPATH=src python3 -m unittest \
+  src/test_suzuki_livsic_calibration.py \
+  src/test_suzuki_boundary_intertwiner_diagnostic.py \
+  src/test_suzuki_selected_divisor_alignment.py \
+  src/test_suzuki_phase_winding_diagnostic.py \
+  src/test_suzuki_compact_scaling_diagnostic.py \
+  src/test_shift_phase_covariance_falsifier.py
+```
+
+The audits report only `propext`, `Classical.choice`, and `Quot.sound`.  They
+prove that a normalized line-preserving complex linear isometry preserves
+pairwise projective Gram magnitudes and Bargmann triples; that changing a
+shift under an energy- and norm-preserving embedding changes the quadratic
+energy by exactly the scalar shift difference; and that a cofinal strictly
+admissible shift sequence tending to zero is equivalent to nonnegativity of
+an antitone family of spectral floors.  The semibounded-floor audit separately
+proves that one common strict shift is equivalent to a uniform lower bound and
+that an antitone family without such a bound tends to `-infinity`.  This last
+statement is abstract and axiom-free; the zeta-specific theorem that a common
+bound implies RH is an analytic result documented in
+`results/SEMIBOUNDED-WEIL-DICHOTOMY.md`, not a Lean claim.  The
+Cayley--Frostman audit fixes the
+normalization algebra but does not assert Schur/kernel positivity, which is
+RH-equivalent for the xi target.  The fixed `-1/4` shift additionally gains a
+kernel-checked quarter of the reference norm; the independent full-space
+certificates make it continuum-admissible through `L=749/250`, not at
+arbitrary support.  The Python scans are bounded-memory Galerkin falsifiers
+for exact intertwiners, one-scalar characteristic calibration, and finite
+selected-divisor alignment, not proofs about strong-resolvent convergence.
+The boundary-phase audit additionally proves the exact floor count, its
+sub-one phase-increment error, and an escaping-onset model showing why a
+fixed-support high-energy Weyl law has no support-uniform compact-count
+consequence.  The coherence audit proves the scalar inverse-coherence phase
+density, its universal and support-linear lower-bound consequences, and the
+reciprocal Clark-weight formula.  The accompanying compact-scaling test is a
+bounded-memory finite-model diagnostic and is not a continuum spectral
+certificate.
+
+## Focused weighted Clark-measure audit (2026-08-05)
+
+The raw Clark atom, normalized reference-defect atom, formal density
+cancellation, and fixed-shift scalar mass can be checked independently:
+
+```sh
+cd lean/rhbridge
+env LEAN_NUM_THREADS=1 lake build \
+  RHBridge.ClarkSpectralWeight \
+  RHBridge.ClarkSpectralWeightAudit
+
+cd ../..
+env PYTHONPATH=src OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 \
+  python3 -m pytest -q \
+  src/test_suzuki_weighted_clark_measure_diagnostic.py
+
+env PYTHONPATH=src OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 \
+  python3 src/suzuki_weighted_clark_measure_diagnostic.py \
+  --supports 1.0 1.75 2.485 2.996 \
+  --dimensions 10 12 --phases 0 3.141592653589793 \
+  --height 96 --samples 24001 --form-dps 30
+
+env PYTHONPATH=src OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 \
+  python3 src/suzuki_weighted_clark_target_diagnostic.py \
+  --supports 1.75 2.485 2.996 --dimensions 8 10 12 --dps 50
+```
+
+The Lean audit reports only `propext`, `Classical.choice`, and `Quot.sound`.
+The Python test guards the phase derivative, Clark/Cauchy normalization, and
+the fact that the projected Galerkin root vectors fail to form an orthogonal
+spectral family.  The finite completed-Weil rows are diagnostics; the global
+Lebesgue component of a fixed negative shift uses Plancherel and the
+conditional zeta zero-frame theorem.
+
+## Focused nested Riesz-kernel escape audit (2026-08-05)
+
+The projection/coherence/tail identities and translated Riesz lower-bound
+algebra can be checked without the aggregate application build:
+
+```sh
+cd lean/rhbridge
+env LEAN_NUM_THREADS=1 lake build \
+  RHBridge.RieszKernelEscape \
+  RHBridge.RieszKernelEscapeAudit
+
+cd ../..
+env PYTHONPATH=src OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 \
+  MKL_NUM_THREADS=1 NUMEXPR_NUM_THREADS=1 \
+  python3 -m pytest -q src/test_suzuki_defect_escape_diagnostic.py
+
+env PYTHONPATH=src OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 \
+  MKL_NUM_THREADS=1 NUMEXPR_NUM_THREADS=1 \
+  python3 src/suzuki_defect_escape_diagnostic.py
+```
+
+The Lean audit reports only `propext`, `Classical.choice`, and `Quot.sound`.
+The default numerical run stays inside the fixed `-1/4` continuum-certified
+support range and uses one matrix at a time.  The proof that the Riesz norms
+diverge and normalized defect vectors converge weakly to zero is analytic;
+the Galerkin values are corroboration only.  The phase-independent
+generalized strong-resolvent theorem additionally uses the RH-conditional
+global Weil space and the group-mollifier graph-core lemma.
+
+## Focused energy-adjoint and shift-covariance audit (2026-08-05)
+
+The domain-safe Riesz repair and its bounded form-domain virial companion can
+be checked without building the aggregate application tree:
+
+```sh
+cd lean/rhbridge
+env LEAN_NUM_THREADS=1 lake build \
+  RHBridge.GelfandTripleAdjointAudit \
+  RHBridge.FormDomainVirialAudit
+
+cd ../..
+PYTHONPATH=src python3 -m unittest \
+  src/test_shift_phase_covariance_falsifier.py
+```
+
+The Lean audit reports only `propext`, `Classical.choice`, and `Quot.sound`.
+It proves the abstract partial-adjoint/Riesz equivalence and the regular
+form-domain virial cancellation.  The distributional exponential
+classification and the completed-Weil form-core identification remain named
+analytic inputs.  The Python test covers the exact scalar control and the
+finite Dirichlet helper logic.  The same script can run the optional
+completed-Weil diagnostic, but that calculation is not a certified graph
+limit for the unbounded zeta operators.
+
+## Focused virial-obstruction audit (2026-08-05)
+
+The regular positive-commutator obstruction is intentionally checked without
+building the aggregate application audit:
+
+```sh
+cd lean/rhbridge
+env LEAN_NUM_THREADS=1 lake build \
+  RHBridge.VirialCommutatorNoGo \
+  RHBridge.VirialCommutatorNoGoAudit
+
+cd ../..
+PYTHONPATH=src python3 -m unittest \
+  src/test_virial_commutator_falsifier.py
+```
+
+The Lean audit reports only `propext`, `Classical.choice`, and `Quot.sound`.
+It covers the eigenvector virial identity, finite trace obstruction,
+compression/leakage identity, and exact two-state control.  The Python test is
+a lightweight algebraic check; the prime-5 table and completed smooth-core
+analysis have diagnostic and analytic status, respectively.
+
 ## Reusable extraction audit (2026-08-03)
 
 The general-purpose results are now separated from their RH and generated-data
@@ -422,6 +631,7 @@ env LEAN_NUM_THREADS=1 lake env lean RHBridge/FinitePolarizationNoGoAudit.lean
 env LEAN_NUM_THREADS=1 lake env lean RHBridge/QuantizedPhaseIndexNoGoAudit.lean
 env LEAN_NUM_THREADS=1 lake env lean RHBridge/Stage3BoundaryNoGoAudit.lean
 env LEAN_NUM_THREADS=1 lake env lean RHBridge/Stage3ParityNoGoAudit.lean
+env LEAN_NUM_THREADS=1 lake env lean RHBridge/SelbergPacketConeNoGoAudit.lean
 ```
 
 Do not interpret “focused” as “small.”  Before the no-go imports were

@@ -1,7 +1,7 @@
 # Theta-flow Laguerre convolution audit
 
-Status: exact reduction proved; the global Polya-convexity mechanism is
-structurally impossible, 2026-08-01.
+Status: exact reduction proved; the Polya-convexity and positive
+Gaussian-mixture mechanisms are structurally impossible, updated 2026-08-06.
 
 Let `a_t` be the even theta heat kernel on the real line and
 
@@ -47,6 +47,82 @@ For this particular kernel the exact curvature identity is
 
 The scan evaluates this as negative, consistently with the finite
 differences.
+
+## A positive Gaussian mixture is also impossible
+
+A stronger full-kernel proposal is to seek a Schoenberg-type representation
+
+`b_t(w)=integral_[0,infinity) exp(-lambda w^2) d nu_t(lambda)`
+
+with `nu_t` a nonzero positive measure.  This would make
+`g_t(r)=b_t(sqrt(r))` completely monotone and would make
+`b_t(w)=g_t(w^2)` positive definite (indeed radially positive definite in
+every Euclidean dimension).  The proposal respects the full theta sum, but
+its required tail behavior is impossible.
+
+### Theorem
+
+For every fixed finite real `t`, the exact theta convolution density `b_t`
+has no representation as a nonzero positive Gaussian mixture.
+
+### Proof
+
+In the Rodgers--Tao normalization, put
+
+`a_t(u)=exp(t u^2)Phi(abs(u))`.
+
+After changing variables by `v=u-w/2`, the convolution density is
+
+`b_t(w)=2 integral_R v^2 a_t(v+w/2)a_t(v-w/2)dv`.          (1)
+
+The theta series gives, for `y>=0`,
+
+`0<Phi(y)<=C exp(9y-pi exp(4y))`.                          (2)
+
+For completeness, put `E=exp(4y)>=1`.  Positivity holds term by term because
+`2 pi n^2 E-3>0`; after discarding the smaller polynomial factor, the tail is
+bounded by
+
+`sum_n n^4 exp(-pi n^2 E)
+ <=exp(-pi E)sum_n n^4 exp(-pi(n^2-1)).`
+
+For `w>=0`, set `p=abs(v+w/2)` and `q=abs(v-w/2)`.  Then
+
+`p^2+q^2=2v^2+w^2/2`,
+
+`p+q<=2abs(v)+w`,
+
+`exp(4p)+exp(4q)>=2exp(2w)`,
+
+and `exp(4p)+exp(4q)>=exp(4abs(v))`.  Split the last negative
+exponential in (2) into two equal parts.  One part controls the `v` integral
+in (1), while the other supplies the `w` decay.  Thus
+
+```text
+b_t(w)
+ <=2C^2 exp(t w^2/2+9w-pi exp(2w))
+   *integral_R v^2 exp(2t v^2+18abs(v)
+                       -(pi/2)exp(4abs(v)))dv
+ <=C_t exp(t w^2/2+9w-pi exp(2w)).                         (3)
+```
+
+The displayed integral is finite for every fixed real `t`.
+
+Consequently `g_t(r)=b_t(sqrt(r))` decays faster than `exp(-M r)` for every
+fixed finite `M`.  If
+
+`g_t(r)=integral exp(-lambda r)d nu_t(lambda)`
+
+for a nonzero positive measure, then `g_t(0)<infinity` makes `nu_t` finite.
+For some finite `M`, the mass `m=nu_t([0,M])` is positive, and hence
+
+`g_t(r)>=m exp(-M r)`.
+
+This contradicts (3).  QED.
+
+The theorem eliminates only positive mixtures of centered Gaussians.  It
+does not refute positive definiteness of `b_t`, a signed modular
+decomposition, or a different full-theta no-collision identity.
 
 ## What survives
 

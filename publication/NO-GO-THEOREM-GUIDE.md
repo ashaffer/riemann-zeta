@@ -1,6 +1,6 @@
 # A theorem guide to the obstruction results
 
-Status: expository companion, 2026-08-05.
+Status: expository companion, 2026-08-06.
 
 This guide explains the mathematics behind the project's exact negative
 results.  It is written for a reader who wants to understand the mechanism of
@@ -372,10 +372,11 @@ quadratic form.
 
 ## 4. Obstruction III: formal structure does not imply coercivity
 
-NG-06 through NG-08, together with two small countermodels, all refute the
-same style of inference: a construction has the right symmetry, complex, or
-analytic form, so its final sign should follow automatically.  Each example
-shows that a quantitative gap or a positive metric is an additional theorem.
+NG-06 through NG-08 and NG-11, together with two small countermodels, all
+refute the same style of inference: a construction has the right symmetry,
+complex, commutator, or analytic form, so its final sign should follow
+automatically.  Each example shows that a quantitative gap or a positive
+metric is an additional theorem.
 
 ### 4.1 A later differential cannot improve degree-zero Hodge energy (NG-06)
 
@@ -548,7 +549,191 @@ conclusion rather than deriving it.
 geometry before knowing the spectrum, and prove its adjoint law independently.
 Functional-equation symmetry alone is insufficient.
 
-### 4.4 Two supporting countermodels
+### 4.4 A regular virial commutator cannot order a pure-point spectrum (NG-11)
+
+Suppose `H psi=lambda psi` and all products below are defined.  Symmetry of
+`H` gives
+
+```text
+<psi,[H,G]psi>
+ = <H psi,G psi>-<psi,G H psi>
+ = 0.
+```
+
+Thus a strict positive-commutator estimate on a nonempty eigenspace is
+impossible.  For the lower-semibounded compact-resolvent Weil operator, asking for
+strict positivity on its nonpositive spectral projection is therefore already
+asking that this projection be empty.  It is a reformulation of the target,
+not a near-null-sector test.  The lower bound also makes that projection
+finite rank, so a compact remainder can absorb any discrepancy there.  In
+finite dimension the obstruction becomes `trace([H,G])=0`, so a pure matrix
+commutator cannot be positive definite.
+
+Compression does not evade the identity.  If `P^2=P` and `R=I-P`, then
+
+```text
+P[H,X]P=[PHP,PXP]+PHRXP-PXRHP.
+```
+
+The first term has zero trace.  A nonzero compressed trace comes from the two
+leakage terms.  The exact control
+
+```text
+H=[[0,1],[1,0]],       X=(1/2)[[0,-1],[1,0]]
+```
+
+has `[H,X]=diag(1,-1)`: keeping one coordinate only hides the compensating
+negative channel.
+
+For the completed localized Weil form, this is not merely an abstract
+warning.  Geometric dilation produces the smooth-core multiplier
+
+```text
+r tau_(1/4)(r)
+ + sum_(log n<2a) (2 Lambda(n)/sqrt(n))(log n) r sin(r log n).
+```
+
+Already in the prime-2-only window, the negative prime oscillation is linear
+along an explicit frequency sequence, while the archimedean slope is bounded
+and the form multiplier grows only logarithmically.  Kronecker approximation
+makes every active prime-power slope negative simultaneously at each fixed
+larger support.  Hence adding any fixed nonnegative multiple of the Weil form
+cannot repair the commutator.
+
+For a first-order flow preserving the interval, the proposed obstruction has
+generator `G_v=v d/dx+v'/2` with `v` zero at both endpoints.  Every nonzero
+`v` has `v'<0` somewhere.  A high-frequency packet supported in a subinterval
+of width less than `log 2` there has no prime-shift overlap and negligible
+pole moments.  Its claimed negative limiting archimedean commutator depends on
+a localized pseudodifferential packet lemma whose symbol/remainder proof is
+still a named publication obligation.
+
+**Formal status.**  Lean checks the finite eigenvector, trace, compression,
+and `2x2` leakage identities in
+[`VirialCommutatorNoGo.lean`](../lean/rhbridge/RHBridge/VirialCommutatorNoGo.lean),
+with the focused axiom output in
+[`VirialCommutatorNoGoAudit.lean`](../lean/rhbridge/RHBridge/VirialCommutatorNoGoAudit.lean).
+It also checks the domain-safe form statement: if `B u=lambda J u`, `B` is
+Hermitian, and `G^*J+JG=0`, then
+`< (G^*B+BG)u,u >_V=0`.  See
+[`FormDomainVirial.lean`](../lean/rhbridge/RHBridge/FormDomainVirial.lean) and
+[`FormDomainVirialAudit.lean`](../lean/rhbridge/RHBridge/FormDomainVirialAudit.lean).
+This avoids assuming that a weak form eigenvector belongs to an unbounded
+operator domain.  The completed dilation multiplier is analytic, not
+formalized; the transport wave-packet step remains Amber pending the explicit
+localized remainder lemma.  Their derivation and the finite prime-5
+diagnostic are separated in
+[`COMPLETED-WEIL-VIRIAL-COMMUTATOR-NOGO.md`](../results/COMPLETED-WEIL-VIRIAL-COMMUTATOR-NOGO.md).
+
+**Exact scope and escape.**  The result prunes regular strict Mourre estimates
+as an independent pure-point test, pure finite-section commutator
+certificates, and geometric dilation with fixed scalar repair once a prime
+power is active.  The stated real-transport conclusion is conditional on the
+packet lemma.  The result does not establish a negative Weil direction.
+Other local generators and a genuinely nonlocal global mixed inequality are
+not excluded.  A singular support-moving generator must retain and sign its
+full completed boundary defect; that is a new collar inequality, not an
+ordinary virial shortcut.
+
+### 4.5 A support-uniform negative shift is already RH-strength (NG-16)
+
+Let `lambda(a)` be the bottom Rayleigh value of the zeta Weil form on tests
+supported in `(-a,a)`.  The floors are antitone.  Pure order theory says that
+one strict common shift below every `lambda(a)` is equivalent to a uniform
+lower bound, and that failure of such a bound forces `lambda(a)` to tend to
+`-infinity`.  Lean checks this abstract statement in
+[`SemiboundedFloorDichotomy.lean`](../lean/rhbridge/RHBridge/SemiboundedFloorDichotomy.lean).
+
+For the zeta form, the common bound has much stronger content.  If
+
+```text
+Q_W(f)+c||f||_2^2 >= 0
+```
+
+globally, then `W+c delta_0` is positive definite.  Suzuki's unconditional
+identity `W=-g''` turns this into a global screw function
+`g-(c/2)|t|`.  The Krein--Langer transform of that function is
+
+```text
+i (xi'/xi)(1/2-i z)+i c/2.
+```
+
+It must be holomorphic in the upper half-plane, whereas every zero to the
+right of the critical line would create a nonremovable pole.  The functional
+equation handles the left side.  Thus a global `L2` semibound is equivalent
+to RH; under failure of RH, `lambda(a)` tends to `-infinity`.
+
+**Exact scope and escape.**  This does not disprove the uniform inequality.
+It says that the inequality is the destination, not weaker scaffolding.
+Standard termwise prime bounds grow exponentially with support and therefore
+cannot prove it.  The subsequent quantitative audit closes the lower
+false-world rate: displacement `delta` forces
+`lambda(a)<=-C_epsilon exp((2 delta-epsilon)a)` for every sufficiently large
+support.  A Laplace-pole proof controls the complete divisor along a
+subsequence, and Bondarenko--Radchenko--Seip cardinal interpolation plus
+smooth truncation gives the all-support upgrade.  The remaining target is the
+reverse stability estimate in terms of the supremal displacement.  That
+reverse estimate is sharp and elementary when the off-line divisor is finite:
+each exceptional quartet has norm `O(exp(2 delta a))`, so the floor exponent
+equals the maximal displacement.  The same conclusion holds for infinitely
+many exceptions if their local displacement-square measure is translation
+bounded.  For the unrestricted infinite divisor, ordinary prime-counting
+error does not suffice: Abel summation incurs an `H^(1/2)` loss that the
+logarithmic archimedean energy cannot absorb.  Nor do strip width and the full
+Riemann--von Mangoldt count suffice: a sparse clustered-divisor countermodel
+preserves counting to `O(1)` and has a finite floor on every fixed support,
+while selected growing-support floors decay superexponentially.  The full
+proof and normalization ledger are in
+[`SEMIBOUNDED-WEIL-DICHOTOMY.md`](../results/SEMIBOUNDED-WEIL-DICHOTOMY.md).
+The rate theorem is in
+[`QUANTITATIVE-WEIL-FLOOR-DIVERGENCE.md`](../results/QUANTITATIVE-WEIL-FLOOR-DIVERGENCE.md).
+
+### 4.6 Diagonal Fejer packets do not determine a Toeplitz form (NG-21)
+
+The triangular Selberg calculation naturally tests normalized vectors
+
+```text
+ell^(-1/2)e^(i tau x)1_I(x).
+```
+
+It is tempting to infer positivity of the compressed convolution operator
+from nonnegativity on every such vector, allowing every interval `I`, width
+`ell`, and modulation `tau`.  That inference is false.  A `3 x 3` Toeplitz
+matrix with diagonal one and second off-diagonal `5/4` is positive on every
+consecutive modulated box but negative on `(1,0,-1)`.  This is the smallest
+possible dimension.
+
+Two continuum versions isolate the mechanism.  A shifted-delta kernel on
+`L2(0,3/2)` passes all interval packets with a uniform normalized margin
+`1/6`, yet has a separated antisymmetric direction of quotient `-1/4`.  A
+real-even entire rank-three kernel gives the same conclusion without any
+distributional singularity.  Its packet inequality reduces to
+
+```text
+sinc^2(x-alpha)+sinc^2(x+alpha) >= (1/4)sinc^2(x),
+|alpha|<=pi/4.
+```
+
+The failure is geometric: one connected interval must fill the gap between
+two correlated endpoint blocks, while a coherent two-block vector can choose
+their relative phase without paying mass in that gap.  Width, position, and
+carrier phase do not recover this mixed Gram entry.
+
+**Formal status.**  Lean checks the minimal Toeplitz witness, the uniform
+rational continuum margin, and the negative two-block quotient in
+[`SelbergPacketConeNoGo.lean`](../lean/rhbridge/RHBridge/SelbergPacketConeNoGo.lean).
+The continuous and entire proofs are analytic and are written in
+[`TRIANGULAR-PACKET-CONE-NOGO.md`](../results/TRIANGULAR-PACKET-CONE-NOGO.md).
+
+**Exact scope and escape.**  This rules out a generic convex-cone lift from
+diagonal packets, not a zeta-specific relation among mixed packet terms.  The
+smallest visible survivor is precisely a separated-box cross orbit.  For one
+fixed box, its completed zeta cross correlation has growth exponent equal to
+the maximal horizontal zero displacement; the exact reduction is in
+[`FIXED-BOX-WEIL-WIDTH-SPECTROMETER.md`](../results/FIXED-BOX-WEIL-WIDTH-SPECTROMETER.md).
+Proving that orbit bounded remains RH-equivalent.
+
+### 4.7 Two supporting countermodels
 
 These are useful guardrails, not headline research theorems.
 
@@ -661,6 +846,17 @@ an intermediate inference, never as infinite RH results.
 | [`MOBIUS-RESIDUE-TO-DENSITY-FINAL-2026-08.md`](../results/MOBIUS-RESIDUE-TO-DENSITY-FINAL-2026-08.md) | The proposed generic inverse gate fails for bounded multiplicative functions, and the Mobius parameter is singular | Failure of every Mobius-specific inverse theorem |
 | [`CYCLOTOMIC-TWO-PRIME-TRACE-FINAL-2026-08.md`](../results/CYCLOTOMIC-TWO-PRIME-TRACE-FINAL-2026-08.md) | Exact finite Euler algebra has no mixed coefficient in the tested block | Nonexistence of a global geometric trace with extra coupling |
 | [`TWO-WAVE-ORTHOGONAL-FAIL-FAST-2026-08.md`](../results/TWO-WAVE-ORTHOGONAL-FAIL-FAST-2026-08.md) | A reproducible ledger of explicit gates and finite falsifiers | One theorem eliminating all ten motivating fields |
+| [`COMPLETED-WEIL-VIRIAL-COMMUTATOR-NOGO.md`](../results/COMPLETED-WEIL-VIRIAL-COMMUTATOR-NOGO.md) | The exact finite commutator identities and a floating prime-5 control agree with the analytic no-go | Failure of every nonlocal or singular positive-commutator construction |
+| [`SHIFT-PHASE-COVARIANCE-FAIL-FAST.md`](../results/SHIFT-PHASE-COVARIANCE-FAIL-FAST.md) | Equivalent coercive energy norms do not generically identify full phase-labelled self-adjoint-extension families by one boundary relabeling; the exact Dirichlet control proves that pointwise obstruction | Inequality of exact zeta zero sets at one selected phase, nonexistence of a zeta-specific intertwiner, or nonexistence of a tuned shift/phase sequence; the completed-Weil scan remains diagnostic |
+| [`SUZUKI-PROJECTIVE-KERNEL-CHECKPOINT.md`](../results/SUZUKI-PROJECTIVE-KERNEL-CHECKPOINT.md) | Exact line-preserving adjoint intertwiners preserve projective Gram/Bargmann data; natural nesting is rigid in the shift; cofinal admissible shifts tending to zero are equivalent to nonnegative antitone floors | Failure of selected-extension strong-resolvent convergence; the cross-window Galerkin residual tests a stronger exact equivalence |
+| [`SUZUKI-LIVSIC-CALIBRATION-FAIL-FAST.md`](../results/SUZUKI-LIVSIC-CALIBRATION-FAIL-FAST.md) | One derivative plus weak imaginary-axis matches are a near-Cayley calibration effect; strong held-out probes remain nonmonotone in the tested models | Failure of compact-local convergence at larger support; unconditional positivity of the xi model kernel, which is RH-equivalent |
+| [`SUZUKI-FIXED-SHIFT-DIVISOR-CHECKPOINT.md`](../results/SUZUKI-FIXED-SHIFT-DIVISOR-CHECKPOINT.md) | `sigma=-1/4` is continuum-safe through the certified endpoint, and a no-root-reuse train/holdout test fails on that finite range even under `sigma=-1` and both symmetry-phase controls | Failure of cofinal selected-extension convergence; the errors improve with support, and the finite characteristics are not a certified graph approximation |
+| [`SUZUKI-SPECTRAL-COUNTING-CHECKPOINT.md`](../results/SUZUKI-SPECTRAL-COUNTING-CHECKPOINT.md) | A lifted boundary phase gives an exact floor count; fixed-support linear Weyl density does not imply support-uniform compact crowding, as an escaping-onset spectrum proves | Failure of the Suzuki limit: the required fixed-compact phase-mass estimate is still open, and even divergent counts would not alone refute strong-resolvent convergence |
+| [`SUZUKI-COMPACT-PHASE-MASS-FAIL-FAST.md`](../results/SUZUKI-COMPACT-PHASE-MASS-FAIL-FAST.md) | Phase density is inverse squared defect-line coherence; an exact-type Hermite--Biehler family retains its full far-tail Weyl density while all added compact phase escapes | Failure of every zeta-specific fixed-shift decorrelation estimate, or of weighted Clark-measure convergence; generic type and symmetry alone are what is pruned |
+| [`SUZUKI-WEIGHTED-CLARK-MEASURE-CHECKPOINT.md`](../results/SUZUKI-WEIGHTED-CLARK-MEASURE-CHECKPOINT.md) | The raw Clark atom and fixed-vector probability are different; generic normalized convergence can fail by mass escape at the canonical zeta phase, and a fixed negative shift canonically adds a Lebesgue spectral component | Failure of every Suzuki limit or of RH; the follow-up proves natural moving-vector compatibility fails, while an honest mixed-spectrum target or stronger boundary topology remains possible |
+| [`SUZUKI-DEFECT-ESCAPE-AND-RESOLVENT-CHECKPOINT.md`](../results/SUZUKI-DEFECT-ESCAPE-AND-RESOLVENT-CHECKPOINT.md) | Natural finite defect vectors weakly escape because their Riesz norms grow exponentially; under RH, group mollification makes the compact core a generator core, so every phase choice has the same generalized strong-resolvent limit and the correct fixed-core measures converge | RH, characteristic/determinant convergence, or raw eigenvalue convergence; the positive ambient space is RH-conditional and strong resolvent topology forgets the escaping boundary data |
+| [`SEMIBOUNDED-WEIL-DICHOTOMY.md`](../results/SEMIBOUNDED-WEIL-DICHOTOMY.md) | One support-independent `L2` lower bound for the actual zeta Weil form is equivalent to RH; failure of RH forces the localized floors to `-infinity` | A proof of the uniform completed bound; the false-world witness rate is now supplied by the quantitative follow-up |
+| [`QUANTITATIVE-WEIL-FLOOR-DIVERGENCE.md`](../results/QUANTITATIVE-WEIL-FLOOR-DIVERGENCE.md) | An off-line zero of displacement `delta` forces eventual two-bump floors below `-C_epsilon exp((2 delta-epsilon)a)`; subexponential negative-floor growth is RH-equivalent; the exponent equals the maximal displacement if the off-line divisor is finite | RH, existence of an off-line zero, or the reverse upper rate for a potentially infinite off-line divisor; cumulative prime-counting error alone loses a half derivative |
 
 These artifacts are valuable when they prevent a false lemma from being
 reintroduced.  Their publication role is methodological unless one of their
@@ -693,9 +889,9 @@ Accordingly, a serious new RH mechanism should answer five questions.
 5. Why is the global limit closed in the same topology in which the estimate
    was proved?
 
-NG-01, NG-02, and NG-10 test questions 1, 2, and 5.  NG-03 through NG-08 test
-questions 3 and 4.  NG-09 tests whether a nominally global arithmetic move
-actually reaches almost every part of its domain.
+NG-01, NG-02, and NG-10 test questions 1, 2, and 5.  NG-03 through NG-08,
+NG-11, NG-12, and NG-16 test questions 3 and 4.  NG-09 tests whether a nominally global
+arithmetic move actually reaches almost every part of its domain.
 
 ## 8. What is presently suitable for mathematical exposition
 
@@ -707,9 +903,11 @@ There are three different publication roles.
   need independent proof and prior-art review.
 - **Reusable formal machinery:** the Gram-cost bound, mixed-pairing sign gate,
   degree-zero Hilbert-complex identity, Schur-complement formulas, and finite
-  polarization countermodel (NG-04 through NG-08).  These should be presented
-  under their ordinary functional-analytic names, with RH as motivation rather
-  than as part of the theorem.
+  polarization and commutator identities, together with the partial-adjoint
+  Riesz interface (NG-04 through NG-08 and the formal parts of NG-11--NG-12).
+  These should be presented under their ordinary
+  functional-analytic names, with RH as motivation rather than as part of the
+  theorem.
 - **Research-program guardrails:** the compact-local quartet, Euler topology,
   zero-free tail, collar radical, and parity examples.  Their value is to
   state exactly which tempting implication is unavailable and what additional

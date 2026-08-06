@@ -1,6 +1,6 @@
 # Publication portfolio
 
-Status: conservative consolidation, 2026-08-05.
+Status: conservative consolidation, 2026-08-06.
 
 This file is the publication-facing index for the repository.  It separates
 results that are ready to communicate from results that are merely promising,
@@ -15,6 +15,9 @@ The governing proof policy is
 [`publication/PROOF-STANDARD.md`](publication/PROOF-STANDARD.md).  Negative
 results must use the canonical scopes and debt states in
 [`NO-GO-ATLAS.md`](NO-GO-ATLAS.md).
+Exact RH reformulations, stronger sufficient targets, and failed proof engines
+are deduplicated in
+[`results/RH-PROXY-LEDGER.md`](results/RH-PROXY-LEDGER.md).
 The first adversarial audit and disposition table is
 [`publication/NO-GO-REFEREE-RESPONSE.md`](publication/NO-GO-REFEREE-RESPONSE.md).
 The human-facing mathematical entry point is
@@ -92,6 +95,93 @@ These should be submitted as small independent units, not as one RH-themed PR.
   substantial formal infrastructure, but the central zero-sum formula remains
   a `GuinandWeilLiterature` axiom.  It becomes a headline result only after
   that axiom is eliminated.
+- `RHBridge.GelfandTripleAdjoint` gives a clean project-level interface between
+  Mathlib's partially defined adjoint and the Riesz representative of a weak
+  energy functional.  Its theorem is reusable and axiom-clean, but it is a
+  focused wrapper around existing `LinearPMap` and Fréchet--Riesz machinery,
+  not presently a standalone mathematical novelty claim.  The accompanying
+  Dirichlet-energy calculation is an analytic counterexample to generic
+  shift/phase covariance; the completed-Weil calculation remains diagnostic.
+- `RHBridge.ProjectiveGramInvariant` gives an axiom-clean finite necessary
+  condition for normalized one-dimensional defect-line intertwiners, while
+  `RHBridge.NestedShiftRigidity` and `RHBridge.CofinalShiftPositivity` isolate
+  the exact shift obstruction.  The latter proves that cofinal admissible
+  shifts tending to zero are equivalent to nonnegativity of an antitone floor
+  family.  These are clean structural lemmas and useful audit machinery, not
+  a new proof of Weil positivity; the zeta specialization of the equivalence
+  is the RH-strength part.  The fixed-shift corollaries also prove that
+  `sigma=-1/4` adds exactly one quarter of the reference norm and transports
+  any existing lower bound by that amount; the independent endpoint
+  certificates instantiate this only through `L=749/250`.
+  `RHBridge.SemiboundedFloorDichotomy` now adds the axiom-clean complementary
+  order theorem: one common strict shift is equivalent to uniform lower
+  boundedness, and an antitone floor family with no such bound tends to
+  `-infinity`.  For the actual zeta Weil floors, Suzuki's transform and the
+  Krein--Langer correspondence upgrade global semiboundedness to RH itself;
+  that analytic specialization is written in
+  `results/SEMIBOUNDED-WEIL-DICHOTOMY.md` and is not claimed as Lean-checked.
+  It is best presented as a quantifier correction to the fixed-shift program,
+  not as a new route to RH.
+  `RHBridge.TwoBumpFloorAmplification` checks the reusable scalar passage from
+  a translated cross-term excess to a negative localized floor.  The analytic
+  companion in `results/QUANTITATIVE-WEIL-FLOOR-DIVERGENCE.md` uses a Laplace
+  pole and Bondarenko--Radchenko--Seip cardinal functions to prove that an
+  off-line zero of displacement `delta` would force eventual floor growth
+  `exp((2 delta-o(1))a)`.  This is a conditional theorem about the false-RH
+  world, not evidence for an off-line zero or a proof of RH.  If only finitely
+  many zeros are off-line, a direct quartet norm bound supplies the matching
+  upper rate, so the floor exponent equals the maximal displacement.  This
+  extends to an infinite divisor whose local displacement-square measure is
+  translation bounded.  The unrestricted infinite-divisor direction remains
+  open: ordinary prime-counting error loses an unabsorbable `H^(1/2)` norm,
+  and a synthetic clustered divisor shows that strip width plus essentially
+  perfect Riemann--von Mangoldt counting cannot replace the missing signed
+  sampling estimate, even when every fixed-support form is lower
+  semibounded.  Its selected floors can still decay superexponentially.  The
+  novelty and vertical-strip/truncation details require specialist review.
+  `RHBridge.SelbergPacketConeNoGo` now checks the exact scalar core of a
+  complementary obstruction: positivity on every modulated interval packet,
+  at every width and position, does not generically imply positivity of the
+  compressed Toeplitz form.  The analytic note adds shifted-atom and
+  real-even entire rank-three countermodels.  The surviving separated-box
+  datum admits a particularly clean analytic compression: for any single
+  fixed box width, the growth exponent of its translated zeta Weil cross
+  correlation equals the maximal horizontal zero displacement.  Equivalently
+  RH is boundedness of one fixed-log-width triangular von Mangoldt
+  discrepancy.  This fixed-box theorem is not Lean-checked and is an
+  RH-equivalent detector, not a proof of the bound; its priority also requires
+  a dedicated literature review.
+  `RHBridge.FrostmanCayleyNormalization` locks the
+  Mobius normalization used by the subsequent diagnostic, while making no
+  Schur/kernel-positivity claim.
+- `RHBridge.BoundaryPhaseCounting` gives an axiom-clean exact floor count for
+  a lifted self-adjoint-extension phase, with error less than one from the
+  normalized phase increment.  Its escaping-spectrum model has gap `1/a`
+  after onset `a^2`, formally separating a fixed-support Weyl law from the
+  support-uniform compact count needed in a varying-window limit.  This is a
+  concise reusable quantifier guardrail; the zeta-specific phase-mass estimate
+  remains open.
+- `RHBridge.BoundaryPhaseCoherence` checks the exact scalar consequences of
+  writing boundary-phase density as inverse squared defect-line coherence:
+  the universal Poisson lower bound, a sufficient `1/L` decorrelation bound,
+  and the reciprocal Clark-weight identity.  The operator-theoretic kernel
+  formula is A-rated in the companion report; the Lean module deliberately
+  does not pretend to formalize that analytic input.
+- `RHBridge.ClarkSpectralWeight` separates the raw Clark atom from the
+  normalized reference-defect atom, proves their exact scalar conversion and
+  density cancellation, and records the nonzero mass added by a fixed
+  negative energy shift.  These are axiom-clean normalization guardrails.
+  The Herglotz representation and Plancherel identification of the shifted
+  global absolutely continuous component remain explicitly analytic inputs,
+  not Lean claims.  The subsequent analytic escape theorem disproves natural
+  comparison-vector convergence rather than assuming it.
+- `RHBridge.RieszKernelEscape` checks the scalar geometry forced by nested
+  Riesz projection: retained projection mass, normalized coherence, tail
+  mass, phase-aligned distance, and exponential amplification of a Riesz
+  lower bound.  The companion analytic theorem applies this to Suzuki's
+  defect vectors and proves weak escape; the group-mollifier graph-core and
+  generalized-resolvent arguments are conventional analysis, not formalized
+  by this scalar module.
 
 ### Literature calibration behind the ranking
 
@@ -189,15 +279,36 @@ These should be submitted as small independent units, not as one RH-themed PR.
 
 - Consolidated mathematical guide:
   [`publication/NO-GO-THEOREM-GUIDE.md`](publication/NO-GO-THEOREM-GUIDE.md)
+- Fixed-window detector and balanced Type-II synthesis:
+  [`publication/FIXED-WINDOW-WIDTH-AND-TYPE-II-REDUCTION.md`](publication/FIXED-WINDOW-WIDTH-AND-TYPE-II-REDUCTION.md)
+- Theta Laguerre convolution and Gaussian-mixture obstruction:
+  [`results/THETA-LAGUERRE-CONVOLUTION-AUDIT.md`](results/THETA-LAGUERRE-CONVOLUTION-AUDIT.md)
 - Static Mobius matching:
   [`results/MOBIUS-STATIC-EXCHANGE-NOGO-2026-08.md`](results/MOBIUS-STATIC-EXCHANGE-NOGO-2026-08.md)
 - Phase topology:
   [`results/QUANTIZED-PHASE-INDEX-VERDICT-2026-08.md`](results/QUANTIZED-PHASE-INDEX-VERDICT-2026-08.md)
 - Semilocal trace/polarization:
   [`results/GLOBAL-TRACE-POLARIZATION-FINITE-GATE-2026-08.md`](results/GLOBAL-TRACE-POLARIZATION-FINITE-GATE-2026-08.md)
+- Completed local virial commutator:
+  [`results/COMPLETED-WEIL-VIRIAL-COMMUTATOR-NOGO.md`](results/COMPLETED-WEIL-VIRIAL-COMMUTATOR-NOGO.md)
+- Suzuki projective kernel and cofinal-shift checkpoint:
+  [`results/SUZUKI-PROJECTIVE-KERNEL-CHECKPOINT.md`](results/SUZUKI-PROJECTIVE-KERNEL-CHECKPOINT.md)
+- Suzuki--xi one-scalar calibration falsifier:
+  [`results/SUZUKI-LIVSIC-CALIBRATION-FAIL-FAST.md`](results/SUZUKI-LIVSIC-CALIBRATION-FAIL-FAST.md)
+- Suzuki fixed-shift selected-divisor checkpoint:
+  [`results/SUZUKI-FIXED-SHIFT-DIVISOR-CHECKPOINT.md`](results/SUZUKI-FIXED-SHIFT-DIVISOR-CHECKPOINT.md)
+- Suzuki boundary-phase and spectral-counting checkpoint:
+  [`results/SUZUKI-SPECTRAL-COUNTING-CHECKPOINT.md`](results/SUZUKI-SPECTRAL-COUNTING-CHECKPOINT.md)
+- Suzuki compact phase-mass/coherence fail-fast checkpoint:
+  [`results/SUZUKI-COMPACT-PHASE-MASS-FAIL-FAST.md`](results/SUZUKI-COMPACT-PHASE-MASS-FAIL-FAST.md)
+- Suzuki weighted Clark-measure and fixed-shift target checkpoint:
+  [`results/SUZUKI-WEIGHTED-CLARK-MEASURE-CHECKPOINT.md`](results/SUZUKI-WEIGHTED-CLARK-MEASURE-CHECKPOINT.md)
+- Suzuki defect escape and phase-independent resolvent checkpoint:
+  [`results/SUZUKI-DEFECT-ESCAPE-AND-RESOLVENT-CHECKPOINT.md`](results/SUZUKI-DEFECT-ESCAPE-AND-RESOLVENT-CHECKPOINT.md)
 - Higher-differential and finite-polarization formal no-gos:
   [`lean/rhbridge/RHBridge/CompletedIncidenceComplexNoGo.lean`](lean/rhbridge/RHBridge/CompletedIncidenceComplexNoGo.lean),
-  [`lean/rhbridge/RHBridge/FinitePolarizationNoGo.lean`](lean/rhbridge/RHBridge/FinitePolarizationNoGo.lean)
+  [`lean/rhbridge/RHBridge/FinitePolarizationNoGo.lean`](lean/rhbridge/RHBridge/FinitePolarizationNoGo.lean),
+  [`lean/rhbridge/RHBridge/VirialCommutatorNoGo.lean`](lean/rhbridge/RHBridge/VirialCommutatorNoGo.lean)
 
 ## 4. Results that are supporting lemmas, not standalone publications
 
@@ -208,6 +319,8 @@ manufactured around them:
   diagonalizable finite operator with spectrum on the critical line;
 - degree-zero Hodge energy being independent of later differentials;
 - finite Euler-factor null-homotopy by radial contraction;
+- eigenstate/trace-zero commutator identities and finite compression leakage
+  by themselves;
 - the elementary Mobius/fugacity polynomial identities by themselves;
 - finite Galerkin scans, Lee--Yang moment scans, and prime-event experiments;
 - restatements of Weil, Li, Nyman--Beurling, or Guinand--Weil equivalences;
@@ -242,13 +355,15 @@ The Python unit tests can now be collected from the repository root through
 `pytest.ini`; they test exact helper logic and regressions, not the analytic
 theorems themselves.  `requirements.txt` and `requirements-test.txt` record
 the supported dependency ranges; an exact archival lock remains a release
-task for each heavy certificate artifact.  The current snapshot passes all 18
-root tests and all four dedicated kernel-runner cleanup tests.
+task for each heavy certificate artifact.  The current snapshot passes all 75
+tests collected by `pytest -q src`, including the low-memory Suzuki defect-
+escape diagnostics.
 
 An independent serialized replay of the Stage-3 boundary/parity,
-Hodge-low-sector, completed-incidence, finite-polarization, and quantized-phase
-audit files also reported only `propext`, `Classical.choice`, and `Quot.sound`.
-The new prime-edge audit and the existing global-Mobius audit report the same.
+Hodge-low-sector, completed-incidence, finite-polarization, quantized-phase,
+and virial-commutator audit files also reported only `propext`,
+`Classical.choice`, and `Quot.sound`.  The new prime-edge audit and the
+existing global-Mobius audit report the same.
 These checks validate only their exact Lean declarations, not the analytic
 convergence or zeta-specific interpretations in the reports.  Cold focused
 processes initially measured between roughly 2.3 and 6.3 GB RSS.  After the
@@ -288,44 +403,45 @@ rules do not constrain a remote exceptional zero unless the limiting topology
 prevents escape.  The gamma factor, poles, counterterms, and domain cannot be
 added after a local sign argument.
 
+The fixed-window Type-II audit makes this last point algebraically precise.
+The full cofactor sum supplies a zeta factor that lowers higher-order
+critical-zero poles to simple poles.  Freezing a cofactor or Euler boundary
+piece loses that factor; taking an ambient norm deletes the same cross terms;
+and local divisor reflection leaves a coherent semiprime collar.  These are
+three views of one global-cancellation obstruction, not three independent
+reasons that the exact aggregate must fail.
+
 ## 7. New research intuition
 
-The most coherent new candidate is a **relative anomaly index**, not an
-absolute finite-Euler winding.  Finite local phases are contractible, but the
-failure of their contractions to converge uniformly may define a relative
-class between two trivializations: an arithmetic prime--gamma
-renormalization and an analytic completed-function trivialization.  Such a
-class would have to satisfy all of the following before receiving any RH
-credit:
+The best-supported direct program is now **cofactor-complete Type-II
+dispersion**.  Its first fair target is not the RH-equivalent polylogarithmic
+bound.  It is any fixed power saving for the full centered aggregate, which
+would give a genuine fixed zero-free strip.  A candidate engine should be
+retired only if its exact dispersion identity loses the cofactor cross terms,
+produces merely an almost-all-scale statement, or admits a rigorous
+counterexample.  Failure to reach the final RH scale on a first attempt is not
+such a counterexample.
 
-- be defined without locating or counting zeta zeros;
-- change under insertion of one remote quartet;
-- exist in a topology stronger than `B^2` but attainable by completed
-  prime--gamma approximants;
-- have an arithmetic computation of its value;
-- not reduce, after unwinding definitions, to the argument principle.
+The B-spline reduction now includes an
+`exp(O_ell(k log k))` uniform Euler constant.  This gives an unconditional
+moving-order arithmetic localization with both variables `x^(1/2+o(1))` and
+cofactor `x^o(1)`.  It is not an RH-equivalent reduction: a varying-test
+oscillation converse is still missing and must be proved before a subpower
+moving-order residual receives RH credit.
 
-The first fail-fast calculation is to write a renormalized cocycle on the
-boundary of a fixed strip and test whether its integer defect can be computed
-from prime and gamma truncations with a cutoff-independent error.  If the only
-proof of cutoff independence invokes the divisor of `xi`, the proposal is
-circular and should be killed.
+Two genuinely orthogonal programs remain useful controls.  A full modular
+theta identity should be tested through properties weaker than a positive
+Gaussian-mixture representation: that representation is impossible because
+the exact convolution density decays faster than every exponential in the
+squared separation.  An all-place positive polarization remains conceptually
+open, but only if compatibility under adjoining primes, uniform coercivity,
+and the archimedean completion are built into the same object.  Finite
+place-by-place metrics and spectrum-fitted polarizations are already outside
+that surviving class.
 
-Within the Weil program, the consolidation points to a narrower control
-problem: **signed eventwise spectral flow**.  New prime shells are indefinite,
-so monotone positive propagation is the wrong invariant.  The prime-5 rescue
-suggests tracking the Schur complement of the old negative sector as each
-prime event activates.  A conserved or contractive renormalized quantity
-could be meaningful; merely repeating one finite rescue is not.  The required
-uniform event theorem remains RH-strength and should be stated before further
-computation.
-
-For the Mobius branch, the static theorem says that a viable cancellation
-mechanism must be scale-adaptive, use unbounded prime incidence, or maintain
-global matching state.  The natural next object is therefore an augmenting-
-path or mass-transport invariant, not a larger dictionary of local toggles.
-That is a sharply reduced search space, although it is not presently a route
-with substantial RH probability.
+Relative indices, eventwise spectral flow, and static Mobius matching remain
+useful sources of guardrails, but no current version has a completion-
+preserving engine strong enough to justify primary allocation.
 
 ## 8. Publication order
 

@@ -51,6 +51,20 @@ import RHBridge.IncidenceCycleObstructionAudit
 import RHBridge.HodgeHighSectorAudit
 import RHBridge.HodgeLowSectorAudit
 import RHBridge.HodgeLowSectorNoGoAudit
+import RHBridge.VirialCommutatorNoGoAudit
+import RHBridge.GelfandTripleAdjointAudit
+import RHBridge.FormDomainVirialAudit
+import RHBridge.ProjectiveGramInvariantAudit
+import RHBridge.NestedShiftRigidityAudit
+import RHBridge.CofinalShiftPositivityAudit
+import RHBridge.SemiboundedFloorDichotomyAudit
+import RHBridge.TwoBumpFloorAmplificationAudit
+import RHBridge.FrostmanCayleyNormalizationAudit
+import RHBridge.BoundaryPhaseCountingAudit
+import RHBridge.BoundaryPhaseCoherenceAudit
+import RHBridge.ClarkSpectralWeightAudit
+import RHBridge.RieszKernelEscapeAudit
+import RHBridge.SelbergPacketConeNoGoAudit
 
 /-!
 # Opt-in axiom audits for RHBridge
