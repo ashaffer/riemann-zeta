@@ -3,6 +3,7 @@ Copyright (c) 2026 Riemann-Zeta project contributors. All rights reserved.
 Authors: Riemann-Zeta project contributors
 -/
 import RHBridge.LocalizationLiterature
+import RHBridge.IntervalAutocorrelationSupport
 
 /-!
 # Cancellation-sensitive prime activation
@@ -36,11 +37,13 @@ def intervalShiftDefect (a u : ℝ) (f : TestSpace a) : ℝ :=
 theorem intervalShiftDefect_nonneg (a u : ℝ) (f : TestSpace a) :
     0 ≤ intervalShiftDefect a u f := sq_nonneg _
 
-/-- Standard compact-support fact: a translate by at least the diameter of
-`[-a,a]` has zero autocorrelation (endpoint overlap is null). -/
-axiom intervalAutocorrelation_eq_zero_of_two_mul_le
+/-- A translate by at least the diameter of `[-a,a]` has zero
+autocorrelation. This is the compact-support theorem proved in
+`RHBridge.IntervalAutocorrelationSupport`, not a project axiom. -/
+theorem intervalAutocorrelation_eq_zero_of_two_mul_le
     {a u : ℝ} (f : TestSpace a) (h : 2 * a ≤ |u|) :
-    AutocorrelationPlancherel.intervalAutocorrelation a u f = 0
+    AutocorrelationPlancherel.intervalAutocorrelation a u f = 0 :=
+  AutocorrelationPlancherel.intervalAutocorrelation_eq_zero_of_two_mul_le f h
 
 /-- **Standard Hilbert-space literature input.** Translation is unitary, so
 expanding the squared distance gives twice mass minus twice autocorrelation.
