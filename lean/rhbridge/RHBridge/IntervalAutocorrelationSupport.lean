@@ -16,6 +16,8 @@ Lebesgue measure.
 
 namespace RHP2Bridge.AutocorrelationPlancherel
 
+open scoped InnerProductSpace
+
 noncomputable section
 
 /-- A translate by at least the diameter of `[-a,a]` has zero
