@@ -29,13 +29,31 @@ noncomputable def p2Omega (r : ℝ) : ℝ :=
   quarterDigammaReal r - Real.log Real.pi -
     p2PrimeAmplitude * Real.cos (r * Real.log 2)
 
-/-- The clipped exterior floor at frequency `S = 50`. -/
+/-- The clipped exterior floor anchored at the digamma value at frequency
+`S = 50`, with the prime oscillation replaced by its worst-case value
+`cos ≤ 1`.  In particular this definition is not the assertion
+`p2Alpha = p2Omega 50`. -/
 noncomputable def p2Alpha : ℝ :=
   quarterDigammaReal 50 - Real.log Real.pi - p2PrimeAmplitude
+
+/-- The exact discrepancy between the actual symbol at frequency `50` and the
+conservative exterior floor. -/
+theorem p2Omega_fifty_sub_p2Alpha :
+    p2Omega 50 - p2Alpha =
+      p2PrimeAmplitude * (1 - Real.cos (50 * Real.log 2)) := by
+  unfold p2Omega p2Alpha
+  ring
 
 theorem p2PrimeAmplitude_nonneg : 0 ≤ p2PrimeAmplitude := by
   unfold p2PrimeAmplitude
   positivity
+
+/-- The discrepancy at frequency `50` is nonnegative. -/
+theorem p2Omega_fifty_sub_p2Alpha_nonneg :
+    0 ≤ p2Omega 50 - p2Alpha := by
+  rw [p2Omega_fifty_sub_p2Alpha]
+  exact mul_nonneg p2PrimeAmplitude_nonneg
+    (sub_nonneg.mpr (Real.cos_le_one _))
 
 /-- The p=2 symbol is even. -/
 theorem p2Omega_neg (r : ℝ) : p2Omega (-r) = p2Omega r := by
