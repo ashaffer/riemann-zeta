@@ -733,7 +733,263 @@ the maximal horizontal zero displacement; the exact reduction is in
 [`FIXED-BOX-WEIL-WIDTH-SPECTROMETER.md`](../results/FIXED-BOX-WEIL-WIDTH-SPECTROMETER.md).
 Proving that orbit bounded remains RH-equivalent.
 
-### 4.7 Two supporting countermodels
+### 4.7 Exact completion collapses the nonlocal Ward remainder (NG-22)
+
+The terminal Markov covariance is positive, and Selberg's identity splits
+the near-square semiprime diagonal into a connected term and a much smaller
+factor-ratio anisotropy.  This suggests asking the center and unequal-product
+covariances to supply the missing connected copy.  Let `G` denote precisely
+those terms and `D` the grouped tail diagonal.  Polarization and exact Vaughan
+completion give
+
+```text
+D+G=K(T-Z,T-Z)=K(C_full+E_Y,C_full+E_Y).                 (4.12)
+```
+
+Thus `G` is the unknown completed energy minus `D`.  The Ward identity can
+relabel part of `D`, but it has no second product index and cannot sign the
+rest.  In Fourier coordinates the required term is twisted by
+
+```text
+cos(t log(p/q)),                                         (4.13)
+```
+
+which changes sign.  Exact positive-semidefinite Gram models rule out a sign
+from covariance and Ward alone, while D-rated finite B-spline/Vaughan runs
+reject all four natural orientations in the tested arithmetic models.
+
+**Exact scope and escape.**  This closes the nonlocal Ward lift as a cheaper
+algebraic mechanism.  It does not rule out a new zeta-specific two-shift
+correlation theorem.  Equation (4.12) shows that such a theorem is a direct
+bound for the complete P4/R71 carrier.  The tempting functional-equation
+identity `abs(xi'/xi)^2=-(xi'/xi)^2` is only formal at the critical-zero
+poles; a two-sided regulator restores a contact term of mass `pi/sigma` near
+a simple zero.  The exact algebra, diagnostics, and proof boundary are in
+[`NONLOCAL-WARD-COVARIANCE-NOGO.md`](../results/NONLOCAL-WARD-COVARIANCE-NOGO.md).
+The surviving direct estimate and the failed sign/diagonal/low-band variants
+are separated in
+[`DIRECT-CUTOFF-COMPLETE-TWO-SHIFT-GATE.md`](../results/DIRECT-CUTOFF-COMPLETE-TWO-SHIFT-GATE.md).
+
+### 4.8 Local Mobius renormalization preserves the carrier (NG-23)
+
+The coefficient-specific continuation asks whether changing the Vaughan
+cutoff one shell at a time produces a martingale or scale contraction.  For
+
+```text
+A_Y=(1-zeta M_Y)(-zeta'/zeta-L_Y),
+```
+
+every finite cutoff has the same principal part at a zero `rho` of
+multiplicity `m_rho`:
+
+```text
+principal_part_rho A_Y=-m_rho/(s-rho).                  (4.14)
+```
+
+Cutoff differences are analytic there.  Thus the carrier is an exact
+eigenvalue-one direction of the shell flow, not a contracting mode.  The
+nonlinear centered Selberg recursion does not repair this: its Riccati core
+obeys
+
+```text
+-q_a'+q_a^2=0,       q_a=-1/(s-a),                       (4.15)
+```
+
+for arbitrary complex `a`.  An off-axis pole cancels the quadratic
+double-pole term, while the linear term leaves a simple pole.  Thus this is a
+double-pole-null direction of the quadratic core, not a solution of the full
+homogeneous Riccati equation.  Cole--Hopf normalization reintroduces
+`1/zeta`.
+
+**Exact scope and escape.**  This closes local cutoff martingales, scale
+monotonicity, factor-fiber gaps, and Riccati double-pole coercivity as
+independent engines.  It does not refute a global Mobius-specific correlation
+theorem.
+After all products and center terms are restored, that survivor is the R73
+fixed-saving estimate itself and is essentially equivalent to a fixed
+zero-free strip.  The exact algebra and D-rated finite shell diagnostics are
+in
+[`MOBIUS-TWO-SHIFT-RENORMALIZATION-GATE.md`](../results/MOBIUS-TWO-SHIFT-RENORMALIZATION-GATE.md).
+The formerly formal Vinogradov--Korobov calibration is now proved for both
+the cutoff-independent exact-head field and the frozen evaluated center in
+[`FULL-FIELD-VK-SUBPOWER-BOUND.md`](../results/FULL-FIELD-VK-SUBPOWER-BOUND.md);
+the latter transfer is classical periodic-Euler bookkeeping.  Neither bound
+has a fixed exponent saving.
+
+### 4.9 Phase/Haar transfer and center annihilation
+
+The completed fourth moment has the exact physical form
+
+```text
+integral abs(F_I)^4=2pi norm(g_I*g_I)_2^2.              (4.16)
+```
+
+Exact product grouping makes the pair diagonal subexponential, but a short
+real-frequency orbit does not average to either independent phases or the
+exact-product Haar measure.  A faithful finite block exceeds both
+comparators for moments four and six.  This is D-rated falsification of the
+finite domination claims, not an asymptotic statement about the actual
+coefficient.
+
+The exact rank-two center can be removed by
+`Q_h=(tau_h-exp(h/2))^2`.  Its real-frequency multiplier is bounded above
+and below, however, and it has an explicit stable inverse.  It is therefore
+a center-free coordinate, not an independent contraction mechanism.
+
+**Exact scope and escape.**  A coefficient-specific theorem for the full
+atomic--continuous near-product form remains possible.  If it saved one
+fixed power `kappa`, it would prove
+`Re(rho)<=1-kappa/4` for the whole-line moment; the finite-height Sobolev
+fallback gives `Re(rho)<=1-qkappa/(4q+1)`.  The reduction, finite data, and exact
+quantifiers are in
+[`FIXED-UNIFORM-ZERO-FREE-STRIP-SPRINT.md`](../results/FIXED-UNIFORM-ZERO-FREE-STRIP-SPRINT.md).
+
+### 4.10 Pair cells and proportional-order filters (NG-25)
+
+For a continuously translated completed localizer, Fourier duality against
+a compact subwindow and Hausdorff--Young prove the exact exponent law
+
+```text
+limsup log(1+U_p(R))/R=pDelta.                          (4.17)
+```
+
+Thus `U_4<=X^(2-kappa+o(1))` is exponent-equivalent to
+`Re(rho)<=1-kappa/4`; the full moment loses no Sobolev factor.
+
+Partitioning the completed pair field does not create positivity.  Its exact
+ledger is `U_4=D_atom+I_within+I_across`, and a cell merge adds a signed cross
+inner product.  Likewise, a power-saving mesoscopic `Lambda*Lambda` variance
+already implies the same strip because `(-zeta'/zeta)^2` has a nonzero
+double pole at every zero.
+
+A high-order shift filter cannot evade the pole theorem.  If its real-axis
+contraction is `exp(-aR)`, Bernstein--Walsh forces span at least
+`(a/d_0-o(1))R` to retain every carrier at displacement `d_0`.  The
+proportional enlargement of the arithmetic scale costs more than the
+retained contraction for every `d_0<1/2`.
+
+**Exact scope and escape.**  This closes positive/monotone pair-cell merging,
+pair variance as a weaker premise, and proportional-order finite-shift
+filtering.  It does not close a genuinely new direct proof of the fixed
+strip.  Details and the D-rated cell probe are in
+[`FIXED-STRIP-FOURTH-MOMENT-PROOF-ATTEMPT.md`](../results/FIXED-STRIP-FOURTH-MOMENT-PROOF-ATTEMPT.md).
+
+### 4.11 Non-attained spectral edges need not recur densely (NG-26)
+
+If the outer displacement `Delta` is attained, the completed zero expansion
+has a nonzero Bohr edge:
+
+```text
+exp(-Delta R)G(R)->sum_gamma b_gamma exp(i gamma R).
+```
+
+Its positive mean square forces exponentially large fixed-window energy on a
+set of positive right lower Banach density.  This remains true for the
+fixed-width R5 clustered divisor; ordinate clustering cannot remove the
+edge diagonal.
+
+Attainment is load-bearing.  A real-even absolutely summable quartet series
+with displacements increasing to, but never reaching, `Delta` can use each
+new layer to cancel all earlier layers on a longer interval.  Those intervals
+can occupy proportion `1-o(1)` along selected scales even though one fixed
+off-line carrier remains.  Energy-abscissa and fixed Sobolev bounds admit an
+even simpler sparse bump-train countermodel.
+
+**Exact scope and escape.**  The quartet construction does not satisfy
+Riemann--von Mangoldt local frequency counting or the prescribed zeta
+multiplier.  Thus it closes only a generic recurrence inference.  A
+zeta-specific high-frequency `l1` uncertainty theorem for moving record
+carriers remains possible.  The theorem, construction, and D-rated clustered
+probe are in
+[`EDGE-ATTAINMENT-RECURRENCE-GATE.md`](../results/EDGE-ATTAINMENT-RECURRENCE-GATE.md).
+
+### 4.12 Canonical beat separability does not align its phase (NG-28)
+
+The global primitive square-root-prime frame has one common dual.  Its
+canonical tensor is `W(theta/(pr))`, so log-Mellin separation removes the
+generic tensor-rank loss.  In the original nonprimitive cofactor expansion,
+the off-axis amplitude likewise becomes a scalar Wright form after grouping
+`k=j theta`; the finite primitive common-`g` mask remains open.
+
+This positive structure occurs on the wrong phase.  The canonical
+coefficient multiplies `e(j theta/(pr))`, while the native product coefficient
+multiplies `e(j theta inverse(r)/p)`.  Reciprocity aligns the amplitudes but
+leaves their coefficient mismatch on the slow beat.
+
+One can prescribe native coefficients on the low band and reconstruct
+exactly with high beats.  The high complement is a below-Rayleigh discrete
+prolate frame: a powered-box witness makes its smallest direction
+exponentially small in the removed bandwidth.  Exact contact duality then
+shows that Fourier decay of a high packet forces reciprocal coefficient
+growth unless the low mismatch was already small for the contact family.
+
+**Exact scope and escape.**  Generic rank is not the obstruction.  The
+remaining escape is an exact axis-renormalized reciprocal theorem.  The
+completed-lattice affine-counterterm possibility is resolved by NG-29.
+Details are in
+[`COEFFICIENT-SPECIFIC-LOW-BEAT-TENSOR-GATE.md`](../results/COEFFICIENT-SPECIFIC-LOW-BEAT-TENSOR-GATE.md).
+
+### 4.13 Arithmetic centering preserves the contact (NG-29)
+
+The reciprocal phase is not centered at one.  Over the complete primitive
+group modulo a prime `r`, its mean is `c_r(k)/(r-1)`: `-1/(r-1)` off
+resonance and one on `r|k`.  Correct centering makes the inverse-phase part
+eligible for a fixed-power Kloosterman estimate, but leaves
+
+```text
+mu_r(k)h_p conjugate(h_r)-gamma_(p,r,theta),
+```
+
+which is essentially the full canonical contact.
+
+Integration by parts gives an exact reciprocal derivative transfer with a
+favorable `1/theta` coefficient.  Its arithmetic-mean projection is the same
+residual.  Choosing the interpolating coefficient to annihilate that
+projection costs `1/abs(mu)=r-1`, much more than the imported fixed power.
+
+The R82 top-prime null cloud also gives an exact affine determinant gauge,
+but at `p,r asymp Y` its low-band multiplier is only `theta/Y`, costing
+`Y/T`.  At the useful square-root scale the null identity fails by an
+injective near-square multiple tensor: the original Type-II carrier.
+
+**Exact scope and escape.**  This closes fixed-degree determinant moments and
+the top-prime affine cloud as standalone engines, not every joint
+prime-specific cancellation.  The remaining escape is a signed theorem for
+the square-root Type-II defect and canonical `gamma` contact before
+arithmetic projection.  The full proof and finite complex-phase checks are
+in
+[`NATURAL-MEAN-AFFINE-FIXED-POWER-GATE.md`](../results/NATURAL-MEAN-AFFINE-FIXED-POWER-GATE.md).
+
+### 4.14 Signed reciprocal compression exposes the contact (NG-30)
+
+For the ordered primitive square-root frame, the reciprocal rotation has the
+exact shifted kernel
+
+```text
+(A R_jA^*)(t,m)=sum_(p!=r)c_p(t-m)c_r(t-m-j).
+```
+
+After whitening, its canonical joint difference is `(C_j-I)x`, where `C_j`
+is a compression of a diagonal unitary.  Canonicality gives a dissipative
+phase-defect square and an orthogonal Schur-leakage square, but no small
+parameter.
+
+The shift Fourier calculation is decisive: reciprocal transport has no zero
+character, while `R_j-I` has zero character exactly `-I`.  Flat or slowly
+varying long-shift averaging therefore erases the transported part and leaves
+the complete canonical contact.  For the actual positive prime weights, a
+prime-point ceiling proves that the full native signed residual is natural
+size in both the Euclidean and canonical frame metrics, uniformly in the
+shift.
+
+**Exact scope and escape.**  This closes natural block contraction and
+ordinary zero-orbit completion, not a specially weighted all-sector R71
+pairing.  Any survivor must be located in the exact B-spline seams,
+resonances, cross-`g` sectors, or Type-I corrections before absolute values.
+The full identities, literature boundary, and finite checks are in
+[`SIGNED-JOINT-RECIPROCAL-COMPRESSION-GATE.md`](../results/SIGNED-JOINT-RECIPROCAL-COMPRESSION-GATE.md).
+
+### 4.15 Two supporting countermodels
 
 These are useful guardrails, not headline research theorems.
 
@@ -890,8 +1146,9 @@ Accordingly, a serious new RH mechanism should answer five questions.
    was proved?
 
 NG-01, NG-02, and NG-10 test questions 1, 2, and 5.  NG-03 through NG-08,
-NG-11, NG-12, and NG-16 test questions 3 and 4.  NG-09 tests whether a nominally global
-arithmetic move actually reaches almost every part of its domain.
+NG-11, NG-12, and NG-16 through NG-30 test questions 3 and 4.  NG-09 tests
+whether a nominally global arithmetic move actually reaches almost every
+part of its domain.
 
 ## 8. What is presently suitable for mathematical exposition
 

@@ -1,0 +1,530 @@
+# R148 cubic local selection and zero-avoidance gate
+
+## Status
+
+The degree-three exterior mask from R146 has an unusually favorable exact
+form.  For a totally real cubic field `K` of positive odd squarefree
+discriminant `D`, let `Std_K` be the faithful two-dimensional representation
+of its `S_3` Galois closure and let `sgn_K=chi_D` be the quadratic resolvent
+character.  Then
+
+```text
+Psi_3 = 1 + sgn - Std,
+L(s,Psi_3)=zeta(s)L(s,chi_D)/L(s,Std_K)
+          =zeta(s)zeta_(Q(sqrt D))(s)/zeta_K(s).              (0.1)
+```
+
+Its unramified local factor is `1` unless `p` is inert in `K`; at an inert
+prime it is
+
+```text
+(1+p^(-s)+p^(-2s))/(1-p^(-s))^2.                            (0.2)
+```
+
+Every partially ramified local factor is also `1`.  The signed finite
+conductor and all Gamma factors cancel exactly.
+
+This report proves a sharp unconditional *selection theorem* for this mask.
+For every fixed `eta>0`, `T>=1`, and
+
+```text
+sigma > 51/56,                                               (0.3)
+```
+
+all sufficiently large `H` admit a totally real odd-squarefree `S_3` cubic
+field `K` such that
+
+```text
+exp((2+eta)H)/2 < D_K <= exp((2+eta)H),
+no prime p<=H is inert in K,
+L(s,Std_K) != 0 for Re(s)>=sigma and |Im(s)|<=T.              (0.4)
+```
+
+The local-family count is asymptotic, not merely nonempty.  Its exact main
+density at each odd head prime is
+
+```text
+a_p=(2p+3)/(3(p+1))
+   =(2/3)(1+1/(2p+2)),                                      (0.5)
+```
+
+relative to the odd-squarefree family, and hence
+
+```text
+A_H=product_(3<=p<=H) a_p
+   =(2/3)^(pi(H)) (log H)^(1/2+o(1)).                        (0.6)
+```
+
+Bhargava--Taniguchi--Thorne's uniform error forces the certified conductor
+scale `log D_K>(2+o(1))H`.  Brumley--Thorner--Zaman then removes all fields
+whose standard `L`-function has a zero in the target rectangle; its exponent
+is `(56/5)(1-sigma)`, which gives (0.3).
+
+This is a real simultaneous local-mask/zero-avoidance theorem.  It does **not**
+close the R145 Cauchy argument.  That argument requires
+
+```text
+log D_K=o(H^kappa),                 kappa<1/2,                (0.7)
+```
+
+after the numerator and denominator divisors are bounded absolutely, while
+(0.4) has `log D_K asymp H`.  Even an error-free density argument would
+naturally need `log D_K` on the order of `H/log H`, still too large for (0.7).
+The latter observation is a family-entropy barrier, not an individual-field
+lower bound.  No unconditional theorem located here excludes an exceptionally
+correlated field satisfying (0.7).
+
+```text
+S_3 exterior mask and inert-prime Euler product             EXACT
+Gamma and signed-conductor cancellation                     EXACT
+growing no-inert local family                               ASYMPTOTIC
+unconditional construction scale                            log D>(2+o(1))H
+standard Artin zero avoidance                               sigma>51/56
+quadratic-sign avoidance for divisor survival               NOT NEEDED
+quadratic-sign avoidance/control for a uniform high jet      NEEDED
+absolute Cauchy conductor budget                            FAILS
+exceptionally cheap correlated cubic field                  OPEN
+signed joint outer-zero cancellation                        OPEN
+fixed uniform zeta zero-free strip                          NOT PROVED
+nonexistence of such a strip                                NOT PROVED
+```
+
+Date: 2026-08-08.
+
+Predecessors:
+[`R144-BOUNDED-SUPPORT-VIRTUAL-CHARACTER-ANNIHILATOR.md`](R144-BOUNDED-SUPPORT-VIRTUAL-CHARACTER-ANNIHILATOR.md),
+[`R145-FULL-STRIP-POSITIVITY-AND-DIVISOR-NULL-GATE.md`](R145-FULL-STRIP-POSITIVITY-AND-DIVISOR-NULL-GATE.md),
+and
+[`R146-FROBENIUS-ENTROPY-AND-INERTIA-ADJOINT-GATE.md`](R146-FROBENIUS-ENTROPY-AND-INERTIA-ADJOINT-GATE.md),
+with the family-scale precursor
+[`R147-EXTERIOR-CYCLE-FAMILY-SELECTION-GATE.md`](R147-EXTERIOR-CYCLE-FAMILY-SELECTION-GATE.md).
+
+## 1. Algebraic specialization
+
+The character table on the three conjugacy classes is
+
+```text
+class                 1       (12)       (123)
+1                     1         1           1
+sgn                   1        -1           1
+Std                   2         0          -1
+Psi_3=1+sgn-Std       0         0           3.               (1.1)
+```
+
+Thus `Psi_3` is a nonnegative integral virtual character of degree zero.  If
+`T_p=p^(-s)`, direct substitution into the Artin local factors gives
+
+```text
+L_p(s,Psi_3)=1,                         Frob_p=1 or (12),
+L_p(s,Psi_3)=(1+T_p+T_p^2)/(1-T_p)^2,  Frob_p=(123).          (1.2)
+```
+
+Equivalently,
+
+```text
+-L'/L(s,Psi_3)
+ =sum_(p inert) sum_(v>=1, 3 does not divide v)
+       3(log p)p^(-vs),                                      (1.3)
+```
+
+initially in `Re(s)>1`.
+
+Now assume that `D=D_K>0` is odd and squarefree.  An odd field discriminant
+is `1 mod 4`, so `D` is the positive fundamental discriminant of the
+quadratic resolvent `F=Q(sqrt D)`.  Since `D` is not a square, the normal
+closure `E` has group `S_3`.  At every ramified finite prime the inertia group
+is generated by a transposition.  Its invariants have dimensions
+
+```text
+dim(1^I)=1,              dim(sgn^I)=0,              dim(Std^I)=1,  (1.4)
+```
+
+and Frobenius acts trivially on the one-dimensional invariant spaces.  The
+ramified local quotient in (0.1) is therefore `1`.  This proves the exact
+Euler product (0.2), including the ramified places rather than only the
+unramified character identity.
+
+The standard conductor-discriminant identities are
+
+```text
+zeta_K(s)=zeta(s)L(s,Std_K),
+zeta_F(s)=zeta(s)L(s,chi_D),
+q(Std_K)=q(chi_D)=D.                                         (1.5)
+```
+
+All fields involved are totally real, so the archimedean factors are one,
+one, and two copies of `Gamma_R(s)`.  Both their degrees and the signed
+finite conductor cancel in (0.1).  Moreover `E/F` is an everywhere
+unramified cyclic cubic extension and
+
+```text
+D_E=D^3.                                                      (1.6)
+```
+
+The representation `Std_K` is monomial: it is induced from either nontrivial
+character of `Gal(E/F)=C_3`.  Automorphic induction therefore realizes it as
+a cuspidal `GL_2/Q` representation, and its standard `L`-function is entire.
+
+## 2. The audited local family
+
+For `H>=3`, define a collection `Sigma_H` of cubic local specifications as
+follows.
+
+```text
+p=2:       (111) or (21);
+3<=p<=H:   (111), (21), or partially ramified (1^2 1);
+p>H odd:   A'_p, all etale cubic algebras except the totally ramified ones.
+                                                                    (2.1)
+```
+
+The first condition makes the discriminant odd and also excludes inertness
+at `2`.  At every odd prime, excluding total ramification is equivalent in
+this family to squarefreeness of the discriminant.  Positive discriminant
+selects the totally real signature.  Hence fields counted by `Sigma_H` are
+exactly of the required arithmetic type, with no inert prime through `H`.
+
+Bhargava--Taniguchi--Thorne, Theorem 1.3, assigns the following normalized
+main masses to the five splitting types:
+
+```text
+C_p(111)       = p^2/[6(p^2+p+1)],
+C_p(21)        = p^2/[2(p^2+p+1)],
+C_p(3)         = p^2/[3(p^2+p+1)],
+C_p(1^2 1)     = p/[p^2+p+1],
+C_p(1^3)       = 1/[p^2+p+1].                                (2.2)
+```
+
+They sum to one.  Consequently
+
+```text
+C_p(A'_p)=p(p+1)/(p^2+p+1),
+C_p(Sigma_(H,p))=p(2p+3)/[3(p^2+p+1)],                       (2.3)
+```
+
+and their ratio is exactly (0.5).  At `p=2`, the fixed mass in (2.1) is
+`C_2(111 or 21)=8/21`; it is absorbed into the positive base constant.
+
+For completeness, put `x=p^(-1/3)` and
+
+```text
+u_p=(1-p^(-1/3))/[(1-p^(-5/3))(1+p^(-1))].                  (2.4)
+```
+
+The corresponding normalized secondary masses are
+
+```text
+K_p(111)       =u_p(1+x)^3/6,
+K_p(21)        =u_p(1+x)(1+x^2)/2,
+K_p(3)         =u_p(1+x^3)/3,
+K_p(1^2 1)     =u_p x^3(1+x)^2,
+K_p(1^3)       =u_p x^6(1+x).                               (2.5)
+```
+
+If
+
+```text
+b_p=[K_p(111)+K_p(21)+K_p(1^2 1)]/[1-K_p(1^3)],              (2.6)
+```
+
+then `b_p/a_p=1+O(p^(-1/3))`.  Therefore
+
+```text
+product_(3<=p<=H) b_p/a_p
+ =exp[O(sum_(p<=H)p^(-1/3))]
+ =exp[O(H^(2/3)/log H)].                                     (2.7)
+```
+
+This verifies that the secondary term stays subexponential on the scale
+used below; it is not silently discarded.
+
+Finally,
+
+```text
+log A_H
+ =-log(3/2)pi(H)+(1/2)log log H+O(1),                        (2.8)
+```
+
+which proves (0.6).  This is the exact local entropy of the construction.
+
+## 3. Uniform counting and the constant `2`
+
+Let
+
+```text
+P_H=product_(3<=p<=H)p.                                      (3.1)
+```
+
+All but finitely many specifications in `Sigma_H` are the ordinary
+condition `A'_p`, so Bhargava--Taniguchi--Thorne, Theorem 1.3, applies.  Its
+local error factor is
+
+```text
+E(Sigma_H)=O(P_H^(2/3)),                                     (3.2)
+```
+
+because every exceptional head condition is a union of splitting types.
+Uniformly in this growing finite specification,
+
+```text
+N_3^+(X,Sigma_H)
+ =C^+(Sigma_H) X/[12 zeta(3)]
+  +K^+(Sigma_H) 4zeta(1/3)X^(5/6)
+       /[5 Gamma(2/3)^3 zeta(5/3)]
+  +O_epsilon(X^(2/3+epsilon)P_H^(2/3)).                      (3.3)
+```
+
+Take the difference of (3.3) at `Q` and `Q/2`.  Equations (2.7)--(2.8) and
+the prime number theorem give, for a fixed `eta>0` and
+
+```text
+log Q=(2+eta)H,                                               (3.4)
+```
+
+```text
+M(Q,H):=#{K: Q/2<D_K<=Q, K satisfies Sigma_H}
+       =c_0 Q A_H(1+o(1))
+       =Q^(1-o(1)),                                          (3.5)
+```
+
+where `c_0>0` is independent of `H`.
+
+Indeed, the secondary/main ratio is
+
+```text
+Q^(-1/6) exp[O(H^(2/3)/log H)]=o(1),                         (3.6)
+```
+
+while the error/main logarithm is at most
+
+```text
+(-1/3+epsilon)log Q +(2/3)H+O(H/log H)
+ =-(eta/3)H+epsilon(2+eta)H+o(H),                            (3.7)
+```
+
+which tends to `-infinity` after fixing a sufficiently small `epsilon`.
+
+This calculation explains the certified threshold exactly.  The earlier
+Taniguchi--Thorne Theorem 1.3 had error
+
+```text
+O(X^(7/9+epsilon) product_(p in head)p^(16/9)),               (3.8)
+```
+
+because a genuine splitting-type specification has local modulus exponent
+`e_p=2`.  Its analogous threshold was `log Q>(8+o(1))H`.
+Bhargava--Taniguchi--Thorne improves `8` to `2`.
+
+## 4. Removing standard-Artin zeros
+
+For each field in (3.5), let `pi_K` be the cuspidal automorphic
+representation attached to `Std_K`.  Its analytic conductor is `asymp D_K`,
+with an absolute archimedean constant.  Distinct cubic-field isomorphism
+classes give distinct `pi_K`: `Std` is faithful, so the representation
+determines the `S_3` normal closure, and the three cubic subfields of one
+closure are conjugate and hence isomorphic over `Q`.
+
+The Brumley--Thorner--Zaman log-free density theorem (Theorem 1.2) says
+
+```text
+sum_(pi in F_m(Q)) N_(pi x pi_0)(sigma,T)
+ <<_(m,m_0) [C(pi_0)QT]^((7/10)(m_0m)^4(1-sigma)).            (4.1)
+```
+
+Its average-Ramanujan Hypothesis 1.1 is satisfied here: the local parameters
+come from finite-image Artin representations and have modulus at most one.
+Choose `m=2` and let `pi_0` be the trivial `GL_1` representation.  Then
+`L(s,pi_K x pi_0)=L(s,Std_K)`, and the number of distinct bad fields is at
+most
+
+```text
+O((QT)^((56/5)(1-sigma))).                                   (4.2)
+```
+
+For fixed `T`, (4.2) is `o(M(Q,H))` precisely throughout the range
+
+```text
+(56/5)(1-sigma)<1,
+sigma>51/56.                                                  (4.3)
+```
+
+This proves (0.4).  More generally, if `T=Q^tau`, the same proof works when
+
+```text
+(56/5)(1+tau)(1-sigma)<1.                                    (4.4)
+```
+
+### The sign-factor caveat
+
+No zero-density selection for `L(s,chi_D)` is required merely to prove that a
+source zeta zero survives in the quotient.  At any point `rho`,
+
+```text
+ord_rho L(s,Psi_3)
+ =ord_rho zeta+ord_rho L(s,chi_D)-ord_rho L(s,Std_K).         (4.5)
+```
+
+The quadratic factor lies in the numerator.  Its zeros can only reinforce a
+zeta zero at that same point; they cannot cancel its divisor order.  Once
+`L(s,Std_K)` is zero-free in the target rectangle, every zeta zero there is a
+genuine zero of the quotient, with at least its zeta multiplicity.
+
+There is a separate high-jet issue.  If the field varies with the derivative
+order, other quadratic zeros in the target disc contribute reciprocal powers
+with arbitrary phases.  Favorable divisor sign alone does not give a
+field-uniform bounded-gap Turan constant; R153 gives an explicit two-zero
+cancellation model.  Thus R147's sufficient high-jet theorem correctly asks
+that every nontrivial hook factor, including the quadratic factor, be
+zero-free in the disc, unless a stronger joint power-sum estimate is supplied.
+Jutila's density theorem can impose that extra avoidance at the same family
+scale, as R147 does.  The standard-only theorem here proves target survival,
+not by itself the uniform high-jet lower bound.
+
+## 5. Why this does not close the fixed-strip proof
+
+The exact completed quotient has signed conductor one.  Nevertheless, the
+R145 localization step bounds the numerator and denominator zero divisors
+separately after Cauchy localization.  For this cubic quotient the resulting
+absolute divisor complexity is
+
+```text
+C_abs=O(1+log D_K+log(|gamma|+3)).                            (5.1)
+```
+
+With the high-jet head
+
+```text
+H=X_k=exp(lambda k/r),
+kappa=(r/lambda)log(R/d)<1/(2lambda)<1/2,                    (5.2)
+```
+
+the required closure condition is
+
+```text
+C_abs=o((R/d)^k)=o(H^kappa).                                 (5.3)
+```
+
+The fields certified in Section 3 instead have
+
+```text
+log D_K=(2+eta)H.                                             (5.4)
+```
+
+Thus the new selection theorem misses the absolute Cauchy budget by a power,
+not by a numerical constant.  Improving the BTT error while retaining an
+ordinary positive-density family cannot repair that mismatch.  Indeed, even
+if an ideal count had no error, the local density (2.8) predicts that making
+the main term exceed one needs roughly
+
+```text
+log Q >= log(3/2) H/log H,                                   (5.5)
+```
+
+which is larger than `H^kappa` for every fixed `kappa<1`.
+
+Equation (5.5) is not a deterministic discriminant lower bound for one
+field.  Present unconditional Chebotarev bounds only force a much weaker
+logarithmic lower scale and do not rule out
+
+```text
+log D_K=o(H^kappa),    no inert p<=H.                         (5.6)
+```
+
+Under GRH for the relevant Artin/Dedekind functions, a least-inert-prime
+bound of size `O((log D_E)^2)` would force `log D_K >> sqrt(H)` and would
+contradict (5.3), but that conditional observation cannot be used in an RH
+proof.
+
+The only live ways through this gate are therefore:
+
+1. prove an exceptional, highly correlated individual-field construction at
+   the sub-`H^kappa` scale, beyond positive-density local counting; or
+2. keep the larger field but prove a signed joint outer-zero estimate for
+   `zeta(s)L(s,chi_D)/L(s,Std_K)` which uses the completed conductor
+   cancellation before absolute values.
+
+Ordinary improvements to a zero-density exponent do not remove the
+`log D_K` term in (5.1).
+
+## 6. Comparison with other unconditional zero-density inputs
+
+The direct Brumley--Thorner--Zaman exponent is currently the cleanest one for
+this exact selection.
+
+- Chen An's Theorem 1.1, with `A=1`, `d=1`, `n=2`, gives
+
+  ```text
+  #bad << (Q^(23/2+epsilon)T^(4+epsilon))^(1-sigma),          (6.1)
+  ```
+
+  and hence the fixed-height threshold `sigma>21/23`, slightly weaker than
+  `51/56`.  It becomes competitive only in a sufficiently large height
+  aspect.
+
+- Pierce--Turnage-Butterbaugh--Wood prove that, outside
+  `O_epsilon(Q^(1/3+epsilon))` squarefree `S_3` cubic fields, the quotient
+  `zeta_E/zeta=L(s,chi_D)L(s,Std_K)^2` is zero-free in a narrow near-one
+  box.  This easily survives the local count (3.5), but its available width
+  is tied to the exceptional-set parameter and is much narrower than the
+  direct fixed-width theorem above.
+
+- Lemke Oliver--Thorner--Zaman obtain very small exceptional sets for normal
+  extensions and their faithful Artin factors, again with a width/exponent
+  trade which is weaker for the present fixed-width `S_3` specialization.
+
+There is also no known theorem excluding a prescribed common zero of
+`zeta(s)` and `L(s,Std_K)` for a fixed `K`.  Low-degree distinct-zero results
+do imply that a fixed standard Artin function cannot share *all* zeta zeros;
+they are global counting statements and do not exclude a common zero in the
+particular right-edge disc needed here.  Family zero density, not a
+fixed-pair common-zero theorem, is what proves Section 4.
+
+## 7. Audited verdict
+
+The cubic idea succeeds at its two arithmetic tasks separately and
+simultaneously:
+
+```text
+delete every head prime by an exact degree-zero Euler mask;
+choose a member whose only dangerous denominator is zero-free nearby.       (7.1)
+```
+
+The rigorous simultaneous scale is
+
+```text
+log D_K=(2+eta)H,             sigma>51/56.                    (7.2)
+```
+
+That theorem is useful: common-zero cancellation is no longer the immediate
+obstruction for the canonical cubic mask.  The remaining obstruction is the
+remote absolute divisor ledger.  Current positive-density field-counting
+methods cannot approach its sub-square-root power budget, while no
+unconditional individual-field theorem proves that the exceptional cheap
+case is impossible.
+
+Accordingly, this report proves neither side of the requested zeta-strip
+dichotomy.  It proves a conditional component needed by a strip argument and
+then identifies, quantitatively, the still-missing theorem.  Claiming either
+that a fixed zero-free strip now exists or that none can exist would exceed
+the evidence.
+
+Successor:
+[`R149-DEGREE-ZERO-L-DATA-AND-DISTINCT-DIVISOR-GATE.md`](R149-DEGREE-ZERO-L-DATA-AND-DISTINCT-DIVISOR-GATE.md).
+
+## Primary sources
+
+- M. Bhargava, T. Taniguchi, and F. Thorne,
+  [*Improved error estimates for the Davenport--Heilbronn theorems*](https://arxiv.org/abs/2107.12819),
+  especially Theorem 1.3 and Table 1.
+- F. Brumley, J. Thorner, and A. Zaman,
+  [*Zeros of Rankin--Selberg L-functions at the edge of the critical strip*](https://arxiv.org/abs/1804.06402),
+  Theorem 1.2 and Hypothesis 1.1.
+- T. Taniguchi and F. Thorne,
+  [*Secondary terms in counting functions for cubic fields*](https://arxiv.org/abs/1102.2914),
+  Theorem 1.3.
+- C. An,
+  [*Log-free zero density estimates for automorphic L-functions*](https://arxiv.org/abs/2004.14410),
+  Theorem 1.1.
+- L. Pierce, C. Turnage-Butterbaugh, and M. Wood,
+  [*An effective Chebotarev density theorem for families of number fields, with an application to `ell`-torsion in class groups*](https://arxiv.org/abs/1709.09637).
+- R. Lemke Oliver, J. Thorner, and A. Zaman,
+  [*An approximate form of Artin's holomorphy conjecture and nonvanishing of Artin L-functions*](https://arxiv.org/abs/2012.14422).

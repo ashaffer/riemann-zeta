@@ -1,6 +1,6 @@
 # Proof and release standard
 
-Version 1.1, 2026-08-05.
+Version 1.2, 2026-08-07.
 
 The goal of this standard is not to make criticism impossible.  A serious
 mathematical artifact should make criticism *easy to aim and hard to sustain*:
@@ -222,6 +222,25 @@ Prefer primary sources.  Record search date and terms, and distinguish:
 
 Failure to locate a predecessor supports only “no exact predecessor was found
 in this search.”  It does not prove priority.
+
+### 8.1 Imported-baseline rule
+
+For the active R65--R98 analytic program, the canonical comparison file is
+[`IMPORTED-ANALYTIC-BASELINE.md`](IMPORTED-ANALYTIC-BASELINE.md).  Before an
+estimate is entered as a research goal, its theorem card must state how it
+changes at least one of the following relative to that baseline:
+
+- the arithmetic object, including all completion and center terms;
+- the quantifier (`every` block versus almost all starts, shifts, or heights);
+- the saving (fixed power versus logarithmic or subpower);
+- the admissible length/height regime; or
+- exclusion of one exception versus an upper bound on their density.
+
+A derivation which only recovers a baseline theorem is dependency
+verification, not progress toward the headline.  Conversely, when a formerly
+red obligation is discharged by a classical synthesis, the correction must
+be propagated through the active ledgers; it may not remain open merely
+because no paper states the repository's normalization verbatim.
 
 ## 9. AI--human provenance
 

@@ -423,7 +423,7 @@ and
 |---|---|---|
 | Fixed-window width | Analytic proof from Guinand--Weil, zero symmetry, and Riemann--von Mangoldt counting | Package the piecewise-linear explicit formula as one precise cited theorem; independent specialist review |
 | Prime stripping | Analytic proof from PNT and Chebyshev bounds | Independent review of constants and endpoint conventions |
-| Fixed- and growing-order Euler lemma | Self-contained analytic proof with `exp(O_ell(k log k))` constant | Independent review; no varying-test converse |
+| Fixed- and growing-order Euler lemma | Self-contained analytic proof with `exp(O_ell(k log k))` at fixed total width and `exp(O_h(k^2+k log k))` at fixed step | Independent specialist review; no varying-test converse |
 | Vaughan reduction | Exact convolution algebra plus the Euler lemma | Independent review; the aggregate estimate is open |
 | Reflection and determinant signs | Analytic no-go statements plus small Arb witnesses | Freeze environment and source hashes before release |
 
@@ -433,8 +433,9 @@ width or Vaughan theorems.
 
 In particular, this note does not prove RH, give probabilistic evidence for
 RH, bound a separate Type-II block, construct a positive metric, justify an
-RH converse for a growing smoothing order, or establish novelty.  Nearby
-literature includes classical explicit-formula detectors and Vaughan-type RH criteria; a search
+RH converse for a growing smoothing order, or establish novelty.  The
+focused primary-source comparison and exact R71 normalization are in
+[`IMPORTED-ANALYTIC-BASELINE.md`](IMPORTED-ANALYTIC-BASELINE.md).  A search
 that fails to find this exact normalization would still not establish
 priority.
 
@@ -442,8 +443,17 @@ priority.
 
 The direct branch should be tested in stages.
 
-1. Derive a cofactor-complete dispersion or fourth-moment identity for
-   `B-Z` without taking absolute values of its sectors.
+1. Referee the complete-center coboundary dispersion identity in
+   [`COBOUNDARY-DISPERSION-CANCELLATION-CANDIDATE.md`](../results/COBOUNDARY-DISPERSION-CANCELLATION-CANDIDATE.md).
+   It groups by total product, differences `B-Z`, and only then squares, so
+   no cofactor or Type-I cross term is deleted.  Its scale-energy exponent is
+   `Delta`; the required arithmetic upper bound remains open.  The terminal
+   Markov/Selberg Ward lift was tested and closed as a separate cancellation
+   engine: exact completion reduces its global remainder to the original
+   completed energy minus the tail diagonal.  See
+   [`WARD-INNOVATION-SCREENING-CANDIDATE.md`](../results/WARD-INNOVATION-SCREENING-CANDIDATE.md)
+   and
+   [`NONLOCAL-WARD-COVARIANCE-NOGO.md`](../results/NONLOCAL-WARD-COVARIANCE-NOGO.md).
 2. Seek any fixed power saving
    `B-Z=O(x^(1/2-eta))`.  By (5.6) this would prove a genuine fixed
    zero-free strip, not RH; failure of one proposed dispersion engine would
@@ -452,6 +462,32 @@ The direct branch should be tested in stages.
    it be tested at the polylogarithmic, RH-equivalent scale.
 4. For the growing-order fork, prove a varying-test oscillation converse
    before treating a subpower moving-test residual as an RH criterion.
+   The fixed-step, block-scheduled regime in the companion note is the first
+   concrete candidate: it exponentially cools critical-line modes while an
+   off-line displacement survives when `k=o(sqrt(log x))`.
+5. For the direct full-energy branch, use the cutoff-complete two-frequency
+   formula and target one fixed exponential saving before RH scale.  The
+   atomic diagonal is already subexponential, while sign and constant-one
+   diagonal domination fail even on complete low-frequency finite models.
+   See
+   [`DIRECT-CUTOFF-COMPLETE-TWO-SHIFT-GATE.md`](../results/DIRECT-CUTOFF-COMPLETE-TWO-SHIFT-GATE.md).
+   The coefficient-specific continuation closes finite-cutoff martingales,
+   scale monotonicity, and Riccati double-pole coercivity, while retaining the
+   global fixed-saving theorem as open; see
+   [`MOBIUS-TWO-SHIFT-RENORMALIZATION-GATE.md`](../results/MOBIUS-TWO-SHIFT-RENORMALIZATION-GATE.md).
+   The subsequent full-moment audit proves the exact exponent law
+   `limsup log(1+U_p(R))/R=pDelta`, so a fourth-moment fixed saving is already
+   exponent-equivalent to the corresponding fixed strip; pair-cell variance
+   and proportional-order filtering do not weaken it.  See
+   [`FIXED-STRIP-FOURTH-MOMENT-PROOF-ATTEMPT.md`](../results/FIXED-STRIP-FOURTH-MOMENT-PROOF-ATTEMPT.md).
+   The later common-dual program reaches the exact signed square-root
+   residual, but its reciprocal transport has no zero shift character and
+   the joint zero orbit is the full canonical contact.  The native residual
+   is provably natural-size in the Euclidean and canonical frame norms.
+   Therefore the surviving target is not a block contraction: it is a
+   kernel-specific all-sector pairing with every seam and Type-I correction
+   retained.  See
+   [`SIGNED-JOINT-RECIPROCAL-COMPRESSION-GATE.md`](../results/SIGNED-JOINT-RECIPROCAL-COMPRESSION-GATE.md).
 
 A method should be retired when an exact counterexample violates its claimed
 sign or contraction, or when its defining inequality provably deletes the

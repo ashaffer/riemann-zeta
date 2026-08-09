@@ -1,6 +1,6 @@
 # Atlas of exact obstructions
 
-Status: canonical scope and proof-debt index, 2026-08-06.
+Status: canonical scope and proof-debt index, 2026-08-07.
 
 This atlas records what the project's negative results actually prove.  It is
 not a list of failed conversations and it is not a no-go theorem for the
@@ -58,6 +58,31 @@ interpretation into an F-rated theorem.
 | NG-19 | Forcing positivity of the coefficient-defined trace-class xi companion through its natural leading sections, diagonal symmetrization, accretivity, raw Hankel moments, or coefficient total positivity as a weaker target | The dimension-two section has a certified nonreal pair and indefinite Hermitian part; the degree-six section has two left-half-plane eigenvalues; full `PF_infinity` is equivalent to RH by Edrei--Schoenberg | determinant algebra A; strict finite signs C | A genuinely infinite, non-compression arithmetic structure such as a sign-regular resolvent or normal dilation; finite Taylor sections cannot supply it |
 | NG-20 | Replacing the signed Paley--Wiener Gårding inequality by pointwise positivity or a pointwise lower bound with the full logarithmic principal coefficient | The exact completed symbol is already negative at the certified `a=7/16` window; Kronecker recurrence aligns every active prime phase while the pole decays, forcing any pointwise coefficient-`1/2` remainder to be at least `B_a+log(2*pi)~4e^a` | recurrence and normalization A; negative scalar evaluation D with a deterministic unit test; compressed positive floor independently C/F | Retain the `PW_a` compression. A strict subleading pointwise coefficient remains logically open but would be a new uniform large-values theorem; the minimal compressed endpoint is RH-equivalent |
 | NG-21 | Lifting positivity on all modulated interval/Fejer packets, even at every width and position, to positivity of the whole compressed Hermitian Toeplitz form | Individual packets omit coherent cross terms between separated blocks. A minimal `3 x 3` Toeplitz matrix, a continuous shifted-atom operator, and a real-even entire rank-three kernel all pass every packet while retaining a negative direction | finite and rational scalar algebra F; continuous and entire countermodels A | Add mixed Gram data for coherent packet superpositions or a zeta-specific arithmetic relation. One fixed separated-box cross orbit already detects the exact zero width, but bounding it is RH-equivalent |
+| NG-22 | Obtaining a signed nonlocal Ward--innovation correction from exact Vaughan completion, Selberg's one-product Ward identity, and positivity of terminal Markov covariance | If `G` is the center/unequal-product remainder and `D` the tail diagonal, exact completion gives `G=K(C_full+E,C_full+E)-D`; the unknown completed carrier has only been renamed. The mandatory two-shift coefficient is `2log(p)log(q)cos(t log(p/q))`, of both signs | completion and Gram algebra A; complete finite arithmetic runs D | A genuinely new cutoff-complete two-shift correlation estimate for the full P4/R71 energy. This would be a direct arithmetic attack, not a Ward shortcut |
+| NG-23 | Deriving a fixed exponential saving from a local Mobius cutoff martingale, Buchstab/scale contraction, factor-fiber gap, or centered Selberg--Riccati coercivity | Every finite cutoff tail has the same zero principal part, so shell differences are analytic and the carrier has multiplier one. The Riccati quadratic core admits `q=-1/(s-a)` at arbitrary `a` as a double-pole-null direction; the linear pole field remains. Exact completion is cutoff-invariant; explicit-center finite energies are nonmonotone | cutoff and Laurent algebra A; Riccati algebra A; complete finite arithmetic runs D | A genuinely global cross-product estimate retaining every cofactor and center term. One fixed saving is already essentially a fixed zero-free-strip theorem |
+| NG-24 | Producing a completed fourth-moment power saving by independent-phase or exact-product Haar domination, or by first annihilating the rank-two center with a fixed second difference | Faithful finite completed blocks exceed both phase comparators.  The center-annihilator has a real-frequency multiplier bounded above and below and an explicit stable inverse, so it is norm-equivalent at every useful exponent | phase and multiplicative-energy formulas A; completed finite runs D; annihilator multiplier and inverse A | A coefficient-specific cancellation theorem for unresolved unequal products jointly with the continuous center; any fixed saving gives an explicit fixed zero-free strip |
+| NG-25 | Obtaining the fixed fourth-moment saving from positive/monotone near-product cells, a power-saving pair-PNT variance, or a proportional-order scale filter | Pair-cell merge increments have both signs.  The pair Dirichlet series has a nonzero double pole at every zeta zero, so the required variance is already the same fixed strip.  Bernstein--Walsh forces an exponentially contracting all-carrier shift filter to have linear scale span, whose arithmetic cost restores the critical exponent | local moment and pole arguments A; filter theorem A; complete finite pair-cell runs D | A direct proof of the completed fixed-saving moment using genuinely new global arithmetic cancellation; the endpoint has exact exponent `4Delta` |
+| NG-26 | Inferring positive-density completed-energy recurrence from the energy abscissa plus fixed Sobolev bounds, or from an arbitrary symmetric absolutely summable zero expansion with one off-line carrier but no attained outer edge | A sparse bump train has the exact energy abscissa and zero-density large blocks.  More sharply, successive non-attained quartet layers can approximate and cancel the earlier field on intervals occupying proportion `1-o(1)` while keeping their total coefficient `l1` mass summable | attained-edge Bohr theorem A; bump train and quartet construction A; clustered-divisor probe D | An attained outer edge, or a zeta-specific moving-edge uncertainty theorem using Riemann--von Mangoldt local counting and the prescribed detector coefficients |
+| NG-27 | Obtaining a fixed R71 saving by optimizing a finite Ramanujan null gauge, estimating completed sectors separately, regularizing the zero Kloosterman index, or tensorizing an arbitrary primitive Farey-beat frame | `HK=0` transfers every gauge reduction to an exact contact term; determinant-zero fluctuations are harmless but leave the completed one-point prime axis. The matrix `(c_q(n))_(n,q<=Y)` has determinant `Y!`; `S(0,1;c)=mu(c)` makes a uniform axis power fixed-strip-strength. Square-root-denominator beats stably encode the axis and preserve its low-frequency zero carrier. R84 shows that the global canonical tensor avoids the generic rank cost, so rank is not the final obstruction | quotient, sector, rank, and frame algebra A; zero-index boundary L; finite sector/beat runs D | A coefficient-specific estimate for `H_(j theta!=0)-P_1-P_2` before absolute values |
+| NG-28 | Converting the canonical common-dual low-beat tensor directly into a Wright saving, or prescribing the native low coefficients and discarding the high-beat repair by smoothness | The canonical coefficients are favorably separable as `W(theta/(pr))`, and `k=j theta` removes the shift triangle in the mask-free cofactor form, but this coefficient multiplies the slow phase rather than the native reciprocal phase. Reciprocity leaves `h_p conjugate(h_r)-gamma`. The high complement is onto but has exponentially small discrete-prolate directions; exact contact duality repays every Fourier-tail suppression when native low coefficients are prescribed | global frame, Mellin, reciprocity, Vandermonde, and powered-box algebra A; Wright boundary L; finite tensor/gauge runs D | Remove the finite primitive mask and prove an exact axis-renormalized reciprocal estimate for the full mismatch bracket, or derive an affine-in-theta counterterm with `Y^o(1)` projective mass |
+| NG-29 | Obtaining the missing fixed power by centering the reciprocal phase at one, by a fixed-degree determinant counterterm, or by the exact top-prime affine null gauge | The true center is `mu_r(k)=c_r(k)/(r-1)`. The mean-zero nonresonant component is Wright-compatible, but its complement is `mu_r(k)h_p conjugate(h_r)-gamma`, essentially `-gamma`. IBP transfers the mismatch to a reciprocal derivative without changing this projection; killing it algebraically costs `1/abs(mu)asymp sqrt(H)`. The exact top-prime affine gauge costs `Y/T` on a low band, while at square-root scale its injective defect is the original Type-II tensor | arithmetic/Ramanujan and Ward/null-gauge algebra A; Wright fixed power L; complex finite falsifiers D | A signed prime-coefficient theorem for the complete square-root Type-II defect plus the canonical `gamma` contact, before arithmetic projection or absolute values |
+| NG-30 | Obtaining that signed theorem from reciprocal zero-orbit completion, canonical-frame contraction, flat/smooth shift averaging, finite affine Schur controls, or balanced spectral reciprocity | With `R_j(p,r,theta)=e(-j theta inverse(p)/r)`, reciprocal transport has no zero shift character, so `R_j-I` has zero orbit exactly `-I`. Whitening gives a compressed unitary with an exact dissipative phase-defect square and Schur-leakage square, not a small parameter. Complete or long flat averaging suppresses the transported term and leaves `-gamma`. For the native `h_p=log(p)/p`, prime target points give a uniform full-scale residual in both Euclidean and canonical frame norms | shifted-Ramanujan, compression, averaging, and prime-point algebra A; spectral boundary L; exact finite compression runs D | Only a specially weighted complete R71 pairing, retaining every `g`-sector, mask, axis, seam, Type-I correction, and rectangular limit; test the actual amplitude's reciprocal-frequency variation before any norm split |
+| NG-31 | Obtaining the R71 power for free by restoring common-`g` masks, degenerate axes, B-spline seams, Type I, and the natural rectangular limit | CRT/fiber Poisson is invertible; the only primitive zero character is a reducible face; the slow carrier is the punctured axis; exact all-sector recompletion reconstructs the original prime-minus-continuum energy. The actual reciprocal B-spline response is power-small relative to the slow axis in an explicit growing band | response, conservation, and spline/Gamma analysis A | A new signed high-determinant, reducible-face, and cross-cofactor estimate for the original completed energy |
+| NG-32 | Producing a fixed strip from differentiated/conductor-cancelled positivity, marginal zero density, or a harmonic child cascade | Turan resolution needs derivative order `gg(delta log T)`, while retaining a zero at distance `e` against the closer pole needs `delta gg me`; hence only `e=O(1/log T)`. Harmonic positivity forces aggregate Poisson mass which an ordinary critical-line cloud can supply, and not a near-right child | explicit-formula, coefficient, and countermodel analysis A; zero-density inputs L | An actual-prime, target-conditioned signed cross-dilate estimate not implied by positivity or marginal density |
+| NG-33 | Bounded-load, fixed-power-local, fixed-arity sign-reversing flow on squarefree Mobius collars | A positive-density family of sufficiently smooth odd squarefree vertices is isolated from every such exchange edge, for integral or fractional flow | flow implication and smooth-isolation proof A; smooth-number density L | Growing arity with joint signed smooth/rough cancellation, or long edges whose total boundary flux has an independent power bound |
+| NG-34 | Using arbitrarily accurate q-free counting or exact Muntz quadrature as a nonvanishing theorem | `F_q(s)=zeta(s)/zeta(qs)` is uniformly zeta times a bounded nonzero factor right of `1/2`. The Muntz operator multiplies Mellin modes by zeta and therefore annihilates exactly the zero modes; a weight which retains them makes its output inherit the reciprocal-zeta pole | Euler/Mellin and convolution algebra A | A zero-sensitive weighted output with an independently proved fixed-power bound; the first natural example is the original centered prime discrepancy |
+| NG-35 | Tempered polynomial interpolation which is nonnegative only on actual prime-power logarithms and cancels the closer pole at resolving scale | Prime logs have mesh `<<exp(-19X/40)`. Hiding a fixed negative Laplace mass in their gaps forces variation or degree-times-amplitude `gg exp(19X/40)`; at `X~log T` every stable/polylog-conditioned interpolant fails. Finite-order canonical products cannot encode the exponentially dense support | interpolation/variation algebra A; prime-gap theorem L | A power-conditioned superoscillatory weight together with a norm-uniform signed estimate for the full zero remainder |
+| NG-36 | Promoting compact-local convergence of the Mobius Dirichlet series in a hypothetical fixed strip to vertical Bohr recurrence of `1/zeta` across `Re(s)=1` | For every finite block, Kronecker aligns `mu(n)n^(-it)` to `mu(n)^2`, so the uniform-convergence abscissa is exactly one. Accurate recurrence of a finite head around the reciprocal zero at `s=1` forces an order-one translated tail; full prime-phase return translates form a nonnormal family there | A | A recurrence-conditioned signed Mobius-tail estimate, or sufficiently fast growing-dimensional phase returns |
+| NG-37 | Improving the fixed-power threshold by positive, capacitated, or phase-aware transport from the pole continuum to prime-power atoms | Radial projection of the Mellin spiral gives a lower cost `sigma integral e^(-sigma u)|D(u)|du`; arc length gives the matching upper threshold. Hence the convergence abscissa of optimal phase transport is exactly `sup Re(rho)`. Prefix Hall capacity is the same power-PNT discrepancy | A | A non-positive, scale-global estimate retaining the sign of the twisted prime--pole queue before taking transport cost |
+| NG-38 | Pulling nonvanishing of later/reversed Luroth correlations back to the zeta-bearing first forward correlation, or obtaining it from a depth-uniform positive cylinder cone | The Perron operator contracts later lags toward a rational spectator but has a large kernel; reversed polynomial modes are rational and the forward/reverse pair laws are mutually singular. Positive future-digit martingales can have exponentially small target correlation | A | A coefficient-specific signed estimate for the first `O(t^2)` forward digits against the explicit Hurwitz-zeta tail |
+| NG-39 | Removing the first-forward Luroth cancellation by adjacent pairing, finitely many resonance blocks, a finite polynomial observable, or recursive global Poisson summation | The natural cutoff is linear in height; every alias passes a nonzero Fourier coefficient, all stationary branches renormalize to exactly `zeta(1-s)`, and the second Poisson step is the neutral cycle `chi(s)chi(1-s)=1` | A | A genuinely new global relation among the actual complementary Dirichlet phases, not another Poisson/functional-equation rewrite |
+| NG-40 | Obtaining a fixed power from closed normalized-scale cycles, coercive complex flows, finite pole-killing filters, or positivity/atomicity alone for the filtered prime queue | Scale shifts are a flat commuting cocycle; Hermitian Hodge projection deletes cycles, while noncoercive bilinear energy has false zero-cost sources. Finite filters have recurrent blind frequencies. A faithful continuous filter reduces the problem to one signed ramp, but positive atomic countermodels with off-line Mellin poles pass all generic sign and convexity tests | A | Prove either one-sided `O(x^a)`, `a<1`, envelope for the actual von Mangoldt ramp `sum Lambda(n)(2n/x-1)-1+x^(-1)` |
+| NG-41 | Upgrading Mobius `B^2`/Carlson recurrence to pointwise or local-analytic recurrence around the zero of `1/zeta` at one | Same-line evaluation is unbounded and pays a sharp half-unit in Dirichlet `H^2`. More specifically, finite-prime conditioning selects Euler order: below one it tends to zero, whereas natural order tends hypothetically to `1/zeta(sigma)`; an explicit width-`1/log P` Euler boundary layer has exponentially growing local `L2` mass | A+L | A zeta-specific local-norm estimate at the Haar-null unit character, or an extraordinarily atypical recurrence-conditioned tail selection |
+| NG-42 | Importing Puglisi v9's claimed `quasi-RH => RH` conclusion through its high-order alternating Taylor cutoff | Its Lemma 1 inequality is false at `x=13,J=30` in the exact final regime and is eventually reversed throughout every cutoff cell `J=2 floor(x+2)`; the uncontrolled Lagrange factor can dominate the alternating tail | exact integer and asymptotic analysis A | Quantitative control of the Taylor point below the true tail ratio, or a sign-definite integral remainder; the published argument supplies neither |
+| NG-43 | Recovering the reciprocal-zeta divisor from a Hilbert--Schmidt prime diagonal by a regularized Fredholm determinant, Fock augmentation, index, or homotopy | `det_2(I-D_s)` is holomorphic and nonzero for `Re(s)>1/2`; the missing divisor is exactly the omitted first prime trace. That trace is nonclosable in `S_2`, the augmentation character is unbounded, and `I-D_s` is invertible, null-homotopic, and index zero | Schatten/Fredholm algebra A; finite probes D | A signed relative first-trace topology which is strong enough to retain the prime divergence and still admits an independent continuation or order theorem |
+| NG-44 | Lowering the coefficient/Hilbert threshold by nonlinear Euler cancellation while preserving the reciprocal zero at one and no other zeros | Cancelling the prime layer lowers the threshold only by deleting the zero at one; every zero-preserving scalar germ retains a nonzero squarefree almost-prime layer and the half-unit barrier. More generally, a Dirichlet carrier with square-sum threshold below `1/2` and `T(1)=0` has a normal-convergence margin, so vertical recurrence forces artificial zeros approaching `Re(s)=1` | Euler/Taylor/Cauchy--Schwarz and recurrence algebra A; probes D | A non-scalar or non-normal construction whose first-trace anomaly is controlled without acquiring recurrent fake zeros |
+| NG-45 | Escaping reciprocal recurrence or the coefficient barrier by an exceptional unimodular completely multiplicative twist | If the twisted reciprocal retains a simple zero at one, Landau positivity forces power pretentiousness to the trivial twist; Cauchy--Schwarz then makes the twist a normally convergent nonzero Euler multiplier of `1/zeta`. The same sign-alignment and boundary layer remain | pretentiousness/Euler-product analysis A | A genuinely non-normal, non-unimodular, or nonmultiplicative signed deformation with an independently controlled divisor |
+| NG-46 | Bootstrapping an assumed fixed strip to a strictly wider strip using the imported PNT/Mertens converses, zero density, Turan power sums, classical repulsion, mollifiers, or functional symmetry | Conditional arithmetic bounds have infimal exponent exactly `Theta=sup Re(rho)` and their converses return it. Density/moments allow one sparse exception, Turan contradicts only `beta>Theta`, reciprocal tails decay only for `sigma>Theta`, and reflection sends the same band back to itself | conditional exponent analysis A; primary literature L | A per-zero negative-power count, a genuinely improved global arithmetic exponent, the one-sided signed ramp, or zeta-specific zero replication |
 
 No row excludes all possible uses of its subject.  The last column is part of
 the theorem's scope, not an invitation to call the surviving idea plausible.
@@ -1176,6 +1201,977 @@ zero displacement; see
 [`FIXED-BOX-WEIL-WIDTH-SPECTROMETER.md`](results/FIXED-BOX-WEIL-WIDTH-SPECTROMETER.md).
 That survivor is a detector, not an independently proved bound.
 
+### NG-22 — Exact completion collapses the nonlocal Ward remainder
+
+**Statement.**  Let `K` be the terminal Markov covariance, let
+`T=sum_n a_n phi_n` be the grouped Vaughan tail, let `Z` be its complete
+center, and set
+
+```text
+D=sum_n abs(a_n)^2 K(phi_n,phi_n).
+```
+
+The proposed center/unequal-product remainder is exactly
+
+```text
+G=K(T-Z,T-Z)-D.                                          (NG22.1)
+```
+
+Exact Vaughan completion gives `T-Z=C_full+E_Y`, where `C_full` is the
+completed von Mangoldt carrier and `E_Y` is the signed Type-I Euler-evaluation
+defect.  Therefore
+
+```text
+G=K(C_full+E_Y,C_full+E_Y)-D.                            (NG22.2)
+```
+
+Selberg's identity can decompose a chosen semiprime part of `D` into a
+connected term and factor-ratio anisotropy.  It has no second product index
+and gives no sign to the remaining Gram entries.  After block Fourier
+decomposition, the needed connected factor at `pq` is
+
+```text
+2log(p)log(q)cos(t log(p/q)),                             (NG22.3)
+```
+
+which changes sign.  Positive covariance alone gives only the sharp bound
+`G>=-D`; elementary positive-semidefinite Gram models make either proposed
+Ward orientation fail.
+
+**Evidence and trust base.**  The completion and polarization calculation is
+A-rated in
+[`NONLOCAL-WARD-COVARIANCE-NOGO.md`](results/NONLOCAL-WARD-COVARIANCE-NOGO.md).
+The exact semiprime and higher-cumulant coefficient gates are reproduced by
+[`ward_vaughan_bridge_falsifier.py`](src/ward_vaughan_bridge_falsifier.py).
+The complete B-spline/Vaughan diagnostic
+[`ward_nonlocal_covariance_probe.py`](src/ward_nonlocal_covariance_probe.py)
+retains every unequal product and the explicit center.  Its three-product and
+44-product configurations reject all four natural sign orientations, but
+those runs are D-rated floating diagnostics, not interval certificates.
+The direct sign, diagonal-domination, and low-frequency gates are isolated in
+[`DIRECT-CUTOFF-COMPLETE-TWO-SHIFT-GATE.md`](results/DIRECT-CUTOFF-COMPLETE-TWO-SHIFT-GATE.md)
+and reproduced by
+[`r71_two_shift_bound_probe.py`](src/r71_two_shift_bound_probe.py).
+
+**Exact scope and nonclaim.**  This eliminates a sign derived from Vaughan
+completion, the one-shift Ward identity, conditional expectation, or
+polarization.  It does not exclude a large-scale theorem special to the exact
+zeta coefficients and fixed window.  By (NG22.2), such a theorem must control
+the complete two-shift P4/R71 energy itself.  The formal identity
+`abs(xi'/xi)^2=-(xi'/xi)^2` on the critical boundary is not an escape: it
+multiplies poles at known critical zeros, and an honest two-sided regulator
+restores a contact term with mass `pi/sigma` near a simple zero.
+
+### NG-23 — Local Mobius renormalization preserves every zero residue
+
+**Statement.**  For `Re(s)>1`, let
+
+```text
+K=-zeta'/zeta,
+A_Y=(1-zeta M_Y)(K-L_Y).
+```
+
+If `rho` is a zeta zero of multiplicity `m_rho`, then for every finite
+cutoff `Y`,
+
+```text
+principal_part_rho A_Y=-m_rho/(s-rho).                  (NG23.1)
+```
+
+Consequently every finite shell difference `A_(Y')-A_Y` is analytic at
+`rho`: the mode which the recursion must damp is an exact eigenvalue-one
+direction.  The strongest centered Selberg recursion has Mellin form
+
+```text
+-Q'+2Q/(s-1)+Q^2=zeta''/zeta-2/(s-1)^2,
+Q=-zeta'/zeta-1/(s-1).                                  (NG23.2)
+```
+
+Its homogeneous core is not coercive, since
+
+```text
+q_a=-1/(s-a),       -q_a'+q_a^2=0                       (NG23.3)
+```
+
+for every complex `a`.  This solves only the quadratic core: the linear term
+in (NG23.2) leaves a simple pole.  Thus the off-axis pole is a
+double-pole-null direction, not a solution of the full homogeneous equation;
+there is no positive double-pole square.  Cole--Hopf normalization returns
+the missing inverse-zeta factor.
+
+**Evidence and trust base.**  The cutoff, Laurent, convolution, and Riccati
+identities are A-rated in
+[`MOBIUS-TWO-SHIFT-RENORMALIZATION-GATE.md`](results/MOBIUS-TWO-SHIFT-RENORMALIZATION-GATE.md).
+The exact coefficient shell update and complete explicit-center finite gate
+are reproduced by
+[`mobius_cutoff_recursion_probe.py`](src/mobius_cutoff_recursion_probe.py).
+At `X=25,Y:2->3`, the raw diagonal is unchanged while energy grows by a
+factor `2.708`; other tested channels move in opposite directions.  These
+finite runs are D-rated.  With the unevaluated Type-I head, the exact
+completed field is cutoff-independent as Vaughan's identity requires.
+
+**Exact scope and nonclaim.**  This closes local cutoff monotonicity,
+finite-shell martingales, factor-fiber gaps, and Riccati double-pole
+coercivity as sources of a fixed saving.  It does not refute a global estimate
+special to the full Mobius coefficient.  After all local contractions are
+removed, that survivor is the complete R73 remainder bound and is essentially
+equivalent to a fixed zero-free strip.
+
+### NG-24 — Phase transfer and center annihilation do not create a saving
+
+**Statement.**  Let `F_I` be the compact completed R71 transform, with all
+boundary channels and the signed rank-two center retained.  The natural
+independent-phase fourth and sixth moments are
+
+```text
+2S_2^2-S_4,
+6S_2^3-9S_2S_4+4S_6.                                  (NG24.1)
+```
+
+Grouping all pair or triple monomials with the same integer product gives
+the corresponding exact-product Haar comparator.  Neither comparator
+dominates the short real orbit in the complete finite model: at
+`X=127,Y=8,T=80`, the completed/comparator ratios are respectively
+`1.6335,1.7162` and `1.5947,1.6236` for moments four and six.
+
+For fixed `h>0`, the exact center-annihilator
+
+```text
+Q_h=(tau_h-exp(h/2))^2                                  (NG24.2)
+```
+
+kills both `exp(R/2)` and `R exp(R/2)`.  On the real Fourier axis its
+multiplier obeys
+
+```text
+(exp(h/2)-1)^2
+ <=abs((exp(iht)-exp(h/2))^2)
+ <=(exp(h/2)+1)^2.                                      (NG24.3)
+```
+
+It is explicitly invertible:
+
+```text
+Q_h^(-1)=exp(-h)sum_(j>=0)(j+1)exp(-jh/2)tau_h^j.       (NG24.4)
+```
+
+Thus a fixed-saving fourth-moment estimate after applying `Q_h` transfers
+back to the original field.  The operator deletes the displayed center but
+does not suppress the real low frequencies or unequal-product coherence.
+
+**Evidence and trust base.**  The phase formulas, exact collision grouping,
+multiplier bounds, and inverse series are A-rated.  The completed finite
+ratios are D-rated and reproduced by
+[`r71_fixed_strip_moment_probe.py`](src/r71_fixed_strip_moment_probe.py).
+The full reduction and boundary-commutator audit are in
+[`FIXED-UNIFORM-ZERO-FREE-STRIP-SPRINT.md`](results/FIXED-UNIFORM-ZERO-FREE-STRIP-SPRINT.md).
+
+**Exact scope and nonclaim.**  The finite ratios refute the proposed
+universal finite domination inequalities, not an asymptotic theorem special
+to the actual Mobius--Vaughan coefficient.  The ellipticity argument closes
+fixed center annihilation as an independent source of contraction, not as a
+useful coordinate change.  The surviving completed four-shift estimate
+remains open.
+
+### NG-25 — Pair cells and proportional-order filters return the strip
+
+**Statement.**  For a continuously translated fixed completed localizer,
+let
+
+```text
+U_p(R)=integral abs(F_R(t))^pdt,       2<=p<infinity.
+```
+
+Fourier duality against a compact subwindow and the fixed-window pole law,
+together with Hausdorff--Young in the other direction, give
+
+```text
+limsup_(R->infinity)log(1+U_p(R))/R=pDelta.             (NG25.1)
+```
+
+In particular, a fixed fourth-moment saving `kappa` is exponent-equivalent
+to the strip `Re(rho)<=1-kappa/4`.
+
+Grouping the exact pair channels into any cells gives
+
+```text
+U_4=D_atom+I_within+I_across.                           (NG25.2)
+```
+
+The increment from merging two cells is a signed cross inner product.  A
+power-saving mesoscopic variance for the completed `Lambda*Lambda` measure
+does not avoid (NG25.1): `(-zeta'/zeta)^2` has a nonzero double pole at every
+zero, and the variance bound forces the identical fixed strip.
+
+Finally, let a forward-shift filter have span `L_R` and multiplier `p_R`.
+Bernstein--Walsh gives
+
+```text
+sup_t abs(p_R(d+it))
+ <=exp(dL_R)sup_t abs(p_R(it)).                         (NG25.3)
+```
+
+Real-axis contraction `exp(-aR)` while retaining every carrier at
+displacement `d_0` therefore requires
+`L_R>=(a/d_0-o(1))R`.  The resulting proportional scale enlargement has a
+square-root arithmetic cost exceeding the retained contraction whenever
+`d_0<1/2`.
+
+**Evidence and trust base.**  The moment/pole theorem, pair identity, variance
+reverse implication, and filter tradeoff are A-rated in
+[`FIXED-STRIP-FOURTH-MOMENT-PROOF-ATTEMPT.md`](results/FIXED-STRIP-FOURTH-MOMENT-PROOF-ATTEMPT.md).
+The signed cell and merge behavior is reproduced by
+[`r71_pair_cell_probe.py`](src/r71_pair_cell_probe.py); those finite runs are
+D-rated.
+
+**Exact scope and nonclaim.**  This closes positive or monotone cell merging,
+the proposed pair-PNT variance as a weaker input, and proportional-order
+finite-shift filtering as independent engines.  It does not prove or refute
+the fixed strip.  A new global arithmetic cancellation theorem for the
+completed pair field remains possible, but by (NG25.1) its fixed saving is
+the strip itself at exponent scale.
+
+### NG-26 — Non-attained edges need not recur with positive density
+
+**Statement.**  The exact scale-energy abscissa and all fixed Sobolev bounds
+do not imply positive-density large blocks.  If `R_n=2^(2^n)` and `phi` is a
+fixed compact smooth bump, then
+
+```text
+f(R)=sum_n exp(delta R_n)phi(R-R_n)                     (NG26.1)
+```
+
+has weighted-`L2` abscissa `delta` and
+`abs(f^(q)(R))<<_q exp(delta R)` for every fixed `q`, while every
+fixed-length large-energy set has lower density zero.
+
+The obstruction also occurs in a symmetric absolutely summable exponential
+class.  Given
+
+```text
+0<d<delta_0<Delta<1/2,                                  (NG26.2)
+```
+
+there is a real-even quartet series with one nonzero `delta_0` carrier,
+displacements increasing to but not attaining `Delta`, distinct nonzero
+frequencies, and summable coefficient mass, such that
+
+```text
+lower_density{
+ R:integral_0^L abs(G(R+u))^2du>=exp(2dR)
+}=0.                                                     (NG26.3)
+```
+
+The construction uses a small higher-displacement trigonometric layer to
+approximate the negative of all earlier layers on a long interval.  The
+real displacement gap makes its Fourier `l1` cost summable; mirrored even
+cutoffs give all four zero symmetries.
+
+By contrast, if the global edge `Delta` is attained, absolute summability
+gives
+
+```text
+exp(-Delta R)G(R)->sum_gamma b_gamma exp(i gamma R)     (NG26.4)
+```
+
+uniformly.  The nonzero Bohr diagonal then forces positive right lower
+Banach density, with explicit lower bound
+
+```text
+sum abs(b_gamma)^2/
+[2(sum abs(b_gamma))^2-sum abs(b_gamma)^2].              (NG26.5)
+```
+
+**Evidence and trust base.**  The attained-edge theorem and both
+countermodels are A-rated in
+[`EDGE-ATTAINMENT-RECURRENCE-GATE.md`](results/EDGE-ATTAINMENT-RECURRENCE-GATE.md).
+The fixed-width R5 stress test is D-rated and reproduced by
+[`clustered_divisor_recurrence_probe.py`](src/clustered_divisor_recurrence_probe.py).
+
+**Exact scope and nonclaim.**  The quartet countermodel does not impose
+Riemann--von Mangoldt local frequency counting and does not prescribe every
+coefficient by the zeta triangular multiplier.  It eliminates recurrence
+arguments using only symmetry, `l1` convergence, one carrier, and a
+non-attained edge.  It does not refute a zeta-specific moving-record theorem.
+The attained-edge theorem remains valid for the exact fixed-order zeta
+detector.
+
+### NG-28 — Canonical beat separability does not align its phase
+
+**Statement.**  Let `A` be the ordered square-root-prime primitive beat bank
+on `H` consecutive integers.  Its global frame operator is constant-tight,
+and for the canonical common dual
+
+```text
+gamma_(p,r,theta)=W(theta/(pr)).                        (NG28.1)
+```
+
+Thus the low tensor is log-Mellin separable with projective loss
+`H^((epsilon+delta)/2+o(1))` on `abs(theta)<=H^epsilon`; the generic
+`H^(1/4)` rank cost is not intrinsic.  In the original nonprimitive cofactor
+expansion, the off-axis amplitude is also separable after grouping
+`k=j theta`, with only divisor loss.  The finite primitive basis retains an
+open periodic mask.
+
+Nevertheless the exact phases occur as
+
+```text
+gamma_(p,r,theta)e(j theta/(pr)),
+h_p conjugate(h_r)e(j theta inverse(r)/p).              (NG28.2)
+```
+
+Additive reciprocity leaves the mismatch
+
+```text
+h_p conjugate(h_r)-gamma_(p,r,theta)                   (NG28.3)
+```
+
+on the slow phase.  Prescribing the native coefficients for
+`0<abs(theta^flat)<=T` and completing with the high columns is algebraically
+possible by Vandermonde surjectivity.  A powered-box witness gives
+
+```text
+lambda_min(A_high A_high^*)
+ <<K^2 H^2 exp(-cT),                                  (NG28.4)
+```
+
+and exact null/contact duality gives
+
+```text
+norm(z_high)_2
+ >=abs(<z_low,A_low^*G>)/norm(A_high^*G)_2.             (NG28.5)
+```
+
+Therefore smooth high-frequency suppression is repaid by coefficient growth
+unless the prescribed low mismatch is already small against the whole
+contact family.
+
+**Evidence and trust base.**  The frame, Mellin, reciprocity, Vandermonde,
+powered-box, and contact identities are A-rated in
+[`COEFFICIENT-SPECIFIC-LOW-BEAT-TENSOR-GATE.md`](results/COEFFICIENT-SPECIFIC-LOW-BEAT-TENSOR-GATE.md).
+Wright's scalar estimate and the discrete-prolate comparison are L-rated.
+The finite tensor and gauge experiments are D-rated and reproduced by the
+linked probes.
+
+**Exact scope and nonclaim.**  This closes only the direct
+canonical-tensor-to-Wright lift and the smooth-high-tail gauge shortcut.  It
+does not close an axis-renormalized theorem for the full bracket.  NG-29 now
+closes the fixed-degree affine-counterterm escape.  No zero-free strip is
+proved or refuted.
+
+### NG-29 — Arithmetic centering preserves the canonical contact
+
+**Statement.**  For prime `r`, the complete primitive mean of the reciprocal
+phase is
+
+```text
+mu_r(k)=c_r(k)/(r-1).
+```
+
+Consequently the native-minus-canonical bracket splits exactly as
+
+```text
+h_p conjugate(h_r)[e(-k inverse(p)/r)-mu_r(k)]
+ +mu_r(k)h_p conjugate(h_r)-gamma_(p,r,theta).         (NG29.1)
+```
+
+If `r` does not divide `k`, then `mu_r(k)=-1/(r-1)`.  Existing
+Kloosterman-fraction estimates can power-save the first, mean-zero bracket,
+but the second remains `-gamma` up to an extra inverse-modulus term.  If
+`r|k`, the first bracket is zero and the second is the literal axis.
+
+For `A_L=g integral L(u+gj,u)e(theta u/(gmn))du`, compact support gives
+
+```text
+theta A_L=-gmn A_((partial_1+partial_2)L)/(2 pi i).    (NG29.2)
+```
+
+This can attach the mismatch to a reciprocal derivative term.  For any
+interpolating coefficient `a`, however, the exact identity retains
+
+```text
+mu_r(k)a-gamma                                        (NG29.3)
+```
+
+on the slow phase.  Setting it to zero multiplies the coefficient ledger by
+`1/abs(mu_r(k))=r-1`, which overwhelms every imported fixed power.
+
+There is one exact derivative null gauge for R82's primes `Y<p,r<=2Y`, but
+its determinant multiplier is `Y theta/(pr)asymp theta/Y`; changing the low
+band `abs(theta)<=T` at natural size costs `Y/T`.  At R84's useful
+`p,r asymp sqrt(Y)` scale the null relation fails by the near-square
+prime-multiple tensor.  With disjoint multiple supports that defect map is
+injective and has squared Hilbert--Schmidt size `asymp Y^3 norm(D)_F^2`.
+
+**Evidence and trust base.**  The Ramanujan mean, carrier split, Ward
+identities, top-prime null gauge, and square-root injectivity calculation are
+A-rated in
+[`NATURAL-MEAN-AFFINE-FIXED-POWER-GATE.md`](results/NATURAL-MEAN-AFFINE-FIXED-POWER-GATE.md).
+The localized `H^(-1/40)` reciprocal saving imports Wright and remains
+conditional on R84's uniform kernel/seam ledger, hence L-rated.  The native
+complex-phase and quadrature checks are D-rated.
+
+**Exact scope and nonclaim.**  This closes arithmetic recentering,
+fixed-degree determinant moments, and the top-prime null cloud as independent
+fixed-power engines.  It does not rule out cancellation specific to the
+joint prime-derived `gamma` and square-root Type-II defect.  Proving that
+signed joint estimate would be the desired fixed-strip-strength theorem.  No
+fixed strip, RH, or negation of RH follows from NG-29.
+
+### NG-30 — Reciprocal compression exposes rather than cancels the contact
+
+**Statement.**  Concatenate the ordered primitive square-root-prime frames
+
+```text
+A_(n;(p,r,theta))=e(theta n/(pr)),
+S=AA^*,
+gamma=A^*S^(-1)v,
+(R_j)_(p,r,theta)=e(-j theta inverse(p)/r).             (NG30.1)
+```
+
+Then the exact transported kernel is
+
+```text
+(A R_jA^*)(t,m)
+ =sum_(p!=r)c_p(t-m)c_r(t-m-j).                         (NG30.2)
+```
+
+With `U=A^*S^(-1/2)`, `x=S^(-1/2)v`, and `C_j=U^*R_jU`,
+
+```text
+S^(-1/2)A(R_j-I)gamma=(C_j-I)x,
+
+Re<x,(C_j-I)x>=-norm[(R_j-I)gamma]_2^2/2,              (NG30.3)
+
+norm[(R_j-I)gamma]_2^2
+ =norm[(C_j-I)x]_2^2+norm[(I-UU^*)R_jgamma]_2^2.       (NG30.4)
+```
+
+On every fixed-`r` block the shift Fourier projection of `R_j` at zero is
+zero, because `theta inverse(p)` is nonzero modulo `r`.  Hence `R_j-I` has
+zero orbit `-I`.  Complete shift averaging sends the signed field to `-v`;
+over `N` consecutive shifts its transported remainder is `O(sqrt(H)/N)` in
+the canonical metric.
+
+For the actual native coefficient
+
+```text
+d_(p,r,theta)=[log(p)/p][log(r)/r],
+```
+
+one has
+
+```text
+(A R_jd)(n)=sum_(p!=r)h_ph_r c_p(n)c_r(n-j).           (NG30.5)
+```
+
+At every prime target point above the bank, (NG30.5) is at most
+`(sum h_p)^2-sum h_p^2=O(1)`, uniformly in `j`, while
+`v_n=Lambda(n)-1=log n-1`.  The PNT and the R84 frame bounds therefore give
+a constant lower bound for the full native residual in both `l2` and
+`S^(-1)` norms.
+
+**Evidence and trust base.**  The shifted kernel, whitening, dissipation,
+Schur leakage, shift-Fourier projections, short-average estimate, and
+prime-point ceiling are A-rated in
+[`SIGNED-JOINT-RECIPROCAL-COMPRESSION-GATE.md`](results/SIGNED-JOINT-RECIPROCAL-COMPRESSION-GATE.md).
+The spectral-reciprocity and Eisenstein-coefficient boundaries are L-rated.
+The exact finite identities and compression rows are D-rated and reproduced
+by
+[`common_dual_reciprocal_compression_probe.py`](src/common_dual_reciprocal_compression_probe.py).
+
+**Exact scope and nonclaim.**  This closes a Euclidean or canonical-Hilbert
+contraction of the complete native square-root block, ordinary shift
+completion, smooth flat-shift mixing, finite affine-moment control, and
+balanced reciprocity as independent engines.  It does not lower-bound the
+complete signed R71 form by isolating one block.  A cancellation special to
+the full B-spline kernel, all cofactors, axes, seams, Type-I corrections, and
+natural rectangular limit remains open.  No fixed strip, RH, or negation of
+RH follows from NG-30.
+
+### NG-31 — Exact sector recompletion conserves the R71 carrier
+
+**Statement.**  On every reduced primitive cofactor sector, CRT followed by
+Poisson summation along the solution fiber gives
+
+```text
+A_theta(j)=g integral L(u+gj,u)e(theta u/(gmn))du,
+
+sum_j A_theta(j)e(j alpha)
+ =sum_k Lhat(-(k+alpha)/g,
+             (k+alpha-theta/(mn))/g).                 (NG31.1)
+```
+
+The canonical slow character is `alpha=theta/(mn)` and has the exact
+punctured-axis term `Lhat(-theta/(gmn),0)`.  The reciprocal character stays a
+distance at least `1/m` and `1/n` from both axes when `m,n>1`; its only zero
+character is the reducible `m=1` or `n=1` face.  Common-`g` masks translate
+the amplitude by fractions of `1/g` without changing this classification.
+
+Restoring every sector gives the conservation identity
+
+```text
+H_nonW+H_off
+ =<sum_n Lambda(n)delta_n-dt,
+    L(sum_n Lambda(n)delta_n-dt)>.                    (NG31.2)
+```
+
+The exact Type-I head reconstructs the same field.  For the actual R71
+B-spline, total variation across every seam gives reciprocal response
+`Y^(-1/2+o(1))` relative to kernel mass, while an exact Gamma asymptotic
+keeps the slow axis nonzero on an explicit growing band.
+
+**Evidence and trust base.**  The CRT, Poisson, masks, sector conservation,
+Type-I comparison, spline variation, and Gamma-band proofs are A-rated in
+[`FULL-R71-RECIPROCAL-RESPONSE-GATE.md`](results/FULL-R71-RECIPROCAL-RESPONSE-GATE.md).
+
+**Exact scope and nonclaim.**  This closes hidden algebraic cancellation and
+unrecorded B-spline seam conversion.  It does not estimate the signed
+high-determinant/reducible-face cofactor sum which equals the original energy.
+No strip or no-strip conclusion follows.
+
+### NG-32 — Pole retention and critical-line capacity stop positivity cascades
+
+**Statement.**  For `Q_m=(-1)^mD^(m)` and `p=m+1`, a target
+`rho_0=1-e+iT` seen from `sigma=1+delta` has, relative to the pole at one,
+
+```text
+r=(delta/(delta+e))^p.                               (NG32.1)
+```
+
+Keeping `r>=r_0>0` forces `delta gg pe`.  Resolving the `Theta(log T)` zeros
+in the local vertical cloud by a reciprocal-power/Turan step requires
+`p gg delta log T`.  Combining the two inequalities gives
+
+```text
+e log T=O_(r_0)(1).                                   (NG32.2)
+```
+
+Conductor-cancelled trigonometric positivity does not bypass (NG32.2).  It
+only imposes moments of a positive circle measure.  The measure
+
+```text
+(1-q)dtheta/(2pi)+q delta_pi
+```
+
+satisfies every scalar, tensor, and Toeplitz positivity inequality while
+placing the required first-harmonic displacement in ordinary moments.
+Moreover, an abstract Riemann--von Mangoldt multiset with all collateral
+zeros on `Re=1/2` can realize those moments by moving only `O(1/e)` zeros in
+each harmonic block.  The known zero-free region makes `1/e=o(log T)`, so
+the critical-line cloud has ample capacity.  No near-right child is forced.
+
+**Evidence and trust base.**  The differentiated ledger and exact tradeoff
+are A-rated in
+[`R89-DIFFERENTIATED-POSITIVITY-GATE.md`](results/R89-DIFFERENTIATED-POSITIVITY-GATE.md).
+The all-degree moment and critical-line compensation constructions are
+A-rated in
+[`R90-TARGET-CONDITIONED-HARMONIC-CASCADE-GATE.md`](results/R90-TARGET-CONDITIONED-HARMONIC-CASCADE-GATE.md).
+The zero-free-region and density comparisons are L-rated.
+
+**Exact scope and nonclaim.**  This closes differentiation, another
+trigonometric-polynomial search, marginal density, and child iteration as
+standalone engines.  It does not rule out an arithmetic correlation which
+holds specifically when `T` is a near-one zeta-zero ordinate.
+
+### NG-33 — Smooth vertices isolate every bounded-arity local Mobius flow
+
+**Statement.**  Suppose a flow on odd squarefree integers changes at most
+`k` primes per side, has displacement at most `D N^(1-alpha)`, bounded load,
+and divergence `mu(n)` outside `O(N^(1-beta))` collar vertices.  Its boundary
+flux would imply
+
+```text
+M(N)=O(N^(1-min(alpha,beta))).                         (NG33.1)
+```
+
+But with
+
+```text
+y=(N^alpha/(8D))^(1/k),                               (NG33.2)
+```
+
+every sufficiently large odd squarefree `y`-smooth collar vertex is isolated
+from the exchange graph.  Such vertices have asymptotic positive density
+proportional to `rho(k/alpha)`.  Hence a linear set, not a power-small
+exception, violates the divergence requirement.  Fractional matchings and
+symmetric Markov kernels obey the same Hall/cut obstruction.
+
+**Evidence and trust base.**  The transfer, prefix-cut, fixed-arity
+isolation, and fractional-flow arguments are A-rated in
+[`R89-MOBIUS-NEAR-ISOMETRIC-FLOW-GATE.md`](results/R89-MOBIUS-NEAR-ISOMETRIC-FLOW-GATE.md);
+the smooth-number asymptotic is L-rated.
+
+**Exact scope and nonclaim.**  This eliminates bounded-arity power-local
+transport, not global Mobius cancellation.  Growing arity or a signed bound
+for long-edge flux remains possible.  The positive-density isolated set is
+not evidence that its signed sum is large.
+
+### NG-34 — Accurate q-free counts and Muntz quadrature preserve or erase the divisor
+
+**Statement.**  For every integer `q>=2`,
+
+```text
+Q_q(x)=x/zeta(q)+O(x^(1/q)),
+F_q(s)=zeta(s)/zeta(qs).                                (NG34.1)
+```
+
+Uniformly for `Re s>=sigma_0>1/2`, `F_q` is zeta times a factor bounded
+above and away from zero independently of `q` and height.  Thus even an
+arbitrarily small counting-error exponent leaves every target zero in place.
+
+The Newton/Riesz heat transform gives a sharper-looking exact identity.  If
+
+```text
+F(t)=sum_n mu(n)n^(-2)e^(-t/n^2),
+h(x)=x^(-2)F(x^(-2)),                                  (NG34.2)
+```
+
+then
+
+```text
+M[h](s)=Gamma(1-s/2)/(2zeta(s)),
+sum_m h(mx)=x^(-2)e^(-x^(-2)).                         (NG34.3)
+```
+
+The dilation sum is exponentially small because its Mellin multiplier is
+`zeta(s)`: it cancels exactly the pole of `M[h]` at every zeta zero, with
+full multiplicity.  More generally a weighted dilation with Dirichlet
+series `A` has output coefficients `a*mu` and multiplier `A/zeta`.  A tame
+output makes `A` carry the annihilating zeta factor; a zero-sensitive output
+inherits the reciprocal-zeta pole.  Taking `a(n)=log n` gives `a*mu=Lambda`
+and returns the centered prime heat discrepancy.
+
+**Evidence and trust base.**  The q-free estimates and uniform comparison
+are A-rated in
+[`R90-QFREE-RATIO-NONVANISHING-GATE.md`](results/R90-QFREE-RATIO-NONVANISHING-GATE.md).
+The Newton equivalence, lossless Poissonization, Muntz identity, and weighted
+dichotomy are A-rated in
+[`R90-NEWTON-COEFFICIENT-CANCELLATION-GATE.md`](results/R90-NEWTON-COEFFICIENT-CANCELLATION-GATE.md).
+
+**Exact scope and nonclaim.**  Continuation, counting accuracy, and
+quadrature accuracy are not lower bounds.  A fixed power beyond the unsigned
+Newton scale remains an exact sufficient target and is not disproved.
+
+### NG-35 — Prime-support interpolation must be superoscillatory
+
+**Statement.**  A differentiated weight `W` need only satisfy
+`W(log p^j)>=0`; it may be negative between prime powers and can therefore
+reverse continuous Laplace monotonicity.  This loophole is real.  However,
+the prime-log mesh above height `X` satisfies
+
+```text
+Delta(X)<<exp(-19X/40).                                  (NG35.1)
+```
+
+If `A=H_W(delta+e)>0` and pole cancellation retains fixed reserve,
+`H_W(delta)<=qA` with `q<1`, then the negative pole-weighted mass is at least
+`(1-q)A`.  Negative mass hidden above `X` obeys
+
+```text
+N_delta(X;W)<=Delta(X)e^(delta Delta(X))V_delta(X;W),
+N_delta(X;W)<=(deg W+1)Delta(X)B_delta(X;W).             (NG35.2)
+```
+
+Thus a stable interpolant resolving zero spacing at `X asyp log T` pays a
+fixed power of `T` in variation, degree, or amplitude.  A finite-order
+canonical product cannot evade this because prime logarithms have
+exponential counting density in `X`.
+
+**Evidence and trust base.**  The discrete example, reserve lemma, mesh
+inequalities, and explicit-formula criterion are A-rated in
+[`R90-DISCRETE-PRIME-SUPPORT-INTERPOLATION-GATE.md`](results/R90-DISCRETE-PRIME-SUPPORT-INTERPOLATION-GATE.md).
+The exponent `19/40` imports Baker--Harman--Pintz and is L-rated.
+
+**Exact scope and nonclaim.**  Tempered and stable interpolation is closed.
+An arbitrarily power-conditioned superoscillatory weight is not ruled out,
+but it must also satisfy a norm-uniform signed estimate for every collateral
+zero and trivial term.  That estimate remains fixed-strip strength.
+
+### NG-36 — Conditional Mobius convergence is not vertical recurrence
+
+**Statement.**  For every real `sigma` and finite block,
+
+```text
+sup_t abs(sum_(N<n<=M)mu(n)n^(-sigma-it))
+ =sum_(N<n<=M)mu(n)^2n^(-sigma).                       (NG36.1)
+```
+
+Indeed, Kronecker recurrence can make every prime phase in the block tend to
+`-1`, turning each nonzero Mobius summand positive.  Thus the abscissa of
+uniform convergence of `sum mu(n)n^(-s)` is exactly one, unconditionally.
+Under a hypothetical strip `Re(s)>theta`, the same series converges only
+compact-locally there.  On every Rouche circle around the simple zero of
+`1/zeta` at `s=1`, an accurate `+1` phase return of a finite head forces the
+translated conditional tail to have a fixed order-one norm.  Along a full
+diagonal prime-phase return sequence, the translates of `1/zeta` are not a
+normal family on that disc.
+
+**Evidence and trust base.**  A-rated proofs by Kronecker, partial summation,
+Rouche, Montel, the identity theorem, and Hurwitz are in
+[`R94-RECIPROCAL-ZETA-VERTICAL-RECURRENCE-GATE.md`](results/R94-RECIPROCAL-ZETA-VERTICAL-RECURRENCE-GATE.md).
+
+**Exact scope and nonclaim.**  This closes only the inference from a fixed
+strip to height-uniform Dirichlet-tail control or ordinary Bohr recurrence
+across the absolute-convergence boundary.  It neither disproves a fixed strip
+nor bounds the recurrence-conditioned tail.  Proving that tail small along
+one sufficiently accurate return sequence would prove the no-strip
+alternative.
+
+### NG-37 — Positive Mellin transport retains the full PNT exponent
+
+**Statement.**  Put
+
+```text
+D(u)=psi(exp u)-(exp u-1),
+d_s(u,v)=abs(exp(-su)-exp(-sv)),       Re(s)=sigma>0.
+```
+
+After equalizing the two finite-cutoff masses at the endpoint, the optimal
+transport cost satisfies
+
+```text
+sigma integral_0^U exp(-sigma u)abs(D(u))du
+ <=W_(d_s)(U)
+ <=abs(s) integral_0^U exp(-sigma u)abs(D(u))du.       (NG37.1)
+```
+
+The lower bound is contraction to the strictly monotone radial coordinate of
+the Mellin spiral; the upper bound is monotone transport measured in spiral
+arc length.  Consequently its convergence threshold is exactly
+`sup Re(rho)`.  A power-local positive matching also forces the corresponding
+power-saving PNT estimate through the Hall prefix cut.
+
+**Evidence and trust base.**  A-rated cumulative-flux, one-dimensional
+transport, Hall, and partial-summation proofs are in
+[`R94-PRIME-POLE-PHASE-TRANSPORT-GATE.md`](results/R94-PRIME-POLE-PHASE-TRANSPORT-GATE.md).
+
+**Exact scope and nonclaim.**  Positive couplings, chord/arc costs, and
+capacitated local matchings are constrained.  A signed flow may cancel across
+many cuts before a modulus is taken and is outside the theorem.  Establishing
+a fixed power for that signed queue would itself prove a fixed strip.
+
+### NG-38 — Luroth mixing reaches a rational spectator, not the zeta lag
+
+**Statement.**  For the Luroth Perron operator,
+
+```text
+Lip(Pf)<=(pi^2/3-3)Lip(f).                             (NG38.1)
+```
+
+This makes sufficiently late forward Mellin correlations nonzero, but those
+correlations converge to `1/(2s)` rather than to the first-lag carrier
+`(s-1)zeta(s)/[s(s+1)]`.  The operator has an explicit infinite-dimensional
+kernel, so the conclusion cannot be inverted.  Reversed affine and
+polynomial correlations are rational spectators; their pair law is mutually
+singular to the forward graph law.  Moreover positive finite-depth
+future-digit martingales can have correlation `O(2^(-m))` at a target zero.
+The exact digit tail beyond `N` is a Hurwitz-zeta expression and is coherent
+for `N gg |s|^2`, leaving the first `O(t^2)` digits as the unresolved signed
+head.
+
+**Evidence and trust base.**  A-rated operator, graph-singularity,
+martingale, and Hurwitz-zeta proofs are in
+[`R94-LUROTH-FORWARD-CORRELATION-GATE.md`](results/R94-LUROTH-FORWARD-CORRELATION-GATE.md).
+
+**Exact scope and nonclaim.**  Generic spectral-gap, time-reversal,
+polynomial-observable, and depth-uniform positive-cone transfers are closed.
+The coefficient-specific finite forward head remains open; no lower bound or
+zero-free strip is inferred from the later-lag theorem.
+
+### NG-39 — Global Luroth aliases are the functional equation, not a new sign
+
+**Statement.**  The first-forward Luroth tail already has a nonzero linear-
+cutoff symbol when `N asymp |t|`.  At the stationary aliases
+`n asymp t/(2 pi k)`, its natural windows have leading coefficient
+proportional to `k^(s-1)`.  Summing every branch with the required continuum
+counterterm gives
+
+```text
+lim_(K->infinity)[sum_(k<=K)k^(s-1)-K^s/s]=zeta(1-s). (NG39.1)
+```
+
+The stationary Gaussian phase matches the gamma factor exactly.  Reapplying
+Poisson summation multiplies by `chi(s)chi(1-s)=1`; it creates no residual
+sector.  A finite polynomial change of the positive observable either keeps
+the same alias or loses the zeta divisor.
+
+**Evidence and trust base.**  A-rated finite-head, nonstationary-tail,
+stationary-window, observable-rigidity, and global Poisson proofs are in
+[`R95-LUROTH-RESONANT-HEAD-ALIASING-GATE.md`](results/R95-LUROTH-RESONANT-HEAD-ALIASING-GATE.md)
+and
+[`R96-LUROTH-GLOBAL-ALIAS-POISSON-GATE.md`](results/R96-LUROTH-GLOBAL-ALIAS-POISSON-GATE.md).
+
+**Exact scope and nonclaim.**  Adjacent pairing, finitely many phase-locked
+blocks, finite polynomial observables, and recursive Poisson renormalization
+are closed.  Equation (NG39.1) is an exact rewrite, not a nonvanishing
+estimate; a new global arithmetic relation among the complementary phases
+remains outside the theorem.
+
+### NG-40 — Flat scale cycles leave one faithful signed ramp
+
+**Statement.**  Pole-normalized scale shifts form a commuting semigroup, so
+their prime--pole defects are an exact flat cocycle.  Hermitian complex-flow
+minimization projects away every circulation; deleting conjugation permits
+nonzero sources with zero quadratic energy.  Finite pole-killing filters have
+arbitrarily high recurrent blind frequencies.  The continuous exponential
+delay avoids that last defect and has multiplier
+
+```text
+B_2(s)=(s-1)/(s+1),
+R_2(log x)=sum_(n<=x)Lambda(n)(2n/x-1)-1+x^(-1).       (NG40.1)
+```
+
+It is uniformly faithful on the nontrivial zeta divisor.  By Landau's
+one-sided theorem, either `R_2(log x)>=-C x^a` or
+`R_2(log x)<=C x^a`, for one `a<1`, excludes every zero with real part
+larger than `a`.  Complementary, lcm, convexity, scale-averaging, and
+centered-Selberg identities do not prove either side; positive atomic
+prime-like countermodels carry arbitrary off-line Mellin poles.
+
+**Evidence and trust base.**  A-rated cocycle/Hodge/filter/Landau and exact
+von Mangoldt identities are in
+[`R95-SIGNED-MULTISCALE-QUEUE-CYCLE-GATE.md`](results/R95-SIGNED-MULTISCALE-QUEUE-CYCLE-GATE.md)
+and
+[`R96-ONE-SIDED-VON-MANGOLDT-RAMP-GATE.md`](results/R96-ONE-SIDED-VON-MANGOLDT-RAMP-GATE.md).
+
+**Exact scope and nonclaim.**  The generic cycle, coercive-flow, finite-filter,
+and positivity-only engines are closed.  The one-sided estimate for the
+actual von Mangoldt coefficients is not disproved; proving it would establish
+a fixed strip.
+
+### NG-41 — Besicovitch recurrence selects the exceptional Euler ordering
+
+**Statement.**  For every `sigma>1/2`, the Mobius series has exact diagonal
+`B^2` recurrence because
+
+```text
+sum_n mu(n)^2n^(-2sigma)=zeta(2sigma)/zeta(4sigma).     (NG41.1)
+```
+
+Same-line point evaluation is nevertheless unbounded; Dirichlet `H^2`
+recovers it only after a sharp half-unit right shift.  More specifically,
+conditioning all primes `p<=P` to phase one gives
+
+```text
+A_P(sigma)H_P ->0             in conditional L2,
+sum_(n<=P)mu(n)n^(-sigma) ->1/zeta(sigma)              (NG41.2)
+```
+
+under a hypothetical strip, for `1/2<sigma<1`.  Thus the conditioned tail
+tends to `-1/zeta(sigma)`, exactly canceling the recurring natural head.
+Inside every Rouche disc the same `A_P` has a width-`1/log P` boundary layer
+whose local square mass grows exponentially.
+
+**Evidence and trust base.**  The coefficient calculations and spike lemma
+are A-rated; the Hardy-space and Carlson boundary are L-rated from the named
+primary sources in
+[`R96-MOBIUS-BESICOVITCH-RECURRENCE-GATE.md`](results/R96-MOBIUS-BESICOVITCH-RECURRENCE-GATE.md).
+
+**Exact scope and nonclaim.**  Global mean recurrence cannot be promoted to
+local recurrence at the Haar-null unit character by generic embedding or
+ergodicity.  A coefficient-specific local-norm estimate along an exceptional
+return sequence remains open and would prove the no-strip alternative.
+
+### NG-42 — Puglisi's alternating cutoff inequality is reversed
+
+**Statement.**  The claimed `quasi-RH => RH` proof in arXiv:2210.03121v9
+uses, for even `J`, an alternating-exponential inequality that is false at
+
+```text
+x=13,                  J=30=2 floor(x+2).              (NG42.1)
+```
+
+An exact integer comparison shows the asserted nonpositive expression is
+positive.  More generally, throughout the cutoff cell
+`J=2m`, `m-2<=x<m-1`, its defect is bounded below by a quantity growing like
+`exp(2m(1-log 2)+O(log m))`; the final Lagrange factor is not quantitatively
+separated from one and can dominate the alternating tail.
+
+**Evidence and trust base.**  The exact counterexample, uniform asymptotic
+reversal, and audit of the surrounding Perron/Cauchy bookkeeping are A-rated
+in
+[`R95-PUGLISI-QUASI-RH-AUDIT.md`](results/R95-PUGLISI-QUASI-RH-AUDIT.md).
+
+**Exact scope and nonclaim.**  This refutes the printed implication, not the
+mathematical statement `quasi-RH => RH`.  A sign-definite integral remainder
+or quantitative control of the Taylor point would be a different proof.
+
+### NG-43 — Hilbert--Schmidt regularization deletes the first prime trace
+
+**Statement.**  For the prime diagonal `D_s=diag_p(p^(-s))`, one has
+`D_s in S_2` exactly for `Re(s)>1/2`.  In that half-plane
+`det_2(I-D_s)` is holomorphic and nonzero.  The identity with `1/zeta(s)`
+valid to the right of one additionally contains `exp(-Tr D_s)`; this omitted
+first trace carries both the pole cancellation at one and the reciprocal
+divisor.  The trace is nonclosable in `S_2`, while the natural Fock
+augmentation is unbounded and `I-D_s` has index zero.
+
+**Evidence and trust base.**  The Schatten identities, nonclosability
+example, Fock-domain audit, and homotopy/index calculation are A-rated in
+[`R97-FERMIONIC-FREDHOLM-TRACE-ANOMALY-GATE.md`](results/R97-FERMIONIC-FREDHOLM-TRACE-ANOMALY-GATE.md).
+
+**Exact scope and nonclaim.**  This closes `S_2`-continuous regularized
+determinants and the named Fock/index shortcuts.  It does not exclude a new
+signed relative trace in a different topology.
+
+### NG-44 — Low-threshold scalar Euler carriers cannot keep the divisor
+
+**Statement.**  Removing the linear prime coefficient can lower a Dirichlet
+square-sum threshold, but it also removes the simple reciprocal zero at one.
+If a holomorphic scalar germ preserves that zero, its first nonconstant
+Taylor layer supplies nonzero coefficients on every squarefree almost-prime
+of the corresponding degree, retaining the half-unit barrier.  More
+generally, if a Dirichlet carrier has square-sum threshold below `1/2` and
+vanishes at one, Cauchy--Schwarz gives a fixed normal-convergence margin;
+vertical recurrence then forces high artificial zeros with real parts
+tending to one.
+
+**Evidence and trust base.**  The coefficient formulas, threshold theorem,
+recurrence corollary, and regression probes are A/D-rated in
+[`R97-NONLINEAR-EULER-PRIME-ZETA-RIGIDITY-GATE.md`](results/R97-NONLINEAR-EULER-PRIME-ZETA-RIGIDITY-GATE.md).
+
+**Exact scope and nonclaim.**  This is a rigidity theorem for scalar
+Dirichlet/Euler carriers with normal convergence.  It is not a theorem about
+all nonlinear or operator-valued realizations.
+
+### NG-45 — Zero-preserving multiplicative twists are normal multipliers
+
+**Statement.**  Let a unimodular completely multiplicative twist be chosen
+so that its reciprocal Euler product retains a simple zero at one.  Landau's
+positivity theorem forces a power-weighted pretentious distance to the
+trivial twist to converge.  Cauchy--Schwarz upgrades this to normal
+convergence of the Euler quotient in a left neighborhood of one.  The twist
+therefore changes `1/zeta` only by a holomorphic nonzero multiplier and
+inherits the same exceptional-character recurrence obstruction.
+
+**Evidence and trust base.**  The Landau, pretentiousness, Euler quotient,
+and sign-alignment calculations are A-rated in
+[`R97-EXCEPTIONAL-MULTIPLICATIVE-TWIST-GATE.md`](results/R97-EXCEPTIONAL-MULTIPLICATIVE-TWIST-GATE.md).
+
+**Exact scope and nonclaim.**  The result concerns unimodular completely
+multiplicative twists.  It does not eliminate nonmultiplicative or genuinely
+non-normal signed deformations.
+
+### NG-46 — The imported quasi-RH bootstrap has identity exponent map
+
+**Statement.**  Assume `Theta=sup_rho Re(rho)<1`.  The conditional PNT and
+Mertens bounds have infimal power exponent exactly `Theta`; their Mellin
+converses therefore return the same boundary.  Zero-density and mollified
+moment estimates permit one sparse exception, Turan power sums contradict
+only `beta>Theta`, reciprocal mollifier tails decay only to the right of
+`Theta`, classical positivity remains anchored at `Re(s)>1`, and the
+functional equation preserves the band.  Thus the audited imported toolbox
+provides `f(Theta)=Theta`, not `f(Theta)<Theta`.
+
+**Evidence and trust base.**  The conditional exponent ledger and the
+primary-source audit are A+L-rated in
+[`R98-QUASI-RH-BOOTSTRAP-GATE.md`](results/R98-QUASI-RH-BOOTSTRAP-GATE.md).
+
+**Exact scope and nonclaim.**  This is not a proof that quasi-RH cannot imply
+RH, nor evidence that `Theta=1`.  It closes only the explicitly audited
+compositions and isolates the need for a new per-zero mechanism.
+
 ## 4. Supporting countermodels, not headline no-go theorems
 
 These artifacts are useful because they prevent invalid logical shortcuts.
@@ -1226,7 +2222,7 @@ name:
 5. a closed global limit in the same topology.
 
 NG-01 and NG-02 attack items 1--2; NG-03 through NG-08, NG-11, NG-12,
-NG-16 through NG-21 attack
+NG-16 through NG-46 attack
 attempts to manufacture item 4 locally; NG-09 and NG-10 show how locality and
 averaging can lose items 2--3; NG-13 through NG-15 isolate quantifier,
 topology, target-identification, and boundary-escape failures in the
@@ -1258,6 +2254,31 @@ It is not, by itself, a proof that every future route must fail.
 | NG-19 | Green for the interval signs; Amber for the infinite operator exposition | Re-run the one-thread Arb script and independently check the rank-one determinant, compression indexing, Routh count, and Edrei--Schoenberg specialization; do not infer anything about the limiting spectrum from Taylor-section failures |
 | NG-20 | Green for the exact scalar algebra and recurrence; Amber for the analytic synthesis | Independently audit the screw-preprint sign discrepancy, Fourier normalization, strict-gap implication, and use of the quantitative floor theorem; do not promote sampled subleading minima to a global bound |
 | NG-21 | Green for the finite/rational scalar algebra; Amber for the analytic cone exposition | Independently referee the continuous operator-domain spelling and the global sinc inequality; keep the conclusion to failure of the generic packet lift, not failure of any zeta-specific mixed-packet theorem |
+| NG-22 | Green for the completion/polarization algebra; Amber for the Toeplitz and regulated-boundary synthesis; finite arithmetic runs D | Independently referee the Fourier normalization and the two-sided `xi'/xi` regulator calculation. Keep the conclusion to failure of an identity/sign derived from the named ingredients; do not promote the floating B-spline models to exclusion of a large-scale zeta-specific two-shift estimate |
+| NG-23 | Green for the finite-cutoff/Laurent and Riccati algebra; finite arithmetic runs D; full-field Vinogradov--Korobov synthesis and classical Euler transfer internally audited A+L | Do not promote the quadratic-core null direction to a solution of the full Riccati equation.  The `R^(4/5-o(1))` bound is now a theorem for both the cutoff-independent exact-head and frozen explicit-center fields.  A converse for that single sublinear schedule remains open, but the program-level moving-edge need is discharged by R80's proportional bank.  The global fixed-power joint-dispersion theorem remains open. |
+| NG-24 | Green for the annihilator algebra and exact finite comparator formulas; completed finite runs D | Independently check the Fourier convention, inverse-shift convergence, and localization commutator.  Treat the finite ratios only as counterexamples to the tested domination inequalities, not as an asymptotic lower bound or a rejection of Mobius-specific cancellation |
+| NG-25 | Green for the local-moment exponent and Bernstein--Walsh filter arguments; completed pair-cell runs D | Independently check the continuously translated block quantifier, Fourier-duality constants, noncancellation of the selected zero pole, and scale-span arithmetic cost.  Treat finite cell signs only as failures of the sampled domination/monotonicity claims; the fixed-saving endpoint remains open |
+| NG-26 | Green for the independently audited attained-edge Bohr theorem; Amber for the non-attained quartet construction; clustered run D | Independently referee the Fourier-`l1` discretization and nested-interval tail control.  Do not transfer the abstract countermodel to zeta without Riemann--von Mangoldt local counting and the prescribed zero coefficients. |
+| NG-27 | Amber for the analytic sector recompletion and spectral comparison; Green for the finite triangular/frame algebra; finite optimizers D | Independently audit the common-factor primitive mask, natural rectangular limits, normalized shell bounds, and every Kuznetsov normalization.  The beat frame is a coordinate theorem, not cancellation; do not describe the surviving centered joint estimate as weaker than a fixed strip. |
+| NG-28 | Amber for the Wright/kernel interface and contact-family normalization; Green for the global frame, reciprocity, Vandermonde, and powered-box algebra; finite tensor/gauge runs D | Independently referee the log-Mellin projective bound, `k=j theta` norm ledger, exact placement/sign of both phases, and uniform B-spline seam estimates.  Do not infer a zeta asymptotic from the envelope probes or claim that one scalar contact is gauge-invariant. |
+| NG-29 | Green for the Ramanujan, Ward, null-gauge, and disjoint-support algebra; Amber for the complete R71 normalization; Wright interface L and finite falsifiers D | Independently check the Fourier signs in reciprocal derivative transfer, the `1/mu` norm charge, top-prime versus square-root scale conventions, and all primitive axes/seams.  State the `H^(-1/40)` power only for the conditional mean-zero component, never for the full energy. |
+| NG-30 | Green for the finite shifted-Ramanujan, compression, zero-orbit, averaging, and prime-point algebra; Amber for the complete R71 kernel identification; spectral imports L and compression runs D | Independently referee the reciprocal phase orientation, `S^(-1)` normalization, prime-window PNT comparison, and flat-versus-actual shift-weight distinction.  Do not promote the blockwise norm lower bound to a lower bound for the complete signed energy; the all-sector kernel pairing remains open. |
+| NG-31 | Amber for the all-sector normalization; Green-candidate for the finite CRT/Poisson and spline algebra | Independently referee the rectangular-limit interchange, primitive-mask shifts, both punctured-axis orientations, Type-I normalization, B-spline seam integration, and the growing Gamma-band constants. Do not infer a lower bound for the signed full energy from response separation. |
+| NG-32 | Amber | Independently audit every explicit-formula sign, the target/pole optimization, the Turan order hypothesis, the infinite harmonic-block countermodel, and the imported density exponent. Keep the conclusion to failure of positivity-plus-density, not failure of a zeta-specific conditional correlation. |
+| NG-33 | Amber | Independently referee the collar-flux transfer, squarefree smooth-number density with odd restriction, fixed-arity quantifiers, and fractional Hall equivalence. Do not infer that the isolated smooth sector has a large signed sum. |
+| NG-34 | Green-candidate for the elementary Euler/Mellin identities; Amber for the general half-plane transfer | Independently check q-uniform constants, Newton-series normal convergence, depoissonization, ordinary integrability at the Muntz endpoint, and weighted-dilation convergence. State the fixed Newton power as an equivalent/sufficient target, not an achieved estimate. |
+| NG-35 | Amber; prime-gap exponent L | Independently referee the differentiated explicit formula for arbitrary polynomial weights, the global prime-log mesh deduction, weighted variation bounds, stable Markov/Remez hypotheses, and all tail normalizations. Arbitrary superoscillation remains open and must retain its full condition number. |
+| NG-36 | Green-candidate for the finite Kronecker identity; Amber for the strip/normal-family synthesis | Independently check the squarefree-density endpoint at `sigma=1`, the reciprocal zero count on the Rouche disc, and every quantifier in the diagonal-return/Montel argument. Do not describe forced tail anti-recurrence as evidence that the strip is false. |
+| NG-37 | Amber | Independently referee endpoint mass equalization, the radial pushforward orientation, the fixed-power PNT equivalence, and Hall collar capacities. Keep the signed multiscale queue explicitly outside the positive-transport theorem. |
+| NG-38 | Amber | Independently check the Luroth branch convention, exact contraction constant, mutual-singularity graph argument, uniform Hurwitz expansion, and martingale conditioning. Do not transfer later-lag nonvanishing backward through the noninjective Perron operator. |
+| NG-39 | Amber | Independently referee the linear-cutoff Euler--Maclaurin remainder, stationary-window constants, overlap counterterm, gamma phase, and polynomial-observable rigidity. Treat the final `zeta(1-s)` identity as recombination, not a bound. |
+| NG-40 | Amber | Independently check the normalized-shift convention, continuous-delay Stieltjes calculation, Landau abscissa argument, lcm exponents, and positive atomic countermodel. Never report the one-sided ramp criterion as an achieved estimate. |
+| NG-41 | Amber; Hardy/Carlson boundary L | Independently audit the order of the natural, Euler, prime-dimension, and vertical-mean limits; the conditional `L2` normalization; and the uniform constants in the boundary-layer spike. Do not identify a Bohr equivalence class with its value at the unit character. |
+| NG-42 | Green-candidate for the exact counterexample; Amber for the full preprint audit | Recheck the v9 source, indexing convention, integer comparison, and uniform cutoff-cell asymptotic. State only that the printed proof fails; do not infer that quasi-RH fails to imply RH. |
+| NG-43 | Green-candidate for the operator algebra; Amber for the analytic synthesis | Independently audit the prime-diagonal Schatten thresholds, regularized determinant convention, Fock augmentation domain, trace nonclosability example, and index/homotopy statement. Do not infer that every relative trace is impossible. |
+| NG-44 | Green-candidate | Independently check the squarefree almost-prime coefficient formula, the general normal-margin quantifiers, and the recurrence theorem's nonvanishing-log hypothesis. Keep finite vanishing Euler factors explicitly excluded. |
+| NG-45 | Amber | Independently referee the Landau abscissa step, weighted pretentiousness exponents, Euler-quotient normal convergence, and the sign-alignment transfer. State the unimodular complete-multiplicativity hypotheses prominently. |
+| NG-46 | Amber; literature inputs L | Independently verify every conditional endpoint epsilon, current density exponent/range, mollifier-tail domain, and the sparse symmetric profile. State only that the audited bootstrap map is the identity. |
 
 “Green” here certifies only the exact card component named in the state
 column.  It is not a novelty or importance grade.
