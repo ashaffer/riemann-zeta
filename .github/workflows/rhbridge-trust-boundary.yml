@@ -1,0 +1,42 @@
+name: RHBridge trust-boundary checks
+
+on:
+  push:
+    branches:
+      - codex/formal-trust-boundary
+    paths:
+      - ".github/workflows/rhbridge-trust-boundary.yml"
+      - "lean/rhbridge/**"
+      - "lean/glide/**"
+      - "lean/weilcert/**"
+  pull_request:
+    paths:
+      - ".github/workflows/rhbridge-trust-boundary.yml"
+      - "lean/rhbridge/**"
+      - "lean/glide/**"
+      - "lean/weilcert/**"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: rhbridge-trust-boundary-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  focused-audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v5
+      - uses: leanprover/lean-action@v1
+        with:
+          lake-package-directory: lean/rhbridge
+          build-args: >-
+            RHBridge.GeneralZetaWeilFormAudit
+            RHBridge.ActivationCancellationAudit
+            RHBridge.CertifiedBaseIntervalAudit
+          test: false
+          lint: false
+          use-mathlib-cache: true
