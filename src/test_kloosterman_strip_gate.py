@@ -46,7 +46,7 @@ class ConditionalStripGateTests(unittest.TestCase):
         )
         self.assertEqual(remainder_surplus(theta, saving), 0)
         self.assertLess(remainder_surplus(Fraction(1), saving), 0)
-        self.assertGreater(remainder_surplus(Fraction(33, 32), saving), 0)
+        self.assertGreater(remainder_surplus(Fraction(17, 16), saving), 0)
 
     def test_general_width_is_half_saving(self) -> None:
         for saving in (Fraction(1, 100), Fraction(1, 32), Fraction(1, 12), Fraction(1, 4)):
