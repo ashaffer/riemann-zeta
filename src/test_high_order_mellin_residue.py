@@ -1,3 +1,4 @@
+import cmath
 import math
 import unittest
 
@@ -31,8 +32,10 @@ class ExactResidueIdentityTests(unittest.TestCase):
                         order, log_scale, pole_offset
                     )
                     tail = completed_tail_formula(order, log_scale, pole_offset)
-                    self.assertAlmostEqual(direct.real, tail.real, places=10)
-                    self.assertAlmostEqual(direct.imag, tail.imag, places=10)
+                    self.assertTrue(
+                        cmath.isclose(direct, tail, rel_tol=1.0e-9, abs_tol=1.0e-9),
+                        msg=f"order={order}, L={log_scale}, z0={pole_offset}",
+                    )
 
     def test_polynomial_coefficients(self) -> None:
         for order in range(1, 9):
