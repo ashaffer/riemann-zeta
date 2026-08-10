@@ -1,7 +1,8 @@
 # Exact twisted-second-moment reduction for the long-mollifier strip route
 
-Status: **exact finite reduction proved; classical main term identified;
-Möbius-weighted aggregate remainder remains OPEN.**
+Status: **exact finite reduction proved; the classical main aggregate is at
+natural scale by an elementary polylogarithmic bound; the Möbius-weighted
+aggregate remainder remains OPEN.**
 
 Date: 2026-08-09.
 
@@ -131,22 +132,72 @@ RemainderAggregate(Y,T)
    K_Y(d,e)R_T(d,e).                                    (3.7)
 ```
 
-The finite main aggregate is explicit arithmetic.  The strip problem is now
-localized in (3.7), together with controlling the main aggregate at its
-natural scale.
+## 4. The main aggregate is already at natural scale
 
-## 4. Why individual-twist absolute values are the wrong norm
+The main term does not contain the length barrier.  A completely elementary
+absolute bound suffices.
+
+First, because each cutoff weight lies in `[0,1]`,
+
+```text
+0<=K_Y(d,e)<=Y.                                         (4.1)
+```
+
+Next,
+
+```text
+sum_(d,e<=Y) (d,e)/(de)
+ <=sum_(g<=Y) 1/g [sum_(a<=Y/g)1/a]^2
+ <=(1+log Y)^3.                                         (4.2)
+```
+
+The first inequality writes `d=ga`, `e=gb` and drops the coprimality
+condition.  The second uses the elementary harmonic-sum bound twice and then
+again in `g`.
+
+Finally, since
+
+```text
+1/Y^2 <= (d,e)^2/(de) <= 1,
+```
+
+the logarithmic bracket in (3.6) is bounded in absolute value by
+
+```text
+C[1+log T+log Y]                                        (4.3)
+```
+
+for an absolute constant `C`.  Combining (4.1)--(4.3) gives
+
+```text
+|MainAggregate(Y,T)|
+ << T Y (1+log Y)^3(1+log T+log Y).                     (4.4)
+```
+
+For every fixed `theta>0` and `Y=T^theta`, (4.4) is
+
+```text
+T Y T^epsilon                                           (4.5)
+```
+
+for any fixed `epsilon>0`, once `T` is sufficiently large.  Therefore the
+main aggregate already meets the natural-scale requirement of the averaged
+mollifier criterion.  No Möbius cancellation is needed for this part.
+
+The sole analytic obstruction in this reduction is now (3.7).
+
+## 5. Why individual-twist absolute values are the wrong norm
 
 The target for `Y=T^theta` is
 
 ```text
-A(Y,T) << T Y T^epsilon.                                 (4.1)
+A(Y,T) << T Y T^epsilon.                                 (5.1)
 ```
 
 A pointwise estimate for each `R_T(d,e)`, followed by
 
 ```text
-sum_(d,e) |mu(d)mu(e)K_Y(d,e)R_T(d,e)|/sqrt(de),         (4.2)
+sum_(d,e) |mu(d)mu(e)K_Y(d,e)R_T(d,e)|/sqrt(de),         (5.2)
 ```
 
 discards every Möbius sign and every reciprocity cancellation.  Since the
@@ -156,7 +207,7 @@ long-Dirichlet-polynomial barrier rather than crossing it.
 The required theorem is an estimate for the **signed aggregate** (3.7), not a
 uniform estimate for a single rational twist.
 
-## 5. Reciprocity form of the missing theorem
+## 6. Reciprocity form of the missing theorem
 
 Recent twisted-second-moment work makes the remainder structurally explicit.
 Khan's reciprocity formula, for prime twists and with a stated extension to
@@ -185,30 +236,28 @@ The hope is not that reciprocity makes each `R_T(d,e)` small.  It is that the
 complete double Möbius sum of the dual moments has lower conductor or an
 additional orthogonality unavailable in the original variables.
 
-## 6. Precise target theorem
+## 7. Precise target theorem
 
 For one fixed smooth time weight `W`, let `R_{T,W}(d,e)` denote the remainder
-after subtracting the normalization-matched smooth main term.  The first
-useful power-saving statement is:
+after subtracting the normalization-matched smooth main term.  Since the main
+aggregate is covered by (4.4), the exact missing estimate is
 
 ```text
-there exist theta>1 and eta>0 such that, for Y=T^theta,
+there exists theta>1 such that, for Y=T^theta and every epsilon>0,
 
 sum_(d,e<=Y) mu(d)mu(e)/sqrt(de)
  K_Y(d,e) R_{T,W}(d,e)
-  << T Y T^(-eta).                                      (6.1)
+  <<_epsilon T Y T^epsilon.                              (7.1)
 ```
 
-A natural-scale bound without the factor `T^(-eta)` may already suffice for
-the fixed-strip criterion once the main aggregate is shown to be `O(TY)`;
-the extra saving in (6.1) is included as a robust milestone and to absorb
-smoothing and endpoint losses.
+Any bound of the stronger form `T Y T^(-eta)` is a useful safety margin, but
+is not logically necessary for obtaining a fixed strip.
 
 The quantifiers matter: the estimate must hold for every sufficiently large
 `T`, not merely on average over `T`, because the mollifier criterion excludes
 individual zeros.
 
-## 7. Relation to the short-interval barrier
+## 8. Relation to the short-interval barrier
 
 Opening `J_T(d,e)` by a Fourier/approximate-functional-equation calculation
 recovers the near-shift scale
@@ -223,7 +272,7 @@ formulation are two coordinate systems for the same obstruction:
 ```text
 near shifts in the original Dirichlet polynomial
         <==>
-dual rational-twist moments under reciprocity.          (7.1)
+dual rational-twist moments under reciprocity.          (8.1)
 ```
 
 The reciprocity coordinate system is preferable if the complete Möbius sum
@@ -231,7 +280,7 @@ can be transformed before Cauchy--Schwarz.  If every argument still takes
 absolute values twist by twist, it collapses back to the missing factor `H`
 identified in the cutoff-kernel audit.
 
-## 8. Immediate implementation tasks
+## 9. Immediate implementation tasks
 
 1. Freeze a smooth version of `J_T(d,e)` and its main term with all constants.
 2. Verify (2.1) numerically for small `Y` as a regression test.
@@ -245,7 +294,7 @@ A successful exponent beyond `theta=1` would give a genuine fixed zero-free
 strip through `LongMollifierStripReduction.lean`.  No such exponent is proved
 in this note.
 
-## 9. Primary literature
+## 10. Primary literature
 
 - R. Balasubramanian, J. B. Conrey, and D. R. Heath-Brown, *Asymptotic mean
   square of the product of the Riemann zeta-function and a Dirichlet
