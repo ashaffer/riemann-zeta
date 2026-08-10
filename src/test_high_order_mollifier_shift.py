@@ -2,14 +2,21 @@ import math
 import unittest
 
 from high_order_mollifier_shift import (
+    alpha_threshold_for_theta,
+    boundary_carrier_rate,
     carrier_rate,
+    corridor_margin,
+    effective_support_exponent,
+    effective_threshold_strip_width,
     fixed_divisor_convergence,
     logarithmic_cutoff_weight,
+    maximum_nominal_length_exponent,
     minimum_carrier_rate_on_interval,
     proportional_order,
     proportional_weight,
     scaled_entropy_rate,
     shifted_reciprocal_weight,
+    strip_width_from_nominal_length,
     terminal_power_exponent,
     verify_weight_domination,
 )
@@ -48,6 +55,44 @@ class ProportionalOrderTests(unittest.TestCase):
         self.assertEqual(logarithmic_cutoff_weight(10.0, 1, 8), 1.0)
 
 
+class EffectiveLengthTests(unittest.TestCase):
+    def test_effective_support_and_width_identity(self) -> None:
+        for alpha in (0.01, 0.05, 0.1, 0.25, 0.49):
+            exponent = effective_support_exponent(alpha)
+            width = effective_threshold_strip_width(alpha)
+            self.assertGreater(exponent, 0.0)
+            self.assertLess(exponent, 1.0)
+            self.assertAlmostEqual(width, (1.0 - exponent) / 2.0)
+            self.assertAlmostEqual(
+                width, alpha * (1.0 - math.log(2.0 * alpha))
+            )
+            self.assertGreater(width, alpha)
+            self.assertAlmostEqual(
+                maximum_nominal_length_exponent(alpha), 1.0 / exponent
+            )
+
+        self.assertEqual(effective_support_exponent(0.5), 0.0)
+        self.assertEqual(effective_support_exponent(0.8), 0.0)
+        self.assertEqual(maximum_nominal_length_exponent(0.5), math.inf)
+
+    def test_theta_two_threshold(self) -> None:
+        alpha = alpha_threshold_for_theta(2.0)
+        self.assertAlmostEqual(alpha, 0.0933411544254185, places=12)
+        self.assertAlmostEqual(effective_support_exponent(alpha), 0.5, places=12)
+        self.assertAlmostEqual(effective_threshold_strip_width(alpha), 0.25, places=12)
+
+    def test_nonempty_corridor_for_each_sampled_theta(self) -> None:
+        for theta in (1.01, 1.1, 1.25, 1.5, 2.0, 3.0, 10.0):
+            delta = strip_width_from_nominal_length(theta)
+            threshold = alpha_threshold_for_theta(theta)
+            self.assertGreater(threshold, 0.0)
+            self.assertLess(threshold, delta)
+            alpha = (threshold + delta) / 2.0
+            self.assertGreater(corridor_margin(theta, alpha), 0.0)
+            self.assertGreater(boundary_carrier_rate(theta, alpha), 0.0)
+            self.assertLess(alpha, delta)
+
+
 class CarrierRateTests(unittest.TestCase):
     def test_entropy_identity_and_nonnegativity(self) -> None:
         for alpha in (0.02, 0.1, 0.25, 0.49):
@@ -61,7 +106,9 @@ class CarrierRateTests(unittest.TestCase):
         for alpha in (0.02, 0.1, 0.25, 0.49):
             self.assertAlmostEqual(carrier_rate(alpha, alpha), 0.0, places=15)
             self.assertGreater(carrier_rate(alpha, alpha / 2.0), 0.0)
-            self.assertGreater(carrier_rate(alpha, min(0.5, 2.0 * alpha)), -1.0e-15)
+            self.assertGreater(
+                carrier_rate(alpha, min(0.5, 2.0 * alpha)), -1.0e-15
+            )
 
     def test_interval_minimum(self) -> None:
         rate, minimizer = minimum_carrier_rate_on_interval(0.1, 0.02, 0.5)
@@ -98,6 +145,14 @@ class ValidationTests(unittest.TestCase):
             carrier_rate(0.0, 0.1)
         with self.assertRaises(ValueError):
             carrier_rate(0.1, 0.0)
+        with self.assertRaises(ValueError):
+            effective_support_exponent(0.0)
+        with self.assertRaises(ValueError):
+            effective_threshold_strip_width(0.5)
+        with self.assertRaises(ValueError):
+            strip_width_from_nominal_length(1.0)
+        with self.assertRaises(ValueError):
+            alpha_threshold_for_theta(1.0)
         with self.assertRaises(ValueError):
             minimum_carrier_rate_on_interval(0.1, 0.2, 0.1)
         with self.assertRaises(ValueError):
