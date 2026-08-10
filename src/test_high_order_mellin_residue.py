@@ -101,7 +101,7 @@ class PoissonTransitionTests(unittest.TestCase):
                     self.assertLessEqual(fraction, 1.0)
 
     def test_below_and_above_proportional_order_transition(self) -> None:
-        log_scale = 100.0
+        log_scale = 200.0
         alpha = 0.2
         order = math.ceil(alpha * log_scale)
         below = real_target_survival_fraction(order, log_scale, 0.1)
@@ -110,10 +110,10 @@ class PoissonTransitionTests(unittest.TestCase):
         self.assertLess(below, 1.0e-3)
         self.assertGreater(at_transition, 0.4)
         self.assertLess(at_transition, 0.7)
-        self.assertGreater(above, 0.999)
+        self.assertGreater(above, 0.99999)
 
     def test_large_alpha_resolves_absolute_convergence_paradox(self) -> None:
-        log_scale = 100.0
+        log_scale = 200.0
         alpha = 0.8
         order = math.ceil(alpha * log_scale)
         for displacement in (0.02, 0.1, 0.25, 0.49):
