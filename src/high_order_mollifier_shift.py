@@ -1,24 +1,42 @@
 #!/usr/bin/env python3
 """Finite ledger for proportional-order logarithmic mollifier weights.
 
-This module proves no zero-free region.  It records the exact tradeoff that
-appears when the logarithmic cutoff order grows like ``alpha * log(Y)``:
+This module proves no zero-free region.  It audits a tempting high-order
+variant of the long-mollifier route and records the obstruction that prevents
+it from becoming a trivial proof of RH.
 
-* fixed coefficients converge to a horizontally shifted reciprocal weight
-  ``d**(-alpha)``;
-* a formal zero-residue contribution has exponential rate
-  ``delta + alpha * (log(alpha / delta) - 1)``;
-* this rate is nonnegative and vanishes only at ``delta = alpha``;
-* the unweighted mean-value error of the mollifier alone has effective support
-  exponent
+Let
+
+    w_{Y,k}(d) = 1_(d<=Y) (log(Y/d)/log(Y))^k
+
+with ``k ~ alpha log(Y)``.  Then:
+
+* fixed coefficients converge to ``d**(-alpha)`` and are dominated by it;
+* the mollifier-alone mean-value error has effective support exponent
 
       chi(alpha) = 1 - 2 alpha + 2 alpha log(2 alpha)
 
-  for ``0 < alpha < 1/2`` and exponent zero for ``alpha >= 1/2``.
+  for ``0 < alpha < 1/2``;
+* a *naively isolated* target-zero residue has exponent
 
-The last two items are contour and mean-value ledgers, not a zero-free-strip
-proof.  A new high-order analogue of the Bettin--Gonek detector theorem and a
-completed bound for ``zeta * mollifier`` would still be required.
+      Phi(delta,alpha)
+        = delta + alpha(log(alpha/delta)-1).
+
+The adjective "naively" is essential.  The exact high-order Mellin transform
+contains ``(w-1)^(-(k+1))``.  If the first-order Bettin--Gonek auxiliary
+function is reused, the product acquires a new pole at ``w=1`` of order
+``k-1``.  Its polynomial residue must be retained and can cancel the apparent
+target carrier.  If one instead modifies the auxiliary function to cancel
+that pole, the target carrier is exponentially attenuated.
+
+For ``0 < alpha < 1/2`` there is already an exact exponent repayment:
+
+    2 Phi(1/2,alpha) = chi(alpha).
+
+Thus the elementary mollifier-alone condition ``theta*chi(alpha) <= 1``
+forces the largest naive detector exponent in the outer half of the strip to
+be at most the threshold needed for contradiction.  High-order tapering does
+not, by itself, cross the long-mollifier barrier.
 """
 
 from __future__ import annotations
@@ -76,7 +94,6 @@ def logarithmic_cutoff_weight(scale: float, divisor: int, order: int) -> float:
     if divisor > scale:
         return 0.0
     base = math.log(scale / divisor) / math.log(scale)
-    # Guard tiny negative roundoff at the terminal point.
     if base < 0.0 and base > -64.0 * math.ulp(1.0):
         base = 0.0
     if not 0.0 <= base <= 1.0 + 64.0 * math.ulp(1.0):
@@ -100,18 +117,21 @@ def proportional_weight(scale: float, divisor: int, alpha: float) -> float:
     return logarithmic_cutoff_weight(scale, divisor, ledger.order)
 
 
-def carrier_rate(alpha: float, displacement: float) -> float:
-    r"""Formal exponential rate of the isolated Mellin residue.
+def naive_carrier_rate(alpha: float, displacement: float) -> float:
+    r"""Exponent of the target residue when the new central pole is omitted.
 
-    For ``k ~ alpha log(Y)`` and a positive horizontal displacement ``delta``,
-    Stirling's formula gives
-
-    ``Phi(delta,alpha) = delta + alpha(log(alpha/delta)-1)``.
+    This is a useful diagnostic but not a valid isolated lower bound for the
+    high-order detector.  The complete Mellin contour also contains the pole
+    at ``w=1`` described in the module docstring.
     """
 
     _require_finite_positive(alpha, "alpha")
     _require_finite_positive(displacement, "displacement")
     return displacement + alpha * (math.log(alpha / displacement) - 1.0)
+
+
+# Backward-compatible diagnostic name used by the first finite ledger.
+carrier_rate = naive_carrier_rate
 
 
 def scaled_entropy_rate(alpha: float, displacement: float) -> float:
@@ -130,7 +150,7 @@ def effective_support_exponent(alpha: float) -> float:
 
     ``Y**(r + 2 alpha log(1-r) + o(1))``.
 
-    Its maximum is attained at ``r=1-2*alpha`` when ``alpha<1/2``.  For
+    Its maximum is at ``r=1-2*alpha`` when ``alpha<1/2``.  For
     ``alpha>=1/2`` the maximum moves to ``r=0`` and has exponent zero.
     """
 
@@ -141,11 +161,11 @@ def effective_support_exponent(alpha: float) -> float:
 
 
 def maximum_nominal_length_exponent(alpha: float) -> float:
-    r"""Largest ``theta`` allowed by the mollifier-alone mean-value ledger.
+    r"""Mollifier-alone threshold from ``theta*chi(alpha) <= 1``.
 
-    The elementary mean-value error is at the natural ``T`` scale when
-    ``Y=T**theta`` and ``theta * chi(alpha) <= 1``.  A zero exponent permits
-    arbitrary fixed polynomial length at this *mollifier-only* level.
+    This threshold says nothing by itself about ``zeta * mollifier`` or zero
+    detection.  A zero exponent permits arbitrary fixed polynomial length
+    only at the mollifier-alone mean-value level.
     """
 
     exponent = effective_support_exponent(alpha)
@@ -154,58 +174,84 @@ def maximum_nominal_length_exponent(alpha: float) -> float:
     return 1.0 / exponent
 
 
-def strip_width_from_nominal_length(theta: float) -> float:
-    """The standard long-mollifier strip width ``(theta-1)/(2 theta)``."""
+def zero_displacement_boundary(theta: float) -> float:
+    """Bettin--Gonek horizontal displacement boundary ``1/(2 theta)``."""
 
     if not math.isfinite(theta) or theta <= 1.0:
         raise ValueError("theta must be finite and strictly greater than one")
-    return (theta - 1.0) / (2.0 * theta)
+    return 1.0 / (2.0 * theta)
 
 
-def effective_threshold_strip_width(alpha: float) -> float:
-    r"""Width at the mollifier-alone threshold ``theta=1/chi(alpha)``.
+def strip_width_from_nominal_length(theta: float) -> float:
+    """Symmetric edge width ``1/2 - 1/(2 theta)``."""
 
-    For ``0<alpha<1/2`` this equals both
+    return 0.5 - zero_displacement_boundary(theta)
 
-    ``(1-chi(alpha))/2`` and ``alpha * (1-log(2 alpha))``.
+
+def naive_detector_surplus(theta: float, alpha: float, displacement: float) -> float:
+    r"""Naive exponent surplus ``2 theta Phi(delta,alpha)-1``.
+
+    A positive value would be needed by the unmodified exponent comparison,
+    but it is not sufficient because the central Mellin pole has been omitted.
+    """
+
+    if not math.isfinite(theta) or theta <= 1.0:
+        raise ValueError("theta must be finite and strictly greater than one")
+    return 2.0 * theta * naive_carrier_rate(alpha, displacement) - 1.0
+
+
+def outer_edge_repayment(alpha: float) -> float:
+    r"""Return ``2 Phi(1/2,alpha)-chi(alpha)`` for ``alpha<1/2``.
+
+    The result is zero up to floating-point rounding.  It records the exact
+    repayment between effective support and the largest naive carrier in the
+    outer half of the critical strip.
     """
 
     _require_finite_positive(alpha, "alpha")
     if alpha >= 0.5:
-        raise ValueError("the finite-threshold formula requires alpha < one half")
-    exponent = effective_support_exponent(alpha)
-    return (1.0 - exponent) / 2.0
+        raise ValueError("the repayment identity requires alpha < one half")
+    return (
+        2.0 * naive_carrier_rate(alpha, 0.5)
+        - effective_support_exponent(alpha)
+    )
 
 
-def corridor_margin(theta: float, alpha: float) -> float:
-    r"""Return ``1/theta - chi(alpha)``.
+def fully_compensated_carrier_rate(alpha: float, displacement: float) -> float:
+    r"""Diagnostic rate after cancelling the central pole in the auxiliary factor.
 
-    Positivity means that the mollifier alone has a power-saving margin in its
-    elementary mean-value error at nominal length ``Y=T**theta``.
+    Replacing the original ``(w-1)^2/(w+1)^2`` factor by the matching
+    ``(w-1)^(k+1)/(w+1)^(k+1)`` removes the pole at ``w=1``.  At ``t=gamma``
+    the resulting normalized target residue has the schematic rate
+
+    ``delta + alpha(log(alpha/(2+delta))-1)``.
+
+    This function records that exact exponent ledger; it is not a theorem
+    that this particular compensated kernel is optimal.
     """
 
-    if not math.isfinite(theta) or theta <= 1.0:
-        raise ValueError("theta must be finite and strictly greater than one")
-    return 1.0 / theta - effective_support_exponent(alpha)
+    _require_finite_positive(alpha, "alpha")
+    _require_finite_positive(displacement, "displacement")
+    return displacement + alpha * (
+        math.log(alpha / (2.0 + displacement)) - 1.0
+    )
 
 
-def boundary_carrier_rate(theta: float, alpha: float) -> float:
-    """Carrier rate at the standard strip displacement for ``theta``."""
+def central_mellin_pole_order(order: int) -> int:
+    """Order of the new pole at ``w=1`` after reusing the first-order kernel."""
 
-    return carrier_rate(alpha, strip_width_from_nominal_length(theta))
+    if not isinstance(order, int) or isinstance(order, bool) or order < 0:
+        raise ValueError("order must be a nonnegative integer")
+    return max(0, order - 1)
 
 
-def alpha_threshold_for_theta(theta: float, iterations: int = 160) -> float:
-    r"""Solve ``chi(alpha)=1/theta`` inside ``(0,delta_theta)`` by bisection.
+def mean_value_alpha_threshold_for_theta(
+    theta: float, iterations: int = 160
+) -> float:
+    r"""Solve ``chi(alpha)=1/theta`` in ``(0,1/2)`` by bisection.
 
-    For every fixed ``theta>1``, strict monotonicity of ``chi`` on
-    ``(0,1/2)`` and
-
-    ``chi(delta_theta) < 1/theta < lim_{alpha->0+} chi(alpha)=1``
-
-    give a unique threshold.  Choosing ``alpha`` strictly between this value
-    and ``delta_theta`` leaves both a mean-value margin and a positive carrier
-    rate at the target boundary.
+    This is only the mollifier-alone mean-value threshold.  It is not a
+    zero-free-strip corridor because of the exact repayment and central pole.
     """
 
     if not math.isfinite(theta) or theta <= 1.0:
@@ -214,9 +260,7 @@ def alpha_threshold_for_theta(theta: float, iterations: int = 160) -> float:
         raise ValueError("iterations must be a positive integer")
     target = 1.0 / theta
     low = 0.0
-    high = strip_width_from_nominal_length(theta)
-    if effective_support_exponent(high) >= target:
-        raise RuntimeError("the theoretical corridor endpoint was not strict")
+    high = 0.5
     for _ in range(iterations):
         midpoint = (low + high) / 2.0
         if effective_support_exponent(midpoint) > target:
@@ -229,10 +273,7 @@ def alpha_threshold_for_theta(theta: float, iterations: int = 160) -> float:
 def minimum_carrier_rate_on_interval(
     alpha: float, displacement_min: float, displacement_max: float = 0.5
 ) -> tuple[float, float]:
-    """Return ``(minimum rate, minimizing displacement)`` on a closed interval.
-
-    The convex rate has its unique global minimum at ``delta=alpha``.
-    """
+    """Minimum of the naive convex carrier rate on a closed interval."""
 
     _require_finite_positive(alpha, "alpha")
     _require_finite_positive(displacement_min, "displacement_min")
@@ -240,7 +281,7 @@ def minimum_carrier_rate_on_interval(
     if displacement_min > displacement_max:
         raise ValueError("displacement_min must not exceed displacement_max")
     minimizer = min(max(alpha, displacement_min), displacement_max)
-    return carrier_rate(alpha, minimizer), minimizer
+    return naive_carrier_rate(alpha, minimizer), minimizer
 
 
 def terminal_power_exponent(alpha: float, relative_log_position: float) -> float:
@@ -263,11 +304,7 @@ def terminal_power_exponent(alpha: float, relative_log_position: float) -> float
 def verify_weight_domination(
     scales: Iterable[float], alphas: Iterable[float], divisor_cap: int
 ) -> float:
-    r"""Check ``w_{Y,ceil(alpha log Y)}(d) <= d^{-alpha}`` on a finite grid.
-
-    Returns the largest signed excess, which should be nonpositive up to
-    floating-point roundoff.
-    """
+    r"""Check ``w_{Y,ceil(alpha log Y)}(d) <= d^{-alpha}`` on a finite grid."""
 
     if (
         not isinstance(divisor_cap, int)
