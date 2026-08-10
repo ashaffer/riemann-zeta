@@ -18,8 +18,11 @@ on:
       - "src/test_long_mollifier_strip_gate.py"
       - "src/high_order_mollifier_shift.py"
       - "src/test_high_order_mollifier_shift.py"
+      - "src/high_order_mellin_residue.py"
+      - "src/test_high_order_mellin_residue.py"
       - "results/LONG-MOLLIFIER-ZERO-FREE-STRIP-SPRINT.md"
       - "results/HIGH-ORDER-MOLLIFIER-SHIFT-AUDIT.md"
+      - "results/HIGH-ORDER-MOLLIFIER-TAYLOR-REMAINDER.md"
   pull_request:
     paths:
       - ".github/workflows/rhbridge-logical-smoke.yml"
@@ -35,8 +38,11 @@ on:
       - "src/test_long_mollifier_strip_gate.py"
       - "src/high_order_mollifier_shift.py"
       - "src/test_high_order_mollifier_shift.py"
+      - "src/high_order_mellin_residue.py"
+      - "src/test_high_order_mellin_residue.py"
       - "results/LONG-MOLLIFIER-ZERO-FREE-STRIP-SPRINT.md"
       - "results/HIGH-ORDER-MOLLIFIER-SHIFT-AUDIT.md"
+      - "results/HIGH-ORDER-MOLLIFIER-TAYLOR-REMAINDER.md"
   workflow_dispatch:
 
 permissions:
@@ -57,6 +63,7 @@ jobs:
           PYTHONPATH=src python3 -m unittest -v
           src/test_long_mollifier_strip_gate.py
           src/test_high_order_mollifier_shift.py
+          src/test_high_order_mellin_residue.py
       - uses: leanprover/lean-action@v1
         with:
           lake-package-directory: lean/rhbridge
