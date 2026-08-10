@@ -11,10 +11,15 @@ on:
       - "lean/rhbridge/RHBridge/R176NecessaryCondition.lean"
       - "lean/rhbridge/RHBridge/FixedWindowStripReduction.lean"
       - "lean/rhbridge/RHBridge/LongMollifierStripReduction.lean"
+      - "lean/rhbridge/RHBridge/HighOrderMollifierObstruction.lean"
+      - "lean/rhbridge/RHBridge/HighOrderMollifierObstructionAudit.lean"
       - "lean/glide/Glide/P2Symbol.lean"
       - "src/long_mollifier_strip_gate.py"
       - "src/test_long_mollifier_strip_gate.py"
+      - "src/high_order_mollifier_shift.py"
+      - "src/test_high_order_mollifier_shift.py"
       - "results/LONG-MOLLIFIER-ZERO-FREE-STRIP-SPRINT.md"
+      - "results/HIGH-ORDER-MOLLIFIER-SHIFT-AUDIT.md"
   pull_request:
     paths:
       - ".github/workflows/rhbridge-logical-smoke.yml"
@@ -23,10 +28,15 @@ on:
       - "lean/rhbridge/RHBridge/R176NecessaryCondition.lean"
       - "lean/rhbridge/RHBridge/FixedWindowStripReduction.lean"
       - "lean/rhbridge/RHBridge/LongMollifierStripReduction.lean"
+      - "lean/rhbridge/RHBridge/HighOrderMollifierObstruction.lean"
+      - "lean/rhbridge/RHBridge/HighOrderMollifierObstructionAudit.lean"
       - "lean/glide/Glide/P2Symbol.lean"
       - "src/long_mollifier_strip_gate.py"
       - "src/test_long_mollifier_strip_gate.py"
+      - "src/high_order_mollifier_shift.py"
+      - "src/test_high_order_mollifier_shift.py"
       - "results/LONG-MOLLIFIER-ZERO-FREE-STRIP-SPRINT.md"
+      - "results/HIGH-ORDER-MOLLIFIER-SHIFT-AUDIT.md"
   workflow_dispatch:
 
 permissions:
@@ -42,8 +52,11 @@ jobs:
     timeout-minutes: 45
     steps:
       - uses: actions/checkout@v5
-      - name: Test long-mollifier coefficient ledger
-        run: PYTHONPATH=src python3 -m unittest -v src/test_long_mollifier_strip_gate.py
+      - name: Test zero-free-strip exponent ledgers
+        run: >-
+          PYTHONPATH=src python3 -m unittest -v
+          src/test_long_mollifier_strip_gate.py
+          src/test_high_order_mollifier_shift.py
       - uses: leanprover/lean-action@v1
         with:
           lake-package-directory: lean/rhbridge
@@ -53,6 +66,7 @@ jobs:
             RHBridge.R176NecessaryCondition
             RHBridge.FixedWindowStripReduction
             RHBridge.LongMollifierStripReduction
+            RHBridge.HighOrderMollifierObstructionAudit
             Glide.P2Symbol
           test: false
           lint: false
