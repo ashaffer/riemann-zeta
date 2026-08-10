@@ -1,0 +1,57 @@
+name: Long-mollifier reciprocity smoke checks
+
+on:
+  push:
+    branches:
+      - codex/long-mollifier-reciprocity
+    paths:
+      - ".github/workflows/long-mollifier-reciprocity-smoke.yml"
+      - "src/prime_reciprocity_sieve_kernel.py"
+      - "src/test_prime_reciprocity_sieve_kernel.py"
+      - "src/squarefree_even_character_kernel.py"
+      - "src/test_squarefree_even_character_kernel.py"
+      - "src/squarefree_kernel_dirichlet_series.py"
+      - "src/test_squarefree_kernel_dirichlet_series.py"
+      - "src/kloosterman_strip_gate.py"
+      - "src/test_kloosterman_strip_gate.py"
+      - "results/LONG-MOLLIFIER-PRIME-RECIPROCITY-STRESS.md"
+      - "results/SQUAREFREE-RECIPROCITY-SIEVE-KERNEL.md"
+      - "results/SQUAREFREE-SIEVE-KERNEL-DIRICHLET-SERIES.md"
+      - "results/BLOMER-PASCADI-KLOOSTERMAN-STRIP-GATE.md"
+  pull_request:
+    paths:
+      - ".github/workflows/long-mollifier-reciprocity-smoke.yml"
+      - "src/prime_reciprocity_sieve_kernel.py"
+      - "src/test_prime_reciprocity_sieve_kernel.py"
+      - "src/squarefree_even_character_kernel.py"
+      - "src/test_squarefree_even_character_kernel.py"
+      - "src/squarefree_kernel_dirichlet_series.py"
+      - "src/test_squarefree_kernel_dirichlet_series.py"
+      - "src/kloosterman_strip_gate.py"
+      - "src/test_kloosterman_strip_gate.py"
+      - "results/LONG-MOLLIFIER-PRIME-RECIPROCITY-STRESS.md"
+      - "results/SQUAREFREE-RECIPROCITY-SIEVE-KERNEL.md"
+      - "results/SQUAREFREE-SIEVE-KERNEL-DIRICHLET-SERIES.md"
+      - "results/BLOMER-PASCADI-KLOOSTERMAN-STRIP-GATE.md"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: long-mollifier-reciprocity-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  finite-algebra:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v5
+      - name: Run reciprocity and strip-gate tests
+        run: >-
+          PYTHONPATH=src python3 -m unittest -v
+          src/test_prime_reciprocity_sieve_kernel.py
+          src/test_squarefree_even_character_kernel.py
+          src/test_squarefree_kernel_dirichlet_series.py
+          src/test_kloosterman_strip_gate.py
