@@ -1,0 +1,23 @@
+name: RHBridge endpoint certificate audit
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  endpoint-certificate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v5
+      - uses: leanprover/lean-action@v1
+        with:
+          lake-package-directory: lean/rhbridge
+          build-args: >-
+            RHBridge.GeneralZetaWeilFormAudit
+            RHBridge.CertifiedBaseIntervalAudit
+          test: false
+          lint: false
+          use-mathlib-cache: true
