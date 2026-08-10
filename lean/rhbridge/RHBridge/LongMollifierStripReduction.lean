@@ -159,14 +159,17 @@ theorem closedStrip_of_longMollifierRightBound
     FixedWindowStripReduction.NontrivialZerosInClosedStrip
       (stripWidth theta) := by
   intro rho
+  have hboundary :
+      rightBoundary theta = 1 - stripWidth theta :=
+    rightBoundary_eq_one_sub_stripWidth htheta
   have hupper := hright rho
+  rw [hboundary] at hupper
   obtain ⟨reflected, hreflected⟩ := hreflect rho
   have hreflectedUpper := hright reflected
-  rw [hreflected,
-    rightBoundary_eq_one_sub_stripWidth htheta] at hreflectedUpper
+  rw [hreflected, hboundary] at hreflectedUpper
   constructor
   · linarith
-  · simpa [rightBoundary_eq_one_sub_stripWidth htheta] using hupper
+  · exact hupper
 
 /-- Equivalent displacement formulation of the same symmetric strip. -/
 theorem closedStrip_of_longMollifierDisplacement
