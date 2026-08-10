@@ -1,0 +1,48 @@
+name: RHBridge logical smoke checks
+
+on:
+  push:
+    branches:
+      - codex/formal-trust-boundary
+    paths:
+      - ".github/workflows/rhbridge-logical-smoke.yml"
+      - "lean/rhbridge/RHBridge/IntervalAutocorrelationSupport.lean"
+      - "lean/rhbridge/RHBridge/RelativeFactorObstruction.lean"
+      - "lean/rhbridge/RHBridge/R176NecessaryCondition.lean"
+      - "lean/rhbridge/RHBridge/FixedWindowStripReduction.lean"
+      - "lean/glide/Glide/P2Symbol.lean"
+  pull_request:
+    paths:
+      - ".github/workflows/rhbridge-logical-smoke.yml"
+      - "lean/rhbridge/RHBridge/IntervalAutocorrelationSupport.lean"
+      - "lean/rhbridge/RHBridge/RelativeFactorObstruction.lean"
+      - "lean/rhbridge/RHBridge/R176NecessaryCondition.lean"
+      - "lean/rhbridge/RHBridge/FixedWindowStripReduction.lean"
+      - "lean/glide/Glide/P2Symbol.lean"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: rhbridge-logical-smoke-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  logical-smoke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v5
+      - uses: leanprover/lean-action@v1
+        with:
+          lake-package-directory: lean/rhbridge
+          build-args: >-
+            RHBridge.IntervalAutocorrelationSupport
+            RHBridge.RelativeFactorObstruction
+            RHBridge.R176NecessaryCondition
+            RHBridge.FixedWindowStripReduction
+            Glide.P2Symbol
+          test: false
+          lint: false
+          use-mathlib-cache: true
