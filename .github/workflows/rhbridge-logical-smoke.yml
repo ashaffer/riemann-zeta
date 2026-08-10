@@ -10,7 +10,11 @@ on:
       - "lean/rhbridge/RHBridge/RelativeFactorObstruction.lean"
       - "lean/rhbridge/RHBridge/R176NecessaryCondition.lean"
       - "lean/rhbridge/RHBridge/FixedWindowStripReduction.lean"
+      - "lean/rhbridge/RHBridge/LongMollifierStripReduction.lean"
       - "lean/glide/Glide/P2Symbol.lean"
+      - "src/long_mollifier_strip_gate.py"
+      - "src/test_long_mollifier_strip_gate.py"
+      - "results/LONG-MOLLIFIER-ZERO-FREE-STRIP-SPRINT.md"
   pull_request:
     paths:
       - ".github/workflows/rhbridge-logical-smoke.yml"
@@ -18,7 +22,11 @@ on:
       - "lean/rhbridge/RHBridge/RelativeFactorObstruction.lean"
       - "lean/rhbridge/RHBridge/R176NecessaryCondition.lean"
       - "lean/rhbridge/RHBridge/FixedWindowStripReduction.lean"
+      - "lean/rhbridge/RHBridge/LongMollifierStripReduction.lean"
       - "lean/glide/Glide/P2Symbol.lean"
+      - "src/long_mollifier_strip_gate.py"
+      - "src/test_long_mollifier_strip_gate.py"
+      - "results/LONG-MOLLIFIER-ZERO-FREE-STRIP-SPRINT.md"
   workflow_dispatch:
 
 permissions:
@@ -31,9 +39,11 @@ concurrency:
 jobs:
   logical-smoke:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 45
     steps:
       - uses: actions/checkout@v5
+      - name: Test long-mollifier coefficient ledger
+        run: PYTHONPATH=src python3 -m unittest -v src/test_long_mollifier_strip_gate.py
       - uses: leanprover/lean-action@v1
         with:
           lake-package-directory: lean/rhbridge
@@ -42,6 +52,7 @@ jobs:
             RHBridge.RelativeFactorObstruction
             RHBridge.R176NecessaryCondition
             RHBridge.FixedWindowStripReduction
+            RHBridge.LongMollifierStripReduction
             Glide.P2Symbol
           test: false
           lint: false
