@@ -8,13 +8,11 @@ on:
       - ".github/workflows/rhbridge-trust-boundary.yml"
       - "lean/rhbridge/**"
       - "lean/glide/**"
-      - "lean/weilcert/**"
   pull_request:
     paths:
       - ".github/workflows/rhbridge-trust-boundary.yml"
       - "lean/rhbridge/**"
       - "lean/glide/**"
-      - "lean/weilcert/**"
   workflow_dispatch:
 
 permissions:
@@ -25,18 +23,21 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  focused-audit:
+  logical-trust-boundary:
     runs-on: ubuntu-latest
-    timeout-minutes: 120
+    timeout-minutes: 45
     steps:
       - uses: actions/checkout@v5
       - uses: leanprover/lean-action@v1
         with:
           lake-package-directory: lean/rhbridge
           build-args: >-
-            RHBridge.GeneralZetaWeilFormAudit
+            RHBridge.IntervalAutocorrelationSupport
             RHBridge.ActivationCancellationAudit
-            RHBridge.CertifiedBaseIntervalAudit
+            RHBridge.RelativeFactorObstruction
+            RHBridge.R176NecessaryCondition
+            RHBridge.FixedWindowStripReduction
+            Glide.P2Symbol
           test: false
           lint: false
           use-mathlib-cache: true
