@@ -8,11 +8,17 @@ appears when the logarithmic cutoff order grows like ``alpha * log(Y)``:
   ``d**(-alpha)``;
 * a formal zero-residue contribution has exponential rate
   ``delta + alpha * (log(alpha / delta) - 1)``;
-* this rate is nonnegative and vanishes only at ``delta = alpha``.
+* this rate is nonnegative and vanishes only at ``delta = alpha``;
+* the unweighted mean-value error of the mollifier alone has effective support
+  exponent
 
-The last item is a contour-ledger statement, not a lower bound: in the
-absolute-convergence regime the remaining contour must cancel the isolated
-residue at the same exponential scale.
+      chi(alpha) = 1 - 2 alpha + 2 alpha log(2 alpha)
+
+  for ``0 < alpha < 1/2`` and exponent zero for ``alpha >= 1/2``.
+
+The last two items are contour and mean-value ledgers, not a zero-free-strip
+proof.  A new high-order analogue of the Bettin--Gonek detector theorem and a
+completed bound for ``zeta * mollifier`` would still be required.
 """
 
 from __future__ import annotations
@@ -115,6 +121,109 @@ def scaled_entropy_rate(alpha: float, displacement: float) -> float:
     _require_finite_positive(displacement, "displacement")
     ratio = displacement / alpha
     return alpha * (ratio - 1.0 - math.log(ratio))
+
+
+def effective_support_exponent(alpha: float) -> float:
+    r"""Power exponent of ``sum_{d<=Y} w_{Y,k}(d)^2``.
+
+    With ``k ~ alpha log(Y)``, the logarithmic scale ``d=Y^r`` contributes
+
+    ``Y**(r + 2 alpha log(1-r) + o(1))``.
+
+    Its maximum is attained at ``r=1-2*alpha`` when ``alpha<1/2``.  For
+    ``alpha>=1/2`` the maximum moves to ``r=0`` and has exponent zero.
+    """
+
+    _require_finite_positive(alpha, "alpha")
+    if alpha >= 0.5:
+        return 0.0
+    return 1.0 - 2.0 * alpha + 2.0 * alpha * math.log(2.0 * alpha)
+
+
+def maximum_nominal_length_exponent(alpha: float) -> float:
+    r"""Largest ``theta`` allowed by the mollifier-alone mean-value ledger.
+
+    The elementary mean-value error is at the natural ``T`` scale when
+    ``Y=T**theta`` and ``theta * chi(alpha) <= 1``.  A zero exponent permits
+    arbitrary fixed polynomial length at this *mollifier-only* level.
+    """
+
+    exponent = effective_support_exponent(alpha)
+    if exponent == 0.0:
+        return math.inf
+    return 1.0 / exponent
+
+
+def strip_width_from_nominal_length(theta: float) -> float:
+    """The standard long-mollifier strip width ``(theta-1)/(2 theta)``."""
+
+    if not math.isfinite(theta) or theta <= 1.0:
+        raise ValueError("theta must be finite and strictly greater than one")
+    return (theta - 1.0) / (2.0 * theta)
+
+
+def effective_threshold_strip_width(alpha: float) -> float:
+    r"""Width at the mollifier-alone threshold ``theta=1/chi(alpha)``.
+
+    For ``0<alpha<1/2`` this equals both
+
+    ``(1-chi(alpha))/2`` and ``alpha * (1-log(2 alpha))``.
+    """
+
+    _require_finite_positive(alpha, "alpha")
+    if alpha >= 0.5:
+        raise ValueError("the finite-threshold formula requires alpha < one half")
+    exponent = effective_support_exponent(alpha)
+    return (1.0 - exponent) / 2.0
+
+
+def corridor_margin(theta: float, alpha: float) -> float:
+    r"""Return ``1/theta - chi(alpha)``.
+
+    Positivity means that the mollifier alone has a power-saving margin in its
+    elementary mean-value error at nominal length ``Y=T**theta``.
+    """
+
+    if not math.isfinite(theta) or theta <= 1.0:
+        raise ValueError("theta must be finite and strictly greater than one")
+    return 1.0 / theta - effective_support_exponent(alpha)
+
+
+def boundary_carrier_rate(theta: float, alpha: float) -> float:
+    """Carrier rate at the standard strip displacement for ``theta``."""
+
+    return carrier_rate(alpha, strip_width_from_nominal_length(theta))
+
+
+def alpha_threshold_for_theta(theta: float, iterations: int = 160) -> float:
+    r"""Solve ``chi(alpha)=1/theta`` inside ``(0,delta_theta)`` by bisection.
+
+    For every fixed ``theta>1``, strict monotonicity of ``chi`` on
+    ``(0,1/2)`` and
+
+    ``chi(delta_theta) < 1/theta < lim_{alpha->0+} chi(alpha)=1``
+
+    give a unique threshold.  Choosing ``alpha`` strictly between this value
+    and ``delta_theta`` leaves both a mean-value margin and a positive carrier
+    rate at the target boundary.
+    """
+
+    if not math.isfinite(theta) or theta <= 1.0:
+        raise ValueError("theta must be finite and strictly greater than one")
+    if not isinstance(iterations, int) or isinstance(iterations, bool) or iterations < 1:
+        raise ValueError("iterations must be a positive integer")
+    target = 1.0 / theta
+    low = 0.0
+    high = strip_width_from_nominal_length(theta)
+    if effective_support_exponent(high) >= target:
+        raise RuntimeError("the theoretical corridor endpoint was not strict")
+    for _ in range(iterations):
+        midpoint = (low + high) / 2.0
+        if effective_support_exponent(midpoint) > target:
+            low = midpoint
+        else:
+            high = midpoint
+    return (low + high) / 2.0
 
 
 def minimum_carrier_rate_on_interval(
