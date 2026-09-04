@@ -1,0 +1,134 @@
+{
+  "schema": "zeta23-novelty-audit-v1",
+  "date": "2026-09-02",
+  "target": "Jordan-abscissa, faithful-filter, mask-compression, and uniform-strip route claims",
+  "global_status": {
+    "riemann_hypothesis": "OPEN",
+    "uniform_zero_free_strip": "OPEN",
+    "new_literature_level_theorem": "NOT_ESTABLISHED"
+  },
+  "corrections": [
+    {
+      "old_claim": "the endpoint-flat Jordan exponent identity is a project-level new exact theorem",
+      "new_status": "CLASSICAL_LANDAU_COROLLARY_AND_PROJECT_SPECIALIZATION",
+      "local_predecessors": ["R95", "R103"],
+      "literature": ["Landau 1905", "Kaczorowski-Pintz 1986", "Mahatab-Mukhopadhyay 2018", "Han 2025"]
+    },
+    {
+      "old_claim": "the full adaptive-mask cone is the minimal arithmetic strip socket",
+      "new_status": "FALSE_OUTSIDE_RAW_JORDAN_RECONSTRUCTION",
+      "replacement": "causal box averages and fixed primitives are faithful fixed-test strip sockets"
+    },
+    {
+      "old_claim": "the common-zero radical is the exact invariant for every filter bank",
+      "new_status": "FALSE_FOR_HIGHER_ORDER_SOURCE_POLES",
+      "replacement": "survival order is (source pole order - minimum filter zero order)_+"
+    },
+    {
+      "old_claim": "all within-block sign changes must be retained literally",
+      "new_status": "OVERSTATED_UNDER_LIPSCHITZ_REGULARITY",
+      "replacement": "mesh delta gives error at most Lip(f)*delta/2; strip resolution remains x^(1-a+eta) cells"
+    },
+    {
+      "old_claim": "faithful filter optimization should stop because the exponent is invariant",
+      "new_status": "TOO_STRONG",
+      "replacement": "spectral contraction claims stop; arithmetic-complexity improvements remain legitimate"
+    }
+  ],
+  "claim_classification": [
+    {"claim": "positive block exponent equals Laplace abscissa", "mathematical_status": "PROVED_CLASSICAL", "novelty_status": "IMPORTED", "note": "root test plus Landau setting"},
+    {"claim": "bilateral Jordan inequalities", "mathematical_status": "PROVED", "novelty_status": "PROJECT_SYNTHESIS", "note": "elementary Landau packaging"},
+    {"claim": "endpoint-flat exponents equal Theta", "mathematical_status": "PROVED_FROM_STANDARD_EXPLICIT_FORMULA_UPPER_BOUND", "novelty_status": "LOCAL_PREDECESSOR", "note": "classical corollary; closely preceded by R95 and R103"},
+    {"claim": "multiplicity-sensitive filter valuation", "mathematical_status": "PROVED", "novelty_status": "PROJECT_SYNTHESIS", "note": "elementary local meromorphic algebra"},
+    {"claim": "finite-bank generic scalarization", "mathematical_status": "PROVED", "novelty_status": "PROJECT_SYNTHESIS", "note": "standard Baire and real linear algebra"},
+    {"claim": "causal-box and fixed-primitive criteria", "mathematical_status": "PROVED", "novelty_status": "LOCAL_PREDECESSOR_AND_PROJECT_SYNTHESIS", "note": "box calculus is classical and the zeta fixed-box coordinate is already in R67/R68; the primitive hierarchy is project synthesis"},
+    {"claim": "Lipschitz grid-mask compression", "mathematical_status": "PROVED", "novelty_status": "PROJECT_SYNTHESIS", "note": "elementary approximation applied to the project response"},
+    {"claim": "variable endpoint-order attenuation", "mathematical_status": "PROVED", "novelty_status": "PROJECT_SYNTHESIS", "note": "elementary Stirling scope correction"},
+    {"claim": "tailored positive ordinary-prime Euler-product falsifier with an arbitrarily long genuine zeta head", "mathematical_status": "ALGEBRA_PROVED", "novelty_status": "NOVELTY_UNRESOLVED", "note": "plausibly distinctive project packaging; do not promote without specialist review"}
+  ],
+  "novelty_search_scope": {
+    "search_date": "2026-09-02",
+    "databases_and_indexes": [
+      "arXiv",
+      "EuDML",
+      "primary journal and author repositories",
+      "GitHub and public web indexes"
+    ],
+    "representative_queries": [
+      "Jordan part Laplace abscissa Mellin Landau",
+      "positive negative parts Mellin transform oscillation Landau",
+      "smooth weighted prime number formula zero-free regions",
+      "systems of Mellin kernels common zeros",
+      "zeta(s)/(zeta(s+d+i gamma) zeta(s+d-i gamma)) positive coefficients",
+      "ordinary prime prescribed zeros positive Euler product",
+      "Jordan-abscissa adaptive mask zeta public repository",
+      "2026 Riemann zeta zero-free region zero-density"
+    ],
+    "access_date": "2026-09-02",
+    "stable_identifiers_and_versions": [
+      "EuDML:158244 (Landau 1905 scan)",
+      "Kaczorowski-Pintz author-hosted scan: 1986.Kaczorowski_1.pdf",
+      "arXiv:1512.03144v4",
+      "arXiv:2505.23795v1",
+      "arXiv:2202.01837v3",
+      "arXiv:1912.00853v1",
+      "arXiv:2507.13780v1",
+      "Hardy-Littlewood author-hosted 1916.Hardy.pdf scan",
+      "DOI:10.1109/TSP.2005.843700",
+      "DOI:10.2307/1968102",
+      "DOI:10.1006/jmaa.2000.6971 (Bingham-Inoue)",
+      "DOI:10.5802/aif.852",
+      "arXiv:2001.01635v2; DOI:10.1090/proc/15320",
+      "arXiv:2411.03809v1",
+      "Ramakrishnan author-hosted mildTcheb-JNT.pdf",
+      "Grosswald-Schnitzer PJM 74-2 p09 journal scan",
+      "arXiv:2106.15949v1",
+      "arXiv:2508.02041v1",
+      "arXiv:2603.21490v1",
+      "arXiv:2405.20552v2"
+    ],
+    "local": ["R65", "R67", "R68", "R95", "R96", "R98", "R103", "R142", "endpoint-flat predecessor report"],
+    "primary_literature": [
+      "Landau 1905",
+      "Hardy-Littlewood 1916",
+      "Wiener 1932",
+      "Grosswald-Schnitzer 1978",
+      "Kaczorowski-Pintz 1986",
+      "Dales-Hayman 1981",
+      "Bingham-Inoue 2000",
+      "Ramakrishnan 2005",
+      "Unser-Blu 2005",
+      "Mahatab-Mukhopadhyay 2018",
+      "Schlage-Puchta 2019",
+      "Broucke-Debruyne-Vindas 2020",
+      "Bochkov-Romanov 2021",
+      "Revesz 2022",
+      "Guth-Maynard 2024",
+      "Han 2025",
+      "Broucke 2025",
+      "Bellotti 2025",
+      "Bellotti-Trudgian-Yang 2026"
+    ],
+    "public_ai_search": "targeted public web/GitHub search only; cannot certify absence of private, unpublished, unindexed, or differently phrased AI work"
+  },
+  "route_decision": {
+    "stop": [
+      "unqualified novelty claims for detector equivalences",
+      "adaptive sign, order, member, or window without a fixed-transform reconstruction",
+      "qualitative common-zero coverage advertised as a quantitative exponential inverse",
+      "new filters with no explicit arithmetic advantage over R95/R103"
+    ],
+    "continue": [
+      "head-to-head arithmetic passports for a small fixed faithful filter catalog",
+      "zeta-specific source laws absent from positive-density and positive-Euler countermodels",
+      "independent QP/Turan DPA and LTRAD edges",
+      "independent Weil adjacent-support propagation edge"
+    ]
+  },
+  "trust": {
+    "analytic_theorems": "ANALYTIC_MANUSCRIPT_UNREFEREED",
+    "finite_replay": "PYTEST_EXACT_OR_HIGH_PRECISION",
+    "literature": "PRIMARY_SOURCE_SCOPED_IMPORT",
+    "novelty_absence": "NOT_CERTIFIABLE"
+  }
+}

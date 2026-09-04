@@ -1,0 +1,46 @@
+{
+  "artifact": "ZETA23-EDGE-DEFECT-SYNTHESIS-PREFLIGHT-v1",
+  "date": "2026-08-31",
+  "claim_status": "EXPLORATORY",
+  "purpose": "Test whether preserving the exact two-moment cancellation of each retained hat edge creates a genuine conductor saving before any Cauchy or absolute-value step.",
+  "parent_boundary": {
+    "fixed_branch": "positive DPA for the retained adjacent-gap hat",
+    "sufficient_global_input": "GCG4(161/1000,3/8)",
+    "parallel_open_gate": "LTRAD_P(.0189,.001)",
+    "not_claimed": ["uniform zero-free strip", "RH"]
+  },
+  "exact_object": {
+    "edge": "A retained adjacent-prime log edge e=[a,b] with physical gap at most Y^(161/1000).",
+    "defect": "D_e = alpha_e delta_a + beta_e delta_b - phi(u)1_[a,b](u)du, where alpha_e and beta_e are the exact barycentric hat integrals on that edge.",
+    "identities": [
+      "integral D_e = 0",
+      "integral u D_e(u) = 0",
+      "the retained atomic measure minus its retained continuous comparator is the normalized sum of the D_e"
+    ],
+    "quantifiers": "Every sufficiently large admissible half-integer Y; the actual consecutive-prime edges and their exact weights; all t in [Y^(839/1000),2Y^(50/33)]."
+  },
+  "numerical_criterion": {
+    "required_final_bound": "Integral |sum_e Dhat_e(t)|^4 dt <= Y^(-1187/13000+o(1)).",
+    "acceptable_partial_gain": "An exact selector-preserving transformation followed by published estimates that lowers the generic Y^2 conductor by a fixed positive power, with every exponent recorded.",
+    "nonresult": "A formal coboundary identity with derivatives costing back the same power, a coefficient-uniform large sieve, or a conjectural randomness assertion."
+  },
+  "breadth_routes": {
+    "harmonic_analysis": "Peano kernels, compactly supported wavelets with two vanishing moments, square functions, almost orthogonality, and time-frequency tiles.",
+    "analytic_number_theory": "Delta/circle dispersion, determinant offsets, bilinear Kloosterman forms, prime-pair selectors, and shifted-convolution main-term subtraction.",
+    "probability_combinatorics": "Barycentric random rounding, degenerate U-statistics, Hoeffding projections, additive energy of prime logs, and point-process structure factors."
+  },
+  "licensed_falsifiers": {
+    "abstract": "Odd-half-grid or phase-aligned edge systems have the same two local moments and can retain a constant high-frequency peak; vanishing moments alone cannot suffice.",
+    "fejer": "Any positivity or absolute close-pair replacement restores the generic conductor term.",
+    "prime_density_pseudonodes": "Coarse density, gap bounds, and exact edge centering survive hostile pseudo-prime constructions; actual arithmetic must enter the residual estimate.",
+    "finite": "The four frozen scales are twin-edge-only and may check identities or morphology, not asymptotic saving."
+  },
+  "hard_stop": [
+    "The edge representation is collapsed back to arbitrary endpoint coefficients before its zero and first moments are used.",
+    "Integration by parts spends at least the full gain through powers of t or B.",
+    "A cited theorem does not accept next-prime/consecutive-gap coefficients with the required uniform quantifiers.",
+    "The proposed mechanism also proves the hostile half-grid case.",
+    "The residual statement is merely GCG4 under a new name."
+  ],
+  "decision_rule": "Continue only if at least one route produces a smaller norm or transform with a verified fixed-power advantage and a theorem-compatible coefficient class. Otherwise record why breadth does not bridge the missing arithmetic input."
+}

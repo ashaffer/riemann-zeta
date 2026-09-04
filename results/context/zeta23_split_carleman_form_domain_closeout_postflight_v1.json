@@ -1,0 +1,81 @@
+{
+  "schema": "zeta23-split-carleman-form-domain-closeout-postflight-v1",
+  "date": "2026-09-03",
+  "preflight": "results/context/zeta23_split_carleman_form_domain_closeout_preflight_v1.json",
+  "human_authority": "results/ZETA23-SPLIT-CARLEMAN-FORM-DOMAIN-CLOSEOUT-2026-09-03.md",
+  "verdict": {
+    "split_finite_part_serialization": "CLOSED_EXACTLY_ON_SMOOTH_CORE_AND_WEAKLY_BY_FORM_CLOSURE",
+    "form_domain_adapter": "CLOSED_FOR_DISTRIBUTIONAL_OLD_EQUATION_L2_FINITE_COLLAR_READOUT_AND_CONTINUOUS_INTEGRATED_POTENTIAL",
+    "endpoint_pointwise_and_all_jet_adapter": "FALSE_FOR_GENERIC_FORM_DOMAIN_WITHOUT_NEW_HOMOGENEOUS_SOLUTION_REGULARITY",
+    "arcsine_falsifier": "EXECUTED_REFUTES_LOCAL_PLEMELJ_AVERAGE_PROPAGATION_ONLY",
+    "finite_split_cauchy_dilation_falsifier": "EXECUTED_REFUTES_COEFFICIENT_FREE_PROPAGATION_ONLY",
+    "completed_zeta_knc": "OPEN",
+    "uniform_zero_free_strip": "OPEN",
+    "riemann_hypothesis": "OPEN"
+  },
+  "exact_split_serialization": {
+    "lerch_derivative": "ell'(t)=-2K(t), with ell(t)=exp(-t/2) Phi(exp(-2t),1,1/4) and K(t)=exp(3t/2)/(exp(2t)-1)",
+    "additive_desingularization": "L_a n(x)=integral K(abs(x-y))(n(y)-n(x))dy-[ell(a+x)+ell(a-x)]n(x)/2",
+    "left_root_identity": "(1/2) sum_(zeta^4=1) 1/(X-zeta Y)=2X^3/(X^4-Y^4)",
+    "right_root_identity": "(1/2) sum_(zeta^4=1) zeta^(-1)/(Y-zeta X)=2XY^2/(Y^4-X^4)",
+    "minimal_state": "L_a f=H_+ f+H_- f+pi(C_f(iX)-C_f(-iX)), with H_+ desingularized and H_- nonsingular",
+    "local_coefficient": "c_Gamma-h_a(X)=-gamma-log(4pi)-(1/2)log(((X-alpha)(beta-X))/X^2)",
+    "logical_effect": "STACKING_THE_SERIALIZED_OLD_ROW_WITH_EXTERIOR_ROWS_LEAVES_COMPATIBILITY_EXACTLY_E_RESTRICTED_TO_KER_B_EQUALS_ZERO"
+  },
+  "domain_adapter": {
+    "kernel_equivalence": "ker(A_a) equals form radicals equals n in D(q_a) whose zero-extended convolution W*n vanishes on I_a in distributions",
+    "continuous_potential": "H_n(x)=i integral g'(x-y)n(y)dy is continuous because g' is locally L2; the weak old equation is equivalent to H_n being constant on I_a",
+    "finite_collar": "For each a<b the exterior source extends boundedly L2(I_a) to L2(I_b minus I_a): the adjacent channel is Carleman, other roots are bounded, poles finite-rank, and only finitely many restricted prime translations occur",
+    "generic_trace_no_go": "Shrinking fixed-height bumps have Hlog norm squared O(epsilon log(1/epsilon)) tending to zero, so point evaluation and endpoint jets are not continuous",
+    "canonical_state": "density plus analytic off-support Cauchy transform plus weak old equation plus L2 exterior source plus continuous integrated potential"
+  },
+  "fast_falsifiers": {
+    "arcsine": {
+      "identity": "C(z)=i/(2 sqrt(z^2-1)), C_++C_-=0 on (-1,1), but C(2)=i/(2sqrt(3))",
+      "scope": "density is not L2 and this is the oriented finite Hilbert transform, not the positive split-Carleman old equation"
+    },
+    "synthetic_contact": {
+      "old_matrix": "[[4079/255,781/105,4079/255],[781/105,4079/255,781/105],[4079/255,781/105,4079/255]]",
+      "null_vector": "(1,0,-1)",
+      "psd": true,
+      "right_exterior_charge": "201161/8190",
+      "left_exterior_charge": "-201161/8190",
+      "scope": "exact reciprocal finite collocation grammar model with tuned synthetic coefficients, not the completed-zeta operator or a continuum limit"
+    }
+  },
+  "decision": {
+    "closed_debts": [
+      "SERIALIZE_SPLIT_VOLTERRA_CAUCHY_CARLEMAN_OLD_OPERATOR",
+      "CONSTRUCT_WEAK_L2_FORM_DOMAIN_CONTACT_STATE_ADAPTER",
+      "EXECUTE_ARCSINE_FAST_FALSIFIER",
+      "EXECUTE_FINITE_NODE_SPLIT_CAUCHY_DILATION_FAST_FALSIFIER"
+    ],
+    "retired_target": "GENERIC_ENDPOINT_POINTWISE_ALL_JET_ADAPTER",
+    "remaining_direct_knc_target": "PROVE_A_COMPLETED_ZETA_COEFFICIENT_SPECIFIC_UNIQUE_CONTINUATION_SPECTRAL_SYNTHESIS_OR_EQUIVALENT_TOTAL_EXTERIOR_ANNIHILATION_THEOREM",
+    "primary_strip_target": "COMPLETE_SOURCE_PRESERVING_FIXED_WINDOW_R71_FIXED_POWER_BOUND_OR_EQUIVALENT_SHIFTED_PSI_ONE_SIDED_CONTROL"
+  },
+  "novelty": {
+    "classification": "IMPORTED_CLASSICAL_ANALYSIS_PLUS_PROJECT_SYNTHESIS_AND_EXACT_FINITE_ALGEBRA",
+    "literature_level_new_analytic_theorem_claimed": false
+  },
+  "formal_artifacts": [
+    "lean/rhbridge/RHBridge/SplitCarlemanFormDomainCloseout.lean",
+    "lean/rhbridge/RHBridge/SplitCarlemanFormDomainCloseoutAudit.lean"
+  ],
+  "replay_artifacts": [
+    "src/split_carleman_form_domain_closeout.py",
+    "src/test_split_carleman_form_domain_closeout.py"
+  ],
+  "verification": {
+    "focused_python": "PASS_122",
+    "full_python": "PASS_2414_IN_64.16_SECONDS",
+    "lean_aggregate": "PASS_13468_JOBS",
+    "lean_closeout_axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "compact_semantic_sha256": "946514010b812a5994d997fdea6a81345332871c754a0327b8c7d007017e1a61"
+  },
+  "nonclaim": "No analytic Suzuki theorem is newly formalized; no KNC, completed-source factor, fixed-power estimate, uniform zero-free strip, sharp four-cycle bound, or RH proof is obtained."
+}

@@ -1,0 +1,39 @@
+{
+  "schema": "zeta23-four-cauchy-global-compatibility-preflight-v1",
+  "date": "2026-09-03",
+  "objective": "Compute the global homogeneous compatibility remainder of the exact completed four-Cauchy plus prime-dilation source system and determine whether it cancels by an explicit identity independent of inversion or KNC.",
+  "human_authority_planned": "results/ZETA23-FOUR-CAUCHY-GLOBAL-COMPATIBILITY-CALCULATION-2026-09-03.md",
+  "operator_passport": {
+    "old_operator": "A_a=I+P_a^h G|V_a:V_a->V_a",
+    "exterior_charge": "Gamma_(a,b)=P_W^h G|V_a:V_a->W_(a,b)",
+    "multiplicative_interval": "J_a=(exp(-a/2),exp(a/2))",
+    "state": "C_f(z)=(2 pi i)^(-1) integral_(J_a) f(Y)/(Y-z) dY together with its four root-of-unity rotations, two endpoint/moment channels, and all active prime-dilation traces",
+    "target": "A displayed bounded or closable T_src with Gamma=T_src A on the smooth localized core"
+  },
+  "allowed_operations": [
+    "Plemelj jump and average identities with fixed orientation",
+    "exact Cauchy scale covariance under positive dilations",
+    "the distributional diagonal finite-part counterterm",
+    "both interval boundaries and reflection X->1/X",
+    "rank-two exponential completion and the local completion term",
+    "every active prime-power dilation with Lambda(m)/sqrt(m)",
+    "finite noncommutative operator words and infinite systems only with independently proved convergence or closure"
+  ],
+  "forbidden_imports": [
+    "A_a inverse, pseudoinverse, resolvent limit, or quotient division",
+    "KNC, later positivity, a zero-free strip, or RH",
+    "discarding the homogeneous Cauchy state or diagonal counterterm",
+    "replacing the bilateral/two-boundary problem by a one-sided Volterra equation",
+    "promoting a finite-node or finite-prime calculation to the analytic zeta operator"
+  ],
+  "fast_falsifiers": [
+    "Check whether the old equation constrains a Cauchy jump, average, or both; a zero average may leave a free exterior Cauchy state.",
+    "Use an exact finite-Hilbert-transform/arcsine state to test local determinant-one propagation.",
+    "Compute the projection-dilation boundary cocycle and its closure under products and ratios of prime dilations.",
+    "Search exact finite-node Cauchy-dilation systems for homogeneous old states with nonzero exterior readout.",
+    "Reduce every proposed cancellation on a contact state and verify that it does not merely restate Gamma ker(A)=0."
+  ],
+  "success_criterion": "An explicit identity for the genuine completed-zeta coefficients expressing the exterior readout solely in terms of A_a f, with independent boundedness or closability.",
+  "failure_classification": "If the computed global compatibility datum is a free homogeneous period/readout whose vanishing is exactly Gamma ker(A)=0, the four-Cauchy representation is retained as a normal form but not as a reduction.",
+  "global_nonclaim": "No completed-source factor, uniform zero-free strip, sharp four-cycle bound, or RH proof is assumed."
+}

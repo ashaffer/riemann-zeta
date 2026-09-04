@@ -1,0 +1,44 @@
+{
+  "artifact": "ZETA23-ARITHMETIC-PROVENANCE-HIGHER-STRUCTURE-PREFLIGHT-v1",
+  "date": "2026-08-31",
+  "purpose": "Reconsolidate the Weil, DPA/CA4, LTRAD, literature, and hostile-audit results; extract higher abstractions only when they yield exact invariants, no-go tests, or smaller research targets.",
+  "claim_boundary": {
+    "riemann_hypothesis": "OPEN",
+    "uniform_zero_free_strip": "OPEN",
+    "global_weil_positivity": "OPEN / RH-equivalent interface",
+    "DPA_P_019": "OPEN",
+    "LTRAD_P_0189_001": "OPEN",
+    "CA4": "OPEN",
+    "new_scope": "Structural synthesis and derived adapter/no-go lemmas; no analytic cancellation theorem is presumed."
+  },
+  "architectures_kept_separate": [
+    "Weil local-to-global positivity",
+    "QP/Turan DPA plus LTRAD fixed-strip route",
+    "CA4 as one sufficient DPA high-tail input",
+    "Any future strip-to-RH amplifier"
+  ],
+  "abstraction_tests": [
+    "Does the abstraction identify a field forgotten by an invalid adapter?",
+    "Does it define a conserved quantity, dual obstruction, or composable loss budget?",
+    "Does it produce a theorem with a strictly smaller passport than the parent target?",
+    "Does a licensed countermodel falsify the abstract implication?",
+    "Can every categorical word be translated back into an explicit map or inequality?"
+  ],
+  "candidate_structures": {
+    "passport_category": "Objects are arithmetic observables with source, mask, coefficient cone, normalization, quantifiers, resolution, kernel, rate, and output socket; morphisms are proved adapters annotated by losses.",
+    "provenance_fibration": "A forgetful map sends fully structured arithmetic objects to soft summaries. Countermodels test whether the desired property descends along its fibers.",
+    "chain_complex": "The zero-mass difference between adjacent-gap/Voronoi and natural prime measures is an exact zero-chain delta=D^*c; its symmetric-square lift is a product-graph divergence.",
+    "local_global_descent": "Restriction of the actual zeta kernel to a finite support window has many abstract positive extensions; cross-block arithmetic data is the missing descent datum.",
+    "source_conditioned_dynamics": "LTRAD is a fibered finite-time reachability problem in which the source event chooses the coefficient/target fiber before the height is selected."
+  },
+  "success": "A consolidated report with exact diagrams, generalized lemmas, falsifiers, a corrected decision tree, and ranked next experiments whose downstream sockets are explicit.",
+  "failure": "If an abstraction merely renames CA4, LTRAD, global Weil positivity, or RH, label it as such and do not promote it.",
+  "verification": "Check all exact algebra symbolically or with finite scripts where useful; validate the report against the current ledgers and preserve theorem-status labels.",
+  "post_run_outcome": {
+    "main_report": "results/ZETA23-ARITHMETIC-PROVENANCE-DESCENT-AND-HIGHER-STRUCTURE-SYNTHESIS-2026-08-31.md",
+    "machine_ledger": "results/context/zeta23_arithmetic_provenance_higher_structure_ledger_v1.json",
+    "exact_CA4_sharpening": "The symmetric-square discrepancy collapses to one bounded s-balanced color and two matrix channels: (delta tensor s+s tensor delta)/2, with Fourier factor M_delta M_s.",
+    "analytic_result": "No new analytic CA4, DPA, LTRAD, strip, global Weil positivity, or RH bound was proved.",
+    "test_result": "17 exact unit tests passed."
+  }
+}

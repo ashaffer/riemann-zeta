@@ -193,6 +193,38 @@ translated bounds, and preservation of `analyticOrderAt`.  The convention is
 module now delegates to this API; the surrounding theorem remains a
 paper/project artifact and should not be proposed in the same PR.
 
+### 8. Coordinate with Anthropic Zeta23
+
+Anthropic's
+[Zeta23 formalization](https://github.com/anthropics/zeta-23-lean) now overlaps
+two prospective extraction areas.  It contains a source-proved smooth Weil
+explicit formula and a self-contained complex-Hermitian linear-algebra stack
+for Sylvester inertia, von Neumann trace inequalities, rank--trace bounds,
+Weyl estimates, and multiplicity-aware counting.
+
+The seven-file `Zeta23/LinAlg` core plus its rank/multiplicity and tightness
+layers was compiled verbatim against this repository's pinned Lean/Mathlib
+`v4.32.1` cache under a 4 GiB memory cap.  The inspected endpoints use only
+the standard logical axioms.  The code is therefore technically portable,
+but it should not be duplicated upstream without coordination.
+
+Recommended division of work:
+
+1. upstream the independent real-analysis components listed above where no
+   current Mathlib or Zeta23 API already supplies them;
+2. build a small normalization adapter to Zeta23's proved explicit formula
+   instead of independently formalizing the same global contour theorem;
+3. reuse or generalize Zeta23's Hermitian API only after stating a concrete
+   density/inertia application; and
+4. preserve the Apache-2.0 source headers and `NOTICE` attribution for any
+   copied file.
+
+The complete external package pins Lean `v4.33.0-rc2`; keep it as a separate
+build/reference until an adapter is ready rather than changing this project's
+toolchain and invalidating the large certificate cache.  See
+[`../publication/ANTHROPIC-ZETA23-INTEGRATION.md`](../publication/ANTHROPIC-ZETA23-INTEGRATION.md)
+for the convention map and theorem boundary.
+
 ## Proposed review order
 
 1. Digamma difference series and vertical Gauss kernel, after coordinating

@@ -25,6 +25,44 @@ The point of grouping the results this way is predictive.  A new construction
 should say, before calculation, which hypothesis of the relevant obstruction
 it violates.
 
+A later category-theoretic synthesis gives a more compact index to these and
+the completed Gabor obstruction results.  It separates four exact mechanisms:
+failure of probe-cone order descent, dagger-kernel alignment at the carrier
+grade, conservative/forgetful/nonlinear adapter behavior, and the inability
+of trace decategorification to construct a positive polarization.  See
+[`ZETA23-CATEGORICAL-CONSOLIDATION-FOUR-LEMMA-2026-08-12.md`](../results/ZETA23-CATEGORICAL-CONSOLIDATION-FOUR-LEMMA-2026-08-12.md).
+That synthesis is a navigation theorem for the audited proof grammar, not a
+universal no-go theorem for RH.
+Its expanded decision procedure, relative operator-system criterion, and
+ranked blacklist/whitelist are in
+[`ZETA23-CATEGORICAL-SEARCH-GRAMMAR-AND-PRUNING-THEOREM-2026-08-12.md`](../results/ZETA23-CATEGORICAL-SEARCH-GRAMMAR-AND-PRUNING-THEOREM-2026-08-12.md).
+The constructive theorem cards---CP recovery, carrier-slice support,
+Stinespring covariance, and approximate polarization---are separated in
+[`ZETA23-CATEGORICAL-POSITIVE-ROUTES-AND-FAIL-FAST-GATES-2026-08-12.md`](../results/ZETA23-CATEGORICAL-POSITIVE-ROUTES-AND-FAIL-FAST-GATES-2026-08-12.md),
+while
+[`ZETA23-EXOTIC-CATEGORICAL-ESCAPE-STRESS-TEST-2026-08-12.md`](../results/ZETA23-EXOTIC-CATEGORICAL-ESCAPE-STRESS-TEST-2026-08-12.md)
+records why ordinary sheaf, derived, motivic, `K`-theoretic, topos, and weak
+limit variants do not add order without an explicit new arithmetic input.
+The three reports pass the independent scope audit
+[`CATEGORY-THEORETIC-SEARCH-PRUNING-REFEREE-AUDIT-2026-08-12.md`](../results/CATEGORY-THEORETIC-SEARCH-PRUNING-REFEREE-AUDIT-2026-08-12.md).
+The proposed finite admissions were subsequently executed.  The resulting
+stop/go boundary is sharper: stop fixed finite scalar-probe covers on the
+full asymmetric two-packet system and stop ungraded polarization for
+generators retaining the invariant pole/Tate pair.  The initially prioritized
+target-subtracted carrier support has now also been stopped as an independent
+route: it equals the direct arithmetic pencil plus an aligned carrier
+baseline and discards part of the scalar dual.  What survives is the original
+direct constrained completed-arithmetic sign problem `q_eta(K_ar,T)`, paired
+with a separate target-isolation theorem for deep collateral screening.  The
+actual-coefficient finite fixture validates the matrix assembly but not a
+uniform sign.  See
+[`ZETA23-CARRIER-SLICE-ALIGNED-BASELINE-NOGO-2026-08-12.md`](../results/ZETA23-CARRIER-SLICE-ALIGNED-BASELINE-NOGO-2026-08-12.md),
+[`ZETA23-ACTUAL-HIGH-HEIGHT-CARRIER-SLICE-FIXTURE-2026-08-12.md`](../results/ZETA23-ACTUAL-HIGH-HEIGHT-CARRIER-SLICE-FIXTURE-2026-08-12.md),
+and the corrected
+[`frontier synthesis`](../results/ZETA23-DIRECT-CARRIER-SLICE-FRONTIER-SYNTHESIS-2026-08-12.md).
+The package has independent verdict **PASS AFTER PATCHES** in the
+[`high-height referee audit`](../results/HIGH-HEIGHT-CARRIER-SLICE-REFEREE-AUDIT-2026-08-12.md).
+
 ## 1. Four kinds of statement
 
 Four logically different objects occur below.
@@ -733,6 +771,67 @@ the maximal horizontal zero displacement; the exact reduction is in
 [`FIXED-BOX-WEIL-WIDTH-SPECTROMETER.md`](../results/FIXED-BOX-WEIL-WIDTH-SPECTROMETER.md).
 Proving that orbit bounded remains RH-equivalent.
 
+Anthropic's Zeta23 argument gives a concrete but carefully scoped escape from
+the diagonal hypothesis: it retains a full mixed Gabor Gram matrix and uses
+the inertia of the resulting Hermitian compression.  On-line zeros contribute
+positive rank-one atoms, while off-line pairs contribute hyperbolic `(1,1)`
+blocks.  Rank, trace, and Frobenius estimates then yield an unconditional
+positive-density theorem.  This confirms that mixed entries contain genuine
+information lost by the diagonal packet family.  It does not escape the
+uniform-strip obstruction: normalized first and second moments can ignore an
+`o(N)` collection of exceptional hyperbolic blocks, so they do not bound the
+least eigenvalue or exclude one off-line zero.  The exact comparison and
+formal integration seam are in
+[`ANTHROPIC-ZETA23-INTEGRATION.md`](ANTHROPIC-ZETA23-INTEGRATION.md).
+
+The natural stronger hope--that one exceptional hyperbolic block must leave a
+uniformly negative eigenvalue--also fails at the zero-side structural level.
+For a positive background `A` and selected negative atom `u u*`, the exact
+criterion is the leverage `u* A^dagger u>1`.  The abstract block data allow
+this leverage to be below one, and an exact Fourier-series identity shows
+collective screening for a full off-line modulation lattice for every real
+even compactly supported taper.  The sharp interval kernel becomes a
+full-spark Cauchy matrix when there are no more zero nodes than coordinates,
+and a varying additive/mesoscopic padding can in fact guarantee that dimension
+inequality while preserving the raw smooth-window estimates.  It supplies no
+quantitative conditioning, however.  A subsequent endpoint-jet restriction
+of the sharp span supplies both exact interpolation and an exponentially
+small remote tail, so the old tail/full-spark dichotomy is no longer a valid
+terminal objection.  Although the raw Vandermonde singular value can still
+collapse, collision merging and compactness give a separation-free negative
+edge at every fixed set of parameters; what remains open is an effective
+asymptotic rate for that signed edge.  On the arithmetic side, the sharp
+matrix and its endpoint-jet compression have exact Loewner displacement rank
+at most two, but their unconstrained confluent diagonal data retain the
+prime-side lower-edge problem.  The prime trace/Frobenius data still permit
+one negative eigenvalue.  The remaining comparisons are scale-coupled: if a
+depth-`alpha` pair has actual normalized carrier margin
+`K=(X^alpha/L)r_T`, `X=exp(L)`, and
+`B_X=osc(A_X)+(2/L)max|D_X|`, then one needs both `E_remote=o(K)` and, for
+the scalar prime route, `B_X=o(X^alpha r_T)`.  A direct constrained
+Pick/Loewner alternative must instead put the normalized prime negative edge
+at `o(K)` for the same actual `K`.  The complete gates are
+[`SINGLE-HYPERBOLIC-BLOCK-ISOLATION-GATE.md`](../results/SINGLE-HYPERBOLIC-BLOCK-ISOLATION-GATE.md)
+and
+[`ZETA23-ADDITIVE-EDGE-PADDING-AUDIT-2026-08-11.md`](../results/ZETA23-ADDITIVE-EDGE-PADDING-AUDIT-2026-08-11.md),
+with the revised survivor and its compact-margin theorem in
+[`ZETA23-ENDPOINT-JET-EXTERIOR-EDGE-GATE-2026-08-11.md`](../results/ZETA23-ENDPOINT-JET-EXTERIOR-EDGE-GATE-2026-08-11.md)
+and
+[`ZETA23-ENDPOINT-JET-COMPACT-CARRIER-MARGIN-2026-08-11.md`](../results/ZETA23-ENDPOINT-JET-COMPACT-CARRIER-MARGIN-2026-08-11.md).
+The exact surviving, matched signed-Schur and scalar prime-polynomial targets
+are in
+[`ZETA23-QUANTITATIVE-SIGNED-CARRIER-REDUCTION-2026-08-11.md`](../results/ZETA23-QUANTITATIVE-SIGNED-CARRIER-REDUCTION-2026-08-11.md)
+and
+[`ZETA23-CONSTRAINED-SHARP-LOEWNER-PRIME-EDGE-2026-08-11.md`](../results/ZETA23-CONSTRAINED-SHARP-LOEWNER-PRIME-EDGE-2026-08-11.md).
+For the exact scalar data, a published sharp prime-twist theorem gives the
+unconditional logarithmic gain
+`B_X<<X^(1/2)/(log X)^(3/10)`, but no fixed power.  A fixed strip implies a
+fixed-power scalar bound; the reverse implication is not proved for this
+discrete prefix/Cesaro pair because it lacks the complex, continuous,
+power-wide interval information in Turan's localization criterion.  The
+complete quantifier audit is
+[`ZETA23-SCALAR-PRIME-POLYNOMIAL-FIXED-SAVING-AUDIT-2026-08-11.md`](../results/ZETA23-SCALAR-PRIME-POLYNOMIAL-FIXED-SAVING-AUDIT-2026-08-11.md).
+
 ### 4.7 Exact completion collapses the nonlocal Ward remainder (NG-22)
 
 The terminal Markov covariance is positive, and Selberg's identity splits
@@ -1022,6 +1121,99 @@ These are useful guardrails, not headline research theorems.
    audited by
    [`Stage3ParityNoGoAudit.lean`](../lean/rhbridge/RHBridge/Stage3ParityNoGoAudit.lean).
    A parity argument needs a comparison of the even and odd spectral blocks.
+
+### 4.16 Density-level carrier screens and sparse exceptions (NG-31)
+
+Endpoint jets repair qualitative interpolation and the remote-zero tail, but
+they do not make an arbitrary carrier margin uniform.  A distinguished pair
+in the padding collar can be suppressed at the endpoint-tail scale.  After
+recentering the pair in the core, a bilinear Poisson construction gives the
+exact count-only model
+
+```text
+0<K<<X^(2*alpha/3).
+```
+
+Anthropic's simple-critical-line density excludes that `k=3` model.  The
+least pure sublattice compatible with the exact density constant is `k=7`,
+and count plus density alone still permit
+
+```text
+0<K<<X^(6*alpha/7).
+```
+
+That second model fails once the evaluated Zeta23 Frobenius moment is used:
+the legal bandwidth-one Montgomery--Taylor probe has negative trace of order
+`d*X^(6*alpha/7)` and Frobenius square at least
+`c*d*X^(12*alpha/7)`, whereas the theorem gives `O(d)`.  A periodic-mask
+power-sum lemma explains the unavoidable high alias behind this failure.
+
+**Exact scope and escape.**  The moment calculation removes a regular
+positive-density, fixed-depth screen.  It does not control one pair or an
+`o(N)` family of exceptional pairs, whose contribution can remain below the
+first two moment scales.  The exact single-pair endpoint is nevertheless
+positive: an explicit binomial-tail endpoint-jet packet proves
+`K>=X^(alpha-o(1))/L` when all other local atoms are simple and on line.
+Hence a surviving sparse screen needs at least one additional off-line pair.
+Such a screen now exists at the level of every current zero-side input: a
+Gevrey-tapered `k=3` island of length `H` satisfies
+
+```text
+H*eta/L^8 -> infinity,       H*X^(4*alpha/3)=o(T),
+0<K<=X^(2*alpha/3+o(1)),
+```
+
+and preserves the count, global simple-line density, and leading
+trace/Frobenius moment.  Canonical logarithmic padding permits
+`H=X^(alpha/3)` for every `alpha<1/2`; the weakest padding still permits a
+choice for `alpha<3/8`.  This is an artificial carrier configuration, not an
+actual-zeta realization.  It closes the proposed deduction of a full-power
+edge from the current bulk inputs.
+
+A proportional two-lobe construction exposes the exact consequence.  If a
+relative lobe width `a` had an `X^o(1)` target-conditioned joint
+interpolation theorem, its exponent gate would be
+`alpha*(1-a)>a/2`.  Global simple-line density alone suggests
+`a>0.163749...` and the conditional edge `0.597907...`, but the sparse `k=3`
+operator upper bound contradicts the required target retention for every
+`a<1/3`.  The first countermodel-safe numerical target is therefore only the
+conditional edge `3/4+epsilon`, and no theorem establishes it.  A separate
+legal-bandwidth audit rules out a macroscopic equal-depth `k=2` cluster by
+the Frobenius moment.  Sublinear clusters remain compatible and can be
+exponentially ill-conditioned, although bad frame conditioning alone is not
+selected-row screening.
+
+The packet-level arithmetic escape is equally precise.  An endpoint-flat
+two-lobe packet turns the remaining power-sized term into a centered smooth
+von Mangoldt polynomial `S(Y,w,gamma)`.  The matched theorem is
+`S=o(Y^alpha)`; current completion-preserving estimates give only
+`Y^(1/2-o(1))`.  Nulling all active prime translates is algebraically
+possible only if the selected Laplace vector retains a quantitative distance
+from their span.  Raw dimension does not control that distance, and local
+clustering of the off-line positive rows is an additional conditioning gate.
+After optimizing two complex lobes, the exact norm is the Wiener
+`sum|h_k|` norm and the finite dual is an `l^infinity` prime-log quadrature
+problem.  KMT gives only a logarithmic upper bound for the normalized
+extremal, so neither a constant lower bound nor a fixed-power loss is proved.
+Neither the density result nor these no-go theorems prove a uniform strip.
+The exact reports are
+[`ZETA23-ENDPOINT-JET-COLLAR-CARRIER-RATE-OBSTRUCTION-2026-08-11.md`](../results/ZETA23-ENDPOINT-JET-COLLAR-CARRIER-RATE-OBSTRUCTION-2026-08-11.md),
+[`ZETA23-CORE-SUBLATTICE-CARRIER-POWER-LOSS-2026-08-11.md`](../results/ZETA23-CORE-SUBLATTICE-CARRIER-POWER-LOSS-2026-08-11.md),
+[`ZETA23-CORE-PERIODIC-MASK-AND-GROUPED-LOWER-EDGE-AUDIT-2026-08-11.md`](../results/ZETA23-CORE-PERIODIC-MASK-AND-GROUPED-LOWER-EDGE-AUDIT-2026-08-11.md),
+and
+[`ZETA23-K7-GABOR-MOMENT-INCOMPATIBILITY-2026-08-11.md`](../results/ZETA23-K7-GABOR-MOMENT-INCOMPATIBILITY-2026-08-11.md).
+The one-pair theorem is
+[`ZETA23-SINGLE-CORE-PAIR-ONLINE-SCREENING-BOUND-2026-08-11.md`](../results/ZETA23-SINGLE-CORE-PAIR-ONLINE-SCREENING-BOUND-2026-08-11.md).
+The hostile-audited sparse screen and exact packet reduction are
+[`ZETA23-SPARSE-TAPERED-K3-ISLAND-2026-08-11.md`](../results/ZETA23-SPARSE-TAPERED-K3-ISLAND-2026-08-11.md)
+and
+[`ZETA23-ENDPOINT-PACKET-PRIME-FORM-THEOREM-CARD-2026-08-11.md`](../results/ZETA23-ENDPOINT-PACKET-PRIME-FORM-THEOREM-CARD-2026-08-11.md).
+The final local, two-lobe, atomic, and synthesis cards are
+[`ZETA23-LOCAL-K2-CLUSTER-MOMENT-BARRIER-2026-08-11.md`](../results/ZETA23-LOCAL-K2-CLUSTER-MOMENT-BARRIER-2026-08-11.md),
+[`ZETA23-TWO-LOBE-PRIME-NULL-INTERPOLATION-GATE-2026-08-11.md`](../results/ZETA23-TWO-LOBE-PRIME-NULL-INTERPOLATION-GATE-2026-08-11.md),
+[`ZETA23-PRIME-TRANSLATE-NULLSPACE-ATOMIC-GATE-2026-08-11.md`](../results/ZETA23-PRIME-TRANSLATE-NULLSPACE-ATOMIC-GATE-2026-08-11.md),
+and
+[`UNIFORM-STRIP-ITERATION-SYNTHESIS-2026-08-11.md`](../results/UNIFORM-STRIP-ITERATION-SYNTHESIS-2026-08-11.md).
 
 ## 5. Obstruction IV: fixed sparse substitutions miss positive density
 

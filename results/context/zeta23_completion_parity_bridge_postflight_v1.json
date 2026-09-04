@@ -1,0 +1,57 @@
+{
+  "schema": "zeta23-research-postflight-v1",
+  "date": "2026-09-02",
+  "architecture": "completion_defect_to_R95_and_R68_reflection_parity",
+  "target": "Use the exact completed functional equation to obtain a one-sided fixed-power saving for R95 or the complete centered R68 Type-II aggregate",
+  "verdict": "DIRECT_COMPLETION_DEFECT_BRIDGE_CLOSED_ODD_CHANNEL_COEFFICIENT_COUPLING_OPEN",
+  "project_proved": [
+    "Exact completed-defect and odd-channel decomposition for a licensed completion Xi_F=C_F F.",
+    "Divisor ledger: the defect records the difference of reflected multiplicities while the odd channel records their sum.",
+    "Exact generalized R95 decomposition into completion defect plus an odd residual.",
+    "For zeta the defect vanishes identically and the residual is exactly the original R95 transform with every nontrivial-zero residue unchanged.",
+    "The exact R68 Type-I complement is holomorphic at nontrivial zeros, so the reflection-even Type-II projection cancels the divisor while the odd projection retains its full simple pole.",
+    "Explicit Chebotarev-sparse defect formula and a continuation-domain proof that it detects the planted unpaired zero.",
+    "Exact symmetric-quartet falsifier: a vanishing functional-equation defect can coexist with two-sided R95 excursions of order x^beta.",
+    "Exact Selberg reflection-parity identities; analytic continuation of the reflected side does not inherit right-half-plane coefficient positivity.",
+    "Fixed causal-box R95 criterion: either one-sided O(x^a) bound for one fixed logarithmic box excludes zeros with real part greater than a, and its zero formula is absolutely convergent."
+  ],
+  "imported_or_classical": [
+    "the differentiated Riemann functional equation",
+    "the R95 Landau transform",
+    "the R68 Vaughan cutoff table and mandatory centerings",
+    "Hamburger's converse theorem",
+    "Selberg's nonnegative Lambda log plus Lambda convolution identity"
+  ],
+  "falsified_inferences": [
+    "A vanishing completed functional-equation defect controls the zero-bearing R95 residual.",
+    "Functional-equation reflection cancels or lowers the exponent of a near-one zero carrier.",
+    "The reflected logarithmic derivative can be treated as a second convergent Euler series in the critical strip.",
+    "Right-half-plane positivity of Selberg coefficients transfers to the reflection-even analytic continuation.",
+    "The Type-I complement or mandatory R68 centers can cancel a nontrivial-zero pole."
+  ],
+  "open": [
+    "a finite, coefficient-specific inequality coupling the exact zeta completion to the reflection-odd channel",
+    "the fixed 0<eta<=1/2 complete two-shift estimate X_I <= exp((1-2eta+o(1))R)",
+    "one-sided fixed-power R95 cancellation",
+    "one-sided fixed-power causal-box R95 cancellation",
+    "one-sided fixed-power complete centered R68 cancellation",
+    "uniform zero-free strip",
+    "Riemann hypothesis"
+  ],
+  "decision_tree_correction": "The previous roadmap overvalued the completion defect. It is an admission test for non-FE models, but genuine zeta zero quartets lie in its kernel. Any completion-based successor must constrain the odd/sum channel through a finite identity using the exact coefficients; setting the defect to zero is target-irrelevant.",
+  "next_admissible_passport": "A cutoff-complete, finite arithmetic theorem acting on the reflection-odd R68/R95 carrier, retaining every cofactor and center, and using an exact completion-coefficient relation before analytic continuation. It must fail or be inapplicable for the symmetrized sparse quartet and produce one fixed 0<eta<=1/2.",
+  "claim_status": {
+    "direct_completion_defect_bridge": "CLOSED",
+    "odd_channel_completion_coefficient_inequality": "OPEN",
+    "uniform_zero_free_strip": "OPEN",
+    "RH": "OPEN"
+  },
+  "trust": {
+    "analytic_identity": "EXACT_ALGEBRA_AND_STANDARD_IMPORTED_THEOREMS",
+    "literature_novelty": "PROJECT_SYNTHESIS_WITH_LOCAL_PREDECESSORS_NO_NOVELTY_CLAIM",
+    "formalization": "NOT_LEAN_FORMALIZED"
+  },
+  "finite_replay": "PYTHONPATH=src python3 -m pytest -q src/test_completion_parity_bridge.py",
+  "finite_replay_result": "PASS: 8 bridge tests; PASS: 84 tests in the combined R68/R95 regression suite",
+  "nonclaim": "No one-sided power saving, uniform zero-free strip, or proof of RH is obtained."
+}

@@ -1,0 +1,36 @@
+{
+  "schema": "zeta23-r188-principal-band-serialization-preflight-v1",
+  "date": "2026-09-04",
+  "registry": "R188",
+  "objective": "Attempt the completed fixed-window R71 energy estimate E_R <= X^(49/50+o(1)) and either prove it or identify, with exact completion preserved, the first statement not supplied by current inputs.",
+  "frozen_passport": {
+    "eta": "1/100",
+    "energy_saving": "kappa=1/50",
+    "energy_exponent": "49/50",
+    "window": "ell=1, k=4, h=1/4",
+    "vaughan_cutoffs": "U=V=X^(9/20+o(1))",
+    "principal_multiplier": "m(X^(99/100) xi), with m=1 on [-1,1] and supported on [-2,2]",
+    "source": "the frozen Vaughan tail gamma=(mu 1_(>U))*(Lambda 1_(>V)), coupled to its exact affine Type-I center, or its faithful pre-localization Q_h transform",
+    "quantifiers": "one fixed window and every sufficiently large translate in one licensed regular partition",
+    "downstream_if_proved": "1/100 <= Re(rho) <= 99/100; no implication to RH without a separate amplifier"
+  },
+  "candidate_route": "Serialize the whole completed additive principal band into finite cofactor aliases, then use R87/Wright or Blomer-Pascadi cancellation on the resulting determinant packets without separating the reducible/low-character/center channels.",
+  "fast_falsifiers": [
+    "prove the finite gamma-plus-affine identity before any absolute value",
+    "quantify the total coefficient, alias, ratio-separation, and common-g mask costs",
+    "check whether principal localization removes q_1,q_2 asymp X or the j*theta asymp X^2 top box",
+    "construct exact low-determinant, high-determinant, and reducible witnesses inside the same principal band",
+    "test an actual balanced-semiprime numerator-one subchannel for natural-size coherent energy",
+    "retain both affine-center channels and every cross term, or apply Q_h before localization with its licensed inverse adapter",
+    "insert the exact hypotheses and exponents of Wright II, Blomer-Pascadi, and the current prime exponential-sum theorem"
+  ],
+  "success_criterion": "A proof of the full completed X^(49/50+o(1)) estimate, not a bound for a selected packet; otherwise a proof-quality disposition of the proposed imported-theorem adapter and an exact surviving theorem statement.",
+  "stop_rules": [
+    "do not promote the favorable 1/40 minus 1/200 subfamily ledger to the all-box bound",
+    "do not bound a natural-size literal packet by X^(49/50) when only the completed signed sum may be small",
+    "do not discard the affine center, zero/reducible modes, low conductors, or cross terms",
+    "do not treat an endpoint-equivalent completed inequality as a proved reduction",
+    "do not claim a uniform strip unless the analytic fixed-power estimate is actually proved"
+  ],
+  "nonclaim": "The target estimate, a uniform zero-free strip, the sharp four-cycle bound, and RH are open at preflight."
+}

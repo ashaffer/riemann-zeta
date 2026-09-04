@@ -1,0 +1,59 @@
+{
+  "schema": "zeta23-research-preflight-v1",
+  "date": "2026-09-03",
+  "architecture": "two_sided_weil_factorization_and_uniform_strip_strength_audit",
+  "target_statement": "Correctly type and classify the proposed exterior identity C_(a,b)=T_(a,b) A_a at a semidefinite localized completed-zeta Weil contact; run exact countermodels against every source-free version; and, independently, assume a fixed uniform zero-free strip and derive its strongest licensed consequences to decide whether it supplies any missing factorization input.",
+  "claim_status_sought": [
+    "EXACT_IDENTITY_OR_EQUIVALENCE",
+    "PROJECT_PROVED_THEOREM_WITH_SCOPE",
+    "SYNTHETIC_COUNTERMODEL_OR_METHOD_OBSTRUCTION",
+    "CONDITIONAL_BACKWARD_CALIBRATION"
+  ],
+  "trust_model": [
+    "LEAN_KERNEL_CHECKED_WHERE_FORMALIZED",
+    "EXACT_MATRIX_OR_RATIONAL_REPLAY",
+    "ANALYTIC_MANUSCRIPT_UNREFEREED",
+    "IMPORTED_PRIMARY_LITERATURE"
+  ],
+  "first_unproved_edge": "At every semidefinite localized completed-zeta contact, the old-to-collar charge annihilates ker(A_a); equivalently, KNC/right-openness. A proof-carrying version must exhibit an inverse-free completed pole-archimedean-prime division identity rather than merely assert the equivalent kernel inclusion.",
+  "mask_or_node_class": "The positive lane uses the full completed-zeta Weil distribution, including the archimedean term and all prime powers. Exact finite-dimensional and convolution-kernel models test only source-free functional-analytic claims and are never promoted to actual-zeta counterexamples.",
+  "source_data_retained": "Fixed outer form Hilbert space, exact completed source, old/collar orthogonal splitting, old Euler operator, old-to-collar charge, and the distinction between an arbitrary bounded factor and an explicitly prescribed arithmetic factor.",
+  "coefficient_cone_and_sign": "Complex Hilbert-space vectors under a Hermitian form. The contact hypothesis is A_a >= 0; positivity for larger support, RH, kernel triviality, or any conclusion equivalent to KNC is forbidden as a premise of the forward factorization.",
+  "normalization": "Use the bounded form-operator convention A_a=I+P_a G|_(V_a) in one fixed outer Hilbert space and C_(a,b)=P_W G|_(V_a), so C_(a,b):V_a->W and C=T A typechecks. Record separately the adjoint block convention used in older reports.",
+  "height_window_and_one_sided_floor": "The Weil lane is a support-filtration statement. The backward strip lane fixes eta in (0,1/2] independently of height and retains the complete fixed-window R71 field and energy, not a primitive or truncated packet.",
+  "quantifier_order": "Forward: for every semidefinite contact a, every b>a in the allowed collar range, every dense-core vector f, and every collar direction. Backward: assume one fixed eta works for every nontrivial zero before deriving uniform-in-block estimates as height tends to infinity.",
+  "resolution_required": "Exact at a null contact. An o(1) charge, a factorization only where A_a is invertible, or a shifted-resolvent identity with parameter bounded away from zero has no contact content.",
+  "rate_and_exponent_ledger": {
+    "backward_strip_displacement": "d=1/2-eta",
+    "completed_field_bound": "exp((d+o(1))R)",
+    "complete_fixed_window_energy": "exp((1-2 eta+o(1))R)",
+    "factorization_contact_rate": "exact zero charge; no asymptotic substitute",
+    "all_exponent_losses": [
+      "all cutoff and completion errors must be subexponential on the licensed schedule",
+      "no complete-to-primitive or source-erasing reduction is allowed"
+    ]
+  },
+  "feasibility_or_nonvacuity_witness": "Use the exact two-coordinate family A_epsilon=diag(1,epsilon), charged C(x)=x_2, and its scaled variants. It distinguishes kernel annihilation, bounded factorization, uniform factor norm, and square-root Schur control without numerical uncertainty.",
+  "downstream_socket": "A valid inverse-free completed-source identity at every contact would prove KNC and therefore enters the direct RH lane. A complete R71 fixed-power saving enters the immediate uniform-strip lane. No implication between these sockets is assumed.",
+  "parallel_open_siblings": [
+    "complete R71 fixed-power bound",
+    "fixed-delta shifted-Psi eventual positivity or an equivalent faithful scalar detector",
+    "DPA_P(.019) and LTRAD_P(.0189,.001), currently parked absent new actual-prime structure"
+  ],
+  "why_not_target_renamed": "The audit must prove the factorization/kernel equivalence, identify exactly which proposed factorization statements are tautological, exhibit exact hostile models, and specify the narrower syntactic arithmetic identity class. Merely writing ker(A_a) subset ker(C_(a,b)) or T=C A_a^dagger earns no reduction credit.",
+  "abstract_convex_falsifier": "Test the claimed implication on same-A/different-C finite models, on A_epsilon approaching a contact, and on a positive 2 by 2 Schur block whose cross term is only square-root small.",
+  "fejer_falsifier": "Not faithful to the completed-zeta source. Its role is replaced by exact block and convolution-kernel contact models for source-free claims.",
+  "prime_density_pseudonode_falsifier": "Not permitted to refute the completed-source identity. A source-preserving symbolic mismatch may refute only a precisely declared finite identity grammar.",
+  "finite_actual_prime_diagnostic": "May replay exact prime-power and archimedean pieces of the known collar formula, but cannot certify universal contact cancellation or a strip.",
+  "actual_prime_arithmetic_line": "Any surviving forward proof must display a typed finite pole-gamma-prime identity valid on the dense core and through contact, with no inverse, pseudoinverse, later-support positivity, RH, or approximate remainder.",
+  "backward_fast_falsifiers": [
+    "A fixed strip short of RH must not imply unshifted localized Weil positivity or KNC under the accepted interfaces.",
+    "A factorization proved only for strictly positive A_a is tautological and does not survive contact.",
+    "A shifted-resolvent factor has a pole proportional to the null charge as the shift tends to zero.",
+    "Schur positivity controls the cross term at square-root scale, whereas a uniform C=T A factor requires linear scale.",
+    "Strip plus zero counting alone does not license a quantitative localized-Weil spectral floor without the missing signed sampling estimate."
+  ],
+  "decision_tree_change_if_proved": "If an admissible completed-source division identity is found, promote it as the direct-RH first-open edge. If the backward strip implies it, explicitly label the additional argument as a strip-to-RH amplifier rather than strip propagation.",
+  "decision_tree_change_if_refuted": "Retire all unrestricted, invertible-only, shifted-resolvent, compact/Fredholm, and Schur-positivity versions. Preserve only a formally declared completed-source identity grammar as a bounded direct-RH gamble; return primary strip effort to complete R71 or a faithful shifted detector.",
+  "stop_rule": "Stop after the exact typing and equivalences are proved, each generic or disguised factorization class has an exact falsifier, the assumed-strip consequences and nonconsequences are audited, and the surviving branches are stated without claiming a strip or RH."
+}

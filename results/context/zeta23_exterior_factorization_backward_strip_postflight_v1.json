@@ -1,0 +1,71 @@
+{
+  "schema": "zeta23-research-postflight-v1",
+  "date": "2026-09-03",
+  "human_authority": "results/ZETA23-EXTERIOR-FACTORIZATION-AND-BACKWARD-STRIP-AUDIT-2026-09-03.md",
+  "formal_authorities": [
+    "lean/rhbridge/RHBridge/ExteriorFactorizationAudit.lean",
+    "lean/rhbridge/RHBridge/ExteriorFactorizationAuditAxioms.lean"
+  ],
+  "exact_replay": [
+    "src/exterior_factorization_audit.py",
+    "src/test_exterior_factorization_audit.py"
+  ],
+  "global_status": {
+    "uniform_zero_free_strip": "OPEN",
+    "riemann_hypothesis": "OPEN",
+    "completed_source_exterior_factor": "UNFORMULATED_OPEN",
+    "complete_fixed_window_R71_power_saving": "OPEN"
+  },
+  "typing": {
+    "old_operator": "A_a=I+P_a^h G restricted to V_a, mapping V_a to V_a",
+    "exterior_charge": "Gamma_(a,b)=P_(W_(a,b))^h G restricted to V_a, mapping V_a to W_(a,b)",
+    "block_warning": "The older cross-block C maps collar to old; Gamma is its adjoint. Gamma=T A is the typed orientation.",
+    "dense_core_warning": "Use the bounded form-operator convention, or separately prove an unbounded operator/graph-core bridge."
+  },
+  "factorization_classification": [
+    "Gamma=T A implies ker(A) subset ker(Gamma).",
+    "The quotient T0(Ax)=Gamma x is algebraically well-defined iff KNC holds.",
+    "A bounded factor exists iff norm(Gamma x)<=M norm(Ax), equivalently Gamma*Gamma<=M^2 A^2, equivalently ran(Gamma*) subset ran(A).",
+    "At A=I+compact the range is closed, so KNC and existence of a bounded factor are equivalent.",
+    "A closable factor identity on a dense core forces KNC; a nonclosable factor can fake the identity.",
+    "Full block positivity gives square-root Schur alignment but not a uniform linear A-factor before contact."
+  ],
+  "exact_falsifiers": {
+    "same_A_different_charge": "A=diag(1,0), D=1, with good charge x1 and bad charge x2; the bad null/collar direction has value -1.",
+    "square_root_family": "[[r^2,r],[r,1]] is PSD and exact rank one, while its nonzero scalar A-factor has norm 1/r.",
+    "shifted_resolvent": "On a charged zero mode the shifted factor is -1/sigma and reconstructs the charge but has a reciprocal pole.",
+    "nonclosed_range": "A e_n=4^-n e_n and Gamma x=sum 4^-n x_n give a PSD completion whose quotient factor is not closable.",
+    "dense_core_fake": "On C plus ell2, the summation graph core is dense and supports Gamma=T A although the true kernel vector is charged; T is nonclosable."
+  },
+  "backward_strip": {
+    "hypothesis": "For fixed eta in (0,1/2], eta<=Re(rho)<=1-eta for every nontrivial zero.",
+    "licensed_field_consequence": "abs(D_full(R))<=exp((1/2-eta+o(1))R).",
+    "licensed_energy_consequence": "Every regular complete fixed-window R71/R68 block is <=exp((1-2eta+o(1))R).",
+    "licensed_scalar_consequence": "Psi_(1/2-eta)(t)>=0 eventually.",
+    "factorization_nonpromotion": "Universal unshifted exterior factorization is RH-equivalent under the accepted interfaces. Deriving it from the strip would be a strip-to-RH amplifier, not an intermediate strip lemma.",
+    "coercivity_nonpromotion": "Strip geometry and zero counting alone lose a half Fourier derivative and do not imply the desired localized-Weil spectral floor."
+  },
+  "pruned": [
+    "inverse factorization at strictly positive supports",
+    "pseudoinverse factorization without prior KNC",
+    "shifted-resolvent factorization without a bounded zero-shift limit",
+    "factorization inferred from enlarged-support positivity",
+    "graph-norm renormalization",
+    "finite invertible Galerkin factorization without uniform contact control",
+    "dense-core factorization without boundedness or closability",
+    "the unshifted exterior lane as a primary fixed-strip lemma"
+  ],
+  "surviving_paths": [
+    "PRIMARY_STRIP: a complete source-preserving fixed-window R71 fixed-power estimate",
+    "EQUIVALENT_STRIP_SCALAR: eventual one-sided shifted-Psi or exactly bridged pole-killed ramp control",
+    "BOUNDED_DIRECT_RH: a displayed inverse-free completed-source T^src with declared grammar and independently proved closability or boundedness"
+  ],
+  "novelty": {
+    "douglas_factorization": "IMPORTED",
+    "suzuki_interfaces": "IMPORTED",
+    "exterior_potential": "LOCAL_PREDECESSOR",
+    "route_synthesis_and_fixtures": "PROJECT_SYNTHESIS",
+    "candidate_new_claim": "NONE"
+  },
+  "nonclaim": "No completed-source T^src, uniform zero-free strip, RH proof, or actual-zeta counterexample is obtained."
+}

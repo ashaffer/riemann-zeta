@@ -1,0 +1,49 @@
+{
+  "schema": "zeta23-research-preflight-v1",
+  "date": "2026-09-01",
+  "architecture": "separate_parallel_audits_with_no_cross_architecture_implication",
+  "target_statement": "Distill exact reusable theorem schemas that subsume multiple proved results or scoped obstructions in the full project corpus.",
+  "claim_status_sought": [
+    "EXACT_IDENTITY_OR_EQUIVALENCE",
+    "PROJECT_PROVED_THEOREM_WITH_SCOPE",
+    "SYNTHETIC_COUNTERMODEL_OR_METHOD_OBSTRUCTION"
+  ],
+  "trust_model": [
+    "LEAN_KERNEL_CHECKED_WHERE_FORMALIZED",
+    "ANALYTIC_MANUSCRIPT_UNREFEREED",
+    "IMPORTED_FROM_PRIMARY_LITERATURE"
+  ],
+  "first_unproved_edge": "For each proposed abstraction, prove the exact statement from recorded hypotheses without silently upgrading any scoped source result.",
+  "mask_or_node_class": "Statement-dependent; actual-prime claims remain actual-prime and synthetic/operator claims remain abstract.",
+  "source_data_retained": "Explicitly recorded per theorem; no theorem may infer source localization from a source-free normalization.",
+  "coefficient_cone_and_sign": "Explicitly recorded per theorem; signed, nonnegative, and operator-valued statements are not interchanged.",
+  "normalization": "Inherited exactly from each source theorem or made intrinsic in an abstract theorem.",
+  "height_window_and_one_sided_floor": "QP/Turan statements retain the full recorded band and floor; operator statements state their own form-domain metric.",
+  "quantifier_order": "All universal/adaptive/existential orders are preserved; finite diagnostics are excluded from asymptotic theorem premises.",
+  "resolution_required": "Any QP transport retains B^-1 resolution; no such field is asserted for unrelated operator theorems.",
+  "rate_and_exponent_ledger": {
+    "starting_exponent": "statement-dependent",
+    "target_exponent": "no new strip exponent is claimed",
+    "all_exponent_losses": [
+      "must be copied exactly from source reports",
+      "cross-architecture abstractions carry no exponent reward"
+    ]
+  },
+  "feasibility_or_nonvacuity_witness": "Each positive theorem must include an explicit factorization/witness; each no-go must include an exact model.",
+  "downstream_socket": "Research-method pruning and reusable operator/convex-analysis lemmas only; no direct zero-free-strip or RH socket is claimed.",
+  "parallel_open_siblings": [
+    "DPA_P(.019)",
+    "LTRAD_P(.0189,.001)",
+    "zeta-specific adjacent-support propagation",
+    "zeta-specific reserve/alignment theorem"
+  ],
+  "why_not_target_renamed": "The output is a theorem taxonomy with proofs and countermodels, not a renamed strip, propagation, or Ward target.",
+  "abstract_convex_falsifier": "Test every passport-free or moment-only statement on Fejer/coisometry/adaptive convex systems.",
+  "fejer_falsifier": "Reject structural conclusions invariant under arbitrary Sidon-seed Fejer autocorrelations.",
+  "prime_density_pseudonode_falsifier": "Reject actual-prime conclusions whose proof survives the smooth matched-node models unchanged.",
+  "finite_actual_prime_diagnostic": "Used only to check identities and locate assumptions, never to promote an asymptotic claim.",
+  "actual_prime_arithmetic_line": "Required only for any theorem explicitly claiming actual-prime strength; otherwise none is claimed.",
+  "decision_tree_change_if_proved": "Compress repeated failures into reusable impossibility theorems and isolate minimal positive hypotheses for each live branch.",
+  "decision_tree_change_if_refuted": "Remove the proposed abstraction and retain only the separately scoped source results.",
+  "stop_rule": "Stop a candidate if it mixes architectures, loses a passport field, restates an open target, or lacks either a proof from recorded results or an exact countermodel."
+}

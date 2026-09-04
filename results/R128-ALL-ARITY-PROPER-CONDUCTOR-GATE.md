@@ -9,11 +9,12 @@ the primitive class exactly, modulus by modulus.  The complete class sum is
 the ordinary-product dual with no `X^(1/2)` (or other) conductor remainder.
 
 This must not be misread as an estimate for the ordinary dual.  R120's
-primitive-only scalar is signed, and one frozen ordinary-dual block remains
-signed.  Positivity is recovered only after every gcd sector, fixed-ratio
-profile, orientation, and Vaughan component is included; that complete
-ordinary-dual family is simply another exact representation of the original
-positive R71 energy.  Its coefficients are still
+primitive-only scalar has a Hermitian signed-coefficient representation, but
+its actual sign and any order-reflecting property are unproved.  The same
+qualification applies to one frozen ordinary-dual block.  Once every gcd
+sector, fixed-ratio profile, orientation, and Vaughan component is included,
+the complete ordinary-dual family is simply another exact representation of
+the original positive R71 energy.  Its coefficients are still
 
 ```text
 C(n)=(mu*Lambda)(n)=-mu(n)log n,
@@ -31,9 +32,11 @@ Predecessors:
   for the conductor square-root theorem and the primitive Ramanujan
   expansion;
 * [`R120-PRIMITIVE-MOBIUS-MELLIN-KERNEL-GATE.md`](R120-PRIMITIVE-MOBIUS-MELLIN-KERNEL-GATE.md)
-  for the ordinary-product/Mobius-log dual and its signed Mellin spectrum;
+  for the ordinary-product/Mobius-log dual and its Hermitian
+  signed-coefficient Mellin representation;
 * [`R124-ACTUAL-QH-PRIMITIVE-MELLIN-SIGN-GATE.md`](R124-ACTUAL-QH-PRIMITIVE-MELLIN-SIGN-GATE.md)
-  for the previously missing global proper-conductor comparison; and
+  for exact narrow-band positivity and the formulation of the previously
+  missing global proper-conductor comparison; and
 * [`R123-TRUNCATED-MOBIUS-DILATION-BANK-GATE.md`](R123-TRUNCATED-MOBIUS-DILATION-BANK-GATE.md)
   and
   [`R125-ADJACENT-FILTER-PRIME-PACKET-BRIDGE-GATE.md`](R125-ADJACENT-FILTER-PRIME-PACKET-BRIDGE-GATE.md)
@@ -81,8 +84,9 @@ is deliberate.  It is not the same object as an isolated positive energy,
 and it is not legitimate to infer that an individual `O_c`, gcd sector, or
 fixed-ratio profile is nonnegative.  R120's `P_X` is the leading ordinary
 piece extracted from a primitive-only, usually `g=1`, frozen block and has a
-signed Mellin multiplier.  In contrast, if (1.3) is applied to every block
-of the exact R71 decomposition and those blocks are then restored, their sum
+Hermitian Mellin representation whose actual sign is not certified.  In
+contrast, if (1.3) is applied to every block of the exact R71 decomposition
+and those blocks are then restored, their sum
 
 ```text
 O_full=sum_(all g, profiles, orientations, heads) O_block
@@ -95,8 +99,9 @@ O_full=E_R71>=0.                                     (1.4)
 ```
 
 The positivity in (1.4) belongs to the **sum**, because it is equal to the
-original Gram energy.  It does not contradict R120/R124's sign computations
-for a selected primitive profile.
+original Gram energy.  It neither proves nor contradicts positivity of a
+selected primitive profile; R124 proves a positive narrow band and supplies
+only D-rated numerical evidence of full-shell sign change.
 
 If `J_c^(unit)` denotes the contribution of unit residues `a`, R116 proves
 by a Ramanujan expansion that
@@ -118,7 +123,7 @@ For arbitrary `c`, (1.6) remains true if `R_c^(Ram)` is defined as
 second frequency is nonunit modulo `c`.  Thus the correct full ledger is
 
 ```text
-primitive/unit Ramanujan correction       PRESENT and signed;
+primitive/unit Ramanujan correction       PRESENT with signed coefficients;
 all nonprimitive conductor classes         ITS EXACT NEGATIVE;
 complete all-class remainder               ZERO;
 complete ordinary dual                     ORIGINAL R71 ENERGY;
@@ -345,9 +350,9 @@ recorded Euler defect; there is no conductor error.
 The following distinction is load-bearing:
 
 ```text
-one frozen Phi_lambda Mellin form                   SIGNED;
-one g=1 coprime form sum_d mu(d)|B_d|^2             SIGNED;
-R120 primitive-only leading scalar                  SIGNED;
+one frozen Phi_lambda Mellin form                   SIGN NOT CERTIFIED;
+one g=1 coprime form sum_d mu(d)|B_d|^2             SIGNED-COEFFICIENT REPRESENTATION;
+R120 primitive-only leading scalar                  POSITIVITY / ORDER REFLECTION UNPROVED;
 complete ordinary-dual family O_full                POSITIVE,
                                                      because O_full=E_R71.
                                                                (5.1)
@@ -355,10 +360,13 @@ complete ordinary-dual family O_full                POSITIVE,
 
 Thus Theorem 2.1 removes the proposed escape in which a global
 proper-conductor remainder of exponent one might cancel the ordinary dual.
-There is no such remainder after complete recombination.  It does **not**
-make R124's individual multiplier `lambda_P(tau)` nonnegative.  Its negative
-bands are repaired by other gcd/profile/head members of `O_full`, not by a
-pointwise sign change in that one member.
+There is no such remainder after complete recombination.  This identity does
+**not** settle the sign of R124's individual multiplier `lambda_P(tau)`.
+Floating diagnostics show negative bands, but no interval or symbolic
+certificate has been supplied.  If those bands were certified, positivity
+of `O_full` would force aggregate compensation by the other
+gcd/profile/head members; the present exact theorem proves only positivity
+of the complete sum and makes no such memberwise sign claim.
 
 In particular, R124 Lemma 6.1 no longer needs a hypothetical estimate
 

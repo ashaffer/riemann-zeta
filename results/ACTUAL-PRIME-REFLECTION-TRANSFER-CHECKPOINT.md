@@ -3,6 +3,10 @@
 Status: analytic and Arb-certified fail-fast checkpoint, 2026-08-06.  This
 note does **not** prove RH.
 
+The fixed-window, Euler, and Vaughan claims were independently re-audited in
+[`FIXED-WINDOW-REDUCTION-INDEPENDENT-AUDIT-2026-08-30.md`](FIXED-WINDOW-REDUCTION-INDEPENDENT-AUDIT-2026-08-30.md).
+That audit also supplies the corrected joint `h,j` dependence in (6.17e').
+
 The norm, singular-spectrum, and moving central-collar audit of the surviving
 aggregate is continued in
 [`MOVING-TYPE-II-NORM-CHECKPOINT.md`](MOVING-TYPE-II-NORM-CHECKPOINT.md).
@@ -882,13 +886,19 @@ in (6.17e) gives the extra factor `X^(-j)` and proves (6.17d).  For
 Q_j=[r!/(r+j)!]Bbar_(r+j).
 ```
 
-For fixed compact `b`-sets, the preceding product and chain rules give the
-explicit finite bound
+For `b` in a fixed compact set `K_b`, the preceding product and chain rules
+give the explicit finite bound
 
 ```text
 norm(D_t^j W_(b,h,j))_TV
- <=C_(b,j) exp(C_b jh)(1+h^(-1))^j.                       (6.17e')
+ <=C_(K_b,j) exp(C_(K_b)j(j+1)h)(1+h^(-1))^j.             (6.17e')
 ```
+
+The quadratic dependence in `j` inside the exponential is needed when this
+estimate is read jointly in `h,j`: on `0<=u<=jh`, the conversion from
+`D_u^j` to `D_t^j` contains `exp(ju)`.  It is harmless both for fixed order
+and for the fixed-total-width specialization `j=k`, `h=ell/k`, where it costs
+only `exp(O_ell(k))`.
 
 Apply `mathcal A_h^k` to (6.17c) with `N=k`.  The averaged remainder keeps
 the order `X^(-Re(a)-k)`, while (6.17d) makes the `r`th periodic term

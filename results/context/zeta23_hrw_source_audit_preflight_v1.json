@@ -1,0 +1,40 @@
+{
+  "schema": "zeta23-research-preflight-v1",
+  "date": "2026-09-01",
+  "architecture": "weil",
+  "target_statement": "On each compact support slab, the combined completed-zeta residual obeys the harmonic Ward inequality |R(u,w)|^2 <= C_R Q_L(u,u) ||w||_2^2 for old-supported u and reference-harmonic collar w.",
+  "claim_status_sought": "OPEN_CANDIDATE_UNDER_SOURCE_RESOLVED_FALSIFICATION",
+  "current_status": "OPEN",
+  "trust_model": "This pass is a cutoff-free high-precision finite Galerkin diagnostic in ordinary mpmath, not interval arithmetic and not a continuum theorem.",
+  "first_unproved_edge": "A floor-independent square-root-range/Bessel bound for the combined pole, archimedean residual, and actual prime-power translations.",
+  "mask_or_node_class": "All actual zeta prime powers active immediately above L5=2 log 5, with the pole and complete archimedean residual retained.",
+  "source_data_retained": "Individual prime-power locations log(n), von Mangoldt weights, underlying-prime labels, pole rank two, strict support threshold, and the digamma-minus-log-Bessel remainder.",
+  "coefficient_cone_and_sign": "All real parity-complete trial functions; source signs are those of the completed zeta explicit formula.",
+  "normalization": "Project support L=4a; seed L5=2 log 5; reference multiplier (1/2) log(1+4t^2); literal collars have physical width delta/4 per side.",
+  "height_window_and_one_sided_floor": "Not a height-window statement. The finite old Weil matrix is positive but its smallest Ritz value is allowed to become microscopic.",
+  "quantifier_order": "First fix a compact support slab, then seek one C_R uniform in the old support, collar width, and all admissible functions; finite dimensions are only falsifiers for this continuum claim.",
+  "resolution_required": "Old and collar meshes must be refined together with their ratio controlled; fixed-old-degree collar shrinkage is unlicensed.",
+  "rate_and_exponent_ledger": {
+    "starting_exponent": null,
+    "target_exponent": null,
+    "all_exponent_losses": [],
+    "support_modulus": "HRW itself is width-free relative to J*GJ; NR_log separately supplies 1/log(e/delta).",
+    "spectral_budget": "sum_k |sum_s beta_{s,k}|^2/lambda_k <= C_R ||w||_2^2"
+  },
+  "feasibility_or_nonvacuity_witness": "The prior matched finite probes gave Ward ratios 1.038--1.147 while the old Ritz floor fell substantially.",
+  "downstream_socket": "HRW plus NR_log and the residual diagonal bound imply a positive adjacent-support Schur step; compact-uniform steps feed the formal cofinal propagation theorem.",
+  "parallel_open_siblings": [
+    "NR_log quantitative norm-resolvent convergence for the killed log-Bessel operator",
+    "compact-slab uniformity of all constants",
+    "rigorous unequal-hat Arb replay"
+  ],
+  "why_not_target_renamed": "This audit tests the exact arithmetic factor in the established Schur reduction and keeps the independent reference localization problem separate.",
+  "abstract_convex_falsifier": "Compare each source B_s, their signed sum, and source-consistent removals/sign flips in the same low-Q modes; generic positive block algebra does not force cancellation.",
+  "fejer_falsifier": "Not directly applicable to this explicit-form operator claim.",
+  "prime_density_pseudonode_falsifier": "Replace the newly activated n=5 contact atom by a coefficient-preserving outward smear, which leaves the old-old p5 block zero, and compare the Ward ratio.",
+  "finite_actual_prime_diagnostic": "Extract the maximizing harmonic collar vector, decompose its response by source and old generalized eigenmode, resolve even/odd parity, and rerun matched (M,q,delta) cases.",
+  "actual_prime_arithmetic_line": "Any favorable bound must be checked for cancellation among the completed sources before componentwise absolute values are used.",
+  "decision_tree_change_if_proved": "Reduces arithmetic propagation to proving the observed completed-source low-mode cancellation uniformly in the continuum.",
+  "decision_tree_change_if_refuted": "Retires HRW as the floor-free arithmetic factor and forces a different lift/reference form or a direct full-Schur argument.",
+  "stop_rule": "Stop or reframe if the combined Ward ratio diverges under licensed refinement, if boundedness comes only from an underresolved collar, or if a proposed proof silently assumes positivity after the support extension."
+}

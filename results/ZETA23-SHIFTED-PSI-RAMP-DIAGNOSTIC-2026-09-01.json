@@ -1,0 +1,63 @@
+{
+  "schema": "zeta23-shifted-psi-ramp-diagnostic-v1",
+  "date": "2026-09-01",
+  "evidence": "FLOATING_POINT_DIAGNOSTIC",
+  "warning": "Finite values are not evidence for an eventual one-sided bound or a zero-free strip.",
+  "definition": "B_delta(x)=sum_{n<=x} Lambda(n)n^{-(1-delta)}[2(n/x)^delta-1]-(1-x^{-delta})/delta",
+  "x": 10000000,
+  "log_x": 16.11809565095832,
+  "full_von_mangoldt": {
+    "0.001": -0.5594541939296835,
+    "0.01": -0.4100730447326484,
+    "0.05": 0.05350671165914811,
+    "0.1": 0.34959740180313226,
+    "0.25": 0.5950102712804926,
+    "0.49": 0.28716841022838935
+  },
+  "prime_only": {
+    "0.001": -1.2973144796228464,
+    "0.01": -1.000144119807679,
+    "0.05": -0.00025617602553928975,
+    "0.1": 0.7855177905326531,
+    "0.25": 2.1980345739539393
+  },
+  "weighted_mertens_endpoint_full": -0.5773589381897661,
+  "weighted_mertens_endpoint_prime_only": -1.3323952451571426,
+  "boundary_profile_comparison": {
+    "0.001": {
+      "delta_log_x": 0.01611809565095832,
+      "one_term": -0.5587575844632778,
+      "two_term": -0.5593082285342718
+    },
+    "0.01": {
+      "delta_log_x": 0.1611809565095832,
+      "one_term": -0.4053647523864091,
+      "two_term": -0.40987439936568526
+    },
+    "0.05": {
+      "delta_log_x": 0.8059047825479161,
+      "one_term": 0.06155013161348629,
+      "two_term": 0.0541726782596015
+    },
+    "0.1": {
+      "delta_log_x": 1.6118095650958322,
+      "one_term": 0.34687633214398617,
+      "two_term": 0.3506627981999923
+    }
+  },
+  "constants": {
+    "euler_gamma": 0.5772156649015329,
+    "K0_equals_gamma_squared_plus_two_gamma1": 0.18754623284036522,
+    "K0_over_gamma": 0.3249153553
+  },
+  "target_delta_1e_minus_6_local_profile_crossing": {
+    "c_equals_delta_log_x": 0.693147505475301,
+    "log_x": 693147.505475301,
+    "log10_x": 301030.136772927,
+    "interpretation": "Local zero of the two-term boundary profile, not a certified first sign change of the discontinuous arithmetic ramp."
+  },
+  "replay": [
+    "PYTHONPATH=src python3 src/shifted_psi_ramp_bridge.py --limit 10000000 --deltas 0.49 0.25 0.1 0.05 0.01 0.001 --checkpoints 10000000",
+    "PYTHONPATH=src python3 src/shifted_psi_ramp_bridge.py --limit 10000000 --deltas 0.25 0.1 0.05 0.01 0.001 --checkpoints 10000000 --prime-only"
+  ]
+}

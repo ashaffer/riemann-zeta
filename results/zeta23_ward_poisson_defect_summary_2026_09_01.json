@@ -1,0 +1,89 @@
+{
+  "schema": "zeta23.ward-poisson-defect-summary.v1",
+  "date": "2026-09-01",
+  "status": "FINITE_HIGH_PRECISION_NONINTERVAL_EVIDENCE_ONLY",
+  "theorem_status": "HRW_AND_UNIFORM_PROPAGATION_REMAIN_OPEN",
+  "exact_reformulation": "B=A(P_Q-P_h), so B^*A^-1B is the old-Q energy of the mismatch between the Q-harmonic and reference-harmonic Poisson maps.",
+  "licensed_mesh_rule": "old and collar meshes are resolution matched; q denotes collar modes per side, not conductor",
+  "rows": [
+    {
+      "M": 40,
+      "q": 1,
+      "delta": "0.32",
+      "old_ritz_floor": "8.8781256497427176536e-7",
+      "ward_poisson_defect_ratio": "1.0594574483106811097",
+      "even_ratio": "1.0594574483106811097",
+      "odd_ratio": "0.71991545848090738394",
+      "relative_top_eigengap": "0.32048667020197735342",
+      "largest_fixed_metric_isolated_source_ratio": "1.7571863274955365909e6",
+      "next_best_nonphysical_sign_ratio": "124.61372975686397349",
+      "outward_p5_smear_ratio": "19.516737354228247129",
+      "source_file": "results/zeta23_ward_source_M40_q1_d032_2026_09_01.json"
+    },
+    {
+      "M": 48,
+      "q": 2,
+      "delta": "0.40",
+      "old_ritz_floor": "5.6718701280287761291e-7",
+      "ward_poisson_defect_ratio": "1.0380181007193549226",
+      "even_ratio": "1.0380181007193549226",
+      "odd_ratio": "0.89385199632864513955",
+      "relative_top_eigengap": "0.13888592529436770807",
+      "largest_fixed_metric_isolated_source_ratio": "3.6936794192615591984e6",
+      "next_best_nonphysical_sign_ratio": "519.74623464592557618",
+      "outward_p5_smear_ratio": "69.029280788841069257",
+      "source_file": "results/zeta23_ward_source_M48_q2_d040_2026_09_01.json"
+    },
+    {
+      "M": 80,
+      "q": 1,
+      "delta": "0.16",
+      "old_ritz_floor": "8.9182035949378363028e-8",
+      "ward_poisson_defect_ratio": "0.97785611810488369208",
+      "even_ratio": "0.81134891208425634383",
+      "odd_ratio": "0.97785611810488369208",
+      "relative_top_eigengap": "0.17027781790977962878",
+      "largest_fixed_metric_isolated_source_ratio": "1.0443971341480310678e7",
+      "next_best_nonphysical_sign_ratio": "22.314765920986072024",
+      "outward_p5_smear_ratio": "3.6032199258552768552",
+      "source_file": "results/zeta23_ward_source_M80_q1_d016_2026_09_01.json"
+    },
+    {
+      "M": 96,
+      "q": 2,
+      "delta": "0.20",
+      "old_ritz_floor": "4.4078086238089695021e-8",
+      "ward_poisson_defect_ratio": "1.1470826704808124411",
+      "even_ratio": "0.95252644876230043131",
+      "odd_ratio": "1.1470826704808124411",
+      "relative_top_eigengap": "0.16960959024597730924",
+      "largest_fixed_metric_isolated_source_ratio": "2.6722890494740657440e7",
+      "next_best_nonphysical_sign_ratio": "83.052563746981904245",
+      "outward_p5_smear_ratio": "12.256951753333758736",
+      "source_file": "results/zeta23_ward_source_M96_q2_d020_2026_09_01.json"
+    },
+    {
+      "M": 128,
+      "q": 1,
+      "delta": "0.10",
+      "old_ritz_floor": "1.3298171622699574394e-8",
+      "ward_poisson_defect_ratio": "0.90443026576213064848",
+      "even_ratio": "0.90443026576213064848",
+      "odd_ratio": "0.88941026105709543427",
+      "relative_top_eigengap": "0.016607145153837150624",
+      "largest_fixed_metric_isolated_source_ratio": "4.6106285181276708315e7",
+      "next_best_nonphysical_sign_ratio": "9.0813247077481415197",
+      "outward_p5_smear_ratio": "1.8721226854117280763",
+      "source_file": "results/zeta23_ward_source_M128_q1_d010_2026_09_01.json"
+    }
+  ],
+  "precision_replay": {
+    "case": "M=40,q=1,delta=0.32",
+    "first_dps": 55,
+    "replay_dps": 85,
+    "agreement": "all 20 serialized digits for the principal invariants",
+    "replay_file": "results/zeta23_ward_source_M40_q1_d032_dps85_2026_09_01.json"
+  },
+  "interpretation_correction": "The near-all-ones source direction and sign-pattern rank are largely forced by exact source reconstruction and B=A(P_Q-P_h); the non-tautological datum is bounded Q-energy of P_Q-P_h.",
+  "best_next_falsifier": "Map the completed semilocal local-factor product to the old/collar Poisson defect and test a Hankel square-root factorization before differentiating into individual sources."
+}

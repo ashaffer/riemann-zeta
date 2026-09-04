@@ -1,0 +1,58 @@
+{
+  "schema": "zeta23-endpoint-flat-riesz-diagnostic-v1",
+  "date": "2026-09-01",
+  "status": "FLOATING_POINT_DIAGNOSTIC_ONLY",
+  "range": {
+    "x_min": 100,
+    "x_max": 2000000,
+    "sampling": "every integer"
+  },
+  "definition": "B_r(x)=sum_{n<=x} Lambda(n)*(((r+2)n/x-1)*(1-n/x)^r)/(r+1)!-(1-1/x)^(r+1)/(r+1)!",
+  "arithmetic": "full von Mangoldt function including proper prime powers",
+  "precision": "IEEE-754 double precision with prefix power moments; the reported extrema for orders three through five were cross-checked by direct math.fsum evaluation",
+  "results": [
+    {
+      "order": 0,
+      "minimum": -687.8086141640034,
+      "argmin": 1772200,
+      "maximum": 717.597575695324,
+      "argmax": 1513751
+    },
+    {
+      "order": 1,
+      "minimum": -22.368544924152264,
+      "argmin": 1855951,
+      "maximum": 16.648539251064072,
+      "argmax": 948641
+    },
+    {
+      "order": 2,
+      "minimum": -1.0353716506914654,
+      "argmin": 2000000,
+      "maximum": 1.0166005250337158,
+      "argmax": 1665318
+    },
+    {
+      "order": 3,
+      "minimum": -0.015883039701384168,
+      "argmin": 918285,
+      "maximum": 0.10304073110123785,
+      "argmax": 1811522
+    },
+    {
+      "order": 4,
+      "minimum": 0.0035470163604723656,
+      "argmin": 988617,
+      "maximum": 0.011621677757448445,
+      "argmax": 1944133
+    },
+    {
+      "order": 5,
+      "minimum": 0.0009296805630056105,
+      "argmin": 1694840,
+      "maximum": 0.0013977094879651303,
+      "argmax": 2000000
+    }
+  ],
+  "interpretation": "The positivity seen for orders four and five is not asymptotic evidence. The positive residue at s=0 and polynomial attenuation of zero terms delay visible oscillation; the proved sign-part exponent remains Theta for every fixed order."
+}

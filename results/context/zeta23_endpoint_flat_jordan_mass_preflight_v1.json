@@ -1,0 +1,43 @@
+{
+  "schema": "zeta23-theorem-passport-v1",
+  "date": "2026-09-01",
+  "target_statement": "For the minimal consecutive-rate endpoint-flat pole-killing filters, identify the exact actual-von-Mangoldt response, replace the sufficient pointwise Landau envelope by the weakest fixed-orientation scalar Jordan-mass condition, and decide whether endpoint flatness creates an arithmetic route to a uniform zero-free strip.",
+  "claim_status_sought": "PROJECT_PROVED_EXACT_IDENTITY_AND_EQUIVALENT_CRITERION for the beta/Riesz and Jordan-mass reductions; SYNTHETIC_COUNTERMODEL_OR_METHOD_OBSTRUCTION for generic positivity, smoothing, finite-Euler-data, and fixed-test arguments; no strip claim",
+  "trust_model": [
+    "ANALYTIC_MANUSCRIPT_UNREFEREED for Mellin, Riesz-variation, Landau, and regularity arguments",
+    "EXACT_RATIONAL_OR_SYMBOLIC_REPLAY for the consecutive-rate beta filter",
+    "FLOATING_POINT_DIAGNOSTIC only for finite actual-prime sign morphology",
+    "IMPORTED_FROM_LITERATURE for classical Riesz explicit formulas and quantified Tauberian limitations"
+  ],
+  "first_unproved_edge": "The displayed fixed-sign unit-block Jordan-mass saving is an exact scalar coordinate for the whole strip, not a smaller edge. A genuinely intermediate successor would need a new all-prime, zero-side, functional-equation, or correlation mechanism with its own separating countermodel.",
+  "mask_or_node_class": "The theorem uses the complete ordinary von Mangoldt prime-power measure. The exact dual target ranges over every measurable adaptive mask 0<=h<=1 on one unit logarithmic block; no fixed-test or finite-frequency relaxation is substituted.",
+  "source_data_retained": "All Lambda(p^k) weights, the exact prime-power nodes log(p^k), the continuum pole subtraction, the chosen endpoint order, and the full adaptive mask cone are retained.",
+  "coefficient_cone_and_sign": "Lambda is nonnegative before application of the signed beta ramp. Exactly one orientation is fixed before height tends to infinity. Choosing the cheaper sign separately on each block is forbidden.",
+  "normalization": "For integer r>=0, w_r(y)=(((r+2)y-1)(1-y)^r)/(r+1)! on [0,1], B_r(x)=sum_{n<=x}Lambda(n)w_r(n/x)-(1-x^{-1})^{r+1}/(r+1)!, and b_r(t)=B_r(e^t).",
+  "height_window_and_one_sided_floor": "The bad mass is measured on every unit logarithmic block [N,N+1]. A strip boundary a<1 requires limsup_N N^{-1}log int_N^{N+1}(b_r)_- <=a, or the same statement for the positive part with one fixed orientation.",
+  "quantifier_order": "Choose r and one sign once; then choose a<1; then for every a'>a there is C(a') such that the selected bad mass is at most C(a')exp(a'N) for every sufficiently large integer N.",
+  "resolution_required": "The mask may follow all sign changes inside the unit block, including oscillations at reciprocal-zero-height resolution. The unit-block definition is used instead of a cumulative integral so that negative Laplace abscissae are not truncated.",
+  "rate_and_exponent_ledger": {
+    "filter_multiplier": "(s-1)/(s(s+1)...(s+r+1))",
+    "vertical_attenuation": "|Im s|^{-(r+1)} for fixed r",
+    "target_bad_mass_exponent": "some a<1",
+    "regularity_unsmoothing_loss": "a bad-mass exponent a<1 gives a pointwise opposing-part exponent at most (a+1)/2+o(1) for r>=1",
+    "rightmost_zero_identity": "each fixed sign-part unit-block exponent equals Theta=sup{Re rho:zeta(rho)=0}, after importing the standard explicit-formula upper bound"
+  },
+  "feasibility_or_nonvacuity_witness": "The response and its Riesz primitive are explicit actual-prime functions; all multipliers are nonzero at nontrivial zeros. The criterion is therefore nonvacuous but is not yet estimated subcritically.",
+  "downstream_socket": "A bad-mass exponent a<1 implies zeta(s) has no zeros in Re(s)>a by Landau. This is one fixed strip only and does not imply RH without a separate amplifier.",
+  "parallel_open_siblings": [
+    "DPA_P(.019)",
+    "LTRAD_P(.0189,.001)",
+    "zeta-specific adjacent-support propagation in the Weil architecture"
+  ],
+  "why_not_target_renamed": "The Jordan-mass statement is recorded as an exact reformulation/spectrometer for the strip obstruction, not as progress toward proving the required subcritical estimate.",
+  "abstract_convex_falsifier": "Use a smooth positive density 1+dE with E(t)=c exp(-dt)cos(gamma t); it passes positivity and strong decay while retaining a forbidden oscillatory exponent after every fixed stable endpoint-flat filter.",
+  "fejer_falsifier": "Verify the unique interior sign front y=1/(r+2), the endpoint zero of order r, and nonvanishing of the rational multiplier at every nontrivial zero.",
+  "prime_density_pseudonode_falsifier": "Use the positive oscillatory density and an Euler-product model with actual prime-power nodes, positive coefficients, an arbitrary exact finite Euler head, and zeros at 1-d plus or minus i gamma.",
+  "finite_actual_prime_diagnostic": "Compute signs only as a falsifier for premature positivity. Increasing r strongly delays visible zero oscillations because of polynomial attenuation and a positive s=0 residue; finite positivity licenses no asymptotic inference.",
+  "actual_prime_arithmetic_line": "Any proof through this response must use structure absent from the Euler-product countermodel and control the entire adaptive mask cone. Exact unit Euler factors and Lambda*1=log are one exposed discriminator, but the functional equation, zero correlations, and other global zeta identities remain distinct possibilities. Lambda*1=log alone is not linearly coercive because its transform cancels the target zero pole.",
+  "decision_tree_change_if_proved": "A subcritical fixed-sign Jordan-mass estimate would immediately prove a uniform zero-free strip and become a new explicit-formula architecture.",
+  "decision_tree_change_if_refuted": "If a supercritical actual-prime Jordan-mass lower bound is proved, this fixed-order endpoint-flat Landau branch closes. Generic countermodels alone close only generic arguments, not the actual-prime statement.",
+  "stop_rule": "Do not increase endpoint order or infer positivity from finite ranges once spectral persistence, the regularity collapse, and the exact Theta identity are established. Within this arithmetic-response socket, continue only with a new zeta-specific estimate uniform over adaptive masks; zero-side or complex-analytic mechanisms belong to separate sockets."
+}

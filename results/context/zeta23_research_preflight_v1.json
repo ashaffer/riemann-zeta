@@ -1,0 +1,243 @@
+{
+  "schema": "zeta23-research-preflight-v1",
+  "date": "2026-08-30",
+  "human_authority": "../ZETA23-UNIFORM-STRIP-CONSOLIDATED-STATE-AND-INTUITION-PUMPS-2026-08-30.md",
+  "global_status": {
+    "RH": "OPEN",
+    "uniform_zero_free_strip": "OPEN",
+    "contemplated_width_1e_6_to_RH_amplifier": "NOT_AVAILABLE",
+    "sharp_four_cycle_bound": "OPEN_NOT_A_DIRECT_STRIP_GATE"
+  },
+  "architectures": [
+    {
+      "id": "weil",
+      "target": "global Weil positivity",
+      "first_open_edge": "zeta-specific adjacent-support propagation",
+      "warning": "Do not mix its support ledger with QP/Turan exponents."
+    },
+    {
+      "id": "qp_turan",
+      "target": "fixed zero-free strip of width 1e-6",
+      "parallel_first_open_edges": [
+        "DPA_P(.019) for signed coefficients",
+        "LTRAD_P(.0189,.001)"
+      ],
+      "conditional_chain": "DPA_P(.019) AND LTRAD_P(.0189,.001) => no legal event => Turan adapter => fixed strip",
+      "alternate_conditional_chain": "diffuse PDPA_+(.019) AND PWCT(.0179,.001) for fixed eta<1e-4 => no legal event => Turan adapter => fixed strip",
+      "warning": "All four named inputs are open; PWCT alone is only a restricted lower theorem, and the contemplated width 1e-6 near Re(s)=1 does not imply RH without a new amplifier."
+    }
+  ],
+  "fixed_constants": {
+    "height_band": "H_Y=[Y^.01,Y^(50/33)]",
+    "source_depth_exponent": 0.001,
+    "transverse_target_exponent": 0.0179,
+    "lower_radial_exponent": 0.0189,
+    "upper_radial_exponent": 0.019,
+    "mixing_formula": "r_P >= D*s_v/(1+s_v)",
+    "prime_power_vs_prime_only_radius": "r_full <= r_P",
+    "audited_sharp_FC_conversion_exponent": "41/66",
+    "pair_deletion_loss_exponent": "17/33"
+  },
+  "durable_scoped_facts": {
+    "prime_only_upper_gate": "Full prime-power DPA does not imply DPA_P; a zero-free strip supplies a prime-supported antenna only in the reverse strip-to-DPA direction.",
+    "positive_conditional_closure": "PDPA_+(.019) AND PWCT(.0179,.001) with fixed eta<1e-4 implies no legal event; neither factor is proved.",
+    "reflected_corrector": "At target scale |F_(y^-)(t_0)| << epsilon_tr*Y^(-1/33+o(1)), but the current bound permits the high-band energy norm E_Y(y^-)^(1/2) to grow as Y^(.224524+o(1)).",
+    "FC_reductions": [
+      "complex coefficients reduce losslessly to nonnegative coefficients",
+      "literal FC is equivalent up to logarithms to restricted type RT",
+      "XDC is the exact open cross-defect term",
+      "proper-prime-power coefficient colors are removable",
+      "factorial multiplicity targets are stronger than literal FC"
+    ]
+  },
+  "separator_hierarchy": {
+    "class_inclusion": "signed LTRAD separators superset signed COSE carrier separators superset nonpositive PWCT carrier separators",
+    "radius_order": "s_v <= s_car <= rho_+",
+    "nonimplications": [
+      "PWCT does not imply COSE",
+      "COSE does not imply LTRAD without a corrector theorem",
+      "signed DPA_P does not supply a nonnegative PWCT antenna"
+    ]
+  },
+  "claim_labels": [
+    "EXACT_IDENTITY_OR_EQUIVALENCE",
+    "PROJECT_PROVED_THEOREM_WITH_SCOPE",
+    "IMPORTED_THEOREM",
+    "CONDITIONAL_THEOREM_WITH_NAMED_PREMISE",
+    "SYNTHETIC_COUNTERMODEL_OR_METHOD_OBSTRUCTION",
+    "FINITE_DIAGNOSTIC_WITH_TRUST_MODEL",
+    "HEURISTIC",
+    "OPEN",
+    "REFUTED_WITH_SCOPE"
+  ],
+  "trust_labels": [
+    "LEAN_KERNEL_CHECKED",
+    "ANALYTIC_MANUSCRIPT_UNREFEREED",
+    "IMPORTED_FROM_LITERATURE",
+    "EXACT_SYMBOLIC_OR_RATIONAL_REPLAY",
+    "RIGOROUS_INTERVAL_COMPUTATION",
+    "FLOATING_POINT_DIAGNOSTIC",
+    "SYNTHETIC_MODEL"
+  ],
+  "theorem_passport_fields": [
+    "mask_or_node_class",
+    "source_data_retained",
+    "coefficient_cone_and_sign",
+    "normalization",
+    "height_window_and_one_sided_floor",
+    "quantifier_order",
+    "resolution_required",
+    "rate_and_exponent_ledger",
+    "feasibility_or_nonvacuity_witness",
+    "downstream_socket"
+  ],
+  "intuition_pumps": [
+    {
+      "id": "theorem_passport",
+      "trigger": "A new lemma, dual, inverse theorem, or relaxation is proposed.",
+      "question": "Which passport field became easier, and what exact adapter restores every changed field?",
+      "kill_switch": "If its passport equals the target passport, classify it as the target renamed."
+    },
+    {
+      "id": "three_lock_safe",
+      "trigger": "An argument uses source negativity, prime nodes, or a high-band floor.",
+      "question": "Where do source, exact prime mask, and global floor each enter independently?",
+      "kill_switch": "If the indices of the source interval never re-enter, do not claim source localization."
+    },
+    {
+      "id": "hostile_optimizer",
+      "trigger": "A proof predicts what an extremizer should look like.",
+      "question": "Does a theorem prevent the optimizer from avoiding the source, using full dimension, and choosing coefficients adaptively?",
+      "kill_switch": "Treat resemblance-to-source or pair-overlap intuition as false without a quantitative stability theorem."
+    },
+    {
+      "id": "empty_chair",
+      "trigger": "A lower bound is asserted for an infimum over normalized feasible vectors.",
+      "question": "What upstream hypothesis supplies a feasible witness?",
+      "kill_switch": "A vacuous infinite radius has zero downstream value."
+    },
+    {
+      "id": "quantifier_game",
+      "trigger": "Minimax, averaging, or a fixed test height is used.",
+      "question": "Is the actual order forall event, forall adaptive coefficient vector, exists height preserved?",
+      "kill_switch": "Reject every unproved interchange of moves."
+    },
+    {
+      "id": "fejer_smoke_alarm",
+      "trigger": "A proof uses positivity, moments, density, or autocorrelation alone.",
+      "question": "Why does the proof fail on normalized Fejer kernels and the smooth prime-density pseudo-node model?",
+      "kill_switch": "If no exact actual-prime line breaks the model, the proof class cannot prove PWCT."
+    },
+    {
+      "id": "mask_swap_ladder",
+      "trigger": "A countermodel or computation is used to change theorem status.",
+      "question": "Is the evidence abstract, Fejer lattice, prime-density real-node, finite actual-prime, or asymptotic actual-prime?",
+      "kill_switch": "License conclusions only at the fidelity level actually tested."
+    },
+    {
+      "id": "participation_speedometer",
+      "trigger": "Another moment or energy bound is proposed.",
+      "question": "Does it improve on a(alpha) >> 1/P_eff or force P_eff below the target scale?",
+      "kill_switch": "Do no generic moment work without a shallow-floor stability bridge or a target-scale participation bound."
+    },
+    {
+      "id": "resolution_microscope",
+      "trigger": "Low-time source structure is transported to the top height band.",
+      "question": "Where is the refinement factor Y^(17/33), equivalently B^-1/Y^-1=Y^(-17/33), paid?",
+      "kill_switch": "Physical proximity is not top-band phase proximity."
+    },
+    {
+      "id": "exponent_cash_register",
+      "trigger": "A route is described as close, sharp, or almost sufficient.",
+      "question": "What are every starting exponent, loss, and final exponent?",
+      "kill_switch": "Reject a route whose ledger misses its route-specific downstream target; for the QP/Turan terminal gates these are .0179 and .019."
+    },
+    {
+      "id": "adapter_socket",
+      "trigger": "A local theorem is claimed to feed a downstream terminator.",
+      "question": "Does its output preserve prime mask, source normalization, sign cone, global floor, full band, B^-1 precision, exponent reserve, and land in a proved terminator rather than a new open edge?",
+      "kill_switch": "Downstream reward is zero until the complete typed inequality chain is displayed."
+    },
+    {
+      "id": "remove_ornament",
+      "trigger": "A small structural sector such as reflected pairs is declared essential.",
+      "question": "What survives after deleting that sector and charging the exact loss?",
+      "kill_switch": "Pair deletion preserves negative mass but not contiguity and does not rule out high-band pair cancellation."
+    },
+    {
+      "id": "local_to_global_tax",
+      "trigger": "A packet, fan, scale, or local four-cycle gain is globalized.",
+      "question": "Where are packet count, overlap, remainder, and allocation weights paid?",
+      "kill_switch": "If a summation factor disappears only in prose, the global proof is unfinished."
+    },
+    {
+      "id": "first_open_edge_quotient",
+      "trigger": "Several proof narratives are counted as independent progress.",
+      "question": "What is the first unproved edge of each narrative?",
+      "kill_switch": "Equivalent duals and stories with the same first open edge count as one route."
+    },
+    {
+      "id": "finite_microscope",
+      "trigger": "Finite optimization displays a trend or optimizer morphology.",
+      "question": "What finite structural question was answered, and what scaling theorem is absent?",
+      "kill_switch": "Never infer an asymptotic exponent or legal-event theorem from floating finite instances."
+    },
+    {
+      "id": "sufficient_not_necessary",
+      "trigger": "A restricted coefficient class or diffuse cap is studied.",
+      "question": "Which implication direction is proved?",
+      "kill_switch": "Refuting a sufficient subclass does not refute the full route."
+    },
+    {
+      "id": "milestone_ladder",
+      "trigger": "A result is summarized at project level.",
+      "question": "Is it a local lemma, one strip input, the strip, a strip-to-RH amplifier, or RH?",
+      "kill_switch": "Never skip a rung or assign a percentage distance to an open proof."
+    }
+  ],
+  "forbidden_inferences": [
+    "the contemplated width-1e-6 strip near Re(s)=1 implies RH without an amplifier",
+    "sharp four-cycle bound directly implies the transverse target",
+    "near Bessel saturation implies digit structure",
+    "pair-deleted negative mass is a legal contiguous event",
+    "PWCT proof implies full signed LTRAD",
+    "full prime-power DPA implies prime-only DPA_P",
+    "a source-preserving transport is progress without a proved landing in a closed terminator",
+    "finite actual-prime trends imply an asymptotic exponent",
+    "pseudo-prime countermodel refutes an actual-prime theorem",
+    "generic moments can never help; only the audited generic conversions have failed",
+    "actual primes have no arithmetic surplus; only small illegal finite surrogates showed no stable signal",
+    "primitive shifted-cube P^(5/8+epsilon) is unconditional",
+    "proof distance can be expressed as a completion percentage"
+  ],
+  "lemma_card_template": {
+    "target_statement": null,
+    "claim_status_sought": null,
+    "trust_model": null,
+    "first_unproved_edge": null,
+    "mask_or_node_class": null,
+    "source_data_retained": null,
+    "coefficient_cone_and_sign": null,
+    "normalization": null,
+    "height_window_and_one_sided_floor": null,
+    "quantifier_order": null,
+    "resolution_required": null,
+    "rate_and_exponent_ledger": {
+      "starting_exponent": null,
+      "target_exponent": null,
+      "all_exponent_losses": []
+    },
+    "feasibility_or_nonvacuity_witness": null,
+    "downstream_socket": null,
+    "parallel_open_siblings": [],
+    "why_not_target_renamed": null,
+    "abstract_convex_falsifier": null,
+    "fejer_falsifier": null,
+    "prime_density_pseudonode_falsifier": null,
+    "finite_actual_prime_diagnostic": null,
+    "actual_prime_arithmetic_line": null,
+    "decision_tree_change_if_proved": null,
+    "decision_tree_change_if_refuted": null,
+    "stop_rule": null
+  }
+}

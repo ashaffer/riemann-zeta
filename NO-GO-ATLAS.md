@@ -1,5 +1,11 @@
 # Atlas of exact obstructions
 
+> **Frontier notice (2026-09-03):** the obstruction cards retain their scoped
+> force, but this atlas is not the latest route ranking.  Run
+> `python3 src/zeta23_correction_context.py resume` and see
+> [`results/ZETA23-EXTERIOR-FACTORIZATION-AND-BACKWARD-STRIP-AUDIT-2026-09-03.md`](results/ZETA23-EXTERIOR-FACTORIZATION-AND-BACKWARD-STRIP-AUDIT-2026-09-03.md).
+> The 2026-09-02 decision path remains a verified pre-R181 snapshot.
+
 Status: canonical scope and proof-debt index, 2026-08-07.
 
 This atlas records what the project's negative results actually prove.  It is
@@ -83,6 +89,8 @@ interpretation into an F-rated theorem.
 | NG-44 | Lowering the coefficient/Hilbert threshold by nonlinear Euler cancellation while preserving the reciprocal zero at one and no other zeros | Cancelling the prime layer lowers the threshold only by deleting the zero at one; every zero-preserving scalar germ retains a nonzero squarefree almost-prime layer and the half-unit barrier. More generally, a Dirichlet carrier with square-sum threshold below `1/2` and `T(1)=0` has a normal-convergence margin, so vertical recurrence forces artificial zeros approaching `Re(s)=1` | Euler/Taylor/Cauchy--Schwarz and recurrence algebra A; probes D | A non-scalar or non-normal construction whose first-trace anomaly is controlled without acquiring recurrent fake zeros |
 | NG-45 | Escaping reciprocal recurrence or the coefficient barrier by an exceptional unimodular completely multiplicative twist | If the twisted reciprocal retains a simple zero at one, Landau positivity forces power pretentiousness to the trivial twist; Cauchy--Schwarz then makes the twist a normally convergent nonzero Euler multiplier of `1/zeta`. The same sign-alignment and boundary layer remain | pretentiousness/Euler-product analysis A | A genuinely non-normal, non-unimodular, or nonmultiplicative signed deformation with an independently controlled divisor |
 | NG-46 | Bootstrapping an assumed fixed strip to a strictly wider strip using the imported PNT/Mertens converses, zero density, Turan power sums, classical repulsion, mollifiers, or functional symmetry | Conditional arithmetic bounds have infimal exponent exactly `Theta=sup Re(rho)` and their converses return it. Density/moments allow one sparse exception, Turan contradicts only `beta>Theta`, reciprocal tails decay only for `sigma>Theta`, and reflection sends the same band back to itself | conditional exponent analysis A; primary literature L | A per-zero negative-power count, a genuinely improved global arithmetic exponent, the one-sided signed ramp, or zeta-specific zero replication |
+| NG-47 | Treating existence of an old-to-collar factor `Gamma=T A` at a Fredholm contact, an inverse/pseudoinverse or shifted-resolvent formula, finite invertible truncations, enlarged-support positivity, or an unqualified dense-core identity as an easier route to KNC | Closed range makes bounded factorization equivalent to `Gamma ker(A)=0`; the shifted factor has a reciprocal null-charge pole; PSD blocks permit only square-root alignment; a nonclosable summation factor fakes the identity on a dense graph core while charging the true kernel | finite algebra F; Hilbert factorization L; exact infinite-dimensional models A/C | A displayed inverse-free completed pole--archimedean--prime `T^src` with a declared operation grammar and independently proved closability/boundedness; otherwise use complete R71 or shifted `Psi` for the strip |
+| NG-48 | Constructing `T^src` by finite regular Neumann/Krylov words, a regular translation-invariant xi-annihilator parametrix, a finite-rank boundary state, a collar-free causal ramp identity, scalar root--dilation noncommutativity, or coefficient-free split-Cauchy propagation | Finite division leaves the full contact charge; regular xi parametrices have residual one at zeros; the logarithmic source has infinite Hankel rank; and the causal ramp has collar `-V_delta`. R185 computes the exterior formulas. R186 serializes the split old operator and closes its weak/L2 form-domain adapter, but an exact synthetic PSD old-null split-Cauchy/dilation state retains nonzero exterior charge. Generic endpoint jets are also unavailable. Thus bookkeeping and soft covariance do not imply compatibility | finite algebra and exact rational/Gaussian-rational fixtures F; Suzuki/Carleman/Hankel/Landau inputs L; analytic project synthesis A | Seek a completed-zeta-specific unique-continuation, recurrence, quasianalyticity, or spectral-synthesis theorem for the total readout. For the strip, prove a new arithmetic bound for complete R71 or its globally oriented compact source derivative |
 
 No row excludes all possible uses of its subject.  The last column is part of
 the theorem's scope, not an invitation to call the surviving idea plausible.
@@ -2172,6 +2180,61 @@ primary-source audit are A+L-rated in
 RH, nor evidence that `Theta=1`.  It closes only the explicitly audited
 compositions and isolates the need for a new per-zero mechanism.
 
+### NG-48 — Regular source words and bulk four-Cauchy covariance leave the contact charge
+
+**Statement.**  For `A=I+K` and collar charge `Gamma`, the finite inverse-free
+word `T_m=Gamma sum_(j<m)(-K)^j` satisfies
+`Gamma=T_mA+Gamma(-K)^m`.  On `ker A`, its remainder is exactly `Gamma` at
+every depth.  Regular scalar functions of `K` have the same contact residual.
+A regular translation-invariant mean-periodic parametrix likewise has
+residual multiplier one at every xi zero.  Independently, Suzuki's
+logarithmic near-edge source has infinite Hankel rank, excluding a
+finite-dimensional scalar boundary state, and the causal pole-killed ramp
+contains a fixed initial collar.
+
+R185 performs the exterior-source part of the resulting calculation.  The
+fourth-root filter cancels exactly one decaying pole mode on each exterior
+side, but leaves the opposite pole, an infinite every-fourth-moment tail, and
+active prime samples.  These formulas hold for arbitrary smooth data and do
+not use the old homogeneous equation.  Root rotations and positive dilations
+commute before localization.
+Reflection has the semidirect law `J S_r=S_(1/r)J` and merely swaps the two
+channels of the reflection-invariant paired prime source.  Fixed-window/cut/
+trace compression adds an explicit two-boundary leakage cocycle, but that
+cocycle is only one channel of the total completed readout.  The old Lerch
+operator is a split finite-part/Carleman operator.  R186 subsequently gives an
+exact counterterm-free serialization, assembles the weak/L2 global state, and
+shows that generic endpoint jets cannot be passed by form-core density.
+Global exterior solution-independence remains exactly `Gamma ker(A)=0`.
+
+**Survivor.**  A precise zeta-specific continuum recurrence,
+quasianalyticity, unique continuation, or spectral-synthesis theorem could force the total
+readout to vanish.  That would be new input, not a consequence of bulk
+rotation/dilation algebra.
+
+**Evidence and trust base.**  Finite identities are kernel-checked in
+`CompletedSourceConstructiveSearch.lean` and
+`CompactSourceDerivativeBridge.lean` and
+`FourCauchyGlobalCompatibility.lean` and
+`SplitCarlemanFormDomainCloseout.lean`; exact rational/Gaussian-rational
+fixtures and the scoped analytic derivations are recorded in
+[`ZETA23-CONSTRUCTIVE-COMPLETED-SOURCE-AND-COMPACT-DERIVATIVE-AUDIT-2026-09-03.md`](results/ZETA23-CONSTRUCTIVE-COMPLETED-SOURCE-AND-COMPACT-DERIVATIVE-AUDIT-2026-09-03.md)
+and
+[`ZETA23-FOUR-CAUCHY-GLOBAL-COMPATIBILITY-CALCULATION-2026-09-03.md`](results/ZETA23-FOUR-CAUCHY-GLOBAL-COMPATIBILITY-CALCULATION-2026-09-03.md).
+The final topology and falsifier audit is
+[`ZETA23-SPLIT-CARLEMAN-FORM-DOMAIN-CLOSEOUT-2026-09-03.md`](results/ZETA23-SPLIT-CARLEMAN-FORM-DOMAIN-CLOSEOUT-2026-09-03.md).
+
+**Exact scope and nonclaim.**  NG-48 does not exclude continuum integral
+operators, distributed-memory systems, range-specific nontranslation-
+invariant parametrices, variable-coefficient source-specific propagation, or
+ambiently convergent infinite synthesis with independent closure.  The
+exact charged contact shows only that the finite split-Cauchy/dilation grammar
+does not force exterior null charge; its coefficients are synthetic and it is
+not the actual Suzuki/von-Mangoldt operator.  NG-48 excludes only the
+listed regular and coefficient-free constructions; it
+does not close orientation-sensitive four-Cauchy compatibility.  It proves
+neither KNC, a strip, the four-cycle bound, nor RH.
+
 ## 4. Supporting countermodels, not headline no-go theorems
 
 These artifacts are useful because they prevent invalid logical shortcuts.
@@ -2222,7 +2285,7 @@ name:
 5. a closed global limit in the same topology.
 
 NG-01 and NG-02 attack items 1--2; NG-03 through NG-08, NG-11, NG-12,
-NG-16 through NG-46 attack
+NG-16 through NG-48 attack
 attempts to manufacture item 4 locally; NG-09 and NG-10 show how locality and
 averaging can lose items 2--3; NG-13 through NG-15 isolate quantifier,
 topology, target-identification, and boundary-escape failures in the
@@ -2279,6 +2342,8 @@ It is not, by itself, a proof that every future route must fail.
 | NG-44 | Green-candidate | Independently check the squarefree almost-prime coefficient formula, the general normal-margin quantifiers, and the recurrence theorem's nonvanishing-log hypothesis. Keep finite vanishing Euler factors explicitly excluded. |
 | NG-45 | Amber | Independently referee the Landau abscissa step, weighted pretentiousness exponents, Euler-quotient normal convergence, and the sign-alignment transfer. State the unimodular complete-multiplicativity hypotheses prominently. |
 | NG-46 | Amber; literature inputs L | Independently verify every conditional endpoint epsilon, current density exponent/range, mollifier-tail domain, and the sparse symmetric profile. State only that the audited bootstrap map is the identity. |
+| NG-47 | Green for finite Lean algebra and exact models; Douglas/Suzuki inputs L; analytic zeta synthesis Amber | Independently referee the bounded form-space typing, closed-range step, dense-core closability proof, and backward conditional dichotomy. Do not promote the abstract models to a completed-zeta counterexample or claim that failure to specify `T^src` disproves KNC. |
+| NG-48 | Green for finite Lean algebra and exact rational/Gaussian-rational fixtures; Suzuki/Carleman/Kronecker/Landau inputs L; global source synthesis Amber | Independently referee the R186 form-core and finite-collar boundedness arguments. Treat serialization as a normal form, not a completed factor; do not use generic endpoint jets or promote the exact synthetic charged model to actual-zeta KNC. |
 
 “Green” here certifies only the exact card component named in the state
 column.  It is not a novelty or importance grade.

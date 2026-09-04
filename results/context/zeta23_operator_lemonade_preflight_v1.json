@@ -1,0 +1,38 @@
+{
+  "schema": "zeta23-research-preflight-v1",
+  "date": "2026-09-01",
+  "architecture": "weil",
+  "target_statement": "Distill the failed semilocal Hankel-to-Poisson route into the strongest reusable abstract operator theorems, with exact hypotheses, countermodels, positive converses, formal checks, and a literature-level novelty audit.",
+  "claim_status_sought": "PROJECT_PROVED_THEOREMS_WITH_SCOPE_AND_IMPORTED_STANDARD_FACTS",
+  "trust_model": "Exact Hilbert-space or finite-dimensional proofs where stated, Lean kernel checks for algebraic cores, and primary-source literature attribution. Numerical examples are illustrations only.",
+  "first_unproved_edge": "Determine which combination of projection-difference geometry, finite-codimensional constraints, one-sided Hankel compactness, and harmonic splitting can or cannot imply an A-relative Ward bound.",
+  "mask_or_node_class": "Abstract separable Hilbert spaces first; the zeta specialization retains the minimal active local-factor mask only as an application, not as a hypothesis of the general theorems.",
+  "source_data_retained": "Both Hardy directions, the signed projection defect, finite-rank moment constraints, collapsing old energy, and the distinction between ordinary traces and continuum trace anomalies.",
+  "coefficient_cone_and_sign": "Real or complex Hilbert-space vectors with signed self-adjoint defects; no componentwise positivity or absolute-value replacement.",
+  "normalization": "D=P-U^*PU for an orthogonal projection P and unitary U; Ward quotient is |D(u,w)|^2/(D(u,u) h(w,w)) when D is positive on the chosen old direction and w is h-orthogonal to it.",
+  "height_window_and_one_sided_floor": "No height exponent is present. The essential feature is a positive old floor epsilon_n tending to zero while the cross term decays more slowly.",
+  "quantifier_order": "First prove universal implications or construct a single universal countermodel; only afterward specialize to the zeta support family. No inference from finitely many zeta matrices to an operator theorem.",
+  "resolution_required": "None for exact abstract theorems. Any anomaly regularization theorem must specify one common regulator and its removal order before block traces are separated.",
+  "rate_and_exponent_ledger": {
+    "starting_exponent": null,
+    "target_exponent": null,
+    "all_exponent_losses": [],
+    "countermodel_rate": "delta_n to zero, old floor delta_n^2, cross-square asymptotic delta_n, Ward quotient asymptotic 1/delta_n"
+  },
+  "feasibility_or_nonvacuity_witness": "The semilocal Hardy defect has one compact off-diagonal and an infinite-dimensional isometric reverse/Sonin channel; the explicit two-vector rotations provide positive old directions and harmonic complements.",
+  "downstream_socket": "These theorems prune invalid proofs of relative HRW and identify exact Hardy alignment or a quantitative angle/observability estimate as the only positive socket. They do not themselves imply propagation, a strip, or RH.",
+  "parallel_open_siblings": [
+    "common Abel or heat regularization of the four Hardy trace blocks",
+    "zeta-specific Hardy alignment or contamination cancellation",
+    "stable right inverse for moment-corrected shrinking collars"
+  ],
+  "why_not_target_renamed": "The negative theorems use only soft operator hypotheses and are strictly weaker than zeta HRW; the positive alignment lemma has an explicit additional factorization hypothesis whose zeta verification remains open.",
+  "abstract_convex_falsifier": "Require an explicit model satisfying every advertised soft hypothesis while its Ward quotient diverges; otherwise do not call the hypothesis list insufficient.",
+  "fejer_falsifier": "Not applicable to the universal operator results; for any claimed zeta specialization, retain both Hardy directions and test a smooth quasi-inner phase.",
+  "prime_density_pseudonode_falsifier": "Not applicable to the abstract theorems; no conclusion about actual-prime arithmetic is licensed.",
+  "finite_actual_prime_diagnostic": "Existing p=5 matrices may illustrate the theorem but cannot prove or refute its universal hypotheses.",
+  "actual_prime_arithmetic_line": "Any positive zeta corollary must add a genuinely arithmetic alignment or transversality premise; quasi-inner compactness alone is excluded.",
+  "decision_tree_change_if_proved": "Produces a reusable no-go/positive-converse toolkit and sharply specifies the new mathematics required by all signed Hankel-to-Ward proposals.",
+  "decision_tree_change_if_refuted": "If the proposed countermodel fails to realize an actual difference of projections or the alignment lemma needs hidden closed-range hypotheses, weaken or discard the claimed theorem before publication.",
+  "stop_rule": "Stop promoting a result if it is only a standard theorem with renamed variables, if a trace manipulation crosses non-trace-class factors, if a finite-rank condition is silently treated as compactifying an essential channel, or if the positive converse merely assumes the Ward inequality in factorized notation."
+}

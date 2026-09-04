@@ -1,0 +1,133 @@
+{
+  "schema": "zeta23_r105_r116_r73_adapter_audit_v1",
+  "date": "2026-09-02",
+  "human_authority": "../ZETA23-R105-R116-R73-ADAPTER-INTEGRITY-AUDIT-2026-09-02.md",
+  "global_status": {
+    "riemann_hypothesis": "OPEN",
+    "uniform_zero_free_strip": "OPEN",
+    "strip_to_rh_amplifier": "ABSENT"
+  },
+  "s0_verdict": {
+    "primitive_only_go_condition": "FAIL",
+    "r116_balanced_semiprime_theorem": "VALID_IN_SCOPE",
+    "r128_all_class_adapter": "EXACT_EQUALS_ORIGINAL_ENDPOINT",
+    "branch_switch": "FIRED",
+    "first_open_edge": "COMPLETE_FIXED_WINDOW_QH_R71_ENERGY"
+  },
+  "dependency_chain": [
+    {
+      "source": "R102",
+      "map": "complete fixed-window field to Q_h-transformed center-free field",
+      "status": "FAITHFUL_IF_APPLIED_BEFORE_LOCALIZATION"
+    },
+    {
+      "source": "R104",
+      "map": "Q_h field to exact Vaughan tail plus controlled Euler defect",
+      "status": "PROVED_IN_RECORDED_SCOPE"
+    },
+    {
+      "source": "R105",
+      "map": "complete transformed tail energy to finite reciprocal boxes",
+      "status": "EXACT_ALL_BOX_IDENTITY"
+    },
+    {
+      "source": "R116",
+      "map": "one balanced squarefree-semiprime packet to proper conductors plus primitive ordinary dual",
+      "status": "LOCAL_RESTRICTION_NOT_GLOBAL_EQUIVALENCE"
+    },
+    {
+      "source": "R120_R124",
+      "map": "isolated primitive ordinary dual to Mellin representation",
+      "status": "NO_PROVED_ORDER_REFLECTING_MAP_ACTUAL_INDEFINITENESS_UNCERTIFIED"
+    },
+    {
+      "source": "R128",
+      "map": "all conductors, gcd sectors, profiles, orientations, and heads to complete ordinary dual",
+      "status": "EXACT_AND_EQUAL_TO_ORIGINAL_QH_ENERGY"
+    },
+    {
+      "source": "R125",
+      "map": "adjacent truncated-Mobius filters on collapsed tail and complete field",
+      "status": "RANK_ONE_ON_TAIL_FAITHFUL_DIRECTION_IS_RESCALED_COMPLETE_FIELD"
+    },
+    {
+      "source": "R180",
+      "map": "complete fixed-window energy exponent to zero-free strip",
+      "status": "EXPONENT_EQUIVALENCE"
+    }
+  ],
+  "normalization": {
+    "r113_outer_factor": "h(c)*c^(-it)",
+    "r116_chirp_factor": "c",
+    "correct_tail_outer_factor": "h(c)*c^(1-it)=A_UV(c)*c^(-it)",
+    "fully_recompleted_g1_form": "sum_(c,n)=1 C(c)C(n)c^(-it)n^(-1-it)Phi_lambda(n/c), C=-mu log, with conjugate orientation",
+    "ordering_correction": "R105 already squared; preserve the complete sum before Cauchy or absolute values, not before squaring."
+  },
+  "scope_counterexamples": [
+    {
+      "modulus": "p^2",
+      "fact": "A_UV(p^2)=-log p while C(p^2)=0",
+      "consequence": "nonsquarefree tail cancels only through exact head recompletion"
+    },
+    {
+      "modulus": "2*p*q with p,q~sqrt(X/2)",
+      "fact": "the proper conductor c/2 is near primitive and c/P^-(c) is natural scale",
+      "consequence": "R116 balanced-semiprime square-root saving does not cover the full squarefree family"
+    }
+  ],
+  "sector_ledger": {
+    "center": "QH_ACTS_ON_COMPLETE_FIELD_BEFORE_LOCALIZATION_AND_ZERO_FAITHFULNESS_TRANSFERS_EXPONENT",
+    "atomic_diagonal": "SUBEXPONENTIAL",
+    "axes_equal_reducible": "POLYLOG_BY_R104",
+    "general_squarefree_moduli": "NOT_FIXED_POWER_SAVED_BY_R116",
+    "nonsquarefree_tail": "RETAIN_UNTIL_HEAD_RECOMPLETION",
+    "g_greater_than_one": "MAIN_COMPLETE_DUAL_MEMBERS",
+    "vaughan_cross_packets": "REQUIRED_ON_BOTH_VARIABLES",
+    "profiles_and_orientations": "REQUIRED_FOR_HERMITIAN_COMPLETE_FAMILY",
+    "seams": "FIXED_OR_SUBPOWER_IF_RECOMBINED",
+    "localization": "QH_BEFORE_CUTOFF_WITH_SAFETY_COLLAR",
+    "moving_cutoffs": "FREEZE_PER_BLOCK_AND_USE_EULER_DEFECT",
+    "early_cauchy": "FORBIDDEN_LOSES_OUTER_MOBIUS_SIGNS"
+  },
+  "exponent_maps": {
+    "complete_energy": {
+      "hypothesis": "E_Q(I)<=X^(1-kappa+o(1)) uniformly on every block of one fixed regular partition, with 0<kappa<=1",
+      "conclusion": "eta=kappa/2 for 0<kappa<=1"
+    },
+    "r123_fixed_window_collapsed": {
+      "theta_k": "1/2-1/(4*(k+1))",
+      "cofactor_exponent_a_k": "1/(2*(k+1))",
+      "safe_conclusion": "eta=kappa/2-a_k",
+      "sharp_conclusion": "eta=(kappa/2-a_k)/(1-a_k)",
+      "positive_strip_condition": "kappa>1/(k+1)",
+      "research_status_after_r125": "EXACT_SCALE_REPLICATION_NOT_A_REDUCTION"
+    },
+    "growing_order_warning": "Taking k to infinity enters one of two sublinear single schedules: fixed total width h=ell/k with k log k=o(R), or fixed step h with k^2=o(R). Neither has its own varying-test converse. R80's distinct proportional-order dyadic bank has a moving-edge converse but does not transfer this collapse."
+  },
+  "corrected_route": {
+    "endpoint": "O_full=E_Q(I)<=X^(1-kappa+o(1))",
+    "status": "OPEN_STRIP_EQUIVALENT",
+    "mechanism_admission": "Require a non-tautological finite identity or inequality for the complete all-class family before Cauchy.",
+    "optional_filtered_fork": "CLOSED_AS_REDUCTION: R125 makes the two-member bank rank one on the collapsed tail and its faithful direction a rescaled complete field."
+  },
+  "sources": [
+    "results/R102-CENTER-ANNIHILATED-OFF-AXIS-GATE.md",
+    "results/R104-QH-FINITE-COFACTOR-SECTOR-THEOREM.md",
+    "results/R105-QH-VAUGHAN-TAIL-NATIVE-BRIDGE-AUDIT.md",
+    "results/R113-R105-MULTIPLIER-AVERAGE-FAIL-FAST-AUDIT.md",
+    "results/R116-SIGNED-JOINT-TYPEII-ATTACK.md",
+    "results/R120-PRIMITIVE-MOBIUS-MELLIN-KERNEL-GATE.md",
+    "results/R123-TRUNCATED-MOBIUS-DILATION-BANK-GATE.md",
+    "results/R125-ADJACENT-FILTER-PRIME-PACKET-BRIDGE-GATE.md",
+    "results/R124-ACTUAL-QH-PRIMITIVE-MELLIN-SIGN-GATE.md",
+    "results/R128-ALL-ARITY-PROPER-CONDUCTOR-GATE.md",
+    "results/ZETA23-STRIP-TO-R68-REVERSE-CALIBRATION-2026-09-02.md",
+    "results/PROPORTIONAL-ORDER-DETECTOR-BANK-GATE.md"
+  ],
+  "nonclaims": [
+    "No uniform zero-free strip is proved.",
+    "RH is not proved.",
+    "Failure of the primitive-only adapter is not evidence that no fixed strip exists.",
+    "No literature-level novelty is claimed."
+  ]
+}

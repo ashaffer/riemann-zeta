@@ -1,0 +1,81 @@
+{
+  "schema": "zeta23-literature-search-log-v1",
+  "date": "2026-09-03",
+  "accessed": "2026-09-03",
+  "target": "Explicit inverse-free completed-source source-to-collar factorization for Suzuki's localized zeta screw operator, finite-state obstructions, and compact smooth-prime zero-free-strip criteria.",
+  "databases_and_sites": [
+    "arXiv",
+    "Crossref/DOI publisher pages",
+    "AMS/primary journal pages",
+    "general web search for formula-level and AI-project overlap"
+  ],
+  "representative_queries": [
+    "completed zeta mean-periodic eta prime explicit formula xi inverse-free operator factorization",
+    "Suzuki screw function Lerch transcendent four roots unity Cauchy kernel",
+    "inverse-free factorization completed zeta screw kernel collar",
+    "smooth weighted prime number theorem error zero-free region compact support test function",
+    "finite rank continuous Hankel kernel exponential polynomial theorem Kronecker",
+    "Riemann Hilbert singular integral dilation operators Cauchy roots of unity Fredholm"
+  ],
+  "located_primary_sources": [
+    {
+      "title": "Weil's quadratic form via the screw function",
+      "authors": ["Masatoshi Suzuki"],
+      "identifier": "arXiv:2606.09096v2",
+      "url": "https://arxiv.org/abs/2606.09096v2",
+      "overlap": "Exact completed pole--archimedean--prime screw kernel, localized operators, logarithmic edge, and conditional global factorization context. It does not provide the sought old-to-collar T_src."
+    },
+    {
+      "title": "Aspects of the screw function corresponding to the Riemann zeta-function",
+      "authors": ["Masatoshi Suzuki"],
+      "identifier": "DOI:10.1112/jlms.12785",
+      "url": "https://doi.org/10.1112/jlms.12785",
+      "overlap": "Mean-periodic xi annihilator and shifted-Psi eventual-sign zero-free criterion; closest theorem-level overlap for the compact one-sided strip coordinate."
+    },
+    {
+      "title": "Mean-periodicity and zeta functions",
+      "authors": ["Masatoshi Suzuki", "Guillaume Ricotta", "Ivan Fesenko"],
+      "identifier": "arXiv:0803.2821v2",
+      "url": "https://arxiv.org/abs/0803.2821v2",
+      "overlap": "Functional-analytic mean-periodicity framework and superexponentially decreasing test spaces; no local collar propagation theorem."
+    },
+    {
+      "title": "The Error in a Smooth Weighted Prime Number Formula and Zero-free Regions for the Riemann Zeta Function",
+      "authors": ["Songlin Han"],
+      "identifier": "arXiv:2505.23795v1",
+      "url": "https://arxiv.org/abs/2505.23795v1",
+      "overlap": "Smooth weighted PNT error/zero-free-region implications by the Pintz method. The weight and premise differ, but this prevents a novelty claim for a smooth-source strip criterion."
+    },
+    {
+      "title": "On finite rank Hankel operators",
+      "authors": ["D. R. Yafaev"],
+      "identifier": "DOI:10.1016/j.jfa.2014.12.005",
+      "url": "https://doi.org/10.1016/j.jfa.2014.12.005",
+      "overlap": "Kronecker classification: continuous finite-rank Hankel kernels are exponential-polynomial. Imported to rule out a finite boundary-state realization of a logarithmic edge."
+    },
+    {
+      "title": "On majorization, factorization, and range inclusion of operators on Hilbert space",
+      "authors": ["R. G. Douglas"],
+      "identifier": "DOI:10.1090/S0002-9939-1966-0203464-1",
+      "url": "https://doi.org/10.1090/S0002-9939-1966-0203464-1",
+      "overlap": "General bounded operator factorization/range-inclusion theorem underlying the earlier KNC equivalence; it supplies no completed-source formula."
+    }
+  ],
+  "located_external_ai_overlap": [
+    {
+      "title": "D-018 — Suzuki's finite-interval operators (what/why/how)",
+      "site": "Riemann Hypothesis Research",
+      "url": "https://www.researchai.dev/derivations/D-018-suzuki-operator-scoping/",
+      "overlap": "Independent AI-project extraction of Suzuki's explicit kernel and localized operator setup. No displayed four-Cauchy source-to-collar factor or KNC proof was located on the indexed page."
+    }
+  ],
+  "formula_search_result": "No indexed source in this bounded search displayed an inverse-free completed pole--archimedean--prime operator T_src with Gamma=T_src A and independent boundedness/closability. This is not evidence of absence from private, unpublished, unindexed, or differently phrased work.",
+  "novelty_classification": {
+    "four_cauchy_lerch_rewrite": "PROJECT_SYNTHESIS; elementary root-of-unity decomposition of Suzuki's imported Lerch term",
+    "finite_source_word_remainder": "PROJECT_SYNTHESIS; elementary geometric division applied to the project operator",
+    "finite_rank_hankel_obstruction": "IMPORTED_KRONECKER_PLUS_PROJECT_APPLICATION",
+    "compact_source_derivative_bridge": "LOCAL_PREDECESSOR_PLUS_PROJECT_SYNTHESIS",
+    "one_sided_landau_strip_criterion": "CLASSICAL_METHOD_PROJECT_COORDINATE; NOT_CANDIDATE_NEW"
+  },
+  "novelty_nonclaim": "Failure to locate the exact formula is not a certified literature-novelty result. Independent specialist review would be required before any novelty claim."
+}

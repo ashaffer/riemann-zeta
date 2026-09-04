@@ -2,6 +2,11 @@
 
 Status: conservative consolidation, 2026-08-06.
 
+The current recursive theorem/novelty reassessment is
+[`results/ZETA23-RECURSIVE-PUBLICATION-THEOREM-AUDIT-2026-09-02.md`](results/ZETA23-RECURSIVE-PUBLICATION-THEOREM-AUDIT-2026-09-02.md).
+It supersedes the ranking below where the two disagree; no item in that audit
+is certified novel without independent specialist review.
+
 This file is the publication-facing index for the repository.  It separates
 results that are ready to communicate from results that are merely promising,
 and it states the strongest claim that the present artifacts support.  It does
@@ -88,9 +93,12 @@ These should be submitted as small independent units, not as one RH-themed PR.
   rejection, resumable JSONL logs, time/RSS capture, process-group cleanup,
   and bounded parallelism.  It supports the certificate paper but is not a
   mathematical result.
-- The software-certified endpoints through `L=749/250` belong as successive
-  case studies in the local-Weil paper.  They should not be split into three
-  nominally distinct publications.
+- The software endpoints beyond `L=7/4` are exploratory case studies, not
+  part of the first local-Weil release.  In particular `L=749/250` carries a
+  known cache-fingerprint defect and must remain demoted until its raw balls
+  are regenerated or independently checked.  If later promoted, the larger
+  endpoints should form one supporting study rather than nominally distinct
+  publications.
 - The logarithmic-derivative and contour scaffold around Guinand--Weil is
   substantial formal infrastructure, but the central zero-sum formula remains
   a `GuinandWeilLiterature` axiom.  It becomes a headline result only after

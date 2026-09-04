@@ -1,0 +1,46 @@
+{
+  "artifact": "ZETA23-CENTER-DENSITY-ADAPTER-PREFLIGHT-v1",
+  "date": "2026-08-31",
+  "claim_status_sought": "PROJECT_PROVED_CONDITIONAL_ADAPTER",
+  "trust_model": "ANALYTIC_MANUSCRIPT_UNREFEREED_WITH_EXACT_RATIONAL_LEDGER",
+  "target_statement": "A single Turan witness replicates on many half-integer shell centers; an averaged retained-hat fourth moment and a sufficiently numerous event-conditioned radialization set then contradict each other.",
+  "first_unproved_edges": [
+    "averaged-in-shell-center GCG4 for the retained adjacent-gap hat",
+    "event-conditioned radialization on enough phase-aligned centers"
+  ],
+  "mask_or_node_class": "Actual ordinary primes in each fixed logarithmic shell; the upper antenna is the exact retained adjacent-prime hat.",
+  "source_data_retained": "One fixed prime interval I and one common ordinate tau supplied by a Turan witness; only the center Y varies through the interval that contains I in its shell.",
+  "coefficient_cone_and_sign": "Nonnegative retained-hat probability for the upper certificate; full signed dual cone inside LTRAD_P for the lower return.",
+  "normalization": "Turan source depth is N^{-1} times the prime cosine sum; retained-hat coefficients have total mass one.",
+  "height_window_and_one_sided_floor": "H_Y=[Y^.01,Y^(50/33)]; fourth moment is integrated on the persistence-safe translated band [Y^(839/1000),2Y^(50/33)].",
+  "quantifier_order": "One fixed witness (I,tau), then many eligible half-integer centers Y; the upper theorem may fail on a controlled exceptional set, and lower radialization need hold on a set larger than that exceptional set.",
+  "resolution_required": "No new prime-log resolution in the phase replication lemma; the open averaged GCG4 still sees product ratios at B^{-1}=Y^{-50/33}.",
+  "rate_and_exponent_ledger": {
+    "fourth_moment_decay_gamma": "1187/13000",
+    "pointwise_DPA_exponent_c0": "379/20000=.01895 (a safely licensed exponent strictly below .019)",
+    "persistence_cost_9c0_over_2": "3411/40000",
+    "center_exception_saving_m": "gamma-(9/2)c0=3137/520000",
+    "radial_lower_exponent": "189/10000",
+    "source_depth_exponent": "1/1000",
+    "phase_discrepancy_at_A=50/33": "O(N^{-16/99}) from optimized Erdos--Turan truncation, up to constants"
+  },
+  "feasibility_or_nonvacuity_witness": "Turan contraposition supplies a fixed interval sum S_I at a common tau; the eligible center interval has length comparable to N and phase arcs have positive asymptotic density.",
+  "downstream_socket": "Together with the audited Turan localization theorem, the coupled upper/lower center-set intersection excludes a zero in the contemplated width-10^{-6} strip.",
+  "parallel_open_siblings": [
+    "The original uniform DPA_P(.019) gate",
+    "The original centerwise LTRAD_P(.0189,.001) gate",
+    "The independent Weil-positivity architecture",
+    "Any amplifier from the contemplated near-one strip to RH"
+  ],
+  "why_not_target_renamed": "The phase-density and exceptional-set intersection are elementary adapters. They strictly weaken uniformity in Y but do not estimate either the averaged fourth moment or the radial return.",
+  "fast_falsifiers": {
+    "abstract_convex": "Scale-global LTRAD can concentrate its one large radius entirely inside the exceptional upper set, so it is insufficient.",
+    "fejer_half_grid": "Phase coverage survives a half-grid, but no upper or lower radial theorem follows from it.",
+    "prime_density_pseudonode": "Center averaging removes the global Y^{-it} phase from |F_Y|^4, so density smoothing alone cannot create conductor cancellation. Positive mixtures of canonical hats produce gap/Voronoi weights and order-one leakage outside the Turan interval, not its uniform counting measure.",
+    "finite_actual_prime": "Finite center counts may check the phase-count formula only; they cannot establish either open asymptotic input."
+  },
+  "actual_prime_arithmetic_line": "All unproved power saving remains in the actual adjacent-gap-weighted balanced-semiprime correlation and in actual-prime source-conditioned radialization.",
+  "decision_tree_change_if_proved": "Replace two uniform-in-center locks by a coupled density-exponent inequality: upper exceptional-count exponent plus lower success-count exponent must force intersection.",
+  "decision_tree_change_if_refuted": "Return to uniform DPA_P plus centerwise/scale-global LTRAD; the zero-coherence quantifier reversal supplies no route reduction.",
+  "stop_rule": "Do not claim a strip unless both open density inputs are proved with compatible center sets; do not infer a center gain merely from averaging |F_Y|^4, whose global center phase cancels."
+}

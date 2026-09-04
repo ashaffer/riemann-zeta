@@ -1,0 +1,268 @@
+"""Exact fixtures for the discrete multiplicative-Hankel packet gate.
+
+This module records two elementary facts which are useful in the direct
+four-cycle formulation.
+
+* After a row pair is divided by its gcd, the two color coordinates have a
+  unimodular ``(shift, height)`` parametrization.  In the nonzero-shift
+  range the common-product interval has length smaller than one at the
+  project exponent.
+* Individual color layers of an affine Hankel packet are not Cotlar almost
+  orthogonal.  The whole packet nevertheless has the target fourth-trace
+  bound by a one-line Hilbert--Schmidt estimate.
+
+The second fixture uses a full-integer shell and an even formal center.  It
+is a proof-method diagnostic, not an actual odd-prime/prime-power example.
+"""
+
+from __future__ import annotations
+
+from dataclasses import dataclass
+import math
+from typing import Sequence
+
+import numpy as np
+
+
+@dataclass(frozen=True)
+class ShiftHeightCoordinates:
+    """The unimodular color coordinates attached to one reduced row pair."""
+
+    r: int
+    s: int
+    alpha: int
+    beta: int
+    shift: int
+    height: int
+    c: int
+    d: int
+
+    @property
+    def determinant(self) -> int:
+        return self.alpha * self.s - self.r * self.beta
+
+    @property
+    def cross_shift(self) -> int:
+        return self.r * self.d - self.s * self.c
+
+    @property
+    def first_product_coefficient(self) -> int:
+        return self.s * self.c
+
+    @property
+    def second_product_coefficient(self) -> int:
+        return self.r * self.d
+
+
+def extended_bezout_for_shift(r: int, s: int) -> tuple[int, int]:
+    """Return ``(alpha,beta)`` with ``r*beta-s*alpha=1``.
+
+    The signs are chosen for the color parametrization
+
+    ``c=alpha*e+r*h, d=beta*e+s*h``.
+    """
+
+    if r <= 0 or s <= 0 or math.gcd(r, s) != 1:
+        raise ValueError("r and s must be positive and coprime")
+
+    old_r, new_r = r, s
+    old_x, new_x = 1, 0
+    old_y, new_y = 0, 1
+    while new_r:
+        quotient = old_r // new_r
+        old_r, new_r = new_r, old_r - quotient * new_r
+        old_x, new_x = new_x, old_x - quotient * new_x
+        old_y, new_y = new_y, old_y - quotient * new_y
+    # old_x*r + old_y*s = 1.  Thus beta=old_x and alpha=-old_y.
+    return -old_y, old_x
+
+
+def shift_height_coordinates(
+    r: int, s: int, shift: int, height: int
+) -> ShiftHeightCoordinates:
+    """Return the exact unimodular color parametrization."""
+
+    alpha, beta = extended_bezout_for_shift(r, s)
+    c = alpha * shift + r * height
+    d = beta * shift + s * height
+    return ShiftHeightCoordinates(
+        r=r,
+        s=s,
+        alpha=alpha,
+        beta=beta,
+        shift=shift,
+        height=height,
+        c=c,
+        d=d,
+    )
+
+
+@dataclass(frozen=True)
+class HighDenominatorPacketLedger:
+    """Scale ledger for a nonzero shifted reciprocal packet."""
+
+    q: int
+    degree: int
+    denominator_scale: int
+    maximum_shift_count: int
+    height_count: int
+    candidate_area_bound: int
+    product_interval_length_bound: float
+    nonzero_shift_possible: bool
+    subunit_product_interval: bool
+
+
+@dataclass(frozen=True)
+class SidonCayleyObstructionLedger:
+    """Exact invariants of the scattered-shift Cayley obstruction."""
+
+    prime: int
+    vertices_per_side: int
+    shift_layers: int
+    degree: int
+    maximum_distinct_row_codegree: int
+    tensor_vector_norm_sq: float
+    tensor_zero_mode_energy: float
+    target_scale: float
+    violation_factor: float
+
+
+def high_denominator_packet_ledger(
+    q: int, degree: int, denominator_scale: int
+) -> HighDenominatorPacketLedger:
+    """Record the sharp elementary scale bounds.
+
+    For rows ``a=s*g, a'=r*g`` with ``r,s`` of size ``R``, subtraction of
+    the two product windows gives ``|e| << D*R/q``.  Color-shell membership
+    gives ``O(q/R)`` possible heights.  Their product is ``O(D)``.  Once a
+    nonzero integer shift is possible, ``R >= q/D``; the interval for the
+    integer product ``n=g*b`` has length ``O(D/R) <= D^2/q``.
+
+    Constants from fixed shell apertures are deliberately omitted, as in
+    the exponent ledger used by the project.
+    """
+
+    if q <= 0 or degree <= 0 or denominator_scale <= 0:
+        raise ValueError("all scales must be positive")
+    shifts = degree * denominator_scale // q
+    heights = (q + denominator_scale - 1) // denominator_scale
+    nonzero = degree * denominator_scale >= q
+    interval = degree / denominator_scale
+    return HighDenominatorPacketLedger(
+        q=q,
+        degree=degree,
+        denominator_scale=denominator_scale,
+        maximum_shift_count=shifts,
+        height_count=heights,
+        candidate_area_bound=(shifts + 1) * heights,
+        product_interval_length_bound=interval,
+        nonzero_shift_possible=nonzero,
+        subunit_product_interval=interval < 1.0,
+    )
+
+
+def parabolic_sidon_cayley_matrix(prime: int) -> np.ndarray:
+    """Return the bipartite Cayley matrix generated by ``(t,t^2)``.
+
+    Both vertex sets are ``F_p^2``.  A row ``x`` is joined to
+    ``x+(t,t^2)`` for every ``t``.  For odd prime ``p`` the generating set
+    is Sidon: two distinct rows have at most one common neighbor.
+    """
+
+    if prime < 3:
+        raise ValueError("prime must be an odd integer")
+    size = prime * prime
+    matrix = np.zeros((size, size), dtype=float)
+    for first in range(prime):
+        for second in range(prime):
+            row = first * prime + second
+            for shift in range(prime):
+                target_first = (first + shift) % prime
+                target_second = (second + shift * shift) % prime
+                column = target_first * prime + target_second
+                matrix[row, column] = 1.0
+    return matrix
+
+
+def sidon_cayley_obstruction_ledger(prime: int) -> SidonCayleyObstructionLedger:
+    """Return the exact tensor zero-mode loss for the parabolic Cayley graph.
+
+    Put ``z_c=p^(-1/2)`` on ``F_p``.  Then the pair-state tensor vector is
+    constant ``u_(c,d)=1/p`` on ``F_p^2`` and has norm one.  The Cayley
+    graph is ``p``-regular, so ``Bu=1`` at all ``p^2`` rows and
+    ``||Bu||_2^2=p^2``.  A target based only on the number ``p`` of matching
+    layers would be ``p`` and therefore loses the exact factor ``p``.
+    """
+
+    if prime < 3:
+        raise ValueError("prime must be an odd integer")
+    vertices = prime * prime
+    energy = float(vertices)
+    target = float(prime)
+    return SidonCayleyObstructionLedger(
+        prime=prime,
+        vertices_per_side=vertices,
+        shift_layers=prime,
+        degree=prime,
+        maximum_distinct_row_codegree=1,
+        tensor_vector_norm_sq=1.0,
+        tensor_zero_mode_energy=energy,
+        target_scale=target,
+        violation_factor=energy / target,
+    )
+
+
+def tangent_product_increment(center: int, row_offset: int, column_offset: int) -> int:
+    """Return ``abc-center**3`` for the affine tangent color.
+
+    Here
+
+    ``a=center+x, b=center+y, c=center-x-y``.
+    """
+
+    x = row_offset
+    y = column_offset
+    return -center * (x * x + x * y + y * y) - x * y * (x + y)
+
+
+def tangent_hankel_matrix(weights: Sequence[complex], order: int) -> np.ndarray:
+    """Return ``A[i,j]=weights[i+j]`` on an ``order`` square."""
+
+    if order <= 0:
+        raise ValueError("order must be positive")
+    values = np.asarray(weights, dtype=complex)
+    if values.size != 2 * order - 1:
+        raise ValueError("a square Hankel packet needs 2*order-1 weights")
+    indices = np.add.outer(np.arange(order), np.arange(order))
+    return values[indices]
+
+
+def color_layer(order: int, color_index: int) -> np.ndarray:
+    """Return the anti-diagonal partial matching ``1_(i+j=color_index)``."""
+
+    if order <= 0 or not 0 <= color_index <= 2 * order - 2:
+        raise ValueError("invalid order or color index")
+    rows, columns = np.indices((order, order))
+    return (rows + columns == color_index).astype(float)
+
+
+def schatten_fourth_power(matrix: np.ndarray) -> float:
+    """Return ``||matrix||_S4^4``."""
+
+    gram = matrix @ matrix.conjugate().T
+    return float(np.real(np.vdot(gram, gram)))
+
+
+def tangent_packet_hilbert_schmidt_bound(weights: Sequence[complex], order: int) -> float:
+    """Return ``order**2 * ||weights||_2**4``.
+
+    Every color anti-diagonal has at most ``order`` entries, so
+
+    ``||A||_S4^4 <= ||A||_HS^4 <= order^2 ||weights||_2^4``.
+    """
+
+    values = np.asarray(weights, dtype=complex)
+    if values.size != 2 * order - 1:
+        raise ValueError("a square Hankel packet needs 2*order-1 weights")
+    norm_sq = float(np.vdot(values, values).real)
+    return order * order * norm_sq * norm_sq

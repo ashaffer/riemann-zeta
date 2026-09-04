@@ -5,16 +5,28 @@ stated balanced squarefree semiprime support.  Its main kernel can be
 Poisson-summed all the way back to the original `Q_h` Gram kernel.  The
 result is a smooth periodized ratio kernel with zero **additive** mean, but
 with a generically nonzero low **log-Mellin** spectrum.  After exact Vaughan
-recompletion on both cofactor variables, the global primitive term is a
-signed Mellin-diagonal quadratic form in `-mu(n)log n`; it is not itself a
-positive Gram form.  The Type-I heads replace the truncated convolutions by
+recompletion on both cofactor variables, the balanced-packet primitive term has
+a Hermitian Mellin-diagonal representation with signed `-mu(n)log n` and
+coprimality coefficients.  This does not furnish a positive Gram theorem for
+the isolated packet, but it also does not by itself prove actual
+indefiniteness.  The Type-I heads replace the truncated convolutions by
 `-mu log` and kill the evaluated center, but they neither delete this
 primitive term nor its low Mellin modes.  Vinogradov--Korobov gives the
-usual subpower gain.  A fixed power for the complete nondegenerate detector
-bank is precisely fixed-zero-free-strip strength.  No fixed strip, and no
+usual subpower gain.  A fixed power for the complete all-class fixed-window
+detector bank is precisely fixed-zero-free-strip strength.  No fixed strip, and no
 failure of every fixed strip, is proved here.
 
 Date: 2026-08-07.
+
+**2026-09-02 successor correction (R128/S0 audit).**  The primitive object
+in this report remains one isolated balanced-semiprime packet with a
+signed-coefficient representation; completing its
+Vaughan coefficients does not restore the omitted conductor, gcd, profile,
+orientation, and modulus classes.  R128 later restores all of those classes
+exactly.  That all-class family is the faithful positive detector currently
+proved, and it is exactly the original R71 energy.  Consequently the strip-equivalence
+statements below apply after this all-class restoration, not to a
+primitive/head bank by itself.
 
 Predecessors:
 
@@ -84,12 +96,15 @@ P_X(0)=1/(2pi) int_R lambda_P(tau)
 ```
 
 Here `lambda_P` is real after the ordered pair and its conjugate orientation
-are combined, but it need not be nonnegative.  With the actual `g=1`
+are combined.  The generic Gram and marginal hypotheses do not force it to
+be nonnegative, but nonnegativity of the actual profile is unclassified.
+With the actual `g=1`
 coprimality projector, (1.6) is replaced by an exact Mobius-weighted sum of
-such squares; see (6.6) below.  Thus the primitive block is a signed
-quadratic form twice over, not a new positive energy.  Positivity returns
-only after all conductor pieces are put back, which reconstructs the
-original R71 Gram square.
+such squares; see (6.6) below.  Thus the primitive block has two layers of
+signed coefficients, not a new proved positive energy.  The formula alone
+does not witness an actual negative value.  Positivity is proved for the
+complete reconstruction after all conductor pieces are put back; that
+reconstruction is the original R71 Gram square.
 
 The exact structural ledger is therefore
 
@@ -99,7 +114,7 @@ inverse Poisson formula for Phi                       EXACT;
 additive constant mode                                ZERO;
 low log-Mellin modes                                  PRESENT GENERICALLY;
 two-sided Vaughan recompletion                        C=-mu log;
-primitive quadratic form                              HERMITIAN / SIGNED;
+primitive quadratic form                              HERMITIAN / POSITIVITY UNPROVED;
 Type-I cancellation of primitive low mode             ABSENT;
 known bound                                            VK SUBPOWER;
 uniform fixed power for a separating detector bank    FIXED-STRIP STRENGTH.
@@ -485,8 +500,8 @@ B_(d,X)(tau)
 ```
 
 The dyadic cutoff in `b_X(da)` makes the `d` sum finite.  Therefore
-coprimality introduces a second signed multiplier `mu(d)`; it does not
-create positivity.  Exact gcd sectors partition all pairs.  If their
+coprimality introduces a second signed multiplier `mu(d)`; the displayed
+representation does not create or prove positivity.  Exact gcd sectors partition all pairs.  If their
 scaled kernels happened to be identical, summing every gcd would remove
 the projector and recover (1.6).  In the actual R81 identity the kernels
 also depend on `g` through `L(u+gj,u)` and its scaling, so this simplification
@@ -524,8 +539,8 @@ form
 ```
 
 with the harmless convention-dependent conjugation in `B'`.  Pairing the
-conjugate orientation restores a Hermitian signed spectral form.  It does
-not change the sign conclusion.
+conjugate orientation restores a Hermitian spectral form with signed
+coefficients.  It does not settle the sign of the actual constrained form.
 
 By contrast, if every conductor class and every Vaughan component is
 restored, the exact kernel is
@@ -542,9 +557,11 @@ sum_(q_1,q_2)C(q_1)C(q_2)K_full(q_1,q_2)
  =int psi(R)abs[sum_q C(q)sum_m f_R(qm)]^2dR>=0.      (6.11)
 ```
 
-The proper-conductor terms omitted from (6.2) are part of what repairs its
-signed spectrum.  This is why positivity may not be imported from (6.11)
-back into the primitive block.
+The proper-conductor terms omitted from (6.2) are part of the exact
+reconstruction.  This is why positivity may not be imported from (6.11)
+back into the primitive block.  R124 supplies exact positive low-frequency
+information and D-rated evidence of full-shell sign change, not a certified
+negative spectral witness.
 
 ## 7. What estimates the Mellin form actually gives
 
@@ -628,7 +645,7 @@ has exponent `2beta-1`.  Because (4.6) is nonzero and the bank has no common
 Mellin zero, a uniform theorem
 
 ```text
-complete separating primitive/head family
+complete separating all-conductor/all-profile family
        <<X^(1-delta)                                  (7.9)
 ```
 
@@ -643,27 +660,31 @@ beta<=1-delta/2                                      (7.10)
 for every zeta zero.  This is the desired fixed strip.
 
 There is an important logical qualification.  Because one isolated
-primitive form has the signed multiplier (6.4), a bound for that one scalar
-form alone can arise from spectral sign cancellation and need not imply a
-strip.  The strip implication applies to the requested complete theorem:
-all fixed-ratio shells and conjugate orientations, the exact heads, and a
-nondegenerate dilation/modulation bank, before Cauchy.  Equivalently one
+primitive form is not proved order-reflecting, a bound for that one scalar
+form alone is not presently proved to imply a strip.  The signed
+representation and R124's
+numerical sign changes explain the hazard but do not prove actual
+indefiniteness.  In light of R128, the strip implication applies to the requested
+complete theorem only after every conductor and gcd sector is also restored,
+together with all fixed-ratio shells and conjugate orientations, the exact
+heads, and a nondegenerate dilation/modulation bank, before Cauchy.
+Equivalently one
 may require a positive spectral lower frame on each bounded Mellin band.
 Under that nondegeneracy, (7.7)--(7.10) give the exponent correspondence
 
 ```text
-fixed strip eta       <==>       primitive bank power 2eta,
+fixed strip eta       <==>       full fixed-window energy power 2eta,
 ```
 
 up to arbitrary epsilon and the already recorded completion errors.
 
-R116's `O(X^(1/2+epsilon))` global completion error follows on the balanced
-semiprime subfamily after multiplication by `h(c)<<X^(-1+epsilon)` and
+R116's `O(X^(1/2+epsilon))` completion error follows on the balanced
+semiprime packet after multiplication by `h(c)<<X^(-1+epsilon)` and
 summation over `c`.  It must not be extended to every many-prime modulus
-without also treating the near-primitive proper conductors.  This scope
-issue does not weaken (7.10); it says that a claimed complete proof must
-discharge those remaining conductor classes rather than silently call them
-square-root errors.
+without also treating the near-primitive proper conductors.  R128
+subsequently discharges this scope issue by exact recombination, not by
+bounding the omitted classes.  The resulting object is the original R71
+energy, so (7.10) supplies no smaller primitive-only intermediate theorem.
 
 ## 8. Fail-fast conclusions and next valid target
 
@@ -676,7 +697,8 @@ all fixed-ratio shells                preserve weighted Mellin low modes;
 two-sided Vaughan heads               replace tail coefficients by -mu log;
 balanced semiprime heads              identically absent;
 Mellin separation                     low rank, not arithmetic mixing;
-primitive positivity                  false in general;
+primitive positivity                  NOT FORCED BY GENERIC GRAM/Q_h DATA;
+actual primitive sign                 OPEN;
 full all-conductor positivity         true but is the original energy;
 VK/PNT                                subpower only;
 fixed-power complete bank             equivalent to a fixed strip.       (8.1)
@@ -684,17 +706,12 @@ fixed-power complete bank             equivalent to a fixed strip.       (8.1)
 
 The primitive duality is still useful: it has removed a reciprocal phase
 and reduced the endpoint to a transparent spectral object.  But it has not
-created a cheaper theorem.  The surviving genuinely new possibilities are
-now very narrow:
-
-1. prove a zeta-specific positive lower/upper frame after combining the
-   primitive and all near-primitive conductor spectra;
-2. prove a fixed-power estimate for the Mobius-log polynomials (7.1) on a
-   separating Mellin bank; or
-3. find an exact cross-conductor cancellation which is invisible in the
-   ratio-only Mellin rank decomposition and survives the balanced
-   semiprime test (5.5).
-
-Any of these would be fixed-strip-level new information.  Failure of the
-additive-zero, Type-I, or primitive-positivity shortcuts is not evidence
+created a cheaper theorem.  R128 resolves the former cross-conductor
+possibility algebraically: the remainder cancels exactly, while the complete
+ordinary dual remains equal to R71.  The surviving target is therefore a
+zeta-specific fixed-power estimate for the **complete** Mobius-log family,
+with every reconstructing class retained.  This is fixed-strip-level new
+information.  Failure of the
+additive-zero and Type-I shortcuts, and failure of generic Gram data to
+force primitive positivity, are not evidence
 that no fixed strip exists.

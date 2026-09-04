@@ -1,0 +1,302 @@
+{
+  "schema": "zeta23_post_synthesis_decision_path_v1",
+  "date": "2026-09-02",
+  "human_authority": "../ZETA23-POST-SYNTHESIS-DECISION-PATH-2026-09-02.md",
+  "global_status": {
+    "riemann_hypothesis": "OPEN",
+    "uniform_zero_free_strip": "OPEN",
+    "strip_to_rh_amplifier": "ABSENT",
+    "universal_completed_zeta_knc": "OPEN_RH_EQUIVALENT",
+    "sharp_four_cycle_bound": "OPEN_NOT_DIRECT_STRIP_GATE"
+  },
+  "next_action": "Formulate one concrete S1 strict-adapter proposal. The naked C*1=Lambda re-expansion failed, but neither broader mechanism class has been closed.",
+  "routing_corrections": [
+    {
+      "source": "R179",
+      "correction": "The functional-equation defect is reflection-even and misses paired zeta-zero poles; the target survives in the reflection-odd channel.",
+      "decision": "Reject completion symmetry alone; require a finite coupling of completion and actual coefficients."
+    },
+    {
+      "source": "R180",
+      "correction": "The complete fixed-window R68/R71 energy bound is exponent-equivalent to a uniform strip.",
+      "decision": "Treat the bound as a calibrated endpoint, not an easier intermediate lemma."
+    },
+    {
+      "source": "publication_theorem_audit",
+      "correction": "No fixed-point publication package directly closes a strip edge.",
+      "decision": "Separate publication and strip research tracks; permit re-entry only through a passport-complete adapter."
+    },
+    {
+      "source": "S0_adapter_audit",
+      "correction": "R116 is local to a balanced-semiprime packet; R128 restores all missing classes exactly but the complete ordinary dual equals the original Q_h energy.",
+      "decision": "Fire the primitive-only branch switch and admit new mechanisms only on the complete all-class family."
+    }
+  ],
+  "theorem_leverage": [
+    {
+      "package": "rough_gaps",
+      "role": "PUBLICATION_ONLY",
+      "reentry_condition": "A typed theorem connecting the rough-gap bound to an actual prime-log or R68 first-open edge."
+    },
+    {
+      "package": "R110_R119_cyclic_continuants",
+      "role": "ENABLING_BUT_STRANDED",
+      "reentry_condition": "A natural non-CRT, recompletion-preserving adapter that survives the R121 square-root cost."
+    },
+    {
+      "package": "R143_virtual_Artin_filters",
+      "role": "DIAGNOSTIC_NOGO",
+      "reentry_condition": "A cheap exceptional field family and a proved signed virtual-Artin divisor noncancellation theorem."
+    },
+    {
+      "package": "sparse_cosine_antipodes",
+      "role": "ENABLING_BUT_STRANDED",
+      "reentry_condition": "A quantitative actual-prime orbit-entry theorem in the licensed aperture."
+    },
+    {
+      "package": "local_Weil_formalization",
+      "role": "DIRECT_RH_LANE_SEED_NOT_STRIP_INPUT",
+      "reentry_condition": "An explicit noncircular completed-source exterior factorization."
+    },
+    {
+      "package": "Euler_rigidity_flexibility",
+      "role": "MANDATORY_HOSTILE_MODELS",
+      "reentry_condition": "Not applicable; use to reject proof classes."
+    },
+    {
+      "package": "operator_Weil_structures",
+      "role": "MOSTLY_PROOF_CLASS_ELIMINATORS",
+      "reentry_condition": "A source-specific theorem controlling exact kernel charge rather than compactness or topology."
+    },
+    {
+      "package": "Endo_correction",
+      "role": "PUBLICATION_ONLY",
+      "reentry_condition": "None currently."
+    },
+    {
+      "package": "SR2PF",
+      "role": "INCUBATOR_STRANDED_TERMINATOR",
+      "reentry_condition": "A faithful all-cut transport plus conventional proofs of every arithmetic debt."
+    }
+  ],
+  "selected_strip_route": {
+    "endpoint": {
+      "name": "complete fixed-window R68/R71 reflection-odd energy",
+      "target": "X_I <= exp((1-2*eta+o(1))*R) for fixed 0<eta<=1/2, one fixed window, and every block of one licensed regular partition",
+      "status": "OPEN_STRIP_EQUIVALENT",
+      "source": "results/ZETA23-STRIP-TO-R68-REVERSE-CALIBRATION-2026-09-02.md"
+    },
+    "attack_surface": {
+      "name": "complete all-class ordinary dual equal to the Q_h-transformed R71 energy",
+      "formula": "O_full=sum_{q1,q2} C(q1)C(q2) sum_{m1,m2>=1} L(q1*m1,q2*m2)=E_Q, with C=-mu log",
+      "target_scale": "O_full <= X^(1-kappa+o(1)) for some fixed 0<kappa<=1 on every block of one fixed regular partition",
+      "normalization_map": "kappa=2*eta for 0<kappa<=1 in the R73 energy normalization",
+      "status": "OPEN_STRIP_EQUIVALENT_ENDPOINT",
+      "source": "results/R128-ALL-ARITY-PROPER-CONDUCTOR-GATE.md",
+      "local_r116_packet": {
+        "correct_outer_factor": "h(c)c^(1-it)=A_UV(c)c^(-it)",
+        "status": "LOCAL_MEMBER_NO_PROVED_ORDER_REFLECTION_ACTUAL_INDEFINITENESS_UNCERTIFIED"
+      },
+      "optional_r123_fixed_window_fork": {
+        "cofactor_exponent": "a_k=1/(2*(k+1))",
+        "safe_strip_map": "eta=kappa/2-a_k",
+        "positive_strip_condition": "kappa>1/(k+1)",
+        "status": "EXACT_SCALE_REPLICATION_NOT_A_REDUCTION",
+        "r125_faithful_direction": "P^(-1/2) tau_(-log P) applied to the complete original field"
+      }
+    },
+    "stages": [
+      {
+        "id": "S0",
+        "name": "R105_R116_R73_adapter_integrity",
+        "status": "COMPLETE_GO_FAILED_BRANCH_SWITCH_FIRED",
+        "red_debts": 0,
+        "deliverable": "Literal ledger for profiles, Vaughan heads, squarefree and nonsquarefree sectors, axes, seams, unequal products, moving cutoffs, both centers, cross terms, and outer signed coefficient.",
+        "go_condition": "Complete R73 remainder equals the primitive term plus errors below a fixed contemplated reserve.",
+        "fail_condition": "Any omitted sector requires a new fixed-power estimate.",
+        "result": "R116 is not global; R128 repairs coverage only by reconstructing the original endpoint energy.",
+        "on_fail": "Abandon primitive-only language and promote the complete all-class Q_h energy as the first open edge.",
+        "source": "results/ZETA23-R105-R116-R73-ADAPTER-INTEGRITY-AUDIT-2026-09-02.md"
+      },
+      {
+        "id": "S1",
+        "name": "complete_family_coefficient_completion_admission",
+        "status": "RAW_CANDIDATE_A0_FAILED_BOTH_MECHANISM_CLASSES_UNFORMULATED",
+        "red_debts": 0,
+        "candidate_limit": 2,
+        "candidate_classes": [
+          "complete all-class signed two-scale inequality before Cauchy or absolute values",
+          "finite completed odd-channel pole-archimedean-prime source factorization"
+        ],
+        "admission_requirements": [
+          "uses actual coefficients and completion jointly",
+          "acts on reflection-odd carrier",
+          "uses a finite identity before analytic continuation",
+          "retains every gcd sector, conductor, profile, orientation, Vaughan cross packet, and common kernel",
+          "does not substitute an isolated non-order-reflecting primitive scalar for the complete energy",
+          "fixed window and fixed exponent reserve",
+          "does not factor through the closed R121 CRT/Hilbert bridge"
+        ],
+        "go_condition": "A full passport, all falsifiers passed, and at most one load-bearing arithmetic lemma remains.",
+        "stop_condition": "Two distinct source laws reduce to the endpoint or fail dual R178/R179 discrimination.",
+        "candidate_a0_result": "FAIL_ADMISSION_TAUTOLOGICAL_C_STAR_ONE_EQUALS_LAMBDA_REEXPANSION",
+        "candidate_a_structural_class_status": "UNFORMULATED_NOT_CLOSED_BY_A0",
+        "candidate_b_status": "UNFORMULATED_NOT_CLOSED",
+        "on_stop": "Park the complete-family response route and execute the single QP source-fiber bifurcation."
+      },
+      {
+        "id": "S2",
+        "name": "frozen_block_complete_energy_fixed_power",
+        "status": "OPEN_CONDITIONAL_ON_S1",
+        "red_debts": 1,
+        "deliverable": "O_full=E_Q <= X^(1-kappa+o(1)) for a fixed 0<kappa<=1 on one fixed R71 window and every block of one licensed regular partition.",
+        "reject": [
+          "logarithmic gain",
+          "Vinogradov-Korobov subpower gain",
+          "X^(-o(1)) gain",
+          "finite numerical trend"
+        ]
+      },
+      {
+        "id": "S3",
+        "name": "faithful_detector_and_block_transfer",
+        "status": "OPEN_CONDITIONAL_ON_S2",
+        "red_debts": 0,
+        "deliverable": "Use R102 zero-faithfulness or the licensed fixed-h Q_h inverse, safety collars, R104 face bounds, Euler defect, and bounded-overlap partition without exponent loss.",
+        "on_new_fixed_power_debt": "Return to S1; the proposed S2 object omitted a required all-class member."
+      },
+      {
+        "id": "S4",
+        "name": "strip_conclusion",
+        "status": "CONDITIONAL_ADAPTER_AVAILABLE",
+        "red_debts": 0,
+        "deliverable": "Use the existing energy-width implication to obtain a fixed eta strip.",
+        "nonclaim": "Does not imply RH without a separate amplifier."
+      }
+    ]
+  },
+  "mandatory_falsifiers": [
+    {
+      "id": "FEJER",
+      "tests": "positivity, soft moments, and finite convex geometry"
+    },
+    {
+      "id": "DENSITY_PSEUDONODES",
+      "tests": "density, gaps, source shape, and covariance without exact coefficients"
+    },
+    {
+      "id": "R178",
+      "tests": "positive Euler data, two PNTs, approximate convolution, density-one agreement, and arbitrarily long genuine heads without zeta completion"
+    },
+    {
+      "id": "R179_SYMMETRIC_QUARTET",
+      "tests": "functional-equation symmetry without ordinary right-half-plane Euler structure"
+    },
+    {
+      "id": "R121",
+      "tests": "fixed-prime/CRT interfaces with sharp square-root Hilbert cost"
+    },
+    {
+      "id": "EARLY_CAUCHY",
+      "tests": "loss of outer Mobius signs and survival of primitive diagonal; R105 is already post-squaring"
+    },
+    {
+      "id": "CHARACTERWISE",
+      "tests": "replacement by uniform Dirichlet-L zero-free input"
+    },
+    {
+      "id": "GROWING_ORDER",
+      "tests": "fixed-total-width h=ell/k, k log k=o(R), or fixed-step h, k^2=o(R), single-schedule spectral cooling without their own varying-test converses; distinct from R80's proportional-order dyadic bank"
+    }
+  ],
+  "qp_fallback": {
+    "name": "single source-fiber bifurcation",
+    "status": "CONDITIONAL_ON_S1_STOP",
+    "steps": [
+      "derive every exact legal-event restriction with quantifier order intact",
+      "realize them in a filled density-matched pseudonode model",
+      "if realization succeeds with a bad radius, close the soft proof class",
+      "if realization fails for a proved reason, promote only the first violated actual-prime invariant"
+    ],
+    "continue_condition": "The invariant has an exact actual-prime statement and an exponent ledger reaching 0.0179 or 0.019.",
+    "otherwise": "PARK_QP_TURAN"
+  },
+  "parallel_rh_lane": {
+    "existing_progress": [
+      "certified local Weil seed",
+      "one explicit microscopic p=5 crossing"
+    ],
+    "first_open_edge": "universal completed-source kernel null-charge",
+    "status": "OPEN_RH_EQUIVALENT",
+    "bounded_test": "Seek C_(a,b)=T_(a,b) A_a on a dense core from an explicit completed pole-archimedean-prime identity.",
+    "forbidden_inputs": [
+      "A_a inverse or pseudoinverse",
+      "kernel triviality",
+      "positivity beyond a",
+      "RH",
+      "approximate rather than exact null charge"
+    ],
+    "failure_scope": "A countermodel kills only the proposed factorization class, not KNC or RH."
+  },
+  "debt_policy": {
+    "fields": [
+      "mask",
+      "source",
+      "coefficient_sign",
+      "normalization",
+      "quantifiers",
+      "fixed_window",
+      "resolution",
+      "exponent",
+      "recompletion",
+      "downstream_adapter"
+    ],
+    "red": "new fixed-power actual-prime estimate, exact universal cancellation, or uncontrolled global uniformity",
+    "amber": "imported uniformity, degeneration, or finite-to-continuum transfer",
+    "green": "exact algebra, formal proof, or scoped replay",
+    "active_sprint_limit": "At most one red debt."
+  },
+  "recursive_update_policy": {
+    "valid_triggers": [
+      "exact theorem",
+      "passport-complete countermodel",
+      "adapter closure",
+      "new literature changing a claim"
+    ],
+    "procedure": [
+      "canonicalize the claim",
+      "propagate it through the dependency graph once",
+      "rerun hostile models",
+      "rerank active branches"
+    ],
+    "park_rule": "Park after two consecutive bounded sprints with no theorem-status or debt change.",
+    "reopen_rule": "Require a new arithmetic invariant or interface, not new notation."
+  },
+  "immediate_queue": [
+    "S0 complete: primitive-only go condition failed and branch switch fired",
+    "S1-A0 naked re-expansion closed as tautological through C*1=Lambda",
+    "the nontrivial two-scale inequality class and completed-source-law class both remain unformulated",
+    "S2 complete-energy fixed-power attack only after a strict-adapter S1 proposal is admitted",
+    "single QP source-fiber fallback after two concrete S1 proposals fail",
+    "cheap exterior-factorization falsifier in the direct RH lane"
+  ],
+  "sources": [
+    "results/ZETA23-RECURSIVE-PUBLICATION-THEOREM-AUDIT-2026-09-02.md",
+    "results/ZETA23-COMPLETION-PARITY-DEFECT-AND-ODD-CARRIER-GATE-2026-09-02.md",
+    "results/ZETA23-STRIP-TO-R68-REVERSE-CALIBRATION-2026-09-02.md",
+    "results/ZETA23-R105-R116-R73-ADAPTER-INTEGRITY-AUDIT-2026-09-02.md",
+    "results/R102-CENTER-ANNIHILATED-OFF-AXIS-GATE.md",
+    "results/R104-QH-FINITE-COFACTOR-SECTOR-THEOREM.md",
+    "results/R105-QH-VAUGHAN-TAIL-NATIVE-BRIDGE-AUDIT.md",
+    "results/R116-SIGNED-JOINT-TYPEII-ATTACK.md",
+    "results/R120-PRIMITIVE-MOBIUS-MELLIN-KERNEL-GATE.md",
+    "results/R121-COMPOSITE-CRT-SPARSE-BRIDGE-GATE.md",
+    "results/R123-TRUNCATED-MOBIUS-DILATION-BANK-GATE.md",
+    "results/R125-ADJACENT-FILTER-PRIME-PACKET-BRIDGE-GATE.md",
+    "results/R124-ACTUAL-QH-PRIMITIVE-MELLIN-SIGN-GATE.md",
+    "results/R128-ALL-ARITY-PROPER-CONDUCTOR-GATE.md",
+    "results/ZETA23-P5-FIRST-EVENT-PROPAGATION-CERTIFICATION-2026-09-01.md",
+    "results/ZETA23-KNC-LAST-MILE-EQUIVALENCE-AND-QUANTIFIER-AUDIT-2026-09-01.md",
+    "results/PROPORTIONAL-ORDER-DETECTOR-BANK-GATE.md"
+  ]
+}

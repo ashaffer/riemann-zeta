@@ -1,0 +1,10 @@
+import RHBridge.ShiftedPsiRampBridge
+
+#print axioms RHP2Bridge.ShiftedPsiRampBridge.bridge_multiplier_product
+#print axioms RHP2Bridge.ShiftedPsiRampBridge.general_bridge_multiplier_product
+#print axioms RHP2Bridge.ShiftedPsiRampBridge.mertens_deformation_partial_fractions
+#print axioms RHP2Bridge.ShiftedPsiRampBridge.two_scale_pole_killer_unique
+#print axioms RHP2Bridge.ShiftedPsiRampBridge.general_mertens_deformation_partial_fractions
+#print axioms RHP2Bridge.ShiftedPsiRampBridge.inverse_bridge_kernel_pos
+#print axioms RHP2Bridge.ShiftedPsiRampBridge.general_inverse_bridge_kernel_pos
+#print axioms RHP2Bridge.ShiftedPsiRampBridge.pole_killing_zero

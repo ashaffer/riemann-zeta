@@ -1,0 +1,87 @@
+{
+  "artifact": "ZETA23-GLOBAL-CONDUCTOR-L4-PREFLIGHT-v1",
+  "date": "2026-08-31",
+  "claim_status": "OPEN",
+  "purpose": "Preflight and exponent ledger for the cheapest currently credible discriminator of the retained-hat DPA route. This file does not assert the theorem.",
+  "root_boundary": {
+    "immediate_parent": "positive-direction DPA for the fixed retained adjacent-gap hat",
+    "would_close_if_proved": "the fixed-hat positive DPA candidate for every c < 19/1000, after the recorded tail and persistence adapters",
+    "would_not_close": [
+      "negative-direction DPA",
+      "LTRAD",
+      "a uniform zero-free strip",
+      "RH"
+    ]
+  },
+  "object": {
+    "theta": "161/1000",
+    "center": "a sufficiently large half-integer Y",
+    "construction": "Start with the adjacent-prime-gap logarithmic hat. Delete both endpoint shares contributed by every physical prime gap g > Y^theta, then normalize the retained nonnegative weights to total mass one.",
+    "polynomial": "F_{Y,theta}(t) = sum_p lambda_p exp(i t log(p/Y))",
+    "quantifiers": "For every sufficiently large admissible Y, uniformly over the full indicated t interval; the coefficients are the one fixed arithmetic vector above, not arbitrary coefficients.",
+    "normalization": "sum_p lambda_p = 1"
+  },
+  "target_theorem": {
+    "name": "GCG4(161/1000, 3/8)",
+    "statement": "Integral from L to 2B of |F_{Y,theta}(t)|^4 dt is at most Y^(13/8 - 2q + o(1)), equivalently at most Y^(-1187/13000 + o(1)).",
+    "L": "Y^(839/1000)",
+    "B": "Y^(50/33)",
+    "q": "2789/3250",
+    "conductor_gain": "rho = 3/8 relative to the generic Y^2 conductor term",
+    "one_global_moment": true,
+    "endpoint_note": "The upper endpoint is 2B so the one-sided persistence interval remains inside the controlled range even when the violating point lies at B."
+  },
+  "exponent_ledger": {
+    "tail_exponent_s": "249/13000",
+    "violation_exponent_c": "19/1000",
+    "retained_l2_exponent_q": "2789/3250",
+    "target_decay": "2q - 13/8 = 1187/13000",
+    "persistence_cost": "delta^(9/2) = Y^(-171/2000) when delta = Y^(-19/1000)",
+    "strict_margin": "1187/13000 - 171/2000 = 151/26000 > 0",
+    "minimum_required_gain_at_c_19_1000": "rho_min = 2 - 2q + (9/2)c = 9599/26000",
+    "available_target_gain": "3/8 = 9750/26000",
+    "output_exponent_after_markov_persistence": "1187/58500 > 19/1000"
+  },
+  "adapter": {
+    "full_to_retained_tail": "The deleted mass and normalization error are O(Y^(-s+epsilon)); since s > c, a full-hat violation below -Y^(-c) transfers to a retained real-part violation below a fixed fraction of that level.",
+    "persistence": "Because |F''(t)| <= sum lambda_p |log(p/Y)|^2 <= w^2, choose the direction opposite the first derivative. A negative sublevel of depth comparable to delta persists for length Omega(sqrt(delta)).",
+    "moment_consequence": "One violation forces fourth-moment mass Omega(delta^(9/2)). The strict ledger margin contradicts GCG4.",
+    "why_not_target_renaming": "The theorem is a conventional polynomial fourth moment, controls both signs and complex peaks, and is strictly stronger than the one-sided floor actually needed. Its downstream implication is recorded separately."
+  },
+  "arithmetic_reduction": {
+    "easy_sectors": "The exact diagonal and all square-containing/shared-prime sectors are bounded on the required scale by (T+Y)(sum lambda_p^2)^2.",
+    "first_open_core": "At the top scale T=B, bound the four-distinct off-diagonal contribution 4T sum_{p<r,q<s; {p,r} cap {q,s}=empty} lambda_p lambda_r lambda_q lambda_s K_psi(T log(pr/qs)) by Y^(13/8-2q+o(1)).",
+    "top_resolution": "H = Y^(16/33) = M^(8/33) for M asymptotic to Y^2.",
+    "logical_caution": "Success at T=B does not settle all lower t windows; failure for the actual fixed weights kills this GCG4 route."
+  },
+  "licensed_falsifiers": {
+    "abstract": "A coefficient-uniform or arbitrary-subset version is false: a supported subset may be selected to align at one legal phase.",
+    "fejer": "Replacing the translated kernel by a positive/absolute close-pair majorant restores the generic Y^2 conductor term, so positivity alone misses the requested Y^(3/8) gain.",
+    "prime_density_pseudonodes": "Odd-half-grid and exact-log prime-density pseudo-node constructions preserve coarse density and short gaps while creating a constant antipodal peak; actual primality/selector structure is indispensable.",
+    "finite_evidence": "Only the four already frozen actual vectors and their frozen controls may be replayed. They can falsify a finite normalization or expose resonance, but cannot prove or refute the asymptotic theorem unless accompanied by a rigorous transferable mechanism."
+  },
+  "fast_falsifiers": [
+    "Do not seek a coefficient-uniform theorem: phase-aligned supported subsets give counterexamples.",
+    "Check the top-window four-distinct sector before attempting all-window machinery.",
+    "Replay only the already preregistered finite centers and controls; label it FLOAT-SCOUT and draw no asymptotic conclusion.",
+    "Abort if the exact retained vector is not used, if an absolute close-pair bound discards its arithmetic structure, or if the imported theorem's coefficient class does not match.",
+    "Keep the positive-DPA, negative-DPA, LTRAD, strip, and RH gates separate."
+  ],
+  "literature_fit_at_preflight": {
+    "matomaki_radziwill_tao_2017": "The M^(8/33+epsilon) threshold is numerically aligned with the top resolution, but the theorem concerns natural Lambda/divisor correlations and does not directly accept the fixed translated retained weights.",
+    "matomaki_teravainen_2022": "Its absolute close-pair treatment loses the sign/translation structure needed here.",
+    "guth_maynard_2024": "The nominal exponent is relevant, but no verified l2-sensitive fixed-vector specialization currently supplies this moment.",
+    "higher_uniformity_ii_2024": "The available saving and dense divisor-type setting do not match the requested sparse weighted estimate.",
+    "status": "No literature import presently closes GCG4."
+  },
+  "finite_replay": {
+    "allowed_data": "Only the four frozen centers and controls in zeta23_ht_hat_prereg_v1.json and its corresponding diagnostic artifact.",
+    "primary_statistic": "Numerically integrate |F|^4 on [L,2B] for the exactly reconstructed retained vector and compare with (B+Y^(13/8))(sum lambda_p^2)^2; also report retention mass/count.",
+    "interpretation": "A bounded sanity/falsification probe only. Finite success is not evidence of an asymptotic theorem; catastrophic structured growth or a broken retention regime is actionable negative information."
+  },
+  "stop_rules": {
+    "success": "An exact proof of GCG4 with all coefficient, smoothing, endpoint, and lower-window hypotheses matched; then run the recorded adapter as a separate theorem.",
+    "route_failure": "A rigorous lower bound for the actual retained weights exceeding the target, or a verified structural obstruction showing the four-distinct core cannot have rho=3/8.",
+    "inconclusive": "Literature mismatch, finite-range behavior, or top-window success alone; record the residual rather than upgrading status."
+  }
+}

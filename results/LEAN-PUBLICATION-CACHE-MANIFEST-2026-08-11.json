@@ -1,0 +1,638 @@
+{
+  "schema": 1,
+  "generated_at_utc": "2026-08-11T20:06:29Z",
+  "purpose": "Content-rehashed publication-critical Lean audit cache provenance",
+  "cache_key": "riemann-zeta-pubcert-v1-linux-x86_64-lean4.32.1-f054605-src-7d78e84138ca-cfg-094a40f129c0-t1",
+  "source": {
+    "git_commit": "4ad72dca0c1b63defa2657afd153ddfe4e01ce5e",
+    "build_input_digest_sha256": "7d78e84138ca174d8f6e6ad88942253fa6dadf79705453c2b60aee4caf065627",
+    "build_input_digest_scope": "All non-Markdown, non-.lake files under lean/glide, lean/weilcert, and lean/rhbridge, with sorted path-qualified SHA-256 input",
+    "config_digest_sha256": "094a40f129c0b6aca8079e84790a1d53d07080572944a77ddd0854f53b8108ee",
+    "config_digest_scope": "All lakefile.toml, lake-manifest.json, and lean-toolchain files in the three packages",
+    "worktree_clean_for_build_inputs": false,
+    "uncommitted_build_input": "lean/rhbridge/RHBridge/GuinandWeilLiterature.lean (modified); lean/rhbridge/RHBridge/UniformPropagationToRHAudit.lean (untracked)"
+  },
+  "platform": {
+    "os": "Linux",
+    "kernel": "6.17.0-35-generic",
+    "architecture": "x86_64"
+  },
+  "toolchain": {
+    "lean_version": "4.32.1",
+    "lean_commit": "f054605aea4b840552cca2e725580bffd1e1b704",
+    "lake_version": "5.0.0",
+    "lake_regular_workers": 1
+  },
+  "build_directories": [
+    {
+      "package": "glide",
+      "path": "lean/glide/.lake/build",
+      "bytes": 72538120
+    },
+    {
+      "package": "weilcert",
+      "path": "lean/weilcert/.lake/build",
+      "bytes": 265005497
+    },
+    {
+      "package": "rhbridge",
+      "path": "lean/rhbridge/.lake/build",
+      "bytes": 28680251284
+    }
+  ],
+  "no_build_rehash_verification": [
+    {
+      "package": "glide",
+      "jobs": 3040,
+      "exit_code": 0,
+      "result": "All targets up-to-date"
+    },
+    {
+      "package": "weilcert",
+      "jobs": 2945,
+      "exit_code": 0,
+      "result": "All targets up-to-date"
+    },
+    {
+      "package": "rhbridge",
+      "jobs": 13415,
+      "exit_code": 0,
+      "result": "All targets up-to-date"
+    }
+  ],
+  "archive": null,
+  "archive_note": "The live .lake/build directories are the reusable local cache. No lake pack archive was made; a root pack would be about 28.7 GB before compression and would omit path dependencies and .lake/packages.",
+  "restore_requirement": "Use the exact source digest, toolchain, manifests, options, and compatible platform, then rerun lake --rehash --no-build on the listed audit roots.",
+  "targets": [
+    {
+      "package": "glide",
+      "package_dir": "lean/glide",
+      "module": "Glide.UpstreamAudit",
+      "axiom_class": "standard_only",
+      "trace_schema_version": "2025-09-10",
+      "synthetic_trace": false,
+      "dependency_hash": "4bcccdddf4f45884",
+      "lake_output_hashes": {
+        "olean": "e364bcf65da9dba8",
+        "ilean": "f8c75fbf40b77933",
+        "c": "7ec8be5ec1b216f0"
+      },
+      "sidecars_match_trace": true,
+      "artifacts": {
+        "source": {
+          "sha256": "1a472341f32f623847bfd2dacff7486ff8a058921cb40642c212d5b9388d47d6",
+          "bytes": 1266
+        },
+        "trace": {
+          "sha256": "f1b3215fe8b66829cffebeda68b2c4beca90d243e5b86c4cfe5b8a0448f714ca",
+          "bytes": 5902
+        },
+        "olean": {
+          "sha256": "f7d38f4a31fb1373a1986ff6849570a5c44982fd0d5fe6cff907b717d9010b79",
+          "bytes": 2472
+        },
+        "ilean": {
+          "sha256": "5658ba1e55f6b5f15555882e23a78878ae17eb7a80eec733494569ebbc1d91e6",
+          "bytes": 2395
+        },
+        "c": {
+          "sha256": "ada97efe09afc251eb1251cf6dab5943fd93c7f0a862d91fa09c9594ba9517e1",
+          "bytes": 2003
+        }
+      },
+      "axiom_messages": [
+        "Glide/UpstreamAudit.lean:15:0: 'CompactSupportFourierLaplace.differentiable_transform' depends on axioms: [propext, Classical.choice, Quot.sound]",
+        "Glide/UpstreamAudit.lean:16:0: 'CompactSupportFourierLaplace.integrableOn_of_integrableOn_norm_sq' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]",
+        "Glide/UpstreamAudit.lean:17:0: 'CompactSupportFourierLaplace.differentiable_transform_of_integrableOn_norm_sq' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]",
+        "Glide/UpstreamAudit.lean:19:0: 'CompactSupportFourierLaplace.norm_transform_le_sqrt_integral_sq_mul_exp' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]",
+        "Glide/UpstreamAudit.lean:21:0: 'CompactSupportFourierLaplace.analyticOrderAt_translate' depends on axioms: [propext, Classical.choice, Quot.sound]",
+        "Glide/UpstreamAudit.lean:22:0: 'GlideKernel.frullani_cos' depends on axioms: [propext, Classical.choice, Quot.sound]",
+        "Glide/UpstreamAudit.lean:23:0: 'GlideKernel.verticalDigammaReal_neg' depends on axioms: [propext, Classical.choice, Quot.sound]",
+        "Glide/UpstreamAudit.lean:24:0: 'Complex.GammaSeq_tendstoLocallyUniformlyOn_re_pos' depends on axioms: [propext, Classical.choice, Quot.sound]",
+        "Glide/UpstreamAudit.lean:25:0: 'Complex.hasDerivAt_digamma' depends on axioms: [propext, Classical.choice, Quot.sound]",
+        "Glide/UpstreamAudit.lean:26:0: 'Complex.digamma_sub_eq_tsum' depends on axioms: [propext, Classical.choice, Quot.sound]",
+        "Glide/UpstreamAudit.lean:27:0: 'Complex.digamma_eq_neg_eulerMascheroniConstant_add_tsum' depends on axioms: [propext, Classical.choice, Quot.sound]",
+        "Glide/UpstreamAudit.lean:28:0: 'GlideKernel.verticalDigammaReal_sub_zero_eq_gaussVerticalKernel_integral' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]",
+        "Glide/UpstreamAudit.lean:29:0: 'GlideKernel.verticalDigammaReal_log_lower' depends on axioms: [propext, Classical.choice, Quot.sound]",
+        "Glide/UpstreamAudit.lean:30:0: 'GlideKernel.verticalDigammaReal_log_upper' depends on axioms: [propext, Classical.choice, Quot.sound]"
+      ]
+    },
+    {
+      "package": "weilcert",
+      "package_dir": "lean/weilcert",
+      "module": "Weilcert.UpstreamAudit",
+      "axiom_class": "standard_only",
+      "trace_schema_version": "2025-09-10",
+      "synthetic_trace": false,
+      "dependency_hash": "da0ae5f91eec6860",
+      "lake_output_hashes": {
+        "olean": "e4b09e4ccc52ac4f",
+        "ilean": "66a56ea6db9af754",
+        "c": "e007bbe628a639a9"
+      },
+      "sidecars_match_trace": true,
+      "artifacts": {
+        "source": {
+          "sha256": "a573f2cd78e5c1a784a2febeb06c1d0a1ad3241180e77659b8adce50396f1fd8",
+          "bytes": 1054
+        },
+        "trace": {
+          "sha256": "c4aabf9cb5a2338640a0865748b5e8c990e78fa717e782d9b29748b611d297e2",
+          "bytes": 5521
+        },
+        "olean": {
+          "sha256": "11b93462827c04ea5a3a9e233f18c375f17543fb62396cec9f048078ba83d3ab",
+          "bytes": 2528
+        },
+        "ilean": {
+          "sha256": "9b27bc258f63ddfe3f9af53b0d3c77ba21fc665c6b66d04dd375a43232c3a618",
+          "bytes": 1850
+        },
+        "c": {
+          "sha256": "3638ad1a05eeb8a729e07f3a1b1c0f3d6f4fc8579f80e864bdd714aa6432a9db",
+          "bytes": 2190
+        }
+      },
+      "axiom_messages": [
+        "Weilcert/UpstreamAudit.lean:16:0: 'LegendreIntervalL2.normalizedLegendrePolynomial_pair' depends on axioms: [propext, Classical.choice, Quot.sound]",
+        "Weilcert/UpstreamAudit.lean:17:0: 'LegendreIntervalL2.normalizedLegendreHilbertBasis' depends on axioms: [propext, Classical.choice, Quot.sound]",
+        "Weilcert/UpstreamAudit.lean:18:0: 'LegendreIntervalL2.FourierLegendre.parseval' depends on axioms: [propext, Classical.choice, Quot.sound]",
+        "Weilcert/UpstreamAudit.lean:19:0: 'LegendreIntervalL2.FourierLegendre.projection_error' depends on axioms: [propext, Classical.choice, Quot.sound]",
+        "Weilcert/UpstreamAudit.lean:20:0: 'LegendrePlaneWaveL2.complexPlaneWave_projection_tail' depends on axioms: [propext, Classical.choice, Quot.sound]",
+        "Weilcert/UpstreamAudit.lean:21:0: 'CertFramework.two_by_two_lower_bound_optimal' depends on axioms: [propext, Classical.choice, Quot.sound]",
+        "Weilcert/UpstreamAudit.lean:22:0: 'CertFramework.twoBlockLowerEigenvalue_isGreatest' depends on axioms: [propext, Classical.choice, Quot.sound]",
+        "Weilcert/UpstreamAudit.lean:23:0: 'CertFramework.twoBlockLowerEigenvalue_pos' depends on axioms: [propext, Classical.choice, Quot.sound]",
+        "Weilcert/UpstreamAudit.lean:24:0: 'CertFramework.LDLPosCertificate.sound' depends on axioms: [propext, Classical.choice, Quot.sound]",
+        "Weilcert/UpstreamAudit.lean:25:0: 'FullInfTransfer.bilinear_two_block_lower_bound_optimal' depends on axioms: [propext, Classical.choice, Quot.sound]",
+        "Weilcert/UpstreamAudit.lean:26:0: 'FullInfTransfer.starProjection_lower_bound_optimal' depends on axioms: [propext, Classical.choice, Quot.sound]"
+      ]
+    },
+    {
+      "package": "rhbridge",
+      "package_dir": "lean/rhbridge",
+      "module": "RHBridge.ReusableAudit",
+      "axiom_class": "standard_only",
+      "trace_schema_version": "2025-09-10",
+      "synthetic_trace": false,
+      "dependency_hash": "4a81867a3c2d0aaf",
+      "lake_output_hashes": {
+        "olean": "08842b1edac4923a",
+        "ilean": "89509a46f34b20df",
+        "c": "3df89a7c6dd82232"
+      },
+      "sidecars_match_trace": true,
+      "artifacts": {
+        "source": {
+          "sha256": "22001c07c4dc678889dd09d761c179178b25bfbaecfc7e6a7023369b180182b2",
+          "bytes": 862
+        },
+        "trace": {
+          "sha256": "a3b887103dd6c2abaa377d07aeddf75d058129cd1018b4efb258ffb4055ee823",
+          "bytes": 4526
+        },
+        "olean": {
+          "sha256": "4a68db708c775aaa6a56f2bb3076bb48245b91430708b3b2c7bf6f9e6a81afdd",
+          "bytes": 2136
+        },
+        "ilean": {
+          "sha256": "07faf26d9d424bf62c105e3ae4933a1235b1d97a3a2d7b11835bf0e4f9471d0d",
+          "bytes": 1340
+        },
+        "c": {
+          "sha256": "ceea0a16efc01c9be967660a907fca0ecdc631e1f2f67c52951054e48448962c",
+          "bytes": 1322
+        }
+      },
+      "axiom_messages": [
+        "RHBridge/ReusableAudit.lean:12:0: 'RHBridge.ComplexResidue.exists_entire_add_finite_simplePrincipalParts' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]",
+        "RHBridge/ReusableAudit.lean:13:0: 'RHBridge.ComplexResidue.circleIntegral_add_finite_sub_inv_smul' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]",
+        "RHBridge/ReusableAudit.lean:14:0: 'RHP2Bridge.AutocorrelationPlancherel.integral_inner_translate_eq_integral_fourier' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]",
+        "RHBridge/ReusableAudit.lean:16:0: 'RHP2Bridge.AutocorrelationPlancherel.integral_re_inner_translate_eq_cos_fourier_energy' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]",
+        "RHBridge/ReusableAudit.lean:18:0: 'RHP2Bridge.ExplicitSmoothCutoff.explicitCutoff_smooth' depends on axioms: [propext, Classical.choice, Quot.sound]",
+        "RHBridge/ReusableAudit.lean:19:0: 'RHP2Bridge.ExplicitSmoothCutoff.support_explicitCutoff_subset' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]",
+        "RHBridge/ReusableAudit.lean:20:0: 'RHP2Bridge.ExplicitSmoothCutoff.abs_deriv_explicitCutoff_le_universal' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]"
+      ]
+    },
+    {
+      "package": "rhbridge",
+      "package_dir": "lean/rhbridge",
+      "module": "RHBridge.P2RoundedBoundedCertificateAudit",
+      "axiom_class": "standard_only",
+      "trace_schema_version": "2025-09-10",
+      "synthetic_trace": false,
+      "dependency_hash": "285a91b1c52724e3",
+      "lake_output_hashes": {
+        "olean": "31dc0f4a63f13d5b",
+        "ilean": "b421cc65ae5646f5",
+        "c": "714c584f847de591"
+      },
+      "sidecars_match_trace": true,
+      "artifacts": {
+        "source": {
+          "sha256": "725c13860ba352fb3f82a260bbd447dc7e0b02e1bd8de7896377f41fb11dfc9a",
+          "bytes": 372
+        },
+        "trace": {
+          "sha256": "d15f2606c2114ba610c25dd08619fed42896a20793f7526460c461acfb4f7dc6",
+          "bytes": 4727
+        },
+        "olean": {
+          "sha256": "0dfd2d22b89ea2dea1b58e449eac1fd385e7a645e6e72a8d0fb78738a5695f4c",
+          "bytes": 1600
+        },
+        "ilean": {
+          "sha256": "f796ccd1a41ea2b5992ee3e99e6031c010d5f2a5fef669de60f5838e41b210a5",
+          "bytes": 588
+        },
+        "c": {
+          "sha256": "56bdf26b50af8be723b9eecf0dbb10478df7e4bbbcff6ad44171c9fbcb28ec07",
+          "bytes": 1432
+        }
+      },
+      "axiom_messages": [
+        "RHBridge/P2RoundedBoundedCertificateAudit.lean:4:0: 'RHP2Bridge.P2RoundedBoundedCertificate.p2_canonical_matrix_containment' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]",
+        "RHBridge/P2RoundedBoundedCertificateAudit.lean:6:0: 'RHP2Bridge.P2RoundedBoundedCertificate.p2_canonical_clipped_endpoint' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]"
+      ]
+    },
+    {
+      "package": "rhbridge",
+      "package_dir": "lean/rhbridge",
+      "module": "RHBridge.ZetaWeilFormAudit",
+      "axiom_class": "standard_only",
+      "trace_schema_version": "2025-09-10",
+      "synthetic_trace": false,
+      "dependency_hash": "e828029aa7449c78",
+      "lake_output_hashes": {
+        "olean": "74932052bef8e5a6",
+        "ilean": "2eba7467a3f40e68",
+        "c": "b791101d2b02145d"
+      },
+      "sidecars_match_trace": true,
+      "artifacts": {
+        "source": {
+          "sha256": "83f8a66545f85129f6acbfa237ce0860e92d720f2e387c787f5e1afa6cbe9f59",
+          "bytes": 927
+        },
+        "trace": {
+          "sha256": "6e18fdc12e9fa2353836a5b6969084b2279ada56bd746f0bb8594721a3be8f04",
+          "bytes": 5423
+        },
+        "olean": {
+          "sha256": "8bd7c13aa438868351bcfcc180eed8d33f0e310e3835623e7459bbf59c112c2f",
+          "bytes": 1576
+        },
+        "ilean": {
+          "sha256": "501e6bde9d09d49fba2159b4411b55d3eb7c5cf1b301cd29815e06e78ef560c1",
+          "bytes": 2020
+        },
+        "c": {
+          "sha256": "a20843b7d0da42db20134cd8f3719c507cbbb8b8547ac5058d287400ba7223ff",
+          "bytes": 1342
+        }
+      },
+      "axiom_messages": [
+        "RHBridge/ZetaWeilFormAudit.lean:3:0: 'GlideKernel.quarterDigammaReal_sub_zero_eq_archKernel_integral' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]",
+        "RHBridge/ZetaWeilFormAudit.lean:4:0: 'RHP2Bridge.ZetaWeilForm.inP2Domain_iff_inLogarithmicDomain' depends on axioms: [propext, Classical.choice, Quot.sound]",
+        "RHBridge/ZetaWeilFormAudit.lean:5:0: 'RHP2Bridge.ZetaWeilForm.p2ExpandedWeilForm_eq_p2TruncatedZetaWeilForm' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]",
+        "RHBridge/ZetaWeilFormAudit.lean:6:0: 'RHP2Bridge.ZetaWeilForm.p2ExpandedWeilForm_strict_lower_bound' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]",
+        "RHBridge/ZetaWeilFormAudit.lean:7:0: 'RHP2Bridge.ZetaWeilForm.p2PrimeTwoTerm_eq_timeDomain' depends on axioms: [propext, Classical.choice, Quot.sound]",
+        "RHBridge/ZetaWeilFormAudit.lean:8:0: 'RHP2Bridge.ZetaWeilForm.p2TimeDomainWeilForm_strict_lower_bound' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]",
+        "RHBridge/ZetaWeilFormAudit.lean:9:0: 'RHP2Bridge.ZetaWeilForm.p2TimeDomainWeilForm_strict_lower_bound_on_logarithmicDomain' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]",
+        "RHBridge/ZetaWeilFormAudit.lean:10:0: 'RHP2Bridge.AutocorrelationPlancherel.intervalAutocorrelation_eq_integral' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]",
+        "RHBridge/ZetaWeilFormAudit.lean:11:0: 'RHP2Bridge.AutocorrelationPlancherel.intervalAutocorrelation_eq_cos_fourier_energy' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]",
+        "RHBridge/ZetaWeilFormAudit.lean:12:0: 'RHP2Bridge.AutocorrelationPlancherel.crossCorrelation_eq_integral' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]",
+        "RHBridge/ZetaWeilFormAudit.lean:13:0: 'RHP2Bridge.AutocorrelationPlancherel.crossCorrelation_eq_fourier' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]"
+      ]
+    },
+    {
+      "package": "rhbridge",
+      "package_dir": "lean/rhbridge",
+      "module": "RHBridge.GeneralZetaWeilFormAudit",
+      "axiom_class": "standard_only",
+      "trace_schema_version": "2025-09-10",
+      "synthetic_trace": false,
+      "dependency_hash": "61b47ab92ca49d3d",
+      "lake_output_hashes": {
+        "olean": "887f302913d3a488",
+        "ilean": "4dd9cce9d8e5c469",
+        "c": "ec67d21cf4489d02"
+      },
+      "sidecars_match_trace": true,
+      "artifacts": {
+        "source": {
+          "sha256": "170e4dbc097f52fc170dd1d126bc37b713942343ffbcfd7fb23892bd00156e41",
+          "bytes": 1094
+        },
+        "trace": {
+          "sha256": "de4e8eacb8e8e3ebb94c17984af660095977f06ee85b203725321bdaad91a08a",
+          "bytes": 5462
+        },
+        "olean": {
+          "sha256": "96c2c80a6487f937fc4ec8ec1187d45830b8405284f76148216e039580ebf4cb",
+          "bytes": 2152
+        },
+        "ilean": {
+          "sha256": "e2cea31bb5ff0715976d035cd571f0355d950273784ca73afbe0f643d0ee44fb",
+          "bytes": 1969
+        },
+        "c": {
+          "sha256": "0dd2cca67dc98288a5c89c12ab92672590de9211d3c773d3c5b4c76ee2a59a06",
+          "bytes": 1377
+        }
+      },
+      "axiom_messages": [
+        "RHBridge/GeneralZetaWeilFormAudit.lean:10:0: 'RHP2Bridge.GeneralZetaWeilForm.LogarithmicFormDomain' depends on axioms: [propext, Classical.choice, Quot.sound]",
+        "RHBridge/GeneralZetaWeilFormAudit.lean:11:0: 'RHP2Bridge.GeneralZetaWeilForm.logarithmicWeilForm' depends on axioms: [propext, Classical.choice, Quot.sound]",
+        "RHBridge/GeneralZetaWeilFormAudit.lean:12:0: 'RHP2Bridge.GeneralZetaWeilForm.inLogarithmicDomain_add' depends on axioms: [propext, Classical.choice, Quot.sound]",
+        "RHBridge/GeneralZetaWeilFormAudit.lean:13:0: 'RHP2Bridge.GeneralZetaWeilForm.inLogarithmicDomain_smul' depends on axioms: [propext, Classical.choice, Quot.sound]",
+        "RHBridge/GeneralZetaWeilFormAudit.lean:14:0: 'RHP2Bridge.GeneralZetaWeilForm.inLogarithmicDomain_zero' depends on axioms: [propext, Classical.choice, Quot.sound]",
+        "RHBridge/GeneralZetaWeilFormAudit.lean:15:0: 'RHP2Bridge.GeneralZetaWeilForm.logarithmicFormSubmodule' depends on axioms: [propext, Classical.choice, Quot.sound]",
+        "RHBridge/GeneralZetaWeilFormAudit.lean:16:0: 'RHP2Bridge.GeneralZetaWeilForm.activePrimePowers_seven_sixteenths' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]",
+        "RHBridge/GeneralZetaWeilFormAudit.lean:17:0: 'RHP2Bridge.GeneralZetaWeilForm.primeTerm_seven_sixteenths' depends on axioms: [propext, Classical.choice, Quot.sound]",
+        "RHBridge/GeneralZetaWeilFormAudit.lean:18:0: 'RHP2Bridge.GeneralZetaWeilForm.weilForm_seven_sixteenths' depends on axioms: [propext, Classical.choice, Quot.sound]",
+        "RHBridge/GeneralZetaWeilFormAudit.lean:19:0: 'RHP2Bridge.GeneralZetaWeilForm.inLogarithmicDomain_seven_sixteenths' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]",
+        "RHBridge/GeneralZetaWeilFormAudit.lean:20:0: 'RHP2Bridge.GeneralZetaWeilForm.weilForm_seven_sixteenths_strict_lower_bound' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]"
+      ]
+    },
+    {
+      "package": "rhbridge",
+      "package_dir": "lean/rhbridge",
+      "module": "RHBridge.GuinandWeilFormulaAudit",
+      "axiom_class": "standard_only",
+      "trace_schema_version": "2025-09-10",
+      "synthetic_trace": false,
+      "dependency_hash": "16d532558bb50556",
+      "lake_output_hashes": {
+        "olean": "d710f3f618e13013",
+        "ilean": "5d8db5f1d16a3bf9",
+        "c": "bf11fbfca0679c07"
+      },
+      "sidecars_match_trace": true,
+      "artifacts": {
+        "source": {
+          "sha256": "992c3d7fe74d2cfe2768774fca439b7ce66e03bfc51b88061555b25e9eeda35e",
+          "bytes": 2275
+        },
+        "trace": {
+          "sha256": "d73d20db213a524471e36f8301b4db5def877765556bf7d44887d05480a97ebc",
+          "bytes": 8746
+        },
+        "olean": {
+          "sha256": "631b8026f90e66236efb457ac375107f29f6a31cc84ea365b8cfc35b89791369",
+          "bytes": 3120
+        },
+        "ilean": {
+          "sha256": "30c61365d17471033beaf445700fc72414c54d3702aadf029f0239ff56e7031c",
+          "bytes": 4405
+        },
+        "c": {
+          "sha256": "ac0c4ee69ac943af77ee7babc4250852d708646a81c52e46242b1f5efbea682d",
+          "bytes": 1372
+        }
+      },
+      "axiom_messages": [
+        "RHBridge/GuinandWeilFormulaAudit.lean:10:0: 'RHP2Bridge.GuinandWeilFormula.nontrivialZerosInDisk' depends on axioms: [propext, Classical.choice, Quot.sound]",
+        "RHBridge/GuinandWeilFormulaAudit.lean:11:0: 'RHP2Bridge.GuinandWeilFormula.zeroMultiplicity_pos' depends on axioms: [propext, Classical.choice, Quot.sound]",
+        "RHBridge/GuinandWeilFormulaAudit.lean:12:0: 'RHP2Bridge.GuinandWeilFormula.exists_local_zeta_factorization' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]",
+        "RHBridge/GuinandWeilFormulaAudit.lean:13:0: 'RHP2Bridge.GuinandWeilFormula.eventually_logDeriv_riemannZeta_eq_principalPart_add' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]",
+        "RHBridge/GuinandWeilFormulaAudit.lean:14:0: 'RHP2Bridge.GuinandWeilFormula.hasSum_rightContour_vonMangoldt' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]",
+        "RHBridge/GuinandWeilFormulaAudit.lean:15:0: 'RHP2Bridge.GuinandWeilFormula.logDeriv_completedRiemannZeta_eq_gammaR_add_zeta' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]",
+        "RHBridge/GuinandWeilFormulaAudit.lean:16:0: 'RHP2Bridge.GuinandWeilFormula.logDeriv_gammaR_eq_digamma' depends on axioms: [propext, Classical.choice, Quot.sound]",
+        "RHBridge/GuinandWeilFormulaAudit.lean:17:0: 'RHP2Bridge.GuinandWeilFormula.logDeriv_completedRiemannZeta_rightContour' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]",
+        "RHBridge/GuinandWeilFormulaAudit.lean:18:0: 'RHP2Bridge.GuinandWeilFormula.rightContour_vonMangoldt_term' depends on axioms: [propext, Classical.choice, Quot.sound]",
+        "RHBridge/GuinandWeilFormulaAudit.lean:19:0: 'RHP2Bridge.GuinandWeilFormula.logDeriv_completedRiemannZeta_one_sub' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]",
+        "RHBridge/GuinandWeilFormulaAudit.lean:20:0: 'RHP2Bridge.GuinandWeilFormula.weightedZeroExtensionFn_memLp' depends on axioms: [propext, Classical.choice, Quot.sound]",
+        "RHBridge/GuinandWeilFormulaAudit.lean:21:0: 'RHP2Bridge.GuinandWeilFormula.fourier_weightedZeroExtensionFn_eq_bilateralLaplaceFn' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]",
+        "RHBridge/GuinandWeilFormulaAudit.lean:22:0: 'RHP2Bridge.GuinandWeilFormula.coe_fourier_weightedZeroExtensionL2_ae_eq_bilateralLaplaceFn' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]",
+        "RHBridge/GuinandWeilFormulaAudit.lean:23:0: 'RHP2Bridge.GuinandWeilFormula.weighted_crossPlancherel' depends on axioms: [propext, Classical.choice, Quot.sound]",
+        "RHBridge/GuinandWeilFormulaAudit.lean:24:0: 'RHP2Bridge.GuinandWeilFormula.conj_bilateralLaplaceFn' depends on axioms: [propext, Classical.choice, Quot.sound]",
+        "RHBridge/GuinandWeilFormulaAudit.lean:25:0: 'RHP2Bridge.GuinandWeilFormula.centered_verticalLine_eq_weighted_autocorrelation' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]",
+        "RHBridge/GuinandWeilFormulaAudit.lean:26:0: 'RHP2Bridge.GuinandWeilFormula.DiskHolds' depends on axioms: [propext, Classical.choice, Quot.sound]",
+        "RHBridge/GuinandWeilFormulaAudit.lean:27:0: 'RHP2Bridge.GuinandWeilFormula.HasContourDecay' depends on axioms: [propext, Classical.choice, Quot.sound]",
+        "RHBridge/GuinandWeilFormulaAudit.lean:28:0: 'RHP2Bridge.GuinandWeilFormula.SmoothCompactSupportData.toTestSpace' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]",
+        "RHBridge/GuinandWeilFormulaAudit.lean:29:0: 'RHP2Bridge.GuinandWeilFormula.SmoothCompactSupportData.coe_toTestSpace_ae' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]",
+        "RHBridge/GuinandWeilFormulaAudit.lean:30:0: 'RHP2Bridge.GuinandWeilFormula.hasCompactSupport_zeroExtensionFn' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]",
+        "RHBridge/GuinandWeilFormulaAudit.lean:31:0: 'RHP2Bridge.GuinandWeilFormula.smooth_weightedZeroExtensionFn' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]",
+        "RHBridge/GuinandWeilFormulaAudit.lean:32:0: 'RHP2Bridge.GuinandWeilFormula.integrable_iteratedFDeriv_weightedZeroExtensionFn' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]",
+        "RHBridge/GuinandWeilFormulaAudit.lean:33:0: 'RHP2Bridge.GuinandWeilFormula.exists_fourier_decay_constant_weighted' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]",
+        "RHBridge/GuinandWeilFormulaAudit.lean:34:0: 'RHP2Bridge.GuinandWeilFormula.holds_implies_zero_sum_real' depends on axioms: [propext, Classical.choice, Quot.sound]"
+      ]
+    },
+    {
+      "package": "rhbridge",
+      "package_dir": "lean/rhbridge",
+      "module": "RHBridge.GuinandWeilLiteratureAudit",
+      "axiom_class": "literature_boundary",
+      "trace_schema_version": "2025-09-10",
+      "synthetic_trace": false,
+      "dependency_hash": "580ac824a8ac7bd5",
+      "lake_output_hashes": {
+        "olean": "21602a0323216d17",
+        "ilean": "d203f4ca5f65e922",
+        "c": "091828d810653248"
+      },
+      "sidecars_match_trace": true,
+      "artifacts": {
+        "source": {
+          "sha256": "1e2239c906f138b7c0a825661c86b88d9e10213f2548dda09100cd0ce9be9db1",
+          "bytes": 438
+        },
+        "trace": {
+          "sha256": "ec349c9ea666d630f6ed6dad52fa9dc4535baa2b2e1472834faf0c561879aff5",
+          "bytes": 4573
+        },
+        "olean": {
+          "sha256": "ab1161b556fb6bbe865591bdb8a3ef0b38cc9d5af1b0956ca045020715db976f",
+          "bytes": 1584
+        },
+        "ilean": {
+          "sha256": "b2cdd59f4c8fa0a23c57c41266390c7dc99eb33365fd28842a8465e936e051e9",
+          "bytes": 1016
+        },
+        "c": {
+          "sha256": "5909147830f55c0b483bf87ce7a2e830abd893bcab9ee3aa0b6072b0f3879ec1",
+          "bytes": 1387
+        }
+      },
+      "axiom_messages": [
+        "RHBridge/GuinandWeilLiteratureAudit.lean:3:0: 'RHP2Bridge.GuinandWeilLiterature.smooth_bilateralLaplace_entire' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]",
+        "RHBridge/GuinandWeilLiteratureAudit.lean:4:0: 'RHP2Bridge.GuinandWeilLiterature.smooth_guinandWeil_formula' depends on axioms: [propext,\n Classical.choice,\n Quot.sound,\n RHP2Bridge.GuinandWeilLiterature.smooth_guinandWeil_formula]",
+        "RHBridge/GuinandWeilLiteratureAudit.lean:5:0: 'RHP2Bridge.GuinandWeilLiterature.logarithmicDomain_guinandWeil_formula' depends on axioms: [propext,\n Classical.choice,\n Quot.sound,\n RHP2Bridge.GuinandWeilLiterature.logarithmicDomain_guinandWeil_formula]",
+        "RHBridge/GuinandWeilLiteratureAudit.lean:6:0: 'RHP2Bridge.GuinandWeilLiterature.smooth_zero_sum_eq_weilForm' depends on axioms: [propext,\n Classical.choice,\n Quot.sound,\n RHP2Bridge.GuinandWeilLiterature.smooth_guinandWeil_formula]",
+        "RHBridge/GuinandWeilLiteratureAudit.lean:7:0: 'RHP2Bridge.GuinandWeilLiterature.logarithmic_zero_disk_limit_eq_weilForm' depends on axioms: [propext,\n Classical.choice,\n Quot.sound,\n RHP2Bridge.GuinandWeilLiterature.logarithmicDomain_guinandWeil_formula]"
+      ]
+    },
+    {
+      "package": "rhbridge",
+      "package_dir": "lean/rhbridge",
+      "module": "RHBridge.CertifiedBaseIntervalAudit",
+      "axiom_class": "mixed_project_axiom",
+      "trace_schema_version": "2025-09-10",
+      "synthetic_trace": false,
+      "dependency_hash": "3366027890002d13",
+      "lake_output_hashes": {
+        "olean": "6fa270b9bd8d83fd",
+        "ilean": "ed154f634cc4274e",
+        "c": "9ac27899e4bcc93e"
+      },
+      "sidecars_match_trace": true,
+      "artifacts": {
+        "source": {
+          "sha256": "a27a63ee863d83c1b8e14320a9d60ced5204b2528b8b57b7994c778cbcb2ef3f",
+          "bytes": 640
+        },
+        "trace": {
+          "sha256": "0374388926b37995cbde0bd3306a2e3892659fe27ae8027311eacca393750baa",
+          "bytes": 4269
+        },
+        "olean": {
+          "sha256": "d953be01008a61d1c23881eecc5b8fadebdcb630be13e2eaa1783bfe814a23da",
+          "bytes": 2168
+        },
+        "ilean": {
+          "sha256": "b44500887ca06ce7ff7b90c3b1926382042cfc9b33ebd1a7bb7395b370c50293",
+          "bytes": 868
+        },
+        "c": {
+          "sha256": "daa4567e1e787569e9c39a0e12b2e8c6c0ede3e758ba4141da9c0335ab057829",
+          "bytes": 1387
+        }
+      },
+      "axiom_messages": [
+        "RHBridge/CertifiedBaseIntervalAudit.lean:10:0: 'RHP2Bridge.CertifiedBaseInterval.logarithmicWeilForm_strict_lower_bound' depends on axioms: [propext,\n Classical.choice,\n Quot.sound,\n RHP2Bridge.ActivationCancellation.intervalAutocorrelation_eq_zero_of_two_mul_le]",
+        "RHBridge/CertifiedBaseIntervalAudit.lean:11:0: 'RHP2Bridge.CertifiedBaseInterval.positiveAt' depends on axioms: [propext,\n Classical.choice,\n Quot.sound,\n RHP2Bridge.ActivationCancellation.intervalAutocorrelation_eq_zero_of_two_mul_le]",
+        "RHBridge/CertifiedBaseIntervalAudit.lean:12:0: 'RHP2Bridge.CertifiedBaseInterval.SmoothCompactSupportData.zeroExtensionFn_ae_eq' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]",
+        "RHBridge/CertifiedBaseIntervalAudit.lean:13:0: 'RHP2Bridge.CertifiedBaseInterval.SmoothCompactSupportData.fourier_zeroExtensionFn_eq' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]"
+      ]
+    },
+    {
+      "package": "rhbridge",
+      "package_dir": "lean/rhbridge",
+      "module": "RHBridge.WeilCriterionLiteratureAudit",
+      "axiom_class": "mixed_literature",
+      "trace_schema_version": "2025-09-10",
+      "synthetic_trace": false,
+      "dependency_hash": "2eea53cd565d44e1",
+      "lake_output_hashes": {
+        "olean": "92167652790f854e",
+        "ilean": "46b7dd04a7095cee",
+        "c": "fdb06847110e09ab"
+      },
+      "sidecars_match_trace": true,
+      "artifacts": {
+        "source": {
+          "sha256": "1ccc8bdb309fbff4bbc381c866443b79ece5e50ed267c50b1b8345fd44ea993f",
+          "bytes": 464
+        },
+        "trace": {
+          "sha256": "06735a41d45dfc2f48dbd86a78fa095cd6b364aafc33ca24db9e7295a3f9ac61",
+          "bytes": 4317
+        },
+        "olean": {
+          "sha256": "242726faa083c4246da521b5984051ecc3538fff02a0aefd08b5d1125a9035e9",
+          "bytes": 2152
+        },
+        "ilean": {
+          "sha256": "92a1c49872a958a35aaeef0579120da381830bd3f9685b7e1f9a36e15ef7beea",
+          "bytes": 902
+        },
+        "c": {
+          "sha256": "1f5a7d0ce7b0534eb144b0c3f79d70f8342d3d26acad866dc846e86e2519b1c5",
+          "bytes": 1397
+        }
+      },
+      "axiom_messages": [
+        "RHBridge/WeilCriterionLiteratureAudit.lean:5:0: 'RHP2Bridge.WeilCriterionLiterature.globalWeilPositivity_iff_globalPrimeDomination' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]",
+        "RHBridge/WeilCriterionLiteratureAudit.lean:6:0: 'RHP2Bridge.WeilCriterionLiterature.riemannHypothesis_iff_globalWeilPositivity' depends on axioms: [propext,\n Classical.choice,\n Quot.sound,\n RHP2Bridge.WeilCriterionLiterature.riemannHypothesis_iff_globalWeilPositivity]",
+        "RHBridge/WeilCriterionLiteratureAudit.lean:7:0: 'RHP2Bridge.WeilCriterionLiterature.riemannHypothesis_of_uniform_primeDomination' depends on axioms: [propext,\n Classical.choice,\n Quot.sound,\n RHP2Bridge.WeilCriterionLiterature.riemannHypothesis_iff_globalWeilPositivity]",
+        "RHBridge/WeilCriterionLiteratureAudit.lean:8:0: 'RHP2Bridge.WeilCriterionLiterature.seven_sixteenths_strictlyPositive' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]"
+      ]
+    },
+    {
+      "package": "rhbridge",
+      "package_dir": "lean/rhbridge",
+      "module": "RHBridge.UniformPropagationToRHAudit",
+      "axiom_class": "mixed_literature",
+      "trace_schema_version": "2025-09-10",
+      "synthetic_trace": false,
+      "dependency_hash": "8bbe594b160a62d4",
+      "lake_output_hashes": {
+        "olean": "f21977d5950b3ba2",
+        "ilean": "44991313f13b15a8",
+        "c": "ee1ea8f2f18be76f"
+      },
+      "sidecars_match_trace": true,
+      "artifacts": {
+        "source": {
+          "sha256": "0c036503750f2f5759a428c4298a8348dcba3d80f4230cf43c291f914e66f6c7",
+          "bytes": 620
+        },
+        "trace": {
+          "sha256": "c20d991c26525bc7896c1ce9b0934f1c087211b1e351dae41019b050efd8a62b",
+          "bytes": 4185
+        },
+        "olean": {
+          "sha256": "764a179b296cd0ccc8b7ba2d6e6016dd528fc5f348663efa3d7c6b86948bbd3f",
+          "bytes": 2152
+        },
+        "ilean": {
+          "sha256": "caf530bc6c531715e3aac9ef680ff7458aaf6f06670c649d24f07aabe08e93fe",
+          "bytes": 865
+        },
+        "c": {
+          "sha256": "ff5c0d81dcb43d8cab52cd95db692d57de08ec93c093b9b96162f2329b37f992",
+          "bytes": 1392
+        }
+      },
+      "axiom_messages": [
+        "RHBridge/UniformPropagationToRHAudit.lean:10:0: 'RHP2Bridge.UniformPropagationToRH.positiveAt_of_relative_block_bounds' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]",
+        "RHBridge/UniformPropagationToRHAudit.lean:11:0: 'RHP2Bridge.UniformPropagationToRH.positiveAt_scale' depends on axioms: [propext, Classical.choice, Quot.sound]",
+        "RHBridge/UniformPropagationToRHAudit.lean:12:0: 'RHP2Bridge.UniformPropagationToRH.globalWeilPositivity_of_propagationPackage' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]",
+        "RHBridge/UniformPropagationToRHAudit.lean:13:0: 'RHP2Bridge.UniformPropagationToRH.riemannHypothesis_of_propagationPackage' depends on axioms: [propext,\n Classical.choice,\n Quot.sound,\n RHP2Bridge.WeilCriterionLiterature.riemannHypothesis_iff_globalWeilPositivity]"
+      ]
+    },
+    {
+      "package": "rhbridge",
+      "package_dir": "lean/rhbridge",
+      "module": "RHBridge.Stage4NormalizedComparatorAudit",
+      "axiom_class": "mixed_literature",
+      "trace_schema_version": "2025-09-10",
+      "synthetic_trace": false,
+      "dependency_hash": "673946ee91bf3d34",
+      "lake_output_hashes": {
+        "olean": "917ee6033932baf3",
+        "ilean": "cb736204746e32ae",
+        "c": "9398b85636b01806"
+      },
+      "sidecars_match_trace": true,
+      "artifacts": {
+        "source": {
+          "sha256": "f884a7fde351cc22ca0accfb907bb4e4e01672f3298db76a198ffb11dd76af34",
+          "bytes": 644
+        },
+        "trace": {
+          "sha256": "b29b1e4704e07a0c29854753898ff01b143a89bae0500925befa4e07910b710c",
+          "bytes": 5121
+        },
+        "olean": {
+          "sha256": "fafb8c31bad6fa02786ca39b8ed6bffc1f1d09d47e6fbdd63f0d7ec8ecf142f5",
+          "bytes": 2168
+        },
+        "ilean": {
+          "sha256": "54245f87595190b57023841141bbd8814fdd357b29e66000358c9de10fdde865",
+          "bytes": 904
+        },
+        "c": {
+          "sha256": "3ef1197566a9bee7b8972e344a6e163824df9a2056851b04348e8f050ff17ca7",
+          "bytes": 1412
+        }
+      },
+      "axiom_messages": [
+        "RHBridge/Stage4NormalizedComparatorAudit.lean:10:0: 'RHP2Bridge.Stage4NormalizedComparator.weilCross_self_eq_weilForm' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]",
+        "RHBridge/Stage4NormalizedComparatorAudit.lean:11:0: 'RHP2Bridge.Stage4NormalizedComparator.comparator_weilForm_tendsto_zero' depends on axioms: [propext,\n Classical.choice,\n Quot.sound,\n RHP2Bridge.Stage4SamplingLiterature.weilCross_abs_le_zeroSampleEnergy,\n RHP2Bridge.Stage4SamplingLiterature.zeroSampleEnergy_le_logarithmicGraphNormSq,\n RHP2Bridge.ZetaZeroCountingLiterature.summable_squareSampleHeightWeight,\n RHP2Bridge.ZetaZeroFreeRegionLiterature.exists_recip_centeredEdgeDistance_le_log]",
+        "RHBridge/Stage4NormalizedComparatorAudit.lean:12:0: 'RHP2Bridge.Stage4NormalizedComparator.comparatorRayleighValue_tendsto_zero' depends on axioms: [propext,\n Classical.choice,\n Quot.sound,\n RHP2Bridge.Stage4SamplingLiterature.weilCross_abs_le_zeroSampleEnergy,\n RHP2Bridge.Stage4SamplingLiterature.zeroSampleEnergy_le_logarithmicGraphNormSq,\n RHP2Bridge.ZetaZeroCountingLiterature.summable_squareSampleHeightWeight,\n RHP2Bridge.ZetaZeroFreeRegionLiterature.exists_recip_centeredEdgeDistance_le_log]",
+        "RHBridge/Stage4NormalizedComparatorAudit.lean:13:0: 'RHP2Bridge.Stage4NormalizedComparator.not_uniformly_coercive_on_comparators' depends on axioms: [propext,\n Classical.choice,\n Quot.sound,\n RHP2Bridge.Stage4SamplingLiterature.weilCross_abs_le_zeroSampleEnergy,\n RHP2Bridge.Stage4SamplingLiterature.zeroSampleEnergy_le_logarithmicGraphNormSq,\n RHP2Bridge.ZetaZeroCountingLiterature.summable_squareSampleHeightWeight,\n RHP2Bridge.ZetaZeroFreeRegionLiterature.exists_recip_centeredEdgeDistance_le_log]"
+      ]
+    }
+  ]
+}

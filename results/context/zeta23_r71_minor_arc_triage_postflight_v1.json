@@ -1,0 +1,74 @@
+{
+  "schema": "zeta23-r71-minor-arc-triage-postflight-v1",
+  "date": "2026-09-03",
+  "registry": "R187",
+  "preflight": "results/context/zeta23_r71_minor_arc_triage_preflight_v1.json",
+  "human_authority": "results/ZETA23-R71-COMPLETION-PRESERVING-MINOR-ARC-TRIAGE-2026-09-03.md",
+  "literature_log": "results/context/zeta23_r71_minor_arc_literature_search_2026-09-03.json",
+  "frozen_target": {
+    "eta": "1/100",
+    "energy_saving": "kappa=2eta=1/50",
+    "energy_exponent": "49/50",
+    "strip_if_proved": "1/100<=Re(rho)<=99/100",
+    "status": "OPEN"
+  },
+  "proved": {
+    "affine_center_measure": "z_R(r)=integral t^(-1/2)V(r-log t)(A_R+B_R log t)dt with exact two-moment coefficients",
+    "additive_principal_band": "for k=4 and nu=1/100, the complementary smooth multiplier 1-m(X^(99/100)xi) has field exponent 0.46, energy exponent 0.92, and completed cross-term exponent 0.96",
+    "principal_band_equivalence": "E_R=E_R^pri+O(X^(24/25+o(1))), so the X^(49/50+o(1)) bounds are exponent-equivalent",
+    "mellin_difference_young": "|E_far(Omega)|<=(2pi)^(-1)||1_(|v|>Omega) psihat||_1 ||chi G||_2^2",
+    "gevrey_band": "Omega=K R^s for any fixed s>1 makes the far-difference form smaller than any prescribed fixed exponential power after K is fixed",
+    "extension_independence": "two admissible plateau extensions give near forms differing by at most the sum of their negligible far errors"
+  },
+  "hostile_falsifier": {
+    "rating": "D_FINITE_NUMERICAL",
+    "fixture": "X=127,Y=8,h=0.04,k=1,Omega=17.09975946676696",
+    "total": "0.1277499014525",
+    "near": "0.1575199385126",
+    "far": "-0.02977003706009",
+    "conclusion": "THE_HARD_DIFFERENCE_SPLIT_IS_REAL_BUT_NOT_POSITIVE"
+  },
+  "coordinate_verdict": {
+    "mellin_difference_far": "CONTROLLED",
+    "additive_frequency_tail": "CONTROLLED_WITH_COMPLETION",
+    "primitive_balanced_reciprocal_kernel_response": "ALREADY_CONTROLLED_IN_R87",
+    "signed_cofactor_determinant_aggregation": "OPEN",
+    "reducible_low_character_projector_plus_exact_center": "OPEN",
+    "complete_fixed_power": "OPEN_AND_STRIP_EQUIVALENT"
+  },
+  "literature_verdict": "NO_AUDITED_PRIMARY_THEOREM_PRESERVES_SOURCE_CENTER_ALL_CROSS_TERMS_ALL_SECTORS_EVERY_WINDOW_AND_FIXED_POWER",
+  "local_predecessors": [
+    "results/COMPLETION-PRESERVING-ADDITIVE-MODE-AUDIT.md",
+    "results/ZETA23-MERTENS-TYPEII-PRINCIPAL-BAND-GATE-2026-08-12.md"
+  ],
+  "r187_delta": "FROZEN_VAUGHAN_AFFINE_CENTER_PLUS_EXPLICIT_ORDER_FOUR_046_092_096_LEDGER_PLUS_GEVREY_DIFFERENCE_LOCALIZATION_PLUS_SIGNED_FINITE_FALSIFIER",
+  "novelty": "LOCAL_PREDECESSOR_PLUS_IMPORTED_CLASSICAL_FOURIER_GEVREY_ANALYSIS_AND_SHARPENED_PROJECT_SYNTHESIS_NOT_CANDIDATE_NEW",
+  "next_falsifiable_adapter": "SERIALIZE_THE_COMPLETED_PRINCIPAL_BAND_INTO_NONZERO_WRIGHT_R87_PACKETS_WHILE_RETAINING_THE_REDUCIBLE_LOW_CHARACTER_SECTOR_JOINTLY_COUPLED_TO_THE_EXACT_AFFINE_CENTER_WITH_X^o(1)_PROJECTIVE_COST_BEFORE_ABSOLUTE_VALUES",
+  "new_analytic_endpoint_if_adapter_passes": "BALANCED_COMPLETED_PROJECTOR_COUPLED_DISPERSION_WITH_X^(-1/50)_SAVING",
+  "parallel_first_open_edges": [
+    "SIGNED_ACCUMULATION_OF_NONDEGENERATE_HIGH_DETERMINANT_PACKETS",
+    "JOINT_CANCELLATION_OF_REDUCIBLE_LOW_CHARACTER_PROJECTOR_WITH_EXACT_CENTER"
+  ],
+  "formal_artifacts": [
+    "lean/rhbridge/RHBridge/R71MinorArcTriage.lean",
+    "lean/rhbridge/RHBridge/R71MinorArcTriageAudit.lean"
+  ],
+  "replay_artifacts": [
+    "src/r71_minor_arc_triage.py",
+    "src/test_r71_minor_arc_triage.py"
+  ],
+  "verification": {
+    "hostile_referee": "NO_FATAL_TRANSFORM_CENTER_REGULARITY_OR_EXPONENT_ERROR_AFTER_SCOPE_CORRECTIONS",
+    "new_python_tests": "PASS_7",
+    "focused_python_suite": "PASS_129",
+    "full_python_suite": "PASS_2421_IN_67.62_SECONDS",
+    "lean_module": "PASS_8655_JOBS",
+    "lean_aggregate": "PASS_13469_JOBS",
+    "lean_axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  },
+  "nonclaim": "No fixed-power R71 arithmetic estimate, uniform zero-free strip, sharp four-cycle bound, or RH proof is obtained."
+}

@@ -1,0 +1,41 @@
+{
+  "artifact": "ZETA23-ADJACENT-GAP-DETERMINANT-DISPERSION-PREFLIGHT-v1",
+  "date": "2026-08-31",
+  "claim_status": "OPEN",
+  "purpose": "One bounded derivation to test whether Poisson/dispersion in h=pr-qs preserves useful adjacent-gap structure. This card does not assert a cancellation theorem.",
+  "parent": {
+    "statement": "GCG4(161/1000,3/8)",
+    "needed_component": "the signed four-distinct contribution over the full interval L<=t<=2B",
+    "parallel_gate": "LTRAD_P(.0189,.001) remains independently open",
+    "nonimplications": ["uniform zero-free strip", "RH"]
+  },
+  "exact_object": {
+    "weights": "the normalized nonnegative adjacent-gap hat weights after deleting both endpoint shares of every physical gap greater than Y^(161/1000)",
+    "sum": "4 integral psi(t/B) sum_{p<r,q<s,disjoint} lambda_p lambda_r lambda_q lambda_s exp(it log(pr/qs)) dt",
+    "integer_offset": "h=pr-qs",
+    "top_resolution": "|h| is naturally Y^(16/33+o(1)) when t is Y^(50/33)",
+    "quantifiers": "every sufficiently large admissible Y; the actual fixed selector, not arbitrary coefficients"
+  },
+  "desired_derivation": {
+    "success_form": "An exact or controllably approximated dual formula in which the zero mode cancels against the smooth semiprime main term and every nonzero mode retains a transform or correlation of the actual gap selector.",
+    "usefulness": "A nontrivial selector-sensitive dual norm would define a smaller theorem than GCG4 and justify continued analytic work.",
+    "does_not_itself_prove": "GCG4 unless the resulting nonzero modes have total size at most Y^(-1187/13000+o(1))."
+  },
+  "stop_conditions": [
+    "The first Cauchy or completion step replaces the four gap weights by arbitrary bounded coefficients.",
+    "The determinant-offset sum is replaced by an absolute close-pair count.",
+    "Poisson completion costs a full modulus q asymptotic to Y without a compensating selector transform.",
+    "The proposed zero mode is not exactly matched to the smooth main term.",
+    "The derivation silently assumes independence of consecutive-prime gaps."
+  ],
+  "licensed_falsifiers": {
+    "abstract": "Arbitrary coefficient subsets phase-align, so a selector-blind dual theorem is false or too weak.",
+    "fejer": "Positive smoothing leaves the generic conductor tube and cannot provide the signed cancellation.",
+    "prime_density_pseudonodes": "Odd-half-grid pseudo-primes pass coarse gap/density tests and still create an antipodal peak.",
+    "finite": "The frozen vectors show a small four-distinct residual but are twin-edge-only and therefore cannot validate the dual asymptotics."
+  },
+  "decision_rule": {
+    "continue": "Only if the derivation exposes a named selector-sensitive transform with a plausible published or provable norm estimate.",
+    "stop": "If any stop condition occurs, record the precise first loss and demote determinant dispersion rather than iterating equivalent Cauchy/completion variants."
+  }
+}

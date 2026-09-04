@@ -1,0 +1,35 @@
+{
+  "schema": "zeta23-r71-minor-arc-triage-preflight-v1",
+  "date": "2026-09-03",
+  "objective": "For the eta=1/100 uniform-strip target, determine the strongest completion-preserving minor-arc estimate available for the exact fixed-window R71 quadratic form, and decide whether it lowers the first open arithmetic edge.",
+  "frozen_passport": {
+    "strip_width": "eta=1/100",
+    "energy_exponent": "1-2eta=49/50",
+    "zero_displacement_target": "Delta<=49/100",
+    "zero_free_conclusion_if_target_is_proved": "Re(rho)<=99/100, with the symmetric lower bound Re(rho)>=1/100",
+    "source": "the complete cutoff-independent von Mangoldt field, equivalently the frozen Vaughan tail plus its exact Type-I head; the evaluated-center coordinate is allowed only with its proved X^o(1) endpoint Euler defect, whose induced energy and cross terms are power-below the target",
+    "coefficient": "a_(U,V)=mu_(>U)*Lambda_(>V)*1 with a+h=Lambda",
+    "normalization": "n^(-1/2), normalized compact R71 B-spline window, nonnegative translated block weight",
+    "quantifiers": "one fixed window family and every sufficiently large translate; no density-one, subsequential, or selected-block replacement",
+    "completion": "tail-tail, tail-center, center-tail, and center-center terms remain inside the same quadratic form",
+    "minor_coordinate": "first distinguish Mellin frequency difference |u-t| from additive rational/cofactor arcs"
+  },
+  "candidate_lemma": "After multiplying the whole completed field by a larger plateau chi=1 on supp(psi), split the exact two-frequency kernel by |u-t|>Omega. Use Young and Plancherel, and then a compact Gevrey-s block weight, to make that far-difference contribution power-negligible for Omega=K R^s, s>1.",
+  "fast_falsifiers": [
+    "check the Fourier convention and the exact 1/(2pi) Young-Plancherel constant",
+    "test whether the hard near/far pieces are positive or even separately energies",
+    "retain all three tail-tail, tail-center, and center-center contributions in a finite completed R71 block",
+    "compare two admissible plateau extensions chi and record any noncanonical dependence",
+    "separate this Mellin-difference split from the primitive reciprocal response and from denominator/determinant major arcs",
+    "compare the surviving passport with current primary dispersion and Kloosterman-fraction theorems before claiming novelty or applicability"
+  ],
+  "success_criterion": "Either prove an exact completion-preserving far-difference bound with an eta=1/100 exponent ledger, or exhibit a faithful counterexample. In either case identify exactly which near/rational/cofactor sector still carries the target.",
+  "stop_rules": [
+    "do not call a signed hard-cut piece positive",
+    "do not allocate the center after taking absolute values",
+    "do not sum a conditional cofactor expansion absolutely",
+    "do not promote a pointwise reciprocal packet saving to a completed cofactor saving",
+    "do not call an endpoint-equivalent localization a proof of a strip"
+  ],
+  "nonclaim": "No fixed-power bound, uniform zero-free strip, sharp four-cycle bound, or RH proof is assumed."
+}

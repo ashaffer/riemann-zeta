@@ -1,0 +1,39 @@
+{
+  "schema": "zeta23.ca4_gap_lambda_transference.preflight.v1",
+  "card_id": "CA4-GAP-LAMBDA-TRANSFERENCE-PREFLIGHT-V1",
+  "date": "2026-08-31",
+  "root_goal_boundary": {
+    "architecture": "QP/Turan positive-antenna branch; no Weil-side claim",
+    "immediate_question": "Can a fixed-mask natural Lambda*Lambda fourth-moment theorem be transferred to the retained adjacent-gap nodal-hat vector used by CA4?",
+    "parallel_first_open_edge": "LTRAD_P(0.0189,0.001) remains independently open.",
+    "ceiling": "Even CA4 plus LTRAD would concern only the contemplated small zero-free strip near Re(s)=1, not RH without a new amplifier."
+  },
+  "theorem_passport": {
+    "source_and_mask": "Every ordinary prime in [Y exp(-1/5),Y exp(1/5)]; retain before seeing t exactly those consecutive-prime edges with physical gap at most Y^(163/1000).",
+    "target_coefficients": "The normalized positive finite-element endpoint shares for phi(u)=(1-|u|/(1/5))exp((49/100)u).",
+    "comparison_coefficients": "The most favorable normalized natural prime-only Lambda weights on the same shell, optionally carrying the same fixed smooth envelope and a fixed p^(-sigma) factor. Prime powers are not silently inserted.",
+    "coefficient_cone": "Positive probabilities fixed before t; after squaring, positive balanced-semiprime convolution coefficients.",
+    "normalization": "Both prime vectors have total mass one. Radon--Nikodym and diagonal norms are computed after this normalization.",
+    "quantifiers": "Uniformly for every sufficiently large Y and every dyadic Y^(1049/1250)<=T<=Y^(50/33).",
+    "norm_and_kernel": "The translated fourth moment int_T^(2T)|sum_p lambda_p exp(it log(p/Y))|^4 dt, equivalently the positive-semidefinite but entrywise signed semiprime Gram kernel K_T(log(m/n)).",
+    "resolution": "Logarithmic 1/T, hence physical product resolution H=Y^2/T.",
+    "exponent_budget": "At most Y^(1/10+o(1)) above the actual adjacent-hat atomic diagonal (sum lambda_p^2)^2.",
+    "downstream_adapter": "A proof gives CA4(163/1000,1/10), then the recorded Lipschitz-persistence adapter gives DPA_P(c) for every fixed c<0.019."
+  },
+  "candidate_statements": {
+    "fixed_vector_transference": "A bound for the one natural Lambda*Lambda vector, together with uniform absolute continuity of the hat vector, controls the CA4 signed Gram form.",
+    "exact_change_of_measure": "Write lambda_p=beta_p r_p and the hat semiprime coefficient as the natural semiprime coefficient times r_p r_q.",
+    "conditional_repair": "Upgrade natural HL*(4) to a same-shell fourth-moment estimate stable under every bounded positive multiplier, with its right side scaled by the multiplier's actual l2 diagonal."
+  },
+  "fast_falsifiers": {
+    "abstract": "Test diagonal reweighting against a rank-one PSD Gram matrix whose natural vector lies in its nullspace.",
+    "fejer": "Test a nonnegative compact frequency bump around a mask-created alias frequency; smoothing must not erase a fixed hat peak.",
+    "prime_density_pseudo_node": "Repeat the 18-cell motif {0,1,2,3,4,5,6,8,16}, whose gaps are {1,1,1,1,1,1,2,8,2}, at logarithmic mesh scale d asymptotic to log(Y)/Y.",
+    "finite_evidence": "Compare the four frozen actual-prime retained vectors to normalized log-p weights, explicitly as a bounded diagnostic only."
+  },
+  "decision_rule": {
+    "success": "An exact signed-kernel adapter must preserve shell, retention mask, positivity, normalization, full dyadic band, H=Y^2/T resolution, and the Y^(1/10) budget.",
+    "failure": "An abstract or prime-density pseudo-node counterexample prunes black-box harmonic-analysis/change-of-measure transference, not an actual-prime selector-sensitive theorem and not CA4 itself.",
+    "stop": "If bounded two-sided absolute continuity still fails to transfer the CA4 norm, state the missing input directly as multiplier/selector-stable fourth-order dispersion rather than another natural fixed-mask theorem."
+  }
+}

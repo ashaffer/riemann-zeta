@@ -1,0 +1,111 @@
+{
+  "schema": "zeta23-r71-minor-arc-literature-search-v1",
+  "access_date": "2026-09-03",
+  "scope": "Primary-source search for a theorem controlling the exact completed R71 quadratic form with fixed power on every fixed window.",
+  "databases": [
+    "arXiv",
+    "publisher DOI landing pages",
+    "local ZETA23 theorem and literature registries"
+  ],
+  "representative_queries": [
+    "completed Vaughan Type I center bilinear dispersion Kloosterman fixed power",
+    "balanced convolution signed low conductor character projector dispersion",
+    "subdyadic trilinear Kloosterman fractions nonzero phase 2026",
+    "von Mangoldt higher uniformity short intervals every interval",
+    "rational major arcs exponential sums von Mangoldt 2026",
+    "exceptional Maass large sieve Fourier sparse coefficients"
+  ],
+  "local_predecessors": [
+    {
+      "path": "results/COMPLETION-PRESERVING-ADDITIVE-MODE-AUDIT.md",
+      "prior_content": "Full-von-Mangoldt prime-minus-continuum measure, center retained at every additive frequency, principal zero carrier, cofactorwise completion, and zero/reducible Wright-completion gap."
+    },
+    {
+      "path": "results/ZETA23-MERTENS-TYPEII-PRINCIPAL-BAND-GATE-2026-08-12.md",
+      "prior_content": "A distinct Mertens-coordinate reduction showing coefficient-blind nonprincipal saving and a strip-strength principal mode."
+    }
+  ],
+  "r187_delta": "Exact two-moment affine center for the frozen Vaughan tail; explicit order-four X^(-99/100) additive cutoff with field/tail-energy/cross exponents 0.46/0.92/0.96; Gevrey Mellin-difference localization of the whole completed field; finite signed far-piece counterexample.",
+  "primary_sources": [
+    {
+      "id": "arXiv:1504.05549",
+      "title": "Sums of Kloosterman sums in arithmetic progressions, and the error term in the dispersion method",
+      "author": "Sary Drappeau",
+      "version_checked": "arXiv PDF and Theorem 5.1",
+      "url": "https://arxiv.org/abs/1504.05549",
+      "relevance": "Signed high-conductor projector before absolute values; range N<=Q^(2/3-eta) excludes balanced R71, and the omitted low-conductor projector is not the R71 center."
+    },
+    {
+      "id": "arXiv:2608.27732v1",
+      "title": "Trilinear Kloosterman fractions II: subdyadic intervals and nearly balanced convolutions",
+      "author": "Thomas Wright",
+      "version_checked": "v1, Theorems 2.1 and 2.2",
+      "url": "https://arxiv.org/abs/2608.27732",
+      "relevance": "Fixed-power subdyadic gain for a nonzero reciprocal-phase form; its proof separately treats the native determinant-zero part, but it does not supply the R71 reducible/zero-phase/center completion or completed cross-sector aggregation."
+    },
+    {
+      "id": "arXiv:2604.25177",
+      "title": "Trilinear Kloosterman fractions I: partially fixed moduli and unbalanced convolutions",
+      "author": "Thomas Wright",
+      "url": "https://arxiv.org/abs/2604.25177",
+      "relevance": "Related nonzero-phase packet estimate; no completed low-character projector."
+    },
+    {
+      "id": "arXiv:1502.00769",
+      "title": "Trilinear forms with Kloosterman fractions",
+      "authors": "Sandro Bettin and Vorrapan Chandee",
+      "url": "https://arxiv.org/abs/1502.00769",
+      "relevance": "Foundational separated nonzero Kloosterman-fraction bound; does not include R71 completion."
+    },
+    {
+      "id": "arXiv:2608.14777",
+      "title": "Exponential sums over primes",
+      "authors": "James Maynard, Mayank Pandey, and Maksym Radziwiłł",
+      "url": "https://arxiv.org/abs/2608.14777",
+      "relevance": "Displays an explicit N/sqrt(B) rational-major-arc term; scalar absolute-value estimate, not completed cofactor-center cancellation."
+    },
+    {
+      "id": "arXiv:2411.05770v2",
+      "title": "Higher uniformity of arithmetic functions in short intervals II. Almost all intervals",
+      "authors": "Kaisa Matomaki, Maksym Radziwill, Joni Teravainen, Xuancheng Shao, and Terence Tao",
+      "url": "https://arxiv.org/abs/2411.05770",
+      "relevance": "Logarithmic control outside exceptional intervals with a sieve approximant center; wrong quantifier and completion for R71."
+    },
+    {
+      "id": "arXiv:2607.24311",
+      "title": "Bilinear forms with Kloosterman sums via quadratic characters",
+      "authors": "Valentin Blomer and Alexandru Pascadi",
+      "url": "https://arxiv.org/abs/2607.24311",
+      "relevance": "Critical short native boxes gain c^(-1/32); the exact R71 support has not been serialized into those boxes without losing completion."
+    },
+    {
+      "id": "arXiv:2511.08445",
+      "title": "Non-abelian amplification and bilinear forms with Kloosterman sums",
+      "author": "Alexandru Pascadi",
+      "url": "https://arxiv.org/abs/2511.08445",
+      "relevance": "Composite-modulus packet cancellation; no continuous/residue completion or R71 all-sector theorem."
+    },
+    {
+      "id": "DOI:10.1112/jlms/s2-8.1.73",
+      "title": "Hilbert's inequality",
+      "authors": "Hugh Montgomery and Robert Vaughan",
+      "url": "https://doi.org/10.1112/jlms/s2-8.1.73",
+      "relevance": "Coefficient-blind mean value leaves the X term and reaches only X^(1+o(1)) at the R71 scale."
+    }
+  ],
+  "withdrawn_or_inadmissible_alerts": [
+    {
+      "id": "arXiv:2601.00292",
+      "status": "withdrawn for a missing L2 factor",
+      "url": "https://arxiv.org/abs/2601.00292"
+    },
+    {
+      "id": "arXiv:2605.29470",
+      "status": "withdrawn for an important miscalculation",
+      "url": "https://arxiv.org/abs/2605.29470"
+    }
+  ],
+  "verdict": "NO_LOCATED_PRIMARY_THEOREM_PRESERVES_THE_COMPLETE_R71_SOURCE_CENTER_CROSS_TERMS_ALL_SECTORS_EVERY_WINDOW_AND_FIXED_POWER",
+  "novelty_classification": "LOCAL_PREDECESSOR_PLUS_IMPORTED_CLASSICAL_FOURIER_LOCALIZATION_AND_SHARPENED_PROJECT_SYNTHESIS; THE PROPOSED COMPLETED_PROJECTOR_COUPLED_DISPERSION THEOREM IS OPEN AND NOVELTY_UNRESOLVED",
+  "caveat": "Failure to locate an indexed public match is not proof of literature-level novelty."
+}

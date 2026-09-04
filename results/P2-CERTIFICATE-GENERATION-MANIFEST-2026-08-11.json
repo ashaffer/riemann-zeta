@@ -1,0 +1,338 @@
+{
+  "schema_version": 1,
+  "manifest_kind": "canonical-p2-exact-rational-generation-snapshot",
+  "snapshot_at_utc": "2026-08-11T20:23:53Z",
+  "repository_commit": "4ad72dca0c1b63defa2657afd153ddfe4e01ce5e",
+  "scope_note": "The listed generator inputs, generated p=2 sources, runner, and Lean configuration files were clean relative to the recorded commit. Unrelated worktree changes are outside this manifest.",
+  "hash_algorithm": {
+    "file_sha256": "SHA-256 of raw file bytes",
+    "canonical_path_label": "lean/rhbridge/RHBridge/<basename>, including when a replay is generated in a scratch directory",
+    "path_set_sha256": "SHA-256 of sorted UTF-8 canonical path labels, each followed by LF",
+    "content_manifest_sha256": "SHA-256 of sorted UTF-8 lines '<raw-file-sha256><two spaces><canonical path label><LF>'"
+  },
+  "generator": {
+    "path": "lean/make_p2_panel_certificate.py",
+    "arithmetic": "Exact fractions and python-flint fmpq/fmpq_poly; no numerical quadrature",
+    "dimensions": {
+      "modes": 48,
+      "parity_block_dimension": 24,
+      "panels": 32,
+      "upper_triangular_entries_per_parity": 300,
+      "entries": 600,
+      "panel_entry_refinements": 19200,
+      "prefix_terms": 64,
+      "geometric_terms": 32,
+      "spherical_terms": 100
+    },
+    "direct_external_inputs": [
+      "lean/weilcert/FullInfClipped48.lean",
+      "lean/rhbridge/RHBridge/P2ScaleCenters.lean"
+    ],
+    "phase_dependency": "Phase 2 reads the phase-1 P2PanelCertificateData.lean and P2RoundedPanelTargetData0..31.lean from its output directory.",
+    "determinism_controls": [
+      "Use --workers 1",
+      "Do not pass --round-local-polynomials",
+      "Set LC_ALL=C, TZ=UTC, and PYTHONHASHSEED=0",
+      "Use the exact Python/python-flint/FLINT versions recorded below"
+    ]
+  },
+  "environment_observed": {
+    "platform": "Linux 6.17.0-35-generic x86_64, glibc 2.39",
+    "python": "3.12.3",
+    "python_flint": "0.9.0",
+    "flint": "3.6.0",
+    "flint_context_threads": 1,
+    "lean": "4.32.1",
+    "lean_commit": "f054605aea4b840552cca2e725580bffd1e1b704",
+    "lake": "5.0.0-src+f054605",
+    "mathlib_revision": "520045ab14e26149ee970e2e617ca04b09bde5d6"
+  },
+  "provenance_files": [
+    {
+      "role": "python_dependency_bounds",
+      "path": "requirements.txt",
+      "bytes": 98,
+      "sha256": "d2e8c1a2e91ac8717bca7f12325a3ad3164fd9e3e684f818b1cc5dddc48edd36"
+    },
+    {
+      "role": "generator",
+      "path": "lean/make_p2_panel_certificate.py",
+      "bytes": 130268,
+      "sha256": "e3b1dcd5c509abdeaab0d82e19e117c6b14011bc80b1d5b7496738abc16bb327"
+    },
+    {
+      "role": "generator_direct_input",
+      "path": "lean/weilcert/FullInfClipped48.lean",
+      "bytes": 3386094,
+      "sha256": "3d259bf5f7a432c0f3eb2c0dc52edd0692b56ab1d4c81cc579a3fe03ff99bee3"
+    },
+    {
+      "role": "generator_direct_input",
+      "path": "lean/rhbridge/RHBridge/P2ScaleCenters.lean",
+      "bytes": 3825,
+      "sha256": "b0d1bed2eb5b163dadf7ece39a04ceed42fa27a96ba66c967bcd917a0f0d7dea"
+    },
+    {
+      "role": "serialized_kernel_runner",
+      "path": "lean/run_p2_kernel_checks.py",
+      "bytes": 50454,
+      "sha256": "31197c0b76b9f7b0d73184bceb1e1e49dced538a1f715690264f9cb9f61652a9"
+    },
+    {
+      "role": "glide_toolchain",
+      "path": "lean/glide/lean-toolchain",
+      "bytes": 25,
+      "sha256": "8e3538e0ab5f81a3ee04927d8838c8c674e0e112838b4b3ce87ec218143276af"
+    },
+    {
+      "role": "glide_lakefile",
+      "path": "lean/glide/lakefile.toml",
+      "bytes": 367,
+      "sha256": "1ffd1eecffd068c78500e4b59da5751f7f0f3b31214979f637162232bd17c556"
+    },
+    {
+      "role": "glide_manifest",
+      "path": "lean/glide/lake-manifest.json",
+      "bytes": 3142,
+      "sha256": "61520207137bd950251a348dade54153e3352dc9bc00fd64d78660e8cd6dee09"
+    },
+    {
+      "role": "weilcert_toolchain",
+      "path": "lean/weilcert/lean-toolchain",
+      "bytes": 25,
+      "sha256": "8e3538e0ab5f81a3ee04927d8838c8c674e0e112838b4b3ce87ec218143276af"
+    },
+    {
+      "role": "weilcert_lakefile",
+      "path": "lean/weilcert/lakefile.toml",
+      "bytes": 2744,
+      "sha256": "7051a36c864b107ac609031beea7e83f694fe7795c1aaf3d2f8fa2501b6e06aa"
+    },
+    {
+      "role": "weilcert_manifest",
+      "path": "lean/weilcert/lake-manifest.json",
+      "bytes": 3142,
+      "sha256": "61520207137bd950251a348dade54153e3352dc9bc00fd64d78660e8cd6dee09"
+    },
+    {
+      "role": "rhbridge_toolchain",
+      "path": "lean/rhbridge/lean-toolchain",
+      "bytes": 25,
+      "sha256": "8e3538e0ab5f81a3ee04927d8838c8c674e0e112838b4b3ce87ec218143276af"
+    },
+    {
+      "role": "rhbridge_lakefile",
+      "path": "lean/rhbridge/lakefile.toml",
+      "bytes": 367,
+      "sha256": "2810d3d2207fec45860eeeceb5c9be394ce5e65200b690d0c883c876df00f4e3"
+    },
+    {
+      "role": "rhbridge_manifest",
+      "path": "lean/rhbridge/lake-manifest.json",
+      "bytes": 3499,
+      "sha256": "128718e055e2cc0359b2ee92780cc18328b99faa050afcdd86bc48283d5f7db3"
+    },
+    {
+      "role": "generated_semantic_root",
+      "path": "lean/rhbridge/RHBridge/P2RoundedBoundedCertificateCheck.lean",
+      "bytes": 14011,
+      "sha256": "9d791e033e946626273d0f255d052f7f65e2338d475393b586f8f41eccc8ead1"
+    },
+    {
+      "role": "axiom_audit_root",
+      "path": "lean/rhbridge/RHBridge/P2RoundedBoundedCertificateAudit.lean",
+      "bytes": 372,
+      "sha256": "725c13860ba352fb3f82a260bbd447dc7e0b02e1bd8de7896377f41fb11dfc9a"
+    }
+  ],
+  "replay": {
+    "working_directory": "repository root",
+    "output_policy": "Generate into a new scratch directory and verify there; do not overwrite checked-in Lean sources during replay.",
+    "phase_1_argv": [
+      "python3",
+      "-u",
+      "lean/make_p2_panel_certificate.py",
+      "--workers",
+      "1",
+      "--emit-pole-lean",
+      "<scratch>/P2PoleCoefficientCertificateData.lean",
+      "--emit-pole-checks",
+      "<scratch>",
+      "--emit-lean",
+      "<scratch>/P2PanelCertificateData.lean",
+      "--emit-rounded-panel-targets",
+      "<scratch>"
+    ],
+    "phase_2_argv": [
+      "python3",
+      "-u",
+      "lean/make_p2_panel_certificate.py",
+      "--workers",
+      "1",
+      "--emit-rounded-factor-checkpoints",
+      "<scratch>",
+      "--emit-rounded-flat-factor-checkpoints",
+      "<scratch>",
+      "--flat-panel-count",
+      "32",
+      "--emit-rounded-moment-checkpoints",
+      "<scratch>",
+      "--all-moment-panels",
+      "--factors-only"
+    ],
+    "verification_argv": [
+      "python3",
+      "results/verify_p2_generation_manifest.py",
+      "--source-dir",
+      "<scratch>"
+    ],
+    "regeneration_status_for_this_snapshot": "not rerun; commands reconstructed directly from the current generator control flow and output families"
+  },
+  "expected_output": {
+    "canonical_directory": "lean/rhbridge/RHBridge",
+    "classification": {
+      "emitter_owned_sources": 4605,
+      "generated_data_or_table_modules": 134,
+      "generated_proof_check_or_umbrella_modules": 4471,
+      "per_panel_heavy_reduction_leaves": 4288,
+      "pole_and_spherical_outer_reduction_leaves": 20,
+      "all_heavy_reduction_leaves": 4308,
+      "proof_helpers_and_semantic_aggregates": 163
+    },
+    "groups": [
+      {
+        "name": "pole",
+        "filename_regex": "P2PoleCoefficientCertificate(?:Data|Check[0-9]+)?[.]lean",
+        "count": 10,
+        "bytes": 26501,
+        "path_set_sha256": "1aae0ce425a5fb10fe2c0f88e68482faecb749abdc3e2592b9fa6278adbd8015",
+        "content_manifest_sha256": "327bb6eaf3c24c57dadfa8005a4da488b3e5465eb7c211249822f7f28cae066a"
+      },
+      {
+        "name": "compact_center",
+        "filename_regex": "P2PanelCertificateData[.]lean",
+        "count": 1,
+        "bytes": 56073,
+        "path_set_sha256": "d8e6a5344dfc2f502d6e577c6ef5d0ac761e56e74a424071798648a38b8e71d5",
+        "content_manifest_sha256": "eed5d50b08f4ac3ae1ec29ac536d594f1bca2077eff52ed3fa1c2171bc0e3077"
+      },
+      {
+        "name": "panel_targets",
+        "filename_regex": "P2RoundedPanelTargetData(?:[0-9]+|All)?[.]lean",
+        "count": 34,
+        "bytes": 452779,
+        "path_set_sha256": "95514da90cb985bd7776fc9fb23809dc7f629e27178e445c35206c3e02c45ba1",
+        "content_manifest_sha256": "4c2e8a3a7a70ebd47c484645f9cac7ae82a4be5c7c26558afabcda77116e7092"
+      },
+      {
+        "name": "factor",
+        "filename_regex": "(?:P2RoundedFactorCheckpointData(?:[0-9]+)?|P2RoundedSphericalOuter(?:Data|Check[0-9]+)?|P2RoundedFactorCheckpointCheck[0-9]+_[0-9]+|P2RoundedFactorCheckpoint[0-9]+)[.]lean",
+        "count": 623,
+        "bytes": 2754000,
+        "path_set_sha256": "24da88dd6513621459b5640f05860ff2c7ddb7d807bcb883cd3a79de333581a3",
+        "content_manifest_sha256": "92cf302ac2b837845fc06cbf20e6281a361ca0872ef9d2460e211351baa7e83a"
+      },
+      {
+        "name": "flat_factor",
+        "filename_regex": "P2RoundedFlatFactorCheckpoint(?:Data[0-9]+|Check[0-9]+_(?:defect|[0-9]+)|[0-9]+)[.]lean",
+        "count": 1632,
+        "bytes": 1910228,
+        "path_set_sha256": "8dff3da21ef893ba97b80560be03ed67c5e0c3372f2bb357857c6b220455200c",
+        "content_manifest_sha256": "12561d242191fe109a248b77ec30cb1505f651e2f7d45b49c9ce34566757339b"
+      },
+      {
+        "name": "moment_refinement",
+        "filename_regex": "(?:P2RoundedMomentCheckpointData[0-9]+|P2RoundedMomentLengths[0-9]+|P2RoundedMomentCheckpointCheck[0-9]+_(?:moments|mode[0-9]+)|P2RoundedMomentCorrect[0-9]+|P2RoundedMomentRefinementCheck[0-9]+_[0-9]+|P2RoundedMomentRefinement[0-9]+|P2RoundedBoundedCertificateCheck)[.]lean",
+        "count": 2305,
+        "bytes": 51849859,
+        "path_set_sha256": "32a8a605cb15f042779d3472347340ce49503002bf867b3b9f2431f29078504d",
+        "content_manifest_sha256": "4af3f796db69fcff68dc5e21bbaebd39b0689f1d4a035e99b94f60d1c22def07"
+      }
+    ],
+    "aggregate": {
+      "count": 4605,
+      "bytes": 57049440,
+      "path_set_sha256": "97a14fde065f9ae438c7d7236ef763446b435e75a25a7305638122b9c25bb03e",
+      "content_manifest_sha256": "53b078f3471bdda4ff8414ff436efa9c139aa366a08ada9053eb06184c452572"
+    }
+  },
+  "lean_rebuild": {
+    "runner": {
+      "schema_version": 1,
+      "dependency_fingerprint_version": 1,
+      "default_leaf_timeout_seconds": 1800,
+      "required_jobs": 1,
+      "maximum_supported_jobs": 2,
+      "required_policy_for_this_tree": "Use one job. Do not use the supported two-job mode for the p=2 closure on this host.",
+      "fingerprint_scope": "Selected source, all locally resolvable transitive source imports, unresolved external module names, and lean-toolchain/lakefile.toml/lake-manifest.json in rhbridge, glide, and weilcert.",
+      "timing_backend": "GNU /usr/bin/time -v under GNU /usr/bin/timeout"
+    },
+    "resource_constraints": {
+      "minimum_starting_mem_available_gib": 20,
+      "concurrent_lean_or_lake_processes": 0,
+      "lean_num_threads": 1,
+      "openblas_num_threads": 1,
+      "omp_num_threads": 1,
+      "mkl_num_threads": 1,
+      "numexpr_num_threads": 1,
+      "reason": "A measured generated leaf reached about 16 GB RSS and the reported final panel-31 closure reached 16,070,696 kB RSS."
+    },
+    "cache": {
+      "location": "lean/{glide,weilcert,rhbridge}/.lake/build",
+      "cacheable": true,
+      "archive_created": false,
+      "rhbridge_build_bytes_observed": 28680251284,
+      "provenance_manifest": "results/LEAN-PUBLICATION-CACHE-MANIFEST-2026-08-11.json"
+    },
+    "historical_runner_log_observed": {
+      "path": "lean/p2-kernel-check-state/checks.jsonl",
+      "coverage_utc": "2026-07-28T20:43:18.491838Z through 2026-07-30T18:43:06.832884Z",
+      "records": 6086,
+      "successes": 6078,
+      "failures_including_retried_attempts": 8,
+      "unique_sources": 4496,
+      "maximum_rss_record": {
+        "source": "RHBridge/P2RoundedMomentCheckpointCheck31_mode15.lean",
+        "max_rss_kb": 16039244,
+        "wall_seconds": 120.634644,
+        "status": "success"
+      },
+      "interpretation": "Append-only historical attempts, not a statement that every record remains current under today's dependency fingerprints."
+    },
+    "post_audit_rebuild_reported": {
+      "source": "results/RESEARCH-AUDIT-AND-PUBLICATION-ASSESSMENT-2026-08-10.md, section 8.4",
+      "dates": "2026-08-10 and 2026-08-11",
+      "stale_generated_heavy_leaves_rebuilt_successfully": 4149,
+      "per_panel_leaf_family_total": 4288,
+      "already_current_per_panel_leaves": 139,
+      "final_panel_31_elapsed": "1:54:08",
+      "final_panel_31_max_rss_kb": 16070696,
+      "monitored_process_swaps": 0,
+      "status": "reported observed evidence; not rerun while creating this manifest"
+    },
+    "no_build_gate_reported": {
+      "source": "results/LEAN-PUBLICATION-CACHE-MANIFEST-2026-08-11.json",
+      "command_mode": "lake --rehash --no-build",
+      "glide_jobs": 3040,
+      "weilcert_jobs": 2945,
+      "rhbridge_jobs": 13415,
+      "exit_code": 0,
+      "result": "All targets up-to-date",
+      "status": "reported observed evidence; not rerun while creating this generation manifest",
+      "count_caveat": "The earlier narrative report says 13,414 RHBridge jobs, while the later cache manifest says 13,415. Treat job count as target-graph metadata, not a source-module invariant."
+    }
+  },
+  "current_validation": {
+    "checked_in_source_inventory": {
+      "command": "python3 results/verify_p2_generation_manifest.py",
+      "exit_code": 0,
+      "status": "ok",
+      "files": 4605,
+      "bytes": 57049440,
+      "mismatches": 0
+    },
+    "full_python_flint_regeneration": "not run",
+    "lean_compilation": "not run",
+    "lake_no_build_gate": "not run"
+  }
+}

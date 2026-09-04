@@ -1,0 +1,76 @@
+{
+  "v": 1,
+  "date": "2026-08-13",
+  "goal": "Prove exists delta>0 such that zeta(s) has no zero with Re(s)>1-delta.",
+  "status": "OPEN: no strip and no improved zero region proved.",
+  "core": "On one candidate-adapted state prove completed_adverse_debt/retained_carrier<1 uniformly.",
+  "thresholds": {
+    "strip_probe": "alpha=.49,d=.66 => beta<.99 target",
+    "pick_reserve_X": 0.025391255,
+    "pick_legacy_E0_X": 0.0119000134,
+    "prime_extremal_kappa_Y_max": 0.0180303234,
+    "aperture": "B=Y^(50/33+o(1))<Y^2"
+  },
+  "laws": [
+    "SCALAR: linear matrix/quantum/character lifts descend to the scalar Wiener cost.",
+    "CONDUCTOR: degree k uses length Y^k; k=2 is outside the audited aperture.",
+    "PRINCIPAL: centering/high-pass/variance moves but does not remove the Mertens mode.",
+    "SMOOTH: positive phase-space smoothing pays sigma_p*sigma_T>=1 and adds common carrier.",
+    "PARTITION: charged local FFT compilation pays sum sqrt(M_j)>=sqrt(M); not a global lower bound.",
+    "RELDET: common DPP determinants cancel; directional q*G^-1q remains.",
+    "NONID: a symmetric remote-prime factor preserves every finite Lambda head while inserting a quartet.",
+    "RELATIVE: estimate Schur/Turan/outer-inner/full remainder, never the two large pieces separately."
+  ],
+  "proved": [
+    "Prime atomic extremal E^2=max weighted Schur complement; optimal real-cosine design support <=M+1.",
+    "DPP/SUSY explicit mixtures collapse to directional leverage.",
+    "Full theta h_T is a Wigner slice; exact Husimi smoothed radial monotonicity holds.",
+    "Theta S2 positivity and all fractional tails 1<nu<2 are false; S2 one-crossing is Arb-false (+,-,+ at T=152.7).",
+    "Polar theta remainder R=e^u theta(e^(4u))-2cosh(u) is strictly negative; r=-R=8 exp(-|.|)*Phi.",
+    "Full B_P Poisson completion is +bulk-axis-axis+corner; finite/primal-dual orbit Gram proofs fail.",
+    "Finite-head machine SOS cannot encode a candidate; prime-separable Fejer lower envelopes are negative.",
+    "Actual-node low/high carrier numerics fit square-root/random-polytope cancellation, not subpower."
+  ],
+  "closed": [
+    "Generic Hahn-tail sign, FE/order/Herglotz-only sign, harmonic nonnegative amplification.",
+    "Generic matrix/quantum/QSP/linear adelic ancillas and common determinant estimates.",
+    "Tensor moments, Riesz/Gram amplification, local warped FFT, chirp bolt-ons beyond their scoped classes.",
+    "Finite-head PSD learning, prime-separable SOS, generic Wigner/LP/HB positivity.",
+    "Ordinary density/universality/Speiser counts that tolerate one zero or lose winding/principal jet.",
+    "Mertens/Nyman/tau-Li/HB rewrites without a new coefficient estimate: they are strip-strength criteria."
+  ],
+  "live": {
+    "P": "Actual-prime carrier extremal: prove E_Y>=Y^(-kappa), kappa<.0180303234, or kill by E_Y<=Y^(-c), c>.0180303234.",
+    "T": "Actual full-theta B_P positive definite for every P; simple orbit Gram and S2 one-crossing are dead, infinite global mixing remains.",
+    "H": "At a hypothetical outer zero prove coefficient-specific Husimi reverse localization with exact exp(-4s^2 alpha eta) cost.",
+    "A": "Build a candidate-conditioned certificate carrying the exact nonlocal AFE/completion remainder."
+  },
+  "hypotheses": [
+    ["H1","prime harmonic antenna","OPEN-KILL","full-aperture actual-prime dual power bound"],
+    ["H2","modular theta third tail","OPEN-PROMOTE","B_P PD; one-crossing subroute CLOSED"],
+    ["H3","microlocal Husimi reverse","OPEN-PROMOTE","candidate-specific relative localization only"],
+    ["H4","AFE integrable Loewner","OPEN-NARROW","full-tail relative factorization only"],
+    ["H5","adelic directional capacity","OPEN-NARROW","multiplicatively coupled carrier Schur law only"],
+    ["H6","principal-channel transfer gap","OPEN-NARROW","must act on parabolic cusp channel"],
+    ["H7","winding-preserving replication","OPEN-NARROW","must transport principal value and winding"],
+    ["H8","tau-Li tropical degree coupling","OPEN-NARROW","actual cross-degree sign law only"],
+    ["H9","quantitative per-zero Speiser tree","OPEN-NARROW","depth-local Euler/gamma map only"],
+    ["H10","AFE-coupled Lee-Yang stability","OPEN-NARROW","complete dual tail and common-height coupling required"]
+  ],
+  "do_not_repeat": [
+    "More unstructured scaling numerics.",
+    "A named transform without the retained-carrier norm.",
+    "A finite coefficient head with a candidate label.",
+    "An average/density theorem which permits one exception.",
+    "A determinant, tensor, or positive smoothing before writing its relative quotient and conductor."
+  ],
+  "artifacts": {
+    "kernel": "results/ZETA23-DISTILLED-RESEARCH-KERNEL-AND-FRONTIER-2026-08-13.md",
+    "hyp10": "results/ZETA23-TEN-ORTHOGONAL-LONG-TAIL-HYPOTHESES-2026-08-13.md",
+    "synth": "results/ZETA23-OFF-WALL-IDEA-SYNTHESIS-AND-EXPERIMENT-QUEUE-2026-08-13.md",
+    "theta": "results/ZETA23-THETA-BP-POISSON-CROSS-ORBIT-AND-S2-TWO-CROSSING-GATE-2026-08-13.md",
+    "design": "results/ZETA23-ACTUAL-NODE-ADVERSARIAL-DESIGN-ASYMPTOTIC-AUDIT-2026-08-13.md",
+    "husimi": "results/ZETA23-WIGNER-HUSIMI-ANTI-WICK-THIN-DISPLACEMENT-GATE-2026-08-13.md",
+    "machine": "results/ZETA23-CENTERED-ONE-SQUARE-MACHINE-SOS-OVERFIT-CARD-2026-08-13.md"
+  }
+}

@@ -1,0 +1,63 @@
+{
+  "schema": "zeta23-pole-killing-correction-revalidation-v1",
+  "date": "2026-09-01",
+  "global_status": {
+    "uniform_zero_free_strip": "OPEN",
+    "RH": "OPEN",
+    "fixed_strip_to_RH_amplifier": "ABSENT",
+    "QP_Turan_first_open_edges": [
+      "DPA_P(.019)",
+      "LTRAD_P(.0189,.001)"
+    ],
+    "Weil_first_open_edge": "zeta-specific adjacent-support propagation"
+  },
+  "corrected_claims": {
+    "uniform_symbol_no_gain": "PROJECT_PROVED_POINTWISE_FOR_FIXED_OFFSET",
+    "endpoint_flat_classification": "PROJECT_PROVED_WITH_INVERSE_TAX_ONLY_IF_RECONSTRUCTING",
+    "compact_edge_calculus": "PROJECT_PROVED_IN_FIXED_SECTORS_AND_FIXED_X_WITH_TAIL_AND_ENDPOINT_HYPOTHESES",
+    "Volterra_identifiability": "PROJECT_PROVED_LOCALLY_NEAR_NONZERO_DIAGONAL",
+    "finite_dimensional_germ_calculus": "PROJECT_PROVED_FOR_FIXED_FILTERS_WITH_STATED_REMAINDER_HYPOTHESES",
+    "one_center_germ_to_vertical_strip": "INVALID_ADAPTER_WITHOUT_GLOBAL_OR_TRANSLATED_PROPAGATION",
+    "Landau_adapter": "CONDITIONAL_ON_FIXED_EPSILON_ONE_JORDAN_PART_WITH_SUBCRITICAL_UNIT_BLOCK_ABSCISSA_FINITE_INITIAL_ABSCISSA_REAL_AXIS_REGULARITY_AND_NONCANCELLATION"
+  },
+  "route_status": {
+    "endpoint_normalized_rational": {
+      "status": "VALID_CRITERION_PREMISE_OPEN",
+      "first_open_edge": "subcritical fixed-sign unit-block Jordan mass"
+    },
+    "endpoint_flat_rational": {
+      "status": "VALID_EXACT_STRIP_SPECTROMETER_NO_EXPONENT_GAIN_PROVED",
+      "first_open_edge": "subcritical fixed-sign unit-block Jordan mass",
+      "followup_theorem": "For the consecutive-rate beta/Riesz family, both fixed-sign Jordan-part exponents equal Theta, the rightmost-zero abscissa."
+    },
+    "compact_far_edge": {
+      "status": "VALID_DIRECT_LANDAU_CRITERION_AND_FIXED_X_DIAGNOSTIC",
+      "direct_and_requirements": [
+        "subcritical fixed-sign unit-block Jordan mass",
+        "multiplier noncancellation or jointly coprime family"
+      ],
+      "far_edge_upstream_program": "uniform vertical/Stokes two-edge arithmetic control, with Tauberian stability only if recovering the discrepancy; not yet a typed first-open lemma"
+    },
+    "complete_germ": {
+      "status": "INFORMATION_THEORETIC_ONLY_AT_ONE_CENTER",
+      "upstream_program": "height-uniform translated-germ or global continuation control; not yet a typed first-open lemma"
+    }
+  },
+  "decisive_countermodels": [
+    "narrow moving endpoint spikes",
+    "all-moment alternating superpolynomial plateaus with fixed-epsilon exponential amplification",
+    "flat diagonal oscillatory mode with eventual fixed-epsilon growth",
+    "compact multiplier with explicit target-region complex zeros",
+    "positive rapidly oscillating tail primitive whose derivative loses sign and exponential rate",
+    "high vertical pole invisible to every fixed finite or coefficientwise-limited one-center Laurent data set"
+  ],
+  "decision_change": "Retire the global fixed-filter no-go. Replace the pointwise envelope by the minimal fixed-sign Jordan-mass premise. For the consecutive-rate endpoint-flat beta/Riesz family, both Jordan exponents equal Theta, so an exponent saving is exactly strip-strength and no priority upgrade is licensed. Compact direct criteria require Jordan-mass control AND multiplier coverage; the far-edge construction remains only an upstream program. Within the arithmetic-response socket, the clearest continuation is a zeta-specific adaptive-mask inequality; zero-side and complex-analytic mechanisms remain separate possibilities. No strip or RH dependency edge has been discharged.",
+  "execution_followup": "results/ZETA23-ENDPOINT-FLAT-JORDAN-MASS-AND-RIESZ-VARIATION-GATE-2026-09-01.md",
+  "replay": {
+    "python_tests": 52,
+    "endpoint_flat_new_tests": 9,
+    "combined_python_tests": 61,
+    "lean_module": "RHBridge.HigherPoleKillingFilters",
+    "lean_status": "PASS_WITH_STANDARD_AXIOMS_ONLY"
+  }
+}

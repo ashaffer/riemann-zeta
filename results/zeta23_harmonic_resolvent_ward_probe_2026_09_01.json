@@ -1,0 +1,140 @@
+{
+  "schema": "zeta23.harmonic-resolvent-ward-probe.v1",
+  "date": "2026-09-01",
+  "status": "HIGH_PRECISION_FINITE_DIAGNOSTIC_NOT_INTERVAL_CERTIFIED",
+  "old_support": "2*log(5)",
+  "project_support_convention": "L=4a",
+  "reference_multiplier": "1 + 0.5*log(1+4*t^2)",
+  "geometry": "literal disjoint P1 collar hats on both sides",
+  "driver": "src/harmonic_schur_collar_probe.py",
+  "main_statistics": {
+    "K_ref": "log(e/delta)*lambda_max(J^*GJ,S)",
+    "K_diagonal": "log(e/delta)*max(0,1-lambda_min(D_tilde,S))",
+    "K_response": "log(e/delta)*lambda_max(X_tilde^*A^-1*X_tilde,S)",
+    "Ward_ratio": "lambda_max(X_tilde^*A^-1*X_tilde,J^*GJ)"
+  },
+  "resolution_matched_q1": [
+    {
+      "M": 32,
+      "q_each_side": 1,
+      "delta": "0.4",
+      "old_ritz_floor": "2.24008475566418767e-6",
+      "K_ref": "0.446543411770918975",
+      "K_diagonal": "1.48946283139818558",
+      "K_response": "0.425259086073506569",
+      "schur_min_over_S": "0.0433936745358870792"
+    },
+    {
+      "M": 40,
+      "q_each_side": 1,
+      "delta": "0.32",
+      "old_to_collar_mesh_ratio": "0.981364580752500228",
+      "old_ritz_floor": "8.87812564974271765e-7",
+      "K_ref": "0.473627487516490551",
+      "K_diagonal": "1.582220327673501",
+      "K_response": "0.50178816937402005",
+      "Ward_ratio": "1.05945744831068111",
+      "schur_min_over_S": "0.0498133014137827911"
+    },
+    {
+      "M": 60,
+      "q_each_side": 1,
+      "delta": "0.21",
+      "old_ritz_floor": "2.39867218082450405e-7",
+      "K_ref": "0.517344586316557465",
+      "K_diagonal": "1.73649993697768764",
+      "K_response": "0.450795229724576889",
+      "schur_min_over_S": "0.147693601554180531"
+    },
+    {
+      "M": 80,
+      "q_each_side": 1,
+      "delta": "0.16",
+      "old_ritz_floor": "8.9182035949378363e-8",
+      "K_ref": "0.541572327611440389",
+      "K_diagonal": "1.84284438727507171",
+      "K_response": "0.51980066835300424",
+      "schur_min_over_S": "0.172710868591429691"
+    },
+    {
+      "M": 128,
+      "q_each_side": 1,
+      "delta": "0.1",
+      "old_ritz_floor": "1.32981716226995744e-8",
+      "K_ref": "0.577434072572923932",
+      "K_diagonal": "2.00513228429124149",
+      "K_response": "0.522248851717239028",
+      "schur_min_over_S": "0.23472641435645298"
+    }
+  ],
+  "resolution_matched_collar_refinement_delta_0_4": [
+    {
+      "M": 32,
+      "q_each_side": 1,
+      "K_ref": "0.446543411770918975",
+      "K_diagonal": "1.48946283139818558",
+      "K_response": "0.425259086073506569",
+      "old_band_statistic": "6.32851330035765797"
+    },
+    {
+      "M": 48,
+      "q_each_side": 2,
+      "old_to_collar_mesh_ratio": "0.985370150469857372",
+      "K_ref": "0.457566455157150799",
+      "K_diagonal": "1.51668700357623196",
+      "K_response": "0.466514399912697683",
+      "Ward_ratio": "1.03801810071935492",
+      "old_band_statistic": "10.6338270160783075"
+    },
+    {
+      "M": 80,
+      "q_each_side": 4,
+      "K_ref": "0.470218416109325502",
+      "K_diagonal": "1.54401504757636314",
+      "K_response": "0.495151288188223234",
+      "old_band_statistic": "28.5642764718906688"
+    }
+  ],
+  "resolution_matched_q2_width_refinement": [
+    {
+      "M": 48,
+      "q_each_side": 2,
+      "delta": "0.4",
+      "Ward_ratio": "1.03801810071935492",
+      "K_ref": "0.457566455157150799",
+      "K_diagonal": "1.51668700357623196",
+      "K_response": "0.466514399912697683"
+    },
+    {
+      "M": 96,
+      "q_each_side": 2,
+      "delta": "0.2",
+      "old_to_collar_mesh_ratio": "0.995528605629340438",
+      "old_ritz_floor": "4.4078086238089695e-8",
+      "Ward_ratio": "1.14708267048081244",
+      "K_ref": "0.532623191229677169",
+      "K_diagonal": "1.78237544324564991",
+      "K_response": "0.596048221589361397",
+      "schur_min_over_S": "0.0897105682139598293"
+    }
+  ],
+  "strongest_identity_replay": {
+    "case": "M=96,q=2,delta=0.2,dps=53",
+    "L2_cross_after_orthogonalization_max_abs": "0",
+    "harmonic_cross_after_lift_max_abs": "0",
+    "residual_cross_identity_max_abs": "9.05567907882671237e-72",
+    "residual_diagonal_identity_max_abs": "7.24454326306136989e-71",
+    "inverse_spectral_identity_max_abs": "4.5089096697361968e-50"
+  },
+  "interpretation": {
+    "supported": "The aggregate norm-resolvent plus harmonic residual Ward factorization is credible at finite resolution.",
+    "retired_as_default": "The extra dyadic (m+1)^-2 allocation is unjustified and numerically unstable under collar refinement.",
+    "not_established": [
+      "continuum NR_log",
+      "continuum harmonic residual Ward inequality",
+      "uniform propagation",
+      "uniform zero-free strip",
+      "Riemann hypothesis"
+    ]
+  }
+}

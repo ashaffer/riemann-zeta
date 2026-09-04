@@ -1,0 +1,83 @@
+{
+  "schema": "zeta23.chuk_local_window_scout.v1",
+  "date": "2026-09-01",
+  "evidence_label": "FLOATING_POINT_DIAGNOSTIC",
+  "trust_warning": "The tables are float64 diagnostics. The S=110 sign was subsequently upgraded by a separate 192-bit Arb evaluation of one exact-decimal witness.",
+  "replay": "OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python3 src/chuk_local_window_scout.py --json",
+  "normalization": {
+    "physical_half_width": 0.8,
+    "L_program": 3.2,
+    "active_prime_powers": [2, 3, 4],
+    "prime_amplitude": 2.9419735252236205,
+    "alpha_150": 0.22411803579662282,
+    "alpha_200": 0.5134667749150705
+  },
+  "s110_alpha_029": {
+    "verdict": "RIGOROUS METHOD FALSIFIER: an exact-decimal even Rayleigh witness is negative by a 192-bit Arb enclosure",
+    "basis": "normalized even Legendre degrees 0,2,...,78",
+    "witness_sha256": "533522c8cb10f45e238ce51f3b00c66639c7bf7f61aff6dfecc591cf01a12ea0",
+    "arb_witness_replay": {
+      "command": "OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 PYTHONPATH=src python3 src/chuk_scalar_arb_replay.py --cutoff 110 --alpha-num 29 --alpha-den 100",
+      "exact_decimal_witness_sha256": "7e08e5f8cb46dda10b0525c1f66e4d0cd5e0de33244450b39a21dc6b8442ca78",
+      "rayleigh_ball": "[-4.18249538843108387e-13 +/- 4.82e-31]",
+      "precision_bits": 192,
+      "integration_tolerance_bits": 105
+    },
+    "quadrature_convergence": [
+      {"nodes_per_panel": 16, "lambda_min": -4.1945679804414e-13, "fixed_witness_rayleigh": -4.1836394708294874e-13},
+      {"nodes_per_panel": 24, "lambda_min": -4.1705889623157724e-13, "fixed_witness_rayleigh": -4.168798504552367e-13},
+      {"nodes_per_panel": 32, "lambda_min": -4.1950937947735093e-13, "fixed_witness_rayleigh": -4.191677950248787e-13},
+      {"nodes_per_panel": 48, "lambda_min": -4.2074809585500316e-13, "fixed_witness_rayleigh": -4.209412103946857e-13},
+      {"nodes_per_panel": 64, "lambda_min": -4.2319631726455517e-13, "fixed_witness_rayleigh": -4.227925827670142e-13},
+      {"nodes_per_panel": 96, "lambda_min": -4.151993658689869e-13, "fixed_witness_rayleigh": -4.1567962869667666e-13}
+    ],
+    "dimension_scan_at_64_nodes_per_panel": [
+      {"degree_cutoff": 80, "even_modes": 40, "lambda_min": -4.2319631726455517e-13},
+      {"degree_cutoff": 100, "even_modes": 50, "lambda_min": -4.376329468479897e-13},
+      {"degree_cutoff": 144, "even_modes": 72, "lambda_min": -4.3817185311795856e-13},
+      {"degree_cutoff": 200, "even_modes": 100, "lambda_min": -4.3817185311795856e-13}
+    ],
+    "scope": "This rigorously rejects only the economical S=110, alpha=.29 clipping choice at a=.8. It does not reject Chuk's S=150 or S=200 reductions."
+  },
+  "chuk_head_degree_cutoff_80_at_64_nodes_per_panel": [
+    {
+      "cutoff": 130,
+      "alpha": 0.07999155113030865,
+      "even_lowest_three": [-2.6382490660570708e-12, -8.787801332044067e-15, 1.7449051055665858e-7],
+      "interpretation": "robustly negative first even mode"
+    },
+    {
+      "cutoff": 140,
+      "alpha": 0.1546489738334813,
+      "even_lowest_three": [3.4512337359139443e-15, 1.0401429699168963e-12, 2.5001442730880737e-7],
+      "interpretation": "first mode at float floor; sign unresolved"
+    },
+    {
+      "cutoff": 150,
+      "alpha": 0.22411803579662282,
+      "even_lowest_three": [-6.103610957685154e-16, 2.4646861210029755e-12, 2.9919450977923253e-7],
+      "odd_lowest_three": [8.239162023957047e-15, 1.767332076789852e-9, 4.55888692822034e-5],
+      "interpretation": "first mode at float floor; sign unresolved; higher spectrum positive"
+    },
+    {
+      "cutoff": 200,
+      "alpha": 0.5134667749150705,
+      "even_lowest_three": [-4.105891097434986e-15, 5.265035797769527e-12, 4.3615503111637024e-7],
+      "odd_lowest_three": [9.398410722687578e-15, 2.092396036086316e-9, 5.895386729203288e-5],
+      "interpretation": "first mode at float floor; sign unresolved; higher spectrum positive"
+    }
+  ],
+  "independent_unclipped_high_precision_replay": {
+    "command": "PYTHONPATH=src python3 with mp.mp.dps=100, exact L=mp.mpf(16)/5, spectral_form(...,dps=80), parity blocks",
+    "even_lambda_min": {
+      "m32": "5.74987438206268524534821130402e-16",
+      "m48": "1.74600039028045263105828125849e-17",
+      "m64": "1.70256809371385395175103870091e-17",
+      "m80": "1.67869524362901296052956558749e-17"
+    },
+    "m80_next_even": "8.442931289176678126e-12",
+    "m80_odd_minimum": "1.59346144163834648069312333992e-14",
+    "normalization_risk": "Constructing mp.mpf('3.2') before raising mp.mp.dps retained only default precision and changed the m80 ground value by order 1e-16. Construct L=16/5 after entering the high-precision context."
+  },
+  "theorem_status": "Chuk a=.8 positivity remains OPEN pending outward-rounded finite blocks and full-space tail/domain transfer."
+}

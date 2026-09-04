@@ -1,0 +1,32 @@
+{
+  "schema": "zeta23-research-postflight-v1",
+  "date": "2026-09-01",
+  "architecture": "weil",
+  "target": "Semilocal Hankel-to-Poisson bridge at the first p=5 support event",
+  "verdict": "EXACT_SIGNED_BRIDGE_DIRECT_POSITIVE_SQUARE_REFUTED_RELATIVE_BRANCH_OPEN",
+  "proved_or_derived": [
+    "The Connes--Consani product u_F=rho_infinity rho_2 rho_3 rho_5 has logarithmic derivative equal to the pole-free semilocal Weil multiplier in the repository Fourier convention.",
+    "The Weil pairing is the trace anomaly Tr(M_g(P-U_F^*PU_F)), with diagonal equal to the phase derivative divided by 2 pi; the projection difference is not itself the phase-derivative multiplier.",
+    "The Ward cross block equals this anomaly pairing plus the universal rank-two zeta pole form on the reference-harmonic lift.",
+    "A finite cyclic unitary collocation gives trace zero whenever the test multiplier commutes with U; this obstruction was formalized in Lean.",
+    "The full Hardy defect contains a positive compact c^*c block, two cross blocks, and a negative b^*b block. The b block is isometric on an infinite-dimensional Sonin channel, so one-sided quasi-inner compactness is not a positive square root for the two-sided Ward defect.",
+    "On ker ell_plus intersect ker ell_minus the zeta pole form vanishes exactly. A five-rung finite relative Ward diagnostic has ratios in [0.8977242809,1.0960282679] while the old relative floor drops by a factor about 62.4.",
+    "Direct Cayley/Jacobian quadrature reconstructs the M=40 relative Ward pairing, but separate hard-cutoff Hardy block traces fail to converge. The tested reverse block is order one; no continuum block attribution is licensed without a common Abel/heat or point-split regularization."
+  ],
+  "refuted": [
+    "Direct identification of the completed Ward defect with one compact Hankel square.",
+    "Use of an exactly unitary cyclic finite Fourier model to approximate the anomaly trace.",
+    "Identification of the Connes--Consani finite-rank origin-pole correction with the universal zeta pole form.",
+    "Inference of a floor-independent Ward bound from quasi-inner compactness alone.",
+    "Suppression of the infinite-dimensional reverse/Sonin channel by two moment conditions, reflection, or reference harmonicity alone; an exact abstract countermodel has divergent Ward ratios under all of these hypotheses."
+  ],
+  "still_open": [
+    "A zeta-specific signed two-edge cancellation or relative Carleson/range theorem controlling the b/Sonin channel on reference-harmonic, moment-null collar data. Proved cofinally, this is RH-strength.",
+    "A stable right inverse for the two moment constraints on shrinking collars, sufficient to transfer reference localization to the corrected relative collar.",
+    "Uniform relative Ward propagation on compact support slabs.",
+    "The harmonic residual Ward theorem in the original completed geometry.",
+    "A uniform zero-free strip and RH."
+  ],
+  "highest_information_next_test": "Hard noncyclic Toeplitz cutoffs were attempted but the separate Hardy traces did not converge for the actual semilocal symbol. The next licensed diagnostic is a common Abel/heat regularization, proved on controls to recover the analytic trace diagonal, followed by the same c^*c/cross/-b^*b attribution. The analytic target is a zeta-specific Hardy-alignment or contamination-cancellation theorem.",
+  "trust": "Exact operator and finite-dimensional algebra where stated; ordinary high-precision/non-interval Galerkin evidence for numerical rows; no continuum positivity claim."
+}

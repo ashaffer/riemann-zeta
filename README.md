@@ -1,5 +1,55 @@
 # The Positivity Gate
 
+> **Current uniform-strip route (2026-09-04):** run
+> `python3 src/zeta23_correction_context.py resume` and read
+> [`results/ZETA23-R71-PRINCIPAL-BAND-EXACT-SERIALIZATION-2026-09-04.md`](results/ZETA23-R71-PRINCIPAL-BAND-EXACT-SERIALIZATION-2026-09-04.md).
+> The QP/Turan branch is parked, and unrestricted exterior factorization has
+> collapsed to KNC at a Fredholm contact.  R184 derived the explicit
+> four-Cauchy plus prime-dilation completed-source grammar.  R185 computes its
+> two exterior readouts: the root filter cancels one pole mode per side, and
+> rotations and positive dilations commute globally.  It does not use the old
+> homogeneous equation.  R186 now serializes that split finite part exactly
+> and closes the genuine-contact adapter in the weak/L2/continuous-potential
+> topology.  Generic endpoint jets are unavailable, and exact hostile models
+> refute coefficient-free propagation.  Global compatibility remains open
+> because it is now visibly KNC itself, not a remaining serialization task.
+> R187 closes the additive and Mellin tails at exponent `.98`; R188 then
+> serializes the remaining principal band exactly into finite cofactor aliases
+> plus its affine center.  Low cofactors are power-small, and fifth-order
+> Fourier decay gives the sharper equivalent collar `q>X^(.998)`,
+> physical quotient `v=n/q<=X^(.002+o(1))`, `|a|<=X^(.0025)`.  The discarded field is only at the
+> target amplitude scale, so this is not the desired saving.  The surviving
+> high-cofactor core contains low, high, and reducible determinants, and an
+> isolated actual semiprime alias block has natural `X/log^2 X` energy.  Thus
+> packetwise `.98` estimates are false and only a joint completed
+> actual-coefficient correlation can close the endpoint.  No `.98` bound,
+> completed-source factor, uniform strip, or RH proof exists.
+
+> **Hostile-audit correction bundle (2026-09-03):**
+> [`results/ZETA23-REMAINING-MISTAKES-CORRECTION-BUNDLE-2026-09-03.md`](results/ZETA23-REMAINING-MISTAKES-CORRECTION-BUNDLE-2026-09-03.md),
+> synchronized with a canonical `Z23C` ledger, a selective `Z23V` runtime
+> vector index, and kernel-checked Lean guards.
+> It now includes the R181 commutator, R182 source-fiber, R183 exterior
+> factorization/backward-strip, R184 constructive-source/compact-derivative,
+> and the corrected R185/R186 four-Cauchy and form-domain closeout
+> corrections.  It repairs scope, sign,
+> normalization, domain, routing, and integrity
+> labels; it proves no fixed-power estimate, uniform strip, or RH.
+
+> **Recursive Weil theorem fixed point (2026-09-01):**
+> [`results/ZETA23-RECURSIVE-CONSOLIDATION-FIXED-POINT-2026-09-01.md`](results/ZETA23-RECURSIVE-CONSOLIDATION-FIXED-POINT-2026-09-01.md).
+> The Weil propagation route now reduces to charged-nullstate cancellation;
+> qualitative compact-form localization and non-Zeno-free continuation are
+> proved at analytic-note level.  Universal completed-zeta cancellation is
+> RH-equivalent, not an easier conjecture.  It, RH, the uniform strip, and the
+> sharp four-cycle bound remain open.
+
+> **Background preflight (2026-08-30):**
+> [`results/ZETA23-UNIFORM-STRIP-CONSOLIDATED-STATE-AND-INTUITION-PUMPS-2026-08-30.md`](results/ZETA23-UNIFORM-STRIP-CONSOLIDATED-STATE-AND-INTUITION-PUMPS-2026-08-30.md).
+> Older claims below that a report is “latest” are historical chronology, not
+> the current priority map.  It remains required background for passports and
+> hostile models.
+
 An instrumented research program on the Riemann Hypothesis, built during intensive
 July 2026 human–AI sessions. This repository packages the
 program document, the instruments, and the measured results so the investigation is
@@ -26,22 +76,35 @@ For a human-first account of the mathematics, proof architecture, certificate
 role, and exact remaining gap, begin with
 [`publication/README.md`](publication/README.md) and
 [`publication/MATHEMATICAL-OVERVIEW.md`](publication/MATHEMATICAL-OVERVIEW.md).
-For the primary-source theorem baseline governing the R65--R98 analytic
-branch, see
+A historical executed fixed-strip iteration (current when written on
+2026-08-12) is
+[`results/ZETA23-THREE-STEP-SUBFULL-CARRIER-ITERATION-SYNTHESIS-2026-08-12.md`](results/ZETA23-THREE-STEP-SUBFULL-CARRIER-ITERATION-SYNTHESIS-2026-08-12.md).
+It supplies a rigorous finite direct-`q` certificate interface and an exact
+two-dimensional Ritz reduction, but also proves that normalized target-only
+phase-flip clusters defeat the current geometry-only isolation premise; no
+zero-free bound is improved.  Its independent audits are
+[`results/ZETA23-THREE-STEP-DIRECT-CARRIER-PROGRAM-REFEREE-AUDIT-2026-08-12.md`](results/ZETA23-THREE-STEP-DIRECT-CARRIER-PROGRAM-REFEREE-AUDIT-2026-08-12.md)
+and
+[`results/ZETA23-PHASE-FLIP-AND-SEPARATION-AVERAGE-REFEREE-ADDENDUM-2026-08-12.md`](results/ZETA23-PHASE-FLIP-AND-SEPARATION-AVERAGE-REFEREE-ADDENDUM-2026-08-12.md).
+### Historical R65--R98 route chronology
+
+The priority words in the following R65--R98 links describe their dated
+snapshot, not the September continuation route.  For the primary-source
+theorem baseline governing that analytic branch, see
 [`publication/IMPORTED-ANALYTIC-BASELINE.md`](publication/IMPORTED-ANALYTIC-BASELINE.md).
-The current arithmetic and positive-carrier fixed-strip frontiers are
+The then-current arithmetic and positive-carrier fixed-strip frontiers were
 [`results/FULL-R71-RECIPROCAL-RESPONSE-GATE.md`](results/FULL-R71-RECIPROCAL-RESPONSE-GATE.md)
 [`results/R92-NONLATTICE-POLE-CANCELLING-CARRIER-GATE.md`](results/R92-NONLATTICE-POLE-CANCELLING-CARRIER-GATE.md),
 with calibrated scalar endpoints in
 [`results/R90-NEWTON-COEFFICIENT-CANCELLATION-GATE.md`](results/R90-NEWTON-COEFFICIENT-CANCELLATION-GATE.md)
 and the higher-order audit in
-[`results/R93-HIGHER-ORDER-PARETO-DIVIDED-DIFFERENCE-GATE.md`](results/R93-HIGHER-ORDER-PARETO-DIVIDED-DIFFERENCE-GATE.md).  The sharpest current
-signed endpoints are isolated in
+[`results/R93-HIGHER-ORDER-PARETO-DIVIDED-DIFFERENCE-GATE.md`](results/R93-HIGHER-ORDER-PARETO-DIVIDED-DIFFERENCE-GATE.md).  The then-sharpest
+signed endpoints were isolated in
 [`results/R96-LUROTH-GLOBAL-ALIAS-POISSON-GATE.md`](results/R96-LUROTH-GLOBAL-ALIAS-POISSON-GATE.md),
 [`results/R96-MOBIUS-BESICOVITCH-RECURRENCE-GATE.md`](results/R96-MOBIUS-BESICOVITCH-RECURRENCE-GATE.md),
 and
 [`results/R96-ONE-SIDED-VON-MANGOLDT-RAMP-GATE.md`](results/R96-ONE-SIDED-VON-MANGOLDT-RAMP-GATE.md).
-The latest topology and conditional-bootstrap audits are
+The then-latest topology and conditional-bootstrap audits were
 [`results/R97-NONLINEAR-EULER-PRIME-ZETA-RIGIDITY-GATE.md`](results/R97-NONLINEAR-EULER-PRIME-ZETA-RIGIDITY-GATE.md),
 [`results/R97-FERMIONIC-FREDHOLM-TRACE-ANOMALY-GATE.md`](results/R97-FERMIONIC-FREDHOLM-TRACE-ANOMALY-GATE.md),
 and
@@ -53,8 +116,14 @@ classes cancel the primitive Ramanujan correction modulus by modulus—but the
 surviving ordinary dual is the original positive energy with canonical
 coefficient `-mu(n) log n`, not a new upper bound.  See
 [`results/R128-ALL-ARITY-PROPER-CONDUCTOR-GATE.md`](results/R128-ALL-ARITY-PROPER-CONDUCTOR-GATE.md),
+and the exact floor-transform/power-exponent audit in
+[`results/MOBIUS-LOG-FLOOR-RECURRENCE-OBSTRUCTION-2026-08-11.md`](results/MOBIUS-LOG-FLOOR-RECURRENCE-OBSTRUCTION-2026-08-11.md),
 with the actual primitive-sign audit in
 [`results/R124-ACTUAL-QH-PRIMITIVE-MELLIN-SIGN-GATE.md`](results/R124-ACTUAL-QH-PRIMITIVE-MELLIN-SIGN-GATE.md).
+The completed downstream correction pass, including the R123/R125
+scale-replication correction, three tested terminal-route dispositions, and
+the failed raw S1-A0 admission test, is
+[`results/ZETA23-CORRECTION-CLOSURE-AND-FAITHFULNESS-TRILEMMA-2026-09-02.md`](results/ZETA23-CORRECTION-CLOSURE-AND-FAITHFULNESS-TRILEMMA-2026-09-02.md).
 The independent zero-replication and logarithmic-derivative routes currently
 stop at quantified topology/sign gates in
 [`results/R126-PUNCTURED-CONTOUR-ALL-MOMENT-AND-KEYHOLE-GATE.md`](results/R126-PUNCTURED-CONTOUR-ALL-MOMENT-AND-KEYHOLE-GATE.md),
@@ -86,8 +155,13 @@ signed zero cancellation is the remaining issue.
 The arithmetic Nyman endpoint has also been sharpened in
 [`results/R136-NYMAN-L1-LP-SELF-IMPROVEMENT-GATE.md`](results/R136-NYMAN-L1-LP-SELF-IMPROVEMENT-GATE.md):
 the PNT supplies the exact `L1` endpoint, while any fixed improvement to
-`L^(1+delta)` (even a suitable weak-tail estimate in reciprocal measure)
-would already prove a fixed strip.  Finally,
+`L^(1+delta)` would already prove a fixed strip.  The follow-up
+[`results/R136-WEAK-TAIL-GOOD-LAMBDA-AUDIT.md`](results/R136-WEAK-TAIL-GOOD-LAMBDA-AUDIT.md)
+shows that unit increments turn any reciprocal weak-`Lq`, `q>1`, estimate
+into a pointwise Mertens power saving, and closes coefficient-free centered
+floor-recurrence bootstraps.  Thus the direct weak-tail target is an alternate
+form of the fixed-power problem, not a lower-strength sparse-exception
+escape.  Finally,
 [`results/R137-EXCEPTIONAL-HIGH-JET-RESONANCE-GATE.md`](results/R137-EXCEPTIONAL-HIGH-JET-RESONANCE-GATE.md)
 shows that every Haar/diagonal high-jet resonator pays more entropy than
 Cauchy localization permits; only genuinely exceptional finite-height
@@ -642,8 +716,10 @@ uses `python3 -m pip install -r requirements-test.txt` and
    12 cores; a completed-checkpoint rerun performs only reconstruction and
    Cholesky. Checkpoint SHA-256:
    `7591f662b1c1a79ed83cb6999881d8face43836dec1131ccff8d56d6bdf7354f`.
-   Its metadata binds the cached raw integrals to the source of the numerical
-   kernel, so an integrand change fails closed instead of silently reusing it.
+	   This is a legacy-v2 artifact. Replay accepts it only when its exact file
+	   hash, old header, complete current integrand/global fingerprint, and the
+	   documented python-flint/FLINT versions all match. Fresh checkpoints use
+	   v3 metadata that directly binds those inputs.
 11. Lean verification: build `lean/glide`, `lean/weilcert`, and finally
    `lean/rhbridge` (which imports both), then run the focused axiom audits in
    `lean/README-verify.md`. Requires elan; cached rebuilds are short.
@@ -753,8 +829,11 @@ the apparent catastrophes investigated so far were implementation or test errors
 
 `PROGRAM.md` §3 states the intended uniform target.  The arithmetic form and
 its intrinsic logarithmic domain are now connected to the Lean-certified
-endpoint at `a=7/16`.  The larger endpoints remain software-certified results
-with their stated Arb and analytic trust bases.  Extending positivity to every
+endpoint at `a=7/16`.  The larger endpoints remain software-supported
+computations with their stated Arb and analytic trust bases; `L=749/250`
+remains excluded from the first release until its legacy checkpoint is
+independently regenerated and cross-checked under the complete v3
+fingerprint.  Extending positivity to every
 support size and proving the complete zero-side Guinand--Weil equality in Lean
 remain open; uniform all-support positivity would be RH-strength work.
 

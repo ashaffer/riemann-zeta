@@ -1,0 +1,83 @@
+{
+  "schema": "zeta23-completed-source-constructive-search-postflight-v1",
+  "date": "2026-09-03",
+  "preflight": "results/context/zeta23_completed_source_constructive_search_preflight_v1.json",
+  "human_authority": "results/ZETA23-CONSTRUCTIVE-COMPLETED-SOURCE-AND-COMPACT-DERIVATIVE-AUDIT-2026-09-03.md",
+  "global_status": {
+    "explicit_bounded_or_closable_T_src_with_Gamma_equals_TA": "OPEN_NOT_CONSTRUCTED",
+    "uniform_zero_free_strip": "OPEN",
+    "riemann_hypothesis": "OPEN",
+    "sharp_four_cycle_bound": "OPEN_NOT_USED"
+  },
+  "direct_source_results": {
+    "finite_word": "T_m=Gamma sum_(j=0)^(m-1)(-K)^j",
+    "exact_remainder": "Gamma=T_m(I+K)+Gamma(-K)^m",
+    "contact_value": "If (I+K)n=0 then Gamma(-K)^m n=Gamma n at every finite depth.",
+    "regular_functional_calculus_scope": "Every scalar function of K regular at -1 leaves residual multiplier one; only a pole at -1 removes it.",
+    "scope_nonclaim": "This does not classify noncommuting completed-source pieces or convergent infinite nonlocal synthesis."
+  },
+  "annihilator_results": {
+    "exact_coordinate_identity": "For M=eta'* and S=-g''*, MS=0 and M Gamma_ext=-M E_a A_dist.",
+    "regular_parametrix_remainder": "Gamma_ext=-L M E_a A_dist+(I-LM)Gamma_ext; at an xi zero a regular translation-invariant L leaves residual multiplier one.",
+    "collar_caveat": "eta' has full bilateral support, so collar restriction introduces a far-exterior term.",
+    "countermodel": "A rational 3-by-3 model has MS=0 and PSP=0 but nonzero old-to-exterior charge."
+  },
+  "finite_state_obstruction": {
+    "theorem": "The near-edge completed source has infinite Hankel rank because -g''(epsilon(x+y)) has the scaled Cauchy kernel as its leading term.",
+    "exact_surrogate_witness": "For x=(1,2,3,4), y=(5,6,7,8), det[1/(x_i+y_j)]=1/9958443264000.",
+    "licensed_pruning": [
+      "pure finite-order differential transport of zero-extended old data",
+      "finite-rank scalar samples or endpoint jets",
+      "finite-dimensional unforced boundary state",
+      "regular commuting polynomial/Krylov source iteration"
+    ],
+    "not_pruned": [
+      "continuum integral operators",
+      "distributed-memory or infinite-rank delay systems",
+      "nontranslation-invariant range-specific parametrices",
+      "boundary-localized or other noncommuting pole--Lerch--prime identities",
+      "infinite series with independently proved ambient convergence"
+    ]
+  },
+  "four_cauchy_normal_form": {
+    "identity": "For L(t)=exp(-t/2)Phi(exp(-2t),1,1/4), L'(t)=-(1/2)sum_(zeta^4=1)(exp(t/2)-zeta)^(-1).",
+    "kernel": "For X=exp(x/2), Y=exp(y/2), x>y, the Lerch part of g'' is (Y/4)sum_(zeta^4=1)(X-zeta Y)^(-1).",
+    "other_channels": "The exponential completion is rank two, the |t| completion is a local distribution, and prime ramps are dilation atoms X=sqrt(m)Y with Lambda(m)/sqrt(m).",
+    "local_jump_determinant": "ONE_UNCONDITIONALLY",
+    "global_result": "A local Riemann--Hilbert parametrix has an exact global residual. Independence of exterior readout from the homogeneous solution is E ker(B)=0, which on the genuine state range is exactly Gamma ker(A)=0 (KNC).",
+    "decision": "PARTIALLY_ADVANCED_BY_R185: THE_EXTERIOR_CALCULATION_FOUND_COMMUTING_SCALAR_COVARIANCE_AND_ONE_MODE_CANCELLATION_BUT_THE_SPLIT_OLD_COMPATIBILITY_SYSTEM_AND_FORM_DOMAIN_ADAPTER_REMAIN_OPEN"
+  },
+  "compact_source_derivative": {
+    "definitions": "h(v)=exp(-v/2)W(v), S_h(t)=sum Lambda(n)/n h'(t-log n).",
+    "r71_bridge": "S_h=exp(-t/2)(partial_t-1/2)D_W.",
+    "shifted_bridge": "For V_delta=exp(delta v)h(v), (partial_t-delta)G_delta,V=exp(delta t)S_h.",
+    "causal_ramp_correction": "In the whole-line distribution convention V_delta*partial(partial+r)(H b_delta,r)=exp(delta t)S_h-V_delta; the -V_delta collar may be absorbed only by an explicitly declared open-half-line convention or after its support.",
+    "transform": "L[S_h]=hat(h)+s hat(h)F(1+s); the pole-centered term alone is the transform of S_h-h, modulo an entire tail-truncation correction.",
+    "one_sided_endpoint": "For one globally fixed sign, epsilon S_h(t)>=-C exp(-theta t), a transform nonvanishing condition, and sufficient smoothing, Landau implies Re(rho)<=1-theta.",
+    "converse_scope": "With absolute zero-sum decay (for example compact W_c^(3,1) or a sufficiently high-order spline), the strip gives |S_h(t)|=O(exp(-theta t)); generic C_c^1 is insufficient for a lossless converse.",
+    "strength": "UNIFORM_STRIP_ENDPOINT_NOT_A_STRICTLY_EASIER_LEMMA"
+  },
+  "route_update": {
+    "primary_strip_discovery_surface": "COMPLETE_SOURCE_PRESERVING_R71_ENERGY",
+    "primary_strip_scalar_falsifier": "GLOBALLY_ORIENTED_COMPACT_SOURCE_DERIVATIVE_S_h",
+    "direct_RH_survivor": "OPEN_AT_SPLIT_CARLEMAN_SERIALIZATION_AND_FORM_DOMAIN_STATE_ADAPTER; ONLY_SCALAR_ROOT_DILATION_NONCOMMUTATIVITY_IS_PARKED",
+    "retired": "FURTHER_FIXED_FILTER_OPTIMIZATION_AND_FINITE_REGULAR_SOURCE_WORDS",
+    "qp_turan": "PARKED"
+  },
+  "novelty": {
+    "classification": "IMPORTED_PLUS_LOCAL_PREDECESSOR_PLUS_PROJECT_SYNTHESIS",
+    "candidate_new": false,
+    "search_log": "results/context/zeta23_completed_source_constructive_literature_search_2026-09-03.json"
+  },
+  "formal_artifacts": [
+    "lean/rhbridge/RHBridge/CompletedSourceConstructiveSearch.lean",
+    "lean/rhbridge/RHBridge/CompletedSourceConstructiveSearchAudit.lean",
+    "lean/rhbridge/RHBridge/CompactSourceDerivativeBridge.lean",
+    "lean/rhbridge/RHBridge/CompactSourceDerivativeBridgeAudit.lean"
+  ],
+  "replay_artifacts": [
+    "src/completed_source_constructive_search.py",
+    "src/test_completed_source_constructive_search.py"
+  ],
+  "nonclaim": "No analytic completed-source factor, fixed-power bound, uniform zero-free strip, RH proof, or four-cycle proof is obtained."
+}

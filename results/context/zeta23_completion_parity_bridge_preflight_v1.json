@@ -1,0 +1,31 @@
+{
+  "schema": "zeta23-research-preflight-v1",
+  "date": "2026-09-02",
+  "target_statement": "Determine whether an independently licensed completed functional-equation defect can cancel or control the R95 ramp carrier or the complete centered R68 Type-II carrier with a fixed exponent reserve.",
+  "endpoint": "A one-sided O(x^(1-eta)) R95 bound or the corresponding one-sided O(x^(1/2-eta)) R68 bound for one fixed eta>0.",
+  "licensed_inputs": [
+    "the exact zeta completion xi(s)=xi(1-s)",
+    "the exact R95 Mellin transform",
+    "the exact R68 Vaughan table and both mandatory centerings",
+    "the Chebotarev-sparse Euler surgery from R178",
+    "standard logarithmic-derivative, Landau, and Hamburger converse-theorem inputs"
+  ],
+  "candidate_bridge": "For Xi_F=C_F F fixed independently of the target divisor, form the completed reflection defect E_F=(I+J)(Xi_F'/Xi_F), decompose the R95 and R68 transforms into E_F plus a reflection-odd residual, and seek a one-sided bound on the residual from E_F=0 and the exact Euler coefficients.",
+  "fast_falsifiers": [
+    "If E_zeta vanishes but the residual is identically the original zero-bearing transform, the proposed defect bridge is target-renaming.",
+    "If a functional-equation-paired off-line quartet is invisible to E_F, defect smallness cannot locate zeros.",
+    "If completion symmetrization preserves a planted zero while destroying only the ordinary right-half-plane Dirichlet structure, exact completion alone is insufficient and the missing theorem must couple completion to coefficients.",
+    "If the R68 Type-I complement is holomorphic at every nontrivial zero, moving it cannot cancel the reflection-odd carrier.",
+    "If the reflected Euler series is used in a half-plane where it does not converge, contour return must include every crossed zero residue.",
+    "If a nonlinear Selberg projection is invoked, its reflection-even continuation must have an independently proved sign rather than inherited coefficient positivity from a disjoint half-plane."
+  ],
+  "quantifier_firewall": [
+    "the completion C_F is fixed before inspecting the zeros and cannot contain reflected F data",
+    "eta, orientation, mask, and all constants are fixed independently of x and zero height",
+    "all pole, gamma, Type-I, I_0, and moving-cutoff terms remain present",
+    "no sectorwise absolute values before recompletion",
+    "no claim of a strip from an identity or from distributional convergence alone"
+  ],
+  "novelty_policy": "Classify reflection parity and defect formulas as classical algebra/project synthesis unless a bounded primary-source search establishes more. Do not claim literature novelty from a new packaging.",
+  "nonclaim": "This passport does not assert a uniform zero-free strip or RH."
+}

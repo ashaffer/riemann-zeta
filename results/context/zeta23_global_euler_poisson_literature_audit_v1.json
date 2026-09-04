@@ -1,0 +1,104 @@
+{
+  "schema": "zeta23-novelty-audit-v1",
+  "date": "2026-09-02",
+  "target": "Global Euler/Poisson coercivity, Euler-Jordan boundary tangent, and Chebotarev-sparse positive Euler surgery",
+  "global_status": {
+    "riemann_hypothesis": "OPEN",
+    "uniform_zero_free_strip": "OPEN",
+    "new_literature_level_theorem": "NOT_ESTABLISHED"
+  },
+  "search_scope": {
+    "databases_and_indexes": [
+      "arXiv",
+      "primary journal and author repositories",
+      "DOI and publisher indexes",
+      "GitHub and public web indexes",
+      "local ZETA23 registry and reports"
+    ],
+    "representative_queries": [
+      "Jordan totient zeta(s)/zeta(s+z) generalized von Mangoldt derivative Mobius log",
+      "Riemann zeta one-sided weighted prime number theorem zero-free region 2025 2026",
+      "partial Euler product Chebotarev completely split primes zeros positive coefficients",
+      "strong multiplicity one logarithmic derivative Euler products primes prime powers",
+      "Lagarias positivity Riemann xi logarithmic derivative",
+      "Suzuki canonical system xi meromorphic inner function",
+      "cropped Euler factors completely split primes",
+      "site:GitHub Riemann zeta Jordan totient zero-free strip",
+      "positive Euler finite head prescribed zeros zeta",
+      "Chebotarev positive coefficients Euler product zeros"
+    ],
+    "access_date": "2026-09-02",
+    "stable_identifiers_and_versions": [
+      "DOI:10.4064/aa-89-3-217-234 (Lagarias 1999)",
+      "DOI:10.1006/jnth.1999.2392 (Bombieri-Lagarias 1999)",
+      "arXiv:1204.1827v2",
+      "arXiv:2209.11768",
+      "arXiv:math/0210299",
+      "arXiv:math/0202273",
+      "arXiv:1002.4373",
+      "arXiv:2505.23795",
+      "arXiv:2411.07436",
+      "arXiv:2608.27130",
+      "DOI:10.1007/s41980-020-00356-y"
+    ],
+    "local_predecessors": [
+      "R67 / FIXED-BOX-PRIME-TRANSFER-CHECKPOINT.md",
+      "R68 / ACTUAL-PRIME-REFLECTION-TRANSFER-CHECKPOINT.md",
+      "R69 / MOVING-TYPE-II-NORM-CHECKPOINT.md",
+      "R70 / JOINT-TYPE-II-CUTOFF-IDENTITY.md",
+      "R71 and R74 Mobius/prime joint-renormalization gates",
+      "R89, R90, and R99 derivative/discrete-prime quadrature gates",
+      "R95 / R95-SIGNED-MULTISCALE-QUEUE-CYCLE-GATE.md",
+      "R103 exact sign spectrometer",
+      "R173 matrix arithmetic lift",
+      "R176 one-sided contour gate",
+      "R177 Jordan/filter novelty audit",
+      "Section 9.2 of ZETA23-ENDPOINT-FLAT-JORDAN-MASS-AND-RIESZ-VARIATION-GATE-2026-09-01.md"
+    ]
+  },
+  "claim_classification": [
+    {
+      "claim": "Jordan-totient positive deformation and zeta quotient",
+      "mathematical_status": "PROVED_CLASSICAL",
+      "novelty_status": "IMPORTED"
+    },
+    {
+      "claim": "R95 boundary tangent, local small-z multiplicity formula, arbitrary-z noncancellation formula, and fixed-interior-to-boundary exponent warning",
+      "mathematical_status": "PROVED",
+      "novelty_status": "PROJECT_SYNTHESIS"
+    },
+    {
+      "claim": "positive backward-Poisson factorization criterion for a fixed strip",
+      "mathematical_status": "PROVED_EQUIVALENCE",
+      "novelty_status": "PROJECT_SYNTHESIS",
+      "note": "overlaps Lagarias, Bombieri-Lagarias, Suzuki, Herglotz, and shifted-Weil criteria"
+    },
+    {
+      "claim": "Chebotarev-sparse positive Euler surgery with finite-head retention, two positive coefficient cones, planted near-one pair, and uniform divisor-identity approximation",
+      "mathematical_status": "PROJECT_PROVED_SYNTHETIC_MODEL",
+      "novelty_status": "LOCAL_PREDECESSOR_PLUS_NOVELTY_UNRESOLVED_UPGRADE",
+      "note": "the all-tail positive Euler model is a local predecessor; no exact match was found for the sparse Chebotarev upgrade and uniform divisor-identity bound, but absence is not certifiable"
+    },
+    {
+      "claim": "coefficient discrepancy p^(-k delta) is a sharp worst-case pointwise sufficient condition preserving divisors in Re(s)>1-delta",
+      "mathematical_status": "PROVED_STANDARD_CONTINUATION_ARGUMENT",
+      "novelty_status": "PROJECT_SYNTHESIS"
+    },
+    {
+      "claim": "a one-sided fixed-power bound for the R95 ramp or complete centered Type-II aggregate",
+      "mathematical_status": "OPEN",
+      "novelty_status": "NOT_APPLICABLE"
+    }
+  ],
+  "search_limitations": [
+    "The search was bounded and cannot cover private, unpublished, unindexed, or differently phrased work.",
+    "No failure-to-find result is treated as proof of novelty.",
+    "The sparse model has no exact zeta completed functional equation and cannot refute an actual-zeta theorem using that datum."
+  ],
+  "trust": {
+    "analytic_synthesis": "ANALYTIC_MANUSCRIPT_UNREFEREED",
+    "standard_inputs": "PRIMARY_SOURCE_SCOPED_IMPORT",
+    "synthetic_countermodel": "EXACT_ALGEBRA_PLUS_STANDARD_CHEBOTAREV_AND_TAUBERIAN_INPUTS",
+    "novelty_absence": "NOT_CERTIFIABLE"
+  }
+}

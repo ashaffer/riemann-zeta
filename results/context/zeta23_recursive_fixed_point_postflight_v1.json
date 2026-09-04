@@ -1,0 +1,124 @@
+{
+  "schema": "zeta23-research-postflight-v1",
+  "date": "2026-09-01",
+  "architecture": "architecture_preserving_recursive_theorem_fixed_point",
+  "target": "Recursive consolidation, abstraction, reapplication, strengthening, and hostile audit over the indexed result corpus",
+  "status": "HISTORICAL_COMPLETE_SNAPSHOT_UNATTACHED",
+  "verdict": "TWO_CONSECUTIVE_ZERO_DELTA_PASSES_RECORDED_RELATIVE_TO_FROZEN_GRAMMAR_NOT_A_CURRENT_FILE_CERTIFICATE",
+  "convergence_rule": "Two consecutive complete normalized zero-delta passes over one unchanged theorem snapshot are required.",
+  "corpus_before_this_postflight": {
+    "indexed_results_artifacts": 1226,
+    "theorem_like_markdown_headings": 1890,
+    "canonical_no_go_cards": 46,
+    "typed_proof_tree_nodes": 92,
+    "aggregate_lean_imports": 124
+  },
+  "fixed_point_basis": [
+    "FP1 compact-filtration localization modulus",
+    "FP2 Fredholm-Ward kernel criterion",
+    "FP3 qualitative localized reserve extension",
+    "FP4 KNC quantifier collapse and charged-nullstate continuation",
+    "FP5 arbitrary-envelope Ward catastrophe",
+    "FP6 sharp multichannel reserve budget",
+    "FP7 absolute-tail regulator and null-set-thickness theorem",
+    "FP8 provenance-modulus data processing",
+    "FP9 equicontinuous-family certificate obstruction",
+    "FP10 quotient and atomic gauge duality",
+    "FP11 cone and all-cut tensor firewalls",
+    "FP12 iterated anomaly chain rule with cyclic trace-ideal licensing"
+  ],
+  "strict_nonzero_passes": [
+    "P5/A6 corrected field, quantifier, cone, boundary, and trace-ideal scopes.",
+    "P6/A7 collapsed KNC germ quantifiers, identified exact right-openness, and classified universal completed-zeta KNC as RH-equivalent.",
+    "P7/A8 corrected endpoint and slab domains, null-set thickness, boundary cutoff and balance, cyclic-trace licensing, tensor positions, and second-order adapter passports.",
+    "The first attempted terminal Z1 found the missing postflight artifact referenced by the main report; its result was nonzero and the zero-pass clock was reset.",
+    "The next attempted terminal Z1 found that the corpus passport counted 45 canonical no-go cards although the atlas contains NG-01 through NG-46; all stale counts were corrected and the zero-pass clock was reset.",
+    "The next attempted terminal Z1 found an omitted domination step in the arbitrary-rate operator construction: replacing prescribed M_n by max(M_n,n) preserves the requested lower bounds and proves unboundedness even when prescribed M_n is bounded; the proof was repaired and the zero-pass clock was reset.",
+    "Completion of that invalidated discovery sweep found and corrected a synonymous stale 45-card count in the upstream second-order report; a corpus-wide variant-phrasing search then found no further unrecorded instance.",
+    "The terminal inventory then exposed an undocumented 1,891 theorem-like-heading metric; the exact frozen extraction command gives 1,890, so the count and metric passport were corrected and the zero-pass clock was reset."
+  ],
+  "corpus_metric_commands": {
+    "indexed_results_artifacts": "rg --files results | wc -l",
+    "theorem_like_markdown_headings": "rg -i -N '^#{1,6} .*\\b(theorem|lemma|proposition|corollary|claim|gate|criterion)\\b' results --glob '*.md' | wc -l",
+    "canonical_no_go_cards": "rg -o 'NG-[0-9]{2}' NO-GO-ATLAS.md | sort -u | wc -l",
+    "typed_proof_tree_nodes": "python3 src/zeta23_proof_tree.py verify",
+    "aggregate_lean_imports": "rg '^import ' lean/rhbridge/RHBridge.lean | wc -l"
+  },
+  "frozen_terminal_snapshot": {
+    "version": "V4",
+    "snapshot_scope": "HISTORICAL_UNATTACHED_DIGESTS",
+    "archive_or_commit_id": null,
+    "attachment_status": "THE_EXACT_HASHED_V4_BYTES_ARE_NOT_RECOVERABLE_FROM_THIS_WORKTREE",
+    "current_file_policy": "DO_NOT_COMPARE_THESE_DIGESTS_TO_LATER_LIVE_FILES_OR_USE_THEM_TO_CERTIFY_CURRENT_CONTENT",
+    "counts": {
+      "indexed_results_artifacts": 1227,
+      "theorem_like_markdown_headings": 1890,
+      "canonical_no_go_cards": 46,
+      "typed_proof_tree_nodes": 92,
+      "aggregate_lean_imports": 124
+    },
+    "sha256": {
+      "main_report": "3bf1538e2a29d908edede977203a760dfdf6849f887435fce98487aed39112cc",
+      "audit_evidence": "ef468d99639e0dd8be0af94cb7f75bfebc31110cd4e2d2b566835a1a45a72c19",
+      "hostile_audit": "c4a3d81632a6d53ee48178a8273ad167e583f20c45ebf9946442dd469833f8ab",
+      "qualitative_continuation": "b5024fe6e434abc7e96c4f23f3858c7e7c426e30d4801d940dbf6963e7aa8db6",
+      "singular_anomaly": "754192f0816d56420b41daea91ded0d2b947c443e20a152771703c1919ad7eba",
+      "knc_last_mile": "55365d37758cd3f5460fc34483a5fad312ab197ae63752038ffee23552c8e53f",
+      "operator_suite": "55189d579b84b699b3a55715164ac9af517d9aba0ad24520ccc6e8628271a090",
+      "second_order_suite": "b2c39a1f2e44db0ae959b4cadd62c6427c5faf57cceb28e31dc88580c042570e",
+      "recursive_preflight": "8ba6a2e0aa00bb61b2e58a6850f9fafb2ceafdd7182bd89eff802c685dadf02b",
+      "pending_postflight": "8c485f13b96996943a232beccd40a75375331fecb6e3a04af6ae4b44e67929af",
+      "knc_preflight": "437e5b06187c87320e32efc4e64ccb2c195166acb33e239499ad58827baeb7f8",
+      "formalization_preflight": "f095902369f0bca841e0746418532f7fa4b614e7871a51aa972c50482ce24544",
+      "second_order_postflight": "711cd95abed82b42f0d3c75b26e4508812c0f78ce0d4375cda904bf856826cef",
+      "operator_postflight": "a31a04d12b460a7cabe3c33c26f52e887089976794a031b3cfb18ee1ca2304f9",
+      "recursive_lean_module": "6a53bf58fec17f97643ea3a189e7eeee25f21ca7c960953ffa5fa02a04d00a73",
+      "aggregate_lean": "e158cd096c8eea5a111dd362498235cf853c64f7721afbfda1bd87c40beef5ac",
+      "readme": "02536f38219603e6a88d3e2b199334054d033a4acf3531307894fd4ccff46c31",
+      "recovery_state": "7cede3d6b1192fecd5594a9366f437f71ed5de95a9f8b9afbe19404eca11b9e0",
+      "theorems_ledger": "c895df85e24b2c1b92d67a2d63f5fba0271a1c4cdd2cd52016328cf93cd2d23d",
+      "no_go_atlas": "b4accc5623230246205ede464125d315f3a136f8c6d1675e4c41c618e67830a3"
+    }
+  },
+  "terminal_passes": [
+    {
+      "pass": "Z1/P13",
+      "auditor": "hostile_referee",
+      "snapshot": "V4",
+      "strict_delta": 0,
+      "hashes_pre_post_match": true,
+      "counts_pre_post_match": true,
+      "coverage": "Complete normalized theorem, hypothesis, conclusion, schema, status, link, passport, formal-check, and decision-edge pass"
+    },
+    {
+      "pass": "Z2/P14",
+      "auditor": "independent_knc_last_mile",
+      "snapshot": "V4",
+      "sequential_after_Z1": true,
+      "strict_delta": 0,
+      "hashes_pre_post_match": true,
+      "counts_pre_post_match": true,
+      "coverage": "Independent complete normalized pass over the exact byte-identical Z1 snapshot"
+    }
+  ],
+  "claim_status": {
+    "RH": "OPEN",
+    "uniform_zero_free_strip": "OPEN",
+    "universal_completed_zeta_KNC": "OPEN_RH_EQUIVALENT_UNDER_ACCEPTED_INTERFACES",
+    "DPA_P_0_019": "OPEN",
+    "LTRAD_P_0_0189_0_001": "OPEN",
+    "CA4": "OPEN",
+    "sharp_four_cycle_bound": "OPEN",
+    "sharp_four_cycle_as_direct_strip_gate": "FALSE"
+  },
+  "formal_and_computational_checks_before_terminal_freeze": {
+    "recursive_consolidation_lean": "PASS",
+    "aggregate_RHBridge_lean": "PASS",
+    "targeted_pytest": "43_PASS",
+    "SR2PF_certificate_replay": "PASS",
+    "typed_proof_tree": "PASS_92_NODES_SHA256_7e2573d24982643351c7029bf80efa2f11c5cc2806ee0b46ff1cf929d4032e6f",
+    "json_validation": "PASS",
+    "git_diff_check": "PASS"
+  },
+  "nonclaim": "This historical record reports convergence only relative to the declared normalization grammar and frozen V4 snapshot. The exact hashed bytes are unattached, so it is not a replayable integrity certificate for current files. It does not prove RH, a uniform zero-free strip, DPA, LTRAD, CA4, or the sharp four-cycle bound."
+}

@@ -433,7 +433,7 @@ analysis map becomes the complete field map and its Gram expansion is the
 full two-shift energy.  A fixed completed resistance bound is then the open
 
 ```text
-X_(I,U,V)<=exp((1-2eta+o(1))R),                          (7.6)
+X_(I,U,V)<=exp((1-2eta+o(1))R),   0<eta<=1/2 fixed,      (7.6)
 ```
 
 not a consequence of Thomson's principle.

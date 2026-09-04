@@ -1,0 +1,8 @@
+/- Axiom audit for the compact source-derivative algebra. -/
+import RHBridge.CompactSourceDerivativeBridge
+
+#print axioms RHBridge.CompactSourceDerivativeBridge.r71_source_derivative_algebra
+#print axioms RHBridge.CompactSourceDerivativeBridge.shifted_source_derivative_algebra
+#print axioms RHBridge.CompactSourceDerivativeBridge.pole_killed_ramp_multiplier_algebra
+#print axioms RHBridge.CompactSourceDerivativeBridge.causal_ramp_boundary_correction
+#print axioms RHBridge.CompactSourceDerivativeBridge.fixed_sign_lower_of_abs

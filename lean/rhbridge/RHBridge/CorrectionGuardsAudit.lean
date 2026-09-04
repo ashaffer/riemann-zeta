@@ -1,0 +1,14 @@
+import RHBridge.CorrectionGuards
+
+/-! # Axiom audit for the September 2026 correction guards -/
+
+#print axioms RHBridge.CorrectionGuards.raw_sub_critical_exponent_identity
+#print axioms RHBridge.CorrectionGuards.raw_div_critical_eq_reduced_scale
+#print axioms RHBridge.CorrectionGuards.signed_coefficients_positive_aggregate
+#print axioms RHBridge.CorrectionGuards.signed_coefficients_do_not_force_nonpositive
+#print axioms RHBridge.CorrectionGuards.unclassified_is_not_tested
+#print axioms RHBridge.CorrectionGuards.tested_routes_not_exhaustive
+#print axioms RHBridge.CorrectionGuards.kappa_half_in_strip_domain
+#print axioms RHBridge.CorrectionGuards.twice_eta_in_energy_domain
+#print axioms RHBridge.CorrectionGuards.already_quadratic_half_saving
+#print axioms RHBridge.CorrectionGuards.already_quadratic_not_full_saving

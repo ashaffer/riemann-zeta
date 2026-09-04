@@ -1,13 +1,13 @@
 # R121 composite-CRT sparse-bridge gate
 
 Status: the exact balanced-semiprime CRT factorization has been carried
-through both the R105 full-completion formula and the signed R116 primitive
-packet.  It does not produce an R118/R119 prime packet with a harmless
+through both the R105 full-completion formula and the signed-coefficient
+R116 primitive packet.  It does not produce an R118/R119 prime packet with a harmless
 Hilbert-valued complementary coordinate.  At the coefficient-uniform level,
 retaining the complementary inverse matrix costs its sharp Hilbert
 factorization norm `asymp sqrt(r)`; this exactly cancels the `sqrt(p)`
 operator saving available from the first prime when `p asymp r`.  More
-decisively, the signed primitive packet has the exact local factor
+decisively, the signed-coefficient primitive packet has the exact local factor
 
 ```text
 H_p=p e_p(-inverse(r) m n z)+1.                       (0.1)
@@ -24,12 +24,21 @@ which is exactly the smooth ordinary `mu(d)Lambda(b)` Type-II term of R116,
 and after Vaughan recompletion the logarithmically weighted Mertens carrier.
 Thus the new sparse `(P,x,y)` theorem controls genuine prime-modulus
 short-box packets and the CRT off-diagonal, but it cannot by itself cross
-the composite primitive diagonal.  A completion-preserving fixed power now
-has to use cancellation in the globally recombined Mobius term.  No fixed
+the composite primitive diagonal.  After the R128/S0 correction, a
+completion-preserving fixed power must act on the complete all-class
+ordinary dual, which is exactly the R71 energy.  No fixed
 zero-free strip, and no theorem that such a strip cannot exist, is proved
 here.
 
 Date: 2026-08-07.
+
+**2026-09-02 successor correction (R128/S0 audit).**  The
+proper-conductor estimate in this report is a theorem only on the balanced
+squarefree-semiprime packet treated here.  It cannot be discarded globally.
+When every conductor class and cofactor arity is restored, R128 gives an
+exact cancellation of the apparent remainder, but the surviving quantity is
+the original positive R71 energy.  Accordingly Section 7 below is a local
+packet endpoint, not a global reduction of the full problem.
 
 Predecessors:
 
@@ -563,27 +572,30 @@ semiprime rows cannot.
 
 ## 7. Consequence for the outer semiprime average
 
-Let `h(c)` be the exact outer R105/Vaughan coefficient.  Proper conductors
-and the CRT cross terms may be discarded at their proved
-`c^(1/2+epsilon)` scale.  The remaining outer target is therefore, jointly
-with the Vaughan heads,
+Let `h(c)` be the exact outer R105/Vaughan coefficient.  **Within the
+balanced squarefree-semiprime packet**, proper conductors and the CRT cross
+terms may be discarded at their proved `c^(1/2+epsilon)` scale.  The local
+packet target is therefore, jointly with the Vaughan heads,
 
 ```text
-sum_(c asymp X)h(c)c
+sum_(c asymp X)h(c)c^(1-it)
  sum_(d,b)mu(d)Lambda(b)/(db)^(1+it)Phi_c(db/c).      (7.1)
 ```
 
 This is R116 (10.2).  Averaging `p` while retaining `r` does not turn its
 main term into a long-coordinate nonzero-frequency large-sieve row: on the
 CRT diagonal the two apparently rapid local phases combine by (4.11) into
-the fixed-scale phase `e(-mn db/c)`.  Squaring before the outer `c` sum
-removes the Mobius signs and preserves the physical diagonal.
+the fixed-scale phase `e(-mn db/c)`.  Taking absolute values or applying
+Cauchy separately in the outer `c` variable removes the Mobius signs and
+preserves the physical diagonal; R105 has already formed the quadratic
+energy.
 
-A fixed power for (7.1) remains a legitimate possible new theorem.  It
-would have to exploit the signed outer coefficient, the primitive ordinary
-product term, the Type-I heads, and the fixed-ratio profile family before
-any Cauchy step.  Failure of the present CRT/Hilbert bridge does not show
-that such cancellation is false.
+A fixed power for (7.1) remains a legitimate local-packet theorem.  It does
+not by itself bound the full field: all omitted modulus/conductor classes
+must first be restored.  R128 performs that restoration exactly and returns
+the complete positive energy, and no proved order-reflecting comparison makes the
+isolated form a global upper bound.  Failure of the present CRT/Hilbert bridge does not show
+that cancellation in the complete field is false.
 
 ## 8. Final ledger
 
@@ -594,19 +606,20 @@ complementary prime Hilbert factorization cost          sqrt(r), SHARP;
 first-prime full inverse operator norm                   sqrt(p);
 balanced combined coefficient-uniform scale             sqrt(pr), DIRECT;
 R118/R119 packet after full-support partition            FIXED-POWER COST;
-proper multiplier conductors                             POWER-SAVED;
+proper multiplier conductors on balanced semiprimes     POWER-SAVED;
 nonunit d,b strata on balanced squarefree box            LOWER-DIMENSIONAL;
 one-prime primitive diagonal                             EXACT, (4.6);
 two-prime primitive diagonal                             ORDINARY mu-Lambda;
 simultaneous (p,r,z) frequency family                    X^o(1) CELLS / COHERENT;
 completion-preserving CRT sparse bridge                  KILLED;
-global signed Mobius diagonal cancellation               OPEN;
+isolated signed-coefficient Mobius diagonal cancellation OPEN / INSUFFICIENT;
+all-class restoration (R128)                             EXACT = R71 ENERGY;
 fixed zero-free strip                                    NOT PROVED;
 nonexistence of a fixed zero-free strip                  NOT PROVED.       (8.1)
 ```
 
 The useful conclusion is narrow but definitive: the local sparse Vieta
 theorems are no longer the missing estimate on the balanced semiprime
-primitive block.  The obstruction is the exact CRT diagonal (4.9), and the
-next attack should begin from the globally recombined ordinary Mobius form
-(7.1), not from another short-box partition of (2.5).
+primitive block.  The obstruction is the exact CRT diagonal (4.9).  After
+the R128/S0 correction, the global next target is the complete full energy,
+not the isolated ordinary Mobius form (7.1).

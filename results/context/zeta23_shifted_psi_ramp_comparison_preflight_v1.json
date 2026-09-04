@@ -1,0 +1,45 @@
+{
+  "schema": "zeta23-theorem-passport-v1",
+  "date": "2026-09-01",
+  "target_statement": "Derive an exact common-transform identity between Suzuki's shifted Psi_omega and the R95/R96 lambda=2 von Mangoldt ramp, and decide whether the connecting operator contains an independently provable one-sided margin.",
+  "claim_status_sought": "EXACT_IDENTITY_OR_EQUIVALENCE plus either PROJECT_PROVED_THEOREM_WITH_SCOPE or a SYNTHETIC_COUNTERMODEL_OR_METHOD_OBSTRUCTION for proposed margin transfers",
+  "trust_model": [
+    "IMPORTED_FROM_LITERATURE for Suzuki Theorem 11.1",
+    "ANALYTIC_MANUSCRIPT_UNREFEREED for transform derivations",
+    "EXACT_SYMBOLIC_OR_RATIONAL_REPLAY where applicable",
+    "FLOATING_POINT_DIAGNOSTIC for finite prime data"
+  ],
+  "first_unproved_edge": "Existence of an independently provable one-sided margin after the exact transform comparison",
+  "mask_or_node_class": "Full von Mangoldt prime-power measure for exact transforms; in the alpha>1/2 shifted ramp, deleting proper prime powers changes the function by O_alpha(1), but that bounded correction must be retained in exact finite comparisons",
+  "source_data_retained": "No QP/Turan source event is used; this is an independent explicit-formula/Landau architecture",
+  "coefficient_cone_and_sign": "Actual nonnegative Lambda coefficients acted on by signed kernels; no arbitrary coefficient relaxation",
+  "normalization": "R(x)=sum_{n<=x} Lambda(n)(2n/x-1)-1+x^{-1}; alpha=1/2+omega and Suzuki's published Psi_omega normalization",
+  "height_window_and_one_sided_floor": "Asymptotic t=log x to infinity; eventual sign for Psi_omega versus one fixed-power upper or lower envelope for R",
+  "quantifier_order": "There exists fixed omega in (0,1/2) or a<1, then there exist constants/t0, and the inequality holds for every sufficiently large t or x",
+  "resolution_required": "Exact Laplace/Mellin multiplier identity, including pole and archimedean completion; no finite-frequency truncation",
+  "rate_and_exponent_ledger": {
+    "starting_exponent": "a=alpha=1/2+omega",
+    "target_exponent": "some fixed alpha<1",
+    "all_exponent_losses": [
+      "the original unweighted ramp has an O(x^{1/2} log x) prime-power loss, whereas the alpha>1/2 shifted ramp has an O_alpha(1) loss",
+      "every variable filter must pay its zero-mode attenuation",
+      "compact initial corrections are entire and asymptotically irrelevant"
+    ]
+  },
+  "feasibility_or_nonvacuity_witness": "R and Psi_omega are explicit unconditional functions; Suzuki proves Psi_omega>=0 for omega>=1/2, while the diagnostic concerns 0<omega<1/2",
+  "downstream_socket": "An independently proved eventual Psi_omega sign gives the half-plane Re(s)>alpha by Suzuki Theorem 11.1; an independently proved one-sided R=O(x^alpha) envelope gives it by the audited Landau theorem",
+  "parallel_open_siblings": [
+    "zeta-specific adjacent-support propagation in the Weil architecture",
+    "DPA_P(.019)",
+    "LTRAD_P(.0189,.001)"
+  ],
+  "why_not_target_renamed": "The exact operator identity is unconditional and useful even if no sign margin follows; direct eventual positivity of Psi_omega itself is explicitly classified as the strip target, not an intermediate lemma.",
+  "abstract_convex_falsifier": "Insert a single off-axis conjugate zero-mode or the R95 smooth positive oscillatory measure and test whether the proposed operator inequality preserves sign.",
+  "fejer_falsifier": "Not native to this explicit-formula architecture; use oscillatory exponential modes as the corresponding multiplier-level smoke test.",
+  "prime_density_pseudonode_falsifier": "Replace Lambda by a positive density 1+epsilon x^{beta-1} cos(gamma log x) and test any claimed generic margin.",
+  "finite_actual_prime_diagnostic": "Evaluate both exact prime formulas at matched t, omega, and cutoffs with high precision; record only sign morphology and scale-normalized ratios.",
+  "actual_prime_arithmetic_line": "Any surviving proof must use a property of Lambda not shared by the positive oscillatory density or atomic countermodels, beyond positivity, density, convexity, and the standard Selberg-size identity.",
+  "decision_tree_change_if_proved": "A genuinely independent positive remainder would become a new explicit-formula route to one fixed strip; the identity alone only unifies two equivalent targets.",
+  "decision_tree_change_if_refuted": "Retire direct positivity-preserving comparison and treat shifted Psi and R as two coordinates on the same rightmost-zero obstruction.",
+  "stop_rule": "Stop if the connecting map requires a cancellation or one-sided estimate with the same strip passport, or if an off-axis-mode/positive-density countermodel defeats every proposed generic margin."
+}

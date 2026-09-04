@@ -1,0 +1,52 @@
+{
+  "schema": "zeta23-r188-principal-band-serialization-postflight-v1",
+  "date": "2026-09-04",
+  "registry": "R188",
+  "preflight": "results/context/zeta23_r188_principal_band_serialization_preflight_v1.json",
+  "human_authority": "results/ZETA23-R71-PRINCIPAL-BAND-EXACT-SERIALIZATION-2026-09-04.md",
+  "literature_log": "results/context/zeta23_r188_principal_band_literature_search_2026-09-04.json",
+  "frozen_target": {
+    "eta": "1/100",
+    "energy_exponent": "49/50",
+    "status": "OPEN",
+    "consequence_if_proved": "1/100<=Re(rho)<=99/100"
+  },
+  "proved": {
+    "finite_completed_serialization": "For gamma=(mu 1_(>U))*(Lambda 1_(>V)), the compactified principal test gives a finite gamma*D_q alias sum plus the exact constant/logarithmic affine residual, with every quadratic cross term retained.",
+    "coefficient_cost": "|gamma(q)|<=log q, sum |gamma(q)|/q=O(log^2 X), and sum |gamma(q)|^2/q=O(log^3 X).",
+    "low_cofactor_suppression": "For every D, the total q<=X^(99/100)/4 nonzero-alias field is O_D(X^(-D)) after smooth physical compactification.",
+    "surviving_geometry": "Arbitrary-power suppression first gives q>=X^(99/100+o(1)) and physical quotient v_phys=n/q<=X^(1/100+o(1)). The target-matched fifth-order collar sharpens the equivalent retained field to q>X^(499/500), 0<|a|<=X^(1/400), and v_phys<=X^(1/500+o(1)); v_phys is not the solution-line Poisson dual, and low, high, and reducible determinants all survive.",
+    "target_matched_collar": "With Q=floor(X^(499/500)) and A=floor(X^(1/400)), retain the exact affine residual ell_T and only q>Q, 0<|a|<=A. The discarded field is O(X^(49/100) log^2 X), so weighted L2 Minkowski makes this exponent-equivalent to the X^(49/50+o(1)) energy target, not a proved power saving.",
+    "mask_cost": "The common-g primitive line mask has Fourier-algebra norm at most 3^omega(g)=g^o(1); compatibility of its fractional shifts with an imported integer-phase theorem is not thereby proved.",
+    "hostile_actual_subfield": "A balanced-semiprime numerator-one principal subfield has energy X/log^2 X=X^(1-o(1)); hence it cannot be estimated separately at exponent 49/50.",
+    "top_box_closeout": "The principal band retains g=1, M=N=X, J=Theta=X and |j theta|=X^2. The recorded scalar Wright output is X^(15/8+o(1)), worse than the direct X^(1+o(1)) energy scale."
+  },
+  "falsified": [
+    "THE_FAVORABLE_1_OVER_40_MINUS_1_OVER_200_LEDGER_IS_A_GLOBAL_1_OVER_50_SAVING",
+    "PRINCIPAL_HIGH_COFACTOR_LOCALIZATION_IMPLIES_LOW_DETERMINANT",
+    "LITERAL_HIGH_DETERMINANT_PACKETS_CAN_EACH_BE_BOUNDED_BY_X_TO_49_OVER_50",
+    "SCALAR_WRIGHT_OR_POINTWISE_R87_PLUS_TRIANGLE_PROVES_THE_COMPLETED_BOUND"
+  ],
+  "surviving_open_theorem": "A single globally signed, actual-coefficient correlation estimate on the target-matched collar q>X^(499/500), 0<|a|<=X^(1/400), v_phys<=X^(1/500+o(1)), with all determinants, conductors, aliases, projector terms, affine or prelocalized-Q_h completion, and cross terms retained, saving X^(-1/50) in energy.",
+  "logical_strength": "Once the X^(-1/50) conclusion is included for the complete family, the surviving theorem is the R71 endpoint and is uniform-strip-equivalent, not a smaller proved reduction.",
+  "literature_verdict": "Wright I/II, Blomer-Pascadi, Maynard-Pandey-Radziwill, and the checked almost-all distribution input do not supply the completed estimate.",
+  "novelty": "LOCAL_PREDECESSOR_PLUS_SHARPENED_PROJECT_SYNTHESIS; no candidate-new or certified literature novelty claim.",
+  "formal_scope": "Lean checks only rational exponents and finite denominator, determinant, affine, and square-expansion algebra. Python replays the same finite geometry and mask/cross-term guards. Neither formalizes the analytic localization, PNT subfield, imported Kloosterman theorems, or the open fixed-power estimate.",
+  "artifacts": [
+    "lean/rhbridge/RHBridge/R188PrincipalBandSerialization.lean",
+    "lean/rhbridge/RHBridge/R188PrincipalBandSerializationAudit.lean",
+    "src/r188_principal_band_serialization_falsifier.py",
+    "src/test_r188_principal_band_serialization_falsifier.py"
+  ],
+  "verification": {
+    "focused_r188_python": "PASS_7",
+    "combined_r187_r188_python": "PASS_14",
+    "lean_module": "PASS",
+    "lean_axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  },
+  "nonclaim": "The X^(49/50+o(1)) estimate, a uniform zero-free strip, the sharp four-cycle bound, and RH were not proved."
+}

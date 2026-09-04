@@ -13,6 +13,26 @@ No fixed zero-free strip is proved.
 
 Date: 2026-08-07.
 
+**2026-09-02 fixed-window scope correction.**  Every occurrence below of
+`X^(o(1))` for the free cofactor uses the growing-order retreat
+`U,V=X^(1/2-o(1))`.  At a fixed localization order `k`, the correct endpoint
+has
+
+```text
+theta_k=1/2-1/(4(k+1)),
+q>X^(1-1/(2(k+1))),
+m<=X^(1/(2(k+1))).
+```
+
+Thus the exact finite identities proved here remain valid, but the cofactor
+is not subpower in the fixed-window implication needed for a uniform strip.
+The fixed-order loss must be charged explicitly; there is no proved converse
+for either relevant sublinear single schedule: fixed total width
+`h=ell/k`, `k log k=o(R)`, or fixed step `h`, `k^2=o(R)`.  Thus one may not
+send `k` to infinity in the fixed-window converse.  The distinct
+proportional-order dyadic bank does
+have a moving-edge converse, but it does not license this cofactor collapse.
+
 R102--R104 predecessors:
 [`R102-CENTER-ANNIHILATED-OFF-AXIS-GATE.md`](R102-CENTER-ANNIHILATED-OFF-AXIS-GATE.md)
 and

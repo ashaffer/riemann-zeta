@@ -580,7 +580,9 @@ second support      an inverse image of a sqrt(c)-interval.           (9.2)
 ```
 
 No theorem in this report turns (9.2) into a subpower projective family of
-the packets (1.8).  The signed primitive-conductor dual isolated in R116 is
-another formulation of the same remaining outer bridge.  What has changed
+the packets (1.8).  The signed-coefficient primitive-conductor dual isolated in R116 is
+another formulation of the same **balanced-semiprime local** bridge, not the
+global endpoint.  R128 later restores all omitted classes and returns the
+original R71 energy.  What has changed
 is precise: once that native packet is available, neither the translated
 endpoint phase nor the `L=H` multiplier transition consumes the power.

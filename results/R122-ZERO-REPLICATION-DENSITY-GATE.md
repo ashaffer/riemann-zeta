@@ -23,9 +23,12 @@ Predecessors:
 * [`R102-CENTER-ANNIHILATED-OFF-AXIS-GATE.md`](R102-CENTER-ANNIHILATED-OFF-AXIS-GATE.md)
   for the faithful `Q_h` zero multiplier;
 * [`R116-SIGNED-JOINT-TYPEII-ATTACK.md`](R116-SIGNED-JOINT-TYPEII-ATTACK.md)
-  for the primitive smooth-Mobius reduction; and
+  for the balanced-packet primitive smooth-Mobius normal form;
 * [`R120-PRIMITIVE-MOBIUS-MELLIN-KERNEL-GATE.md`](R120-PRIMITIVE-MOBIUS-MELLIN-KERNEL-GATE.md)
-  for the exact signed Mellin kernel and separating-bank qualification.
+  for the exact signed-coefficient Mellin representation and
+  separating-bank qualification; and
+* [`R128-ALL-ARITY-PROPER-CONDUCTOR-GATE.md`](R128-ALL-ARITY-PROPER-CONDUCTOR-GATE.md)
+  for the fact that the faithful full bank is exactly the R71 energy.
 
 ## 1. Verdict
 
@@ -292,10 +295,13 @@ B_(d,X)(tau)
 ```
 
 with the ratio profile depending on the gcd sector in the full R81
-decomposition.  The multiplier `lambda_P` is real but signed.  Accordingly
-one scalar `P_X` is not a positive zero detector.  The valid zero response
-belongs to the complete separating Hermitian bank/full reconstructed
-energy.
+decomposition.  The multiplier `lambda_P` is real.  Its actual full-shell
+sign is unclassified: R124 proves a positive narrow band and reports only
+D-rated numerical sign changes.  The Mobius-weighted sector formula is
+signed-coefficient, so it supplies no positive-detector theorem for the
+single scalar `P_X`.  The currently certified positive zero response belongs
+to the complete separating Hermitian bank, which R128 identifies exactly
+with the full reconstructed R71 energy.
 
 For that bank, a zero `rho=beta+i gamma` contributes at scale `X`
 schematically as
@@ -392,10 +398,12 @@ unbounded bank:    divisor separating, uniform recurrence ABSENT;
 uniform power:     fixed-strip theorem itself.                       (5.13)
 ```
 
-The signed multiplier in (5.3) makes one more shortcut invalid: recurrence
-of a single scalar primitive form can reproduce a cancellation between
-positive and negative Mellin sectors.  Only the separating Hermitian bank
-has the R120 zero implication.
+The signed-coefficient representation in (5.3) leaves one more shortcut
+unproved: recurrence of a single scalar primitive form is not known to
+preserve or identify a zeta divisor, and possible sector cancellation has
+not been excluded.  The separating all-class Hermitian bank has the
+certified zero implication used here; R128 identifies it with R71.  This
+does not prove that no other order-reflecting primitive adapter can exist.
 
 ## 6. Turan and scale recurrence do not create new ordinates
 

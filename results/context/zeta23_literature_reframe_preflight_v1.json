@@ -1,0 +1,66 @@
+{
+  "artifact": "ZETA23-LITERATURE-REFRAME-PREFLIGHT-v1",
+  "date": "2026-08-31",
+  "purpose": "Update the source-checked literature map after the center-density hostile audit, import compatible theorem interfaces, and determine whether any result changes a first open edge.",
+  "authoritative_project_state": [
+    "../ZETA23-UNIFORM-STRIP-CONSOLIDATED-STATE-AND-INTUITION-PUMPS-2026-08-30.md",
+    "../ZETA23-CENTER-DENSITY-HOSTILE-FALSIFICATION-2026-08-31.md",
+    "../ZETA23-FRONTIER-LITERATURE-IMPORT-AND-JOINT-RESEARCH-PROGRAM-2026-08-29.md"
+  ],
+  "architectures": {
+    "weil": {
+      "target": "global arithmetic Weil positivity",
+      "first_open_edge": "zeta-specific adjacent-support propagation beyond the certified local endpoints"
+    },
+    "qp_turan": {
+      "target": "fixed zero-free strip",
+      "parallel_first_open_edges": [
+        "signed prime-supported DPA_P(.019)",
+        "source-conditioned LTRAD_P(.0189,.001)"
+      ],
+      "secondary_open_edges": [
+        "averaged retained-hat GCG4",
+        "actual-prime density radialization",
+        "sharp four-cycle endpoint, not a direct strip gate"
+      ]
+    }
+  },
+  "search_lanes": [
+    "Weil criteria, explicit formulas, de Branges and canonical systems, local-to-global positivity",
+    "Dirichlet-polynomial moments and large values, zero density, primes and shifted convolutions",
+    "coefficient-sensitive convex return, nonharmonic Fourier inequalities, discrepancy and inverse theorems",
+    "recent primary preprints cited by or subsequent to the 2026-08-29 import"
+  ],
+  "source_policy": "Use primary papers, author manuscripts, journal articles, and official preprints. Secondary sources may locate a paper but cannot support an imported theorem statement.",
+  "import_passport": [
+    "node or arithmetic mask",
+    "source data retained",
+    "coefficient cone and sign",
+    "normalization",
+    "height band and one-sided floor",
+    "quantifier order",
+    "resolution",
+    "exponent ledger",
+    "downstream adapter"
+  ],
+  "fast_falsifiers": [
+    "abstract convex countermodel",
+    "Fejer or Bragg lattice",
+    "prime-density inverse-compensation model",
+    "finite actual-prime diagnostic",
+    "exponent or reconstruction loss exceeding the available margin"
+  ],
+  "decision_rule": {
+    "priority_change": "Only a theorem that improves or removes a first open edge, or gives a new falsifiable sublemma with a complete adapter, changes priority.",
+    "supporting_import": "A compatible module that leaves a named new edge is recorded as supporting literature, not a solution.",
+    "nonapplication": "A sign, mask, source, band, resolution, or quantifier mismatch is displayed explicitly.",
+    "novelty": "No project result is called literature-novel without a targeted search and a statement-level comparison."
+  },
+  "hard_stops": [
+    "Do not merge the Weil and QP/Turan support ledgers.",
+    "Do not infer RH from the contemplated narrow strip.",
+    "Do not treat a pseudo-node obstruction as an actual-prime refutation.",
+    "Do not treat a finite computation or abstract reformulation as an imported asymptotic theorem.",
+    "Do not silently replace signed adaptive coefficients by positive or fixed coefficients."
+  ]
+}

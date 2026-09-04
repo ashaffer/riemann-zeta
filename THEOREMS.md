@@ -1,5 +1,23 @@
 # Theorems
 
+> **R188 principal-band closeout (2026-09-04):**
+> [`results/ZETA23-R71-PRINCIPAL-BAND-EXACT-SERIALIZATION-2026-09-04.md`](results/ZETA23-R71-PRINCIPAL-BAND-EXACT-SERIALIZATION-2026-09-04.md)
+> proves the exact finite `gamma`-cofactor plus affine-center serialization and
+> arbitrary-power suppression of its low-denominator nonzero aliases.  It also
+> gives a target-matched exponent-equivalent cofactor/physical-quotient/alias
+> `.998/.002/.0025` Fourier collar,
+> proves that high cofactor does not force low determinant, and isolates a
+> natural-size semiprime alias block.  These are scoped reduction/no-go
+> theorems, not the open completed `X^(.98)` estimate, a zero-free strip, the
+> four-cycle bound, or RH.
+
+> **Latest abstraction/propagation addendum (2026-09-01):**
+> [`results/ZETA23-RECURSIVE-CONSOLIDATION-FIXED-POINT-2026-09-01.md`](results/ZETA23-RECURSIVE-CONSOLIDATION-FIXED-POINT-2026-09-01.md)
+> proves a compact-filtration localization theorem, a semidefinite
+> charged-nullstate continuation reduction, and several cross-corpus
+> strengthenings.  Its universal completed-zeta kernel-charge premise remains
+> open and is RH-equivalent under the accepted Weil/continuity interfaces.
+
 Proved statements extracted from this program's measurements. House standard:
 every constant explicit, every proof complete or explicitly labeled
 computer-assisted with its trust base; novelty claims carry the same diligence
@@ -23,13 +41,18 @@ For φ ∈ D_L set
 
   P(φ)  = 2 (∫ φ(x) e^{x/2} dx)(∫ φ(x) e^{−x/2} dx)                 (pole)
   A(φ)  = (1/2π) ∫_ℝ |φ̂(r)|² ( Re ψ(1/4 + ir/2) − log π ) dr        (archimedean)
-  Π(φ)  = 2 Σ_{n ≥ 2 prime power} Λ(n) n^{−1/2} ψ_φ(log n)          (primes)
+  Π(φ)  = 2 Σ_{n ≥ 2 prime power, log n < L/2} Λ(n) n^{−1/2} ψ_φ(log n)  (primes)
 
   Q_L(φ) = P(φ) + A(φ) − Π(φ),        λ(L) = inf { Q_L(φ) : φ ∈ D_L, ‖φ‖₂ = 1 }.
 
-Since ψ_φ(u) = 0 for |u| ≥ 2a = L/2, the prime sum is the finite sum over
-n < e^{L/2}: Q_L is precisely the truncated Weil form of the certified ledger
-(`PROGRAM.md` §6), and Weil's criterion says: RH ⟺ λ(L) ≥ 0 for all L.
+The formal arithmetic form takes this finite active-prime-power sum as its
+definition.  For compactly supported vectors, the omitted terms vanish
+mathematically because ψ_φ(u) = 0 for |u| ≥ 2a = L/2.  Classically, after
+the Guinand--Weil identification of this arithmetic form with the zero side,
+Weil's criterion says: RH ⟺ λ(L) ≥ 0 for all L.  Those global inputs are
+named literature interfaces in Lean, not premises of the unconditional local
+endpoint below.
+
 Unless explicitly labeled as a FULLINF full-space certificate, measurements
 of λ(L) in `results/RESULTS.md` are Galerkin upper bounds for these quantities.
 ψ denotes the digamma function; ψ(1/4) = −γ − π/2 − 3 log 2.
@@ -347,11 +370,12 @@ Lemma A appears to be folklore-level; no priority claim is made for it.
 
 **Formalization status.** Lemma A's sandwich — in its integral form, i.e.
 ½log(1+4r²) ≤ ∫₀^∞ e^{−t/4}(1−cos(rt/2))/(1−e^{−t})dt ≤ ½log(1+4r²)+8 —
-is now KERNEL-CHECKED: `GlideKernel.kernel_lower/kernel_upper` in
+is kernel-checked by `GlideKernel.kernel_lower/kernel_upper` in
 `lean/glide/Glide/Basic.lean` (with `laplace_sin` and `frullani_cos` as
-formalized supporting lemmas), axioms [propext, Classical.choice, Quot.sound]
-only. The identification with digamma awaits Gauss's formula in mathlib
-(RH-LEMMA-MAP.md, Level 2).
+formalized supporting lemmas).  The later `Glide.DigammaKernel` and
+`Glide.DigammaKernelQuarter` modules now also prove the exact Gauss-kernel
+identification with the real part of digamma; the older statement that this
+identification awaited mathlib is obsolete.
 
 ---
 
@@ -416,12 +440,12 @@ L = 497/200 is strictly positive on the explicit 12-dimensional space
 span{P_k(4x/L)}_{k≤11} ⊂ H_L: a finite, formally verified piece of the
 RH-equivalent positivity criterion, in a window where the archimedean-plus-pole
 part alone is *not* positive (deficit −0.41 at the window top; the rescue
-requires both primes 2 and 3). The remaining gap between Theorem 2 and a fully
-formal statement about ζ itself is exactly the Bridge Proposition; its
-formalization requires interval-verified special functions in mathlib
-(Bernoulli generating series — present; Gauss's digamma integral and directed-
-rounded evaluation — absent), and is, to our knowledge, the concrete shortest
-path to the first end-to-end formal window of Weil positivity.
+requires both primes 2 and 3). The remaining gap between Theorem 2 and a
+kernel-checked arithmetic-form statement at this support is exactly the Bridge
+Proposition.  The Bernoulli generating series and Gauss digamma integral are
+now formalized; the directed-rounded special-function evaluation used by this
+particular bridge remains external.  Theorem 3 below is a separate,
+kernel-checked p=2 full-domain endpoint.
 
 **Novelty status.** Finite positivity computations for truncated Weil forms
 exist in the literature (Connes–Consani; Groskin, arXiv:2605.20224,
@@ -432,27 +456,28 @@ literature check, as always.
 
 ---
 
-## Theorem 3 (a software-certified unrestricted window)
+## Theorem 3 (a kernel-checked full-domain arithmetic window)
 
 For the full logarithmically weighted form domain at L=7/4,
 
   Q_{7/4}(φ) > 2.2699×10⁻⁵ ‖φ‖₂²
 
-for every nonzero φ. Consequently, by Theorem 1's support monotonicity, the
-same lower bound holds for every 0<L≤7/4.
+for every nonzero φ.  The endpoint theorem is kernel-checked without any
+project literature axiom.  By Theorem 1's support monotonicity, the same lower
+bound holds mathematically for every 0<L≤7/4; the current Lean packaging of
+that smaller-support transport in `CertifiedBaseInterval` still exposes the
+standard compact-support autocorrelation lemma as an explicit axiom.
 
 This is an infinite-dimensional conclusion. It is not the finite Galerkin
 statement of Theorem 2 and is not restricted by a Fourier-tail hypothesis.
-It is software-certified as a statement about the zeta form under the
-remaining domain-identification trust base below; that identification is not yet checked by
-the Lean kernel. Lean does now check the abstract Hilbert/projection transfer,
-the complete F2 Legendre/Fourier/Plancherel leakage chain with its numerical
-rational ledger, the pole residuals, directed p=2 scalar bounds, their
-operator-level composition with the stored real finite certificate, and the
-exact clipped-versus-original multiplier-integral comparison. The bounded
-certificate now also checks containment for every canonical analytic matrix
-entry and closes the clipped endpoint. It still does not check the zeta-form
-domain/integrability identification.
+Lean checks the Hilbert/projection transfer, the complete Legendre/Fourier/
+Plancherel leakage chain, pole residuals, directed p=2 bounds, exact finite
+certificate, canonical matrix containment, clipped-to-original comparison,
+time-domain autocorrelation identity, logarithmic-domain equivalence, and the
+specialization of the general finite-prime arithmetic form at `a=7/16`.
+The resulting theorem concerns the arithmetic pole--archimedean--prime form.
+Its Guinand--Weil identification with a symmetric sum over zeta zeros remains
+an explicit literature interface and is not part of this endpoint.
 
 **Proof.** At this window only n=2 occurs in the prime sum, so the multiplier
 in Lemma F0 of `results/experts/FULLINF.md` is
@@ -534,9 +559,10 @@ integer congruence certificate and proves the same strict statement for every
 real matrix in those intervals; it does not rely on density. The older
 generator verifies externally that its Arb balls lie in those intervals.
 Independently, the bounded rational certificate now proves in Lean that the
-canonical analytic matrix entries lie in those intervals. This still does not
-identify the resulting expression with the zeta form on its domain.
-Nevertheless,
+canonical analytic matrix entries lie in those intervals.  At this bounded
+certificate layer alone, the resulting expression is not yet identified with
+the arithmetic zeta form; the downstream composition described below now
+closes that gap.  At the present layer,
 `FullInfClipped48Transfer.p2_projection_lower_bound_of_clipped48_intervals`
 now composes this real interval theorem with the exact F8 projection ledger.
 The later operator modules go further: `BoundedSymbolMultiplier` constructs a
@@ -557,11 +583,15 @@ Legendre reflection, Fourier real/imaginary parity, and pole reflection.
 discharges the even/odd interval premises after Lean verifies the analytic
 error ledger and all 19,200 refinements. Its corollary
 `p2_canonical_clipped_endpoint` proves the clipped lower bound from only
-`f≠0`. `RHP2Bridge.p2_original_integral_lower_bound_of_matrix_containment_no_parity`
-transfers
-the same strict `22699/10^9` bound to the original unbounded weighted Fourier
-integral plus the exact pole term, additionally assuming weighted integrability.
-Neither theorem identifies that expression with the zeta Weil form.
+`f≠0`.  This clipped theorem is a sibling corollary, not a premise of the final
+arithmetic endpoint.  That endpoint instead applies
+`RHP2Bridge.p2_original_integral_lower_bound_of_matrix_containment_no_parity`
+directly to the same matrix containment, transferring the strict
+`22699/10^9` bound to the original unbounded weighted Fourier integral plus
+the exact pole term under weighted integrability.  `RHBridge.ZetaWeilForm`
+then proves the time-domain autocorrelation and logarithmic-domain
+identifications, and `RHBridge.GeneralZetaWeilForm` proves the exact
+active-prime-power specialization at `a=7/16`.
 
   A(φ) ≥ β‖u‖²+d‖w‖²−2c‖u‖‖w‖,
   d>1.093,  c<2.12×10⁻¹⁰.
@@ -572,19 +602,21 @@ For the rational γ=2.2699×10⁻⁵, the same Arb run verifies
   (β−γ)(d−γ)−c² > 10⁻⁹.
 
 Hence the scalar two-by-two block is greater than γI, proving Q≥A>γI on the
-full form domain. The Fourier, pole, scalar, operator, parity,
-parity-coordinate, canonical matrix-containment, and clipped-to-original
-comparison parts of this composition are kernel-checked. To turn it into a
-Lean theorem about the zeta form, one must still identify the resulting
-integral-plus-pole expression with that form on its domain and discharge the
-required weighted integrability there.
+full form domain.  The downstream Lean chain now kernel-checks the Fourier,
+pole, scalar, operator, parity, coordinate, canonical matrix-containment,
+clipped-to-original, autocorrelation, domain, and arithmetic-specialization
+steps.  What remains outside this chain is the global Guinand--Weil equality
+with the zero-side sum, not the local arithmetic-form identification.
+
 Full derivations,
 normalization factors, and reproduction
 output are in `results/experts/FULLINF.md`, Theorems F7–F8. ∎
 
-**Scope.** This proves local Weil positivity over one range of supports. RH
-requires the corresponding positivity for every support size. No proposed
-NT-4 converse is used or proved here, so no named-zero exclusion is asserted.
+**Scope.** The endpoint at `L=7/4` is an unconditional local Lean theorem; the
+current Lean transport to smaller supports uses the explicit standard
+autocorrelation axiom noted above.  RH requires the corresponding positivity
+for every support size. No proposed NT-4 converse is used or proved here, so
+no named-zero exclusion is asserted.
 
 ---
 
@@ -676,6 +708,10 @@ Theorem F10. ∎
 **Scope.** Theorems 3–5 prove local Weil positivity only through L=749/250.
 They do not establish positivity for arbitrary support and hence do not prove
 RH or exclude any named zero without a separate quantitative converse.
+Theorem 5 is excluded from the first release candidate: its last audit replayed
+cached Arb balls whose fingerprint omits some numerical globals.  Promotion
+requires a repaired fingerprint and first-principles regeneration or an
+independent cross-check.
 
 ---
 

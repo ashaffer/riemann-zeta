@@ -1,5 +1,13 @@
 # Stage 3: corrected determinant/de Branges target
 
+> **Version notice (2026-08-31).** This document audits the target printed in
+> Suzuki v1.  Suzuki v2 replaces it by
+> `exp(phi(a,z)) W(a,z) -> xi(1/2-iz) / (xi+xi')(1/2-iz)`.
+> Consequently, the v1-specific discussion below is retained as a historical
+> audit and must not be read as an audit of the revised conjecture.  The v2
+> convergence remains conditional and unproved; see the
+> [August 31 literature reframe](ZETA23-LITERATURE-SURVEY-IMPORT-AND-RESEARCH-REFRAME-2026-08-31.md).
+
 ## Entire-limit audit
 
 Suzuki's 2026 finite-window characteristic function `W(a, theta; z)` is

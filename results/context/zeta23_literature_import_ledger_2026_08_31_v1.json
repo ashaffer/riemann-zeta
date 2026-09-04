@@ -1,0 +1,240 @@
+{
+  "artifact": "ZETA23-LITERATURE-IMPORT-LEDGER-2026-08-31-v1",
+  "date": "2026-08-31",
+  "literature_cutoff": "2026-08-31",
+  "source_policy": "Primary papers, official preprints, journal pages, author manuscripts, and released proof artifacts only.",
+  "headline_verdict": {
+    "uniform_zero_free_strip": "OPEN",
+    "riemann_hypothesis": "OPEN",
+    "status_change": false,
+    "reframe": "CA4 is a localized adjacent-gap-weighted analogue of the higher-trace Hardy-Littlewood correlation wall; LTRAD is a source-conditioned finite-time return problem for a growing-dimensional actual prime-log orbit; the Weil route needs source-identifying continuation or adjacent-support Schur control rather than another abstract positive extension."
+  },
+  "project_targets": {
+    "weil": {
+      "target": "global arithmetic Weil positivity",
+      "first_open_edge": "zeta-specific adjacent-support propagation",
+      "formal_local_seed": {
+        "physical_half_window_a": "7/16",
+        "program_L": "7/4",
+        "status": "PROJECT-PROVED in recorded scope"
+      }
+    },
+    "qp_turan": {
+      "target": "fixed zero-free strip of the contemplated width",
+      "parallel_first_open_edges": [
+        "DPA_P(.019)",
+        "LTRAD_P(.0189,.001)"
+      ],
+      "high_tail_sufficient_gate": "CA4(163/1000,1/10), OPEN and stronger than the one-sided DPA floor strictly requires",
+      "sharp_four_cycle": "OPEN; not a direct strip gate under the audited adapters"
+    }
+  },
+  "imports": [
+    {
+      "id": "LIT-WEIL-CHUK-2026",
+      "source": "https://arxiv.org/abs/2608.24827",
+      "source_status": "arXiv v1 preprint, 2026-08-25",
+      "claimed_result": "For support [-0.8,0.8], Q(f) >= 8.9e-18 ||f||_2^2; a finite Legendre reduction and a pointwise-comb barrier are also claimed.",
+      "normalization": {
+        "paper_L": "0.8",
+        "project_physical_half_window_a": "0.8",
+        "project_program_L": "3.2",
+        "active_prime_powers": [2, 3, 4],
+        "next_activation_program_L": "2 log 5 = 3.218875824868..."
+      },
+      "verification": {
+        "public_numerical_certificate": false,
+        "source_bundle_contents": "TeX and two figures; no serialized matrix, interval quadrature, Cholesky factor, or tail enclosure",
+        "independent_float_galerkin": {
+          "basis": "project geometric-side even Legendre assembly",
+          "working_precision_digits": 65,
+          "minimum_eigenvalues": {
+            "m32": "5.7499e-16",
+            "m48": "1.7460e-17",
+            "m64": "1.7026e-17",
+            "m80": "1.6787e-17"
+          },
+          "next_even_m80": "8.44e-12",
+          "odd_minimum_m80": "1.59e-14",
+          "conclusion": "Numerically consistent with the claimed scale; not a lower-bound certificate."
+        },
+        "domain_issue": "The natural form domain requires integral log(2+t^2)|F(t)|^2 dt < infinity; the all-L2 theorem statement needs an extended-valued or Friedrichs-form repair."
+      },
+      "import_status": "PLAUSIBLE CLAIM, NOT YET PROMOTED TO TRUSTED PROJECT THEOREM",
+      "project_effect": "Potentially enlarges only the local seed. It supplies no adjacent-support propagation.",
+      "barrier_scope": "The double-exponential estimate is a barrier for the paper's constant absolute prime-comb envelope, not for every t-dependent pointwise-symbol or operator certificate."
+    },
+    {
+      "id": "LIT-GABOR-AF-2026",
+      "source": "https://arxiv.org/abs/2608.13637",
+      "source_status": "arXiv preprint with official Lean artifact",
+      "imported_result": "Unconditionally at least 2/3 of the zeros are simple and on the critical line and at least 5/6 are distinct; the optimized constants are about 0.6725007 and 0.8362503.",
+      "mechanism": "Finite Gabor compression of Weil's Hermitian form, signature-(1,1) off-line blocks, and rank/trace/Hilbert-Schmidt inequalities.",
+      "higher_trace_boundary": {
+        "unconditional_diagonal_range": "X^k <= T^(2-epsilon)",
+        "project_k4_range_miss_at_X_equals_Y_T_equals_Y_50_over_33": "Y^(32/33 + (50/33)epsilon)",
+        "conditional_HL_star_4": "Encodes sum_m (Lambda*Lambda)(m)(Lambda*Lambda)(m+h) for |h| <= X^2/T.",
+        "project_contact": "At X=Y and T=Y^(50/33), the shift scale is H=Y^(16/33), exactly the CA4 physical resolution."
+      },
+      "passport_mismatch": [
+        "natural Lambda*Lambda rather than adjacent-gap hat weights",
+        "global Gabor trace rather than one shell and a translated signed kernel",
+        "zero census rather than exclusion of one off-line zero",
+        "trace moments are insensitive to o(N) exceptional zeros"
+      ],
+      "import_status": "VALID PRIOR IMPORT; HIGHER-TRACE LIMITATION NEWLY CROSS-WALKED",
+      "project_effect": "Independently validates CA4 as a genuine higher-trace correlation scale, but proves no CA4, DPA, LTRAD, strip, or RH statement."
+    },
+    {
+      "id": "CANDIDATE-YANG-YANG-2026",
+      "source": "https://zenodo.org/records/21975237",
+      "artifact": "https://github.com/JoshuaHKU/zeta-0.7947-reproduction",
+      "source_status": "Self-labelled certified-candidate, not established theorem",
+      "headline_claim": "0.7962 simple and on-line; 0.8981 distinct, from trace moments through order six",
+      "reproduced_valid_layer": "Exact rational Chebyshev-Markov certificate: the asserted moments imply the displayed proportions; the finite Lean identity/certificate package builds.",
+      "fatal_first_open_edge": {
+        "location": "paper Proposition 5.3 / corresponding truncation-consumption step",
+        "problem": "A single global normalization ell_1 = log(T/2pi)+2log2-1 is silently reused as an undefined per-cell integer parameter, and an unsupported ell^(-k) cell decay is assigned.",
+        "actual_modulus_weight": "Lambda(b1)Lambda(b2)/(b1 b2), with the global ell_1^4 normalization outside the sum",
+        "mass_test": "[sum_{b <= (log X)^B} Lambda(b)/b]^2 / [sum_{b <= X} Lambda(b)/b]^2 = (B log log X / log X)^2 + o(1) -> 0",
+        "consequence": "The proposed polylogarithmic-modulus truncation removes asymptotically almost all raw Mertens mass instead of an ignorable tail."
+      },
+      "additional_gaps": [
+        "The minor/mixed summed spectral L2 budget is asserted as classical rather than derived.",
+        "The claimed short-window Siegel-Walfisz statement is not supplied by the cited long-interval theorem over the full stated theta > 1/2 range.",
+        "The public Lean files contain no zeta, prime-sum, trace-moment, limit, or Lemma-D theorem.",
+        "Cited analytic bridge/glue archives are absent from the public package."
+      ],
+      "import_status": "HEADLINE PROOF REFUTED AS WRITTEN; NUMERICAL STATEMENT UNRESOLVED",
+      "project_effect": "Import only the conditional moment-consumption algebra. Do not import Lemma D or the density headline. The unrestricted HL*(4) correlation remains open."
+    },
+    {
+      "id": "LIT-PRIME-MPR-2026",
+      "source": "https://arxiv.org/abs/2608.14777",
+      "source_status": "arXiv v1 preprint, 2026-08-14",
+      "imported_result": "For alpha=a/q+epsilon and B=max(q,qN|epsilon|), sum_{n<N} Lambda(n)e(n alpha) is at most N^(o(1))(N/B^(1/2)+N^(19/24)).",
+      "improvement": "Replaces Vinogradov's N^(4/5) term by N^(19/24).",
+      "failed_adapter": {
+        "phase": "additive n alpha versus t log(p/Y)",
+        "mask": "natural Lambda versus prime-only adjacent-gap weights",
+        "localization": "prefix/dyadic estimate; differencing leaves error Y^(19/24), much larger than top Taylor blocks Y^(8/33)",
+        "major_arcs": "N/B^(1/2) may give no saving",
+        "optimistic_CA4_normalized_square": "Y^(-5/12+o(1))",
+        "CA4_required_per_unit_time": "Y^(-5249/3250+o(1))",
+        "exponent_deficit": "23369/19500 = 1.198410..."
+      },
+      "import_status": "IMPORTED THEOREM; DIRECT PROJECT ADAPTER FAILS",
+      "project_effect": "Useful benchmark for any future gap-mask/short-interval transference theorem; not a current DPA or CA4 input."
+    },
+    {
+      "id": "LIT-KLOOSTERMAN-WRIGHT-II-2026",
+      "source": "https://arxiv.org/abs/2608.27732",
+      "source_status": "arXiv v1 preprint, 2026-08-27",
+      "imported_result": "Improved trilinear Kloosterman-fraction estimates on two subdyadic variables and a nearly balanced convolution range delta < 1/68.",
+      "project_contact": "Recognizes the physical short blocks that arise after a possible reciprocal-phase completion.",
+      "failed_adapter": {
+        "optimistic_gain_ceiling": "Y^(-1/8)",
+        "CA4_needed_conductor_gain": "Y^(-127/330)",
+        "pointwise_exponent_deficit": "343/1320 = 0.259848...",
+        "exact_global_exponent_deficit": "6349/26000 = 0.244192...",
+        "additional_losses": "Scalar short-block recombination can cost Y^(1-theta).",
+        "passport": "Three separated slots and nonzero reciprocal phase do not retain four adjacent-gap weights, translated kernel sign, zero/main sector, or shell-center quantifiers."
+      },
+      "import_status": "IMPORTED THEOREM; BLACK-BOX CA4 ROUTE CLOSED",
+      "project_effect": "Any successful selector-sensitive dispersion theorem must improve the unchanged first term and preserve collective signed reconstruction."
+    },
+    {
+      "id": "LIT-ENERGY-HU-JW-CDW-2026",
+      "sources": [
+        "https://arxiv.org/abs/2608.18956",
+        "https://arxiv.org/abs/2608.14467",
+        "https://arxiv.org/abs/2608.12316"
+      ],
+      "source_status": "August 2026 arXiv preprints",
+      "imported_results": [
+        "Jing-Wu: near-diagonal exact unweighted four-fold energy on algebraic surfaces.",
+        "Cushman-Demeter-Wu: near-optimal exact unweighted six-fold energy on strictly convex curves.",
+        "Hu: hereditary exact energy implies arbitrary complex weighted L4/Young estimates; in particular a sharp quadratic-threefold case."
+      ],
+      "passport_mismatch": "Full-dual exact equality is not a translated finite-window signed kernel at prescribed B^(-1) resolution; none retains project masks, source, or adaptive quantifiers.",
+      "import_status": "IMPORTED AS DOWNSTREAM TERMINATORS ONLY",
+      "project_effect": "They become usable only after a resolution-stable masked serialization with controlled leaf complexity."
+    },
+    {
+      "id": "LIT-LTRAD-SOFT-GEOMETRY",
+      "sources": [
+        "https://doi.org/10.1112/jlms/s2-8.1.73",
+        "https://arxiv.org/abs/1406.2296",
+        "https://arxiv.org/abs/2411.19562"
+      ],
+      "imported_result": "Separated-frequency L2, near-critical exponential frames, and approximate convex sampling are available in their native two-sided forms.",
+      "derived_scale_test": {
+        "required_absolute_accuracy": "Y^(-.0189)",
+        "generic_approximate_caratheodory_support": "Y^(.0378) up to logarithms",
+        "available_participation_scale": "Y^(.0179) to Y^(.0189)",
+        "conclusion": "Intrinsic factor-two exponent wall for soft sampling."
+      },
+      "passport_mismatch": "No source-conditioned one-sided return, adaptive coefficient order, or finite polynomial hitting time.",
+      "import_status": "ROUTINE MODULES; NOT THE MISSING LTRAD THEOREM",
+      "project_effect": "Reframe LTRAD as quantitative growing-dimensional arithmetic return, not as an ordinary vector-valued large sieve."
+    },
+    {
+      "id": "LIT-SUZUKI-2606-V2",
+      "source": "https://arxiv.org/abs/2606.09096v2",
+      "source_status": "arXiv v2, 2026-08-17",
+      "imported_result": "Localized Friedrichs/operator framework, continuity of the ground floor, and a conditional characteristic-function convergence criterion.",
+      "version_correction": "The current conditional target is exp(phi(a,z)) W(a,theta;z) -> xi(1/2-iz)/(xi(1/2-iz)+xi'(1/2-iz)), not z^2 xi/xi'.",
+      "import_status": "IMPORTED VERSION CORRECTION",
+      "project_effect": "Corrects the Stage-3 target; convergence and adjacent-support positivity remain open."
+    },
+    {
+      "id": "EXCLUDED-RAMARE-2605.29470",
+      "source": "https://arxiv.org/abs/2605.29470",
+      "source_status": "WITHDRAWN by author for an important miscalculation",
+      "import_status": "EXCLUDED",
+      "project_effect": "No weighted-Parseval large-sieve input may be taken from this version."
+    }
+  ],
+  "reframed_decision_tree": {
+    "weil": [
+      "Independently interval-certify Chuk's a=0.8 claim on the logarithmic form domain.",
+      "If it passes, promote only the local seed and attack the adjacent p=5 activation with an exact-source relative Schur complement.",
+      "In parallel, falsify uniqueness of source-compatible positive-definite continuations; abstract existence is non-identifying by Krein extension theory."
+    ],
+    "DPA_CA4": [
+      "Retain the proved frozen-hat floor through t <= Y^(.8392).",
+      "Treat the remaining band as a signed adjacent-gap-weighted semiprime covariance at H=Y^2/T.",
+      "Stop black-box MPR and Wright-II adapters: their exponent/passport ledgers fail before implementation.",
+      "Before any truncation, compute the exact retained share of the target norm; reject every easy range carrying o(1) mass.",
+      "The scalar interval/smooth-natural transference test is now refuted; target a joint selector-sensitive vector-valued shifted-semiprime theorem retaining the common kernel and signs."
+    ],
+    "LTRAD": [
+      "Use ordinary large sieve only after unresolved clusters are formed.",
+      "Extract the exact arithmetic restrictions on legal source-normalized dual coefficients and test whether prime-density countermodels can realize them.",
+      "Pursue either a source-conditioned finite-time return theorem for the actual prime-log flow or a B^(-1)-faithful source/mask-preserving serialization into a closed exact-energy terminator."
+    ]
+  },
+  "post_survey_falsifier": {
+    "artifact": "ZETA23-CA4-MASS-PRESERVING-NATURAL-MASK-TRANSFERENCE-FALSIFIER-2026-08-31",
+    "verdict": "Scalar Alpoge-Furman-style transference through consecutive natural intervals or uniformly bounded-variation smooth atoms is refuted; actual-prime CA4 remains open.",
+    "actual_prime_certificate": "The exact retained hat vector has discrete variation at least a constant times (log Y)^(-2). A tensor-square variation witness forces every passported signed scalar decomposition to have recombination cost at least a constant times (log Y)^(-4), versus the required Y^(-5249/6500+o(1)).",
+    "abstract_certificate": "A periodic bounded-gap pseudonode motif has hat-to-natural density ratio in [1/2,5/2], natural fourth moment O(M^(-3)), and hat fourth moment bounded below by a positive constant on the corresponding dyadic band.",
+    "mass_budget": {
+      "largest_sup_multiplier_beta_that_fits": "1251/13000",
+      "beta_needed_for_o1_discarded_mass_from_current_L2_data": "strictly greater than 463/3250",
+      "beta_needed_for_Y_minus_019_discarded_mass": "2099/13000",
+      "conclusion": "No overlap; L2 truncation plus supremum erasure cannot preserve the target."
+    },
+    "survivor": "A joint vector-valued or multiplier-stable selector-sensitive HL*(4) theorem with diagonal normalized by the actual gap-weighted coefficients."
+  },
+  "hard_stops": [
+    "Do not infer a fixed strip from any positive-density zero theorem.",
+    "Do not infer global Weil positivity from a larger finite local window.",
+    "Do not call a numerical Galerkin value a certified lower bound.",
+    "Do not import the Yang-Yang 0.7962 headline or Lemma D.",
+    "Do not replace adjacent-gap weights by natural Lambda weights without a quantitative adapter.",
+    "Do not replace a translated finite-window near-relation by full-dual exact energy.",
+    "Do not accept a conductor truncation until the retained normalized mass is 1-o(1).",
+    "Do not merge the independent DPA and LTRAD locks."
+  ]
+}

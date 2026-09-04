@@ -23,6 +23,12 @@ strip is proved or disproved.
 
 Date: 2026-08-08.
 
+**2026-09-02 successor scope correction.**  References below to R116 saving
+“all proper conductors” apply only to its balanced squarefree-semiprime
+packet.  R128 restores all conductor classes exactly, but the restored object
+is the original full positive R71 energy.  The null-tail frame does not
+transfer the packet-level saving to that global object.
+
 Predecessors:
 
 * [`R123-TRUNCATED-MOBIUS-DILATION-BANK-GATE.md`](R123-TRUNCATED-MOBIUS-DILATION-BANK-GATE.md),
@@ -258,7 +264,8 @@ mu*Lambda=-mu log                                    (4.5)
 ```
 
 which creates R116's primitive smooth-Mertens dual does not simplify the
-phased tail.  R116 still saves all proper reciprocal conductors, but its
+phased tail.  R116 still saves the proper reciprocal conductors in its
+balanced squarefree-semiprime packet, but its
 primitive term becomes the ordinary sum with coefficient (4.4), and no
 fixed power is available there.
 
@@ -310,7 +317,7 @@ It has exactly the same `X^(-a)` factor.  If one somehow proved a complete
 arithmetic bound
 
 ```text
-frame energy <<Y^(1-kappa),                          (5.5)
+frame energy <<Y^(1-kappa),       0<kappa<=1,         (5.5)
 ```
 
 then comparison with (5.3) would exclude
@@ -337,10 +344,14 @@ For comparison:
   would correspond to `kappa=1/2` in (5.5).  It applies only to the sparse
   prime-modulus endpoint, not the composite primitive field, so this
   conditional calculation cannot be invoked.
-* R116's proper-conductor term saves a square root in amplitude, hence a
-  full power in energy relative to its top scale.  The primitive conductor,
-  which contains the smooth-Mertens/zero carrier, has `kappa=0`.  The frame
-  does not transfer the proper-conductor saving to that primitive term.
+* R116's balanced-semiprime proper-conductor estimate
+  `O(c^(1/2+epsilon))` is already a contribution to the bilinear/energy
+  expression inside R105, against a top contribution of order `c`; it must
+  not be squared a second time.  It therefore records a one-half exponent
+  saving on that scoped contribution, not a full energy power.  The
+  primitive conductor, which contains the smooth-Mertens/zero carrier, has
+  `kappa=0`.  The frame does not transfer the proper-conductor saving to
+  that primitive term.
 
 There is also a geometric cost: `log(2M)=a log X+O(1)` is a macroscopic
 shift, whereas R123's regular schedule uses `log M=o(log X)`.  Every
@@ -503,4 +514,3 @@ dilation coordinates beyond their tight square function**, or find a
 coherent weight whose completed integral main is not an injective
 smoothed copy of the prime field.  Neither property follows from the
 current R116/R118 literature imports.
-

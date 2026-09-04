@@ -1,0 +1,13 @@
+import RHBridge.R71MinorArcTriage
+
+#print axioms RHBridge.R71MinorArcTriage.targetExponent
+#print axioms RHBridge.R71MinorArcTriage.additiveCrossExponent
+#print axioms RHBridge.R71MinorArcTriage.additiveTailEnergyExponent
+#print axioms RHBridge.R71MinorArcTriage.farDifferenceExponent_lt_target
+#print axioms RHBridge.R71MinorArcTriage.additiveCrossExponent_lt_target
+#print axioms RHBridge.R71MinorArcTriage.affineCenter_moment_match
+#print axioms RHBridge.R71MinorArcTriage.completedBound_of_near_far
+#print axioms RHBridge.R71MinorArcTriage.nearBound_of_completed_far
+#print axioms RHBridge.R71MinorArcTriage.nearExtension_difference
+#print axioms RHBridge.R71MinorArcTriage.signedFar_counterexample
+#print axioms RHBridge.R71MinorArcTriage.pointwiseSmall_does_not_aggregate

@@ -1,0 +1,70 @@
+{
+  "schema": "zeta23-research-preflight-v1",
+  "date": "2026-09-03",
+  "target_statement": "Run a constructive two-lane search: (A) exhibit an explicit inverse-free completed pole--archimedean--prime source-to-collar operator T_STC with Gamma_(a,b)=T_STC A_a on the smooth localized core and prove independent closability or boundedness; or isolate the first exact remainder for a declared finite grammar; (B) seek a genuinely source-preserving fixed-window R71/R68 or fixed shifted-Psi one-sided intermediate which is implied by a hypothetical fixed zero-free strip and has a strict arithmetic adapter.",
+  "claim_status_sought": "EXACT_IDENTITY_OR_EQUIVALENCE, PROJECT_PROVED_SCOPED_NO_GO, or CONDITIONAL_THEOREM_WITH_NAMED_PREMISE; a uniform strip or RH may be claimed only if every accepted interface and the new analytic edge are actually proved.",
+  "trust_model": "Analytic manuscript plus exact symbolic/rational replay and Lean finite algebra where applicable; imported analytic results are separately cited at exact scope.",
+  "architectures": [
+    "DIRECT_RH_COMPLETED_SOURCE_EXTERIOR",
+    "UNIFORM_STRIP_FIXED_WINDOW_OR_SHIFTED_PSI"
+  ],
+  "first_unproved_edges": {
+    "direct_RH": "A concrete inverse-free completed-source division identity and an ambient closability or boundedness proof.",
+    "uniform_strip": "A complete source-preserving fixed-power R71/R68 estimate, or exactly equivalent eventual one-sided fixed shifted-Psi/pole-killed-ramp control."
+  },
+  "operator_typing": {
+    "outer_space": "One fixed form Hilbert space V_B with reference inner product h.",
+    "old_operator": "A_a=I+P_a^h G restricted to V_a, mapping V_a to V_a.",
+    "charge": "Gamma_(a,b)=P_(W_(a,b))^h G restricted to V_a, mapping V_a to W_(a,b).",
+    "warning": "The older cross block C maps collar to old; T_STC must factor the adjoint old-to-collar charge Gamma."
+  },
+  "allowed_T_STC_grammar": {
+    "generators": [
+      "fixed support restrictions and h-orthogonal projections",
+      "the exact completed pole moments",
+      "the exact archimedean gamma/Lerch kernel",
+      "the finite set of active prime-power translations with Lambda(m)/sqrt(m)",
+      "finite sums and compositions",
+      "fixed derivatives, primitives, reflections, and convolutions whose domains are declared",
+      "limits only with an independently proved ambient boundedness or closability theorem"
+    ],
+    "forbidden": [
+      "A_a inverse or pseudoinverse",
+      "kernel triviality or KNC as a premise",
+      "positivity on a larger support",
+      "RH",
+      "a shifted resolvent without a regular zero-shift limit",
+      "a graph norm chosen to make division bounded",
+      "dense-core equality without independent closability"
+    ]
+  },
+  "source_data_retained": "The single completed source, including pole, gamma/Lerch, and every active prime power with its sign and normalization; no sourcewise absolute values or omission of collar-translated integrals.",
+  "coefficient_cone_and_sign": "Arbitrary complex form vectors in the direct-RH lane. In the strip lane retain the exact signed C=-mu log or von Mangoldt coefficients and the fixed one-sided orientation.",
+  "normalization": "Use the derivative-coordinate potential H_phi=i g'*phi, Delta_phi(r)=H_phi(a+r)-H_phi(a-r), weights Lambda(m)/sqrt(m), and the corrected Gamma orientation. For the scalar strip coordinate use alpha=1-delta, omega=1/2-delta and the published shifted-Psi/pole-centered ramp normalization.",
+  "height_window_and_one_sided_floor": "Direct-RH lane is a fixed support collar a<b<=B. Strip lane uses one fixed detector/window for all sufficiently large blocks or t, with a fixed positive exponent reserve.",
+  "quantifier_order": "First fix the formula, support slab, allowed grammar, detector, and constants; then quantify over every smooth old vector (and, for a universal RH conclusion, every semidefinite contact). In the strip lane fix eta or delta before the asymptotic variable and require every block of one licensed regular partition or every sufficiently large t.",
+  "resolution_required": "Continuum form-core identity followed by an explicit closure bridge. Finite Galerkin identities are diagnostics only.",
+  "rate_and_exponent_ledger": {
+    "direct_RH": "Exact zero charge is required; o(delta) or any approximate residual has no contact value.",
+    "uniform_strip": "E_I^Q<=X^(1-kappa+o(1)) with fixed 0<kappa<=1 gives eta=kappa/2; equivalently fix delta=eta in a faithful shifted scalar coordinate. Logarithmic or X^(-o(1)) gains do not suffice."
+  },
+  "feasibility_or_nonvacuity_witness": "The exact exterior potential and shifted-Psi/ramp identities already exist unconditionally. The search must produce a displayed operator or remainder, not merely existential factorization.",
+  "downstream_socket": "A valid universal T_STC identity proves KNC and hence RH under the accepted localized-Weil interfaces. A valid fixed-power complete-energy or fixed shifted-Psi one-sided theorem proves only the corresponding fixed zero-free strip unless a separate amplifier is supplied.",
+  "parallel_open_siblings": [
+    "The direct-RH T_STC lane and the primary strip lane are not an AND gate and must not be conflated.",
+    "QP/Turan remains parked pending a proved actual-prime invariant."
+  ],
+  "why_not_target_renamed": "Lane A receives credit only for an independently written source calculus and closure proof, not the existential assertion equivalent to KNC. Lane B receives credit only for a strict arithmetic mechanism or intermediate with an easier passport; direct eventual shifted-Psi positivity and the complete R71 power bound are explicitly labeled as endpoint coordinates.",
+  "fast_falsifiers": {
+    "abstract": "Same-old-block/different-charge, square-root Schur family, dense-core nonclosable graph, and charged convolution collar model.",
+    "finite_source_algebra": "Compute the exact remainder of every proposed finite composition; test polynomial/Krylov, reflection-crossed-product, Volterra, and shifted-resolvent collapse before estimates.",
+    "backward_admission": "Assume a fixed strip but not RH. Any proposed strip intermediate which would force unshifted KNC is an RH amplifier, not a strip lemma.",
+    "R178": "Positive Euler surgery with PNT data and arbitrarily long genuine heads.",
+    "R179": "Exact functional-equation symmetry with a planted off-line quartet.",
+    "finite_actual_zeta": "Only tests normalization, remainder structure, and candidate conditioning; it cannot prove asymptotic sign or exact KNC."
+  },
+  "actual_prime_arithmetic_line": "Any surviving construction must use the exact all-prime completed source jointly. Completion alone controls the even/defect channel, while the forbidden zeros remain in the reflection-odd channel; Euler positivity alone is also insufficient.",
+  "decision_tree_change_if_proved": "Promote a certified T_STC as a direct-RH mechanism, or promote a strict completed-source strip inequality as the sole red arithmetic edge before the licensed strip adapter.",
+  "decision_tree_change_if_refuted": "Retire only the precisely declared source grammar or comparison class. If every natural finite grammar leaves the same contact remainder, require a genuinely infinite/nonlocal arithmetic synthesis with quantitative closure; keep KNC, the strip, and RH open.",
+  "stop_rule": "Stop this bounded pass after either a complete formula plus closure proof, or an exact first-remainder theorem and hostile witnesses for the declared finite grammars, together with one passport-complete decision on the primary strip coordinate. Do not manufacture another equivalent detector."
+}

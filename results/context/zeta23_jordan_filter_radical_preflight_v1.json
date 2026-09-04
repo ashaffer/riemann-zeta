@@ -1,0 +1,45 @@
+{
+  "schema": "zeta23-theorem-passport-v1",
+  "date": "2026-09-02",
+  "historical_filename_note": "The filename predates the audit correction; the invariant is local zero valuation with multiplicity, not merely the common-zero radical.",
+  "target_statement": "Generalize the endpoint-flat sign-part identity to an abstract bilateral Jordan-abscissa rigidity theorem; classify finite Mellin-filter banks by multiplicity-sensitive local valuation; prove which window, perturbation, mask-resolution, orientation, and variable-filter changes preserve or destroy the Landau adapter; and rebuild the uniform-strip decision tree around the surviving statements.",
+  "claim_status_sought": "PROJECT_PROVED_THEOREMS_WITH_SCOPE for abstract Laplace rigidity, corrected block-partition invariance, subcritical-perturbation stability, finite-bank valuation detection, the primitive hierarchy and quantitative mask-resolution bounds; LOCAL_PREDECESSOR plus classical filter calculus for the zeta causal-box criterion already represented by R67/R68; EXPLICIT_COUNTERMODELS for adaptive orientation and variable-filter overextensions; no strip claim",
+  "trust_model": [
+    "ANALYTIC_MANUSCRIPT_UNREFEREED for abstract Laplace, Mellin, and mask theorems",
+    "EXACT_SYMBOLIC_REPLAY for finite rational filter banks and explicit countermodels",
+    "LEAN_OR_MACHINE_CHECK only if a finite algebraic subclaim is formalized",
+    "IMPORTED_FROM_LITERATURE for Landau, explicit-formula upper bounds, and named Tauberian/oscillation precedents",
+    "FLOATING_POINT_DIAGNOSTIC only for illustrations"
+  ],
+  "first_unproved_edge": "There is deliberately no promoted strip edge in the abstract theorem layer. The first task is to determine the maximal correct detector theorem and expose exactly which additional source law would be needed before a new arithmetic intermediate can be named.",
+  "mask_or_node_class": "Abstract real locally finite signed Radon measures (including locally integrable densities) for Jordan rigidity; exact ordinary von Mangoldt prime-power nodes for the zeta specialization; finite fixed families of real Mellin multipliers; all measurable masks 0<=h<=1 for exact Jordan mass; bounded-variation mask subclasses only in the resolution falsifier.",
+  "source_data_retained": "The full meromorphic singularity set, every multiplier zero with multiplicity, real-axis regularity, absolute growth abscissa, one fixed sign per component, and exact continuum subtraction are retained. The complete mask quantifier is retained only in the raw-Jordan reconstruction socket; fixed-filter sockets retain their exact multiplier instead.",
+  "coefficient_cone_and_sign": "The abstract response is signed. Jordan parts are nonnegative. In a finite bank, one orientation may be chosen independently for each component, but every choice is fixed before height tends to infinity. Per-block sign selection is a separate relaxation and must be falsified.",
+  "normalization": "For f on [0,infinity), alpha_plus/minus are unit-block Laplace abscissae. For a Mellin weight w, B_w(x)=sum_{n<=x}Lambda(n)w(n/x)-int_1^x w(u/x)du and its transform is W(s)(-zeta'/zeta(s)-1/(s-1)).",
+  "height_window_and_one_sided_floor": "Jordan exponents use [N,N+1], or partitions with both upper and lower width control. The exact dual mask ranges over the entire block. Restricted-mask falsifiers record mask variation and carrier frequency explicitly.",
+  "quantifier_order": "Fix the response or finite filter bank, multiplier family, one orientation per component, and covering partition first; then height tends to infinity. A filter order, sign, bank member, or window chosen after observing the block is not a fixed Laplace transform and has no automatic Landau socket.",
+  "resolution_required": "All nonreal singularities in the audited half-plane, multiplier zero orders, within-block sign oscillations, and the exact affine continuum term. For raw Jordan reconstruction, complete masks may be replaced only by a quantified fine-grid approximation; faithful fixed-filter sockets are audited separately.",
+  "rate_and_exponent_ledger": {
+    "spectral_lower_bound": "each fixed Jordan-part abscissa is at least the rightmost nonreal surviving singularity abscissa when the continued transform is regular on the corresponding real ray",
+    "equality_condition": "an absolute-response upper exponent no larger than the surviving spectral abscissa",
+    "finite_bank_exponent": "under a matching absolute upper bound, the maximum component Jordan exponent equals the multiplicity-sensitive jointly surviving spectral abscissa",
+    "subcritical_perturbation": "adding a response with strictly smaller absolute block exponent preserves both dominant Jordan exponents",
+    "mask_resolution": "a frequency Omega requires mask variation of order Omega to recover a fixed proportion of its raw Jordan mass; this does not obstruct a fixed faithful detector with nonzero multiplier"
+  },
+  "feasibility_or_nonvacuity_witness": "The endpoint-flat beta/Riesz family satisfies the hypotheses with surviving abscissa Theta. Piecewise exponential-cosine functions, real poles, compact perturbations, and rational filter banks provide exact witnesses and falsifiers.",
+  "downstream_socket": "If every member of a multiplicity-faithful fixed filter bank has one selected Jordan part of exponent at most a and all real-axis hypotheses hold, the underlying zeta transform is holomorphic in Re(s)>a. A single causal box or fixed primitive is already faithful for the zeta source. These are strip-equivalent detectors, not RH amplifiers.",
+  "parallel_open_siblings": [
+    "DPA_P(.019)",
+    "LTRAD_P(.0189,.001)",
+    "zeta-specific adjacent-support propagation in the Weil architecture"
+  ],
+  "why_not_target_renamed": "Abstract rigidity and multiplicity-sensitive filter-valuation theorems classify detectors. They do not supply an arithmetic exponent saving. Any proposed successor must state a source law absent from the positive-density and positive-Euler-product countermodels.",
+  "abstract_convex_falsifier": "Test a positive real pole f(t)=exp(theta*t), alternating unit blocks, blockwise high-frequency sine waves, subcritical and equal-critical perturbations, and a filter multiplier that cancels the only nonreal pole.",
+  "fejer_falsifier": "For finite banks, track local zero valuations. Common-zero coverage is exact only for simple source poles; higher source multiplicity can survive a common filter zero.",
+  "prime_density_pseudonode_falsifier": "Reuse the tilted positive oscillatory density and the positive Euler-product model with exact prime-power nodes and an arbitrarily long prescribed finite zeta head.",
+  "finite_actual_prime_diagnostic": "No finite sign range licenses a Jordan exponent. Existing two-million-point scans are retained only as evidence that endpoint order delays visibility.",
+  "actual_prime_arithmetic_line": "After the detector layer is classified, progress requires a zeta-specific one-sided theorem for at least one fixed faithful response. The raw-Jordan branch needs the full adaptive mask family or a proved fine-grid compression; the primitive, R95, functional-equation, and zero-side mechanisms are distinct sockets, while the causal fixed-box zeta socket has explicit local predecessors R67/R68.",
+  "decision_tree_change_if_proved": "Classify every fixed faithful scalar filter and every finite multiplicity-faithful filter bank by surviving pole valuation; separate raw-Jordan reconstruction from fixed-filter detection; close per-block orientation and untyped variable-filter shortcuts; retain only source-specific arithmetic advantages or independent architectures as discovery branches.",
+  "decision_tree_change_if_refuted": "Keep only the beta/Riesz theorem and reopen the relevant filter, window, or perturbation distinction with the failed hypothesis recorded.",
+  "stop_rule": "Stop any detector optimization that changes amplitude but not the surviving spectral abscissa. Do not accept adaptive signs, filters, or windows without a single-transform reconstruction and uniform coverage cost. Do not call a mask restriction useful until its approximation error is controlled at the frequencies it excludes."
+}

@@ -38,7 +38,7 @@ theorem.  The correct new target is therefore a **joint centered off-axis
 estimate**, before absolute values:
 
 ```text
-H_(j theta !=0)-P_1-P_2 <<Y^(1-2 eta+o(1)),   eta>0.                 (1.2)
+H_(j theta !=0)-P_1-P_2 <<Y^(1-2 eta+o(1)),   0<eta<=1/2.            (1.2)
 ```
 
 Up to subexponential window factors, (1.2) gives the R71 fixed-power energy

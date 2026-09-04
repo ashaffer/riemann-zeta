@@ -1,0 +1,40 @@
+{
+  "schema": "zeta23-theorem-passport-v1",
+  "date": "2026-09-01",
+  "target_statement": "Decide or exactly reduce kernel null-charge (KNC) for semidefinite compact-support completed-zeta Weil forms, including the quantifier distinction between an arbitrarily thin sequence and a full right germ.",
+  "claim_status_sought": "EXACT_IDENTITY_OR_EQUIVALENCE plus scoped synthetic/imported countermodels",
+  "trust_model": [
+    "ANALYTIC_MANUSCRIPT_UNREFEREED",
+    "IMPORTED_FROM_LITERATURE"
+  ],
+  "first_unproved_edge": "Completed-zeta KNC at every semidefinite support contact",
+  "architecture": "Weil/support filtration only; no QP/Turan or four-cycle inference",
+  "mask_or_node_class": "Exact completed-zeta Weil distribution, with prime powers at their exact logarithmic shifts",
+  "source_data_retained": "Combined pole, digamma/archimedean, and von-Mangoldt prime-shift source",
+  "coefficient_cone_and_sign": "All real or complex form-domain vectors; no positive-cone restriction",
+  "normalization": "Nested compact-support logarithmic form domains with the project zero-extension convention",
+  "height_window_and_one_sided_floor": "Not a QP height-window statement; Q_L is assumed semidefinite at the contact",
+  "quantifier_order": "For every semidefinite support L, for every n in ker Q_L, there exists/equivalently there is one common right germ on which Q(n,v)=0 for every newly available test v",
+  "resolution_required": "Exact equality on one nonempty support germ; o(1) charge is insufficient",
+  "rate_and_exponent_ledger": {
+    "starting_exponent": null,
+    "target_exponent": null,
+    "all_exponent_losses": [],
+    "note": "Qualitative support propagation; no QP/Turan exponent is involved."
+  },
+  "feasibility_or_nonvacuity_witness": "The certified positive base and compact-resolvent/continuous ground-value framework; under failure of RH, continuity produces a finite semidefinite terminal contact.",
+  "downstream_socket": "Universal KNC plus compact-filtration localization implies global Weil positivity, hence RH through the accepted Weil criterion.",
+  "parallel_open_siblings": [
+    "DPA_P(.019)",
+    "LTRAD_P(.0189,.001)"
+  ],
+  "why_not_target_renamed": "The audit explicitly tests whether universal KNC is strictly weaker than RH; the resulting theorem shows that, with the established propagation framework, it is RH-equivalent even though its contact operator has finite-dimensional domain.",
+  "abstract_convex_falsifier": "A 2 by 2 charged-contact matrix has arbitrarily small nonzero charge but an immediate negative enlarged direction.",
+  "fejer_falsifier": "Not applicable to this Weil-filtration theorem.",
+  "prime_density_pseudonode_falsifier": "Not applicable to this Weil-filtration theorem.",
+  "finite_actual_prime_diagnostic": "The prior p=5 contact-smear diagnostic is evidence only and does not certify KNC.",
+  "actual_prime_arithmetic_line": "Any proof must establish exact cancellation of the exterior logarithmic flux by the combined pole, archimedean, and all active prime-shift traces.",
+  "decision_tree_change_if_proved": "Global Weil positivity and RH; it is not merely a local lemma when universally quantified.",
+  "decision_tree_change_if_refuted": "An actual semidefinite zeta contact with nonzero charge would yield a larger-support negative direction and therefore refute RH.",
+  "stop_rule": "Stop once the quantifiers and logical strength are exact and every proposed structure-only route is either connected by a proved adapter or killed by an exact countermodel."
+}

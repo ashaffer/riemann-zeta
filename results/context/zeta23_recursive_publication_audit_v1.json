@@ -1,0 +1,294 @@
+{
+  "schema": "zeta23_recursive_publication_audit_v1",
+  "date": "2026-09-02",
+  "scope": "R1-R180 and publication artifacts present on 2026-09-02",
+  "global_status": {
+    "riemann_hypothesis": "OPEN",
+    "uniform_zero_free_strip": "OPEN",
+    "sharp_four_cycle_bound": "OPEN",
+    "publication_audit": "FIXED_POINT_REACHED"
+  },
+  "inventory": {
+    "registry_rows": 180,
+    "first_id": "R1",
+    "last_id": "R180",
+    "ids_contiguous": true,
+    "theorem_like_markdown_heading_hits": 933,
+    "heading_count_warning": "Noisy mechanical count; not a count of theorems or publication candidates."
+  },
+  "controlled_novelty_labels": [
+    "IMPORTED",
+    "LOCAL_PREDECESSOR",
+    "PROJECT_SYNTHESIS",
+    "NOVELTY_UNRESOLVED",
+    "CANDIDATE_NEW"
+  ],
+  "label_policy": "CANDIDATE_NEW records a specific surviving delta, not certified novelty; every such item requires independent specialist review.",
+  "fixed_point_packages": [
+    {
+      "id": "P1_ROUGH_GAPS",
+      "title": "A second-moment bound for gaps between polynomially rough integers",
+      "sources": [
+        "publication/ROUGH-GAP-SECOND-MOMENT.md",
+        "results/ZETA23-MATOMAKI-ROUGH-GAP-SECOND-MOMENT-GATE-2026-08-13.md"
+      ],
+      "theorem_delta": "G_2(X;z) <<_epsilon X(log X)^2 uniformly for X^epsilon <= z <= X^(3/16-epsilon), extending the prescribed-cutoff exponent located in Friedlander's results.",
+      "mathematical_status": "INTERNAL_PROOF_COMPLETE_IMPORTED_UNIFORMITY_UNAUDITED",
+      "novelty_status": "CANDIDATE_NEW",
+      "publication_tier": "A_EXTERNAL_AUDIT_NOW",
+      "proof_confidence": "MEDIUM_HIGH",
+      "novelty_confidence": "MEDIUM",
+      "standalone": true,
+      "requires_specialist_review": true,
+      "decisive_gate": "Verify that Matomaki S1/S2/S3 and well-factorability arguments remain uniform for the modified moving levels; then run exact database search for the 3/16 range.",
+      "nonclaim": "Not a theorem about prime gaps and does not imply a zeta zero-free strip."
+    },
+    {
+      "id": "P2_CYCLIC_CONTINUANTS",
+      "title": "Integer and finite-field energies of the length-four cyclic continuant",
+      "sources": [
+        "results/R108-SMALL-TRACE-FIBER-AND-BALANCED-ENDPOINT-THEOREM.md",
+        "results/R110-TRACE-COLLISION-POWER-SAVING-THEOREM.md",
+        "results/R119-SPARSE-VIETA-FACTOR-FRAME-THEOREM.md"
+      ],
+      "theorem_delta": "R110 gives a coefficient-uniform weighted nonparabolic energy bound H^epsilon(H+H^(3/2)/sqrt(abs(lambda))) times the four L2 masses; R119 is retained only conditionally on a 2026 overlap audit.",
+      "mathematical_status": "R110_INTERNAL_PROOF_COMPLETE_R119_COMPARISON_PENDING",
+      "novelty_status": "CANDIDATE_NEW",
+      "novelty_scope": "R110 only; the combined package is NOVELTY_UNRESOLVED until comparison with Blomer-Pascadi 2026.",
+      "publication_tier": "A_EXTERNAL_AUDIT_NOW",
+      "proof_confidence": "HIGH_FOR_R110",
+      "novelty_confidence": "MEDIUM_FOR_R110_LOW_FOR_R119",
+      "standalone": true,
+      "requires_specialist_review": true,
+      "decisive_gate": "Proposition-level comparison with Blomer-Pascadi 2026 and sharpness constructions for the H^(3/2) scale.",
+      "nonclaim": "The energy theorem does not prove the sharp four-cycle bound or a zeta zero-free strip."
+    },
+    {
+      "id": "P3_SOLVABLE_SUPPORT_FILTERS",
+      "title": "Small-support Frobenius classes and positive virtual Artin filters",
+      "sources": [
+        "results/R138-DEGREE-ZERO-QUADRATIC-VIRTUAL-L-GATE.md",
+        "results/R143-SOLVABLE-SUPPORT-QUOTIENT-AND-PRIMITIVE-CLASSIFICATION.md",
+        "results/R144-BOUNDED-SUPPORT-VIRTUAL-CHARACTER-ANNIHILATOR.md",
+        "results/R146-FROBENIUS-ENTROPY-AND-INERTIA-ADJOINT-GATE.md",
+        "results/R151-CLASS-CHARACTER-HEAD-QUOTIENT-GATE.md",
+        "results/R152-GENUS-REDEI-AND-BOOLEAN-CLASS-MASK-GATE.md"
+      ],
+      "theorem_delta": "In a faithful transitive solvable action, the normal closure of elements of support at most ell has orbit size at most 2ell, with sharp constant; applications produce a common split quotient and virtual-character filters.",
+      "mathematical_status": "INTERNAL_PROOF_COMPLETE_FOR_SUPPORT_QUOTIENT",
+      "novelty_status": "NOVELTY_UNRESOLVED",
+      "publication_tier": "A_EXTERNAL_AUDIT_NOW",
+      "proof_confidence": "HIGH",
+      "novelty_confidence": "MEDIUM_LOW",
+      "standalone": true,
+      "requires_specialist_review": true,
+      "decisive_gate": "Permutation-group search and review for the exact normal-closure/common-block theorem; then audit ramified Artin conductor claims in the applications.",
+      "nonclaim": "The Artin-filter consequences do not supply the missing field family or a zero-free strip."
+    },
+    {
+      "id": "P4_COSINE_ANTIPODES",
+      "title": "Sharp sparse positive-cosine antipodes",
+      "sources": [
+        "publication/SPARSE-POSITIVE-COSINE-ANTIPODES.md",
+        "results/ZETA23-SHARP-SPARSE-POSITIVE-COSINE-ANTIPODE-CLASSIFICATION-2026-08-14.md"
+      ],
+      "theorem_delta": "Sharp M-atom compression and generic necessity/uniqueness, realization on every prescribed M-harmonic support, and Chebyshev sign classification for consecutive supports.",
+      "mathematical_status": "INTERNAL_PROOF_COMPLETE_AND_REPLAYED",
+      "novelty_status": "NOVELTY_UNRESOLVED",
+      "publication_tier": "B_AFTER_NOVELTY_REVIEW",
+      "proof_confidence": "HIGH",
+      "novelty_confidence": "MEDIUM_LOW",
+      "standalone": true,
+      "requires_specialist_review": true,
+      "decisive_gate": "Convex-geometry specialist comparison with trigonometric moment-curve facial theory and full-spark interpolation literature.",
+      "nonclaim": "Does not prove that the prime-log orbit enters a positive chamber."
+    },
+    {
+      "id": "P5_LOCAL_WEIL_FORMALIZATION",
+      "title": "Strict positivity of a fixed-window arithmetic Weil form at a=7/16",
+      "sources": [
+        "publication/A-7-16-RELEASE-CANDIDATE.md",
+        "lean/rhbridge/RHBridge/GuinandWeilLiterature.lean"
+      ],
+      "theorem_delta": "Lean-checked strict positivity for the explicitly defined arithmetic form on the full intrinsic logarithmic form domain, backed by exact certificates.",
+      "mathematical_status": "LEAN_THEOREM_WITH_EXTERNAL_GUINAND_WEIL_BRIDGE",
+      "novelty_status": "PROJECT_SYNTHESIS",
+      "publication_tier": "B_FORMAL_METHODS",
+      "proof_confidence": "HIGH_FOR_INTRINSIC_FORM_LOW_NOT_APPLICABLE_FOR_EXTERNAL_AXIOM",
+      "novelty_confidence": "MEDIUM_AS_FORMALIZATION",
+      "standalone": true,
+      "requires_specialist_review": true,
+      "decisive_gate": "Independent frozen-build reproduction and explicit axiom audit.",
+      "nonclaim": "The Lean theorem is not a formal proof of the corresponding zeta-zero sum identity, RH, or a zero-free strip."
+    },
+    {
+      "id": "P6_EULER_RIGIDITY_FLEXIBILITY",
+      "title": "Rigidity and flexibility of constrained finite Euler products",
+      "sources": [
+        "results/R160-FINITE-COLLECTIVE-CUTOFF-STOKES-HURWITZ-GATE.md",
+        "results/R161-DETERMINISTIC-SKELETON-MICROCLOUD-AND-SPECTRAL-SHIFT-GATE.md",
+        "results/R163-PRIME-BLOCK-LIFT-AND-RANDOM-SIGN-ROUNDING-GATE.md",
+        "results/ZETA23-GLOBAL-EULER-POISSON-COERCIVITY-ATTEMPT-AND-SPARSE-SURGERY-AUDIT-2026-09-02.md"
+      ],
+      "theorem_delta": "A merged boundary theorem: fixed full-cutoff banks force cofactor zeros, finite Euler cutoffs have dense microscopic a-point clouds, actual later primes give signed local analytic approximation, while positive Chebotarev surgery preserves many coarse statistics but changes the divisor.",
+      "mathematical_status": "MULTIPLE_INTERNAL_THEOREMS_R161_INJECTIVITY_REPAIR_REQUIRED",
+      "novelty_status": "NOVELTY_UNRESOLVED",
+      "publication_tier": "B_AFTER_REPAIR_AND_MERGE",
+      "proof_confidence": "MEDIUM_HIGH",
+      "novelty_confidence": "LOW_MEDIUM",
+      "standalone": true,
+      "requires_specialist_review": true,
+      "decisive_gate": "Repair explicit root separation for R161, then compare the merged statement with Helson/Pechersky/universality and random Euler-product literature.",
+      "nonclaim": "Local shaping and coarse Euler statistics do not control global monodromy or imply a zero-free strip."
+    },
+    {
+      "id": "P7_OPERATOR_WEIL_STRUCTURES",
+      "title": "Localized coercivity and topology no-go results",
+      "sources": [
+        "results/QUANTITATIVE-WEIL-FLOOR-DIVERGENCE.md",
+        "results/ZETA23-OPERATOR-LEMONADE-THEOREM-SUITE-2026-09-01.md",
+        "results/NONLOCAL-WARD-COVARIANCE-NOGO.md"
+      ],
+      "theorem_delta": "Quantitative localized Weil-floor divergence, a singular Hardy boundary anomaly, projection-defect countermodels, and expanding de Branges topology blindness.",
+      "mathematical_status": "INTERNAL_PROOFS_AND_COUNTERMODELS",
+      "novelty_status": "NOVELTY_UNRESOLVED",
+      "publication_tier": "C_NARROW_THESIS_REQUIRED",
+      "proof_confidence": "MEDIUM_HIGH",
+      "novelty_confidence": "LOW",
+      "standalone": false,
+      "requires_specialist_review": true,
+      "decisive_gate": "Identify one exact operator-theoretic question and distinguish it from Bondarenko-Radchenko-Seip, Toeplitz index, and pair-of-projections theory.",
+      "nonclaim": "These semilocal no-go theorems neither prove nor refute RH."
+    },
+    {
+      "id": "P8_ENDO_CORRECTION",
+      "title": "Correction to the phase law in Endo's hybrid joint-limit theorem",
+      "sources": [
+        "results/ENDO-HYBRID-JOINT-LIMIT-CORRECTION-2026-08.md"
+      ],
+      "theorem_delta": "A coordinate inversion changes the random Dirichlet-series law, separated from the printed law by a one-prime mixed moment; the marginal/support conclusions can be repaired.",
+      "mathematical_status": "INTERNAL_PROOF_COMPLETE",
+      "novelty_status": "CANDIDATE_NEW",
+      "publication_tier": "B_AUTHOR_CONTACT_FIRST",
+      "proof_confidence": "HIGH",
+      "novelty_confidence": "HIGH_FOR_CORRECTION",
+      "standalone": false,
+      "requires_specialist_review": true,
+      "decisive_gate": "Private author verification against the current version and coordination of a corrigendum or revision.",
+      "nonclaim": "This is a correction, not a new universality theorem."
+    },
+    {
+      "id": "I1_SR2PF",
+      "title": "Sparse rank-two projective factorization",
+      "sources": [
+        "results/ZETA23-SR2PF-PROOF-OR-COUNTEREXAMPLE-2026-08-30.md"
+      ],
+      "theorem_delta": "Proposed arithmetic classification and counting theorem beyond the verified flattening-minor geometry.",
+      "mathematical_status": "PROOF_DRAFT",
+      "novelty_status": "NOVELTY_UNRESOLVED",
+      "publication_tier": "INCUBATOR",
+      "proof_confidence": "LOW_MEDIUM",
+      "novelty_confidence": "MEDIUM",
+      "standalone": false,
+      "requires_specialist_review": true,
+      "decisive_gate": "Prove rational secant/tangent descent, fixed quadratic-field reduction, uniform Pell/fixed-norm counting, three-active-mode reduction, and separation hypotheses.",
+      "nonclaim": "Finite certificates and minor classification do not prove SR2PF."
+    }
+  ],
+  "demotions": [
+    {
+      "item": "R178 sparse positive Euler surgery",
+      "from": "standalone positive theorem candidate",
+      "to": "supporting countermodel in P6",
+      "reason": "Small positive density is not thin; the period grows, the retained head is nonuniform, and the construction has no functional equation."
+    },
+    {
+      "item": "SR2PF",
+      "from": "proved",
+      "to": "proof draft/incubator",
+      "reason": "Arithmetic descent and uniform norm counting remain missing."
+    },
+    {
+      "item": "R119 finite-field Vieta frame",
+      "from": "unqualified package headline",
+      "to": "novelty unresolved",
+      "reason": "July 2026 Blomer-Pascadi work uses the same discriminant geometry and nearby collision bounds."
+    },
+    {
+      "item": "static Mobius obstruction",
+      "from": "plausible standalone novelty",
+      "to": "supporting lemma pending exact comparison",
+      "reason": "Likely overlaps classical convergent-multiple-set density mechanisms."
+    }
+  ],
+  "next_actions": [
+    {
+      "rank": 1,
+      "package": "P1_ROUGH_GAPS",
+      "action": "Binary line-by-line sieve-specialist audit plus exact database search."
+    },
+    {
+      "rank": 2,
+      "package": "P2_CYCLIC_CONTINUANTS",
+      "action": "Independent R110 proof review, sharpness examples, and Blomer-Pascadi proposition comparison."
+    },
+    {
+      "rank": 3,
+      "package": "P3_SOLVABLE_SUPPORT_FILTERS",
+      "action": "Exact-statement review by a permutation-group specialist and ramified-conductor audit."
+    },
+    {
+      "rank": 4,
+      "package": "P8_ENDO_CORRECTION",
+      "action": "Prepare and send a private two-page correction to the author."
+    },
+    {
+      "rank": 5,
+      "package": "P5_LOCAL_WEIL_FORMALIZATION",
+      "action": "Freeze and independently reproduce the Lean build and axiom audit."
+    }
+  ],
+  "self_improvement_rules": [
+    "Track proof confidence, novelty confidence, and publication readiness separately.",
+    "Count canonical theorem statements rather than files, headings, reductions, or descendants.",
+    "Merge theorem descendants before assessing novelty.",
+    "Treat every changed parameter in an imported theorem as a fresh proof obligation.",
+    "Compare with the closest primary result at theorem and exponent level, including recent work.",
+    "Require hostile sharpness or boundary examples for quantitative claims.",
+    "Do not infer symbolic or asymptotic theorems from finite replay.",
+    "Promote only deltas that can be stated without project jargon.",
+    "Demote elementary countermodels unless optimal or classificatory.",
+    "Re-run the recursive audit only on proof-status, generalization, or literature changes.",
+    "Never infer RH, a zero-free strip, or the sharp four-cycle bound from an independent by-product."
+  ],
+  "validation": {
+    "targeted_pytest": {
+      "status": "PASS",
+      "tests": 27,
+      "files": [
+        "src/test_rough_gap_lower_sieve_frontier.py",
+        "src/test_sparse_cosine_antipode_classification.py",
+        "src/test_global_euler_jordan_coercivity.py",
+        "src/test_jordan_detector_calculus.py"
+      ]
+    },
+    "standalone_checkers": [
+      {
+        "file": "results/verify_rough_gap_second_moment_frontier.py",
+        "status": "PASS"
+      },
+      {
+        "file": "results/verify_zeta23_matomaki_rough_gap_gate.py",
+        "status": "PASS"
+      },
+      {
+        "file": "results/verify_sparse_cosine_antipode_classification.py",
+        "status": "PASS"
+      },
+      {
+        "file": "results/verify_zeta23_sr2pf.py",
+        "status": "FINITE_CERTIFICATES_PASS_NOT_A_SYMBOLIC_PROOF"
+      }
+    ]
+  }
+}

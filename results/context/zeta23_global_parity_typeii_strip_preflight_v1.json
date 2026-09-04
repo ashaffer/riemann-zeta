@@ -1,0 +1,55 @@
+{
+  "schema": "zeta23-theorem-passport-v1",
+  "date": "2026-09-02",
+  "target_name": "GPTII_eta(ell,theta,epsilon)",
+  "target_statement": "Find fixed ell>0, 0<theta<3/8, eta>0, epsilon in {+1,-1}, C<infinity, and x0 such that for every x>=x0, epsilon*(B_(U,U)(x)-Z_(U,U)(x)) >= -C*x^(1/2-eta), where U=floor(x^theta), B is the complete Vaughan tail sum over d>U and r>U, beta_U(r)=sum_(b|r,b>U)Lambda(b), and Z contains both the exact polar-scale and critical zero-mode centerings of R68.",
+  "claim_status_sought": "Either prove GPTII_eta with an explicit positive eta, or prove a rigorous obstruction for the proposed cross-product parity-transport mechanism. No strip, RH, or novelty claim is licensed merely by restating the target.",
+  "trust_model": [
+    "ANALYTIC_MANUSCRIPT_UNREFEREED for new identities or inequalities",
+    "EXACT_SYMBOLIC_REPLAY for finite convolution and transport identities",
+    "INTERVAL_DIAGNOSTIC only for finite counterexamples",
+    "IMPORTED_FROM_LITERATURE for zero-free regions, PNT remainders, and named sieve or dispersion estimates"
+  ],
+  "local_predecessors": [
+    "R67 / FIXED-BOX-PRIME-TRANSFER-CHECKPOINT.md",
+    "R68 / ACTUAL-PRIME-REFLECTION-TRANSFER-CHECKPOINT.md",
+    "R69 / MOVING-TYPE-II-NORM-CHECKPOINT.md",
+    "R70 / JOINT-TYPE-II-CUTOFF-IDENTITY.md",
+    "R71 / MOBIUS-TWO-SHIFT-RENORMALIZATION-GATE.md",
+    "R74 global Mobius-prime joint-dispersion checkpoint"
+  ],
+  "first_unproved_edge": "A one-sided fixed-power bound for the complete centered moving-cutoff aggregate. The algebraic Vaughan identity, cutoff transport, cofactor completion, and Euler centering are already proved locally and are not new edges.",
+  "mask_or_node_class": "Actual von Mangoldt coefficients and actual Mobius coefficients only; fixed logarithmic B-spline ramp of total width ell; hard equal cutoffs U=floor(x^theta). Synthetic densities and arbitrary sign sequences are falsifiers, not substitutes.",
+  "source_data_retained": "All total products, all cofactors in beta_U, both squarefree parity sectors, the Type-I polar center, the critical zero-mode center I_0, and the moving cutoff boundary defect are retained before any inequality.",
+  "coefficient_cone_and_sign": "The bilinear coefficients mu(d)beta_U(r) are signed. The single output orientation epsilon is fixed before x tends to infinity. Absolute values, independent rectangle signs, and signs selected after observing x are forbidden relaxations.",
+  "normalization": "F_x(n)=n^(-1/2)Phi_ell(log(x/n)); B_(U,U)(x)=sum_(d>U,r>U)mu(d)beta_U(r)F_x(dr); Z is exactly (6.6)-(6.7) of ACTUAL-PRIME-REFLECTION-TRANSFER-CHECKPOINT.md.",
+  "height_window_and_one_sided_floor": "Pointwise for every sufficiently large x. The floor is C*x^(1/2-eta), corresponding in R=log x coordinates to exponent a=1/2-eta.",
+  "quantifier_order": "Choose ell, theta, eta, epsilon, C, and x0 once; then require the inequality for all x>=x0. Smoothing order, cutoff exponent, orientation, and exceptional scales may not adapt to x.",
+  "resolution_required": "The proof must see cancellation across unequal total products and across the complete cofactor sum. It may not freeze finite cofactor blocks, separate dyadic rectangles, discard the I_0 centering, or replace the moving cutoff by an untracked exact-head gauge.",
+  "rate_and_exponent_ledger": {
+    "known_identity": "C_ell(log x)=B_(U,U)(x)-Z_(U,U)(x)+o(1) for fixed theta<3/8",
+    "known_unconditional_scale": "sqrt(x)*exp(-c*(log x)^(3/5)*(loglog x)^(-1/5)) up to fixed-ramp partial summation",
+    "target_scale": "x^(1/2-eta)",
+    "spectral_adapter": "A zero rho=beta+i*gamma contributes a nonzero fixed-filter mode of size x^(beta-1/2). A fixed one-sided floor at exponent 1/2-eta, with the real-axis regularity already audited, excludes beta>1-eta.",
+    "gap": "Convert a subpower saving into one fixed power without importing inverse-zeta or a power-saving Mertens estimate."
+  },
+  "downstream_socket": "The fixed-filter one-sided Landau/Jordan theorem yields a uniform zeta zero-free strip Re(rho)<=1-eta. It does not yield RH without a separate amplifier.",
+  "parallel_open_siblings": [
+    "signed DPA_P(.019)",
+    "LTRAD_P(.0189,.001)",
+    "zeta-specific adjacent-support propagation in the Weil architecture"
+  ],
+  "why_not_target_renamed": "GPTII_eta is the already identified R68/R74 strip-equivalent arithmetic coordinate, now stated at the one-sided strip exponent. A proof must supply a genuinely new global estimate; another exact rewriting is only project synthesis.",
+  "proposed_mechanism": "Construct a product-changing, parity-flipping transport among triples (d,b,m), with mu(d)Lambda(b), whose completed divergence reproduces the full polar and I_0 centers and whose unmatched boundary has a fixed power saving. Test whether averaging over transferable primes creates a coercive Dirichlet form on the common Laurent mode rather than the fiberwise eigenvalue-one obstruction.",
+  "fast_falsifiers": [
+    "Check whether the transport preserves each total product; if so, it cannot damp the grouped common Laurent mode.",
+    "Check whether its boundary contains the coherent m=1 prime-prime collar of size x^theta/log x with no cross-product compensator.",
+    "Check whether estimating the boundary requires uniform partial sums of mu with a fixed power saving; if so, the mechanism is circular or stronger than the target.",
+    "Check the positive Euler-product and smooth prime-density countermodels; survival there shows the mechanism is not zeta-specific enough.",
+    "Check whether the claimed contraction accumulates only over cofactor depth O(log x/k), yielding exp(-o(log x)) rather than a fixed power.",
+    "Check that every use of Cauchy-Schwarz retains the cross-cofactor and cross-rectangle terms that cancel higher-order zero poles."
+  ],
+  "decision_tree_change_if_proved": "Close the uniform-strip target through the audited one-sided fixed-filter adapter, then independently verify constants, quantifiers, literature novelty, and the distinction from RH.",
+  "decision_tree_change_if_refuted": "Close product-changing parity transport in its stated form and retain GPTII_eta as an equivalent coordinate, not an explanatory mechanism. Return priority to the parallel QP/Turan and Weil first-open edges or to a source invariant that distinguishes zeta from positive Euler countermodels.",
+  "stop_rule": "Stop immediately if the argument separates blocks, inserts 1/zeta, assumes fixed-power Mertens cancellation, chooses signs or filters adaptively, or proves only x^(1/2-o(1)). Record any exact identity as a lemma but do not promote it to progress on the strip exponent."
+}

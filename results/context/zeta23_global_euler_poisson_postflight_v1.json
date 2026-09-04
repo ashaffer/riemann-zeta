@@ -1,0 +1,63 @@
+{
+  "schema": "zeta23-research-postflight-v1",
+  "date": "2026-09-02",
+  "architecture": "global_actual_prime_coercivity_with_euler_and_completed_poisson_falsifiers",
+  "target": "A one-sided fixed-power bound for the complete centered R68 Type-II aggregate, hence a uniform zero-free strip",
+  "verdict": "TARGET_OPEN_METHOD_CLASS_PRUNED_AND_EXACT_DISCRIMINATORS_IDENTIFIED",
+  "project_proved": [
+    "Chebotarev-sparse ordinary-prime Euler surgery preserving arbitrary finite zeta head, positivity of Dirichlet and logarithmic coefficient systems, two PNT normalizations, density-one exact agreement, and arbitrarily accurate Lambda*1=log approximation while planting a prescribed near-one conjugate zero pair.",
+    "Sharp worst-case pointwise sufficient logarithmic-coefficient threshold for the absolute-convergence argument: O((log p)p^(-k delta)) discrepancy preserves zero/pole divisors in Re(s)>1-delta.",
+    "Explicit unconditional summatory remainder for a_z(n)=J_z(n)/n^z.",
+    "Exact R95 boundary derivative and positive-sawtooth Mobius formula.",
+    "Local small-z multiplicity-sensitive zero boundary layer, arbitrary fixed-z Laurent noncancellation formula, and fixed-z exponent-conservation theorem.",
+    "Positive backward-Poisson factorization equivalence with weighted measure control and its jointly renormalized finite-cutoff actual-prime identity."
+  ],
+  "imported_or_classical": [
+    "Jordan totient identities and zeta(s)/zeta(s+z) Dirichlet series",
+    "Landau positive-transform theorem",
+    "Chebotarev density theorem",
+    "Dedekind-zeta continuation and zero-free line Re(s)=1",
+    "Wiener-Ikehara theorem",
+    "Lagarias, Bombieri-Lagarias, and Suzuki xi/Weil positivity frameworks"
+  ],
+  "method_obstructions": [
+    "The product-preserving parity templates audited in R67-R74 leave the common Laurent mode invariant.",
+    "The product-changing parity templates audited in R67-R74 regenerate the moving-cutoff/Mobius boundary at strip strength.",
+    "Critical fixed-z Euler-deformation estimates do not by themselves control the boundary tangent: a zero pole shifts by exactly the apparent exponent gain.",
+    "Backward-Poisson positivity with weighted tightness and the limiting convolution identity is the strip criterion rather than an easier positivity consequence.",
+    "Positivity, PNT, finite-head agreement, density-one agreement, approximate divisor identities, and formal Selberg/convolution algebra do not imply a strip."
+  ],
+  "corrections_propagated": [
+    "The causal fixed-box zeta coordinate has local predecessors R67 and R68; it is not an immediate-new zeta application of R177.",
+    "R177 report claim table and provenance text updated.",
+    "R177 theorem passport and machine-readable novelty audit updated.",
+    "R177 registry row updated."
+  ],
+  "open": [
+    "one-sided fixed-power R95 weighted-Mobius cancellation",
+    "one-sided fixed-power complete centered R68 Type-II cancellation",
+    "positive cofinal backward-Poisson deconvolution",
+    "signed DPA_P(.019)",
+    "LTRAD_P(.0189,.001)",
+    "zeta-specific adjacent-support propagation",
+    "uniform zero-free strip",
+    "Riemann hypothesis"
+  ],
+  "next_admissible_passport": "A nonlocal one-sided inequality using at least one discriminator absent from the Chebotarev-sparse surgery: exact all-prime coefficients at the p^(-k delta) stability scale, the exact completed zeta functional equation, or another zeta-specific zero/prime correlation. The countermodel proves this disjunction, not that all listed data are individually necessary. Merely restating positivity of the deconvolution, R95 ramp, or Type-II aggregate is target renaming.",
+  "claim_status": {
+    "RH": "OPEN",
+    "uniform_zero_free_strip": "OPEN",
+    "GPTII_eta": "OPEN",
+    "R95_one_sided_fixed_power": "OPEN",
+    "sharp_four_cycle_bound": "OPEN_NOT_A_DIRECT_STRIP_GATE"
+  },
+  "trust": {
+    "analytic_theorems": "ANALYTIC_MANUSCRIPT_UNREFEREED",
+    "countermodel": "EXACT_ALGEBRA_WITH_STANDARD_IMPORTED_NUMBER_THEORY",
+    "literature": "PRIMARY_SOURCE_SCOPED_IMPORT",
+    "formalization": "NOT_LEAN_FORMALIZED"
+  },
+  "finite_replay": "PYTHONPATH=src python3 -m pytest -q src/test_global_euler_jordan_coercivity.py",
+  "regression_replay": "PASS: 76 tests across the new global Euler-Jordan checks and four predecessor detector/boundary suites",
+  "nonclaim": "This work does not prove a uniform zero-free strip or RH, and the synthetic Euler surgery does not refute any theorem using the exact zeta completion."
+}

@@ -1,0 +1,35 @@
+{
+  "schema": "zeta23-research-preflight-v1",
+  "date": "2026-09-01",
+  "target_statement": "Formalize reusable algebraic consequences of the semilocal audit: division-free Ward--Cauchy, reserve-absorbed alignment, finite-constraint survival, two-channel correction annihilation, the exact divergent Ward family, and the finite anomaly-budget identity.",
+  "claim_status_sought": "PROJECT_PROVED_THEOREM_WITH_SCOPE",
+  "trust_model": "LEAN_KERNEL_CHECKED",
+  "first_unproved_edge": "None: these are exact abstract distillations, not a proposed zeta propagation lemma.",
+  "mask_or_node_class": "Abstract ordered-field and finite-dimensional linear-algebra models; no prime mask is represented.",
+  "source_data_retained": "Only two abstract source channels in the correction theorem; no Guinand--Weil source interval.",
+  "coefficient_cone_and_sign": "Arbitrary real scalar cross term; arbitrary field-valued linear constraints.",
+  "normalization": "Scalar Ward floor A, cross B, collar energy D; counterfamily uses floor delta^2 and cross-square (1+delta^2)(delta-delta^2).",
+  "height_window_and_one_sided_floor": "Not applicable; theorems are local algebraic obstructions and explicitly do not supply a full-band floor.",
+  "quantifier_order": "Ward equivalence quantifies over every mixed vector (x,y); divergence quantifies over every proposed constant R and constructs delta.",
+  "resolution_required": "Exact symbolic identities only.",
+  "rate_and_exponent_ledger": {
+    "starting_exponent": null,
+    "target_exponent": null,
+    "all_exponent_losses": []
+  },
+  "feasibility_or_nonvacuity_witness": "The divergent-family theorem explicitly constructs delta=1/(R+2); joint-kernel conclusions are conditional on exact vanishing of both channels.",
+  "downstream_socket": "Reusable audit lemmas for Ward/Schur propagation proposals and finite-moment attempts; no direct socket to RH or a uniform strip.",
+  "parallel_open_siblings": [
+    "relative signed Ward theorem RSW_R",
+    "zeta-specific adjacent-support propagation"
+  ],
+  "why_not_target_renamed": "The formal statements omit zeta arithmetic, support propagation, mask growth, and cofinal positivity; they certify method constraints rather than the open target.",
+  "abstract_convex_falsifier": "The exact scalar divergent family is included as the abstract falsifier.",
+  "fejer_falsifier": "Not applicable to these exact algebraic statements.",
+  "prime_density_pseudonode_falsifier": "Not applicable: no node set occurs.",
+  "finite_actual_prime_diagnostic": "Not used for theorem status.",
+  "actual_prime_arithmetic_line": "Absent by design; consequently no strip conclusion is licensed.",
+  "decision_tree_change_if_proved": "Packages the audit as reusable theorem-level constraints, identifies the exact commutator and inverse-defect budgets required by finite anomaly models, and prevents recurrence of finite-moment or qualitative-compactness shortcuts.",
+  "decision_tree_change_if_refuted": "A failed statement is weakened or removed before import; it does not affect the open zeta claims.",
+  "stop_rule": "Import only statements accepted by Lean without axioms, sorry, or numerical premises; make no RH or strip claim."
+}

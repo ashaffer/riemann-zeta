@@ -1,5 +1,24 @@
 # RECOVERY_STATE.md
 
+> **Recursive consolidation update (2026-09-01):** the current cross-corpus
+> theorem basis and corrected Weil decision tree are in
+> [`results/ZETA23-RECURSIVE-CONSOLIDATION-FIXED-POINT-2026-09-01.md`](results/ZETA23-RECURSIVE-CONSOLIDATION-FIXED-POINT-2026-09-01.md).
+> It identifies charged-nullstate cancellation as the remaining arithmetic
+> continuation normal form.  Universally quantified it is RH-equivalent, not
+> an easier conjecture; it does not prove RH or a uniform strip.
+
+> **Supersession notice (2026-09-04):** this remains a recovery/audit record,
+> but its frontier ordering is historical.  Run
+> `python3 src/zeta23_correction_context.py resume` and read
+> [`results/ZETA23-R71-PRINCIPAL-BAND-EXACT-SERIALIZATION-2026-09-04.md`](results/ZETA23-R71-PRINCIPAL-BAND-EXACT-SERIALIZATION-2026-09-04.md).
+> The 2026-09-02 decision path is the verified pre-R181 plan snapshot; the
+> R186 closes the split serialization and weak/L2 adapter but leaves KNC,
+> while R187 closes the analytic principal-band tails and R188 gives the exact
+> finite high-cofactor serialization and an exponent-equivalent
+> `.998/.002/.0025` cofactor/quotient/numerator collar.  The remaining joint completed `.98`
+> correlation is uniform-strip strength.  The strip and RH remain open.  The
+> August 30 consolidation remains background preflight.
+
 Recovery date: 2026-08-09  
 Evidence basis: inherited conversation, current source tree, Git history and reflogs, tracked scripts/results, generated certificate artifacts, and a read-only process/worktree audit.
 
@@ -552,7 +571,7 @@ Only the first role enters the unconditional \(p=2\) Lean endpoint, and even the
 |---|---|---|---|
 | `GW-LOCAL` | Local zeta factorization at a nontrivial zero, analytic multiplicity, and \(\zeta'/\zeta=m/(s-\rho)+g'/g\) on a punctured neighborhood. | **PROVED** | Lean source using mathlib meromorphic continuation. `GuinandWeilFormula.lean`, last `C4`. |
 | `GW-RIGHT` | Absolute von Mangoldt series for \(-\zeta'/\zeta\) on \(\Re s>1\), Gamma-factor identities, and functional-equation logarithmic derivatives. | **PROVED** | Lean source, same file/commit. |
-| `GW-SMOOTH-ENTIRE` | A smooth compactly supported test has an entire bilateral Laplace transform. | **CONDITIONAL** | Explicit axiom `smooth_bilateralLaplace_entire`. `GuinandWeilLiterature.lean`, `C2`. |
+| `GW-SMOOTH-ENTIRE` | A smooth compactly supported test has an entire bilateral Laplace transform. | **PROVED** | `smooth_bilateralLaplace_entire`, proved from `CompactSupportFourierLaplace.differentiable_transform`; focused axiom audit reports only the standard logical axioms. `GuinandWeilLiterature.lean`, current worktree. |
 | `GW-SMOOTH-FORMULA` | The normalization-matched smooth Guinand–Weil zero sum equals the arithmetic form. | **CONDITIONAL** | Explicit axiom `smooth_guinandWeil_formula`, same file/commit. |
 | `GW-LOGDOMAIN` | Symmetric closed-disk zero sums converge to the arithmetic form for every logarithmic-domain vector. | **CONDITIONAL** | Explicit axiom `logarithmicDomain_guinandWeil_formula`, same file/commit. |
 | `WEIL-CRITERION` | `RiemannHypothesis ↔ GlobalWeilPositivity`. | **CONDITIONAL** | Explicit axiom `riemannHypothesis_iff_globalWeilPositivity`. `WeilCriterionLiterature.lean`, `C2`. |
@@ -811,14 +830,16 @@ The generator may have used numerical search, but floating-point output is not a
 
 The following are not proved:
 
-- entirety of the smooth bilateral Laplace transform;
 - the global contour deformation;
 - the full residue sum;
 - horizontal-edge vanishing;
 - passage from finite rectangles to the complete zero sum;
 - low-regularity closure to the logarithmic form domain.
 
-They are precisely the three axioms in `GuinandWeilLiterature.lean`.
+They are packaged by precisely two axioms in `GuinandWeilLiterature.lean`:
+the normalization-matched smooth formula and its logarithmic-domain closure.
+The former Paley--Wiener entirety axiom is now a theorem using the standalone
+compact-support Fourier--Laplace library.
 
 Additional seams if those axioms were to be removed:
 

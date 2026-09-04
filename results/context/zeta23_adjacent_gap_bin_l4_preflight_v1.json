@@ -1,0 +1,40 @@
+{
+  "artifact": "ZETA23-ADJACENT-GAP-BIN-L4-PREFLIGHT-v1",
+  "date": "2026-08-31",
+  "claim_status": "OPEN",
+  "role": "A sufficient coefficient-serialization interface for GCG4, not an equivalent reformulation.",
+  "parent": {
+    "statement": "GCG4(161/1000,3/8)",
+    "parallel_open_edge": "LTRAD_P(.0189,.001)",
+    "nonimplications": ["uniform zero-free strip", "RH"]
+  },
+  "object": {
+    "selector": "actual prime endpoints incident to physical adjacent-prime gaps at most Y^(161/1000)",
+    "weights": "the exact retained and normalized adjacent-gap hat coefficients",
+    "tiny_bin": "lambda_p <= Y^(-3/2)",
+    "dyadic_bins": "the O(log Y) remaining classes in which lambda_p is within a factor two of a common level",
+    "quantifiers": "every sufficiently large admissible Y and every non-tiny dyadic bin of this one fixed vector"
+  },
+  "target": {
+    "statement": "For each bin P_j, integral from L to 2B of |sum_{p in P_j} lambda_p exp(it log(p/Y))|^4 dt is at most Y^(13/8+o(1)) E_j^2, where E_j=sum_{p in P_j}lambda_p^2.",
+    "status": "OPEN",
+    "strength_warning": "This binwise theorem is stronger than global GCG4 because it forbids cancellation between coefficient levels. Failure prunes this interface, not GCG4."
+  },
+  "proved_adapter": {
+    "tiny_bin": "There are O(Y) primes, so its l1 norm is O(Y^(-1/2)) and its fourth moment is O(Y^(-16/33)).",
+    "cross_bins": "Hölder gives |sum_j F_j|^4 <= (J+1)^3 sum_j |F_j|^4.",
+    "energy": "sum_j E_j^2 <= (sum_j E_j)^2 = (sum_p lambda_p^2)^2.",
+    "conclusion": "The binwise target implies GCG4 with only Y^o(1) loss."
+  },
+  "licensed_falsifiers": {
+    "abstract": "False for arbitrary prime subsets selected to phase-align; the actual adjacent-gap selector is mandatory.",
+    "fejer": "An absolute close-pair/positive-kernel estimate returns the generic Y^2 term.",
+    "prime_density_pseudonodes": "Odd-half-grid controls violate the desired high-tail behavior while preserving coarse geometry.",
+    "finite": "Frozen vectors are twin-edge-only and cannot test the asymptotic mixed-gap bins."
+  },
+  "literature_stop": {
+    "strongest_direct_sparse_import": "Matomaki--Teravainen Lemma 3.4 returns Y^2 E_j^2 and misses Y^(13/8) E_j^2 by Y^(3/8).",
+    "guth_maynard": "At the favorable dense-bin normalization the T-dependent large-value term still misses by Y^(383/1320); direct weighted normalization misses by Y^(279047/429000).",
+    "decision": "No existing theorem closes the target. Continue only with an adjacent-gap-sensitive improvement; do not iterate coefficient-blind large-value estimates."
+  }
+}

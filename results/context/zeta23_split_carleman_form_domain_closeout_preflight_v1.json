@@ -1,0 +1,29 @@
+{
+  "schema": "zeta23-split-carleman-form-domain-closeout-preflight-v1",
+  "date": "2026-09-03",
+  "objective": "Close the two technical debts left by the corrected R185 audit: serialize the split finite-part old operator exactly and determine whether genuine Friedrichs-domain contacts have a canonical four-Cauchy/exterior state.",
+  "human_authority_planned": "results/ZETA23-SPLIT-CARLEMAN-FORM-DOMAIN-CLOSEOUT-2026-09-03.md",
+  "allowed_topologies": [
+    "pointwise identities on C_c^infinity(I_a)",
+    "distributional old equations on D'(I_a)",
+    "closed-form weak identities on D(Q_a)",
+    "L2 identities on each finite exterior collar",
+    "continuous integrated-potential identities using g' in L2_loc"
+  ],
+  "forbidden_promotions": [
+    "pointwise values or endpoint jets for a generic element of D(A_a)",
+    "one ordinary Plemelj jump in place of the split positive finite part",
+    "an individual projection-dilation cocycle in place of total KNC charge",
+    "finite-node evidence as a theorem about the completed-zeta operator",
+    "technical state serialization as proof of KNC, a zero-free strip, or RH"
+  ],
+  "fast_falsifiers": [
+    "derive both multiplicative branches independently from the additive kernel and check fourth-root partial fractions exactly",
+    "test the determinant-one shortcut on the arcsine finite-Hilbert state",
+    "search exact finite split-Cauchy systems for old-null states with charged exterior rows",
+    "check the claimed adapter against Suzuki's explicit warning that generic D(A_a) elements need not have pointwise values",
+    "compare with the existing domain-safe integrated-potential theorem before declaring an adapter absent"
+  ],
+  "success_criterion": "An exact smooth-core split formula plus a canonical weak/L2 or continuous-potential extension identifying ker(A_a) with the weak old equation and the exterior readout with the completed source; otherwise a rigorous obstruction at a named topology.",
+  "nonclaim": "No KNC implication, uniform zero-free strip, sharp four-cycle bound, or RH proof is assumed."
+}

@@ -1,0 +1,136 @@
+{
+  "schema": "zeta23.chuk_p5_threshold_and_first_event_propagation.v1",
+  "date": "2026-09-01",
+  "claim_status": "RIGOROUS_INTERVAL_COMPUTATION_PLUS_NAMED_ANALYTIC_INPUT",
+  "endpoint_claim": "With project support L=4a and L5=2 log(5), the completed-zeta localized Weil ground value satisfies lambda(L5) >= 5e-18; the inequality is strict on every nonzero function after subtracting 5e-18 times the L2 norm.",
+  "qualitative_propagation_claim": "Suzuki Theorem 1.3 (arXiv:2606.09096v2) implies that lambda remains positive on some nonempty interval to the right of L5, so the p=5 activation is crossed.",
+  "effective_propagation_claim": "Using the explicit Glide theorem in THEOREMS.md with ell0=2 log(5) and ell1=4, for every 0 < h <= exp(-10^22), lambda(2 log(5)+h) > 3.733e-18. The physical half-window is log(5)/2+h/4, so p=5 is genuinely active.",
+  "milestone_scope": "One explicit microscopic p=5 event crossing. This is not a uniform, reusable, non-Zeno, cofinal, all-support, zero-free-strip, or RH theorem.",
+  "primary_sources": [
+    "https://arxiv.org/abs/2606.09096v2",
+    "https://arxiv.org/abs/2511.22755",
+    "https://arxiv.org/abs/2608.24827v1"
+  ],
+  "trust_model": "python-flint Arb outward balls and exact rational parameters; explicit Bernstein-ellipse quadrature error; interval congruence and Cholesky; explicit infinite-tail Schur transfer; named exterior digamma, endpoint autocorrelation, form-domain, monotonicity, and effective Glide analytic inputs",
+  "driver": {
+    "path": "src/chuk_p5_threshold_arb_certificate.py",
+    "sha256": "4fecf437eb25612c9d4d64ba6e4a9970f9ed8e0cec18af79d17b937b29a17947",
+    "invocation": "PYTHONPATH=src python3 src/chuk_p5_threshold_arb_certificate.py --quiet --cross-check"
+  },
+  "shared_engine": {
+    "path": "src/chuk_l08_arb_certificate.py",
+    "sha256": "5170c5c04d7bad0808ca9cc35470fa16e9e7ed03c99a9b5bec9664bb1c2a0144"
+  },
+  "tests": {
+    "path": "src/test_chuk_p5_threshold_arb_certificate.py",
+    "sha256": "4931861d5eff4bddb9a866a9f624e024ab1184d0a2e971fb6c6322cec317be8a",
+    "invocation": "PYTHONPATH=src python3 -m pytest -q src/test_chuk_l08_arb_certificate.py src/test_chuk_p5_threshold_arb_certificate.py",
+    "result": "7 passed"
+  },
+  "higher_order_robustness_replay": {
+    "invocation": "PYTHONPATH=src python3 src/chuk_p5_threshold_arb_certificate.py --degree 310 --order 88 --precision 704 --quiet",
+    "parity_dimensions": [155, 155],
+    "quadrature_entry_error_ball": "[6.96044084907189132e-33 +/- 1.49e-51]",
+    "quadrature_operator_error_ball": "[1.07886833160614315e-30 +/- 4.38e-48]",
+    "even_smallest_shifted_pivot_ball": "[9.837487991585054778355696e-19 +/- 3.60e-44]",
+    "odd_smallest_shifted_pivot_ball": "[5.272276576689670924465217e-15 +/- 2.63e-40]",
+    "rho_tail_ball": "[1.834042944699098984672230e-35 +/- 3.11e-60]",
+    "shifted_2x2_determinant_ball": "[7.299999999999952998500616e-19 +/- 2.97e-44]",
+    "result": "PASS"
+  },
+  "environment": {
+    "python": "3.12.3",
+    "python_flint": "0.9.0",
+    "flint": "3.6.0",
+    "construction_precision_bits": 512,
+    "working_precision_bits": 640,
+    "adaptive_cross_check_precision_bits": 384,
+    "threads": 4
+  },
+  "normalization": {
+    "project_support_variable": "L=4a",
+    "physical_half_window": "a5=log(5)/2",
+    "physical_half_window_ball": "[0.804718956217050187300379666613 +/- 9.39e-32]",
+    "project_event_support": "L5=2 log(5)",
+    "project_event_support_ball": "[3.218875824868200749201519 +/- 3.34e-25]",
+    "autocorrelation_radius_at_event": "2a5=log(5)",
+    "endpoint_active_prime_powers": [2, 3, 4],
+    "endpoint_p5_rule": "The p=5 shift equals the support diameter, hence its endpoint autocorrelation is zero; it is also excluded by the strict log(n)<2a convention.",
+    "post_event_rule": "For every h>0, log(5)<(L5+h)/2, so p=5 is active."
+  },
+  "clipped_minorant": {
+    "cutoff_T": 250,
+    "exterior_floor_alpha": "73/100",
+    "beta_star_ball": "[0.737610326229280494154941258143 +/- 2.04e-31]",
+    "real_band_multiplier_bound_ball": "[15.6691968060037183601819363495 +/- 2.79e-29] < 16",
+    "bernstein_ellipse_multiplier_bound_ball": "[19.9048586683328154364997545320 +/- 3.76e-29] < 21",
+    "prime_mass_ball": "[2.94197352522362045550390939018 +/- 2.71e-30]"
+  },
+  "finite_core": {
+    "total_legendre_degrees": 300,
+    "degree_range": "0 through 299",
+    "even_modes": 150,
+    "odd_modes": 150,
+    "gauss_legendre_order_per_unit_panel": 80,
+    "unit_panels": 250,
+    "analytic_entry_error_ball": "[1.53616898000990914e-29 +/- 1.59e-47]",
+    "parity_block_operator_error_ball": "[2.30425347001486371e-27 +/- 2.38e-45]",
+    "maximum_final_entry_radius_ball": "[1.53616899262209458e-29 +/- 2.23e-47]",
+    "head_shift": "6e-18",
+    "even_approximate_least_eigenvalue_diagnostic": "6.983748799158531358115026e-18",
+    "even_congruence_smallest_shifted_pivot_ball": "[9.837487991014135934307459e-19 +/- 3.10e-44]",
+    "odd_approximate_least_eigenvalue_diagnostic": "5.278276576689670952890013e-15",
+    "odd_congruence_smallest_shifted_pivot_ball": "[5.272276576689608219378896e-15 +/- 8.94e-41]",
+    "result": "PASS"
+  },
+  "independent_adaptive_entry_cross_check": {
+    "method": "acb.integral on unit panels with holomorphic digamma symmetrization and direct spherical-Bessel/0F1 formulas; no common Gauss nodes and no Bernstein remainder",
+    "pairs_total": 9,
+    "pairs_passed": 9,
+    "entries": [
+      {"degrees": [0, 0], "direct_ball": "[0.0772114820184084239 +/- 5.01e-21]", "result": "OVERLAPS"},
+      {"degrees": [0, 20], "direct_ball": "[-0.00555387810914495876 +/- 4.15e-21]", "result": "OVERLAPS"},
+      {"degrees": [20, 20], "direct_ball": "[1.44785468690128630 +/- 8.15e-20]", "result": "OVERLAPS"},
+      {"degrees": [40, 80], "direct_ball": "[0.0930981820610976906 +/- 4.86e-20]", "result": "OVERLAPS"},
+      {"degrees": [80, 80], "direct_ball": "[2.58138134926979490 +/- 5.82e-19]", "result": "OVERLAPS"},
+      {"degrees": [1, 1], "direct_ball": "[0.0792003304631143720 +/- 1.18e-21]", "result": "OVERLAPS"},
+      {"degrees": [1, 21], "direct_ball": "[-0.0847613248792038581 +/- 4.66e-20]", "result": "OVERLAPS"},
+      {"degrees": [81, 121], "direct_ball": "[-0.0226455348978054168 +/- 2.99e-20]", "result": "OVERLAPS"},
+      {"degrees": [249, 249], "direct_ball": "[0.730000000000000000 +/- 5.2e-22]", "result": "OVERLAPS"}
+    ],
+    "result": "PASS"
+  },
+  "full_space_transfer": {
+    "full_shift": "5e-18",
+    "bessel_ratio_ball": "[0.1116803321328498136561788 +/- 1.74e-26]",
+    "B_star_ball": "[6.428802784244659965052580e-28 +/- 4.05e-53]",
+    "rho_tail_ball": "[8.233689145458085630063903e-26 +/- 2.92e-51]",
+    "pole_delta_ball": "[1.501576351811285602673482e-733 +/- 2.88e-758]",
+    "complement_diagonal_ball": "[0.7299999999999999999999987 +/- 1.74e-26]",
+    "coupling_ball": "[4.591104901042090021933243e-12 +/- 2.17e-37]",
+    "shifted_2x2_determinant_ball": "[7.299789217557876223007857e-19 +/- 1.91e-44]",
+    "result": "PASS"
+  },
+  "effective_glide_instantiation": {
+    "source": "THEOREMS.md, Theorem 1",
+    "ell0": "2 log(5)",
+    "ell1": "4",
+    "C_lambda_ball": "[23.85547010497074462870945 +/- 3.65e-25]",
+    "C_B_ball": "[56.68252950721831233912128 +/- 2.47e-24]",
+    "C_C_ball": "[228.7301180288732493564851 +/- 1.02e-23]",
+    "C_glide_ball": "[12661.06908763489449257108 +/- 3.78e-21] < 12662",
+    "maximum_h": "exp(-10^22)",
+    "maximum_loss": "12662/10^22 = 1.2662e-18",
+    "computed_loss_ball": "[1.266106908763489449257108e-18 +/- 3.78e-43]",
+    "computed_post_event_floor_ball": "[3.733893091236510550742892e-18 +/- 3.78e-43]",
+    "advertised_rational_post_event_floor": "> 3.733e-18",
+    "result": "PASS"
+  },
+  "falsifiers_and_limitations": {
+    "old_T200_minorant_at_a_0p8047": "An explicit odd polynomial has rigorous Rayleigh ball [-2.9360061942792e-15 +/- 8.92e-29], so the original Chuk clipping architecture does not reach the event.",
+    "coarse_p5_operator_norm": "log(5)/sqrt(5) is about 0.7197625, roughly 8.1e16 times the a=0.8 floor; global norm perturbation cannot propagate it.",
+    "formalization": "The endpoint matrix/tail certificate and effective Glide proof are not an end-to-end Lean/kernel artifact. The full effective Glide chain is a displayed analytic proof in THEOREMS.md.",
+    "global": "No uniform lower step size, cofinal scale, or non-Zeno iteration is proved."
+  },
+  "result": "PASS_FIRST_P5_EVENT_MICROSCOPIC_NOT_COFINAL"
+}

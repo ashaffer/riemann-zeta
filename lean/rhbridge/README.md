@@ -25,6 +25,26 @@ correlation, and cutoff layers; it does not load the rectangle machinery.
 Diagnostic `#print axioms` modules are collected separately by `import
 RHBridge.Audit` and are not part of the ordinary umbrella.
 
+`RHBridge.S1B1CompletedSourceCommutator` is a finite-algebra audit module for
+the 2026-09-03 source-commutator sprint.  It proves only exact kernel and
+reflection identities; its companion audit file prints their axioms.  It
+does not claim an analytic estimate, a zero-free strip, or RH.
+
+`RHBridge.QPSourceFiberBifurcation` formalizes the distinct direct-radial and
+event-dependent source-fiber dual normalizations, their finite convex upper
+bounds, and the exact `.001/.0179/.0189/.5/.499` exponent ledger.  Its audit
+prints the axioms.  The smooth density-matched real-node construction remains
+in the human audit; the Lean module proves no actual-prime LTRAD, DPA, strip,
+or RH statement.
+
+`RHBridge.R188PrincipalBandSerialization` checks the exact rational exponent,
+high-denominator/small-quotient, target-matched Fourier-collar,
+determinant-witness, affine-center, coherent cross-term, and top-box
+bookkeeping for the 2026-09-04 principal-band audit.
+Its companion audit prints the axioms.  Fourier/Poisson analysis, the PNT
+semiprime block, imported reciprocal-sum estimates, the completed
+`X^(.98)` bound, a zero-free strip, and RH are deliberately outside its scope.
+
 Build the package with its pinned local dependencies:
 
 ```sh

@@ -1,0 +1,46 @@
+{
+  "schema": "zeta23-research-preflight-v1",
+  "date": "2026-09-01",
+  "architecture": "weil_support_filtration",
+  "target_statement": "Derive, in one fixed ambient Hilbert-space convention, the exact first-collar variation of the localized completed-zeta Weil form at a semidefinite support a, and express its restriction to ker(Q_a) as an explicit prime-plus-archimedean boundary charge. Determine whether that charge factors through Q_a, vanishes for a zeta-specific reason, or admits a faithful countermodel.",
+  "claim_status_sought": [
+    "EXACT_IDENTITY_OR_EQUIVALENCE",
+    "PROJECT_PROVED_THEOREM_WITH_SCOPE",
+    "SYNTHETIC_COUNTERMODEL_OR_METHOD_OBSTRUCTION"
+  ],
+  "trust_model": [
+    "ANALYTIC_MANUSCRIPT_UNREFEREED",
+    "IMPORTED_PRIMARY_LITERATURE",
+    "LEAN_KERNEL_CHECKED_WHERE_FORMALIZED",
+    "EXACT_SYMBOLIC_OR_RATIONAL_REPLAY"
+  ],
+  "first_unproved_edge": "At a semidefinite localized completed-zeta Weil form, every old nullvector must be annihilated by the newly exposed reference-harmonic collar source (KNC/right-openness).",
+  "mask_or_node_class": "The full completed-zeta Weil distribution: archimedean term and all prime-power terms, localized by support in [-a,a]; no prime-only substitution.",
+  "source_data_retained": "The exact completed-zeta distribution and the old/collar/reference-harmonic splitting, including both prime-power and archimedean pieces.",
+  "coefficient_cone_and_sign": "Real or complex test vectors under the Hermitian Weil form; no nonnegative coefficient restriction and no assumed positivity beyond Q_a >= 0 at the contact.",
+  "normalization": "Project Fourier/sign/half-density convention used by the relative Weil criterion and the qualitative continuation report.",
+  "height_window_and_one_sided_floor": "Not a QP/Turan height-band statement. The filtration parameter is compact support a, and the hypothesis is semidefiniteness Q_a >= 0.",
+  "quantifier_order": "For every finite contact support a, every f in ker(Q_a), every sufficiently small right collar b>a, and every reference-harmonic collar direction h, compute the residual pairing before asking whether it vanishes.",
+  "resolution_required": "Exact distributional/support resolution; no discretization or finite-window approximation is promoted to the theorem.",
+  "rate_and_exponent_ledger": {
+    "starting_exponent": "not_applicable_to_weil_filtration",
+    "target_exponent": "qualitative_right_openness",
+    "all_exponent_losses": []
+  },
+  "feasibility_or_nonvacuity_witness": "The identity is defined for every localized vector and collar direction. Charged finite-dimensional block models provide nonvacuous hostile contacts even if the completed-zeta form has no actual null contact.",
+  "downstream_socket": "If the exact charge vanishes on ker(Q_a) at every semidefinite support, FP1-FP4 give right-openness, maximal-support propagation, global Weil positivity, and RH through the accepted literature interface.",
+  "parallel_open_siblings": [
+    "DPA_P(.019)",
+    "LTRAD_P(.0189,.001)",
+    "direct classification/nondegeneracy of every localized completed-zeta form"
+  ],
+  "why_not_target_renamed": "The first deliverable is an explicit computable decomposition and factorization test for the charge, not the assertion that it vanishes. A nonzero remainder or faithful countermodel is a successful information outcome and does not assert KNC.",
+  "abstract_convex_falsifier": "Use a finite-dimensional positive semidefinite old block A with nontrivial kernel and a charged collar block B to test whether support nesting, compactness, or abstract Ward identities alone force ker(A) subset ker(B*).",
+  "fejer_falsifier": "Architecture-inapplicable as an arithmetic mask model; its analogue is the explicit two-by-two first-contact block countermodel, which tests positivity and localization without zeta arithmetic.",
+  "prime_density_pseudonode_falsifier": "Architecture-inapplicable: replacing the completed-zeta Weil distribution by smooth pseudo-prime nodes changes the RH-equivalent source. Synthetic screw functions will instead test which claimed identity follows from generic negative-type/continuity axioms.",
+  "finite_actual_prime_diagnostic": "Permitted only to inspect the sign and scaling of separately computed prime-power and archimedean charge pieces on certified near-null Galerkin vectors; it cannot establish an actual contact or asymptotic vanishing.",
+  "actual_prime_arithmetic_line": "Any positive result must explicitly use the completed explicit formula, including exact prime-power weights and archimedean compensation; functional symmetry or compact support alone is insufficient.",
+  "decision_tree_change_if_proved": "A proved zeta-specific charge cancellation closes the sole remaining support-propagation edge and yields RH under the accepted Weil interfaces. A merely exact decomposition replaces opaque KNC by its first explicit arithmetic remainder.",
+  "decision_tree_change_if_refuted": "A faithful countermodel removes every proof using only the retained abstract support, compactness, symmetry, or negative-type axioms and identifies the additional zeta-specific invariant that a viable proof must use.",
+  "stop_rule": "Stop this pass only after obtaining a checked exact collar-charge identity and either proving its factorization under stated hypotheses or exhibiting an exact countermodel to the automatic factorization. Do not claim KNC, global Weil positivity, or RH unless the completed-zeta remainder is proved to vanish for every contact."
+}

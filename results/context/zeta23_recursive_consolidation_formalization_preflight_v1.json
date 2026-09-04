@@ -1,0 +1,41 @@
+{
+  "schema": "zeta23-lemma-preflight-v1",
+  "date": "2026-09-01",
+  "target_statement": "Lean formalization of abstract kernel-charge necessity and nested restriction, charged-contact negativity, decoder/provenance bounds, finite-channel reserve completion, and maximal-frontier continuation contradiction isolated by the recursive fixed-point audit",
+  "claim_status_sought": "PROJECT_PROVED_THEOREM_WITH_SCOPE",
+  "trust_model": "LEAN_KERNEL_CHECKED",
+  "architecture": "weil_abstract_supporting_schemas",
+  "first_unproved_edge": "None inside these abstract implications; the zeta-specific KNC premise remains open",
+  "mask_or_node_class": "No arithmetic mask or node class; real scalar, pseudometric, finite-channel, and real-order abstractions",
+  "source_data_retained": "No completed-zeta source is encoded; applications must separately instantiate the Weil residual and relative support filtration",
+  "coefficient_cone_and_sign": "All real scalar cross terms; component charges are nonnegative only in the finite-channel theorem",
+  "normalization": "Mixed quadratic A*x^2+2*B*x*y+D*y^2; provenance uses metric radii; channel budget is (sum charge)^2+loss<=1",
+  "height_window_and_one_sided_floor": "Not applicable abstractly; the intended Weil application is on one fixed bounded support slab with a separately proved nonnegative form",
+  "quantifier_order": "KNC on a containing direction set precedes restriction to each nested member; global enlarged-form nonnegativity precedes kernel-charge necessity for every old nullvector and every new direction; decoder estimates hold pointwise for every pair; every channel bound precedes summation; every reachable point has a strict right extension",
+  "resolution_required": "None in the abstract lemmas; support-localization resolution is an external analytic premise",
+  "rate_and_exponent_ledger": {
+    "starting_exponent": null,
+    "target_exponent": null,
+    "all_exponent_losses": [
+      "decoder triangle loss 2*epsilon",
+      "Lipschitz radius transport by division by L or multiplication by M",
+      "worst-case aligned channel cost (sum charge)^2"
+    ]
+  },
+  "feasibility_or_nonvacuity_witness": "The hypotheses admit elementary examples: B=0 with A,D>=0; exact decoding with epsilon=0; zero channel crosses and loss=0; an unbounded reachable ray for right extension",
+  "downstream_socket": "Packages FP2/FP4/FP6/FP8 logic only; a zeta application still requires fixed-slab compact localization, correctly typed relative moments, KNC for the completed-zeta residual, and frontier closure",
+  "parallel_open_siblings": [
+    "KNC for every semidefinite completed-zeta support",
+    "DPA_P(.019)",
+    "LTRAD_P(.0189,.001)"
+  ],
+  "why_not_target_renamed": "The formal results are assumption-transparent algebraic/order implications and contain neither the arithmetic KNC input nor a prime-mask estimate",
+  "abstract_convex_falsifier": "Known compact/Schatten Ward countermodels do not satisfy KNC; the global mixed-form premise itself forces zero kernel charge",
+  "fejer_falsifier": "Not applicable to these exact abstract implications",
+  "prime_density_pseudonode_falsifier": "Not applicable; no prime-node conclusion is asserted",
+  "finite_actual_prime_diagnostic": "Not applicable",
+  "actual_prime_arithmetic_line": "None; explicitly outside the theorem statements",
+  "decision_tree_change_if_proved": "Kernel-checks the reusable implications already established in the recursive consolidation, including the nesting step and the exact charged-contact obstruction; it does not prove zeta-specific KNC or close a research edge",
+  "decision_tree_change_if_refuted": "A Lean failure would expose an algebraic or typing defect in the fixed-point packaging, not refute a zeta theorem",
+  "stop_rule": "Stop after the new module and aggregate compile without sorry/admit or new axioms"
+}

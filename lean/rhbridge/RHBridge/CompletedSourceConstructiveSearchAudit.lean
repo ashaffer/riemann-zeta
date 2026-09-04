@@ -1,0 +1,12 @@
+/- Axiom audit for the finite completed-source constructive-search algebra. -/
+import RHBridge.CompletedSourceConstructiveSearch
+
+#print axioms RHBridge.CompletedSourceConstructiveSearch.finiteSourceSum_division
+#print axioms RHBridge.CompletedSourceConstructiveSearch.finite_source_word_exact
+#print axioms RHBridge.CompletedSourceConstructiveSearch.finite_source_contact_remainder
+#print axioms RHBridge.CompletedSourceConstructiveSearch.regular_polynomial_contact_residual
+#print axioms RHBridge.CompletedSourceConstructiveSearch.regular_parametrix_residual_at_zero
+#print axioms RHBridge.CompletedSourceConstructiveSearch.four_cauchy_pairing
+#print axioms RHBridge.CompletedSourceConstructiveSearch.annihilator_source_zero
+#print axioms RHBridge.CompletedSourceConstructiveSearch.old_source_old_zero
+#print axioms RHBridge.CompletedSourceConstructiveSearch.annihilator_equation_does_not_kill_charge

@@ -1,0 +1,1099 @@
+{
+  "version": 3,
+  "meta": {
+    "date": "2026-08-15",
+    "truth": "NO_STRIP; NO_ZERO_REGION_MOVED",
+    "semantics": "Z23P proof IR; resume packets are self-contained; REF records are optional audit attachments",
+    "completion": "PROVE exists explicit delta>0: zeta(s)!=0 for Re(s)>1-delta, with verified proof and hostile audit"
+  },
+  "goal": "G",
+  "resume": "FQPP",
+  "nodes": [
+    [
+      "G", "", "goal", "open", "uniform zeta zero-free strip",
+      [
+        ["DEF", "ZF(delta):=(delta>0) AND (forall s, Re(s)>1-delta => zeta(s)!=0)"],
+        ["TARGET", "produce explicit fixed delta and unconditional derivation of ZF(delta)"],
+        ["KNOWN", "classical verified regions shrink with height; no fixed delta is known or proved here"],
+        ["CHECK", "completion requires a singleton-zero-excluding uniform theorem, complete artifacts, and hostile audit"]
+      ],
+      [["requires", "INV"], ["alternative", "RT"], ["alternative", "RC"], ["alternative", "RM"], ["alternative", "QA"]]
+    ],
+    [
+      "INV", "G", "invariant", "proved", "same-state completed debt/carrier invariant",
+      [
+        ["THM", "progress iff one state x has completed adverse debt D(x) <= (1-eps) retained carrier K(x), eps>0 uniform"],
+        ["PF", "the contradiction explicit formula is homogeneous; separate states or separate bounds do not combine"],
+        ["THM", "singleton invariant: density, mean-value, and almost-all estimates do not imply ZF unless one offending zero forces a quantitatively forbidden event"],
+        ["THM", "principal-mode invariant: centering may clear transverse variance, but deleting the zero Fourier/Mellin mode either deletes the detector or hides the same Mertens/prime carrier"],
+        ["THM", "normalization invariant: algebraic nulling at q(0), an L2 frame bound, or a large unnormalized carrier is irrelevant unless the exact selected Laplace carrier survives on the same state"],
+        ["THM", "finite-head invariant: finitely many Lambda coefficients plus a candidate equation cannot identify zeta; a remote symmetric prime factor preserves the head and inserts a quartet"],
+        ["THM", "atomic invariant: Lebesgue-small bad sets do not control unrestricted signed measures; a span, TV, or Schur-margin theorem is required"],
+        ["CHECK", "every lift must state normalization, principal mode, conductor, completion, and singleton exclusion"]
+      ],
+      []
+    ],
+    [
+      "RC", "G", "route", "open", "candidate-centered carrier route",
+      [
+        ["DEF", "parameters alpha0=.49, beta0=.99, d=.66, Y=X^d; raw carrier exponent alpha0*d=.3234 in X; successful assembly would prove ZF(delta_ZF) with delta_ZF=.01"],
+        ["TARGET", "jointly close geometry GP, positive prime promotion FQPP, arithmetic reserve GA, and phase/budget compatibility FCMP on ONE common packet"],
+        ["KNOWN", "target-only centered parity geometry is exact; global growing compact transfer and arithmetic reserve remain separate gates"],
+        ["KNOWN", "for a candidate band alpha in [alpha0,1/2), promotion is governed by min_alpha kappa(alpha,d)=kappa(alpha0,d), whereas a uniform dual kill must beat max_alpha kappa(alpha,d)=lim_(alpha->1/2)kappa(alpha,d)"],
+        ["BLOCK", "separate GP, QP, and GA witnesses do not combine; all bounds, phases, normalization, completion, and carrier must refer to the same state"],
+        ["NEXT", "prove FQPP and FCMP, then close the open GP and GA2 inequalities with a strict same-state reserve gap"],
+        ["CHECK", "OD2 has KILL polarity and is not an RC prerequisite; epsilon_OD2 is arithmetic dual slack, not delta_ZF"]
+      ],
+      [["requires", "GP"], ["requires", "FQPP"], ["requires", "GA"], ["requires", "FCMP"], ["supports", "FASM"], ["supports", "FPR"]]
+    ],
+    [
+      "FASM", "RC", "fact", "proved", "candidate-strip assembly and polarity theorem",
+      [
+        ["THM", "fix alpha0=49/100,d=33/50 and assume the bounded low-height verification LOW(T0); if every hypothetical high zero is assigned one compact state q_rho with K_rho>0, completed upper R_other(q_rho)<=u*K_rho+o(K_rho), and actual-Lambda lower R_Lambda(q_rho)=R_other(q_rho)>=g*K_rho+o(K_rho) for fixed g>u, then no such zero exists and ZF(1/100) follows"],
+        ["THM", "the strongest clean QP-PROMOTE input is -r*1 in conv{a(t):t in H} with r>=Y^(-kappa_promote+eta); it implies C<=Y^(kappa_promote-eta+o(1)), but the converse signed-TV bound needs a separate positivity/compact-state adapter"],
+        ["DIR", "OD2 instead supports a lower bound C>=Y^(kappa_hostile+epsilon-o(1)) only after an additional full-antenna completion; it conflicts with the optional promotion state and cannot itself contradict a candidate zero"],
+        ["CONST", "delta_ZF=1/100; kappa_promote=.0180303234; kappa_hostile=.01974048259; epsilon_OD2<.001015578016 is dual arithmetic slack only"],
+        ["BLOCK", "the conditional theorem does not select the common state: FQPP, GP, and GA2 must be synchronized by FCMP"],
+        ["CHECK", "test_candidate_strip_assembly_gate.py has eight passing polarity and exact-rational tests; verify_zeta23_candidate_strip_assembly_gate.py asserts that GP+OD2+GA2 does not prove the strip"]
+      ],
+      []
+    ],
+    [
+      "FCMP", "RC", "gate", "open", "same-packet phase and budget compatibility",
+      [
+        ["DEF", "the QP-promoted null state, GP compact transfer state, and GA2 transverse/collateral state must be one normalized packet q_rho with one selected coherent phase"],
+        ["TARGET", "prove a selection/minimax theorem producing that common state with completed upper coefficient u and reserve lower coefficient g satisfying fixed g>u uniformly over every hypothetical candidate"],
+        ["KNOWN", "on a compact convex factorization-stable final-autocorrelation face with affine slacks, a common state exists exactly when every simplex scalarization has nonnegative maximum; separate witnesses check only the simplex vertices"],
+        ["KNOWN", "QP nullity is quadratic in the final factor: a coherent transverse direction must satisfy a growing simultaneous cross-autocorrelation system and then integrate inside the exact QP-null variety"],
+        ["KNOWN", "the exact GP surcharge is .025391255; the QP promotion bill in X at the frontier is d*kappa_promote=.011900013444, leaving .013491241556 for compact correction before any strict safety margin"],
+        ["BLOCK", "separate existence, separate averages, or phase-optimized witnesses may live on different exposed faces; homogeneity does not identify them"],
+        ["BLOCK", "the actual disconnected/two-leg GP state class is not yet proved convex after scalar refactorization, so even applying Sion requires a common outer-factor theorem or a direct deterministic selector"],
+        ["NEXT", "prove every simplex scalarization and a tangent-to-exact-null integration theorem; phase-free sufficiency would follow from a common totally isotropic plane for all active QP shifts, while the first-order target is P_(T_QP intersect T_GP)R_Lambda e"],
+        ["CHECK", "normalization, selected carrier, completion, phase, and error terms must be common before comparing g and u"]
+      ],
+      [["supports", "FSYNC"]]
+    ],
+    [
+      "FSYNC", "FCMP", "nogo", "proved", "separate gate witnesses do not synchronize",
+      [
+        ["THM", "for compact convex P and affine slacks s_j, Gamma=max_(R in P)min_j s_j(R)=min_(lambda in simplex)max_(R in P)sum_j lambda_j s_j(R); a common feasible state exists iff every scalarized maximum is nonnegative"],
+        ["THM", "two witnesses with slack vectors (a,-b) and (-c,d), a,b,c,d>=0, can be synchronized by mixing iff b*c<=a*d"],
+        ["COUNTER", "a compact scalar null state q=(a,0,c) has z=c*conj(a), |z|<=1/2; GP Re z>=2/5 and GA Im z>=2/5 each have exact witnesses, while a joint state would require |z|^2>=8/25>1/4"],
+        ["COUNTER", "QP nullity is quadratic in the final factor: two directions e and v may each satisfy the QP autocorrelation nulls while their coherent superposition has a nonzero cross row; incoherent mixing restores nullity but deletes the GA2 coherent gain"],
+        ["THM", "under an actual candidate with the common normalization, the midpoint scalarization of GP and GA slacks is identically (u-g)K/2<0 for every state; proving all scalarizations nonnegative would itself already be the desired candidate contradiction"],
+        ["DIR", "Caratheodory compression or convex mixing alone cannot supply FCMP; the missing theorem must control all scalarizations or be uniform on the state selected by the other gates"],
+        ["SCOPE", "the minimax theorem assumes a convex factorization-stable normalized final-autocorrelation face; the actual two-leg class still needs that structural verification"],
+        ["CHECK", "test_same_packet_minimax_sync_gate.py has seven passing tests, including the negative common-game value, phase-radius obstruction, and coherent-null failure; its verifier passes"]
+      ],
+      []
+    ],
+    [
+      "GP", "RC", "gate", "open", "global compact Pick transfer",
+      [
+        ["DEF", "L=log X; candidate beta=.99; alpha=.49; d=.66; causal one-representative Green bill <=.298008745 L"],
+        ["TARGET", "prove the full compact-state Pick potential is <=(.3234-eps)L uniformly for every actual candidate-local list; relative to the audited Green base this is equivalent to residual correction <=(.025391255-eps)L"],
+        ["CONST", "available conditional surcharge=.3234-.298008745=.025391255"],
+        ["KNOWN", "fixed lists, bounded microclusters, and shallow one-cell fans with (Lambda+1)log L=o(L) transfer at subexponential loss"],
+        ["KNOWN", "the exact centered depth-shifted binomial/Lagrange screen under the reflected-pair Poisson cap optimizes to a forced attenuation .0139849236L, below the available surcharge; this is a lower obstruction, not an upper construction"],
+        ["KNOWN", "a formal four-row growing-jet envelope reaches .0288268337L, but its needed one-cell evaluation matrix has condition number at least 4^(r-o(r)); the subexponential-conditioning premise is rigorously impossible"],
+        ["KNOWN", "the full affine sloped/offset two-chain mixed-depth family optimizes numerically back to the centered screen at .01398492382L; no member crosses the surcharge"],
+        ["BLOCK", "the Poisson cap permits Theta(L) points in one O(L^-2) cell and does not imply any uniform fixed-N Carleson decomposition; universal compact realization across growing multiplicity remains unproved"],
+        ["NEXT", "prove a triangular-array half-disk Schur interpolation theorem with N_L=Theta(L) and target loss <.3234L, or find a non-affine admissible global obstruction above the residual surcharge"],
+        ["CHECK", "do not infer affordability from an obstruction below budget; require an UPPER bound on loss and compact transfer"]
+      ],
+      [["supports", "FGPDF"], ["blocks", "FGJ"], ["blocks", "FGMD"]]
+    ],
+    [
+      "FGPDF", "GP", "fact", "proved", "global compact Pick deep-fan fail-fast audit",
+      [
+        ["THM", "the admissible centered binomial/Lagrange screen with its necessary pointwise reflected-pair Poisson cap has optimum attenuation .013984923576257248L at b=.4709446182,c=.0079215710"],
+        ["DIR", "because .0139849236<.0253912552, this class does not obstruct the compact Pick budget and supplies no GP closure"],
+        ["KNOWN", "the optimized four-row growing-jet envelope is .028826833717478885L, but the proved capacity barrier FGJ shows its required uniform subexponential conditioning cannot hold"],
+        ["BLOCK", "GP remains live: neither a full compact-state upper bound nor an admissible deep-fan lower obstruction above the surcharge is proved"],
+        ["CHECK", "test_global_pick_deep_fan_gate.py has four passing tests and verify_zeta23_global_pick_deep_fan_gate.py returns gp_closed=False"]
+      ],
+      []
+    ],
+    [
+      "FGJ", "GP", "nogo", "proved", "growing-jet Tchakaloff capacity barrier",
+      [
+        ["THM", "any order-r positive quadrature annihilating the full jet moments has maximum scaled depth at least (2/(e*d)-o(1))*r; for d=.66 the coefficient is 1.114786..."],
+        ["THM", "for a one-microscopic-cell Taylor evaluation matrix E_r on an O(1/L) thickening of [-1,0], the monic shifted Chebyshev witness gives kappa_2(E_r)>=4^(r-o(r))"],
+        ["PF", "p_r(u)=2^(1-2r)T_r(2u+1) has exponentially small row values across the cell while the constant column has norm sqrt(N), forcing the singular-value ratio"],
+        ["DIR", "the formal .0288268L four-row envelope cannot be made admissible with subexponential conditioning/remainder; fixed-degree Tchakaloff or generalized Gaussian quadrature does not evade the growing-r capacity cost"],
+        ["SCOPE", "this retires the single-cell growing-jet construction only; arbitrary mixed-depth or global compact Pick realizations remain open"],
+        ["CHECK", "test_growing_jet_tchakaloff_barrier.py has seven passing tests and its verifier returns uniform_subexponential_conditioning_possible=False"]
+      ],
+      []
+    ],
+    [
+      "FGMD", "GP", "nogo", "proved", "global affine mixed-depth and fixed-Carleson gate",
+      [
+        ["THM", "an arbitrary affine sloped/offset pair of interlaced finite-difference chains has exact attenuation F=(dH/pi){log(alpha/(2R))-J(t*)} with the full reflected-pair pointwise Poisson convolution"],
+        ["KNOWN", "five independent four-dimensional searches and the exact centered-face solve return slope=offset=0 and F=.01398492382284L, leaving .01140633138L below the surcharge; this optimization is reproducible floating, not interval-global"],
+        ["COUNTER", "N_L=.01L nodes at depth .47 inside width O(L^-2) have complete normalized pair-Poisson load <=.3436426<.5, yet every fixed coloring has same-color pseudohyperbolic separation tending to zero"],
+        ["DIR", "therefore the Poisson cap alone cannot import any fixed-N Carleson/Gaunard interpolation theorem; growing-multiplicity constants and compact target modulus remain the missing global input"],
+        ["SCOPE", "the clustered points may be phase-redundant, so the example is not a GP obstruction; it closes only fixed-N Carleson inference and the affine rank-one deformation family"],
+        ["CHECK", "test_mixed_depth_pick_screen.py has seven passing tests and its verifier returns gp_closed=False"]
+      ],
+      []
+    ],
+    [
+      "FPR", "RC", "fact", "proved", "carrier-gap parameter and polarity audit",
+      [
+        ["THM", "E1(alpha,d,a)=alpha*(d-1/2)*(1-R(pi*a/[alpha*(2d-1)])); kappa(alpha,d)=E1/d is increasing in alpha, with fixed Bellotti-Wong a=.10076 and strict 1/2<d<2/3"],
+        ["THM", "the old alpha>=.49 calibration cannot close the literal pole sector: even alpha=.49,d->2/3 has pole deficit .0010346017625"],
+        ["THM", "the legal slice alpha=.47,d=.665, theta=.1588,beta=.1598 has tail/collar/pole margins .000108501/.000318333/.000800808 and beta>theta, so every retained literal one-gap recurrence is covered on that slice"],
+        ["THM", "the rounded Green bill is .299114871647 versus raw carrier .31255, but a uniform dual kill over alpha in [.47,.5) needs kappa_max=.01974048258; the slice tail saving is only .01763076923"],
+        ["DIR", "promotion uses the shallow minimum kappa(alpha0,d); architecture-wide dual killing uses the deep maximum kappa(1/2,d). A slice antenna is not a uniform route elimination"],
+        ["BLOCK", "fixed slice cutoffs clear only alpha<.47150559636; optimized gap parameters cross only below alpha*=.48255967769, and multi-gap denominators remain"],
+        ["CHECK", "the .47 slice theorem is exact but proves neither QP nor ZF and does not eliminate the carrier route"]
+      ],
+      []
+    ],
+    [
+      "QP", "RC", "gate", "open", "actual-prime central-mass / high-tail atomic extremal",
+      [
+        ["DEF", "Y->infty; 0<w<1; N_Y={p^k:Y*e^-w<=p^k<=Y*e^w}; u_n=log(n/Y); M=#N_Y~Y/log Y"],
+        ["DEF", "a(t)=(cos(t*u_n))_n; phi(u)=(1-|u|/w)e^(alpha*u); b(t)=int[-w,w]phi(u)cos(tu)du; alpha=.49"],
+        ["DEF", "B=Y^(50/33); E_B=sup{|int b dh|: int a dh=0, ||h||_TV<=1, supp h subset [0,B]}"],
+        ["DEF", "C(L,H)=inf{||nu||+||mu||:supp nu subset L,supp mu subset H,int a d(nu+mu)=0,int b dnu=1}"],
+        ["CONST", "at alpha0=.49,d=.66, kappa_min=.0180303234 and kappa_max=lim_(alpha->1/2)kappa(alpha,d)=.0187463697"],
+        ["KNOWN", "the full positive QP value has the exact one-sided Delsarte form: if A_H is the maximum Q(0) over Q(t)=1+sum_j lambda_j cos(t*u_j)>=0 on H, then the maximal central spectral-null mass is p*=1/A_H and the antipode depth is r+=1/(A_H-1)"],
+        ["TARGET", "decide the full-aperture dichotomy: promotion needs a uniform lower bound at loss exponent below kappa_min; an architecture-wide dual kill must beat kappa(alpha,d) for every candidate depth, hence kappa_max"],
+        ["DIR", "eps_T=sup_H|b| => 1/C-eps_T <= E_B <= 1/C+eps_T"],
+        ["DIR", "PROMOTE QP: construct C([0,Y^.01],[Y^.01,B])<=Y^(kappa_min-eps), ideally Y^o; a dual c>kappa(alpha,d) only rules out this sufficient prime-null construction at that depth, not an actual zeta zero, and uniform route killing requires c>kappa_max"],
+        ["KNOWN", "hybrid dual: for P_lambda=<lambda,a>, C>=1/max(sup_L|b-P_lambda|,sup_H|P_lambda|)"],
+        ["KNOWN", "Christoffel: R_H(q)^2=inf_{rho probability on H,q in Ran G_rho} q^T G_rho^dagger q, G_rho=int aa^T drho"],
+        ["KNOWN", "actual-prime hat quadrature proves dual exponent .019 on [0,Y^.4655]; this is evidence toward KILL, not ZF"],
+        ["KNOWN", "Voronoi prime weights plus Stadlmann sum gaps^2<<Y^(1.23+eps) prove |P-b|<<|t|Y^(-.77+eps), hence exponent .019 through Y^.751"],
+        ["KNOWN", "Gafni--Tao exceptional intervals plus a half-cell cover delete gaps >Y^.1594 and every local rational derivative q<=Y^.1537 at savings .018046 and .018048, both strictly above kappa"],
+        ["KNOWN", "the same Gafni--Tao envelope gives a truncated third moment; the symmetric trapezoid rule proves exponent .018046 through |t|<=Y^.8406"],
+        ["KNOWN", "parameter reoptimization can cover all literal one-gap poles on shallow slices, but the min/max polarity audit proves this is not a uniform dual kill"],
+        ["BLOCK", "remaining interval is [Y^.8406,Y] plus the retained symmetrized consecutive-gap sum; one-step aliases lie only in Y^.1537<q<=Y^.1594, but multi-gap denominators still reach Y/sqrt(t)"],
+        ["KNOWN", "at a frozen rational a/q the retained sum has an exact Gauss-weighted character diagonalization; the principal character costs O(1/q), while the nonprincipal selected linear combination is the live term"],
+        ["KNOWN", "the large sieve gives Y^-.074 RMS cancellation over all q,r near q=Y^.1537, but permits at least one exceptional numerator for every modulus and therefore does not decide the phase-selected frequency"],
+        ["KNOWN", "q-first deletion removes the literal resonant group at cost O(Y^(-.1537)); every later SPF band telescopes exactly to one signed rough-Voronoi increment before any inequality"],
+        ["KNOWN", "a semiprime diagonal construction refutes the proposed L2 residue-energy theorem when selectors are allowed to vary arbitrarily over their legal ranges; any surviving theorem must exploit that all block selectors come from one common height"],
+        ["KNOWN", "the exact first-return weight is a two-state triangular matrix cocycle, but scalarization has growing rank and Bazin's global semiprime dispersion loses the entire curvature-block normalization"],
+        ["BLOCK", "moments beyond order 2 require frequency length >=Y^2>B; Lebesgue/DPP averages do not control atomic exceptional designs"],
+        ["NEXT", "promotion attack: explicit legal atomic rho with q^T G^dagger q=Y^o, or an exact high-frequency representation of a carrier-rich low vector at TV<=Y^(kappa_min-eps)"],
+        ["NEXT", "positive-QP attack: estimate the actual-prime Delsarte value A_H, equivalently construct or exclude a spectral-null probability measure on {0} union +/-H with central mass Y^(-kappa_min+eta); AP first return is only one sufficient subroute"],
+        ["NEXT", "dual attack: control retained high-denominator prime-gap cells at error Y^(-c); this rules out the sufficient prime-null promotion mechanism only at depths with c>kappa(alpha,d), and uniform route elimination needs c>kappa_max"],
+        ["CHECK", "never reverse the inequality: an antenna is an UPPER bound for E and can only rule out this optional carrier construction at the depths whose budget it beats; it does not contradict a candidate zero. A cheap cancellation measure is a LOWER bound for E and promotes uniformly if it beats kappa_min"],
+        ["CHECK", "only a PROMOTE disposition of QP can satisfy the RC prerequisite; proving the FHC/OD2 dual antenna would resolve QP in the KILL direction and close this construction branch rather than advance RC"],
+        ["CHECK", "QP alone is not ZF: even a promoted central mass still requires GP and GA"]
+      ],
+      [["audit", "INV"], ["alternative", "FQPP"], ["supports", "FD"], ["supports", "FEX"], ["supports", "FH"], ["supports", "FV"], ["supports", "FRA"], ["supports", "FTR"], ["supports", "FPR"], ["supports", "FQF"], ["supports", "FRG2"], ["supports", "FRV"], ["supports", "FRET"], ["supports", "FLBS"], ["alternative", "FHC"], ["blocks", "FGN"], ["blocks", "FGT4"], ["blocks", "FIC"], ["supports", "FCR"], ["blocks", "FSG"], ["blocks", "FRCN"], ["blocks", "FCA"], ["blocks", "FCB"], ["blocks", "FSPF"], ["supports", "FDM"], ["blocks", "FUR"], ["blocks", "NM"], ["blocks", "FCP"], ["blocks", "F4"], ["blocks", "FAS"], ["blocks", "FAT"], ["blocks", "FLB"], ["blocks", "FGD"], ["blocks", "FNEU"], ["blocks", "FDD"], ["blocks", "FNL"], ["supports", "FQPD"], ["supports", "FQPA"]]
+    ],
+    [
+      "FQPP", "QP", "gate", "open", "positive actual-node prime-null promotion",
+      [
+        ["DEF", "for H=[Y^.01,Y^(50/33)] and actual cosine vectors a(t), let C be the minimum total variation of a low/high signed cancellation normalized to retain unit low carrier"],
+        ["TARGET", "construct a legal state with -r*1 in conv{a(t):t in H}, r>=Y^(-kappa_promote+eta), for fixed eta>0 and kappa_promote=.0180303234; the weaker signed target C<=Y^(kappa_promote-eta+o(1)) suffices only together with a proved positivity/compact-state adapter"],
+        ["KNOWN", "extreme-measure/Elfving geometry reduces the optimum to at most M actual high atoms and exact directional Cramer minors; regular profiles and generic frames have already been excluded"],
+        ["KNOWN", "a nodal-product/exponential-type theorem forces every polynomial-carrier annihilator to use support depth D=Omega(M); shallow stencils, local near-alias clusters, and confluent jets cannot promote"],
+        ["KNOWN", "for the full remote arithmetic-progression harmonic family, every promotion-cost step tau lies in a relative exceptional set of measure at most Y^(-.4790908683-2eta+o(1)); generic remote AP dilation is closed"],
+        ["KNOWN", "the pair-energy identity is exact, but after the actual-prime large-value cover it yields only C^-6 cell concentration and C^-8 weighted additive energy; sharp diagonal and many-island antipodes show that weighted BSG cannot preserve the full carrier representation"],
+        ["KNOWN", "for every M-element positive harmonic set, including the all-remote block {M,...,2M-1}, there is an open phase chamber with a positive antipode of fixed depth; for Q-independent actual nodes the continuous Kronecker orbit visits it with positive limiting density at unbounded steps"],
+        ["KNOWN", "harmonic-AP first return is only a sufficient subroute: the full optimizer may choose M arbitrary incommensurate atoms; its exact scalar target is the one-sided actual-node Delsarte value A_H"],
+        ["KNOWN", "a legal gapped Bernoulli spectral nuller exists below the aperture but has depth 1/(2^M-1), and every one-sided G-group product has depth at most 1/(2^G-1), so bounded or polylogarithmic grouping is definitively too weak"],
+        ["KNOWN", "for iid uniform shell nodes, data-dependent tent weights keep the entire continuum Fourier transform above -O(epsilon) except with probability at most 2(2+4wB/epsilon)exp(-M epsilon^2/8); at target depth the exceptional probability is exp(-Y^(.963939...+o(1)))"],
+        ["KNOWN", "the count-only projected-Gram route is false: R consecutive legal packet centres have lambda_min/M<=exp(-(4.6085046311+o(1))R); even an abstract critical R=epsilon^-2 family with perfect unprojected orthogonality and every packet mean -epsilon can have carrier leverage one and exact minimax epsilon"],
+        ["KNOWN", "for the natural smooth von-Mangoldt shell measure KMT covers the full aperture and every single negative packet is repaired exactly by the positive tilt 1+delta*cos(tu), with delta=O(log^(-3/10)Y) and normalization 1-O(log^(-3/5)Y)"],
+        ["KNOWN", "the minimum packet-zeroing dual is the normalized carrier residual y_T=-R_T/||R_T||^2; its full-band success condition R_T^T a(t)>=-epsilon||R_T||^2 is exactly a Delsarte certificate A_H>=1+1/epsilon, so source algebra does not bypass the remaining arithmetic theorem"],
+        ["KNOWN", "scalar KMT plus even ideal unprojected conditioning pays the sharp carrier-source tax R*delta_KMT^2; at R=Y^(2c) the necessary scalar scale is delta<<Y^-c, while delta_KMT=log^(-3/10)Y"],
+        ["KNOWN", "a natural prime modulus bound with saving Y^-c on the half-power-to-top subband Y^(1/2)<=|t|<=Y^(50/33) would already imply by Turan the strip Re(s)>1-(33c/50)^2; at c=.019 the width is .0001572516, so mechanically upgrading the scalar natural twist is strip-strength rather than a QP shortcut"],
+        ["KNOWN", "KMT covariance genuinely repairs every fixed-radius cluster, but a stably normalized positive square mixture lifting R critical packets forces one block of size Omega(R); termwise scalar KMT then pays eta*R, so cluster merging cannot remove the adaptive rank tax"],
+        ["BLOCK", "all current unconditional high-tail estimates have the opposite dual polarity, while numerical actual-node designs track square-root/random-polytope cost rather than the required subpower directional cost"],
+        ["BLOCK", "eventual recurrence does not put a chamber visit below the legal B/M=Y^(17/33+o(1)) aperture; the chamber radius may be exponentially small, and quantitative Kronecker theorems give upper hitting times rather than the required lower nonreturn bound"],
+        ["BLOCK", "no checked actual-prime theorem gives the required one-sided Delsarte bound or simultaneous adaptive covariance/residual estimate; packet count, perfect unprojected orthogonality, deterministic mesh, and positive reweighting without actual multiplicative input are all insufficient"],
+        ["NEXT", "estimate A_H for the actual prime-power logarithms at fixed-power precision: either construct a legal spectral-null measure with central mass Y^(-kappa_promote+eta), or prove the cluster-merged actual-prime residual inequality R_T^T a(t)>=-epsilon||R_T||^2 uniformly on H"],
+        ["NEXT", "inside the AP subroute only, prove a sign-sensitive finite-aperture exclusion in every actual-prime negative large-value packet or interval-certify one legal exceptional preimage"],
+        ["CHECK", "a dual antenna, small Lebesgue exceptional set, or lower bound C>=... does not promote; the required inequality is the displayed upper bound on C"]
+      ],
+      [["blocks", "FQPN"], ["blocks", "FQPR"], ["blocks", "FQPE"], ["blocks", "FQPC"], ["supports", "FQPD"], ["blocks", "FQPM"], ["supports", "FQPA"], ["supports", "FQPG"], ["blocks", "FQPW"], ["supports", "FQPX"], ["blocks", "FQPK"], ["supports", "FQPB"], ["supports", "FQPT"], ["supports", "FQPY"], ["blocks", "FQPS"]]
+    ],
+    [
+      "FQPN", "FQPP", "nogo", "proved", "nodal-product barrier for shallow singular clusters",
+      [
+        ["THM", "if a TV<=1 cosine exponential polynomial F is supported in [0,D] and vanishes at the M actual nodes u_n, then its carrier obeys |int phi(u)F(u)du| <= D^M/M! * int phi(u)prod_n|u-u_n|du"],
+        ["DIR", "Stirling implies a polynomial-size carrier requires D>=(1-o(1))*M/(2*e*w)=Omega(Y/logY); actual-node finite diagnostics place the frontier near 2.27M"],
+        ["COUNTER", "coalescing atoms does not create a cheap derivative basis: a collision of width Delta changes the carrier by O(w*Delta), while normalized derivatives cost 1/Delta in TV"],
+        ["SCOPE", "this is an upper/KILL obstruction only for support wholly below D; the legal remote aperture extends to Y^(50/33), so full QP promotion remains open"],
+        ["CHECK", "test_qp_nodal_product_gate.py has five passing tests and verify_zeta23_qp_nodal_product_gate.py reports the exact polarity"]
+      ],
+      []
+    ],
+    [
+      "FQPR", "FQPP", "nogo", "proved", "remote AP dilation-shadow barrier",
+      [
+        ["THM", "for an AP support {s+k*tau:k in K}, any real TV<=C representation of the carrier forces some support atom into E_C={t:|sum_n cos(t*u_n)|>=M/C}"],
+        ["THM", "the Guth-Maynard large-values packet cover bounds the entire AP dilation shadow by C^2*Y^o*sum_(k in K)1/k; for K={1,...,M} its relative measure at C<=Y^(kappa_promote-eta) is Y^(-.4790908683515-2eta+o(1))"],
+        ["THM", "for R_tau(x)=prod_j(x-cos(tau*u_j))=sum_k r_k T_k(x), the unique AP signed weights are c_k=-r_k/r_0 with TV=sum|r_k|/|r_0|; the positive antipode exists only when every c_k<=0 and then has depth -1/sum c_k"],
+        ["KNOWN", "finite actual-node scans do not promote: signed costs increase from 3.85 to 12.90 over Y=100,300,1000, while the positive depth is of order 1/M"],
+        ["KNOWN", "choosing s=cM makes every atom genuinely remote while preserving the same legal step-interval exponent and exceptional-density bound"],
+        ["SCOPE", "this closes generic translated all-remote AP-step dilation even with unconstrained signed coefficients, but not the deterministic exceptional steps or incommensurate atom sets"],
+        ["CHECK", "test_qp_remote_ap_gate.py has seven passing tests; verify_zeta23_qp_remote_ap_gate.py confirms the shadow exponents and that the three finite scans do not promote while exceptional steps remain open"]
+      ],
+      []
+    ],
+    [
+      "FQPE", "FQPP", "nogo", "proved", "pair-energy BSG carrier-nontransfer",
+      [
+        ["THM", "for a TV-C carrier representation, polar orientation gives E G=C^-2; at least 1/(2C^2-1) of pairs force a sum or difference into an actual-prime large-value set covered by O(C^4Y^o(1)) unit packets"],
+        ["THM", "unit-cell discretization therefore gives only ||w||_2^2>>C^-6Y^-o(1) and weighted additive energy >>C^-8Y^-o(1), whereas the existing one-point aligned-carrier gate gives the stronger C^-4 concentration scale"],
+        ["COUNTER", "a regular-Hadamard positive antipode on C^2 orthogonal vertices has all pair energy on the diagonal; a union of C^2 mutually incompatible AP islands of size C^4 saturates the C^-6 support and C^-8 energy scales"],
+        ["DIR", "weighted BSG or Freiman theory may extract one C^-2-mass approximate-group island, but it neither carries the exact coordinate interpolation nor reconstructs the omitted carrier mass; positivity does not repair this loss"],
+        ["SCOPE", "the countermodels are not the actual one-parameter prime-cosine curve, so an actual-prime augmented-minor or simplex-exclusion theorem remains possible; pair energy alone supplies no such theorem"],
+        ["CHECK", "both independent implementations pass: test_qp_pair_energy_bsg_audit.py has seven tests and test_qp_pair_inverse_gate.py has five; their verifiers replay the exact exponents and finite countermodels"]
+      ],
+      []
+    ],
+    [
+      "FQPC", "FQPP", "fact", "proved", "sharp sparse positive-cosine classification and finite-aperture gate",
+      [
+        ["THM", "every feasible positive antipode in an M-coordinate finite cosine dictionary compresses without depth loss to at most M atoms; off a countable union of proper analytic determinant varieties, every deepest finite-pool antipode that exists is unique and has exactly M strictly positive atoms"],
+        ["THM", "for every prescribed M-set K of positive integer harmonics and every 0<r<1, choose positive weights with w_D>(1+r)/2, D=max K; r+sum_(k in K)w_k cos(k theta) has exactly one simple root in each D-cell, its D by M root table has rank M, and an invertible M-row minor gives an exact depth-r point inside an open strict-positive chamber; depth varies across that chamber"],
+        ["THM", "for any fixed finite pool along distinct positive nodes, one locally finite exceptional dilation set contains every harmonic, carrier-augmented, and affine minor zero; outside it signed TV is the exact minimum over M-column Cramer bases and the positive depth optimizer is the unique M-vertex simplicial-face representation"],
+        ["THM", "on K={1,...,M}, writing the nodal polynomial R=sum_(k=0)^M r_k T_k gives a complete sign classification: r_0=0 is infeasible, while a positive antipode exists iff r_0>0 and every r_k>=0, with weights r_k/sum_(l>=1)r_l and depth r_0/[R(1)-r_0]"],
+        ["KNOWN", "the palindromic simple-unimodular-root corollary is covered by Lakatos--Losonczi coefficient dominance, and M-atom boundary compression/LP duality are classical; the potentially new contribution is the transposed prescribed-support/every-depth synthesis combined with sharp generic M-sparsity and the Chebyshev sign strata"],
+        ["THM", "if the actual absolute nodes are Q-independent, continuous Kronecker unique ergodicity visits the resulting open phase chamber with positive limiting time density; a sufficient shell condition is that no nonzero integral power of Y is rational"],
+        ["COUNTER", "every prescribed remote or lacunary support has genuine open positive chambers, so no all-phase Chebyshev-sign, total-positivity, determinant-sign, sparsity, or coarse root-distribution theorem can exclude promotion"],
+        ["SCOPE", "the recurrence theorem is for each fixed node system at unbounded tau and gives no visit before B/M as M grows; it neither promotes nor kills QP"],
+        ["NEXT", "resolve the growing-dimensional first return into the positive chamber before B/M, equivalently exclude the required negative actual-prime peak or the augmented determinant signs on every legal exceptional-packet preimage"],
+        ["CHECK", "the sparse-cosine and sparse-TV suites each have six passing tests; two independent verifiers replay root cells, rank selection, Chebyshev signs, determinant asymptotics, Cramer/LP dual signs, uniqueness, and stability"]
+      ],
+      []
+    ],
+    [
+      "FQPD", "FQPP", "fact", "proved", "spectral-null Delsarte identity and grouping barrier",
+      [
+        ["THM", "a depth-r positive antipode is equivalent to an even probability sigma supported on {0} union +/-H with sigma-hat(u_j)=0 for every actual node and central mass p=r/(1+r)"],
+        ["THM", "for the one-sided Delsarte value A_H=sup{Q(0):Q(t)=1+sum_j lambda_j cos(t*u_j)>=0 on H}, strong finite-moment duality gives p*=1/A_H and r+=1/(A_H-1) whenever the feasible set is nonempty"],
+        ["THM", "choosing odd half-period delays and convolving Bernoulli factors gives an exact gapped nuller with legal support MT+O(Y log Y)<B and depth 1/(2^M-1)"],
+        ["THM", "if a one-sided nuller is built from G convolution factors, each nontrivial factor has zero atom at most 1/2, so r<=1/(2^G-1); target depth forces one factor to null Omega(M/log Y) actual nodes jointly"],
+        ["SCOPE", "this proves feasibility and eliminates bounded/polylog grouping, but it does not estimate A_H for the actual nodes; two-sided cancellations and a single macroscopic joint factor remain open"],
+        ["CHECK", "test_qp_spectral_null_grouping_gate.py and verify_zeta23_qp_spectral_null_grouping_gate.py replay the moment dual, aperture, Bernoulli, and grouping identities"]
+      ],
+      []
+    ],
+    [
+      "FQPM", "FQPP", "nogo", "proved", "full-continuum metric KILL benchmark",
+      [
+        ["THM", "for iid U_j uniform on [-w,w], normalized tent weights y_j proportional to 1-|U_j|/w have population transform sinc(wt/2)^2 and satisfy Pr{inf_(0<=t<=B)sum_j y_j cos(tU_j)<-(8/3)epsilon}<=2(2+4wB/epsilon)exp(-M epsilon^2/8) for 0<epsilon<=1/8"],
+        ["DIR", "at epsilon=Y^(-kappa_promote+o(1)) and M=Y^(1+o(1)), failure is exp(-Y^(1-2kappa_promote+o(1)))=exp(-Y^(.963939...+o(1))), so adaptive atom selection and the full continuum do not rescue generic nodes"],
+        ["SCOPE", "this is a theorem for independent uniform nodes, not actual prime-power logarithms; it is a sharp prior-changing benchmark and no deterministic transfer is asserted"],
+        ["CHECK", "test_qp_finite_aperture_referee.py verifies the mesh, Lipschitz, denominator, Hoeffding, and exponent ledger"]
+      ],
+      []
+    ],
+    [
+      "FQPA", "FQPP", "fact", "proved", "full continuum dual, fixed-slice calibration, and adaptive-packet gate",
+      [
+        ["THM", "the exact full positive dual is r_+(H)=inf_(1^T y=-1) sup_(t in H)y^T a(t); AP supports are a strict subclass and excluding their first return does not kill arbitrary incommensurate designs"],
+        ["THM", "on the fixed d=33/50 slice, kappa_min=.018030323424 and kappa_max=.018746369715; beta=.152, theta=.161, and c=.019 have exact long-gap, collar, and inverse-image margins 1/6500, 7/8250, and 2357/33000"],
+        ["SCOPE", "c=.019 is not a full cached-family threshold: at d=.665 the top bill is .019740482583 and as d tends to 2/3 the supremum tends to .020075148162"],
+        ["THM", "finite carrier-null bad-packet correction is an exact projected-Gram/Schur calculation, but Guth--Maynard packet counts do not provide the required actual-prime off-packet leverage bound"],
+        ["COUNTER", "Q-independent excellent-mesh node systems can carry legal incommensurate positive chambers, so mesh, full spark, rational independence, and AP nonreturn alone cannot prove KILL"],
+        ["NEXT", "prove the actual-prime carrier-residual/source inequality plus directional off-packet control, or estimate A_H directly; a uniform projected-Gram lower bound is false, and every surviving version must exploit multiplicative arithmetic"],
+        ["CHECK", "test_qp_first_return_dual.py and verify_zeta23_qp_first_return_dual.py replay the duality, exact rational margins, and scope recalibration"]
+      ],
+      []
+    ],
+    [
+      "FQPG", "FQPP", "fact", "proved", "projected-Gram collapse and exact carrier-residual endpoint",
+      [
+        ["THM", "for consecutive packet centres t_k=t_0+kh and shell nodes |u_j|<=w, the alternating binomial direction gives lambda_min(G)<=M*[2*sin(hw/2)]^(2m)/binom(2m,m); at h=1,w=1/5 the normalized exponential rate is 4.6085046311"],
+        ["THM", "with A the packet matrix, Pi its column projection, R_T=(I-Pi)1, and h=||Pi1||^2/M, the minimum normalized packet-zeroing dual is y_T=-R_T/||R_T||^2, 1-h=M^(-1)min_c||1-Ac||^2, and the source quotient is z=h/[M(1-h)]"],
+        ["THM", "the packet correction is a full-band epsilon kill exactly when R_T^T a(t)>=-epsilon*M*(1-h) for every t in H; this is a Delsarte polynomial with A_H>=1+1/epsilon and is therefore the original one-sided arithmetic target, not a condition-number corollary"],
+        ["COUNTER", "for even s and R=s^2=epsilon^-2, an abstract bounded-entry sign matrix has every packet mean -epsilon, A^T A=MI, carrier leverage h=1, and finite minimax exactly epsilon; regular-Hadamard tensors realize M=KR"],
+        ["SCOPE", "the countermodel is not an actual-prime cosine curve and the consecutive-centre theorem does not assert that an actual bad set contains a maximal cluster; it proves that Guth-Maynard count, bounded means, and even perfect unprojected orthogonality cannot supply the carrier gap"],
+        ["NEXT", "prove the actual-prime carrier residual/source and directional propagation inequality for the adaptive cluster-merged packet set, exploiting information beyond packet cardinality and ordinary Gram spectra"],
+        ["CHECK", "test_qp_projected_gram_cluster_gate.py has ten passing tests and its verifier checks the binomial Rayleigh bound, source identities, exact GM exponents, and critical minimax saturation"]
+      ],
+      []
+    ],
+    [
+      "FQPW", "FQPP", "nogo", "proved", "positive-weight geometry barrier and single-packet arithmetic repair",
+      [
+        ["COUNTER", "a thinned odd half-period log grid has prime-density count, O(log Y) gaps, O(Y log Y) gap-square mass, negligible low-q deletion, and Q-independence after invisible perturbation, yet cos(Bu_j)=-1+o(1) for every node; every positive weighting fails"],
+        ["THM", "for square reweighting h=|sum_s c_s exp(isu)|^2, Phi_h(t)-Phi(t) equals the off-diagonal covariance sum of Phi(t+s-r)-Phi(t)Phi(s-r), divided by the same diagonal-plus-offdiagonal normalization; packet sparsity supplies no automatic dilution factor"],
+        ["THM", "for the normalized smooth von-Mangoldt shell base, KMT Lemma 7.9 covers 2B and gives Phi(t),Phi(2t)=O(log^(-3/10)Y); every single negative packet is exactly zeroed by 1+delta*cos(tu), with delta=O(log^(-3/10)Y) and normalization 1-O(log^(-3/5)Y)"],
+        ["THM", "positive packet correction is exactly membership in the convex hull of the coordinate phase vectors; projected-Gram rank does not imply its inradius, and exact positive quadrature through the full aperture is dimensionally impossible because M atoms cannot realize a Toeplitz identity of rank exceeding M"],
+        ["SCOPE", "the half-grid is not a prime counterexample and exact-quadrature failure does not exclude the weaker one-sided antenna; actual multiplicative covariance, simultaneous convex-hull inradius, and off-packet leverage remain open"],
+        ["NEXT", "extend the proved one-packet KMT repair to every adaptive cluster simultaneously with stable normalization and full-band propagation, or prove that such an extension necessarily contains the open Delsarte residual theorem"],
+        ["CHECK", "test_qp_actual_prime_weight_barrier.py and its verifier replay the half-grid deletion exponents, covariance algebra, convex-hull gate, Toeplitz rank, and single-packet repair"]
+      ],
+      []
+    ],
+    [
+      "FQPX", "FQPP", "fact", "proved", "multiplicative rank tax and natural-twist strip boundary",
+      [
+        ["THM", "if R scalar packet means are at most delta and their weighted unprojected Gram is at least gamma*I, the carrier leverage is at most R*delta^2/gamma; the threshold delta<<R^(-1/2) is exact by the critical sign-slice model"],
+        ["DIR", "at R=Y^(2c+o(1)), KMT's delta=log^(-3/10+o(1))Y gives delta*sqrt(R)->infinity; scalar multiplicative estimates plus even ideal ordinary conditioning cannot yield the adaptive carrier-source gap"],
+        ["THM", "termwise scalar control of a positive square reweight with coefficient vector c pays the effective rank K=||c||_1^2/||c||_2^2 in both its numerator and normalization; KMT closes only K=o(log^(3/10)Y) and gives no Y^-c off-packet bound even at K=1"],
+        ["THM", "if the natural sharp prime twist has modulus O(N^(1-c)) uniformly for N^(1/2)<=|t|<=N^(50/33), Turan localization gives the fixed strip Re(s)>1-(33c/50)^2; at c=.019 the width is .0001572516"],
+        ["THM", "for fixed t, an eventual global one-sided bound sum_(n<=x)Lambda(n)cos(t log n)>=-C*x^theta excludes every zero beta+it with beta>theta, by adding C*x^theta and applying Landau's nonnegative Mellin abscissa theorem to the resulting negative pole"],
+        ["SCOPE", "the Turan result is for the natural modulus and the Landau result is global in x at one fixed ordinate; neither is the finite centered adaptive Delsarte theorem, which may be strictly weaker"],
+        ["NEXT", "attack the coefficient-sensitive actual residual/covariance directly; improving the scalar natural prime twist to the desired fixed power would already prove a strip and is not an intermediate lemma"],
+        ["CHECK", "test_qp_actual_multiplicative_gate.py has ten passing tests and its verifier replays the KMT rank tax, effective-rank denominator, Landau residue, and exact Turan exponent ledger"]
+      ],
+      []
+    ],
+    [
+      "FQPK", "FQPP", "nogo", "proved", "KMT cluster-square rank-tax dichotomy",
+      [
+        ["THM", "for the natural smooth von-Mangoldt shell measure, covariance is at least 1/5 whenever two high packet centres differ by at most 5*pi/3; one positive tilt therefore repairs a fixed-radius cluster, which contains at most eleven one-separated centres"],
+        ["THM", "for any positive mixture of squares with tail blocks of size at most L, baseline energy s, tail energy d, total D, and linear coefficients b_i, sum_i|b_i|<=sqrt(L*s*d)<=sqrt(L)*D/2"],
+        ["DIR", "if D<=KZ and R packet lifts each require |b_i|>=q*epsilon*Z, then L>=(2qR epsilon/K)^2; at the critical R=epsilon^-2 every stable linear-lift construction needs a block of size Omega(R)"],
+        ["THM", "inside one high multiplicative bin the exact nonlinear covariance has its diagonal canceled, but termwise scalar KMT bounds it only by 2*eta*(L-1)*||a||_2^2; the forced macroscopic block therefore pays eta*R rather than the required epsilon"],
+        ["COUNTER", "an exchangeable fixed-sum sign model has individual variance 1-o(1) and pair moments O(epsilon^2)<<eta, yet every positive reweight preserves a locked all-ones source and leaves some coordinate below -epsilon"],
+        ["SCOPE", "the sign model is not an actual-prime curve and the eta*R expression is the size of the available absolute-value certificate, not a lower bound on the true signed covariance; actual coefficient-sensitive cross-Gram cancellation remains possible and open"],
+        ["NEXT", "prove the signed adaptive covariance and off-packet analogue directly for the actual bad-packet coefficients; fixed-radius merging, small square blocks, and termwise scalar KMT are now all exhausted"],
+        ["CHECK", "test_qp_kmt_cluster_square_gate.py has six passing tests and its verifier checks local capacity, block support, tail-energy, termwise-tax, and fixed-sum sharpness ledgers"]
+      ],
+      []
+    ],
+    [
+      "FQPB", "FQPP", "fact", "proved", "strip-to-Delsarte bridge and node-only reverse no-go",
+      [
+        ["THM", "if zeta has a uniform zero-free strip of width delta, then for every c<delta the smooth von-Mangoldt shell probability has cosine transform >=-Y^-c uniformly on H=[Y^.01,Y^(50/33)]; hence A_H>=1+Y^c and r_+<=Y^-c"],
+        ["COUNTER", "F_beta,p(s)=zeta(s)*(1+p^(beta-s)) has strictly positive ordinary Dirichlet coefficients, the same nonzero logarithmic-derivative support at every prime power and therefore the same complete QP node family, but has arbitrarily high zeros on Re(s)=beta"],
+        ["COUNTER", "on M=m-1 nodes u_j=j*w/(m-1), the positive Fejer weights 2(m-j)/[m(m-1)] have global cosine floor -1/M while their fixed-ordinate transforms converge to sinc(w*t/2)^2; even coherent moving-band positive certificates do not imply fixed-ordinate cancellation"],
+        ["THM", "the continuum-centered canonical discrepancy D_t(x)=sum_(n<=x)Lambda(n)cos(t log n)-Re[x^(1-it)/(1-it)] has O(x^alpha) for every fixed t and alpha>theta iff all zeta zeros have Re rho<=theta; the reverse needs only the corresponding eventual lower bound"],
+        ["DIR", "a concrete missing adapter is COMP(lambda): the natural prime modulus L_N is at most C times [sup_(Y~N)r_+(H_Y)]^lambda; DPA(c)+COMP(lambda), lambda*c<=.019, gives by Turan the high-height strip width (lambda*c/(50/33))^2, equal to .0001572516 at lambda=1,c=.019"],
+        ["SCOPE", "the finite-factor example is not zeta and does not disprove a coefficient-sensitive zeta theorem; it proves only that complete node data and node-measurable multiscale selection are insufficient. The centered discrepancy theorem is not a QP equivalence, COMP(lambda) is open for actual primes, and both QP and the strip remain open"],
+        ["NEXT", "prove an actual-prime coefficient comparison such as COMP(lambda), or attack the adaptive carrier residual directly; scale compactness and node-only canonicalization are closed as standalone bridges"],
+        ["CHECK", "test_qp_strip_bridge.py has fourteen passing tests and verify_zeta23_qp_strip_bridge.py checks strip exponents, exact pole centering, both finite factors, the Fejer floor/fixed-ordinate limit, and the conditional Turan width"]
+      ],
+      []
+    ],
+    [
+      "FQPT", "FQPP", "fact", "proved", "actual-node tent explicit formula and unconditional subpower QP bound",
+      [
+        ["THM", "for the positive actual prime-power weights Lambda(n)g(log(n/Y))/n with g(u)=(1-|u|/w)_+, the exact explicit formula is S_Y(t)=F_w(-it)-sum_rho Y^(rho-1)F_w(rho-1-it)+O(Y^-3/2 log(2+|t|)), with F_w(z)=2(cosh(wz)-1)/(wz^2) and an absolutely convergent zero sum"],
+        ["THM", "Vinogradov-Korobov gives P_Y(t)>=-exp(-c_A(log Y/loglog Y)^(1/3)) uniformly for every fixed polynomial aperture |t|<=Y^A; hence A_H>=exp(c_A(log Y/loglog Y)^(1/3)) and r_+<=exp(-c_A(log Y/loglog Y)^(1/3))"],
+        ["BLOCK", "the exponent is o(1) on the log_Y scale and does not reach the required fixed power; convex subshell mixing averages errors, nonlinear products leave the actual-node frequency span, and nonnegative positive-definite kernel iteration cannot improve the resonant zero exponent termwise"],
+        ["SCOPE", "this is an unconditional all-height actual-node theorem and improves logarithmic scalar bounds, but proves neither fixed-power QP nor a strip"],
+        ["CHECK", "test_qp_tent_explicit_formula_gate.py and verify_zeta23_qp_tent_explicit_formula_gate.py replay the transform, aperture, threshold, and amplification polarities"]
+      ],
+      []
+    ],
+    [
+      "FQPY", "FQPP", "fact", "proved", "coefficient-sensitive cross-Gram moment and critical-AP Fejer gate",
+      [
+        ["THM", "Heath-Brown's shifted difference-square estimate bounds the normalized adaptive square sum by Y^o(R^2/Y+R+R^(5/4)B^(1/2)/Y); at R=Y^(2c), c=.019, the pair-count and aperture terms clear while the repeated-difference R term misses by Y^(2c)"],
+        ["THM", "literal packet diagonals cancel in the exact covariance; grouping nonzero differences into unit cells reduces the residual square mass to at most the maximum difference multiplicity times Y^o, but gives no fixed-power saving even at multiplicity one"],
+        ["THM", "a stably normalized uniform critical negative arithmetic progression forces, by Dirichlet-kernel concentration and a Fejer test, a nonzero lag of constant size among its first asymptotic sqrt(R) lags; KMT decorrelation therefore excludes that exact extremizer"],
+        ["BLOCK", "known energy bounds do not promote general weighted high-multiplicity families to the stable uniform AP case; approximate progressions, mixtures, and candidate-dependent coefficients remain the exact directional correlation obstruction"],
+        ["CHECK", "test_qp_cross_gram_moment_gate.py and verify_zeta23_qp_cross_gram_moment_gate.py replay all exponents and the Fejer lag floor"]
+      ],
+      []
+    ],
+    [
+      "FQPS", "FQPP", "nogo", "proved", "all-line Fourier-positive signed-kernel capacity barrier",
+      [
+        ["THM", "if g is C_c^2[-w,w], F(z)=int g(u)e^(zu)du, F(it)>=0 on the full real line, and F(0)>0, then the sharp interval Turan inequality F(0)<=w*g(0) and Fourier inversion give sup_v (eta^2+v^2)|F(-a+iv)|>=2eta*F(0)/w for every real a and eta>0"],
+        ["THM", "squared Chebyshev/B-spline filters can suppress the real resonant segment but at VK scale require growing order and create an exact off-resonant vertical spike of catastrophic super-power size"],
+        ["SCOPE", "this rules out VK plus termwise-absolute amplification by kernels whose pole transform is nonnegative on the whole line; it does not rule out positivity only on the moving QP band or signed cancellation among the actual zero terms"],
+        ["CHECK", "test_qp_signed_kernel_capacity_gate.py and verify_zeta23_qp_signed_kernel_capacity_gate.py replay the Turan floor, resonant suppression, and off-resonant spike"]
+      ],
+      []
+    ],
+    [
+      "FD", "QP", "fact", "proved", "hybrid dual and directional Christoffel identities",
+      [
+        ["THM", "C(L,H)>=1/max(eta_L(lambda),epsilon_H(lambda)); R_H(q)^2=inf_rho q^T G_rho^dagger q with q in Ran G_rho"],
+        ["PF", "feasibility gives 1=|int_L b dnu|<=eta||nu||+epsilon||mu||; polar decomposition mu=C*f*rho and least-squares density give the two Christoffel directions"],
+        ["DIR", "large C means small E and kills prime carrier; small C means large E and promotes it"]
+      ],
+      []
+    ],
+    [
+      "FEX", "QP", "fact", "proved", "finite extreme-measure and exponential-polynomial reduction",
+      [
+        ["THM", "E_B is attained by a signed measure h=sum_{j<=r}c_j delta_{t_j} with r<=M+1, sum|c_j|=1, and sum c_j a(t_j)=0"],
+        ["PF", "weak-star compactness gives an extreme maximizer; polar perturbation on more than M+1 support pieces solves the M annihilation equations plus the TV-mass equation and contradicts extremality"],
+        ["THM", "with F(u)=sum_j c_j cos(t_j u), the constraints are exactly F(u_n)=0 for every actual node and int b dh=int[-w,w]phi(u)F(u)du"],
+        ["DIR", "KILL is equivalent to bounding the phi-average of every l1-normalized at-most-(M+1)-term cosine exponential polynomial vanishing on the actual prime-log set"],
+        ["DIR", "PROMOTE is equivalent to one such sparse polynomial retaining phi-average at least Y^(-kappa+o(1))"],
+        ["BLOCK", "all diffuse-design language can be removed at the extremum; the sole remaining adversary is the one-dimensional augmented null direction of an M by (M+1) actual-prime evaluation matrix"],
+        ["SCOPE", "finite support compression and the convex carrier gauge are classical moment-set and Elfving c-optimal-design geometry; the actual-prime asymptotic is the nonclassical part"],
+        ["CHECK", "support compression bounds atom count only; it supplies neither a TV saving nor a determinant-angle bound"]
+      ],
+      []
+    ],
+    [
+      "FH", "QP", "fact", "proved", "BHP-mesh hat quadrature",
+      [
+        ["THM", "max prime-log mesh h<<Y^(-19/40); piecewise-linear hat weights give |P(t)-b(t)|<< (1+t^2)Y^(-19/20)"],
+        ["PF", "linear interpolation error on a gap is <=t^2*h^2/8; phi vanishes linearly at endpoints"],
+        ["THM", "tau=.01,sigma=.4655 => C([0,Y^tau],[Y^tau,Y^sigma])>=Y^.019"],
+        ["SCOPE", "truncated high interval only; no statement above the mesh Nyquist scale"]
+      ],
+      []
+    ],
+    [
+      "FV", "QP", "fact", "proved", "mean-square-gap Voronoi extension",
+      [
+        ["THM", "if sum_{p~Y}(p_next-p)^2<<Y^(1.23+eps), nearest-prime Voronoi weights obey |P(t)-b(t)|<<|t|Y^(-.77+eps)+endpoint"],
+        ["PF", "on a prime gap g, int distance to nearest endpoint in log coordinate is O((g/Y)^2); summing and multiplying by |t| gives |t|Y^-2 sum g^2"],
+        ["THM", "hybrid d=min(.77-tau,2tau,.77-sigma); tau=.01,sigma=.751 gives d=.019>kappa by margin .0009696766"],
+        ["CHECK", "replay prime_gap_voronoi_exponent_audit.py passes; proper prime powers and endpoint cells are lower-order"],
+        ["SCOPE", "this is a dual antenna and therefore kills the carrier architecture only on the truncated band; it does not prove ZF"]
+      ],
+      []
+    ],
+    [
+      "FRA", "QP", "fact", "proved", "optimized gap-tail and rational-alias excision",
+      [
+        ["THM", "Gafni--Tao Theorem 1.4 in the published version (Theorem 1.2 in arXiv v1) and its displayed zero-density envelope give mu(797/5000)<=63827/65000, hence total Voronoi half-gap mass for g>Y^(797/5000) is O(Y^(-1173/65000+eps))"],
+        ["THM", "for Y<=t<=Y^(50/33), cover the local derivative rationals q<=Y^(1537/10000) before deleting long half-gaps; the covered positive mass is O(Y^(-1173/65000+eps))"],
+        ["PF", "main inverse-image saving=29279/330000; short-half collar saving=1489/82500; long-half tail saving=1173/65000; each is >kappa=.0180303234"],
+        ["KNOWN", "the continuous frontier is theta>.1593771338 and beta<.153720513824; this proof leaves infimum one-step corridor width .005656619976"],
+        ["CHECK", "form the original cell cover before subtracting long half-gaps; otherwise deleted halves can falsely inflate the component count"],
+        ["SCOPE", "the one-gap corridor does not bound block denominators, which can still reach Y/sqrt(t); this is positive-mass excision, not retained cancellation"]
+      ],
+      []
+    ],
+    [
+      "FTR", "QP", "fact", "proved", "truncated-third-moment trapezoid extension",
+      [
+        ["THM", "for theta=797/5000 and mu=63827/65000, Gafni--Tao tail mass implies sum_(g<=C Y^theta) g^3 << Y^(2theta+mu+eps)=Y^(84549/65000+eps)"],
+        ["PF", "the exact half-gap Voronoi rule differs from the endpoint trapezoid by O(sum Delta^2), while Peano gives O((1+t^2)sum Delta^3); deleted long halves cost Y^(-(1-mu)+eps)"],
+        ["THM", "after restoring the deleted mass, |P(t)-b(t)|<<Y^(-1173/65000+eps) for |t|<=Y^(4203/5000)=Y^.8406"],
+        ["DIR", "the unresolved companion transition contracts from [Y^.751,Y] to [Y^.8406,Y]; the super-Y high-denominator mode is unchanged"],
+        ["CHECK", "1173/65000=.018046153846>kappa by 1.5830446e-5; fix every epsilon loss below this margin"]
+      ],
+      []
+    ],
+    [
+      "FQF", "FHC", "fact", "proved", "q-first integer-base resonant group",
+      [
+        ["THM", "on half-open curvature blocks delete D={n in I:q_I|n} simultaneously from the integer lattice before every other composite; all points of D are composite and the telescope remains exact for arbitrary prime or composite q_I<Y"],
+        ["THM", "cellwise positive transport gives sum_I|D_I(f)|<=2||f||_infty sum_I#D_I, including adjacent deletions across changing-q boundaries"],
+        ["THM", "if q_I>=Y^beta and the shortest block is Y^(8/33), then Y^-1 sum_I|D_I|<<Y^(-beta+o(1)); at the audited slice beta=799/5000 this saves .1598"],
+        ["PF", "for fixed q the twice-mass residue vector is v_0=-2N and v_1=v_-1=N, hence its coefficient is N(cos(2*pi*a/q)-1)"],
+        ["DIR", "this supersedes the rough-gap Cauchy estimate for the resonant group but leaves exactly T(primes)-T(Z minus qZ) plus integer/log taper transfer"],
+        ["CHECK", "pointwise nonresonance of all later centers is not cancellation; the q-first tail is essentially the original selected prime statistic"]
+      ],
+      []
+    ],
+    [
+      "FRG2", "FHC", "fact", "proved", "polynomial rough-gap square theorem and 3/16 frontier",
+      [
+        ["THM", "for every fixed epsilon in (0,3/32), uniformly on X^epsilon<=z<=X^(3/16-epsilon), consecutive z-rough gaps meeting a prescribed dyadic shell satisfy G_2(X;z)<<_epsilon X(log X)^2"],
+        ["PF", "take linear level d=3/8-epsilon, beta level e=min(1/1000,epsilon/10), eta=d, L=d+e, and balanced raw-Lemma-5.4 factors M=X^(2L/3), N=X^(L/3), Q<=X^L; the exact correlation saving is 4epsilon/3-5e/6>=5epsilon/4"],
+        ["PF", "linear-sieve positivity and Iwaniec J(z)<<z^2 each have epsilon exponent slack; Matomaki's S1,S3 estimates transfer for the fixed new ratios, the empty-start second moment is O(X log X/H), and exact layer cake gives G_2"],
+        ["KNOWN", "the same architecture has exact optimizer b<3/16; fixed D=X^(1/3) already gives b<1/6 and contains the project range .1537<=b<=.16"],
+        ["PRIOR", "Friedlander 1984 proved the same endpoint for a self-sifted sequence below 1/25; Friedlander's 2008 Proposition 2 directly implies the prescribed-cutoff gap-square bound through 1/20, so the only possible novelty is the exponent-range extension to 3/16"],
+        ["SCOPE", "the theorem closes traditional-order resonant rough-gap energy and supplies a useful scaffold, but q-first deletion proves that no rough theorem is necessary for the resonant group"],
+        ["CHECK", "verify_rough_gap_second_moment_frontier.py and verify_zeta23_matomaki_rough_gap_gate.py pass; the theorem does not distribute rough Voronoi mass modulo selected q or bound signed later-prime transport"]
+      ],
+      []
+    ],
+    [
+      "FRV", "FHC", "gate", "open", "direct common-height fourth-correlation form of the q-first tail",
+      [
+        ["DEF", "for the twice-mass tail vector v mod q put R_v(a)=1/2 sum_r v_r e_q(ar) and C_s=sum_r v_r v_(r+s)"],
+        ["THM", "full-frequency identities are sum_a|R_v(a)|^2=q/4 sum_r v_r^2 and sum_a|R_v(a)|^4=q/16 sum_s C_s^2; primitive totals replace the exponential kernel by the Ramanujan sum c_q"],
+        ["TARGET", "write B_I(t)=sum_P hat(Delta^t_(I,P))(a_I(t)) after inserting the actual taper and slow logarithmic phase; the weakest current sufficient theorem is sup_t sum_I H_I^-3|B_I(t)|^4<<Y^(1-4kappa-4delta+o(1))"],
+        ["PF", "weighted Holder gives sum_I|B_I|<=(sum_I H_I)^(3/4)(sum_I H_I^-3|B_I|^4)^(1/4)<<Y^(1-kappa-delta+o(1)); division by Y gives the required antenna saving"],
+        ["KNOWN", "the full-numerator residue L4 identity is a stronger sufficient envelope, but it discards the common-height selected numerator and cancellation among dyadic bands; it is no longer the canonical target"],
+        ["KNOWN", "exact finite q-first computations on [100003,199999] give worst nonresonant amplitudes 1.57/q,1.66/q,2.02/q at q=43,59,83; this is diagnostic only"],
+        ["BLOCK", "no theorem supplies the direct bands-first common-height fourth moment; averaging numerators or moduli cannot be inserted without a maximum or common-height conversion"],
+        ["NEXT", "prove the displayed direct selected fourth moment for the actual gap-conditioned increments, preserving taper, logarithmic phase, band cancellation, and the single shared height"],
+        ["CHECK", "traditional post-SPF vector and q-first nonresonant vector are different objects, especially for composite q"]
+      ],
+      []
+    ],
+    [
+      "FCL2", "FHC", "fact", "proved", "common-height physical L2 bridge and affordable diagonal",
+      [
+        ["DEF", "after summing all dyadic bands first, including the unique crossing band, write B_I(t)=sum_n d_(I,t)(n) exp(i*t*log n); taper and residual chirp are included in d"],
+        ["THM", "the exact telescope is the difference of two positive rough/Voronoi measures, so |B_I|<<H_I; since H_min=Y^(8/33+o(1)), sum_I |B_I|^4/H_I^3 << Y^(-8/33+o(1))*sum_I|B_I|^2"],
+        ["THM", "a physical selected covariance bound sup_t sum_I|B_I(t)|^2<<Y^(lambda+o(1)) closes the fourth-correlation gate whenever lambda<1+8/33-4*kappa=1.163462312064..."],
+        ["THM", "the long-edge cutoff theta=797/5000 and positivity give the actual diagonal sum_(I,n)|d_(I,t)(n)|^2<<Y^(1+theta+o(1))=Y^1.1594+o(1), below the closing frontier by .004062312..."],
+        ["DIR", "therefore only the signed off-diagonal covariance OD2 remains; if it is also O(Y^(1.1594+o(1))), the arithmetic antenna exponent margin may take every epsilon_OD2<.001015578..."],
+        ["CHECK", "this is physical common-height selected L2 after full telescoping, not the false arbitrary-selector residue-energy theorem; test_common_height_l2_bridge.py has three passing tests and its verifier passes"]
+      ],
+      []
+    ],
+    [
+      "FOD2", "FHC", "gate", "open", "signed common-height off-diagonal covariance",
+      [
+        ["DEF", "OD2(t):=Re sum_I sum_(n!=m in I) d_(I,t)(n)*conj(d_(I,t)(m))*exp(i*t*log(n/m)), with the exact first-return coefficients, taper, crossing band, and residual phase"],
+        ["TARGET", "prove sup_(t<=Y^(50/33)) OD2(t)<<Y^(1+797/5000+o(1)); together with the proved diagonal this closes CH4 with every dual-antenna exponent margin epsilon_OD2<.001015578... at the audited bill; this is a KILL result for the optional QP construction, not a zeta-zero exclusion"],
+        ["KNOWN", "finite schema-v4 actual-prime diagnostics through Y=3,000,000 show projected physical L2 near a constant multiple of Y across companion heights; this supports but does not prove the target"],
+        ["KNOWN", "after bands-first telescoping c_(I,q)=nu_prime-nu_qrough and OD2 is the exact one-sided shifted covariance 2*Re sum_(r>0,I,n)d_I(n)conj(d_I(n+r))exp(-it log(1+r/n))"],
+        ["KNOWN", "one SPF deletion x=pm is a three-atom affine-cancelling event; paired first-return covariance is an exact bond-dimension-4 tensor automaton but its joint word length grows"],
+        ["KNOWN", "the exact trapezoidal/cube-energy argument proves the full selected L2 target on the low-integer-slope sector u_I<=Y^(d3/4)(H_I*G^3)^(-1/4), d3=1173/65000"],
+        ["BLOCK", "arbitrary block-dependent separated coefficients can conjugate the common-height rational and residual phase on late thin semiprime fibres and produce aggregate Y^(1+h-o(1)); norm-only Bazin/Bettin-Chandee/Wright transfer cannot imply OD2"],
+        ["BLOCK", "even nested integral Voronoi measures with logarithmic gaps, affine cancellation, low-q deletion, one exact common log height, and the exact automaton can miss the target by exponent 8/33-.1594=.0830242424; multiplicative SPF divisibility is indispensable"],
+        ["SCOPE", "the thin-fibre adversary is not the exact actual first-return coefficient and is not an actual-prime counterexample; coefficient-specific first-return arithmetic is the remaining escape"],
+        ["NEXT", "first attack the late-late p,p'>Y^(1/3) shifted SPF sector and obtain the fixed Y^(-.083024...) gain at the shallow endpoint, then retain it through mixed sectors and boundary terms"],
+        ["CHECK", "OD2 must be pointwise in the singleton-selected common height; modulus, numerator, shift, or block averages do not suffice without a common-height conversion"]
+      ],
+      [["supports", "FOD2A"], ["supports", "FOD2L"]]
+    ],
+    [
+      "FOD2A", "FOD2", "nogo", "proved", "OD2 shift-automaton reduction and abstract nested-measure no-go",
+      [
+        ["THM", "bands-first telescoping gives c_(I,q)=nu_prime-nu_qrough, and direct expansion gives the exact one-sided shifted formula including all boundary terms"],
+        ["THM", "deleting x with neighboring retained distances l,r changes the Voronoi measure by (r/2)delta_(x-l)-((l+r)/2)delta_x+(l/2)delta_(x+r); the paired gap law is M(b) tensor M(b') of bond dimension four"],
+        ["COUNTER", "a non-SPF nested integral Voronoi system satisfying logarithmic gaps, taper, affine cancellation, low-q deletion, and one common log height has signed off-diagonal size >>YH and misses OD2 by .0830242424 at h=8/33"],
+        ["SCOPE", "this rules out coefficient-blind Voronoi, automaton-rank, and common-phase inference only; it is not a prime/SPF counterexample"],
+        ["CHECK", "test_common_height_od2_gate.py has nine passing identity tests and verify_zeta23_common_height_od2_gate.py explicitly asserts no actual SPF theorem"]
+      ],
+      []
+    ],
+    [
+      "FOD2L", "FOD2", "fact", "proved", "actual nested-measure low-integer-slope covariance sector",
+      [
+        ["THM", "for u_I=||t/(2*pi*x_I)||, exact trapezoidal detrending with the retained cube ledger gives |B_I|<<C_I*(u_I+H_I^-1)^2+G, sum_I C_I<<Y*G^2*Y^(-d3), and max C_I<<H_I*G^2"],
+        ["THM", "therefore u_I<=Y^(d3/4)(H_I*G^3)^(-1/4) implies sum_I|B_I|^2<<Y*G, proving the complete physical covariance target on that sector"],
+        ["CONST", "at h=8/33 the slope exponent is 150703/858000=.1756445221; with q<=Y^(33/133) the newly covered near-zero/near-one numerator wedge persists through h=.5323273569"],
+        ["BLOCK", "grouping modulo a/q leaves the frozen residue coefficient hat(d_I)(a); Cauchy loses H, so residual rational slope cannot replace the integer slope"],
+        ["SCOPE", "this is a genuine actual nested prime/q-rough dual-antenna sector theorem, not QP promotion and not a strip theorem; the complementary transverse residue sector remains open"],
+        ["CHECK", "test_od2_tensor_trace_gate.py has nine passing tests and its verifier rejects the rational residual-slope replacement"]
+      ],
+      []
+    ],
+    [
+      "FWRD", "FHC", "fact", "proved", "weighted dyadic rough-Voronoi residue reduction",
+      [
+        ["THM", "for every block and dyadic band, sum_(max(P,q)<p<=2P)(nu_p-nu_(p-))=nu_(max(2P,q))-nu_(max(P,q)) before Cauchy; q-first deletion leaves every later stage p>q literally unchanged, including composite q"],
+        ["TARGET", "the weakest surviving closure sums bands first: with B_I(t)=sum_P hat(Delta^t_(I,P))(a_I(t)), prove sup_t sum_I H_I^-3|B_I(t)|^4<<Y^(1-4kappa-4delta+o(1)); the residue autocorrelation sum is only a stronger sufficient envelope"],
+        ["THM", "the companion L2 estimate is false when required uniformly for arbitrary legal block selectors: at H=q=Y^(33/133), injective residues and deleted semiprimes force its left side >>Y/logY instead of O(Y^(1-2kappa))"],
+        ["SCOPE", "this hard-block diagonal does not realize one common height or the physical fully telescoped coefficient; it does not contradict FCL2, whose diagonal is affordable and whose only open term is the signed common-height off-diagonal covariance"],
+        ["BLOCK", "coefficient-blind large-sieve energy gives only Y^(1+theta+o(1)); even hypothetical near-linear atomic energy misses the L2 target by 2kappa=.03948096518 and the L4 target by 4kappa=.07896193036"],
+        ["KNOWN", "Wolke's BV theorem quoted by Xuan controls unweighted rough counts uniformly in numerator/prefix but only after a modulus average and with logarithmic saving; Xuan's individual theorem reaches q=Y^o(1), not q=Y^.1537-.248"],
+        ["CHECK", "rough-centre counts do not contain the neighboring first-return weight (g_-+g_+)/2, and selected moduli may repeat across blocks; neither literature theorem implies the selector-stable target"],
+        ["COUNTER", "an exact one-height odd-integer model saturates the direct fourth moment at exponent Y^(1-4kappa) and therefore rules out a universal abstract-node theorem with a fixed delta; it is not an SPF-rough or actual-prime counterexample"],
+        ["NEXT", "attack the direct common-height L4 correlation of the bands-first increment, preserving cross-p covariance and the dependence among all block selectors; any proof taking absolute values in p has discarded the only currently visible escape"]
+      ],
+      []
+    ],
+    [
+      "FGF4", "FHC", "gate", "open", "selected twisted cousin-prime subgate",
+      [
+        ["DEF", "S_4(I;q)=sum_(p,p+4 prime in I) chi_4(p)e(p/(4q)), with q=3 mod 4 selected by the common height and Y^.1537<=q<=Y^.248"],
+        ["THM", "for q=3 mod 4 and a=(q+1)/4, the exact gap-four part of the q-first nonresonant transition equals 2i(1+e(1/q)) sum_(p,p+4 prime) chi_4(p)e(p/(4q))+O(H/q+1)"],
+        ["PF", "every pair p,p+4>3 is consecutive because p+2 is divisible by 3; moreover chi_4(p)e(p/(4q))=-i e_q(ap), so the fixed character is exactly a quarter-frequency translation, not an independent cancellation source"],
+        ["TARGET", "the sufficient fixed-sector theorem is a selected bound H q^(-delta)Y^o with delta>kappa/.1537=.1284351502; q^(-1/8) misses by Y^.00052798259"],
+        ["CONST", "the uniform .128435 threshold is set by b=.1537; at the hard q asymp H endpoint h=b=33/133 the exact requirement is only delta>kappa/h=.0795601268, so q^(-1/8) would be ample there if obtained coefficient-specifically"],
+        ["THM", "with A(r)=#{p,p+4 prime in I:p=r mod q}, centering gives sum_(b!=0)|Ahat(b)|^2=q sum_r(A(r)-N/q)^2 and sum_(b!=0)|Ahat(b)|^4=q sum_s(R_A(s)-N^2/q)^2; on an H<=q block the L2 variance is exactly N-N^2/q"],
+        ["THM", "for an arbitrary N-subset A of Z/qZ and unit a, |Ahat(a)|<=sin(pi N/q)/sin(pi/q), with equality exactly when aA is a cyclic interval; in the FGF4 coordinate the extremizers are modular progressions of step four, and |Ahat(a)|<=4 times the corresponding cyclic-interval discrepancy"],
+        ["THM", "the centered autocorrelation energy has an exact almost-difference-set floor with an integer parity-two stability gap; for prime q, the Galois conjugates of |Ahat(b)|^2 are multiplicative-coset energy levels, their degree d divides (q-1)/2, and d>1 forces the explicit excess (q-1)(E_b-mu)^2/[q(d-1)]"],
+        ["SCOPE", "the cyclic/Galois classification is unconditional but mostly a synthesis of classical rearrangement, difference-set, and cyclotomic ingredients; a locally admissible sparse coherent model shows that sparsity alone does not imply the actual cousin-prime cancellation"],
+        ["BLOCK", "the all-frequency L2/Cauchy route can meet Hq^(-delta) only when h>=(1+2delta)b; at delta=.1284351502 it fails throughout the q-asymp-H endpoint, while the centered L4 diagonal lies below its allowed q^(3-4delta) scale and therefore remains genuinely live"],
+        ["THM", "one exact Buchstab step writes the second prime indicator as a rough term minus a unique least-prime-factor sum with phase e(rm/(4q)); the coefficient still contains rm-4 prime, and first Cauchy has a phase-free m1=m2 mode plus off-diagonal two-shifted-prime correlations"],
+        ["KNOWN", "Green--Tao restriction and character/circle Lp norms average or erase the selected frequency; Kawada, Mikawa, MRT, Akeno, and Matomaki average a shift/modulus or work on a full scale/sieve surrogate, so none retains fixed shift 4, one short block, and one selected q"],
+        ["BLOCK", "positive Selberg majorants cannot pass through the complex sign; Gauss-character Cauchy returns only cousin residue energy; quarter-translated circle major arcs leave the original residual-residual fixed-shift correlation"],
+        ["COUNTER", "an exact unit chirp saturates the translated autocorrelation, and a locally admissible n=1 mod 12 endpoint set has a macroscopic selected sum; these rule out coefficient-blind norm/local-admissibility inference but are not actual-prime or full sieve-axiom counterexamples"],
+        ["NEXT", "attack the centered selected fourth moment sum_s(R_A(s)-N^2/q)^2, or a direct coefficient-specific dispersion theorem, without replacing the selected numerator by a complete nonnegative moment; the q-asymp-H endpoint is a power-saving mod-12 cousin discrepancy with a quarter-turn slow phase"],
+        ["SCOPE", "this is a clean fail-fast sector and not a necessary termwise route: cancellation with other gaps could settle the full signed increment without proving this separate cousin bound"],
+        ["CHECK", "five exact dispersion/Buchstab tests and two independent verifiers pass; no published theorem or no-go was found for the actual coefficient, and Ford--Maynard does not eliminate this signed selected Fourier statistic"]
+      ],
+      []
+    ],
+    [
+      "FRLAB", "FHC", "fact", "proved", "localized common-height rough-Voronoi selector laboratory",
+      [
+        ["THM", "schema-v4 code selects continued-fraction denominators from one height on each block under Y^.1537<q<=min(H,Y^(33/133)), includes every complete P>=q band and the unique exact crossing band P<q<=2P, and certifies mass, residue Fourier, log-phase, L2, and cyclic L4 identities"],
+        ["KNOWN", "the audited scan has 233 selected blocks and 1483 complete-or-crossing rows; all block certificates and the independent verifier pass"],
+        ["KNOWN", "at Y=10^6 the projected L2/L4 ratios are .3428/.00382 at height exponent 1, 1.264/.0459 at 1.2, and 6.259/2.598 at 1.5; target-scaled rational and true-log coefficients remain order one near the top"],
+        ["DIR", "the finite data agree with the exact L2 diagonal obstruction as q/H approaches one and provide no numerical basis for assuming a uniform fixed-power L4 saving"],
+        ["SCOPE", "these are deterministic tiny-sample actual-prime diagnostics with exact crossing bands and sparse centers; neither ratios below one nor ratios above one establish an asymptotic theorem or no-go"],
+        ["CHECK", "test_local_rough_voronoi_selector_lab.py has twelve passing tests and verify_zeta23_local_rough_voronoi_selector_lab.py checks complete and crossing rows separately"]
+      ],
+      []
+    ],
+    [
+      "FRET", "FHC", "fact", "proved", "exact two-state first-return cocycle and scalar-rank barrier",
+      [
+        ["THM", "the forward first-return gap is encoded exactly by M(b)=[[1-b,0],[1,1]]; products are triangular with lower-left entry equal to the complete first-return sum"],
+        ["THM", "the 2P-minus-P cutoff has an exact Duhamel expansion with one marked rank-one insertion; its marked scalar has a unique SPF factorization, while the surrounding matrix products retain the full first-return law"],
+        ["BLOCK", "the matrices form a noncommuting Jordan cocycle, not two ordinary scalar prime sums; scalar prefix expansion has rank G, inclusion-exclusion has 2^(G-1) terms, and even constant-error scalar polynomial compression needs degree Theta(sqrt(G))"],
+        ["COUNTER", "a periodic set S={0,1,3,4} mod 8 has zero unweighted parity mode and linear gap-square energy but nonzero symmetrized Voronoi parity mode, so bond dimension, ordinary cancellation, and G2 alone do not imply the target"],
+        ["DIR", "a genuinely matrix-valued short-block dispersion theorem could still exploit the exact bond dimension two; no surveyed theorem accepts the selected modulus, common-height coupling, and first-return cocycle simultaneously"]
+      ],
+      []
+    ],
+    [
+      "FLBS", "FHC", "nogo", "proved", "global late-Buchstab dispersion does not localize to a curvature block",
+      [
+        ["THM", "for a separated late semiprime surrogate with p=Y^u and q=Y^b, Bazin's global estimate saves delta=min(b/2,(u-b)/2,(1-3b)/2)>=17/399 on the full Y-scale"],
+        ["BLOCK", "this does not bound one block of length H: at h=.5,b=.1537 the whole-Y estimate is Y^.98055 while the required block bound is H*Y^-kappa=Y^.4802595, a missing normalization exponent .50029048259"],
+        ["THM", "when u<=1-h, each large factor occurs at most once in a block, so the complete first-return endpoint transport separates exactly into alpha_P(p) beta_(I,q,a)(r); low algebraic rank is therefore not the blocker in that range"],
+        ["BLOCK", "the remaining bilinear set is one-point-per-column and beta depends on the block, selected modulus, and numerator; available global modulus averages, large sieves, and positive sieve-model transfers do not state the necessary thin short-product-interval estimate"],
+        ["NEXT", "prove that short-product-interval estimate uniformly for the exact beta, or bypass it with the common-height selector-aggregate L4 theorem"]
+      ],
+      []
+    ],
+    [
+      "FHC", "QP", "gate", "open", "actual-prime high-denominator consecutive-gap coherence",
+      [
+        ["DEF", "R_Y(t)=integral over cells outside the q<=Y^.1537 rational cover and g>Y^.1594 half-gap set of phi(u)[exp(it*v(u))-exp(itu)]du"],
+        ["TARGET", "prove sup_(Y<=t<=Y^(50/33))|R_Y(t)|<=Y^(-c), plus the companion transition Y^.8406<=t<=Y; compare c with the depth-specific kappa(alpha,d), not only kappa_min"],
+        ["KNOWN", "the leading Voronoi measure is one half forward plus one half reverse gap-running measure; at frozen a/q its Fourier mode is the average of the left and right transition marginals"],
+        ["KNOWN", "exactly A_q(r)=phi(q)^-1 sum_chi tau_q(chibar;r) C_q^sym(chi); the principal term is O(q^-1), and large-sieve RMS Y^-.074 leaves the selected nonprincipal combination uncontrolled"],
+        ["KNOWN", "C_q^sym is exactly a predecessor/successor-prime running transform; Abel summation exposes O(1), not o(1), total variation of the adjacent-gap coefficients, so ordinary prime-character partial sums do not transfer with a power"],
+        ["KNOWN", "the exact prime-modulus sieved-renewal model predicts the symmetrized nonprincipal mode O(q^-1), clearing kappa by exponent .1356696766; the fixed-q polylog expansion is nonuniform when q grows"],
+        ["KNOWN", "the post-q SPF stages telescope dyadically to one rough-Voronoi increment before inequalities; exact selector-stable L2/L4 residue energy of that increment is now the sharp post-q theorem target"],
+        ["KNOWN", "the arbitrary-selector L2 target is rigorously false by a semiprime diagonal at q about H; this does not falsify a common-height theorem or the fourth-correlation target"],
+        ["KNOWN", "an exact two-state cocycle represents the first-return weights and a localized schema-v4 lab implements the common-height selector including the unique crossing band; at the top audited finite scale its projected L4 ratio is 2.598, so no empirical power decay should be assumed"],
+        ["KNOWN", "Bazin's separated late-semiprime estimate has ample full-shell power but remains larger than the required short-block target by exponent .50029048 at the bottom companion block"],
+        ["KNOWN", "same-residue pole mass at q=Y^b is at most Y^(-c_GT(b)+eps), c_GT(b)=(45b-6)/65; at b=.1537 this is .0141 and misses the old shallow threshold by .0039303234"],
+        ["BLOCK", "no unconditional theorem controls this gap-weighted transition mode even for the fixed-q main term; current growing-q consecutive-residue results prove occurrence, not equidistribution or Fourier cancellation"],
+        ["BLOCK", "literal one-gap recurrences survive only for Y^.1537<q<=Y^.1594, while coherent multi-gap recurrences can have q up to Y/sqrt(t)"],
+        ["KNOWN", "the deterministic FCL2 bridge and the long-edge cutoff make the full physical diagonal affordable at exponent 1.1594; the sole current arithmetic successor is OD2 at that same exponent"],
+        ["NEXT", "prove OD2 for the actual bands-first common-height first-return coefficient; this implies the direct fourth moment and a dual-antenna exponent margin epsilon_OD2<.001015578 at the audited maximum bill, thereby killing the optional prime-null promotion route rather than excluding a zero"],
+        ["CHECK", "a count of exceptional heights, an almost-all block theorem with only logarithmic exceptional measure, or a non-prime lattice model does not give the required pointwise singleton exclusion"]
+      ],
+      [["supports", "FRA"], ["supports", "FTR"], ["supports", "FQF"], ["supports", "FRG2"], ["supports", "FCL2"], ["alternative", "FOD2"], ["alternative", "FRV"], ["supports", "FWRD"], ["supports", "FGF4"], ["supports", "FRLAB"], ["supports", "FRET"], ["blocks", "FLBS"], ["supports", "FCR"], ["supports", "FRM"], ["supports", "FPO"], ["blocks", "FGN"], ["blocks", "FGT4"], ["blocks", "FIC"], ["blocks", "FSG"], ["blocks", "FRCN"], ["blocks", "FCA"], ["blocks", "FCB"], ["blocks", "FSPF"], ["blocks", "FDT"], ["blocks", "FNP"], ["blocks", "FCH"]]
+    ],
+    [
+      "FSPF", "FHC", "nogo", "proved", "coefficient-blind nonresonant SPF square function misses a fixed power",
+      [
+        ["THM", "in the narrow q<Z=Y^.16 sector, regroup the non-q tail over a fixed rough base and dyadic SPF labels; then sum_(P<p<=2P)|R_p|^2<<Y^2 logY/P"],
+        ["PF", "simultaneous deletion gives sum_p |R_p|^2/N_p<=4G_2 and the sieve count N_p<<Y/(P logY); selector-stable gap energy is shared across disjoint blocks"],
+        ["BLOCK", "Cauchy over P/logP stage labels cancels the P^-1 gain exactly and returns Y^(1+o(1)); the missing energy exponent is 2*kappa=.03948096518 at the audited maximum bill"],
+        ["COUNTER", "a finite deletion model satisfying gap energy, count caps, divisibility, and nonresonance makes this stagewise Cauchy step 94 percent sharp"],
+        ["SCOPE", "the model is not the actual rough set, and full multi-gap selectors can reach q near Y^.248>Z; this closes only coefficient-blind stage-energy inference, not actual weighted residue dispersion"]
+      ],
+      []
+    ],
+    [
+      "FGN", "FHC", "nogo", "proved", "scoped gap-moment and trapezoid package nonimplication",
+      [
+        ["THM", "on one log gap Delta, trapezoid minus integral equals Delta*exp(itm)[cos(tDelta/2)-sinc(tDelta/2)]; at tDelta=2*pi*h its modulus is Delta, so symmetrization is maximal at recurrence"],
+        ["COUNTER", "an odd-integer frozen-additive gap model and a separate exact-log real-node model satisfy the used density, second-moment, tail, positivity, and low-q ledgers while retaining an order-one antenna"],
+        ["DIR", "therefore gap sizes/tails plus low-q excision and endpoint symmetry cannot alone imply FHC"],
+        ["SCOPE", "neither model is the actual prime set; they do not rule out an actual-prime theorem using growing-q transition mixing and global log curvature"],
+        ["CHECK", "Shiu/Maynard congruent-prime strings and Lemke Oliver--Soundararajan biases have fixed-q or conjectural quantifiers and are not literature no-go theorems for FHC"]
+      ],
+      []
+    ],
+    [
+      "FGT4", "FHC", "nogo", "proved", "published Gafni--Tao fourth-moment envelope gives no further corridor gain",
+      [
+        ["THM", "on 3/20<=theta<=353/1445 the refined Gafni--Tao envelope equals its general second-moment envelope; sigma=7/10 is an exact witness with A=30/13 and A*=235/39"],
+        ["PF", "at theta=797/5000, mu2=63827/65000 while mu4=171541/130000, so mu4-mu2=43887/130000=.337592307692 and the refined minimum remains mu2"],
+        ["DIR", "the optimized half-cell frontier theta0=.1593771338 and beta0=.153720513824 is unchanged"],
+        ["SCOPE", "this exhausts only the published A and A* exceptional-set envelope; it is not a no-go theorem for actual-prime consecutive-gap cancellation or for a future stronger energy estimate"],
+        ["CHECK", "A*(.7) would need improve from 235/39 to below 4.68695 before the fourth-moment branch could help at this theta"]
+      ],
+      []
+    ],
+    [
+      "FIC", "FHC", "nogo", "proved", "integer support and global log curvature package nonimplication",
+      [
+        ["COUNTER", "there are odd-integer node sets in the shell with gaps comparable to log Y, prime-density local counts, positive Voronoi weights, and coherent exact phases at t=Y^(50/33) on 1-o(1) of the mass"],
+        ["PF", "Erdos--Turan discrepancy selects coherent odd integers on nonresonant O(log Y) blocks; the derivative-resonant blocks and optimized q<=Y^.1537 deletion have o(1) total mass"],
+        ["DIR", "integrality, exact t log x curvature, positivity, excellent gap moments, and low-q deletion do not by themselves imply high-tail cancellation"],
+        ["SCOPE", "the nodes are not primes and need not satisfy von Mangoldt convolution or prime-tuple distribution; this does not rule out the actual-prime FHC target"],
+        ["CHECK", "the model closes only curvature-, gap-, and coefficient-phase-blind arguments; any genuine completion must use an arithmetic correlation of primality with consecutive gaps"]
+      ],
+      []
+    ],
+    [
+      "FCR", "FHC", "fact", "proved", "selected rational mode character diagonalization",
+      [
+        ["THM", "for frozen rational r/q, A_q(r)=phi(q)^-1 sum_(chi mod q) tau_q(chibar;r) C_q^sym(chi), where C_q^sym is one half the left endpoint character gap sum plus one half the right endpoint character gap sum"],
+        ["PF", "group consecutive-prime edge mass by endpoint residue classes and apply finite character Fourier inversion; for prime q the nonprincipal Gauss factors have modulus sqrt(q)"],
+        ["THM", "the principal character contributes the Ramanujan sum and is O(q^-1); after truncating gaps at Y^.1594, the large sieve gives Y^-.074 RMS cancellation across q,r near q=Y^.1537"],
+        ["BLOCK", "Markov permits Y^(.1594+2kappa)=Y^.1954606468 bad fractions, more than the Y^.1537 moduli, so every phase-selected modulus may retain one exceptional numerator"],
+        ["TARGET", "prove the selected Gauss-weighted nonprincipal sum is O(Y^-c), c>kappa; sufficient is the fixed-q variance sum_(chi!=1)|C_q^sym(chi)|^2<<Y^-2c"],
+        ["CHECK", "orthogonality or RMS over all fractions is not pointwise control of the t-selected rational approximant"]
+      ],
+      []
+    ],
+    [
+      "FSG", "FHC", "nogo", "proved", "prefix transfer and fixed-order consecutiveness do not close the symmetrized mode",
+      [
+        ["THM", "physical Voronoi prefix mass telescopes exactly to the outer cell midpoint length; a uniform power bound transferring it to Lambda prefixes implies theta(x)-x=O(x^(1-delta)) and is already zero-free-strip strength"],
+        ["THM", "at a/q the symmetrized edge DFT is one half the Fourier transform of row mass plus column mass; only antisymmetric forward/reverse bias cancels"],
+        ["THM", "the exact K-term inclusion-exclusion remainder for consecutiveness is (-1)^(K+1)1_(N>=1)binom(N-1,K); in a mean-one Poisson benchmark absolute error Y^-kappa needs K of order kappa logY/loglogY"],
+        ["SCOPE", "the prefix result closes only black-box Abel transfer, and the Poisson calculation closes only fixed-order absolute inclusion-exclusion; neither rules out frequency-specific actual-prime resummation"],
+        ["CHECK", "do not promote the Poisson benchmark to a theorem about primes"]
+      ],
+      []
+    ],
+    [
+      "FRCN", "FHC", "nogo", "proved", "selected-modulus marginal residue mixing is insufficient",
+      [
+        ["COUNTER", "a rigorously scoped pseudoprime residue itinerary has exact unweighted equidistribution at q=Y^b, beta<b<theta_*, satisfies the known density, gap-square, and Gafni--Tao tail budgets, yet its symmetrized gap DFT is of size Y^-kappa"],
+        ["PF", "cycle through every unit residue with log-sized gaps and lengthen one fixed-residue edge by q every K asymp Y^kappa/logY cycles; ordinary character sums cancel while the weighted edge mass stays coherent"],
+        ["DIR", "ordinary selected-q prime counts, unweighted character cancellation, and current gap budgets do not imply the character target FCR"],
+        ["SCOPE", "the itinerary is not the prime sequence and lacks exact global log curvature; it is a nonimplication for marginal-equidistribution packages, not an actual-prime no-go theorem"],
+        ["CHECK", "a closing theorem must couple primality, edge length, both consecutive endpoints, and the phase-selected growing modulus"]
+      ],
+      []
+    ],
+    [
+      "FCA", "FHC", "nogo", "proved", "black-box character and L-function estimates do not transfer through gap conditioning",
+      [
+        ["THM", "with H_j=phi(v_j)(Delta_(j-1)+Delta_j)/2, C_q^sym=sum_j H_j chi(p_j)=H_n P_n+sum_(j<n)(H_j-H_(j+1))P_j; known gap budgets give total variation sum|H_j-H_(j+1)|=O(1), not o(1)"],
+        ["THM", "edgewise the summand is one half g_j chi(p_j)[1+chi(1+g_j*p_j^(-1) mod q)], equivalently the integral of the average character at predecessor and successor primes; this is not an L-function coefficient"],
+        ["THM", "the audited arbitrary-coefficient character large-values first term has exponent .3548606468 and the hybrid bad-character allowance .1954606468, both larger than the entire q<=Y^.1594 selected-modulus population"],
+        ["DIR", "triangle over characters would require average saving .0948803234 at q=Y^.1537, unavailable from Burgess, Vaughan, zero density, or current character large-values estimates after the exact normalization"],
+        ["SCOPE", "this closes only black-box transfer of those estimates; it is not a no-go theorem for coefficient-specific actual-prime predecessor/successor cancellation"],
+        ["CHECK", "a bound for sum chi(p) or sum Lambda(n)chi(n) cannot be substituted for the gap-conditioned coefficient without controlling the O(1) Abel variation"]
+      ],
+      []
+    ],
+    [
+      "FCB", "FHC", "nogo", "proved", "curvature-block completion does not supply the missing power",
+      [
+        ["THM", "for t=Y^a in the companion a in [.8406,1], the natural curvature block H=Y/sqrt(t) has exponent [.5,.5797], and the quadratic Taylor phase varies only O(1)"],
+        ["THM", "global Vaughan saves .07685 at q>=Y^.1537, but prefix localization leaves size Y^.92315 versus H<=Y^.5797; naive full-q Type-II completion fails on fibers of exponent at most .0797, though gcd reduction prevents a general Type-II no-go"],
+        ["THM", "the almost-all short-interval polynomial-phase theorem applies in length but gives fixed-log savings and a log-small exceptional starting-point set, not a pointwise Y^-kappa bound for the selected block"],
+        ["COUNTER", "a scoped non-prime exact-log model at t=Y^.844 with one-period gap scale Y^.156 satisfies the low-q, curvature, gap-square, and current exceptional-tail ledgers while rare aligned gaps retain Y^-kappa mass; its Dirichlet approximant is asserted only to lie in Y^.1537<q_D<=H"],
+        ["SCOPE", "the model is not primes; it closes inference from curvature, integrality, gap budgets, and generic block completion alone, not an actual-prime correlation theorem"],
+        ["CHECK", "do not sum a global prefix estimate over Y/H blocks or convert an almost-all logarithmic theorem into fixed-power selected-block control"]
+      ],
+      []
+    ],
+    [
+      "FRM", "FHC", "fact", "proved", "symmetrized growing-modulus renewal model clears the target",
+      [
+        ["THM", "in the exact q-periodic Bernoulli renewal model supported on U_q with p asymp 1/logY and pq tending to infinity, principal subtraction leaves a nonprincipal symmetrized running mode of modulus at most (1+o(1))/q"],
+        ["PF", "an exact stationary residue-mass resolvent gives the uniform remainder p(1+z)z^(q-2)/[2q(1-z^(q-1))]=o(1/q), avoiding a nonuniform wrap-tail estimate"],
+        ["THM", "for fixed auxiliary sieve wheel P, an insertion coupling preserves O_P(q^-1); exact P=2,6,30 period computations agree"],
+        ["DIR", "at q>=Y^.1537 the model saves exponent .1537 and beats kappa by .1356696766; it does not supply a fail-fast falsification"],
+        ["SCOPE", "this is an exact random renewal calculation for fixed P, not an actual-prime theorem and not uniform in a growing composite wheel"],
+        ["CHECK", "the fixed-q O_q((logY)^-2) expansion cannot be extrapolated into the joint q=Y^b limit"]
+      ],
+      []
+    ],
+    [
+      "FDT", "FHC", "nogo", "proved", "bounded-symbol transfer to ordinary prime sums has a true rational pole",
+      [
+        ["THM", "for z=e(a/q), the edge trapezoid T_g=z^p*g(1+z^g)/2 and integer block G_g=z^p(1-z^g)/(1-z) obey T_g=m_g(z)G_g with m_g=g(1-z)(1+z^g)/[2(1-z^g)]"],
+        ["THM", "if q divides g then G_g=0 but T_g=gz^p; if z^g=-1 then T_g=0. Thus the transfer has genuine pole and null directions on retained gaps"],
+        ["COUNTER", "relocating a 2q extension between two gaps preserves every frozen node phase and the ordinary unweighted additive sum, changes normalized gap mode by q/Y, and changes a smooth Lambda-like mode only O(q^2/Y^2)"],
+        ["DIR", "any universal scalar bounded-symbol transfer loses at least Y/q=Y^(1-b), while Vaughan can afford only Y^(.0588196766) at the bottom of the corridor"],
+        ["SCOPE", "this definitively closes black-box frozen ordinary-Lambda transfer, not actual primes, global t-log curvature, or engineered derivative banks retaining neighbor data"],
+        ["CHECK", "the pole sector is exactly same-residue consecutive gaps q|(p_(n+1)-p_n)"]
+      ],
+      []
+    ],
+    [
+      "FCH", "FHC", "nogo", "proved", "common-height incidence plus current unsigned ledgers is insufficient",
+      [
+        ["THM", "with K=sqrt(t) curvature blocks, blockwise large sieve at the mass-normalized target permits K*Y^(theta+2kappa)=K*Y^.1954606468 bad selected fractions, hence at least one on every block"],
+        ["THM", "a common rational cell has t-radius sqrt(t)/q, so current metric incidence supplies no shrinking-target contradiction"],
+        ["COUNTER", "one odd-integer exact-log model at a single t=2*pi*Y^.844 realizes Y^-kappa coherent mass across all blocks while satisfying the low-q deletion, GT tail, second/third/fourth moment, derivative, and large-sieve numerical ledgers"],
+        ["SCOPE", "the model is not primes; it closes only common-height plus coefficient-blind incidence packages and leaves the actual gap-character theorem live"],
+        ["CHECK", "rounding error is Y^(-b-kappa) and local mesh Peano error Y^(h-1-2b); both were hostile-audited and remain subthreshold"]
+      ],
+      []
+    ],
+    [
+      "FPO", "FHC", "fact", "proved", "same-residue gap-pole sector bound and selector gate",
+      [
+        ["THM", "for q=Y^(b+o(1)), the positive Voronoi mass of retained consecutive gaps divisible by q is O(Y^(-c_GT(b)+eps)), c_GT(b)=(45b-6)/65"],
+        ["PF", "q|g implies g>=q; lower the Gafni--Tao threshold exponent by a fixed delta to absorb its constant, then sum the tail mass. Divisor sparsity counts each gap only tau(g) times"],
+        ["THM", "at b=.1537, c_GT=.0141 and the deficit to the old kappa_min is .0039303234; at most Y^(.0039303234+o(1)) moduli can be bad, but the phase-selected modulus may be one of them"],
+        ["THM", "dropping consecutiveness and applying a Selberg pair bound gives exponent 2theta-b=.1651 at the bottom, hence no power saving; AP marginals do not control the transition character chi(p_next)*conj(chi(p))"],
+        ["COUNTER", "a finite transition permutation has exactly uniform endpoint marginals and a macroscopic aligned diagonal, so marginal residue equidistribution alone cannot remove the pole sector"],
+        ["TARGET", "a selector-stable closure must be block-normalized: M_(I,q)<=m_I*Y^(-c_GT-eta), or directly bound the common-height aggregate; compare inf(c_GT+eta) with the relevant depth-specific kappa"],
+        ["SCOPE", "this is an exact actual-prime upper bound and methods gate, not a lower-bound counterexample and not a theorem that the selected pole mass is large"]
+      ],
+      []
+    ],
+    [
+      "FNP", "FHC", "nogo", "proved", "nonpole near-residue transfer retains a prime-pair gate",
+      [
+        ["THM", "even when beta>theta removes every exact q|g recurrence, residue-one near-poles remain outside the low-denominator rational cover whenever q*eta<1"],
+        ["THM", "for odd lattice, g=4, prime q=3 mod 4, and a=(q+1)/4, one has q>g, ag=1 mod q, and the exact symmetric multiplier has modulus 4*cos(pi/(2q))*cot(pi/q) asymptotic 4q/pi"],
+        ["PF", "the low 1/4 rational cell misses a/q because |a/q-1/4|=1/(4q)>eta/4; thus eliminating exact poles does not make the frozen transfer symbol uniformly bounded"],
+        ["THM", "at the legal shallow slice beta=.1598, ordinary Vaughan affords transfer loss beta/2-kappa=.06237773155, while the near-pole costs beta; the exponent overrun is .09742226845"],
+        ["DIR", "renewal avoids division by the multiplier but the g=4 sector is exactly a selected Fourier sum over actual cousin-prime pairs; for p>3 such pairs are consecutive automatically"],
+        ["SCOPE", "cousin-prime infinitude is unknown; this closes frozen scalar/lattice and black-box ordinary-Vaughan transfer only. It neither proves the near-pole sector occurs on arbitrarily high shells nor rules out coefficient-specific actual-prime cancellation, common-height coupling, or full QP"],
+        ["NEXT", "a successful transfer must prove a selected two-prime/consecutive-gap Fourier estimate, not merely an ordinary Lambda exponential-sum estimate"]
+      ],
+      []
+    ],
+    [
+      "FDM", "QP", "fact", "proved", "directional-minor reduction and AP Schur obstruction",
+      [
+        ["THM", "after quotienting duplicate cosine coordinates so the curve spans R^M, the principal high-band atomic cost has an optimum on at most M atoms and equals min_(det A!=0) sum_i|det A_i(q0)|/|det A|"],
+        ["PF", "distinct absolute node frequencies make the cosine curve spanning; Elfving exposed-face geometry compresses the carrier representation to M columns and Cramer gives the replacement-minor formula"],
+        ["CHECK", "the M-atom principal representation is distinct from the at-most-M+1 signed zero-barycenter residual extremizer in FEX"],
+        ["THM", "for legal arithmetic-progression support times, the ordinary Vandermonde cancels from a Cramer coefficient and leaves (prod z)^(-1)*h_(N-1)(z^(-1)), with N=Y^(.235848...+o(1))"],
+        ["COUNTER", "the complete homogeneous Schur factor can vanish for distinct unit-circle nodes, and prime cosine 2x2 minors change sign repeatedly; global alternation and nondirectional singular-value bounds do not control the carrier ratio"],
+        ["SCOPE", "classical c-optimality, nonharmonic L2 frames, prolate eigenvalues, and random-polytope rates explain the formulation or heuristic only; none supplies this deterministic actual-prime replacement-minor bound"]
+      ],
+      []
+    ],
+    [
+      "FUR", "QP", "nogo", "proved", "termwise unit-residue congruence aliases pay square-root chirp cost",
+      [
+        ["THM", "if g(r)=sum_a d_a exp(2*pi*i*a*r/q) equals 1 on every unit residue and d_0=0, then W=sum_{a!=0}|d_a|*sqrt(Y*min(a,q-a)/q)>=sqrt(Y/2)"],
+        ["PF", "averaging over units gives phi(q)=sum_a d_a*c_q(a); for m=q/gcd(a,q), |c_q(a)|/phi(q)=1/phi(m) when m is squarefree and zero otherwise, while min(a,q-a)/q>=1/m and sqrt(m)/phi(m)<=sqrt(2)"],
+        ["THM", "the bound is sharp for even q: g(r)=-exp(pi*i*r) is 1 on all units and has W=sqrt(Y/2)"],
+        ["SCOPE", "W is the termwise DFT-to-Mellin-chirp synthesis bill, not a lower bound after arbitrary cross-harmonic cancellation; only explicit parity, Ramanujan, principal-character, primorial, and Selberg unit-set lifts are closed"],
+        ["BLOCK", "massive cancellation among overlapping chirp branches would be a new instance of the original full-aperture extremal, not a congruence shortcut"]
+      ],
+      []
+    ],
+    [
+      "NM", "QP", "nogo", "proved", "moment and generic-frame ceiling",
+      [
+        ["THM", "full-aperture KMT prime twist gives only relative log^(-3/10); legal B=Y^(50/33)<Y^2 permits only second-moment unique-factorization orthogonality"],
+        ["THM", "generic high-band Gram design has q^T G^-1 q~M and E~sqrt(log B/M), far below Y^-kappa"],
+        ["THM", "renewal Dirichlet transform extends only to Re z>-.77; PL gives shell residual Y^-r*t^(r/.77+eps), which loses every negative power once t>=Y^.77"],
+        ["THM", "weighted MV plus Lipschitz gives sup^(2k+1)<<[Y^A+Y^k]Y^(-qk); for A=50/33 and q<=1 its exponent is never negative"],
+        ["COUNTER", "mesh/density alone cannot control the tail: an equal grid has exact aliases near Y/log Y inside the aperture"],
+        ["SCOPE", "these are no-gos for audited generic mechanisms, not a universal lower or upper theorem for actual E_B"]
+      ],
+      []
+    ],
+    [
+      "FCP", "QP", "nogo", "proved", "regular Christoffel profile concentration barrier",
+      [
+        ["THM", "for legal profile rho with |rhohat(omega)|<=A(1+ell|omega|)^(-gamma), q0^T G_rho^dagger q0 >= c*M/[A(1+Y/ell+(Y/ell)^gamma*M^(1-gamma))]"],
+        ["THM", "broad uniform designs cost >=Y^(1/2-o(1)); full arcsine/equilibrium designs cost >=Y^(25/66-o(1))"],
+        ["THM", "mixtures cannot meet kappa unless arcsine packets have width exponent <.0721212936 or BV packets <.0360606468"],
+        ["PF", "actual-node packing controls Gram row sums from rhohat decay; Schur/Cauchy converts carrier energy to directional leverage"],
+        ["BLOCK", "subpower leverage, if it exists, must concentrate Y^-o mass on a Lebesgue-rare extreme-correlation set and also prove its atoms span q0"],
+        ["SCOPE", "class obstruction only: singular narrow atomic designs remain open; L2 leverage is not automatically L1 cancellation cost"],
+        ["CHECK", "verify_christoffel_profile_barrier.py passes; finite legal designs show leverage approximately 2M"]
+      ],
+      []
+    ],
+    [
+      "F4", "QP", "fact", "proved", "fourth-moment exceptional-set localization",
+      [
+        ["THM", "there are diffuse actual-prime weights with low error Y^-.02, max weight <=Y^-1+o, and full-band fourth moment Y^o"],
+        ["THM", "{t:|P(t)|>Y^-.019} has total length <=Y^(.076+o); after Bernstein localization, peaks above twice threshold occupy <=Y^(.0855+o) connected components"],
+        ["THM", "any absolutely continuous high design of L2-effective width ell has principal cancellation cost >=ell^(1/4)Y^-o; widths >=Y^(.0721212936+eps) miss kappa"],
+        ["PF", "expand fourth moment into product frequencies; unique factorization controls diagonal energy and Montgomery-Vaughan controls separated products; Markov plus derivative bounds localize peaks"],
+        ["BLOCK", "measure-small exceptional peaks may still be chosen atomically; component count alone does not prove their phase vectors fail to span the carrier"],
+        ["NEXT", "prove an exceptional-component span/conditioning theorem, or construct a cheap atomic representation supported on those components"],
+        ["CHECK", "verify_prime_high_tail_fourth_moment_ledger.py passes; do not convert Lebesgue rarity into an atomic-design bound without a span theorem"]
+      ],
+      []
+    ],
+    [
+      "FAS", "QP", "nogo", "proved", "singular atomic exceptional-span gate",
+      [
+        ["THM", "if q0=int a(t)dmu and ||mu||=C, then |mu|(E_C)>=1/2 for E_C={|S_Y(t)|>=M/(2C)}, and some support point has |S_Y|>=M/C"],
+        ["THM", "actual fourth moments give O(C^4*Y^o) components, and the Montgomery-Halasz-Huxley/Guth-Maynard large-values bound sharpens fixed-width packet count to O(C^2*Y^o) and shrinking subdivision to O(C^3*Y^o)"],
+        ["THM", "at C=Y^kappa the fixed-jet rank is at most Y^(.0360606468+o); the large-values terms have exponents -.3278787 and -.01272719 after normalization"],
+        ["COUNTER", "uniform log lattice u_k=k/Y has a unit-cost legal alias at t=2*pi*Y while satisfying the generic packing, type, mean-square, and packet-rank data"],
+        ["THM", "for actual prime logs one atom is impossible by five-prime unique factorization; commensurable support t_j=m_j*tau requires harmonic order D>=M_p/4 and hence tau<=4B/M"],
+        ["BLOCK", "even ideal orthogonality saturates Bessel because carrier correlations are 1/C across R~C^2 packets; an augmented actual-prime minor/angle bound is still missing"],
+        ["NEXT", "use actual multiplicative independence to control an incommensurable multi-atom span, not generic Turan/Nazarov or rank-only data"],
+        ["CHECK", "verify_singular_atomic_span_gate.py passes; the theorem is L1 and does not confuse Christoffel L2 leverage with TV"]
+      ],
+      []
+    ],
+    [
+      "FAT", "QP", "nogo", "proved", "packet count and qualitative nonlattice do not imply carrier transversality",
+      [
+        ["THM", "the curve {a(t):t in J} over every nonempty open high interval spans the full finite carrier space; Caratheodory bounds atom count but not TV"],
+        ["COUNTER", "a periodic frequency model with correct M,B, spacing, additive-energy, and fourth-moment ledgers has a legal exact alias a(B)=q0 and TV=1"],
+        ["COUNTER", "arbitrarily small rationally independent perturbations retain an exact q0 representation with TV<=1+epsilon by stable finite interpolation"],
+        ["COUNTER", "tensor lifting does not densify one-dimensional product logs: hat(mu convolution k)(v)=hat(mu)(v)^k, whereas products at separate u_p are values of mu tensor k on a Cartesian grid"],
+        ["COUNTER", "analytic-signal realification is linear only; quadratic plus/minus sectors heterodyne to baseband, and keeping the plus-plus sector adds the missing sine constraint"],
+        ["THM", "actual-prime large-values/difference-set estimates give participation ratio R*Y^-o for R<=C^2 columns, even after adjoining q0"],
+        ["BLOCK", "participation ratio and average rank may leave exactly one augmented null direction; the required theorem is a directional augmented-minor/Schur angle, not rank"],
+        ["SCOPE", "generic component count, Turan rank, qualitative irrationality, and unaugmented determinants are therefore closed; actual quantitative carrier angle remains open"]
+      ],
+      []
+    ],
+    [
+      "FLB", "QP", "nogo", "proved", "norm-controlled localized boosting is the same Schur-margin gate",
+      [
+        ["THM", "for translated discrete kernel k and preserved low set S, the minimum correction energy for peak data y is y^T M^dagger y with M=K_TT-K_TS*G_S^dagger*K_ST"],
+        ["THM", "one low anchor and one peak cost squared 1/(1-|k(t)|^2); sequential pivot pi_r(t)=||(I-P_r)h_t||^2 and det Gram=product pi_r"],
+        ["PF", "minimum-norm increments are orthogonal Schur residuals, so iterative sidelobe correction merely exposes the same smallest-eigenvalue problem"],
+        ["BLOCK", "at N=Y^.0855 and epsilon=Y^-kappa, N*epsilon^2=Y^.049439 and N*epsilon=Y^.067469 are not perturbative; full-aperture MV also has positive loss exponent"],
+        ["COUNTER", "dual coefficient norm is unconstrained: a tiny nonzero pivot can still permit exact correction, and a one-height adjacent transfer can leak only O(T/t) into the low band"],
+        ["SCOPE", "this closes only norm-controlled contraction; modulation preserves shell support, while hard localization leaves the finite node set and continuous tapers retain the |s|Y^-.77 alias error"],
+        ["NEXT", "replace condition numbers by an actual-prime quantitative non-alias/Chebyshev theorem, or construct the unconstrained sequential correction directly"]
+      ],
+      []
+    ],
+    [
+      "FNEU", "QP", "nogo", "proved", "defect-corrected smooth-prime Neumann iteration lacks a carrier spectral margin",
+      [
+        ["THM", "for S=RQ and A=I-S on Ran R, f_r=sum_{j<r}A^j phi gives S f_r=phi-A^r phi"],
+        ["COUNTER", "finite prime sampling Q on the infinite-dimensional passband has nonzero kernel, so Af=f on that kernel and spectral radius(A)>=1"],
+        ["COUNTER", "a one-step VK defect bound on phi does not iterate: a small carrier component at eigenvalue zero survives A^r forever and the inverse filter amplifies it"],
+        ["KNOWN", "the available smooth Lambda theorem is only log^(-3/10) uniformly through the aperture; Fourier-expanded Vaughan Type II is separable and supplies no curvature power"],
+        ["BLOCK", "a finite/cyclic repair requires a carrier-specific source condition or prime sampling-frame Schur margin, exactly the unresolved directional gate"],
+        ["SCOPE", "the Neumann algebra is a valid conditional mechanism, but classical VK control of one vector cannot be exponentiated into a fixed power"]
+      ],
+      []
+    ],
+    [
+      "FDD", "QP", "nogo", "proved", "adaptive high-order divided differences retain the alias quotient",
+      [
+        ["THM", "for K+1 nodes U, the unique moment annihilator has D_U(t)=(it)^K*Phi_U(t)/K!, with Phi_U the simplex-barycenter characteristic function"],
+        ["THM", "normalizing at t0 gives exact low ratio (s/t0)^K*Phi_U(s)/Phi_U(t0); the factorial cancels, so only the nonalias quotient matters"],
+        ["COUNTER", "on a uniform mesh D_U=e^(itu0)(e^(ith)-1)^K/(K!*h^K): exact aliases are infeasible, and away from them remote comb lobes amplify by (2/q)^K"],
+        ["COUNTER", "arbitrarily small irrational mesh perturbations remove exact aliases but make every finite adaptive block response arbitrarily small at the old alias while preserving stronger gap ledgers"],
+        ["BLOCK", "actual-prime closure needs both a quantitative adaptive lower bound for Phi_U at each peak and a simultaneous far-sidelobe bound"],
+        ["SCOPE", "raising moment order can exploit a proved nonalias factor; moment order or packet count alone cannot create one"]
+      ],
+      []
+    ],
+    [
+      "FNL", "QP", "nogo", "proved", "nonlinear log-derivative square trades semiprime density for global Laurent debt",
+      [
+        ["THM", "if L=zeta'/zeta=m/(s-rho)+a_rho+..., then Res_rho H*L^2=m^2*H'(rho)+2m*a_rho*H(rho); H(rho)=0 cleans the selected residue"],
+        ["THM", "for a completed FE pair and odd part J=(H-H(1-s))/2, the exact pair contribution is 2m^2J'(rho)+4m*a_rho*J(rho)"],
+        ["COUNTER", "FE-even centering cancels nuisance and desired signal together; FE-odd centering retains both at every unwanted zero"],
+        ["COUNTER", "a Hermitian square has contact plus delta/PV terms depending on a_rho and becomes a two-line covariance, losing the one-variable positive Lambda*Lambda series"],
+        ["THM", "L^2=zeta''/zeta-L': zeroing H at a selected simple zero makes the quotient residue vanish and leaves exactly Res(H'*L), the differentiated linear detector; other zeros retain regular-germ debt"],
+        ["KNOWN", "the quotient Dirichlet coefficients mu*log^2=Lambda*log+Lambda*Lambda are nonnegative; the failure is global residue localization, not coefficient polarity"],
+        ["BLOCK", "revival requires a controlled zero-set Hermite interpolant with acceptable exponential type and Mellin positivity; that is a new global zero-aware theorem"],
+        ["SCOPE", "positive semiprime coefficients alone do not provide a same-state sign inequality or a strip"]
+      ],
+      []
+    ],
+    [
+      "FGD", "QP", "nogo", "proved", "graph and adjacent-pair transforms reduce to the full affine antenna",
+      [
+        ["THM", "for ordered nodes v_j, the path incidence D has im D={delta:sum delta=0}; every mass-preserving signed weight change is an adjacent edge flow"],
+        ["THM", "at one height t, minimum weighted edge flux for correction A is |A|/max_j(|exp(it Delta_j)-1|/Delta_j); when t Delta_j<=pi its low leakage is <=(pi/2)|A|T/t"],
+        ["COUNTER", "on a uniform log mesh t=2pi/h is an exact alias retained by every mass-preserving transform, regardless of coefficient norm; fixed heat flow also retains its stationary polynomial"],
+        ["KNOWN", "actual prime logs have no exact common alias by unique factorization, but exact non-alias is insufficient for a uniform power estimate"],
+        ["BLOCK", "the missing statement is a quantitative global nonlattice quotient for the actual prime gaps, stable under many simultaneous corrections"],
+        ["CHECK", "adjacent-pair, graph, wavelet, and multiscale language does not create a smaller feasible class when coefficients are unrestricted"]
+      ],
+      []
+    ],
+    [
+      "GA", "RC", "gate", "open", "candidate-relative arithmetic reserve",
+      [
+        ["DEF", "on selected target-positive-null face, R_Lambda(rho;q):=Q_ar(q)+K_rho=<q,R_other q>"],
+        ["TARGET", "same packet must satisfy R_Lambda>=eps*K_rho+o(K_rho), equivalently Q_ar>=-(1-eps)K_rho+o(K_rho)"],
+        ["KNOWN", "isolated completed selected block has R_other=0 exactly; coefficient-free FE/order/Herglotz arguments cannot yield eps>0"],
+        ["KNOWN", "centered parity removes sine phases but leaves a signed cosine von-Mangoldt scalar; finite coefficient head is candidate-nonidentifying"],
+        ["KNOWN", "finite clean powers of xi'/xi collapse locally to a differentiated linear detector, and a finite PSD meromorphic covariance is contact-free only by annihilating every selected principal-part vector; neither creates reserve"],
+        ["BLOCK", "no actual-Lambda signed correlation currently supplies a positive collateral/pole/archimedean reserve on the same state; the minimum surviving finite enrichment is a coherent target-neutral transverse channel"],
+        ["NEXT", "prove an actual-Lambda transverse edge or positive transverse eigenvalue of carrier scale on the same packet, with the compact Pick transfer valid for the Lambda-selected phase"],
+        ["CHECK", "an aggregate cross-leg cancellation is insufficient unless same-leg completed terms and reserve remain positive"]
+      ],
+      [["requires", "FGA2"]]
+    ],
+    [
+      "FGA2", "GA", "gate", "open", "same-packet coherent transverse actual-Lambda reserve",
+      [
+        ["DEF", "let e be the selected carrier direction, W the target-positive-null and completion-neutral transverse quotient, and R_Lambda the completed actual-Lambda reserve operator on the same packet"],
+        ["THM", "if X=xi'/xi and ord_rho H>=d-1, then the clean selected residue Res(H X^d) equals Res(m^(d-1) H^(d-1) X/(d-1)!); finite nonlinear powers do not create a new selected detector"],
+        ["THM", "a PSD meromorphic covariance is bounded at the selected zero iff its square root annihilates every principal-part vector; a completely isolated matched quartet then has zero remaining reserve"],
+        ["THM", "for carrier e and target-neutral unit v, max_phi R(sqrt(eta)e+exp(i phi)sqrt(1-eta)v)=eta*r+(1-eta)*c+2*sqrt(eta(1-eta))*|z|, z=<e,Rv>"],
+        ["TARGET", "on the joint usable tangent W_joint=T_QP(e) intersect T_GP(e) intersect ker(N) intersect e-perp, prove ||P_Wjoint R_Lambda e||=Omega(K) with transverse lower control or a carrier-scale positive tangent mode, then integrate it to an exact QP-null compact state"],
+        ["KNOWN", "all finite clean nonlinear and PSD-contact mechanisms have been reduced to the displayed transverse alternative; no coefficient-free reserve remains"],
+        ["KNOWN", "for an actual selected zero Q_ar=-N_rho+R_other and hence R_Lambda=R_other exactly; both transverse projections delete the selected target rather than recycling its carrier"],
+        ["KNOWN", "ambient GA2 mass in e-perp may lie entirely normal to the QP null variety; the older projection P_(e-perp)R_Lambda e is not a same-packet reserve theorem"],
+        ["KNOWN", "for each fixed isolation gap epsilon_iso>0, if every unselected zero in the packet has depth <=alpha*d-epsilon_iso and the open remote term is o(K), existing Paley-Wiener sampling gives the entire GA2=o(K); thus positive GA2 forces a distinct collateral of depth >alpha*d-epsilon_iso or a carrier-sized remote term"],
+        ["BLOCK", "the exact transverse edge is a vector-valued one-height actual-Lambda polynomial; its squared norm is a signed Lambda(m)Lambda(n) Gram sum, while classical large sieves give average or upper control rather than the target-adaptive pointwise lower angle"],
+        ["BLOCK", "at alpha=.49,d=.66 the honest fixed-band conclusion is Re(rho')>.8234-epsilon_iso for each fixed epsilon_iso used in the isolation hypothesis; epsilon_iso is an isolation depth gap, not delta_ZF; current zero-density theorems count such zeros but do not force one with the required packet incidence and sign"],
+        ["NEXT", "prove a candidate-conditioned collateral-zero incidence/orientation theorem at depth alpha*d, or exhibit a carrier-sized signed open remote term in the exact completed actual-Lambda operator"],
+        ["CHECK", "finite fake-candidate probes are diagnostic only and cannot establish reserve at an actual zero"]
+      ],
+      [["supports", "FGAI"]]
+    ],
+    [
+      "FGAI", "FGA2", "fact", "proved", "actual-Lambda transverse isolation theorem",
+      [
+        ["THM", "at an actual selected zero the completed identity is R_Lambda=Q_ar+N_rho=R_other; selected carrier-aligned arithmetic is exactly invisible to both P_W R e and P_W R P_W"],
+        ["THM", "the transverse edge is archimedean/pole contribution minus (2/L^2)sum_(n<=X)Lambda(n)n^(-1/2)<e,S_tilde(log n)v>; its squared norm is the full projected signed Lambda(m)Lambda(n) Gram sum"],
+        ["THM", "under packet isolation beta<=alpha*d-epsilon_iso and R_open=o(K), the shallow sampling bound gives ||R_other||=o(K), so every fixed-fraction coherent two-dimensional reserve fails"],
+        ["DIR", "contrapositively, for every fixed epsilon_iso in the isolation theorem GA2 closure forces a distinct favorably oriented collateral of depth >alpha*d-epsilon_iso, or a carrier-sized open remote term"],
+        ["SCOPE", "this is conditional on a hypothetical actual zero and makes no assertion that isolated offending zeros exist; it is a reduction, not a zeta counterexample or a reserve theorem"],
+        ["CHECK", "test_same_packet_actual_lambda_transverse_gate.py has five passing tests and its verifier passes the exact coefficient, two-prime Gram, and aligned-carrier-invisibility identities"]
+      ],
+      []
+    ],
+    [
+      "RT", "G", "route", "open", "full-theta third-tail route",
+      [
+        ["DEF", "B_P(w)=1/4*int_R (|d|-P)_+^2 Phi((w+d)/2)Phi((w-d)/2) dd"],
+        ["DEF", "S3(P,T)=Fourier_w[B_P](T)"],
+        ["TARGET", "prove B_P positive-definite for every P>=0, equivalently S3(P,T)>=0 for all P,T with strict form needed at candidate"],
+        ["KNOWN", "P=0 gives Z'(T)^2-Z(T)Z''(T), an RH-strength Laguerre gate"],
+        ["CHECK", "RT is direct/criterion-strength: a proof of complete positivity yields the strip, but generic positivity properties do not imply it"]
+      ],
+      [["requires", "QT"]]
+    ],
+    [
+      "QT", "RT", "gate", "open", "actual-theta B_P positive definiteness",
+      [
+        ["DEF", "R(u)=e^u theta(e^(4u))-2cosh u; r=-R"],
+        ["TARGET", "derive S3(P,T)>=0 from COMPLETE modular orbit mixing, or produce rigorous Arb counterexample"],
+        ["KNOWN", "R<0 and r=8*e^(-|.|)*Phi; exact Poisson completion is +bulk-axis-axis+corner"],
+        ["KNOWN", "actual numerical scan T<=1000 found no certified S3 negative; numerical survival is not evidence of a theorem"],
+        ["KNOWN", "the complete polar-resolvent inverse has positive Fourier multiplier but a pointwise sign-changing Green kernel for every T!=0; scalar order-positive resolvent transfer is impossible"],
+        ["BLOCK", "finite orbit Gram, axiswise completion, generic LP/HB, S2 positivity, fractional tails, one-crossing, and scalar translation-invariant inverse resolvent positivity are false or insufficient"],
+        ["NEXT", "seek an infinite-orbit Hilbert-space Gram or matrix-channel dilation respecting inclusion-exclusion; independently continue targeted interval certification of S3 minima"],
+        ["CHECK", "S2 +,-,+ Arb certificate at T=152.7 does not falsify S3/B_P"]
+      ],
+      [["blocks", "FQTR"]]
+    ],
+    [
+      "FQTR", "QT", "nogo", "proved", "complete scalar theta-resolvent sign obstruction",
+      [
+        ["THM", "after w-Fourier transform the polar-completed operator is L_T=[1-(partial_d-iT)^2][1-(partial_d+iT)^2]"],
+        ["THM", "its unique decaying translation-invariant inverse kernel is G_T(d)=e^(-|d|)[cos(T|d|)+sin(T|d|)/T]/[4(1+T^2)], with the continuous T=0 limit (1+|d|)e^(-|d|)/4"],
+        ["COUNTER", "for every T!=0, G_T(pi/|T|)<0; Arb certifies negative values at T=.5,1,2,10 even though the Fourier multiplier is positive"],
+        ["DIR", "complete infinite resolvent inversion is not order-positive and cannot transfer pointwise positivity of the polar-completed source to B_P"],
+        ["SCOPE", "positive Fourier multiplier still gives a Loewner/Hilbert-space positive operator; the theorem does not rule out a Gram or matrix-channel dilation and does not falsify B_P"],
+        ["CHECK", "test_theta_bp_complete_resolvent_nogo.py has five passing kernel tests; verify_zeta23_theta_bp_complete_resolvent_nogo.py independently checks the symbolic factorization, ODE/jump, and four Arb negative witnesses"]
+      ],
+      []
+    ],
+    [
+      "RM", "G", "route", "criterion", "Mertens increment-energy criterion",
+      [
+        ["DEF", "M(x)=sum_{n<=x}mu(n); J(X,H)=sum_{x<=X}|M(x+H)-M(x)|^2 (equivalent integral variants allowed)"],
+        ["THM", "|M(X)|<=H+sqrt(X*J(X,H))/H; J<<X*H^(2-eta), H=X^theta => zero-free width delta=min(1-theta,theta*eta/2)"],
+        ["PF", "ANOVA/Poincare isolates exact rank-one zero mode; Mellin continuation of 1/zeta converts M power saving to zero exclusion"],
+        ["BLOCK", "known almost-all short-interval estimates give every fixed log saving but no H^-eta; the remaining principal band is weighted Mertens itself"],
+        ["SCOPE", "this is an equivalence-scale diagnostic, not presently a weaker route"]
+      ],
+      []
+    ],
+    [
+      "QA", "G", "gate", "open", "nonlocal full-AFE certificate",
+      [
+        ["DEF", "candidate certificate must include primal head, dual head, gamma scalar, and exact analytic remainder"],
+        ["TARGET", "produce explicit cross-channel transform/non-product cone or signed factorization H_full=V*JV+R with candidate gap g>0 and |<R>|<=(1-eps)g"],
+        ["KNOWN", "finite Lambda head cannot identify a candidate: a remote symmetric prime factor preserves the head and inserts a quartet"],
+        ["KNOWN", "two-prime additive AFE F=(1+x2)(1+x3)+g(1+y2)(1+y3)+r has Rayleigh minor -g(1+y2)(1+y3)-r of both signs"],
+        ["BLOCK", "every coordinatewise real GL2 product-half-plane holographic transform is killed; unrestricted remainder factorization is tautological"],
+        ["NEXT", "write an explicit genuinely mixed primal-dual polynomial and proper complex cone whose physical beta>.99 diagonal lies inside; otherwise abandon Lee-Yang language"],
+        ["CHECK", "nonlocal transform, cone, remainder constraint, and uniform degree dependence must all be explicit"]
+      ],
+      []
+    ],
+    [
+      "PORT", "G", "route", "open", "long-tail portfolio",
+      [
+        ["KNOWN", "H1 is best finite noncircular discriminator; H2 is clean coefficient criterion; H3,H7,H8 are criterion-strength; H10 is open-narrow"],
+        ["CHECK", "a hypothesis survives only in the strict form encoded below; familiar unqualified names may already be closed"]
+      ],
+      [["alternative", "H1"], ["alternative", "H2"], ["alternative", "H3"], ["alternative", "H4"], ["alternative", "H5"], ["alternative", "H6"], ["alternative", "H7"], ["alternative", "H8"], ["alternative", "H9"], ["alternative", "H10"]]
+    ],
+    ["H1", "PORT", "hypothesis", "open", "full-aperture actual-prime antenna", [["TARGET", "cheap C<=Y^(kappa_min-eps) PROMOTES uniformly; a dual error <=Y^-c only kills this sufficient construction at depths with c>kappa(alpha,d), never the candidate zero itself, and uniform route killing requires c>kappa_max"], ["PRIOR", "truth of some shallow-slice antenna 75%; accessible full-depth uniform kill below 5%"], ["SCOPE", "low/mid and literal shallow one-gap sectors are proved; actual-node multi-gap high tail survives"]], [["resolves", "QP"]]],
+    ["H2", "PORT", "hypothesis", "criterion", "complete actual-theta B_P is positive definite", [["TARGET", "forall P,T:S3(P,T)>=0"], ["PRIOR", "truth 8%; accessible 1%"], ["SCOPE", "one-crossing and generic LP/HB shortcuts are closed, not complete B_P"]], [["resolves", "QT"]]],
+    ["H3", "PORT", "hypothesis", "criterion", "global-cofactor reverse Husimi localization", [["TARGET", "outer zero plus complete cofactor forces strict reverse of known Husimi inequality"], ["PRIOR", "truth 2%; accessible .5%"], ["COUNTER", "zero of multiplicity m alone fails for 2m*eta<=alpha at every smoothing scale"]], []],
+    ["H4", "PORT", "hypothesis", "open", "full-AFE relative Loewner factorization", [["TARGET", "candidate signed gap g with exact remainder <(1-eps)g"], ["PRIOR", "truth 4%; accessible 1%"], ["SCOPE", "finite Loewner rank and unrestricted remainder are signless"]], [["resolves", "QA"]]],
+    ["H5", "PORT", "hypothesis", "open", "directional adelic Christoffel capacity", [["TARGET", "explicit legal rho, q in Ran G, q*G^dagger q=Y^o with independently bounded local factors and actual-node transfer"], ["PRIOR", "truth 3%; accessible .5%"], ["SCOPE", "common determinants cancel"]], [["resolves", "QP"]]],
+    ["H6", "PORT", "hypothesis", "open", "completed nonlattice transfer determinant", [["TARGET", "xi=E det(I-L_s), E holomorphic zero-free in target strip, and principal-channel Dolgopyat gap"], ["PRIOR", "truth 2%; accessible .5%"], ["SCOPE", "independent Euler transfer and compact observability miss the cusp channel"]], []],
+    ["H7", "PORT", "hypothesis", "criterion", "winding-preserving zero replication", [["TARGET", "one outer zero forces more distinct actual zeros in one box than density permits; near-zeros require bounded-overlap Rouche conversion"], ["PRIOR", "truth 2%; accessible 1%"], ["SCOPE", "ordinary universality loses winding and principal value"]], []],
+    ["H8", "PORT", "hypothesis", "criterion", "tau-Li syndetic cross-degree law", [["TARGET", "exterior pole forces negativity and arithmetic formula forces nonnegativity on the SAME syndetic degree set"], ["PRIOR", "truth 3%; accessible 1%"], ["SCOPE", "endpoint transport and absolute Laguerre bounds fail"]], []],
+    ["H9", "PORT", "hypothesis", "open", "quantitative terminal Speiser tree", [["TARGET", "tree terminates in count violation or proved derivative zero-free region"], ["PRIOR", "truth 2%; accessible .5%"], ["SCOPE", "depth amplification, Gauss-Lucas, and aggregate counts alone are insufficient"]], []],
+    ["H10", "PORT", "hypothesis", "open", "nonlocal AFE circular-domain stability", [["TARGET", "explicit cross-channel transform and proper non-product cone with full remainder and physical diagonal"], ["PRIOR", "truth .3%; accessible .1%"], ["COUNTER", "all coordinatewise real product-half-plane transforms are killed by the two-prime Rayleigh minor"]], [["resolves", "QA"]]]
+  ],
+  "frontier": ["GP", "QP", "GA", "QT", "QA"],
+  "portfolio": ["H1", "H2", "H3", "H4", "H5", "H6", "H7", "H8", "H9", "H10"]
+}

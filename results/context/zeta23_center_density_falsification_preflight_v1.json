@@ -1,0 +1,59 @@
+{
+  "artifact": "ZETA23-CENTER-DENSITY-FALSIFICATION-PREFLIGHT-v1",
+  "date": "2026-08-31",
+  "parent": "../ZETA23-BREADTH-SYNTHESIS-AND-CENTER-DENSITY-ADAPTER-2026-08-31.md",
+  "purpose": "Try to falsify the center-density research direction without conflating the deterministic intersection adapter with its two open arithmetic premises.",
+  "targets": [
+    {
+      "id": "phase_count",
+      "status_before": "PROJECT_PROVED",
+      "statement": "A fixed Turan interval sum is negatively aligned on a positive density of eligible half-integer centers.",
+      "falsifiers": ["uniformity in tau", "eligible-center interval length", "Erdos--Turan exponent", "Y-versus-N phase convention"]
+    },
+    {
+      "id": "intersection_adapter",
+      "status_before": "PROJECT_PROVED_CONDITIONAL_ADAPTER",
+      "statement": "An upper exceptional set of size N^(1-m+o(1)) intersects a lower success set of size N^(1-rho-o(1)) when rho<m.",
+      "falsifiers": ["strict exponent orientation", "different center blocks", "incompatible r_P normalizations", "uncontrolled constants or o(1)"]
+    },
+    {
+      "id": "averaged_gcg4",
+      "status_before": "OPEN",
+      "statement": "The retained adjacent-gap hat has the target fourth-moment decay on average over half-integer shell centers.",
+      "falsifiers": ["diagonal lower bound already exceeds target", "scale-covariant Bragg pseudo-nodes", "finite actual-prime adverse growth", "center averaging preserves critical product collisions"]
+    },
+    {
+      "id": "density_radialization",
+      "status_before": "OPEN",
+      "statement": "For each zero-derived common witness, radialization succeeds on more than N^(1-3137/520000+o(1)) aligned centers.",
+      "falsifiers": ["global moving-center Fejer model", "diffuse smooth positive antenna with common source", "failure-set concentration on every aligned center", "finite actual-prime optimizer avoidance"]
+    }
+  ],
+  "passport": {
+    "mask": "Actual ordinary primes for theorem falsification; real pseudo-nodes only falsify soft proof classes.",
+    "source": "One fixed absolute prime interval I and common tau across all tested centers.",
+    "normalization": "N^{-1} source depth and probability-normalized upper antennas.",
+    "center_set": "Eligible half-integers in a length-comparable-to-N block.",
+    "height_window": "H_Y=[Y^.01,Y^(50/33)] with the retained-hat moment on [Y^(839/1000),2Y^(50/33)].",
+    "rates": {
+      "moment_decay": "1187/13000",
+      "persistence_cost": "3411/40000 at the licensed c0=.01895",
+      "exception_saving": "3137/520000",
+      "radial_target": "189/10000"
+    }
+  },
+  "evidence_ladder": [
+    "logical re-derivation",
+    "abstract convex or Fejer system",
+    "global prime-density moving-node model",
+    "finite actual-prime diagnostic",
+    "asymptotic actual-prime theorem or counterexample"
+  ],
+  "hard_stops": [
+    "Do not call a pseudo-node construction a counterexample to an actual-prime statement.",
+    "Do not call finite adverse correlation an asymptotic refutation.",
+    "Do not call failure of one open premise a failure of the deterministic set-intersection implication.",
+    "Do not infer that an unavailable published theorem makes the conjecture false."
+  ],
+  "decision_rule": "Refute the adapter only on an exact logical or normalization error. Refute an arithmetic premise only with an actual-prime asymptotic counterexample. Otherwise record the highest-fidelity proof class eliminated and update plausibility without changing theorem status."
+}

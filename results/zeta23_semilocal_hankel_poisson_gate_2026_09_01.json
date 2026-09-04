@@ -1,0 +1,29 @@
+{
+  "schema": "zeta23.semilocal-hankel-poisson-gate.v1",
+  "status": "EXACT_NORMALIZATION_AND_METHOD_OBSTRUCTIONS",
+  "max_unimodularity_error": "0.0",
+  "max_log_derivative_error": "2.13821176807e-50",
+  "finite_cyclic_trace_abs": "1.092318568474e-15",
+  "semilocal_origin_pole_order": 4,
+  "semilocal_origin_polar_hankel_rank": 4,
+  "completed_zeta_pole_form_rank": 2,
+  "smooth_quasi_inner_countermodel": {
+    "epsilon": 1e-08,
+    "phase_amplitude": 1.0,
+    "old_q_floor": 1e-08,
+    "residual_cross": -0.5,
+    "reference_collar_metric": 1.0,
+    "ward_ratio": 25000000.0,
+    "enlarged_determinant": -0.24999999
+  },
+  "relative_sonin_countermodel": {
+    "delta": 0.0001,
+    "epsilon": 1e-08,
+    "rotation_weight": 0.9999000199980002,
+    "sonin_weight": 9.998000199980003e-05,
+    "old_q_floor": 1e-08,
+    "residual_cross_squared": 9.99900009999e-05,
+    "ward_ratio": 9999.00009999
+  },
+  "command": "python3 src/semilocal_hankel_poisson_gate.py --dps 50 --epsilon 1e-8"
+}

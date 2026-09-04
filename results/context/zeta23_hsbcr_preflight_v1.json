@@ -1,0 +1,40 @@
+{
+  "schema": "zeta23-research-preflight-v1",
+  "date": "2026-09-01",
+  "architecture": "weil",
+  "target_statement": "For every finite R>L5, a harmonic-renormalized actual-zeta cross block obeys a support-uniform-on-[L5,R] summable spectral-Carleson estimate independent of the localized ground floor.",
+  "claim_status_sought": "PROJECT_PROVED_THEOREM_WITH_SCOPE",
+  "current_status": "OPEN_CANDIDATE_UNDER_FALSIFICATION",
+  "trust_model": "The proposed first result is a floating-point finite diagnostic; a theorem would require an analytic form-domain proof and later formal or interval certification.",
+  "first_unproved_edge": "low-energy spectral-Carleson control for the harmonic-renormalized completed-zeta residual",
+  "mask_or_node_class": "all actual zeta prime powers active at the enlarged support, together with the pole and complete archimedean remainder",
+  "source_data_retained": "actual von Mangoldt prime-power coefficients, pole rank two, digamma archimedean term, support threshold convention, and old/new support nesting",
+  "coefficient_cone_and_sign": "all complex functions in the localized logarithmic form domain; the finite diagnostic uses real parity-complete trial spaces",
+  "normalization": "project support L=4a; first seed L5=2 log 5; angular Fourier transform; Wplus multiplier (1/2) log(1+4r^2)",
+  "height_window_and_one_sided_floor": "not a QP/Turan height-band claim; target is strict positivity of every localized Weil form on each compact support range",
+  "quantifier_order": "for every finite R, there exist explicit K_R and delta_R>0 such that for every L and admissible step delta in [L5,R], every dyadic old spectral band and every collar vector obey the stated operator inequality",
+  "resolution_required": "continuum logarithmic form domain; finite Legendre/hat diagnostics must be refined simultaneously in old dimension, collar dimension, Fourier cutoff, and quadrature",
+  "rate_and_exponent_ledger": {
+    "starting_exponent": null,
+    "target_exponent": null,
+    "all_exponent_losses": [],
+    "support_modulus": "epsilon_R(delta)=K_R/log(e/delta)",
+    "spectral_budget": "band energy 2^k times a summable dimensionless sequence"
+  },
+  "feasibility_or_nonvacuity_witness": "the rigorous positive endpoint lambda(2 log 5)>=5e-18 supplies the first old positive block",
+  "downstream_socket": "compact-by-compact finite-step positivity -> cofinal all-support positivity -> global Weil positivity -> imported Weil criterion",
+  "parallel_open_siblings": [
+    "source-identifying finite-window determinant convergence",
+    "first-crossing actual-zeta transversality",
+    "the independent QP/Turan fixed-strip branch"
+  ],
+  "why_not_target_renamed": "the universal logarithmic interface is removed using a fixed positive reference form; the asserted estimate concerns the explicit bounded residual band by band and may be falsified without deciding the sign of the full Schur complement",
+  "abstract_convex_falsifier": "Ae_m=2^-m e_m and B_delta 1=2^(-m/2)e_m at delta=e^-m shows compactness and norm convergence alone do not imply the estimate",
+  "fejer_falsifier": "not applicable to this Weil-source operator claim",
+  "prime_density_pseudonode_falsifier": "replace actual prime shifts by a matched smooth/discrete source only after the actual finite-source diagnostic; agreement would show that no arithmetic-specific line has yet been used",
+  "finite_actual_prime_diagnostic": "at L5 and shrinking delta, compute the harmonic lift, verify exact cancellation for the reference form, and track normalized dyadic band budgets under simultaneous refinement",
+  "actual_prime_arithmetic_line": "the low-band proof must retain the combined pole plus bounded digamma remainder minus all active actual-prime translations; componentwise absolute estimates are disallowed",
+  "decision_tree_change_if_proved": "closes the zeta-specific adjacent-support edge on every compact range and yields cofinal global Weil positivity",
+  "decision_tree_change_if_refuted": "retires this fixed-reference harmonic-renormalization/Carleson proof class; does not refute Weil positivity or other source-dependent lifts",
+  "stop_rule": "stop if the pure-reference cancellation fails, if the scaled band statistic grows without stabilization under licensed refinement, if the summed Carleson budget is at least the transformed collar budget, or if deriving the estimate invokes positivity of the enlarged zeta form"
+}

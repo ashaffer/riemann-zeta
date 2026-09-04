@@ -1,0 +1,40 @@
+{
+  "schema": "zeta23-research-preflight-v1",
+  "date": "2026-09-01",
+  "architecture": "weil",
+  "target_statement": "Determine whether the Connes--Consani semilocal Hardy off-diagonal for u_F=rho_infinity rho_2 rho_3 rho_5 has an exact, normalization-compatible boundary compression whose logarithmic derivative factors or uniformly controls the completed-zeta Ward/Poisson mismatch A^(1/2)(P_Q-P_h) at the p=5 support event.",
+  "claim_status_sought": "EXACT_BRIDGE_OR_STRUCTURAL_FALSIFIER",
+  "current_status": "OPEN",
+  "trust_model": "Operator identities are to be derived exactly. Any matrix comparison is an ordinary high-precision finite Galerkin diagnostic, not interval arithmetic and not a continuum theorem.",
+  "first_unproved_edge": "An intertwining identity from the Hardy/Sonin polarization of multiplication by u_F to the old/collar support compression of the logarithmic derivative -i u_F^* partial_t u_F, with the pole and reference-form corrections explicit.",
+  "mask_or_node_class": "F={infinity,2,3,5}; each Euler factor retains all powers before support compression. The finite Ward target uses the first p=5 event L5=2 log 5 and literal two-sided collars.",
+  "source_data_retained": "Exact gamma ratio, exact Euler ratios for p=2,3,5, their full infinite prime-power expansions prior to support truncation, Hardy orientation, Cayley Jacobian, pole rank two, and the log-Bessel reference multiplier.",
+  "coefficient_cone_and_sign": "Complex Hardy data for the operator identity and real parity-complete compactly supported trial functions for the Ward comparison; no componentwise absolute values are licensed.",
+  "normalization": "rho_v(z)=gamma_v(z)/gamma_v(1-z), z=1/2+it; Fourier transform fhat(t)=integral f(x)e^{-itx}dx; project support L means f is supported in [-L/4,L/4], and n activates when 2 log n<L.",
+  "height_window_and_one_sided_floor": "Not a zero-height calculation. The old Weil floor may collapse; the proposed control must be relative to Q-energy rather than its L2 floor.",
+  "quantifier_order": "First derive an infinite-dimensional identity at a fixed finite place set and support boundary; only then test finite compressions. A numerical singular-vector match cannot substitute for the identity.",
+  "resolution_required": "Hardy truncation, old mesh, and collar mesh must each be refined. Comparisons require an explicitly isometric transform between coefficient spaces, not equal matrix dimensions by fiat.",
+  "rate_and_exponent_ledger": {
+    "starting_exponent": null,
+    "target_exponent": null,
+    "all_exponent_losses": [],
+    "support_modulus": "Qualitative quasi-inner compactness gives no floor-independent Ward constant; any surviving estimate must be uniform on a compact support slab.",
+    "spectral_budget": "Compare the boundary-compressed logarithmic derivative of the Hankel/Toeplitz defect with B^*A^{-1}B relative to the reference-harmonic collar metric."
+  },
+  "feasibility_or_nonvacuity_witness": "Connes--Consani prove P_-M_{u_F}P_+ compact, and the prior Ward audit found a bounded combined-source ratio near one despite collapsing old Ritz floors.",
+  "downstream_socket": "A genuine uniform factorization would imply HRW; together with NR_log and the residual diagonal estimate it would feed adjacent-support Schur propagation toward a uniform zero-free strip.",
+  "parallel_open_siblings": [
+    "NR_log quantitative reference localization",
+    "Krein accelerant boundary evolution",
+    "direct completed-zeta Green/DtN identity"
+  ],
+  "why_not_target_renamed": "The test keeps the established Ward target fixed and asks whether the literature operator is its missing arithmetic square root, rather than defining a new defect after seeing the data.",
+  "abstract_convex_falsifier": "Reject a proposed bridge if it is merely the universal Toeplitz identity I-T_u^*T_u=H_u^*H_u with no logarithmic-derivative or support-compression intertwiner.",
+  "fejer_falsifier": "Check Hardy orientation and phase reversal: rho_F versus its reciprocal swaps the two Hardy off-diagonals but must not change the self-adjoint Weil source except by the predicted sign.",
+  "prime_density_pseudonode_falsifier": "Preserve the full local factors until support compression; compare the exact p=5 contact with the previously defined outward smear only after differentiation.",
+  "finite_actual_prime_diagnostic": "Construct converged Fourier/Cayley Hankel blocks, verify unimodularity and the analytic log-derivative formula, then compare only through an explicit Paley--Wiener/support map to the existing Ward matrices.",
+  "actual_prime_arithmetic_line": "The product over all selected places must be differentiated before any source separation or norm bound.",
+  "decision_tree_change_if_proved": "Promotes semilocal quasi-inner structure to a concrete candidate proof of HRW and isolates a quantitative compact-defect estimate as the next theorem.",
+  "decision_tree_change_if_refuted": "Retires the direct Hankel-to-Poisson bridge and leaves Krein/Green-DtN identities as the credible source-complete routes.",
+  "stop_rule": "Stop the direct comparison if no exact isometry connects the Hardy and support spaces, if differentiation produces a noncompact bulk term unrelated to the Hankel defect, if pole/reference terms cannot be separated without assuming the target positivity, or if rank/parity/scaling invariants disagree under refinement."
+}

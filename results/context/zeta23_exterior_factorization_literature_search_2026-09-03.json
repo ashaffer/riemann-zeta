@@ -1,0 +1,56 @@
+{
+  "schema": "zeta23-literature-search-log-v1",
+  "date": "2026-09-03",
+  "topic": "exterior factorization at a localized completed-zeta contact and backward consequences of a fixed zero-free strip",
+  "databases_and_sources": [
+    "arXiv abstract, HTML, and TeX source",
+    "American Mathematical Society article metadata and original-paper link",
+    "local ZETA23 theorem and no-go registries"
+  ],
+  "representative_queries": [
+    "Suzuki shifted Psi omega xi zero-free half-plane eventual positivity",
+    "Suzuki screw function localized Weil form nondegeneracy kernel factorization",
+    "Douglas majorization factorization range inclusion Hilbert space",
+    "local square-root versus linear factorization and shifted-resolvent null charge"
+  ],
+  "records": [
+    {
+      "identifier": "doi:10.1090/S0002-9939-1966-0203464-1",
+      "title": "On majorization, factorization, and range inclusion of operators on Hilbert space",
+      "author": "R. G. Douglas",
+      "version_or_date": "Proc. Amer. Math. Soc. 17 (1966), 413-415",
+      "role": "Primary source for bounded Hilbert-space range, majorization, and factorization equivalence."
+    },
+    {
+      "identifier": "arXiv:2206.03682v4",
+      "title": "Aspects of the screw function corresponding to the Riemann zeta function",
+      "author": "Masatoshi Suzuki",
+      "version_or_date": "v4, 2023-05-30",
+      "role": "Primary source for localized screw-kernel/RH interfaces and the shifted Psi_omega eventual-positivity criterion."
+    },
+    {
+      "identifier": "arXiv:2606.09096v2",
+      "title": "Weil's quadratic form via the screw function",
+      "author": "Masatoshi Suzuki",
+      "version_or_date": "v2, 2026-08-17",
+      "role": "Primary current source for continuity of the localized lowest eigenvalue and the global A_infinity=U*U factorization under RH; it explicitly notes that the analogous unconditional kernel identification would imply RH."
+    }
+  ],
+  "closest_overlap": "Douglas supplies the abstract factorization theorem. Suzuki supplies localized and shifted criteria and a distinct global RH-level factorization. No checked primary source states the old-to-collar completed-source identity Gamma_(a,b)=T^src_(a,b) A_a.",
+  "local_search_terms": [
+    "factorization tax",
+    "square-root alignment",
+    "relative graph-norm factorization",
+    "shifted resolvent",
+    "kernel-null charge",
+    "exterior collar charge"
+  ],
+  "classification": {
+    "douglas_equivalence": "IMPORTED",
+    "suzuki_interfaces": "IMPORTED",
+    "exterior_potential": "LOCAL_PREDECESSOR",
+    "decision_tree_classification": "PROJECT_SYNTHESIS",
+    "completed_source_factor": "OPEN_NOT_FORMULATED"
+  },
+  "limitations": "This was a targeted primary-source and local-registry search, not an exhaustive literature proof. Private, unpublished, unindexed, and differently phrased work remains outside the search. No literature-level novelty claim is made."
+}

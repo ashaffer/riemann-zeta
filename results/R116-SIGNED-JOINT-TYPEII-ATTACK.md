@@ -97,10 +97,12 @@ frequency, into a smooth dyadic Mobius sum.  Exact Vaughan recompletion uses
 ```
 
 and turns the same block into the usual logarithmically weighted Mertens
-carrier.  Vinogradov--Korobov supplies a subpower gain here.  A fixed power
-is fixed-strip strength.
+carrier.  Vinogradov--Korobov supplies a subpower gain here.  A uniform
+absolute fixed power for a scale-stable, Mellin-nonvanishing Mertens family
+would independently be fixed-strip strength; a signed bound for this one
+packet is not the same statement.
 
-Thus the new mechanism makes a real reduction:
+Thus the new mechanism makes a real reduction within this balanced packet:
 
 ```text
 modular zero and proper conductors       POWER-SAVED;
@@ -602,10 +604,15 @@ at `rho` is nonzero.  R102's detector multiplier
 [exp(h(rho-1/2))-exp(h/2)]^2                          (6.7)
 ```
 
-is nonzero for every nontrivial zeta zero, and the R80 bank supplies the
-needed scale/frequency coverage for the complete field.  Thus a uniform
-fixed power in (6.3)--(6.5) is not an elementary corollary of PNT; it is the
-fixed-strip theorem in its remaining smooth-Mobius form.
+is nonzero for every nontrivial zeta zero.  For a fixed licensed R102 window
+this prevents a common zero in the relevant fixed detector family; no
+varying-test converse is imported here from R80's distinct proportional-order
+bank.  Thus a uniform
+absolute fixed power for the scale-stable, nonvanishing Mertens family
+(6.3)--(6.6) is not an elementary corollary of PNT; independently of this
+packet reduction, such a theorem would itself imply a fixed strip.  A signed
+aggregate estimate such as (10.2), however, does not by itself furnish that
+absolute family bound or an upper bound for the full positive energy.
 
 This conclusion does **not** prove that the primitive main term cannot
 cancel after summing `c`, all fixed-ratio blocks, and all Type-I cross terms.
@@ -680,11 +687,13 @@ sum_(c asymp X)abs h(c)^2=X^(-1+o(1)),                (8.2)
 ```
 
 while the primitive diagonal in (5.11) is of physical size `X` before a
-Mobius saving.  Squaring removes the outer Mobius signs and retains that
+Mobius saving.  Applying Cauchy or absolute values separately in the outer
+`c` sum replaces `h(c)` by its magnitude (and by `abs h(c)^2` in the
+resulting norm), losing the outer Mobius signs while retaining that
 diagonal.  Standard dispersion can control the off-diagonal moduli, but it
 does not supply a fixed power for (6.3).
 
-There remains one legitimate global possibility:
+There remains one legitimate possibility within this local packet:
 
 ```text
 sum the signed outer h(c), the primitive ordinary-product main term,
@@ -692,6 +701,8 @@ the Type-I heads, and all fixed-ratio blocks before any Cauchy step.      (8.3)
 ```
 
 A fixed power in (8.3) would be a new two-scale Mobius correlation theorem.
+It would not by itself control the full R71 energy, because the omitted
+conductor, gcd, profile, orientation, and modulus classes are not errors.
 Neither the ordinary additive large sieve, separate character estimates,
 nor conductor lowering proves it.  Failure of those tools is not a theorem
 that (8.3) is false.
@@ -738,20 +749,32 @@ all proper conductors on balanced semiprimes            POWER-SAVED;
 primitive reciprocal block                              EXACTLY DUALIZED;
 character/exceptional route                             WORSE TARGET;
 separate varying-modulus dispersion                     ENDPOINT;
-global primitive Mobius correlation                     OPEN;
+balanced-packet primitive Mobius correlation             OPEN / INSUFFICIENT;
+complete all-class dual (R128)                           EXACT = R71 ENERGY;
 fixed strip or no-strip conclusion                      NOT PROVED.    (10.1)
 ```
 
-The next valid target is narrower than R113 (6.2).  Prove, with the actual
-finite family of `Phi_c` from (5.12), a fixed power for
+The next local-packet target considered here is narrower than R113 (6.2):
+prove, with the actual finite family of `Phi_c` from (5.12), a fixed power
+for
 
 ```text
-sum_(c asymp X) h(c)c
+sum_(c asymp X) h(c)c^(1-it)
   sum_(d,b)mu(d)Lambda(b)/(db)^(1+it)Phi_c(db/c),      (10.2)
 ```
 
-jointly with the exact Vaughan heads and before Cauchy in `c`.  Proper
-conductors may now be discarded at the proved cost `X^(1/2+o(1))`.  A
+jointly with the exact Vaughan heads and before Cauchy in `c`.  Within the
+balanced squarefree-semiprime packet, proper conductors may now be discarded
+at the proved cost `X^(1/2+o(1))`.  A
 successful proof of (10.2) would be genuinely new arithmetic information
-at the primitive conductor; another residue-folding or separate-`l2`
-argument cannot supply it.
+at the primitive conductor, but the R128/S0 audit shows that it would not
+alone prove a strip.  The global endpoint is the complete R128/R71 energy;
+another residue-folding or separate-`l2` argument cannot supply its bound.
+
+The factor `c^(-it)` in (10.2) is the outer Mellin phase already present in
+R113 (1.1).  It may be absorbed into a `t`-dependent unimodular outer
+coefficient for norm estimates, but it must be retained in the exact
+tail/head recompletion and paired with the conjugate orientation.  The
+proper-conductor sentence is scoped to the balanced squarefree-semiprime
+packet of Corollary 4.1; R128 supplies the later all-modulus exact
+recombination, not a global `X^(1/2+o(1))` error estimate.

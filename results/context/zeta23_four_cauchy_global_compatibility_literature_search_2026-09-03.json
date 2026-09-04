@@ -1,0 +1,77 @@
+{
+  "schema": "zeta23-literature-search-log-v1",
+  "date": "2026-09-03",
+  "accessed": "2026-09-03",
+  "target": "Global compatibility of Suzuki's completed four-Cauchy plus prime-dilation source, projection-dilation boundary cocycles, and singular Toeplitz contact propagation.",
+  "databases_and_sites": [
+    "arXiv",
+    "AMS primary publication and memoir pages",
+    "DOI publisher metadata",
+    "local ZETA23 theorem registry and reports",
+    "bounded formula-level web search"
+  ],
+  "representative_queries": [
+    "Suzuki Weil quadratic form screw function finite interval operator Cauchy dilation",
+    "four roots unity Cauchy transform Lerch zeta screw function",
+    "projection dilation commutator boundary cocycle Wiener Hopf",
+    "singular Toeplitz extension next lag Chebyshev recurrence",
+    "flat extension positive moment matrix recursively generated relation",
+    "completed zeta source exterior collar inverse-free factorization"
+  ],
+  "located_primary_sources": [
+    {
+      "title": "Weil's quadratic form via the screw function",
+      "authors": [
+        "Masatoshi Suzuki"
+      ],
+      "identifier": "arXiv:2606.09096v2",
+      "version_date": "2026-08-17",
+      "url": "https://arxiv.org/abs/2606.09096v2",
+      "overlap": "Current finite-interval screw-operator and Weil-form framework. The present calculation imports its completed-source setting; the paper does not supply the sought inverse-free old-to-collar compatibility factor."
+    },
+    {
+      "title": "Aspects of the screw function corresponding to the Riemann zeta-function",
+      "authors": [
+        "Masatoshi Suzuki"
+      ],
+      "identifier": "DOI:10.1112/jlms.12785; arXiv:2206.03682",
+      "url": "https://doi.org/10.1112/jlms.12785",
+      "overlap": "Zeta screw function, positivity and moment criteria, and mean-periodic context. It prevents treating the surrounding screw and moment framework as new."
+    },
+    {
+      "title": "Flat Extensions of Positive Moment Matrices: Recursively Generated Relations",
+      "authors": [
+        "Raul E. Curto",
+        "Lawrence A. Fialkow"
+      ],
+      "identifier": "DOI:10.1090/memo/0648; MR1445490",
+      "year": 1998,
+      "url": "https://doi.org/10.1090/memo/0648",
+      "overlap": "Classical flat-extension and recursively generated moment-relation framework. It is the closest structural precedent for the finite Toeplitz next-lag diagnostic."
+    },
+    {
+      "title": "Solution of the Truncated Complex Moment Problem for Flat Data",
+      "authors": [
+        "Raul E. Curto",
+        "Lawrence A. Fialkow"
+      ],
+      "identifier": "AMS MEMO/119/568",
+      "year": 1996,
+      "url": "https://bookstore.ams.org/MEMO/119/568",
+      "overlap": "Classical positivity and rank-preserving moment extension criteria; no zeta-specific exterior propagation theorem."
+    }
+  ],
+  "local_formula_search": {
+    "closest_predecessor": "results/ZETA23-CONSTRUCTIVE-COMPLETED-SOURCE-AND-COMPACT-DERIVATIVE-AUDIT-2026-09-03.md",
+    "delta": "R184 derived the four-Cauchy normal form. R185 computes both exterior sides, finds the one-mode root-filter cancellation, and corrects scalar bulk covariance to commuting pullbacks plus a projection boundary cocycle. It does not serialize the split finite-part old operator or complete global compatibility.",
+    "no_identity_found": "No local report or indexed primary source in this bounded search supplied a zeta-specific recurrence forcing the R185 exterior readout to vanish on the old kernel."
+  },
+  "novelty_classification": {
+    "Suzuki_operator_and_screw_framework": "IMPORTED",
+    "Cauchy_root_filter_Dirichlet_convolution_and_Toeplitz_algebra": "IMPORTED_OR_ELEMENTARY",
+    "flat_extension_analogy": "IMPORTED",
+    "one_mode_completion_cancellation_boundary_cocycle_packaging_and_route_update": "PROJECT_SYNTHESIS",
+    "candidate_new_claim": "NONE"
+  },
+  "novelty_nonclaim": "Failure to locate an identical packaging is not evidence of absence from private, unpublished, unindexed, or differently phrased work. Independent specialist review would be required before any novelty claim."
+}

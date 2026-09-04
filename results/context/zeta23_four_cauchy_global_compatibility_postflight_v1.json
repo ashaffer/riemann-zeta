@@ -1,0 +1,76 @@
+{
+  "schema": "zeta23-four-cauchy-global-compatibility-postflight-v1",
+  "date": "2026-09-03",
+  "preflight": "results/context/zeta23_four_cauchy_global_compatibility_preflight_v1.json",
+  "human_authority": "results/ZETA23-FOUR-CAUCHY-GLOBAL-COMPATIBILITY-CALCULATION-2026-09-03.md",
+  "global_status": {
+    "explicit_bounded_or_closable_T_src": "OPEN_NOT_CONSTRUCTED",
+    "global_old_exterior_compatibility_system": "OPEN_AFTER_R186_EXACT_SERIALIZATION",
+    "form_domain_state_adapter": "CLOSED_BY_R186_IN_WEAK_L2_CONTINUOUS_POTENTIAL_TOPOLOGY_POINTWISE_JETS_EXCLUDED",
+    "preflight_fast_falsifiers": "BOTH_EXECUTED_BY_R186_AND_SOFT_PROPAGATION_MECHANISMS_REFUTED",
+    "uniform_zero_free_strip": "OPEN",
+    "riemann_hypothesis": "OPEN",
+    "sharp_four_cycle_bound": "OPEN_NOT_USED"
+  },
+  "exact_calculation": {
+    "scope": "The displayed exterior formulas hold for arbitrary smooth compactly supported data. Their derivation never uses B_a f=0.",
+    "right_readout": "For x>a: exp(x/2) M_-1 - sum_(j>=1) exp(-(4j+1)x/2) M_(4j+1) - sum_m Lambda(m)/sqrt(m) n(x-log m), with n zero-extended so the sum is locally finite and active exactly on its support.",
+    "left_readout": "For x<-a: exp(-x/2) M_1 - sum_(j>=1) exp((4j+1)x/2) M_(-(4j+1)) - sum_m Lambda(m)/sqrt(m) n(x+log m), with the same zero-extension/active-sum convention.",
+    "cancellation": "The fourth-root filter cancels X^(-1)M_1 on the right and X M_-1 on the left, exactly one mode per side.",
+    "remainder": "The opposite growing pole, all higher every-fourth moments, and active prime samples remain."
+  },
+  "missing_old_system": {
+    "operator": "The old Lerch action is a split left/right Hadamard finite-part (Carleman) operator. Its zeta=1 channel has a two-sided positive 1/abs(Y-X) singularity, not one oriented principal value.",
+    "consequence": "Four full Cauchy transforms and their ordinary Plemelj jumps do not by themselves serialize the old equation.",
+    "logical_gap": "Nonzero exterior summands for arbitrary f do not establish nonvanishing on ker(B_a); a coefficient-specific kernel identity remains possible."
+  },
+  "structural_correction": {
+    "global_algebra": "Fourth-root rotations and positive dilations commute and preserve rays.",
+    "reflection": "Multiplicative reflection obeys J S_r=S_(1/r) J, so it is semidirect rather than commuting on directed channels; the bilateral pair S_r+S_(1/r) is reflection invariant.",
+    "localized_algebra": "Fixed-window compression creates the exact projection-dilation boundary cocycle and opposing-shift re-entry defect. This cocycle is one channel of the completed readout, not KNC itself.",
+    "cauchy_reflection": "For f^vee(Y)=f(1/Y), C_(f^vee)(z)=A_f-C_f(1/z). The affine constant cancels only in the fourth-root weighted sum, yielding E_L[f](X)=E_R[f^vee](1/X).",
+    "consequence": "There is no independent scalar root-rotation/positive-dilation mixing determinant in this grammar; reflection swaps, rather than creates, the paired prime directions. This does not exclude an orientation-sensitive split-Carleman compatibility identity."
+  },
+  "homogeneous_core_compatibility": {
+    "boundary_jets": "A smooth compactly supported exact old homogeneous state forces every right and left boundary derivative of the exterior formulas to vanish, coupling the surviving pole, every-fourth moments, and prime-power jets.",
+    "limit": "These jet identities do not force M_1 or M_-1 to vanish and smooth endpoint flatness does not imply collar vanishing.",
+    "domain_limit": "Applying even these pointwise jets to a genuine Friedrichs-domain contact requires a trace/core adapter."
+  },
+  "mobius_audit": {
+    "identity": "mu*Lambda=-mu log and (-mu log)*1=Lambda",
+    "result": "Mobius filtering returns the R71 coefficient source rather than zero.",
+    "compression": "A compressed formal inverse equals the negative omitted exterior tail.",
+    "closure_failure": "The archimedean pole tail prevents naive global Mobius summation; reciprocal-zeta Mellin control would import the missing strength."
+  },
+  "contact_diagnostic": {
+    "old_determinant": "det B=(c-1)(2a^2-c-1)",
+    "even_compatibility": "At c=2a^2-1, KNC requires d=2ac-a=T_3(a).",
+    "odd_compatibility": "At c=1, KNC requires d=a.",
+    "interpretation": "A source-enforced next-lag recurrence would give inverse-free propagation, but Cauchy covariance does not supply it.",
+    "countermodel_scope": "The rational charged contact shows that positive-semidefinite Toeplitz old-contact algebra with the displayed continuous source baselines does not alone force exterior null charge. Its completion is synthetic; it does not instantiate the full source grammar and is not an actual-zeta counterexample."
+  },
+  "decision": {
+    "hypothesized_scalar_root_positive_dilation_noncommutativity": "PARK_AS_FALSE_MECHANISM",
+    "global_compatibility_route": "OPEN_NOT_CALCULATED_FOR_THE_SPLIT_OLD_OPERATOR",
+    "remaining_direct_KNC_condition": "For each finite collar 0<a<b prove the R186 bounded exterior map annihilates ker(A_a); this is exactly KNC and needs completed-zeta-specific unique continuation or spectral synthesis.",
+    "core_scope": "The displayed exterior derivation is on arbitrary smooth localized data. R186 subsequently supplies the weak/L2 form-domain closure; it does not supply compatibility.",
+    "next_direct_tasks": "Do not repeat serialization or generic trace work. Prove a completed-zeta-specific total-readout annihilation theorem, or prioritize the independent R71 fixed-power strip route.",
+    "preflight_debt": "CLOSED_BY_R186: the arcsine and exact finite-node split-Cauchy/dilation falsifiers were executed; both prune soft mechanisms without deciding zeta KNC.",
+    "primary_uniform_strip_target": "Complete source-preserving fixed-window R71 fixed-power bound, with the compact source derivative as scalar falsifier."
+  },
+  "novelty": {
+    "classification": "IMPORTED_PLUS_PROJECT_SYNTHESIS",
+    "candidate_new": false,
+    "search_log": "results/context/zeta23_four_cauchy_global_compatibility_literature_search_2026-09-03.json"
+  },
+  "formal_artifacts": [
+    "lean/rhbridge/RHBridge/FourCauchyGlobalCompatibility.lean",
+    "lean/rhbridge/RHBridge/FourCauchyGlobalCompatibilityAudit.lean"
+  ],
+  "replay_artifacts": [
+    "src/four_cauchy_global_compatibility.py",
+    "src/test_four_cauchy_global_compatibility.py"
+  ],
+  "superseded_by": "results/ZETA23-SPLIT-CARLEMAN-FORM-DOMAIN-CLOSEOUT-2026-09-03.md",
+  "nonclaim": "No completed global old/exterior four-Cauchy compatibility implication, new analytic Suzuki operator theorem, KNC, T_src, fixed-power estimate, uniform zero-free strip, sharp four-cycle bound, or RH proof is obtained."
+}

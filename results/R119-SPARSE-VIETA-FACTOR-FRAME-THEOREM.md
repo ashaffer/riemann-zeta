@@ -22,12 +22,21 @@ instead of the direct `r H product_i norm(z_i)_2`.  The zero-product and
 central-matrix terms are smaller.  This is a genuine fixed-power endpoint
 gain, with `delta=1/6` in the notation of R115--R116.
 
-This report proves the local finite-field/BP theorem.  It does not by
-itself prove a fixed zero-free strip: R105's cutoff-complete Vaughan-tail
-packet must still be represented by these native profiles, and the outer
-signed primitive-conductor block identified in R116 must still be closed.
+This report proves the local finite-field/BP theorem.  It does not by itself
+prove a fixed zero-free strip.  The needed lossless representation of R105's
+cutoff-complete Vaughan packet by these native profiles is not proved; R121
+later shows that the available CRT/Hilbert representation spends the gain.
+The R116 signed-coefficient primitive block is only a local packet, not a remaining
+global gate.
 
 Date: 2026-08-07.
+
+**2026-09-02 successor correction (R121/R128/S0 audit).**  The
+primitive-conductor block named here is only a balanced-semiprime local
+packet.  R121 proves that the native CRT/Hilbert lift from the full Vaughan
+packet spends the local gain, and R128 proves that faithful all-class
+restoration returns the original R71 energy.  Thus this finite-field theorem
+remains valid, but it is not presently attached to the global strip endpoint.
 
 Companion reports:
 
@@ -619,8 +628,9 @@ The remaining global interfaces are not finite-field gaps in this theorem:
 2. The cost of the short-box partition and any projective separation must
    be checked against the `H^(1/12)` gain; an `H^epsilon` cost is harmless,
    an unrecorded fixed power is not.
-3. The primitive-conductor smooth Möbius carrier isolated by R116 remains
-   the outer arithmetic gate after the BP endpoint is closed.
+3. The primitive-conductor smooth Möbius carrier isolated by R116 is a local
+   packet only.  The global arithmetic gate is the complete R128/R71 energy;
+   no lossless adapter from that energy to this BP endpoint is proved.
 
 Accordingly, (7.4) is a real new cancellation theorem and invalidates the
 claim that the actual endpoint phase necessarily forces equality with the

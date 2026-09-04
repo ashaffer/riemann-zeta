@@ -443,11 +443,20 @@ priority.
 
 The direct branch should be tested in stages.
 
-1. Referee the complete-center coboundary dispersion identity in
+1. The complete-center coboundary dispersion identity in
    [`COBOUNDARY-DISPERSION-CANCELLATION-CANDIDATE.md`](../results/COBOUNDARY-DISPERSION-CANCELLATION-CANDIDATE.md).
    It groups by total product, differences `B-Z`, and only then squares, so
-   no cofactor or Type-I cross term is deleted.  Its scale-energy exponent is
-   `Delta`; the required arithmetic upper bound remains open.  The terminal
+   no cofactor or Type-I cross term is deleted.  The hostile algebra and
+   quantifier audit is now recorded in
+   [`COBOUNDARY-TYPE-II-REFEREE-AUDIT-2026-08-11.md`](../results/COBOUNDARY-TYPE-II-REFEREE-AUDIT-2026-08-11.md),
+   and the complete finite falsifier is in
+   [`TYPEII-COMPLETE-CENTER-ADVERSARIAL-AUDIT-2026-08-11.md`](../results/TYPEII-COMPLETE-CENTER-ADVERSARIAL-AUDIT-2026-08-11.md).
+   The identities pass, while stable sign and diagonal-domination shortcuts
+   fail.  Its scale-energy exponent is `Delta`; the required arithmetic upper
+   bound remains open.  The strongest applicable complete estimate and exact
+   missing theorem are summarized in
+   [`TYPEII-FIXED-SAVING-THEOREM-CARD-2026-08-11.md`](../results/TYPEII-FIXED-SAVING-THEOREM-CARD-2026-08-11.md).
+   The terminal
    Markov/Selberg Ward lift was tested and closed as a separate cancellation
    engine: exact completion reduces its global remainder to the original
    completed energy minus the tail diagonal.  See

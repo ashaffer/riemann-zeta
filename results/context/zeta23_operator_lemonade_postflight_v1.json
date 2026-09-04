@@ -1,0 +1,47 @@
+{
+  "schema": "zeta23-research-postflight-v1",
+  "date": "2026-09-01",
+  "architecture": "weil",
+  "target": "General operator theorems distilled from the failed semilocal Hankel-to-Poisson proof",
+  "superseded_by": "results/ZETA23-RECURSIVE-CONSOLIDATION-FIXED-POINT-2026-09-01.md",
+  "recursive_update": "The later fixed-point pass proves qualitative compact-form localization and maximal-support continuation. At a fixed semidefinite support, exact completed-zeta kernel null-charge is the necessary and sufficient right-openness condition; reserve-absorbed alignment remains a stronger sufficient quantitative route.",
+  "verdict": "THEOREM_SUITE_PROVED_WITH_STANDARD_FACTS_NEW_SYNTHESIS_AND_ONE_NEW_ANALYTIC_EXTENSION",
+  "project_proved": [
+    "One-sided Calkin dichotomy: if c is compact in a unitary colligation, then b is either compact or has essential norm one, and the projection defect has -1 in its essential spectrum.",
+    "Finite-constraint immunity: every finite-codimensional compression preserves the essential channel; the finite-dimensional rank shadow is Lean checked.",
+    "A genuine projection-difference countermodel with c, the positive old block, and the Ward cross in every Schatten class, arbitrary finitely many constraints, exact harmonic splitting, and Ward divergence at any prescribed rate.",
+    "Reserve-absorbed alignment: cross contamination controlled by an independent positive old reserve yields a Ward factorization without an inverse or closed-range assumption; the scalar form is Lean checked.",
+    "Finite anomaly budget: every finite trace value splits exactly into commutation defect and right-inverse/unitarity defect; Lean checked.",
+    "Weighted punctured-circle common-regulator recovery with sharp heat boundary anomaly. Heat, Poisson, and Fejer common regulators recover the same total pairing because the Cayley phase has derivative order alpha=2 while triangular-hat weights vanish with beta=4.",
+    "Support-invisible phase gauges: localized logarithmic-derivative pairings do not determine global Hardy/Hankel data."
+  ],
+  "imported_or_standard": [
+    "Halmos two-projection geometry and the bidirectional leakage identity.",
+    "Finite-codimensional invariance in the Calkin algebra.",
+    "Douglas range/factorization lemma.",
+    "Smooth C1 common-regulator recovery as a positive-kernel approximate-identity argument.",
+    "Finite-vanishing-set preservation of Weil's RH criterion."
+  ],
+  "novelty_assessment": {
+    "standard_or_low": [
+      "block and Schatten identities",
+      "finite-codimension invariance",
+      "finite anomaly budget",
+      "exact and reserve alignment abstractions",
+      "smooth heat recovery",
+      "localized gauge example"
+    ],
+    "potentially_reportable_but_unclaimed": [
+      "the combined shift-plus-all-Schatten-rotations Ward countermodel with arbitrary prescribed instability",
+      "the weighted singular heat-recovery theorem together with its explicit cut-crossing boundary anomaly"
+    ]
+  },
+  "open": [
+    "Common-regulator convergence or regulator independence of each of the four individual Hardy block traces.",
+    "Universal completed-zeta kernel null-charge, which is RH-equivalent under the accepted Weil and continuity interfaces.",
+    "A zeta-specific reserve decomposition, Hardy alignment, or compact-slab-uniform HRW theorem as a stronger quantitative route.",
+    "A uniform zero-free strip and RH."
+  ],
+  "decision_tree_change": "Further qualitative compactness, arbitrarily strong Schatten decay of both visible blocks, or finitely many extra moments are rigorously pruned. The analytic common-regulator problem is solved for the total semilocal pairing. The recursive update identifies exact completed-source KNC as the remaining qualitative arithmetic socket; reserve alignment and uniform HRW are stronger quantitative approaches, not prerequisites for existence-only continuation.",
+  "trust": "Lean-kernel-checked algebra where identified; exact analytic manuscript proofs for the Calkin construction and heat theorem; primary-source attribution for imported results; no numerical evidence used to set theorem status."
+}

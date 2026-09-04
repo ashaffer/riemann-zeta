@@ -1,6 +1,6 @@
 # Imported analytic-number-theory baseline for R65--R98
 
-Status: literature survey and normalization audit, 2026-08-07.  Sources were
+Status: literature survey and normalization audit, updated 2026-08-31.  Sources were
 checked through that date.  This document is the claim-of-record for what the
 active fixed-window/Vaughan program may use as an imported lemma rather than
 advertise as a research goal.
@@ -22,8 +22,10 @@ The following items are baseline, not goals:
 6. Montgomery--Vaughan mean values and the classical large-values bounds;
 7. Guth--Maynard's improved large-values and zero-density theorems;
 8. current almost-all short-interval and shifted-correlation theorems;
-9. rigorous finite-height verification of RH; and
-10. the native 2026 MRSTT Type-II contagion and Wright fixed-denominator
+9. rigorous finite-height verification of RH;
+10. the unconditional Zeta23 rank/inertia theorem putting more than two
+    thirds of the zeros simply on the critical line; and
+11. the native 2026 MRSTT Type-II contagion and Wright fixed-denominator
     Kloosterman estimates, with their R71 application gates kept explicit.
 
 There is also one correction to the active project ledger.  The fixed-`h`,
@@ -36,7 +38,7 @@ What is **not** supplied by the literature is one fixed power in the complete
 R71 norm:
 
 ```text
-E_I^(frozen) <=exp((1-2eta+o(1))R),       eta>0 fixed.   (1.1)
+E_I^(frozen) <=exp((1-2eta+o(1))R),  0<eta<=1/2 fixed.  (1.1)
 ```
 
 No surveyed theorem retains every Mobius cofactor, the full Type-I head or
@@ -92,7 +94,7 @@ The two calibrated energy scales are
 ```text
 known subpower: E_I <=x exp[-c(log x)^(4/5)(log log x)^(-3/5)],
 
-fixed strip:    E_I <=x^(1-2eta+o(1)),       eta>0 fixed. (2.5)
+fixed strip:    E_I <=x^(1-2eta+o(1)),  0<eta<=1/2 fixed. (2.5)
 ```
 
 The first line is `x^(1-o(1))`; it does not approach the second line.
@@ -112,6 +114,15 @@ and [Weil, 1952](https://cds.cern.ch/record/471308).  Booker's
 [distributional formulation](https://arxiv.org/abs/1308.3067) is a modern
 primary reference.  The repository exposes the imported interface in
 `RHBridge/GuinandWeilLiterature.lean`.
+
+Anthropic's [Zeta23 artifact](https://github.com/anthropics/zeta-23-lean)
+contains a source proof in Lean of the smooth compact-support zeta explicit
+formula and its analytic prerequisites.  It uses different Fourier and zero
+carrier conventions; the required adapter to this repository is itemized in
+[`ANTHROPIC-ZETA23-INTEGRATION.md`](ANTHROPIC-ZETA23-INTEGRATION.md).  Until
+that adapter is implemented, this repository's interface remains an imported
+axiom.  The external smooth theorem also does not automatically prove this
+project's logarithmic-domain disk-limit statement.
 
 **R71 import.**  For the B-spline coboundary the zero multiplier is explicit
 and decays as `exp(O_h(k))(1+abs(gamma))^(-k-1)`.  The zero sum is absolutely
@@ -140,6 +151,9 @@ abs(N(T)-T/(2pi)log[T/(2pi e)])
 
 See [Bellotti--Wong](https://arxiv.org/abs/2412.15470).  The repository's
 qualitative imported interface is `RHBridge/ZetaZeroCountingLiterature.lean`.
+Zeta23 also proves the qualitative Riemann--von Mangoldt and local-count
+inputs in Lean; adapting those declarations is a concrete route to removing
+this repository's two zero-summability literature axioms.
 
 **R71 import.**  This is the shell-count input in the R79 zero sum.
 
@@ -456,6 +470,40 @@ boxes in this regime.  Feeding a density theorem back into the completed
 energy can control a number of exceptions but cannot exclude the one
 exception that would be fatal.
 
+### LIT-PT1 -- a sharp transition-scale prime-twist bound
+
+Klurman--Mangerel--Teravainen, Lemma 7.9 and Remark 7.2, prove for the
+principal character and a sharp cutoff that
+
+```text
+sum_(n<=x) Lambda(n)n^(it)
+ << epsilon*log(1/epsilon)^3*x
+    +x/(log x)^(3/10)+x/(1+abs(t)),                   (5.5a)
+```
+
+uniformly for `abs(t)<=x^((log x)^(1/25))`.  See the
+[published primary source](https://doi.org/10.1112/plms.12546) and
+[open preprint](https://arxiv.org/abs/1909.12280).  Taking
+`epsilon=(log x)^(-2/5)` and applying exact Abel summation gives, uniformly
+for `X=T log(T)^O(1)` and `T<=abs(t)<=2T`,
+
+```text
+sum_(n<=X) Lambda(n)n^(-1/2+it)
+ << sqrt(X)/(log X)^(3/10).                           (5.5b)
+```
+
+The transition-weight polynomial with coefficient `log(X/n)` gains one
+further factor `1/log X` after its natural normalization.  Consequently the
+two scalar data in the sharp Loewner reduction satisfy
+`B_X<<sqrt(X)/(log X)^(3/10)`.
+
+**Strip import.**  This is a genuine pointwise logarithmic saving, not a
+fixed power saving: it is `X^(1/2-o(1))`.  It therefore does not reach
+`B_X=o(X^alpha r_T)` for any fixed `alpha<1/2` without an unavailable carrier
+gain.  The specialization, endpoint bookkeeping, and exact matched-scale
+statement are audited in
+[`../results/ZETA23-SCALAR-PRIME-POLYNOMIAL-FIXED-SAVING-AUDIT-2026-08-11.md`](../results/ZETA23-SCALAR-PRIME-POLYNOMIAL-FIXED-SAVING-AUDIT-2026-08-11.md).
+
 ### LIT-MOM1 -- classical zeta moments
 
 Heath--Brown's fourth-moment theorem gives
@@ -681,17 +729,45 @@ zero.
 
 ### LIT-LINE1 -- positive proportion on the critical line
 
-Bui--Conrey--Young prove that more than `41%` of the nontrivial zeros, in the
-standard asymptotic counting sense, lie on `Re(s)=1/2`; see
+Historically, Bui--Conrey--Young proved that more than `41%` of the nontrivial
+zeros, in the standard asymptotic counting sense, lie on `Re(s)=1/2`; see
 [arXiv:1002.4127](https://arxiv.org/abs/1002.4127) and the
 [published DOI](https://doi.org/10.4064/aa150-1-3).
 
-**R71 import.**  This is useful global context and can reduce estimates that
-sum nonnegative contributions over all zeros.
+The 2026 Alpoge--Furman/Anthropic
+[full paper](https://arxiv.org/abs/2608.13637)
+proves the stronger unconditional bounds
 
-**Nonclaim.**  A positive-proportion theorem is compatible with a sparse
-off-line sequence approaching `Re(s)=1`; it cannot prove a fixed strip or
-remove a single R71 carrier.
+```text
+liminf N0*/N >= C,
+liminf N0s/N >= C,
+liminf Nd/N  >= (1+C)/2,
+
+C = 3/2 - (1/sqrt(2)) cot(1/sqrt(2))
+  = 0.672500703679... .
+```
+
+Here `N` counts with multiplicity, `N0*` counts distinct on-line locations,
+`N0s` counts simple on-line zeros, and `Nd` counts all distinct locations.
+The flat-window constants are `2/3`, `2/3`, and `5/6`.  The result uses mixed
+Gabor compressions, treats off-line pairs as hyperbolic blocks, and applies a
+rank--trace/Frobenius inequality.  Its
+[Lean artifact](https://github.com/anthropics/zeta-23-lean) proves the exact
+trigonometric form without project axioms.  The displayed decimal and the
+strict comparison `C>2/3` still need a small formal numerical enclosure if
+they are to be described as kernel-checked rather than mathematical
+evaluations.
+
+**R71 import.**  The theorem is useful global context and can reduce estimates
+that sum nonnegative contributions over all zeros.  Its generic Hermitian
+rank/inertia lemmas can also support a separate density branch.
+
+**Nonclaim.**  A positive-proportion theorem, even with proportion tending to
+one, is compatible with a sparse off-line sequence approaching `Re(s)=1`; it
+cannot prove a fixed strip or remove a single R71 carrier.  With this
+project's fixed physical support, the associated Gabor compression has only
+`O(T)` directions against `N(T,2T)` of order `T log T`, so the Zeta23 density
+mechanism also does not propagate the local `a=7/16` certificate.
 
 ## 8. Project corollary: the Euler/frozen-center transfer
 
@@ -838,8 +914,9 @@ a fixed strip nor RH.
 | Wright 2026 | a nominal fixed power for its native nonzero reciprocal-phase form; after R85, the mask-free mean-zero component and reciprocal derivative transfer fit its scalar sequence architecture modulo an explicit kernel ledger | resonant axes, the conditional all-cofactor tail, and the finite primitive common-`g` mask remain outside the completed bound; R86 proves that ordinary zero-orbit completion leaves `-gamma` and that the native block is not Hilbert-small |
 | signed dispersion and spectral reciprocity | Drappeau retains an exact low-character projector in an unbalanced range; Andersen--Kiral, Blomer--Khan, Wu, and Yang retain explicit diagonal/degenerate terms under reciprocity | the square-root box is balanced and self-dual, the canonical contact is not the low-character projector, and Eisenstein differentiation gives divisor-log coefficients plus differentiated zero-pole residues rather than `Lambda` cancellation |
 | Mobius all intervals | all-start qualitative cancellation | long interval, no prime factor or center |
-| Pintz/Kaczorowski | recurrence for fixed functions/sequences | superseded for this family by the R80 proportional-order bank, but supplies no arithmetic power |
+| Pintz/Kaczorowski | recurrence for fixed functions/sequences | the program-level search instead uses R80's distinct proportional-order bank; this supplies neither a converse for the fixed-step single schedule nor arithmetic power |
 | finite verification | removes low-height uncertainty | cannot control arbitrarily high zeros |
+| Zeta23 rank/inertia density theorem | unconditional `C` simple/on-line proportion and `(1+C)/2` distinct proportion; reusable mixed-Gram linear algebra | normalized trace moments ignore `o(N)` exceptional zeros and do not control the lower spectral edge or a uniform strip |
 
 ## 10. Research allocation after import
 
@@ -1024,3 +1101,78 @@ Euler-to-frozen-center normalization.  That supports only the classification
 No surveyed source states the complete every-block fixed-power R71 estimate;
 this is a search result and normalization audit, not proof that no
 mathematically equivalent formulation exists anywhere in the literature.
+
+## 13. August 31, 2026 delta import
+
+The statement-level survey and exponent/passport calculations are in
+[`ZETA23-LITERATURE-SURVEY-IMPORT-AND-RESEARCH-REFRAME-2026-08-31.md`](../results/ZETA23-LITERATURE-SURVEY-IMPORT-AND-RESEARCH-REFRAME-2026-08-31.md),
+with a machine-readable ledger at
+[`zeta23_literature_import_ledger_2026_08_31_v1.json`](../results/context/zeta23_literature_import_ledger_2026_08_31_v1.json).
+
+The following are now part of the baseline, with the stated restrictions.
+
+1. **Alpoge--Furman higher-trace boundary.**  Section 7.2 of
+   [arXiv:2608.13637](https://arxiv.org/abs/2608.13637) states that the
+   unconditional diagonal evaluation of the `k`th Gabor trace is available
+   in the Rudnick--Sarnak range `X^k<=T^(2-epsilon)`.  Its conditional
+   `HL*(4)` input encodes shifted correlations of `Lambda*Lambda` for
+   `|h|<=X^2/T`.  At the project's top `CA4` scale this is exactly
+   `H=Y^(16/33)`.  This identifies the same arithmetic scale but has the
+   wrong natural mask and does not prove `CA4`.
+
+2. **Maynard--Pandey--Radziwill prime sums.**  Theorem 1.1 of
+   [arXiv:2608.14777](https://arxiv.org/abs/2608.14777) gives
+   `sum_(n<N)Lambda(n)e(n alpha)
+   <<N^o(1)(N/B^(1/2)+N^(19/24))`.  It is imported as a natural-weight
+   additive benchmark.  Its phase, shifted-block range, gap mask, major-arc
+   term, and quantifiers prevent a direct `DPA/CA4` application.
+
+3. **Wright II.**  [arXiv:2608.27732](https://arxiv.org/abs/2608.27732)
+   recognizes two subdyadic variables in a trilinear Kloosterman form and
+   extends the nearly balanced convolution range to `delta<1/68`.  At the
+   exact project scale its unchanged first term caps even an idealized
+   lossless reconstruction at conductor gain `1/8`; `CA4` needs `127/330`.
+   A black-box import is therefore excluded.
+
+4. **Exact algebraic energy.**  The August 2026 results of
+   [Hu](https://arxiv.org/abs/2608.18956),
+   [Jing--Wu](https://arxiv.org/abs/2608.14467), and
+   [Cushman--Demeter--Wu](https://arxiv.org/abs/2608.12316) are retained as
+   downstream exact-energy modules.  Hu's theorem genuinely handles
+   arbitrary complex weights, but all three operate on exact equality/full
+   dual data rather than the project's prescribed-resolution, translated,
+   masked near-relations.
+
+5. **Compact Weil positivity claim.**  Chuk
+   [arXiv:2608.24827](https://arxiv.org/abs/2608.24827) claims the strict
+   floor `8.9e-18` for physical half-window `.8`, which is project
+   `L_program=3.2`.  Independent floating Galerkin values are compatible,
+   but the source ships no numerical certificate.  This remains a pending
+   reproduction, not a promoted theorem; it supplies no adjacent-support
+   propagation.
+
+6. **Quarantined and withdrawn claims.**  The exact rational
+   moment-to-density certificate in the Yang--Yang
+   [Zenodo release](https://zenodo.org/records/21975237) is valid
+   conditionally, but its analytic proof fails at the modulus truncation:
+   the retained polylogarithmic range has asymptotically vanishing Mertens
+   mass.  Neither Lemma D nor the `79.62%` headline is imported.  Ramare
+   [arXiv:2605.29470](https://arxiv.org/abs/2605.29470) is withdrawn for an
+   important miscalculation and is excluded.
+
+7. **Suzuki v2 correction.**  The conditional limit target in
+   [arXiv:2606.09096v2](https://arxiv.org/abs/2606.09096v2) is
+   `exp(phi)W -> xi/(xi+xi')`, not the older `z^2 xi/xi'` expression.  The
+   operator framework is imported; convergence remains open.
+
+8. **Post-import CA4 adapter audit.**  The
+   [mass-preserving transference falsifier](../results/ZETA23-CA4-MASS-PRESERVING-NATURAL-MASK-TRANSFERENCE-FALSIFIER-2026-08-31.md)
+   rules out scalar termwise recombination of standard interval-localized or
+   bounded-variation smooth natural `Lambda*Lambda` forms within the CA4
+   budget.  It does not refute CA4.  Any future higher-trace import must be
+   multiplier-stable for the actual adjacent-gap selector, or be estimated
+   jointly before componentwise absolute values are taken.
+
+None of these changes the status of `DPA_P(.019)`,
+`LTRAD_P(.0189,.001)`, `CA4`, a uniform zero-free strip, global Weil
+positivity, or RH.

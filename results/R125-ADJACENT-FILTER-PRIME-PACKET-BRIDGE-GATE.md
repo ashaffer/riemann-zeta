@@ -3,7 +3,8 @@
 Status: the R123 truncated-Mobius operation, its exact free-cofactor
 collapse, and its adjacent-cutoff zero-faithfulness all survive an
 equation-level audit.  The unique linear combination which cancels the
-collapsed balanced tail is, after critical normalization,
+collapsed balanced tail is, after normalization convenient for the
+reciprocal divisor coefficient,
 
 ```text
 Delta_P=P(C_(P-1)-C_P)=P^(1/2)tau_(-log P).          (0.1)
@@ -191,7 +192,7 @@ where `delta_P` is the point mass at `P`.  Thus the information in the
 top-canceling direction is carried by the recombined heads and by the field
 at the lower physical scale, not by a second copy of (2.2).
 
-For later normalization put
+For the reciprocal-coefficient normalization used below, put
 
 ```text
 Delta_P=P(C_(P-1)-C_P)
@@ -204,19 +205,31 @@ Its zero multiplier is
 Delta_P(s)=P^(1-s),                                  (2.8)
 ```
 
-which is nonzero at every nontrivial zeta zero.  Relative to a critical-line
-carrier, an off-axis zero `rho=beta+i gamma` retains the scale ratio
+which is nonzero at every nontrivial zeta zero.  There are two distinct
+normalizations here and they must not be conflated.  At physical scale `X`,
+the raw excess amplitude contributed by a zero `rho=beta+i gamma` is
 
 ```text
-X^(beta-1/2)P^(1/2-beta)
- =(X/P)^(beta-1/2).                                  (2.9)
+X^(beta-1/2)abs(Delta_P(rho))
+ =X^(beta-1/2)P^(1-beta),                            (2.9)
 ```
 
-Thus `Delta_P` is not a destructive zero filter.  It is exactly a critically
-renormalized copy of the original detector at effective scale
+whereas the response of `Delta_P` on the corresponding critical-line
+carrier has magnitude `P^(1/2)`.  Dividing by that critical response gives
+the relative scale ratio
 
 ```text
-B=X/P.                                               (2.10)
+X^(beta-1/2)P^(1-beta)/P^(1/2)
+ =(X/P)^(beta-1/2).                                  (2.10)
+```
+
+Thus `Delta_P` is not a destructive zero filter.  Literally it is
+`P^(1/2)` times the shifted original field; after division by the same
+critical-line factor it has the original detector's off-line ratio at
+effective scale
+
+```text
+B=X/P.                                               (2.11)
 ```
 
 This also prevents a false conclusion from (2.2): canceling the frozen hard
@@ -299,7 +312,7 @@ integral_t sum_((r,s)=1,k)
 The reduced denominators `r,s asymp B` are arbitrary squarefree integers.
 In particular, the substantial balanced-semiprime family from R105 remains.
 The adjacent difference has reduced the physical scale from `X` to `B`, in
-exact agreement with the zero-carrier ratio (2.9), but it has not changed
+exact agreement with the critical-normalized zero-carrier ratio (2.10), but it has not changed
 the reciprocal arithmetic type.
 
 This correction is essential.  Reading (3.4) directly as a prime
@@ -568,9 +581,9 @@ R123 full-field convolution                          EXACT;
 adjacent two-member zero lower bound                 EXACT / SUBPOWER;
 two adjacent filters on collapsed tail               RANK ONE;
 unique top-canceling direction                       SINGLE DILATION;
-critically normalized difference                     ZERO-FAITHFUL;
-normalized difference coefficient                   P(delta_P*Lambda);
-reciprocal divisor kernel after normalized difference P delta_P*(mu*Lambda);
+reciprocal-normalized difference                     ZERO-FAITHFUL;
+reciprocal-normalized coefficient                    P(delta_P*Lambda);
+reciprocal divisor kernel after that normalization   P delta_P*(mu*Lambda);
 common-P reduced denominators                        GENERAL SQUAREFREE;
 iterated adjacent differences                        SAME REDUCED KERNEL;
 prime-only projected Kloosterman completion          EXACT / INCOMPLETE SLICE;

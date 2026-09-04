@@ -1,0 +1,91 @@
+{
+  "schema": "zeta23.chuk_l08_full_window_certificate.v1",
+  "date": "2026-09-01",
+  "claim_status": "RIGOROUS_INTERVAL_COMPUTATION_PLUS_NAMED_ANALYTIC_INPUT",
+  "trust_model": "python-flint Arb outward balls; exact rational parameters; explicit Bernstein-ellipse Gauss-Legendre error; interval congruence and Cholesky; analytic exterior digamma envelope and Legendre/Bessel tail inequalities",
+  "claim": "For every complex f supported in [-0.8,0.8] in the logarithmic Weil form domain, Q(f) >= 8.9e-18 ||f||_2^2, with strict inequality for every nonzero f. Equivalently, after extending Q by +infinity outside that domain, the weak inequality holds for every supported L2 function.",
+  "milestone_scope": "Fixed local Weil-positivity window only. This does not propagate positivity, prove global Weil positivity, or prove RH.",
+  "primary_source": "https://arxiv.org/abs/2608.24827v1",
+  "driver": {
+    "path": "src/chuk_l08_arb_certificate.py",
+    "sha256": "5170c5c04d7bad0808ca9cc35470fa16e9e7ed03c99a9b5bec9664bb1c2a0144",
+    "invocation": "PYTHONPATH=src python3 src/chuk_l08_arb_certificate.py --quiet --cross-check"
+  },
+  "tests": {
+    "path": "src/test_chuk_l08_arb_certificate.py",
+    "sha256": "c39f517122c1dd57c955c9e55a577edb5be95ec737d3b8da1c3f4248af89c734",
+    "invocation": "PYTHONPATH=src python3 -m pytest -q src/test_chuk_l08_arb_certificate.py",
+    "result": "3 passed"
+  },
+  "environment": {
+    "python": "3.12.3",
+    "python_flint": "0.9.0",
+    "flint": "3.6.0",
+    "constant_precision_bits": 512,
+    "working_precision_bits": 384,
+    "threads": 4
+  },
+  "normalization": {
+    "physical_half_window_a": "4/5",
+    "project_L_program": "16/5",
+    "fourier_transform": "F(t)=integral f(x) exp(i t x) dx",
+    "active_prime_powers": [2, 3, 4],
+    "prime_mass_ball": "[2.94197352522362045550390939018 +/- 2.71e-30]",
+    "cutoff_T": 200,
+    "exterior_floor_alpha": "1/2",
+    "crude_exterior_beta_star_ball": "[0.513466774915070738 +/- 3.89e-19]"
+  },
+  "finite_core": {
+    "total_legendre_degrees": 250,
+    "degree_range": "0 through 249",
+    "even_modes": 125,
+    "odd_modes": 125,
+    "gauss_legendre_order_per_unit_panel": 80,
+    "unit_panels": 200,
+    "analytic_entry_error_ball": "[1.21884933566808127e-29 +/- 4.55e-47]",
+    "parity_block_operator_error_ball": "[1.52356166958510158e-27 +/- 1.82e-45]",
+    "maximum_final_entry_radius_ball": "[1.21884934136585485e-29 +/- 1.18e-47]",
+    "head_shift": "9e-18",
+    "even_approximate_least_eigenvalue_diagnostic": "1.018498458859853484305779e-17",
+    "even_congruence_smallest_shifted_pivot_ball": "[1.184984588553443791708767e-18 +/- 2.81e-43]",
+    "odd_approximate_least_eigenvalue_diagnostic": "1.137772836967870790412709e-14",
+    "odd_congruence_smallest_shifted_pivot_ball": "[1.136872836967865838917864e-14 +/- 3.26e-39]",
+    "assembly_seconds_reported": 13.40
+  },
+  "independent_adaptive_entry_cross_check": {
+    "method": "acb.integral on unit panels, using holomorphic digamma symmetrization and direct spherical-Bessel/0F1 formulas; it shares neither the common Gauss nodes nor the Bernstein remainder",
+    "pairs_total": 9,
+    "pairs_passed": 9,
+    "entries": [
+      {"degrees": [0, 0], "direct_ball": "[0.0723724278847582282 +/- 4.32e-20]", "common_ball_display": "[0.0723724278847582282 +/- 4.32e-20]", "result": "OVERLAPS"},
+      {"degrees": [0, 20], "direct_ball": "[-0.0151544138258500619 +/- 5.10e-21]", "common_ball_display": "[-0.0151544138258500619 +/- 5.10e-21]", "result": "OVERLAPS"},
+      {"degrees": [20, 20], "direct_ball": "[1.39131358411959063 +/- 7.81e-19]", "common_ball_display": "[1.39131358411959063 +/- 7.81e-19]", "result": "OVERLAPS"},
+      {"degrees": [40, 80], "direct_ball": "[-0.0121084202208105705 +/- 4.66e-21]", "common_ball_display": "[-0.0121084202208105705 +/- 4.66e-21]", "result": "OVERLAPS"},
+      {"degrees": [80, 80], "direct_ball": "[2.28145590715291709 +/- 5.98e-19]", "common_ball_display": "[2.28145590715291709 +/- 5.98e-19]", "result": "OVERLAPS"},
+      {"degrees": [1, 1], "direct_ball": "[0.0842558577690942342 +/- 2.57e-20]", "common_ball_display": "[0.0842558577690942342 +/- 2.57e-20]", "result": "OVERLAPS"},
+      {"degrees": [1, 21], "direct_ball": "[-0.0935517426907821871 +/- 2.14e-20]", "common_ball_display": "[-0.0935517426907821871 +/- 2.14e-20]", "result": "OVERLAPS"},
+      {"degrees": [81, 121], "direct_ball": "[-0.0453348838051251696 +/- 4.03e-21]", "common_ball_display": "[-0.0453348838051251696 +/- 4.03e-21]", "result": "OVERLAPS"},
+      {"degrees": [249, 249], "direct_ball": "[0.500000000000000000 +/- 1e-23]", "common_ball_display": "[0.500000000000000000 +/- 1e-23]", "result": "OVERLAPS"}
+    ],
+    "result": "PASS"
+  },
+  "full_space_transfer": {
+    "full_shift": "8.9e-18",
+    "bessel_ratio_ball": "[0.1015860922290607651496212 +/- 3.47e-26]",
+    "B_star_ball": "[5.861795840539570795232092e-34 +/- 3.89e-59]",
+    "rho_tail_ball": "[5.970776213871258727261814e-32 +/- 1.07e-57]",
+    "pole_delta_ball": "[1.910685556390968010009647e-592 +/- 2.64e-617]",
+    "complement_diagonal_ball": "[0.5000000000000000000000000 +/- 3e-30]",
+    "coupling_ball": "[3.909627489609518072224033e-15 +/- 2.92e-40]",
+    "shifted_2x2_determinant_ball": "[4.999999998471481200248958e-20 +/- 2.35e-45]"
+  },
+  "named_analytic_inputs": [
+    "Chuk's crude exterior digamma envelope for t >= 15/4",
+    "Parseval and parity/real-complex decomposition in the stated Fourier normalization",
+    "the normalized Legendre plane-wave coefficient formula",
+    "the elementary spherical-Bessel double-factorial majorant and geometric tail sum",
+    "the exponential Taylor remainder controlling the pole-vector complement",
+    "the Chebyshev coefficient bound for functions analytic on a Bernstein ellipse"
+  ],
+  "result": "PASS"
+}

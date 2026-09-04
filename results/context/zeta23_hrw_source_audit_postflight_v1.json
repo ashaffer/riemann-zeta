@@ -1,0 +1,19 @@
+{
+  "schema": "zeta23-research-postflight-v1",
+  "date": "2026-09-01",
+  "preflight": "results/context/zeta23_hrw_source_audit_preflight_v1.json",
+  "target_status": "OPEN_REFORMULATED_WITH_STRONGER_FINITE_EVIDENCE",
+  "exact_new_identity": "With P_Q=A^-1 X and P_h=H^-1 Y, the harmonic residual cross is B=A(P_Q-P_h), hence B^*A^-1B=(P_Q-P_h)^*A(P_Q-P_h).",
+  "successor_target": "PD_R: the Q-energy of the mismatch between the Q-harmonic and reference-harmonic Poisson extensions is bounded by the L2 energy of the reference-harmonic lift, uniformly on each compact support slab.",
+  "finite_evidence": "Five resolution-matched cutoff-free ordinary-mpmath probes have Ward/Poisson-defect ratios in [0.9044303,1.147083] while the old Ritz floor falls from 8.878e-7 to 1.330e-8.",
+  "precision_replay": "The M40,q=1,delta=.32 calculation agrees at dps 55 and dps 85 in all 20 serialized digits of the principal invariants.",
+  "source_audit_correction": "The near-all-ones source null direction and physical sign-pattern rank are largely forced by exact source reconstruction and B=A(P_Q-P_h); they are consistency evidence, not a new arithmetic cancellation theorem.",
+  "genuine_nontrivial_signal": "The basis-invariant Q-energy norm of P_Q-P_h stays O(1) through the tested falling-floor and q=2 width refinements. Exact p5 contact materially reduces this norm while leaving the old metric unchanged.",
+  "best_next_falsifier": "Construct the Connes-Consani semilocal product u_F=rho_infinity rho_2 rho_3 rho_5 before logarithmic differentiation and test an exact compressed Hankel-defect-to-Poisson-mismatch bridge.",
+  "parallel_open_sibling": "NR_log quantitative norm-resolvent localization for the killed log-Bessel reference operator.",
+  "claim_status": "NO_CONTINUUM_OR_INTERVAL_THEOREM; UNIFORM_PROPAGATION_UNIFORM_STRIP_AND_RH_OPEN",
+  "report": "results/ZETA23-WARD-POISSON-DEFECT-SOURCE-AUDIT-2026-09-01.md",
+  "summary_data": "results/zeta23_ward_poisson_defect_summary_2026_09_01.json",
+  "driver": "src/ward_source_extremizer_probe.py",
+  "tests": "src/test_ward_source_extremizer_probe.py"
+}

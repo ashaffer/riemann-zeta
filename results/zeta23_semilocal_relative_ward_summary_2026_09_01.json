@@ -1,0 +1,79 @@
+{
+  "schema": "zeta23.semilocal-relative-ward-summary.v1",
+  "date": "2026-09-01",
+  "status": "FINITE_GALERKIN_DIAGNOSTIC_NOT_A_THEOREM",
+  "event_prime": 5,
+  "geometry": "literal_disjoint_collar_hats_then_full_two_moment_relative_G_complement",
+  "moment_conditions": [
+    "ell_plus(f)=integral f(x) exp(x/2) dx=0",
+    "ell_minus(f)=integral f(x) exp(-x/2) dx=0"
+  ],
+  "form_assembly": "cutoff-free high-precision mpmath assembly followed by double-precision nullspaces and generalized eigensolves",
+  "interpretation": "The zeta pole form compresses to zero algebraically. Ratios near one are finite evidence for a relative Ward target, not a uniform bound or a positivity theorem.",
+  "rows": [
+    {
+      "old_degree": 40,
+      "collar_degree_per_side": 1,
+      "delta": 0.32,
+      "old_relative_dimension": 38,
+      "collar_relative_dimension": 2,
+      "old_ritz_floor": 2.635218204301118e-05,
+      "ward_ratio": 1.0960282678750053,
+      "response_spectrum": [0.5787759341139007, 1.0960282678750053],
+      "g_orthogonality_error": 1.1247210800148977e-15,
+      "moment_annihilation_error": 6.270727122791079e-16,
+      "compressed_pole_operator_norm": 1.613956929970315e-16,
+      "completed_nonpole_theta_difference": 8.526512829121202e-14
+    },
+    {
+      "old_degree": 48,
+      "collar_degree_per_side": 2,
+      "delta": 0.4,
+      "old_relative_dimension": 46,
+      "collar_relative_dimension": 4,
+      "old_ritz_floor": 1.208723736155716e-05,
+      "ward_ratio": 1.0898133917584656,
+      "response_spectrum": [0.57519167, 0.70516929, 0.8123737, 1.08981339],
+      "g_orthogonality_error": 5.249189070276666e-15,
+      "moment_annihilation_error": 2.2120793235423672e-15
+    },
+    {
+      "old_degree": 80,
+      "collar_degree_per_side": 1,
+      "delta": 0.16,
+      "old_relative_dimension": 78,
+      "collar_relative_dimension": 2,
+      "old_ritz_floor": 1.9395348112375017e-06,
+      "ward_ratio": 0.8977242808947099,
+      "response_spectrum": [0.86720967, 0.89772428],
+      "g_orthogonality_error": 6.7765906460912e-15,
+      "moment_annihilation_error": 3.1459311379113176e-15
+    },
+    {
+      "old_degree": 96,
+      "collar_degree_per_side": 2,
+      "delta": 0.2,
+      "old_relative_dimension": 94,
+      "collar_relative_dimension": 4,
+      "old_ritz_floor": 1.080810112690838e-06,
+      "ward_ratio": 1.01743089689277,
+      "response_spectrum": [0.63146588, 0.70848114, 1.00549799, 1.0174309],
+      "g_orthogonality_error": 8.36722376235053e-15,
+      "moment_annihilation_error": 3.0267881597164285e-15
+    },
+    {
+      "old_degree": 128,
+      "collar_degree_per_side": 1,
+      "delta": 0.1,
+      "old_relative_dimension": 126,
+      "collar_relative_dimension": 2,
+      "old_ritz_floor": 4.2218639534991254e-07,
+      "ward_ratio": 0.9468316075672544,
+      "response_spectrum": [0.9079052, 0.94683161],
+      "g_orthogonality_error": 9.598746023097652e-15,
+      "moment_annihilation_error": 5.71167420934887e-15
+    }
+  ],
+  "reproduction": "python3 src/semilocal_relative_ward_probe.py --dps 50",
+  "fast_reproduction": "python3 src/semilocal_relative_ward_probe.py --case 40:1:.32 --dps 50"
+}

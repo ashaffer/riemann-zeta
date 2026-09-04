@@ -1,0 +1,16 @@
+{
+  "schema": "zeta23-research-postflight-v1",
+  "date": "2026-09-01",
+  "preflight": "results/context/zeta23_hsbcr_preflight_v1.json",
+  "original_target_status": "RETIRED_AS_DEFAULT_OVERSTRONG_TARGET",
+  "reason": "An exact positive 2x2 family has reference localization, a uniformly L2-bounded residual, and the desired direct inverse-response rate while violating the proposed extra dyadic (m+1)^-2 allocation by an unbounded factor.",
+  "what_was_not_refuted": "The actual-zeta operator might satisfy stronger band estimates, but they are neither structurally implied nor needed for propagation.",
+  "successor_reference_target": "NR_log: J^*GJ <= C_R/log(e/delta) S, equivalently quantitative norm-resolvent convergence for the killed log-Bessel reference operator.",
+  "successor_arithmetic_target": "HRW: J^*R P_old^* A^-1 P_old R J <= C_R J^*GJ.",
+  "division_free_successor": "For old u and reference-harmonic collar w, |R(u,w)|^2 <= C_R Q_L(u,u)||w||_2^2.",
+  "finite_evidence": "Matched literal-collar probes give Ward ratios 1.05946 (q=1), 1.03802 (q=2, delta=0.4), and 1.14708 (q=2, delta=0.2).",
+  "claim_status": "OPEN_SUCCESSOR_THEOREMS_WITH_SUPPORTING_NONRIGOROUS_FINITE_DATA",
+  "downstream_status": "Uniform propagation, a uniform zero-free strip, and RH remain open.",
+  "report": "results/ZETA23-HARMONIC-RESOLVENT-WARD-PROPAGATION-AUDIT-2026-09-01.md",
+  "data": "results/zeta23_harmonic_resolvent_ward_probe_2026_09_01.json"
+}

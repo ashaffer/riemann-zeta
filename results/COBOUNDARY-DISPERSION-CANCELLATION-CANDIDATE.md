@@ -5,7 +5,7 @@ does **not** prove a new zero-free region or the Riemann Hypothesis.
 
 ## 1. Verdict
 
-There is one completion-preserving way to turn the fixed-window/Type-II
+There is a completion-preserving way to turn the fixed-window/Type-II
 problem into a positive dispersion problem:
 
 1. group the entire Vaughan tail by its total product;
@@ -108,9 +108,14 @@ Delta_ell F_(U,V)(R)
 ```
 
 where `D_(ell,1)=D_ell` and `E_(U,V)` is the stated Euler-evaluation defect.
-Below the fixed-order endpoint, the last term tends to zero.  On a short
-scale block, `U,V` can be frozen at the lower endpoint and remain within
-constant factors of the balanced range.
+Below the fixed-order endpoint, the last term tends to zero.  Identity
+(2.11) uses the same frozen pair `U,V` at both endpoints.  In a block
+argument, freeze `U,V` at the lower endpoint of a regular block, keep the
+block short enough that they remain within constant factors of the balanced
+range, and compare this frozen field with the globally moving-cutoff field
+through the signed Euler defect.  The regular-block convention and its
+endpoint bookkeeping are stated in
+[`DIRECT-CUTOFF-COMPLETE-TWO-SHIFT-GATE.md`](DIRECT-CUTOFF-COMPLETE-TWO-SHIFT-GATE.md).
 
 The transform multiplier of (2.5) is
 
@@ -255,8 +260,9 @@ theorem.
 
 ### Lemma 6.1 (semiprime diagonal)
 
-Let `0<theta<1/2`, and let `W` be a fixed nonnegative compactly supported
-smooth function.  Then
+Let `0<theta<1/2`, take `U,V<=X^theta`, and let `W` be a fixed,
+nonzero, nonnegative compactly supported smooth function.  On a block core
+where `W` is the displayed energy weight, one has
 
 ```text
 sum_(X^theta<p<q)
@@ -308,10 +314,18 @@ abs(G_(h,k)(i gamma))
 ```
 
 The zeta divisor has no node with `gamma=0`.  Consequently, for fixed `h`
-there is a `q_h<1` controlling the low zero ordinates, while the elementary
-`1/abs(gamma)` bound controls the high tail.  Riemann--von Mangoldt counting
-then gives exponential decay in `k` for the absolutely summed critical-line
-contribution.
+there is a `q_h<1` controlling any fixed bounded set of zero ordinates.  For
+the high tail one must also use
+
+```text
+abs(sinc(h gamma/2))<=min(1,2/(h abs(gamma))),            (7.3a)
+```
+
+because `1/abs(gamma)` alone is not summable over zeta zeros.  Combining
+(7.3), (7.3a), and Riemann--von Mangoldt counting gives exponential decay in
+`k` for the absolutely summed critical-line contribution.  The stronger
+uniform shell estimate is recorded in
+[`FULL-FIELD-VK-SUBPOWER-BOUND.md`](FULL-FIELD-VK-SUBPOWER-BOUND.md).
 
 The conclusion is different off the line.  For
 `s_0=delta+i gamma`, `delta!=0`, neither factor in (7.2) vanishes and
@@ -441,7 +455,13 @@ effect, not numerical evidence for RH.  The reproducible implementation is
 
 ## 9. Fair next tests
 
-1. Prove Proposition 3.1 and Lemma 6.1 in publication-ready detail.  The full
+1. The completion algebra and its frozen/moving-cutoff quantifiers have now
+   passed a hostile audit; see
+   [`COBOUNDARY-TYPE-II-REFEREE-AUDIT-2026-08-11.md`](COBOUNDARY-TYPE-II-REFEREE-AUDIT-2026-08-11.md).
+   The complete finite scan in
+   [`TYPEII-COMPLETE-CENTER-ADVERSARIAL-AUDIT-2026-08-11.md`](TYPEII-COMPLETE-CENTER-ADVERSARIAL-AUDIT-2026-08-11.md)
+   rejects stable sign and diagonal-domination shortcuts.  Proposition 3.1
+   and Lemma 6.1 still need publication-ready analytic packaging.  The full
    `k>1` explicit formula is now proved for the cutoff-independent exact-head
    field, and the frozen-center transfer is proved by classical synthesis, in
    [`FULL-FIELD-VK-SUBPOWER-BOUND.md`](FULL-FIELD-VK-SUBPOWER-BOUND.md).
@@ -474,10 +494,19 @@ effect, not numerical evidence for RH.  The reproducible implementation is
    candidate Vinogradov--Korobov calibration and its remaining uniformity
    obligations, is audited in
    [`MOBIUS-TWO-SHIFT-RENORMALIZATION-GATE.md`](MOBIUS-TWO-SHIFT-RENORMALIZATION-GATE.md).
+   The current source and parameter audit is
+   [`TYPEII-FIXED-SAVING-THEOREM-CARD-2026-08-11.md`](TYPEII-FIXED-SAVING-THEOREM-CARD-2026-08-11.md):
+   the complete bound remains Vinogradov--Korobov subpower, while the genuine
+   fixed power for nonzero reciprocal phases does not control the recompleted
+   slow ordinary dual.  The exact identity
+   `S_C(N)-1=sum_(k<=N)mu(k)R(floor(N/k))`, its power-exponent equivalence
+   with Mertens cancellation, and the centered inverse-floor-operator
+   obstruction are in
+   [`MOBIUS-LOG-FLOOR-RECURRENCE-OBSTRUCTION-2026-08-11.md`](MOBIUS-LOG-FLOOR-RECURRENCE-OBSTRUCTION-2026-08-11.md).
 6. Treat a bound
 
 ```text
-mathcal E_ell(T)<<exp((1-2eta+o(1))T)                     (8.1)
+mathcal E_ell(T)<<exp((1-2eta+o(1))T),  0<eta<=1/2 fixed, (8.1)
 ```
 
    as a new fixed zero-free strip, and

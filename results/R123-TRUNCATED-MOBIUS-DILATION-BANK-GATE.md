@@ -13,6 +13,30 @@ improvement in the dilation ledger, but not yet a fixed zero-free strip.
 
 Date: 2026-08-07.
 
+**2026-09-02 fixed-window scope correction.**  “Subpower loss” and
+“zero-faithful” below refer to the regular growing-order schedule on which
+the cofactor cutoff is `X^(o(1))`.  At fixed order `k`, the cutoff may be as
+large as
+
+```text
+M=X^a,                 a=1/(2(k+1)),
+```
+
+and the detector response to a zero at exponent `beta` loses `X^(-a)` in
+amplitude.  Thus a full-energy saving `X^(-kappa)` yields only the safe strip
+width `kappa/2-a` (or, retaining the exact exponent, the sharper
+`(kappa/2-a)/(1-a)`), and requires `kappa>1/(k+1)`.  No converse presently
+transfers either relevant sublinear single schedule back to a fixed window:
+fixed total width `h=ell/k`, `k log k=o(R)`, or fixed step `h`,
+`k^2=o(R)`.  The R80 proportional-order dyadic bank is a different
+family and does not validate this step.
+
+R125 supplies a further decisive successor correction: the two filters are
+identical on the collapsed tail.  Their only independent zero-faithful
+direction is a shifted copy of the complete original field at scale `X/P`.
+Thus the formulas above calibrate a conditional two-full-field bound; they
+do not make the collapsed tail a smaller strip-relevant target.
+
 Predecessors:
 
 * [`R105-GROWING-COFACTOR-DILATION-FILTER-GATE.md`](R105-GROWING-COFACTOR-DILATION-FILTER-GATE.md),
@@ -165,7 +189,7 @@ two adjacent cutoffs above the cofactor range form a faithful bank.
 
 ### Theorem 3.1 (adjacent-cutoff zero-faithfulness)
 
-Let `M>=2`.  Choose a prime `P` with
+Let `M>=2` be an integer.  Choose a prime `P` with
 
 ```text
 M<P<2M                                                     (3.2)
@@ -270,10 +294,11 @@ reality check is that the free cofactor was not the final obstruction.
 Once it is removed without damaging the detector, the square-root
 `mu(d)Lambda(b)` tensor remains at full exponent size.
 
-The next valid use of this theorem is as a preprocessing step in any
-attempt to bridge the balanced composite packet to R118/R119.  It permits
-that attempt to set the free Vaughan cofactor exactly equal to one, with a
-finite zero-faithful detector bank and only a subpower shift cost.  A proof
-must still exploit cancellation in the two balanced factors jointly; a
-second invocation of (1.7) on the already collapsed cofactor does not do
-so.
+On the growing-order schedule, this theorem remains a local preprocessing
+step which sets the free Vaughan cofactor equal to one.  R121 later shows
+that the available CRT/Hilbert bridge from the resulting balanced composite
+packet to R118/R119 spends the local gain, while R128 restores the global
+family only by returning to R71.  At fixed order, the explicit loss in the
+2026-09-02 correction must also be paid.  A second invocation of (1.7) on
+the already collapsed cofactor does not create cancellation in the two
+balanced factors.

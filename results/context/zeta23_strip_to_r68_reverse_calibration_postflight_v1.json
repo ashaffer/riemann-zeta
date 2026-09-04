@@ -1,0 +1,47 @@
+{
+  "schema": "zeta23-research-postflight-v1",
+  "date": "2026-09-02",
+  "architecture": "uniform_strip_to_complete_R68_R71_reverse_calibration",
+  "verdict": "LICENSED_COMPLETE_FIXED_WINDOW_TARGET_IS_STRIP_EQUIVALENT_NOT_OVERSTRONG",
+  "conditional_theorems": [
+    "A strip of width delta gives the endpoint fixed-window R68 aggregate bound O(x^(1/2-delta)).",
+    "A strip of width delta gives every licensed complete frozen-cutoff scale block energy at most exp((1-2delta)R+o(R)).",
+    "Since X_I is the complete energy minus a nonnegative diagonal, the same upper bound holds for X_I.",
+    "The strip-to-growing-order block implication holds on schedules with subexponential multiplier and Euler-transfer costs.",
+    "For each fixed logarithmic width, the causal-box R95 exponent is endpoint-equivalent to a uniform strip."
+  ],
+  "imported_arrows": [
+    "The audited fixed-window cumulative energy exponent equals twice the horizontal zero displacement Delta.",
+    "The exact fixed-order Vaughan aggregate retains the same horizontal zero exponent.",
+    "The licensed frozen-cutoff field differs from the full field by the proved Euler-transfer defect."
+  ],
+  "corrections": [
+    "The every-scale-block quantifier does not make the honest complete target stronger than a strip; pointwise zero-side control bounds every block.",
+    "Overspecification begins with separate dyadic rectangles, cofactors, parity sectors, or arbitrary cutoff schedules.",
+    "A delta strip calibrates a central separate rectangle only to saving delta/2, whereas the complete field receives saving delta.",
+    "A fixed-step or fixed-total-width single-schedule growing-order upper bound is not strip-equivalent until its varying-test converse is proved; R80 already proves a converse for the distinct proportional-order dyadic bank."
+  ],
+  "calibrated_equivalences": {
+    "fixed_window_complete_R68_energy": "EXPONENT_EQUIVALENT_TO_STRIP",
+    "fixed_order_centered_R68_aggregate": "ENDPOINT_EQUIVALENT_TO_STRIP",
+    "fixed_causal_box_R95": "ENDPOINT_EQUIVALENT_TO_STRIP",
+    "fixed_step_or_fixed_total_width_single_schedule_R68_energy": "STRIP_IMPLIES_BOUND; REVERSE_OPEN",
+    "proportional_order_dyadic_bank_R80": "MOVING_EDGE_CONVERSE_PROVED",
+    "separate_rectangles_or_cofactors": "SAME_ETA_VERSION_STRONGER_THAN_STRIP"
+  },
+  "next_research_rule": "Treat the complete fixed-window estimate as the endpoint, not an intermediate lemma. A successor must contribute an independently motivated arithmetic mechanism in the complete sum before Cauchy or absolute values, while retaining all cross-component completion terms; R105 is already squared.",
+  "claim_status": {
+    "conditional_reverse_calibration": "PROVED_IN_LICENSED_SCOPE",
+    "unconditional_fixed_eta_R68_bound": "OPEN",
+    "uniform_zero_free_strip": "OPEN",
+    "RH": "OPEN"
+  },
+  "trust": {
+    "analytic_inputs": "AUDITED_LOCAL_IMPORTS_NOT_LEAN_FORMALIZED",
+    "new_work": "DIRECT_SYNTHESIS_AND_QUANTIFIER_CALIBRATION",
+    "literature_novelty": "NO_NOVELTY_CLAIM"
+  },
+  "finite_replay": "PYTHONPATH=src python3 -m pytest -q src/test_strip_to_r68_reverse_calibration.py",
+  "finite_replay_result": "PASS: 6 reverse-calibration tests; PASS: 90 tests in the combined R68/R95 suite",
+  "nonclaim": "The strip is assumed. No unconditional zero-free strip, fixed-eta estimate, or RH proof is obtained."
+}

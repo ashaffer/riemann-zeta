@@ -1,0 +1,57 @@
+{
+  "schema": "zeta23.hat_transition_ca4.preflight.v1",
+  "card_id": "HAT-TRANSITION-CA4-PREFLIGHT-V1",
+  "date": "2026-08-31",
+  "root_goal_boundary": {
+    "immediate_branch": "Construct the independent positive antenna DPA_P(c) for some 0.0189 < c < 0.019.",
+    "parallel_first_open_edge": "LTRAD_P(0.0189,0.001) remains independently open.",
+    "ceiling": "Closing this card and LTRAD would concern only the contemplated small zero-free strip near Re(s)=1. It would not prove RH without a new amplifier."
+  },
+  "theorem_passport": {
+    "architecture": "QP/Turan positive-antenna branch",
+    "source_and_mask": "Every ordinary prime in [Y exp(-1/5), Y exp(1/5)]; no prime powers and no post-frequency mask.",
+    "base_vector": "The fixed nonnegative nodal-hat probability from HT-HAT, with profile phi(u)=(1-|u|/(1/5)) exp((49/100)u).",
+    "comparison_vector": "The full nearest-prime logarithmic Voronoi probability for the same nodes and profile.",
+    "short_vector": "Delete both half-cell shares of every physical consecutive-prime edge g>Y^(163/1000), then renormalize once; the choice is independent of t.",
+    "continuous_reference": "The probability nu with density phi/int(phi) on [-1/5,1/5].",
+    "quantifiers": "For every sufficiently large admissible half-integer Y and every real t, or every dyadic T, in the explicitly stated bands.",
+    "normalization": "All full vectors are probabilities. The deleted short vector is renormalized by its own remaining mass; the resulting normalization change is charged to the deleted mass.",
+    "resolution": "Continuum in t, not a sampled grid.",
+    "target_floor": "P_Y(t) >= -Y^(-19/1000) on [Y^(1/100),Y^(50/33)], with asymptotic exponent slack used in downstream adapters.",
+    "relation_to_sharp_four_cycle": "The proposed CA4 input is a fixed-weight, centered, translated-window fourth moment with an allowed Y^(1/10) loss. It is neither the project's arbitrary-coefficient sharp four-cycle statement nor implied by that branch's bookkeeping.",
+    "trust_labels": "Published inputs and proved adapters are separated from the open CA4 arithmetic estimate and from finite FLOAT-SCOUT evidence."
+  },
+  "proved_targets_to_audit": {
+    "hat_voronoi_transfer": "Uniform l1/Fourier distance O(Y^(-77/100+epsilon)) between normalized full hat and full Voronoi vectors.",
+    "retuned_transition": {
+      "long_edge_exponent": "201/1250",
+      "time_exponent": "1049/1250",
+      "saving": "309/16250",
+      "statement": "The normalized full hat transform differs from the normalized continuum transform by O(Y^(-309/16250+epsilon)) for |t|<=Y^(1049/1250)."
+    },
+    "retained_l2": {
+      "long_edge_exponent": "163/1000",
+      "tail_saving": "267/13000",
+      "coefficient_l2_saving_q": "2787/3250"
+    }
+  },
+  "open_candidate": {
+    "name": "CA4(163/1000,1/10)",
+    "definition": "Let R_Y(t)=muhat_Y,short(t)-nuhat(t). For every overlapping dyadic T covering [Y^(1049/1250),Y^(50/33)], prove int_T^(2T) |R_Y(t)|^4 dt << T Y^(-2q+1/10+o(1)), q=2787/3250.",
+    "adapter": "Because |R_Y'|=O(1), a point with |R_Y|>=Y^(-c) contributes Omega(Y^(-5c)) to one containing dyadic fourth moment. CA4 gives the uniform exponent c_out=(2q-50/33-1/10)/5=10717/536250=0.019985... > 0.019.",
+    "first_unproved_edge": "A translated-kernel fourth-moment estimate for the raw retained atomic transform; equivalently, after the negligible continuum transform is restored, a gap-weighted balanced-semiprime product discrepancy at physical product resolution Y^2/T.",
+    "why_not_target_renaming": "CA4 controls positive as well as negative peaks and is strictly stronger than the one-sided floor, but it is averaged, fixed-weight, centered, and permits a fixed Y^(1/10) excess over the atomic diagonal."
+  },
+  "fast_falsifiers": {
+    "abstract_half_grid": "Fails asymptotically: an odd half-grid has a constant-width antipodal peak despite matching local geometry and good ordinary L2 energy.",
+    "prime_density_odd_integer_model": "Fails: the existing exact-log coherent odd-integer construction has no long-edge tail yet violates CA4.",
+    "coefficient_blind_large_sieve": "Fails: the standard semiprime mean-value theorem pays the conductor loss Y^2/T, whose exponent ranges from 1.1608 down to 16/33, far above the allowed 1/10.",
+    "absolute_near_product_count": "Fails: taking absolute values destroys the translated-kernel cancellation among unequal atomic products and retains the same conductor loss.",
+    "finite_evidence": "Licensed only as a bounded diagnostic on the four frozen HT-HAT vectors and their already frozen controls; no new centers or asymptotic promotion."
+  },
+  "decision_rule": {
+    "success": "A proof of CA4 with every mask, normalization, dyadic endpoint, and epsilon loss preserved closes the remaining HT-HAT high band and hence supplies DPA_P(c) for every fixed c<0.019.",
+    "failure": "A genuine actual-prime asymptotic counterexample to CA4 prunes this sufficient route but does not refute the weaker one-sided HT-HAT floor.",
+    "stop": "Do not enlarge the finite-Y ladder. Stop at an exact literature applicability verdict and the first unsigned/signed estimate not supplied by known theorems."
+  }
+}

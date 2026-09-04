@@ -1,0 +1,46 @@
+{
+  "schema": "zeta23-theorem-passport-v1",
+  "date": "2026-09-01",
+  "target_statement": "Generalize the shifted-Psi pole-killing ramp into an abstract scaled-kernel boundary calculus; classify minimal higher-order exponential, endpoint-flat, fractional, and compact Chebyshev pole annihilators; and identify the exact Dirichlet-series hypotheses under which the calculus and Landau exclusion transfer.",
+  "claim_status_sought": "PROJECT_PROVED_THEOREM_WITH_SCOPE for abstract asymptotics and finite-dimensional filter algebra; CONDITIONAL_TRANSFER_THEOREM for general Dirichlet series; METHOD_OBSTRUCTION for positivity and inverse stability",
+  "trust_model": [
+    "ANALYTIC_MANUSCRIPT_UNREFEREED for Stieltjes and asymptotic theorems",
+    "EXACT_RATIONAL_OR_SYMBOLIC_REPLAY for finite exponential filters",
+    "LEAN_KERNEL_CHECK for selected algebraic certificates",
+    "IMPORTED_FROM_LITERATURE only for named L-function applications and effective PNT inputs",
+    "FLOATING_POINT_DIAGNOSTIC only for sign-change illustrations"
+  ],
+  "first_unproved_edge": "A general kernel-jet expansion with explicit minimal hypotheses, followed by a closed-form order-m pole-killer classification and its oscillation/instability tax",
+  "mask_or_node_class": "Abstract locally finite Stieltjes measure for the analytic theorem; distinct nonnegative exponential rates for rational filters; Jacobi-type compact weights and finite real Chebyshev notch systems for the two-edge extension; actual von Mangoldt data only as one specialization",
+  "source_data_retained": "The centered discrepancy A(t)=-C+E(t), every required moment/tail hypothesis on E, the full kernel phi, and the complete pole principal part are retained",
+  "coefficient_cone_and_sign": "No positivity is assumed for the abstract discrepancy; the one-sided Landau corollary applies only to a real filtered function. Positivity of the underlying coefficients is recorded separately when used for growth or L-function applications",
+  "normalization": "Scaled kernel K_delta(t,u)=exp(delta*u) phi(delta*(t-u)); the original slice has phi(0)=1, while endpoint-flat order alpha is normalized by phi(v)~v^alpha/Gamma(alpha+1); order-m pole killing means Laplace(phi) has a zero of order m at the chosen anchor",
+  "height_window_and_one_sided_floor": "Boundary asymptotics use t=c/delta with c in compact subsets of (0,infinity); singularity exclusion fixes delta>0 and requires an eventual one-sided bound for all large t",
+  "quantifier_order": "For the boundary theorem choose the kernel and compact c-window, then delta tends to zero. For Landau choose one fixed delta and kernel, then the inequality holds for every sufficiently large t",
+  "resolution_required": "Exact Stieltjes identity, all retained discrepancy moments, exact rational multiplier zeros, and explicit distinction between compact-c asymptotics and unbounded-c eventual behavior",
+  "rate_and_exponent_ledger": {
+    "boundary_scale": "t=c/delta",
+    "order_m_inverse_instability": "a zero of order m at q=delta produces exp(delta*t) times a polynomial of degree m-1",
+    "tail_regimes": [
+      "integrable E gives an integer first correction delta*K0",
+      "rapid E gives the full moment expansion",
+      "regularly varying nonintegrable E may give fractional or delta*log(1/delta) corrections"
+    ]
+  },
+  "feasibility_or_nonvacuity_witness": "The zeta weighted-Mertens discrepancy and the already verified two-exponential filter satisfy the hypotheses; equally spaced rates give explicit order-m filters for every m",
+  "downstream_socket": "The abstract theorem explains mesoscopic sign fronts and supplies exact pole-sensitive filters. A separate eventual one-sided theorem is still required to exclude singularities or zeta zeros",
+  "parallel_open_siblings": [
+    "DPA_P(.019)",
+    "LTRAD_P(.0189,.001)",
+    "zeta-specific adjacent-support propagation in the Weil architecture"
+  ],
+  "why_not_target_renamed": "No compact-c boundary expansion is called a strip. General one-sided Landau criteria are labeled sufficient rather than equivalent unless a converse is separately proved",
+  "abstract_convex_falsifier": "Test arbitrary E with compact support, polynomial tails, and oscillatory tails; test kernels in the pole-killing ideal against the positive cone",
+  "fejer_falsifier": "For order m, verify the m moment constraints and at least m sign changes; failure indicates a normalization or multiplicity error",
+  "prime_density_pseudonode_falsifier": "Insert a positive oscillatory density with a forbidden Mellin pole and verify that every claimed generic eventual margin fails",
+  "finite_actual_prime_diagnostic": "Use only to replay the m=1 specialization and illustrate higher-order kernel zeros; no asymptotic claim is licensed by finite data",
+  "actual_prime_arithmetic_line": "Any strip application beyond the abstract criterion must use arithmetic not shared by generic positive Mellin-pole models",
+  "decision_tree_change_if_proved": "Promote the boundary layer from a zeta-specific identity to a reusable pole-filter calculus and identify exactly which parts can transfer to other zeta/L-functions",
+  "decision_tree_change_if_refuted": "Retain only the verified m=1 zeta theorem and reject higher-order or general-L-function language",
+  "stop_rule": "Stop extending a branch when it requires absent tail moments, complex quantities with no order, a pole/zero cancellation not represented in the multiplier, or an eventual estimate equivalent in strength to the desired singularity-free region"
+}

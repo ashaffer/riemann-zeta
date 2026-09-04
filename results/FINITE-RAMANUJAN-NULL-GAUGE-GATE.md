@@ -516,7 +516,7 @@ finite-coordinate statement of the remaining estimate is
 (b+zu)*[
  H_(theta=0)+H_(j=0)+H_(axes)+H_(j theta!=0)
 ](b+zu)
- <<Y^(1-2eta+o(1)),             eta>0 fixed.            (9.1)
+ <<Y^(1-2eta+o(1)),       0<eta<=1/2 fixed.              (9.1)
 ```
 
 Every block in (9.1) must use the same gauge representative, and the result

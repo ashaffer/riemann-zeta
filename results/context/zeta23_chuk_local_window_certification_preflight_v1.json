@@ -1,0 +1,49 @@
+{
+  "schema": "zeta23.chuk_local_window_certification.preflight.v1",
+  "date": "2026-09-01",
+  "target_statement": "Certify strict positivity of the completed-zeta localized Weil form at physical half-window a=0.8 (project L_program=3.2), ideally with Chuk's claimed floor 8.9e-18, on the correct logarithmic form domain.",
+  "claim_status_sought": "RIGOROUS_INTERVAL_COMPUTATION plus an analytic full-domain enclosure; conditional or floating evidence must remain labelled as such.",
+  "trust_model": "Primary-source formula audit, independent high-precision reproduction, Arb or equivalent outward-rounded interval arithmetic, exact certificate replay, and a theorem-kernel wrapper for the finite algebra where practical.",
+  "first_unproved_edge": "A full-space coercive lower bound from a finite even/odd Legendre block plus rigorously bounded quadrature, matrix-entry, and infinite-block tail errors.",
+  "mask_or_node_class": "Exact completed Riemann-zeta Weil source with active prime powers 2, 3, and 4 at log n < 1.6; no smoothing or source replacement.",
+  "source_data_retained": "Pole evaluation term, archimedean digamma symbol, and each active von-Mangoldt cosine term with exact normalization.",
+  "coefficient_cone_and_sign": "All complex functions in the localized logarithmic form domain; parity reduction must be proved rather than assumed. The initial numerical matrices may be audited separately in real even and odd sectors.",
+  "normalization": "Chuk L=project physical half-window a=0.8; autocorrelation support is [-1.6,1.6]; project L_program=4a=3.2; angular Fourier transform F(t)=integral f(u)e^(itu)du.",
+  "height_window_and_one_sided_floor": "All Fourier heights. Chuk's one-stroke reduction uses T_sharp=200 and beta*=log(T_sharp/(2pi))-1/T_sharp-A_L; the final target floor is at least 8.9e-18 times ||f||_2^2.",
+  "quantifier_order": "For every f in the stated form domain, one fixed certificate at a=0.8 proves the lower bound. Numerical discretization choices are fixed before f.",
+  "resolution_required": "Outward-rounded enclosures fine enough that total finite-block plus tail uncertainty is strictly smaller than the certified spectral floor; sampled eigenvalues alone are inadmissible.",
+  "rate_and_exponent_ledger": {
+    "claimed_floor": "8.9e-18",
+    "reported_T_sharp": 200,
+    "reported_even_modes": 200,
+    "reported_beta_star": "approximately 0.513466775",
+    "required_error_budget": "strictly below the lower spectral margin after all analytic and interval errors",
+    "all_losses": [
+      "Fourier/digamma quadrature enclosure",
+      "finite matrix rounding enclosure",
+      "verified positive-definiteness or eigenvalue residual",
+      "leading-to-tail cross-block norm",
+      "tail diagonal/coercivity enclosure",
+      "domain closure and parity/complexification adapters"
+    ]
+  },
+  "feasibility_or_nonvacuity_witness": "Existing independent floating Legendre calculations report an even-sector minimum near 1.68e-17 at 80 modes, next even eigenvalue near 8.44e-12, and odd minimum near 1.59e-14; these are diagnostics only.",
+  "downstream_socket": "A certified a=0.8 seed improves the local Weil positivity endpoint. It does not propagate positivity, prove global Weil positivity, or prove RH without a separate actual-zeta adjacent-support theorem.",
+  "parallel_open_siblings": [
+    "actual-zeta p=5 adjacent-support Schur estimate",
+    "source-identifying positive completion",
+    "global Weil positivity"
+  ],
+  "why_not_target_renamed": "This is a fixed-window certification problem with finite prime-power support and a claimed explicit spectral gap, strictly weaker than adjacent propagation or global positivity.",
+  "fast_falsifiers": [
+    "Recompute A_L and beta* from the exact normalization.",
+    "Reproduce the parity spectra at increasing precision and basis size.",
+    "Test whether the published one-stroke symbol inequality has the correct sign and Fourier constants.",
+    "Check whether the stated L2 theorem is actually extended-valued outside the logarithmic form domain.",
+    "Reject any finite Galerkin positivity without a certified tail Schur bound.",
+    "Reject a certificate whose total enclosure radius reaches the 8.9e-18 floor."
+  ],
+  "decision_tree_change_if_proved": "Promote the local seed from a=7/16 to a=0.8, then attack the nearby p=5 activation at L_program=2 log 5. No global theorem status changes.",
+  "decision_tree_change_if_refuted": "Downgrade only Chuk's numerical theorem or chosen certificate architecture; local positivity at a=0.8 may remain true under another proof.",
+  "stop_rule": "Do not call the window certified unless the exact source, full domain, finite matrix, and infinite tail are all enclosed with positive residual margin and the certificate is independently replayable."
+}

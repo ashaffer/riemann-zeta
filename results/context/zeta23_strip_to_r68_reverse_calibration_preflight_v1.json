@@ -1,0 +1,23 @@
+{
+  "schema": "zeta23-research-preflight-v1",
+  "date": "2026-09-02",
+  "target_statement": "Assume a fixed uniform zero-free strip for zeta and determine whether it implies the complete blockwise fixed-delta R68/R71 two-shift estimate.",
+  "strip_hypothesis": "For some fixed delta in (0,1/2], every nontrivial zero rho=beta+i gamma satisfies delta <= beta <= 1-delta.",
+  "candidate_conclusion": "On every licensed regular frozen-cutoff block with right endpoint R, X_I <= exp((1-2 delta+o(1))R), where 0<delta<=1/2 is the fixed strip width and X_I is the complete centered energy minus only the grouped atomic diagonal.",
+  "control_case": "Calibrate the fixed causal-box R95 detector in both directions.",
+  "fast_falsifiers": [
+    "If the zero-side window series is absolutely convergent, the strip should give a pointwise exp((1/2-delta)R) field bound and hence every-block energy control.",
+    "If the cutoff-completion error is not subexponential uniformly on the licensed schedule, the strip-to-R68 transfer fails.",
+    "If X_I is not bounded above by the nonnegative completed energy, the off-diagonal formulation adds an independent obligation.",
+    "If only a growing-order detector is controlled, the reverse R68-to-strip arrow must not be asserted without a varying-test converse.",
+    "If the causal-box multiplier vanishes at a possible zero, the scalar control case is not faithful."
+  ],
+  "quantifier_firewall": [
+    "delta is fixed independently of R, the block, and zero height",
+    "the field retains every cofactor and both mandatory centers",
+    "the block weights satisfy 0 <= psi <= 1 and have subexponential support cost",
+    "the cutoff schedule is restricted to the range with a proved subexponential Euler-transfer defect",
+    "fixed-window and growing-order converse statements are kept separate"
+  ],
+  "nonclaim": "This is a conditional calibration. It does not prove the assumed zero-free strip, the R68 estimate unconditionally, or RH."
+}

@@ -1,0 +1,76 @@
+{
+  "schema": "zeta23-r188-principal-band-literature-search-v1",
+  "access_date": "2026-09-04",
+  "scope": "Primary-source and local-predecessor check for estimates applicable to the completed R71 principal band at exponent 49/50.",
+  "databases": [
+    "arXiv",
+    "local ZETA23 theorem registry and reports"
+  ],
+  "representative_queries": [
+    "2026 exponential sums over primes rational major arcs",
+    "2026 trilinear Kloosterman fractions subdyadic intervals Wright",
+    "2026 bilinear Kloosterman sums quadratic characters critical square root",
+    "2026 Mobius fixed power weighted Mertens zero free strip"
+  ],
+  "local_predecessors": [
+    {
+      "path": "results/R105-QH-VAUGHAN-TAIL-NATIVE-BRIDGE-AUDIT.md",
+      "overlap": "Exact finite gamma tail-to-R81/Wright bridge, natural top-semiprime coefficient norm, X^(15/8) top-box failure, and fixed-modulus Blomer-Pascadi support mismatch."
+    },
+    {
+      "path": "results/R116-SIGNED-JOINT-TYPEII-ATTACK.md",
+      "overlap": "Proper-conductor cancellation on one balanced semiprime packet and exact primitive dualization to a Mobius-sensitive ordinary Type-II form."
+    },
+    {
+      "path": "results/R104-QH-FINITE-COFACTOR-SECTOR-THEOREM.md",
+      "overlap": "Faithful center annihilation, finite cofactors, subpower degenerate faces, and the surviving high-k all-box endpoint."
+    },
+    {
+      "path": "results/ZETA23-R71-COMPLETION-PRESERVING-MINOR-ARC-TRIAGE-2026-09-03.md",
+      "overlap": "Principal-band equivalence, exact affine center, and the 49/50 completed target."
+    }
+  ],
+  "primary_sources": [
+    {
+      "id": "arXiv:2608.27732v1",
+      "title": "Trilinear Kloosterman fractions II: subdyadic intervals and nearly balanced convolutions",
+      "author": "Thomas Wright",
+      "url": "https://arxiv.org/abs/2608.27732",
+      "checked": "Theorem 2.1 and its X^(-7 eta/5) subdyadic comparison",
+      "verdict": "The theorem is not directly applicable to the unpartitioned top box because both denominator supports must be subdyadic. Partitioning both full supports and using scalar triangle loses more than the unchanged A^(1/2) branch gains; the nominal X^(-7 eta/5) comparison belongs to the other dominant branch. It also has nonzero phase and supplies no completed cross-sector cancellation."
+    },
+    {
+      "id": "arXiv:2604.25177v1",
+      "title": "Trilinear Kloosterman fractions I: partially fixed moduli and unbalanced convolutions",
+      "author": "Thomas Wright",
+      "url": "https://arxiv.org/abs/2604.25177",
+      "verdict": "This is the scalar theorem used in the local R84/R105 top-box ledger; it is weaker than the physical estimate at j*theta asymp X^2."
+    },
+    {
+      "id": "arXiv:2607.24311v1",
+      "title": "Bilinear forms with Kloosterman sums via quadratic characters",
+      "authors": "Valentin Blomer and Alexandru Pascadi",
+      "url": "https://arxiv.org/abs/2607.24311",
+      "checked": "critical square-root saving c^(-1/32)",
+      "verdict": "The exact R105 transform produces a full Fourier support and a modular-inverse image rather than the two native short additive supports; no completed varying-modulus lift is supplied."
+    },
+    {
+      "id": "arXiv:2608.14777v1",
+      "title": "Exponential sums over primes",
+      "authors": "James Maynard, Mayank Pandey, and Maksym Radziwill",
+      "url": "https://arxiv.org/abs/2608.14777",
+      "checked": "Theorem 1.1",
+      "verdict": "For alpha=z/X in the principal band, B=max(1,|z|); the N/sqrt(B) term is natural size for z=O(1) and the theorem does not estimate cancellation with the continuum center. Even at |z|=X^(1/100), its squared normalized scale is X^(99/100), above X^(49/50)."
+    },
+    {
+      "id": "arXiv:2606.29559v1",
+      "title": "On the level of distribution of Goldbach primes and its applications",
+      "author": "Mizuki Akeno",
+      "url": "https://arxiv.org/abs/2606.29559",
+      "verdict": "An almost-all Goldbach-prime distribution theorem, with neither the every-window quantifier nor the completed R71 source."
+    }
+  ],
+  "verdict": "NO_LOCATED_PRIMARY_RESULT_PROVES_THE_COMPLETED_HIGH_COFACTOR_SHORT_QUOTIENT_PROJECTOR_COUPLED_49_OVER_50_ESTIMATE",
+  "novelty_classification": "R188 is LOCAL_PREDECESSOR PLUS SHARPENED PROJECT_SYNTHESIS; the surviving completed vector estimate is OPEN and NOVELTY_UNRESOLVED.",
+  "caveat": "Failure to locate an indexed public match is not proof of literature-level novelty."
+}

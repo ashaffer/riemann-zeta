@@ -1,0 +1,45 @@
+{
+  "artifact": "ZETA23-CENTER-DENSITY-ACTUAL-PRIME-PROBE-PREFLIGHT-v1",
+  "date": "2026-08-31",
+  "claim_status_sought": "FINITE_DIAGNOSTIC",
+  "trust_model": "FLOATING_POINT_MONTE_CARLO_SCOUT_WITH_EXACT_ACTUAL_PRIME_MASK",
+  "target_statement": "At one bounded actual-prime scale, test whether retained-hat top-band fourth-moment energy or sampled negative peaks are enriched on centers phase-aligned with one common prime-interval sum, including an adversarial scan over common ordinates.",
+  "first_unproved_edges": [
+    "averaged-in-center retained-hat GCG4",
+    "event-conditioned density radialization"
+  ],
+  "mask_or_node_class": "All ordinary primes in each logarithmic shell; exact physical adjacent-gap retention rule g <= Y^(161/1000); floating quadrature for the retained nodal weights.",
+  "source_data_retained": "One fixed contiguous actual-prime interval I and one common ordinate tau; center phase alignment is evaluated exactly from Re(Y^(i tau) S_I(tau)).",
+  "coefficient_cone_and_sign": "Nonnegative retained-hat probability coefficients for the upper antenna; no LTRAD optimizer is approximated.",
+  "normalization": "Retained coefficients sum to one; source coherence is recorded both as |S_I|/#I and mass-normalized depth |S_I|/N.",
+  "height_window_and_one_sided_floor": "Only randomized top-band samples t in [Y^(50/33),2Y^(50/33)] are used; this is an L4 and negative-peak proxy, not a full-band floor certificate.",
+  "quantifier_order": "Fix actual-prime interval I; compute center energy; scan common tau in [N^(1/2),N], including a preregistered source-coherence choice and a hostile energy-enrichment choice; compare aligned and unaligned centers.",
+  "resolution_required": "Top-band phases are sampled directly at Y^(50/33); no interpolation from source height is asserted.",
+  "rate_and_exponent_ledger": {
+    "center_block": "Y=8000.5,...,9000.5",
+    "source_interval": "primes in [8200,9060]",
+    "retention_theta": "161/1000",
+    "top_aperture": "50/33",
+    "alignment_kappa": "3/4",
+    "legal_depth_target": "N^(-1/1000), known to be impossible at this finite scale by the prime-count ceiling"
+  },
+  "feasibility_or_nonvacuity_witness": "The fixed source interval is contained in every sampled shell, and every common tau defines a nonempty positive-density phase arc unless S_I(tau)=0.",
+  "downstream_socket": "A stable actual-prime enrichment would warn that source alignment and upper exceptional centers cannot be treated as independent. Absence of enrichment only removes that finite warning and proves no density theorem.",
+  "parallel_open_siblings": [
+    "uniform signed DPA_P(.019)",
+    "centerwise LTRAD_P(.0189,.001)",
+    "independent Weil architecture",
+    "strip-to-RH amplifier"
+  ],
+  "why_not_target_renamed": "The probe computes neither an asymptotic center average nor any source-conditioned radial radius; it asks only a finite morphology/correlation question.",
+  "fast_falsifiers": {
+    "abstract_convex": "Not licensed: the center-density intersection lemma is deterministic and cannot be refuted by arbitrary convex data.",
+    "fejer_half_grid": "Already shows that center averaging alone does not imply conductor gain; the present probe looks only for an additional actual-prime co-resonance.",
+    "prime_density_pseudonode": "Not rerun: a phase-aligned smooth control can mimic density but not the exact moving adjacent-prime mask.",
+    "finite_actual_prime": "Primary test: aligned/un-aligned energy ratios, rank correlations, top-tail overlap, replicate Monte Carlo error, circular-shift controls, and a hostile tau scan."
+  },
+  "actual_prime_arithmetic_line": "The moving retained edge mask and nodal weights use actual consecutive prime gaps; source phases use the same actual primes.",
+  "decision_tree_change_if_signal_found": "Do not assume generic phase equidistribution makes the lower witness set independent of upper failures; any future coupled theorem must defeat the measured co-resonance mechanism.",
+  "decision_tree_change_if_no_signal": "The simplest finite co-resonance falsifier fails, but both asymptotic inputs remain open and unchanged.",
+  "stop_rule": "No asymptotic exponent, GCG4, LTRAD, strip, or RH claim; stop after one center block, one fixed source interval, two independent top-band sampling replicates, and a bounded tau scan."
+}

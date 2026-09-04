@@ -1,0 +1,99 @@
+{
+  "artifact": "ZETA23-ARITHMETIC-PROVENANCE-HIGHER-STRUCTURE-LEDGER-v1",
+  "date": "2026-08-31",
+  "main_report": "results/ZETA23-ARITHMETIC-PROVENANCE-DESCENT-AND-HIGHER-STRUCTURE-SYNTHESIS-2026-08-31.md",
+  "claim_boundary": {
+    "riemann_hypothesis": "OPEN",
+    "global_weil_positivity": "OPEN / RH-equivalent interface",
+    "uniform_zero_free_strip": "OPEN",
+    "DPA_P_019": "OPEN",
+    "LTRAD_P_0189_001": "OPEN",
+    "CA4": "OPEN",
+    "sharp_four_cycle": "OPEN and not a direct strip gate",
+    "strip_to_RH_amplifier": "ABSENT"
+  },
+  "correct_dependency_graph": {
+    "RH_route": [
+      "global Weil positivity",
+      "actual-zeta adjacent-support/source-labelled Schur estimate"
+    ],
+    "fixed_strip_route": [
+      "DPA_P(c) for c>.0189",
+      "LTRAD_P(.0189,.001)",
+      "both are required by the current adapter"
+    ],
+    "CA4_role": "One sufficient high-band child of DPA_P; not necessary for every DPA route and not a direct RH edge."
+  },
+  "cross_architecture_framework": {
+    "name": "pointed labelled-diagram descent with Mass-Identifiability-Stability audit",
+    "recurring_invalid_composite": [
+      "forget arithmetic source, mask, sign, boundary, quantifier, or resolution",
+      "apply a theorem on the coarse carrier",
+      "silently invert the forgetting map"
+    ],
+    "two_sided_test": "A scalar target is reconstructible to error epsilon from U(x) iff every licensed fiber has target diameter at most 2 epsilon.",
+    "one_sided_test": "Upper claims use the fiber supremum and lower claims use the fiber infimum; a countermodel must cross the claimed threshold.",
+    "MIS": {
+      "M": "Retain 1-o(1) of target mass or norm.",
+      "I": "The coarse fiber determines the target to the licensed one-sided or two-sided error.",
+      "S": "The reconstruction condition number, resolution, component count, and exponent loss fit the downstream budget."
+    },
+    "category_theory_scope": "Theorem passports and proved adapters form a typed path category with nonnegative numerical costs and an associative three-state provenance-obligation transition ledger. A labelled-diagram restriction functor models forgotten arrows or points. Category theory supplies type safety, not analytic cancellation."
+  },
+  "common_pointed_invariants": {
+    "Weil": "The pair ((I-AA^dagger)C, D-C^* A^dagger C): range defect plus Schur complement",
+    "CA4": "<D_rho c_eta, G_T D_rho c_eta>",
+    "LTRAD": "s_v=1/||v||_(h_Y,*)",
+    "shared_shape": "The target depends on a distinguished arithmetic mixed interaction that unpointed diagonal, trace, mass, or carrier data does not determine."
+  },
+  "exact_CA4_structure": {
+    "prior_result": "Every zero-mass vector on the ordered path is an edge boundary; this was already proved in results/ZETA23-PRIME-GRAPH-DIFFUSION-AND-ADJACENT-PAIR-TAIL-GATE-2026-08-13.md.",
+    "definitions": [
+      "delta=lambda-eta=boundary(c)",
+      "s=lambda+eta",
+      "r_i=delta_i/s_i, |r_i|<=1, sum_i s_i r_i=0"
+    ],
+    "two_channel_identity": "lambda tensor lambda - eta tensor eta = (delta tensor s + s tensor delta)/2",
+    "product_divergence": "boundary_1(c tensor s/2)+boundary_2(s tensor c/2)",
+    "additive_color": "A_ik=(s_i s_k/2)(r_i+r_k), so the ordered factor matrix has rank at most two.",
+    "bounded_contrast": "If kappa=lambda/eta-1, then r=kappa/(2+kappa). Polarization repackages the square-coefficient difference into one bounded s-balanced additive color without density-ratio truncation; it does not collapse the full fourth-energy difference.",
+    "Fourier_factorization": "M_lambda(t)^2-M_eta(t)^2=M_delta(t) M_s(t)",
+    "exact_diagonal": "D(delta,s)=||delta||_2^2||s||_2^2+<delta,s>^2-sum_i delta_i^2 s_i^2 <=2||delta||_2^2||s||_2^2",
+    "candidate_interface": "PG-EF(1/10): the translated mixed energy is at most T Y^(1/10+o(1)) D(delta,s). This is an OPEN diagonal-relative strengthening of the direct discrepancy target; the algebra alone does not make it easier and an independent flux/correlation input is still required.",
+    "soft_norm_no_go": "The bounded-gap four-point pseudonode has vanishing transport, edge-l2, and product-H^-1 scales but order-one M_delta M_s resonance. Actual-prime PG-EF is not refuted."
+  },
+  "general_lemmas": [
+    "Exact real fiber-diameter criterion and one-sided fiber envelopes",
+    "Provenance modulus omega_(T|U)(r), separating vertical identifiability from decoder conditioning",
+    "Finite atomic-gauge dual obstruction",
+    "Ordered adapter obligation composition with explicit certified recovery",
+    "Tensor finite-difference identity for lambda^(tensor k)-eta^(tensor k)",
+    "Vertical-symmetry test for fast fiber countermodels"
+  ],
+  "ranked_next_moves": {
+    "fixed_strip": [
+      "Derive the exact LTRAD source fiber and test it against licensed pseudo-node models.",
+      "Formulate and falsify the weakest direct one-sided DPA negative-excursion theorem, potentially bypassing CA4.",
+      "Pursue only the two-channel, s-balanced marked PG-EF/determinant-dispersion CA4 interface."
+    ],
+    "RH": [
+      "Independently certify or refute Chuk's local a=.8 positivity claim.",
+      "Compute the exact source-labelled p=5 Weil Schur complement and positive-completion face.",
+      "Seek boundary-identifying limits only in a topology that retains source/phase data."
+    ]
+  },
+  "hard_stops": [
+    "No scalar natural-mask partition for CA4.",
+    "No source-free LTRAD theorem using only generic energy, density, covariance, or rational independence.",
+    "No Weil propagation from existence of an arbitrary positive extension.",
+    "No serializer that loses H=Y^2/T resolution or the Y^.1 budget.",
+    "No strip-to-RH narrative without an explicit noncircular amplifier."
+  ],
+  "verification": {
+    "module": "src/arithmetic_provenance_structure.py",
+    "tests": "src/test_arithmetic_provenance_structure.py",
+    "command": "PYTHONPATH=src python3 -m unittest -v src/test_arithmetic_provenance_structure.py",
+    "result": "17 tests passed on 2026-08-31",
+    "scope": "Exact finite-dimensional algebra and ledger composition only; no analytic estimate is machine-proved."
+  }
+}

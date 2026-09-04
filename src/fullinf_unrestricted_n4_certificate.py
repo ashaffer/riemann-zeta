@@ -44,6 +44,7 @@ from multiprocessing import get_context
 from pathlib import Path
 from time import time
 
+import flint
 from flint import acb, arb, ctx, fmpq
 
 from arb_fullinf_certificate import (
@@ -65,6 +66,15 @@ DEFAULT_CHECKPOINT = (
     Path(__file__).resolve().parents[1]
     / "results"
     / "fullinf_n4_M132_S110_entries.jsonl"
+)
+LEGACY_V2_CHECKPOINT_SHA256 = (
+    "7591f662b1c1a79ed83cb6999881d8face43836dec1131ccff8d56d6bdf7354f"
+)
+# Filled from the canonical v3 payload for the documented 2026-07-27
+# python-flint 0.9.0 / FLINT 3.6.0 integrand state.  It is intentionally
+# independent of the legacy checkpoint header, which omitted these inputs.
+LEGACY_V2_INTEGRAND_FINGERPRINT_SHA256 = (
+    "d4eeef347852087b54785fe77456b22ae3601c786542669046dbd554731c5388"
 )
 
 ctx.prec = PRECISION
@@ -271,7 +281,70 @@ def cache_kernel_source_sha256():
     return hashlib.sha256(source.encode("utf-8")).hexdigest()
 
 
-def checkpoint_metadata():
+def runtime_dependency_versions():
+    """Versions whose numerical kernels produced the cached Arb balls."""
+    return {
+        "python_flint": str(flint.__version__),
+        "flint": str(flint.__FLINT_VERSION__),
+        "flint_release": int(flint.__FLINT_RELEASE__),
+    }
+
+
+def cache_integrand_fingerprint_payload():
+    """Canonical, complete input payload for raw band-integral checkpoints."""
+    functions = (
+        Q,
+        A,
+        omega,
+        spherical_j_series,
+        spherical_j_bessel,
+        spherical_j_elementary,
+        spherical_j_panel,
+        band_integral,
+    )
+    arb_globals = {
+        "PI": serialize_ball(PI),
+        "I_REAL": serialize_ball(I.real),
+        "I_IMAG": serialize_ball(I.imag),
+        "LOG2": serialize_ball(LOG2),
+        "LOG3": serialize_ball(LOG3),
+        "PRIME_2": serialize_ball(PRIME_2),
+        "PRIME_3": serialize_ball(PRIME_3),
+        "PRIME_4": serialize_ball(PRIME_4),
+        "PRIME_AMPLITUDE": serialize_ball(PRIME_AMPLITUDE),
+        "ALPHA": serialize_ball(ALPHA),
+        "TOLERANCE": serialize_ball(TOLERANCE),
+    }
+    return {
+        "format": 3,
+        "functions": [inspect.getsource(function) for function in functions],
+        "exact_globals": {
+            "L": str(L),
+            "A_HALF_WIDTH": str(A_HALF_WIDTH),
+            "HALF_SUPPORT": str(HALF_SUPPORT),
+            "M": M,
+            "S": S,
+            "PRECISION": PRECISION,
+            "ABS_TOL_BITS": ABS_TOL_BITS,
+            "SERIAL_DECIMAL_DIGITS": SERIAL_DECIMAL_DIGITS,
+            "ODD_DOUBLE_FACTORIAL": [str(value) for value in _ODD_DOUBLE_FACTORIAL],
+        },
+        "arb_globals": arb_globals,
+        "dependencies": runtime_dependency_versions(),
+    }
+
+
+def cache_integrand_fingerprint_sha256():
+    payload = json.dumps(
+        cache_integrand_fingerprint_payload(),
+        sort_keys=True,
+        separators=(",", ":"),
+    )
+    return hashlib.sha256(payload.encode("utf-8")).hexdigest()
+
+
+def legacy_v2_checkpoint_metadata():
+    """The incomplete header embedded in the committed legacy checkpoint."""
     return {
         "version": 2,
         "L": str(L),
@@ -287,6 +360,37 @@ def checkpoint_metadata():
     }
 
 
+def checkpoint_metadata():
+    """Complete metadata for newly generated version-3 checkpoints."""
+    return {
+        "version": 3,
+        "L": str(L),
+        "M": M,
+        "S": S,
+        "alpha": str(Q(29, 100)),
+        "precision": PRECISION,
+        "abs_tol_bits": ABS_TOL_BITS,
+        "method": "elementary-below-turning-point-bessel-above",
+        "integrand": "zeta-n2-n3-n4-clipped-at-29/100",
+        "integrand_fingerprint_sha256": cache_integrand_fingerprint_sha256(),
+        "dependencies": runtime_dependency_versions(),
+        "serial_decimal_digits": SERIAL_DECIMAL_DIGITS,
+    }
+
+
+def validate_legacy_v2_checkpoint(path):
+    """Fail closed around the one documented pre-v3 complete artifact."""
+    path = Path(path)
+    if path.resolve() != DEFAULT_CHECKPOINT.resolve():
+        raise ArithmeticError("legacy v2 checkpoint is accepted only at its pinned path")
+    digest = hashlib.sha256(path.read_bytes()).hexdigest()
+    if digest != LEGACY_V2_CHECKPOINT_SHA256:
+        raise ArithmeticError("legacy v2 checkpoint SHA-256 mismatch")
+    fingerprint = cache_integrand_fingerprint_sha256()
+    if fingerprint != LEGACY_V2_INTEGRAND_FINGERPRINT_SHA256:
+        raise ArithmeticError("legacy v2 checkpoint integrand/dependency fingerprint mismatch")
+
+
 def load_checkpoint(path, valid_pairs):
     """Load rigor-preserving serialized entries from a JSONL checkpoint."""
     path = Path(path)
@@ -299,7 +403,10 @@ def load_checkpoint(path, valid_pairs):
         if not first:
             return {}
         header = json.loads(first)
-        if header.get("meta") != checkpoint_metadata():
+        metadata = header.get("meta")
+        if metadata == legacy_v2_checkpoint_metadata():
+            validate_legacy_v2_checkpoint(path)
+        elif metadata != checkpoint_metadata():
             raise ArithmeticError(f"checkpoint metadata mismatch: {path}")
         for line_number, line in enumerate(handle, start=2):
             if not line.strip():

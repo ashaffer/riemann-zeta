@@ -1,26 +1,35 @@
 # R124 actual `Q_h` primitive Mellin sign gate
 
-Status: the sign of the actual primitive kernel is now determined as far as
-the available structure permits.  At every integer ratio its periodized
-kernel is an exact positive Gram square.  Consequently every nondegenerate
-actual `Q_h` block has a strictly positive near-diagonal Mellin band; there
-is no low-frequency spectral gap.  On a complete comparable-ratio shell,
-however, the Hermitian Mellin multiplier is not sign-definite.  Exact
-fixed-step B-spline computations exhibit robust positive and negative
-bands, and even the sign at zero frequency varies with legal smoothing
-parameters.  The primitive block also retains the coprimality Mobius sign
-from R120.  Thus neither primitive positivity nor primitive negativity gives
-an upper bound.  Proper conductors cannot erase the positive band on the
-balanced-semiprime scale, but their proved square-root bound is not global
-enough to compare the primitive block with the isolated zeta-zero carrier.
-No fixed zero-free strip is proved or disproved.
+Status: the rigorously established sign information is one-sided.  At every
+integer ratio the periodized kernel is an exact positive Gram square, so
+every nondegenerate actual `Q_h` block has a strictly positive
+near-diagonal Mellin band and no low-frequency spectral gap.  On a complete
+comparable-ratio shell, floating B-spline diagnostics exhibit robust
+positive and negative bands, but those computations have not been upgraded
+to interval or symbolic certification.  The primitive block also has the
+exact Mobius-weighted representation from R120; that representation does
+not by itself prove that the actual quadratic form takes both signs.
+Thus the diagnostic is not a certified negative spectral witness.
+Accordingly no positive-energy comparison is known for the isolated packet,
+and no fixed zero-free strip is proved or disproved.
 
 Date: 2026-08-07.
+
+**2026-09-02 successor correction (R128/S0 audit).**  R128 subsequently
+performed the all-arity, all-conductor comparison exactly: the putative
+remainder cancels rather than merely being small.  What remains is precisely
+the original full positive R71 energy.  This closes the comparison question
+posed in Sections 6--7, but it does not supply an upper bound.  The isolated
+primitive profile is therefore not a proved standalone global surrogate for
+the positive energy.  Earlier wording in this report that called its
+full-shell spectral sign a theorem is withdrawn: that assertion is only a
+D-rated numerical diagnostic unless an interval certificate is supplied.
 
 Predecessors:
 
 * [`R120-PRIMITIVE-MOBIUS-MELLIN-KERNEL-GATE.md`](R120-PRIMITIVE-MOBIUS-MELLIN-KERNEL-GATE.md)
-  for the inverse-Poisson formula and signed Mellin diagonalization;
+  for the inverse-Poisson formula and signed-coefficient Mellin
+  diagonalization;
 * [`R116-SIGNED-JOINT-TYPEII-ATTACK.md`](R116-SIGNED-JOINT-TYPEII-ATTACK.md)
   for the proper-conductor square-root theorem on balanced semiprimes; and
 * [`R102-CENTER-ANNIHILATED-OFF-AXIS-GATE.md`](R102-CENTER-ANNIHILATED-OFF-AXIS-GATE.md)
@@ -76,10 +85,11 @@ There are three conclusions.
 
    on a nonempty interval about `tau=0`.  Hence the actual primitive
    spectrum has no forced low-frequency gap.
-2. On the whole comparable shell `1/2<=n/c<=2`, `lambda_P` changes sign for
-   the tested exact B-spline profiles.  Its zero-frequency sign itself can
-   be positive or negative as the permitted B-spline order and `Q_h` step
-   vary.  There is no parameter-uniform primitive sign theorem.
+2. On the whole comparable shell `1/2<=n/c<=2`, floating evaluations of
+   `lambda_P` change sign for the tested B-spline profiles.  Its sampled
+   zero-frequency sign also varies with the permitted B-spline order and
+   `Q_h` step.  There is no certified parameter-uniform primitive sign
+   theorem.
 3. Even on a frequency interval where `lambda_P>=0`, the `g=1`
    coprimality projector gives
 
@@ -87,14 +97,15 @@ There are three conclusions.
    sum_d mu(d)abs B_d(tau)^2,                          (1.6)
    ```
 
-   so the arithmetic primitive form is not positive.
+   so positivity is not manifest term by term.  This identity alone does
+   not prove that the constrained actual form is indefinite.
 
-The sign route therefore closes as a shortcut:
+The proved facts delimit, but do not close, the sign route:
 
 ```text
 near-diagonal primitive low mode                  POSITIVE / NONZERO;
-full-shell primitive spectral weight              SIGNED;
-coprimality spectral weight                       SIGNED AGAIN;
+full-shell primitive spectral weight              BOTH SIGNS NUMERICALLY;
+coprimality representation                        SIGNED COEFFICIENTS;
 all-conductor completed kernel                    POSITIVE;
 proper conductor global square-root comparison    NOT PROVED;
 fixed strip                                        STILL OPEN.          (1.7)
@@ -168,7 +179,7 @@ an analytic, actual-window positive witness.  It uses no generic-profile
 countermodel and no floating calculation.
 
 Keeping all fixed-ratio shells does not remove the witness.  A partition
-of unity retains this near-diagonal member and adds the other signed
+of unity retains this near-diagonal member and adds the other shell
 members.  The scalar sum can cancel it, but there is no identity which
 makes the member itself zero.
 
@@ -206,10 +217,11 @@ principal minor must be nonnegative, so
 abs k_H(u)<=k_H(0)                                    (3.4)
 ```
 
-for all `u`.  The standard actual profile below violates (3.4) by a factor
-about `6.50`, independently certifying that a globally nonnegative
-multiplier is incompatible with the sampled kernel.  The direct cosine
-transform locates both signs.
+for all `u`.  The floating diagnostic below violates (3.4) by a factor
+about `6.50`, strong evidence that a globally nonnegative multiplier is
+incompatible with the sampled kernel.  It is not an independent rigorous
+certificate, because neither that inequality nor the cosine-transform
+values are enclosed by validated intervals.
 
 Pointwise sign change of `Phi` alone would not prove spectral sign change;
 a positive-definite function may be negative at some points.  Criterion
@@ -264,21 +276,22 @@ so (3.4) fails with a large margin.  The sampled sign changes lie in
 (1.2,1.4), (7.2,7.4), (18.6,18.8).                   (4.6)
 ```
 
-The probe uses the rectangular outer ratio shell.  This does not make the
-sign conclusion a boundary artifact: replacing its indicator by a smooth
-cutoff changes every sampled multiplier by at most
+The probe uses the rectangular outer ratio shell.  Replacing its indicator
+by a smooth cutoff changes every sampled multiplier by at most
 
 ```text
 norm[(chi_smooth-chi_rect)k_H]_1.                     (4.6a)
 ```
 
-Smooth cutoffs arbitrarily close in this norm are legal, while the two sign
-margins in (4.3) are about `0.04` and `0.05`.  Hence a genuine smooth
-fixed-ratio partition with both signs follows by continuity.  This proves
-existence of legal signed actual profiles; it does not claim that every
-possible smooth partition has identical zero locations.
+Smooth cutoffs arbitrarily close in this norm are legal, while the two
+sampled sign margins in (4.3) are about `0.04` and `0.05`.  Conditional on
+an interval or symbolic validation of those margins, continuity would give
+a genuine smooth fixed-ratio partition with both signs.  Until then, this
+only says that smoothing would preserve a *certified* margin; it does not
+upgrade the present floating calculation into a sign theorem.
 
-Other legal actual profiles show that even `lambda_P(0)` has no fixed sign:
+Other sampled legal actual profiles indicate that even `lambda_P(0)` may
+have no fixed sign:
 
 ```text
 (a,k,h)          Phi(1)       lambda(0)      min lambda     max lambda
@@ -290,8 +303,8 @@ Other legal actual profiles show that even `lambda_P(0)` has no fixed sign:
 
 All displayed profiles use a genuine positive-width output localizer.  The
 table is a D-rated numerical sign audit, not an interval proof.  The exact
-positive statement needed for the conclusion is Theorem 2.1/Corollary 2.2;
-the numerical margins only reject a universal full-shell sign conjecture.
+positive statement is Theorem 2.1/Corollary 2.2; the numerical margins only
+provide evidence against a universal full-shell sign conjecture.
 
 The regression command is
 
@@ -301,7 +314,7 @@ python3 src/test_r124_actual_qh_primitive_mellin_probe.py
 
 and currently passes all three tests.
 
-## 5. Coprimality prevents a positivity shortcut even on positive bands
+## 5. Coprimality obstructs manifest positivity even on positive bands
 
 After exact two-sided Vaughan recompletion, set
 
@@ -325,17 +338,19 @@ R120's exact formula
  sum_(d>=1)mu(d)abs[sum_a b_X(da)a^(i tau)]^2d tau.   (5.3)
 ```
 
-Thus Corollary 2.2 does not make the arithmetic form positive: the
-common-divisor sieve has its own signed spectral weight.  Summing every
+Thus Corollary 2.2 does not prove the arithmetic form positive: the
+common-divisor sieve has its own signed spectral coefficients.  Summing every
 exact gcd sector removes this second sign only if their scaled kernels are
 identical.  In R81 they depend on `g` through `L(u+gj,u)`, so all
 fixed-ratio/g profiles must first be retained.
 
-Conversely, a negative band in (4.3) cannot be discarded when seeking an
-upper bound.  It is repaired by some combination of other primitive
-profiles and proper-conductor terms when the full positive Gram kernel is
-reconstructed.  Bounding only its positive part would be a stronger
-Mertens theorem, not a free consequence of positivity.
+If a negative band indicated by (4.3) is interval- or symbolically
+certified, it cannot simply be discarded when seeking an upper bound.
+Positivity of the complete reconstructed Gram kernel would then require
+aggregate compensation from the other primitive profiles and
+proper-conductor terms; the present floating diagnostic does not locate or
+certify that compensation.  Bounding only a putative positive part would
+be a stronger Mertens theorem, not a free consequence of positivity.
 
 ## 6. The proper-conductor comparison and the `beta>3/4` test
 
@@ -362,8 +377,10 @@ P_rho(X)=A_rho X^(2beta-1)(1+o(1))>0.                 (6.2)
 This is immediate from (6.1).  With `theta=1/2`, every zero with
 `beta>3/4` would force a positive primitive carrier of the full expected
 size.  In particular, if R116's square-root proper-conductor theorem were
-global, the sign/gap route would be decisively closed for the near-one
-zeros relevant to failure of a fixed strip.
+global in the exact decomposition assumed by the lemma, it would remove
+this isolated-carrier sign ambiguity for the near-one zeros relevant to
+failure of a fixed strip.  It would not by itself supply the required
+global upper bound.
 
 The current theorem does **not** meet the global hypothesis.  R116 proves
 `theta=1/2` after restricting the outer cofactor modulus to balanced
@@ -408,17 +425,22 @@ with
 balanced-semiprime proper-conductor error
 ```
 
-as though they belonged to the same decomposition.  Establishing the
-global remainder estimate in Lemma 6.1 would itself be major new progress.
+as though they belonged to the same decomposition.  This was the historical
+open comparison in this report; R128 subsequently superseded it by proving
+that the complete all-class remainder is exactly zero, while the restored
+object is R71.
 
 ## 7. What this means for the fixed-strip attack
 
-The actual sign computation rules out both hoped-for easy outcomes.
+The exact and numerical sign audit separates the two hoped-for easy
+outcomes, but rigorously rules out only the first.
 
 1. The primitive spectrum is not absent at low Mellin frequency.  Theorem
    2.1 gives an exact positive low-mode witness.
-2. The full primitive spectrum is not nonnegative, so it cannot be bounded
-   above by dropping negative bands or by treating it as a Gram norm.
+2. The full primitive spectrum is numerically sign-changing, but actual
+   indefiniteness is not yet certified.  In either case no theorem presently
+   licenses treating the isolated form as a positive Gram norm or using it
+   as an order-reflecting surrogate for the complete energy.
 3. Proper conductors are square-root-small on balanced semiprimes, but that
    subfamily has an uncancelled natural-size background.  The estimate does
    not transfer to the global pure-zero response.
@@ -431,18 +453,17 @@ The resulting exponent ledger is
 ```text
 actual integer-ratio primitive value              POSITIVE GRAM;
 actual narrow-shell low Mellin band               POSITIVE;
-actual whole comparable-shell multiplier          BOTH SIGNS;
-actual `g=1` arithmetic spectral form              BOTH SIGNS;
+actual whole comparable-shell multiplier          BOTH SIGNS / D-RATED NUMERIC;
+actual `g=1` arithmetic spectral form              SIGNED REPRESENTATION;
 balanced-semiprime proper conductors               X^(1/2+epsilon);
 balanced-semiprime background after Q_h            X^(1-o(1)) energy;
-global all-arity proper-conductor saving            OPEN;
+all-arity/all-conductor restoration (R128)           EXACT, REMAINDER ZERO;
+restored global object                               ORIGINAL R71 ENERGY;
 global fixed-power R71 bound                        OPEN.              (7.1)
 ```
 
-The next valid sign-based target is therefore very specific: prove a global
-operator comparison in which all cofactor arities are present and the sum
-of every proper-conductor spectral correction is `O(X^(1/2+epsilon))` (or
-any `O(X^(1-delta))`) **after** the pole background cancels.  Lemma 6.1
-would then force primitive positivity on every near-one zero carrier.  It
-would not yet give the upper bound, but it would eliminate spectral sign
-cancellation as an escape.  No such global comparison is presently proved.
+The successor calculation removes the proposed comparison target: R128
+already restores every class, with zero remainder, and returns R71.  The
+valid next target is therefore a fixed-power upper bound for that complete
+energy (or a genuinely lossless reduction of it), not another estimate for
+the isolated primitive sign profile.

@@ -14,18 +14,28 @@ moment cancellation all pay back their apparent gain at the Mellin detector.
 All finite logarithmic Orlicz improvements are already available and are
 still insufficient.
 
-There is, however, a genuinely weaker and potentially useful surviving
-target: a fixed weak-`L^q`, `q>1`, rarity estimate for large values of the
-Mertens function in reciprocal measure.  Equivalently, one may seek a weak
-higher-moment estimate for the exact compact Báez--Duarte collar.  These are
-coefficient-specific, noncommuting arithmetic statements; they allow sparse
-large values and are weaker than a pointwise power bound for `M(x)`.  No such
-estimate is proved here.
+There is a potentially useful distributional reformulation: a fixed
+weak-`L^q`, `q>1`, rarity estimate for large values of the Mertens function
+in reciprocal measure.  Alternatively, one may seek a weak higher-moment
+estimate for the exact compact Báez--Duarte collar.  No such estimate is
+proved here.
+
+**Subsequent correction.**  The direct Mertens weak-tail target is not
+qualitatively weaker than pointwise power cancellation.  Since
+`|M(n+1)-M(n)|<=1`, a value `|M(N)|=H` persists on at least `cH`
+adjacent integers for an absolute `c>0`.
+Consequently reciprocal weak-`L^q`, `q>1`, implies
+`M(N)=O(N^(2/(q+1)))`.  Conversely any `M(N)=O(N^theta)`, `theta<1`, gives a
+fixed weak exponent.  The exact proof, the minimal normalized-tail
+good-lambda condition, and a centered floor-recurrence obstruction are in
+[`R136-WEAK-TAIL-GOOD-LAMBDA-AUDIT.md`](R136-WEAK-TAIL-GOOD-LAMBDA-AUDIT.md).
+The weak-tail language remains a useful alternate formulation, but it does
+not lower the qualitative fixed-power difficulty.
 
 ```text
 PNT / natural Nyman approximation in L1                    KNOWN
 some fixed Lp improvement, p>1                             => FIXED STRIP
-Mertens reciprocal weak-Lq estimate, q>1                   SUFFICIENT; OPEN
+Mertens reciprocal weak-Lq estimate, q>1                   EQUIV. TO SOME POINTWISE SAVING; OPEN
 G_n exterior tail                                           EXACT gamma(n)/x
 tail-corrected G_n and B_n                                  COMPACT COLLARS
 fixed dilation-commuting bounded L1 -> Lp map, p>1          ZERO OPERATOR
@@ -311,9 +321,12 @@ U^(-1) exp[-c (log U)^(3/5)(log log U)^(-1/5)],             (5.6)
 
 after harmless changes of constants, but still supplies no fixed `q>1`.
 
-Estimate (5.5) is the cleanest surviving proposal from this audit.  It asks
-for rarity of large Mertens values in reciprocal measure, not a pointwise
-power bound.  Sparse exceptional spikes are allowed.
+Estimate (5.5) is a clean distributional proposal.  However, the subsequent
+spike-spreading theorem linked at the start of this report shows that its
+existence for any fixed `q>1` already implies a pointwise fixed power saving
+for `M`.  Sparse exceptional values are allowed relative to a given tail
+exponent, but unit increments prevent near-linear spikes from being
+arbitrarily sparse.
 
 ## 6. No fixed dilation-equivariant linear self-improver exists
 
@@ -467,7 +480,9 @@ only after a subpolynomial higher-moment bound has already been established.
 ## 9. Lorentz and Orlicz improvements: exact positive and negative results
 
 The positive Lorentz result is (5.4): one fixed weak exponent `q>1` is
-enough.  Endpoint Orlicz gains of logarithmic size are not.
+enough.  The subsequent R136 weak-tail audit strengthens the strategic
+interpretation: unit increments turn such a weak exponent into a pointwise
+power saving.  Endpoint Orlicz gains of logarithmic size are not.
 
 In fact the known PNT estimates already imply, for every fixed `A>0`,
 
@@ -589,8 +604,8 @@ This rules out the hope that exterior tail cancellation alone has removed
 the arithmetic difficulty.  It has converted it into a distributional
 Mertens estimate with a canonical centering.
 
-At the same time, (10.3) suggests a precise route weaker than pointwise
-Mertens cancellation.  It would suffice to prove, for one `q>1`,
+At the same time, (10.3) suggests a precise distributional route through the
+centered collar.  It would suffice to prove, for one `q>1`,
 
 ```text
 sup_n sup_(U>0)
@@ -640,14 +655,16 @@ earlier RH audit.  Its correct status is:
    increments, and every finite logarithmic Orlicz bump.
 4. Every fixed dilation-equivariant linear smoother is identically zero.
 5. Tail cancellation and power weights relocate or pay back the defect.
-6. A coefficient-specific weak higher-moment theorem remains genuinely
-   open and is weaker than a pointwise power bound.
+6. A coefficient-specific weak higher-moment theorem remains open, but for
+   the direct Mertens tail its existence is equivalent to some pointwise
+   power saving once unit increments are used.
 
-The cleanest next target is (5.5): find `q>1` such that large values of
-`M(n)` have `U^(-q)` reciprocal-measure tails.  The natural-approximant
-version is (10.7), with (10.5) as its mandatory first test.  Either theorem
-would give a fixed uniform zero-free strip immediately through the already
-published arithmetic Nyman--Beurling lemmas.
+The direct target (5.5) asks for `q>1` such that large values of `M(n)` have
+`U^(-q)` reciprocal-measure tails.  It is now classified as an alternate
+form of a pointwise fixed-power problem, not a lower-strength escape.  The
+natural-approximant version is (10.7), with (10.5) as its mandatory first
+test.  Either theorem would give a fixed uniform zero-free strip immediately
+through the already published arithmetic Nyman--Beurling lemmas.
 
 Nothing here proves that a fixed strip exists, and failures of the generic
 self-improvement mechanisms do not prove that it does not exist.

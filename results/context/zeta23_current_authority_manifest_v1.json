@@ -1,0 +1,40 @@
+{
+  "schema": "zeta23_current_authority_manifest_v1",
+  "date": "2026-09-03",
+  "scope": "LOCAL_WORKTREE_BYTES_NOT_COMMIT_BOUND",
+  "base_commit_informational_only": "4ad72dca0c1b63defa2657afd153ddfe4e01ce5e",
+  "tree_or_archive_binding": null,
+  "artifacts": [
+    {
+      "role": "route_cache",
+      "path": "results/context/zeta23_post_synthesis_decision_path_v1.json",
+      "sha256": "be7fb7b0fd45543f970da9666de935446f6bf1eb70cce5dbb34000bf536fd659"
+    },
+    {
+      "role": "route_report",
+      "path": "results/ZETA23-POST-SYNTHESIS-DECISION-PATH-2026-09-02.md",
+      "sha256": "a62b9afbf434bb12d40c0f38f8a73747fbd0140536766af2ecd21cd4d39dd96f"
+    },
+    {
+      "role": "adapter_cache",
+      "path": "results/context/zeta23_r105_r116_r73_adapter_audit_v1.json",
+      "sha256": "32233a393d455440aed181987f07d357e0bebe06145bc1ca12455a5c86b2ac5a"
+    },
+    {
+      "role": "adapter_report",
+      "path": "results/ZETA23-R105-R116-R73-ADAPTER-INTEGRITY-AUDIT-2026-09-02.md",
+      "sha256": "de93380b5f12c072a69fd2761ac04be39092df40fc3a1b8a06e6443f8b022cc7"
+    },
+    {
+      "role": "closure_cache",
+      "path": "results/context/zeta23_correction_closure_v1.json",
+      "sha256": "517a52c073b74be89d2db7edcda6d2c4148a3700bb87de04cbb6c4109f5b00d2"
+    },
+    {
+      "role": "closure_report",
+      "path": "results/ZETA23-CORRECTION-CLOSURE-AND-FAITHFULNESS-TRILEMMA-2026-09-02.md",
+      "sha256": "5b2c27c04fea806b445757c2df522044c0f94feb7214aeb47e2ea57544dacc8f"
+    }
+  ],
+  "nonclaim": "These hashes bind the six local authority bytes only. The files are not preserved by the recorded base commit, and the manifest does not replace a user-chosen commit or archive."
+}

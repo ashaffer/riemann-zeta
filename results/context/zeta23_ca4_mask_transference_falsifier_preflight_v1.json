@@ -1,0 +1,42 @@
+{
+  "schema": "zeta23.ca4_mask_transference_falsifier.preflight.v1",
+  "card_id": "CA4-MASK-TRANSFERENCE-FALSIFIER-PREFLIGHT-V1",
+  "date": "2026-08-31",
+  "root_goal_boundary": {
+    "immediate_branch": "Test only whether natural Lambda*Lambda shifted-correlation estimates can be imported into CA4 by a mass-preserving algebraic decomposition.",
+    "parallel_first_open_edge": "LTRAD_P(0.0189,0.001) remains independently open.",
+    "ceiling": "A successful adapter would close only the stated CA4 sufficient input; CA4 plus LTRAD would still concern a small strip near Re(s)=1, not RH."
+  },
+  "theorem_passport": {
+    "architecture": "QP/Turan positive-antenna branch; no Weil-side density conclusion is imported.",
+    "source": "Ordinary consecutive primes in [Y exp(-1/5),Y exp(1/5)]; natural comparison atoms are granted consecutive subintervals of this same shell.",
+    "target_mask": "The positive nodal-hat vector obtained after deleting both shares of each edge g>Y^(163/1000), followed by one normalization independent of t.",
+    "comparison_mask": "Natural factor weights proportional to Lambda(p) or Lambda(p)/sqrt(p) on consecutive prime subintervals; allowing all such subintervals is stronger than Alpoge--Furman HL*(4).",
+    "coefficient_cone": "Both positive and signed scalar decompositions are tested. Positive exact decompositions are tested first by rank; signed decompositions are charged by their scalar diagonal norm.",
+    "normalization": "Every prime-factor atom has total mass one. Its semiprime atom is the symmetrized product measure, with diagonal L2 size comparable to the product of the two prime l2 norms.",
+    "quantifiers": "Every sufficiently large legal Y and every translated dyadic T in the CA4 band. The decomposition is chosen before t and one common T-kernel is retained.",
+    "resolution": "Physical product resolution H=Y^2/T, including H=Y^(16/33) at T=Y^(50/33).",
+    "sign": "The signed translated kernel must remain common to the recombined form. Applying scalar estimates componentwise is explicitly charged by triangle/Minkowski; a joint estimate is classified as new vector-valued mathematics, not an adapter.",
+    "target_exponent": "The semiprime L2 norm must be at most T^(1/2) Y^(-q+1/20+o(1)), q=2787/3250, so a scalar diagonal-normalized recombination budget is Y^(-5249/6500+o(1)).",
+    "downstream_adapter": "Only a decomposition meeting that budget can feed CA4(163/1000,1/10)."
+  },
+  "candidate_statement": {
+    "name": "MSMT -- mass-preserving scalar mask transference",
+    "definition": "Decompose the hat semiprime coefficient matrix lambda lambda^T into a signed sum of symmetrized natural interval product atoms plus an l1-controlled residual, with the sum of absolute scalar coefficients times the atoms' diagonal l2 sizes bounded by Y^(-5249/6500+o(1)).",
+    "generous_grant": "Assume every natural interval or mixed-rectangle atom already has the ideal diagonal-scale translated fourth-moment bound. This is strictly stronger than the scalar global HL*(4) discussion in Alpoge--Furman.",
+    "success_condition": "Exact shell and mask, common translated kernel, exact H resolution, and scalar recombination norm within the target power budget.",
+    "failure_scope": "Failure refutes scalar natural-form transference, not CA4 itself and not a future joint selector-sensitive theorem."
+  },
+  "fast_falsifiers": {
+    "abstract": "A positive sum of natural rank-one square atoms cannot equal the rank-one target unless every used atom is proportional to the hat vector.",
+    "fejer": "A nonnegative Fejer replacement controls absolute energy and cannot restore cancellations between signed decomposition components after scalar bounds are applied.",
+    "prime_density_pseudonode": "Used only to test the variation mechanism; the actual theorem must use actual prime gaps and does so via PNT plus a primorial bound on long two-periodic gap runs.",
+    "finite_evidence": "Optional finite calculations may verify identities and constants but cannot establish the asymptotic variation lower bound.",
+    "mass": "The retained natural conductor range and every decomposition coefficient are charged in the diagonal norm; no small-modulus or short-interval range may be declared negligible without this ledger."
+  },
+  "decision_rule": {
+    "success": "Produce an explicit decomposition and prove its scalar diagonal norm is within Y^(-5249/6500+o(1)).",
+    "failure": "Prove a uniform lower bound on that atomic norm exceeding the power budget, or an exact cone/rank obstruction, while preserving shell and resolution.",
+    "stop": "Do not call the failure a no-go for joint vector-valued masked HL estimates; those are a distinct open theorem."
+  }
+}

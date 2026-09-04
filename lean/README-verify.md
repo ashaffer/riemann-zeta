@@ -3,6 +3,33 @@
 Two main Lake projects (`glide` and `weilcert`), plus the small `rhbridge`
 project that imports both for cross-project composition:
 
+## Focused S1-B1 and QP source-fiber audits (2026-09-03)
+
+The finite window/convolution and reflection/multiplier identities can be
+checked without asserting any analytic estimate:
+
+```sh
+cd lean/rhbridge
+env LEAN_NUM_THREADS=1 lake build \
+  RHBridge.S1B1CompletedSourceCommutator
+env LEAN_NUM_THREADS=1 lake env lean \
+  RHBridge/S1B1CompletedSourceCommutatorAudit.lean
+env LEAN_NUM_THREADS=1 lake build \
+  RHBridge.QPSourceFiberBifurcation
+env LEAN_NUM_THREADS=1 lake env lean \
+  RHBridge/QPSourceFiberBifurcationAudit.lean
+```
+
+The module proves the exact source reconstruction, the reflected commutator
+normal form, and the collapse of two commutators to scalar multiplication.
+It does not formalize the completed-zeta functional equation, a fixed-power
+R71 estimate, a uniform strip, or RH.
+
+The QP module proves the legal-source null identity, both antenna dual
+normalizations, a finite convex radial upper bound, and rational exponent
+comparisons.  It does not formalize the diffuse real-node construction or
+replace those nodes by actual prime logarithms.
+
 ## Focused triangular-packet checkpoint (2026-08-06)
 
 The exact scalar countermodel and its lightweight arithmetic normalization
@@ -562,10 +589,14 @@ coordinates, their exact norm identity, and the actual basis-entry matrices.
 inequality against the original, possibly unbounded, multiplier integral under
 weighted integrability. `RHBridge.P2Parity` additionally proves exact even/odd
 decoupling, and `RHBridge.P2RoundedBoundedCertificateCheck` proves containment
-for the two canonical matrices with Lean-checked analytic errors. Thus the
-remaining local p=2 gap is the zeta-form/domain/integrability
-identification—not F7, Fourier normalization,
-poles, operator algebra, scalar bounds, or coordinate representation.
+for the two canonical matrices with Lean-checked analytic errors.  At this
+intermediate layer, the remaining local p=2 gap was the arithmetic zeta-form/
+domain/integrability identification—not F7, Fourier normalization, poles,
+operator algebra, scalar bounds, or coordinate representation.  The downstream
+`RHBridge.ZetaWeilForm` and `RHBridge.GeneralZetaWeilForm` modules described in
+Section 3 now close that arithmetic-form gap; they do not prove the zero-side
+Guinand--Weil equality.
+
 The three named
 `fullinf_*_block_lower_bound` corollaries
 kernel-check the exact rational scalar arithmetic used at L=7/4, 497/200, and
@@ -597,27 +628,99 @@ module, so it is not an end-to-end theorem about the intended geometric form.
 
 ## 3. RHBridge (lean/rhbridge) — cross-project p=2 composition
 
-```
+The checked-in generated-source inventory and byte-for-byte scratch replay are
+frozen in
+[`P2-CERTIFICATE-GENERATION-MANIFEST-2026-08-11.json`](../results/P2-CERTIFICATE-GENERATION-MANIFEST-2026-08-11.json)
+and
+[`P2-CERTIFICATE-REPLAY-RECIPE-2026-08-11.md`](../results/P2-CERTIFICATE-REPLAY-RECIPE-2026-08-11.md).
+Verify or regenerate that source layer before the Lean sequence below when
+performing an independent reconstruction.
+
+Run the following build targets one at a time and in order.  The explicit
+`+Module:olean` targets put the checked audit modules in `.lake/build`, so a
+subsequent run reuses them when the source, imports, toolchain, and Lake
+configuration are unchanged.  On this host, start the generated p=2 target
+only when `/proc/meminfo` reports at least 20 GiB `MemAvailable`, and do not run
+another Lean/Lake build concurrently.
+
+```sh
 cd lean/rhbridge
 export C_INCLUDE_PATH=/usr/include/x86_64-linux-gnu # if cache compilation needs it
+export LEAN_NUM_THREADS=1
+export OPENBLAS_NUM_THREADS=1
+export OMP_NUM_THREADS=1
+export MKL_NUM_THREADS=1
+export NUMEXPR_NUM_THREADS=1
 lake exe cache get
-lake build RHBridge.P2RoundedBoundedCertificateCheck
+
+# Unconditional local arithmetic endpoint.
+lake --log-level=error build +RHBridge.P2RoundedBoundedCertificateCheck:olean
+lake --log-level=error build +RHBridge.P2RoundedBoundedCertificateAudit:olean
+lake --log-level=error build +RHBridge.ZetaWeilForm:olean
+lake --log-level=error build +RHBridge.ZetaWeilFormAudit:olean
+lake --log-level=error build +RHBridge.GeneralZetaWeilForm:olean
+lake --log-level=error build +RHBridge.GeneralZetaWeilFormAudit:olean
+
+# Zero-side infrastructure and the explicit literature boundary.
+lake --log-level=error build +RHBridge.GuinandWeilFormula:olean
+lake --log-level=error build +RHBridge.GuinandWeilFormulaAudit:olean
+lake --log-level=error build +RHBridge.GuinandWeilLiterature:olean
+lake --log-level=error build +RHBridge.GuinandWeilLiteratureAudit:olean
+
+# Smaller-support transport and the conditional RH chain.
+lake --log-level=error build +RHBridge.CertifiedBaseInterval:olean
+lake --log-level=error build +RHBridge.CertifiedBaseIntervalAudit:olean
+lake --log-level=error build +RHBridge.WeilCriterionLiterature:olean
+lake --log-level=error build +RHBridge.WeilCriterionLiteratureAudit:olean
+lake --log-level=error build +RHBridge.UniformPropagationToRH:olean
+lake --log-level=error build +RHBridge.UniformPropagationToRHAudit:olean
+```
+
+The preceding commands create the cacheable artifacts.  Continue in the same
+shell so the one-worker limits remain active, and run the audit sources
+directly only when an explicit `#print axioms` transcript is needed for review
+or archival; their heavy imports are already cached by the preceding targets:
+
+```sh
 lake env lean RHBridge/P2RoundedBoundedCertificateAudit.lean
-lake build RHBridge.ZetaWeilForm
 lake env lean RHBridge/ZetaWeilFormAudit.lean
-lake build RHBridge.GeneralZetaWeilForm
 lake env lean RHBridge/GeneralZetaWeilFormAudit.lean
-lake build RHBridge.GuinandWeilFormula
 lake env lean RHBridge/GuinandWeilFormulaAudit.lean
-env LEAN_NUM_THREADS=1 lake env lean RHBridge/CertifiedBaseInterval.lean
-env LEAN_NUM_THREADS=1 lake env lean RHBridge/CertifiedBaseIntervalAudit.lean
-env LEAN_NUM_THREADS=1 lake env lean RHBridge/Stage4NormalizedComparator.lean
-env LEAN_NUM_THREADS=1 lake env lean RHBridge/Stage4NormalizedComparatorAudit.lean
-lake build RHBridge.HodgeHighSector
+lake env lean RHBridge/GuinandWeilLiteratureAudit.lean
+lake env lean RHBridge/CertifiedBaseIntervalAudit.lean
+lake env lean RHBridge/WeilCriterionLiteratureAudit.lean
+lake env lean RHBridge/UniformPropagationToRHAudit.lean
+```
+
+After the builds, the following content-rehashing gate verifies the selected
+publication/audit closure without permitting Lake to compile a missing or
+stale target:
+
+```sh
+lake --rehash --no-build --log-level=error build \
+  +RHBridge.ReusableAudit:olean \
+  +RHBridge.P2RoundedBoundedCertificateAudit:olean \
+  +RHBridge.ZetaWeilFormAudit:olean \
+  +RHBridge.GeneralZetaWeilFormAudit:olean \
+  +RHBridge.GuinandWeilFormulaAudit:olean \
+  +RHBridge.GuinandWeilLiteratureAudit:olean \
+  +RHBridge.CertifiedBaseIntervalAudit:olean \
+  +RHBridge.WeilCriterionLiteratureAudit:olean \
+  +RHBridge.UniformPropagationToRHAudit:olean
+```
+
+The additional application and no-go audits remain separate from the
+publication-critical chain.  Build their audit modules into `.lake` before
+requesting their displayed `#print` output:
+
+```sh
+lake --log-level=error build +RHBridge.Stage4NormalizedComparatorAudit:olean
+lake env lean RHBridge/Stage4NormalizedComparatorAudit.lean
+lake --log-level=error build +RHBridge.HodgeHighSectorAudit:olean
 lake env lean RHBridge/HodgeHighSectorAudit.lean
-lake build RHBridge.HodgeLowSector
+lake --log-level=error build +RHBridge.HodgeLowSectorAudit:olean
 lake env lean RHBridge/HodgeLowSectorAudit.lean
-lake build RHBridge.HodgeLowSectorNoGo
+lake --log-level=error build +RHBridge.HodgeLowSectorNoGoAudit:olean
 lake env lean RHBridge/HodgeLowSectorNoGoAudit.lean
 ```
 
@@ -632,6 +735,7 @@ env LEAN_NUM_THREADS=1 lake env lean RHBridge/QuantizedPhaseIndexNoGoAudit.lean
 env LEAN_NUM_THREADS=1 lake env lean RHBridge/Stage3BoundaryNoGoAudit.lean
 env LEAN_NUM_THREADS=1 lake env lean RHBridge/Stage3ParityNoGoAudit.lean
 env LEAN_NUM_THREADS=1 lake env lean RHBridge/SelbergPacketConeNoGoAudit.lean
+env LEAN_NUM_THREADS=1 lake env lean RHBridge/R188PrincipalBandSerializationAudit.lean
 ```
 
 Do not interpret “focused” as “small.”  Before the no-go imports were
@@ -652,10 +756,13 @@ refinements, and final aggregation. Its corollary
 `p2_canonical_clipped_endpoint` proves
 `(22699/10^9) * ‖f‖² < p2ClippedForm f f` from only `f≠0`.
 
-`RHP2Bridge.p2_original_integral_lower_bound_of_matrix_containment_no_parity` transfers
-the same strict bound to the original unbounded p=2 weighted Fourier integral
-plus the exact pole term. `RHBridge.ZetaWeilForm` identifies this expression
-with the truncated zeta Weil form, proves the prime term is the time-domain
+The clipped endpoint is a sibling corollary, not a premise of the final
+arithmetic endpoint.  The latter instead applies
+`RHP2Bridge.p2_original_integral_lower_bound_of_matrix_containment_no_parity`
+directly to the same matrix containment, transferring the strict bound to the
+original unbounded p=2 weighted Fourier integral plus the exact pole term.
+`RHBridge.ZetaWeilForm` identifies this expression with the truncated zeta Weil
+form, proves the prime term is the time-domain
 autocorrelation by Plancherel, and proves that its exact multiplier domain is
 equivalent to the intrinsic domain weighted by
 `log (1 + (2*pi*xi)^2)`. The resulting strict lower bound is therefore stated

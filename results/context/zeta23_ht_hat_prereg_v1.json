@@ -1,0 +1,94 @@
+{
+  "schema": "zeta23.ht_hat.prereg.v1",
+  "experiment_id": "HT-HAT-PREREG-V1",
+  "frozen_date": "2026-08-31",
+  "audit_amendment": {
+    "date": "2026-08-31",
+    "changed_numerical_protocol": false,
+    "reason": "Pre-run hostile audit corrected route naming, made the theorem passport explicit, and added replay/source-hash requirements."
+  },
+  "claim_under_test": {
+    "name": "HT-HAT(0.019)",
+    "finite_statement": "For each frozen Y, P_Y(t) >= -Y^(-19/1000) throughout [Y^(931/2000), Y^(50/33)].",
+    "asymptotic_statement": "The same inequality holds for every sufficiently large admissible Y.",
+    "proof_status_before_run": "OPEN",
+    "scope_warning": "A finite pass is only a fixed-vector, fixed-scale statement. It is not the asymptotic theorem, the prior two-sided raw high-tail approximation theorem, DPA_P(0.019), a uniform zero-free strip, or RH."
+  },
+  "theorem_passport": {
+    "architecture": "QP/Turan",
+    "role": "Bounded falsifier for one explicit positive directional-polynomial candidate",
+    "source_and_mask": "Ordinary primes only, in the complete multiplicative shell [Y*exp(-1/5),Y*exp(1/5)]",
+    "coefficient_cone": "One fixed nonnegative nodal-hat vector; no optimization after the band is known",
+    "normalization": "Probability normalization by the computed truncated raw mass on [v_1,v_J]",
+    "quantifiers": {
+      "finite_run": "Four explicitly listed half-integer Y values",
+      "desired_asymptotic": "Every sufficiently large admissible Y and every t in the full high band"
+    },
+    "floor_and_resolution": "One-sided floor -Y^(-19/1000), certified on the continuum by Arb endpoint interpolation",
+    "relation_to_prior_high_tail_edge": "This one-sided normalized floor is weaker than the prior report's two-sided raw |b-P| approximation target. It is a legitimate explicit DPA candidate diagnostic, not a proof or exact execution of that stronger theorem.",
+    "downstream_adapter": "Together with the existing low/mid O(Y^(-.019)) estimate, an asymptotic HT-HAT(.019) would directly give DPA_P(c) for every c<.019, not coefficient-one DPA_P(.019) without a constant sharpening. One may choose .0189<c<.019 for the contemplated QP contradiction.",
+    "parallel_open_sibling": "LTRAD_P(.0189,.001) remains independently open; HT-HAT alone does not yield the QP contradiction or a zero-free strip.",
+    "route_ceiling": "Even closing both QP siblings would establish only the contemplated small zero-free strip near Re(s)=1, not RH without a new amplifier."
+  },
+  "construction": {
+    "centers": [
+      {"numerator": 1025, "denominator": 2},
+      {"numerator": 2049, "denominator": 2},
+      {"numerator": 4097, "denominator": 2},
+      {"numerator": 8193, "denominator": 2}
+    ],
+    "prime_mask": "ordinary primes p with Y*exp(-w) <= p <= Y*exp(w)",
+    "node": "v_p = log(p/Y), retaining its sign",
+    "width": {"numerator": 1, "denominator": 5},
+    "tilt": {"numerator": 49, "denominator": 100},
+    "profile": "phi(u) = (1-|u|/w)*exp(alpha*u)",
+    "raw_weight": "integral of phi times the piecewise-linear nodal hat on [v_1,v_J]",
+    "normalization": "divide every raw weight by their computed sum, not by the full theoretical tent mass"
+  },
+  "band_and_floor": {
+    "lower_exponent": {"numerator": 931, "denominator": 2000},
+    "upper_exponent": {"numerator": 50, "denominator": 33},
+    "floor_exponent": {"numerator": 19, "denominator": 1000},
+    "scout_phase_step": {"numerator": 1, "denominator": 4},
+    "subband_exponents": ["931/2000", "4/5", "23/20", "50/33"]
+  },
+  "controls": {
+    "recompute_hat_weights_for_every_control": true,
+    "half_grid": {
+      "description": "Fix endpoint nodes and snap every interior node to the nearest same-sign odd multiple of pi/B, where B=Y^(50/33); abort if order or uniqueness fails.",
+      "required_sanity": "At t=B every snapped interior cosine is -1 up to floating error."
+    },
+    "order_preserving_jitter": {
+      "formula": "v_j' = v_j + eta*r_j*xi_j, r_j=(1/4)min(v_j-v_(j-1),v_(j+1)-v_j,|v_j|), xi_j uniform on [-1,1] from NumPy PCG64; endpoints fixed.",
+      "primary": {"eta": "3/10", "seeds": [1729, 2718, 31415, 65537, 104729]},
+      "sensitivity_low": {"eta": "1/10", "seeds": [1729, 31415]},
+      "sensitivity_high": {"eta": "3/5", "seeds": [1729, 31415]}
+    },
+    "limitation": "Controls preserve coarse geometry only; they do not preserve primality, integrality, or higher arithmetic correlations."
+  },
+  "certification": {
+    "arithmetic": "python-flint Arb with directed ball arithmetic",
+    "precision_bits": 192,
+    "repeat_precision_bits": 256,
+    "cover_dyadic_bits": 40,
+    "cell_bound": "min(lower(F(a)),lower(F(b))) - M2*(b-a)^2/8",
+    "moment": "M2 = sum_p lambda_p*|v_p|^2",
+    "max_depth": 32,
+    "max_leaves": 1000000,
+    "precision_policy": "Repeat decisive actual-vector certifications with the same implementation at 256 bits and require the same strict result; this is a stability check, not independent software verification.",
+    "replay_policy": "Serialize every accepted dyadic leaf, verify prefix-free complete coverage and Kraft sum 1, hash the source, then execute a from-disk recomputation of the 256-bit leaf hash.",
+    "pass_rule": "PASS only when every leaf of a complete continuum cover has rigorous lower bound at least -Y^(-19/1000).",
+    "fail_rule": "FAIL only when an Arb ball at a point proved inside the exact band has upper endpoint below -Y^(-19/1000).",
+    "otherwise": "INCONCLUSIVE"
+  },
+  "stopping_rule": "Run exactly the four frozen centers. Do not add scales, alter parameters, or promote trends after inspecting outcomes.",
+  "primary_outputs": [
+    "actual fixed-vector floating scout and Arb continuum status",
+    "depth divided by Y^(-19/1000)",
+    "argmin and argmin exponent",
+    "three exponent-subband minima",
+    "half-grid and jitter control minima, including their values at the actual argmin",
+    "prime, node, gap, mass, and weight fingerprints",
+    "replayable dyadic leaf certificates and SHA-256 hashes"
+  ]
+}
